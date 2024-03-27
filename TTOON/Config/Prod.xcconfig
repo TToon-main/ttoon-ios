@@ -1,0 +1,21 @@
+//
+//  Production.xcconfig
+//  TTOON
+//
+//  Created by Dongwan Ryoo on 3/27/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+//환경
+ENV = production
+
+//앱 이름
+APP_NAME = TTOON-production
+
+//번들 ID
+BUNDLE_IDENTIFIER = com.TTOON.production
+
+//Base URL
+BASE_URL =

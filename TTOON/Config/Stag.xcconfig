@@ -1,0 +1,21 @@
+//
+//  Staging.xcconfig
+//  TTOON
+//
+//  Created by Dongwan Ryoo on 3/27/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+//환경
+ENV = staging
+
+//앱 이름
+APP_NAME = TTOON-staging
+
+//번들 ID
+BUNDLE_IDENTIFIER = com.TTOON.staging
+
+//Base URL
+BASE_URL =
