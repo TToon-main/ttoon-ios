@@ -1,5 +1,5 @@
 //
-//  Production.xcconfig
+//  Prod.xcconfig
 //  TTOON
 //
 //  Created by Dongwan Ryoo on 3/27/24.
@@ -9,13 +9,16 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 //환경
-ENV = production
+ENV = prod
 
 //앱 이름
-APP_NAME = TTOON-production
+APP_NAME = TTOON
+
+//버전
+APP_VERSION = 1.0
 
 //번들 ID
-BUNDLE_IDENTIFIER = com.TTOON.production
+BUNDLE_IDENTIFIER = com.TTOON
 
 //Base URL
 BASE_URL =

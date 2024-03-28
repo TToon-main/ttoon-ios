@@ -11,7 +11,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let aaaa = UIView()
         // Do any additional setup after loading the view.
     }
+    
+    let aaaa = UIView()
 }
+
+
 

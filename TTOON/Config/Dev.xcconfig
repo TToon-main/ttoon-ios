@@ -7,3 +7,21 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
+
+//환경
+ENV = dev
+
+//앱 이름
+NAME = TN-dev
+
+//버전
+APP_VERSION = 1.0
+
+//앱 이름 + 버전
+APP_NAME = $(NAME) ($(APP_VERSION))
+
+//번들 ID
+BUNDLE_IDENTIFIER = com.TTOON.dev
+
+//Base URL
+BASE_URL = 
