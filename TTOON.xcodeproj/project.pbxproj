@@ -16,6 +16,9 @@
 		BE36CFA52BAFF58A0017F94E /* TTOONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CFA42BAFF58A0017F94E /* TTOONTests.swift */; };
 		BE36CFAF2BAFF58A0017F94E /* TTOONUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CFAE2BAFF58A0017F94E /* TTOONUITests.swift */; };
 		BE36CFB12BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */; };
+		BEDF4E4D2BB709770034FF79 /* Stag.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */; };
+		BEDF4E4E2BB709770034FF79 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */; };
+		BEDF4E4F2BB709770034FF79 /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		BE36CFAA2BAFF58A0017F94E /* TTOONUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TTOONUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE36CFAE2BAFF58A0017F94E /* TTOONUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTOONUITests.swift; sourceTree = "<group>"; };
 		BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTOONUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stag.xcconfig; sourceTree = "<group>"; };
+		BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
+		BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		BE36CF8C2BAFF5890017F94E /* TTOON */ = {
 			isa = PBXGroup;
 			children = (
+				BEDF4E492BB709770034FF79 /* Config */,
 				BE36CF8D2BAFF5890017F94E /* AppDelegate.swift */,
 				BE36CF8F2BAFF5890017F94E /* SceneDelegate.swift */,
 				BE36CF912BAFF5890017F94E /* ViewController.swift */,
@@ -125,6 +132,16 @@
 				BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */,
 			);
 			path = TTOONUITests;
+			sourceTree = "<group>";
+		};
+		BEDF4E492BB709770034FF79 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */,
+				BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */,
+				BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,8 +249,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE36CF9A2BAFF58A0017F94E /* LaunchScreen.storyboard in Resources */,
+				BEDF4E4F2BB709770034FF79 /* Prod.xcconfig in Resources */,
 				BE36CF972BAFF58A0017F94E /* Assets.xcassets in Resources */,
+				BEDF4E4E2BB709770034FF79 /* Dev.xcconfig in Resources */,
 				BE36CF952BAFF5890017F94E /* Main.storyboard in Resources */,
+				BEDF4E4D2BB709770034FF79 /* Stag.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
