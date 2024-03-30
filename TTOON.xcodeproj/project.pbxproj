@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		482B60EF2BB58F3F00681097 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 482B60EE2BB58F3F00681097 /* Kingfisher */; };
+		482B60F22BB58F6E00681097 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 482B60F12BB58F6E00681097 /* SnapKit */; };
+		482B60F52BB58F9400681097 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 482B60F42BB58F9400681097 /* FSCalendar */; };
+		482B60F82BB58FF000681097 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 482B60F72BB58FF000681097 /* PinLayout */; };
+		482B60FB2BB5902A00681097 /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 482B60FA2BB5902A00681097 /* FlexLayout */; };
+		482B60FE2BB5912E00681097 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 482B60FD2BB5912E00681097 /* Moya */; };
+		482B61002BB5912E00681097 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 482B60FF2BB5912E00681097 /* RxMoya */; };
+		482B61032BB591D600681097 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61022BB591D600681097 /* Swinject */; };
+		482B61062BB592D500681097 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61052BB592D500681097 /* RxCocoa */; };
+		482B61082BB592D500681097 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61072BB592D500681097 /* RxSwift */; };
+		482B610B2BB5931200681097 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 482B610A2BB5931200681097 /* ReactorKit */; };
+		482B610E2BB5940500681097 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 482B610D2BB5940500681097 /* GoogleSignIn */; };
+		482B61112BB5956D00681097 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61102BB5956D00681097 /* KakaoSDKAuth */; };
+		482B61132BB5956D00681097 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61122BB5956D00681097 /* KakaoSDKUser */; };
+		482B61162BB5957F00681097 /* RxKakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61152BB5957F00681097 /* RxKakaoSDKAuth */; };
+		482B61182BB5957F00681097 /* RxKakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61172BB5957F00681097 /* RxKakaoSDKUser */; };
+		482B611B2BB596CD00681097 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 482B611A2BB596CD00681097 /* SwiftKeychainWrapper */; };
+		482B611E2BB598DD00681097 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 482B611D2BB598DD00681097 /* Sentry */; };
+		482B61212BB599B100681097 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61202BB599B100681097 /* FirebaseAnalytics */; };
+		482B61232BB599B100681097 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61222BB599B100681097 /* FirebaseCrashlytics */; };
 		BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CF8D2BAFF5890017F94E /* AppDelegate.swift */; };
 		BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CF8F2BAFF5890017F94E /* SceneDelegate.swift */; };
 		BE36CF922BAFF5890017F94E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CF912BAFF5890017F94E /* ViewController.swift */; };
@@ -64,6 +84,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				482B61182BB5957F00681097 /* RxKakaoSDKUser in Frameworks */,
+				482B61112BB5956D00681097 /* KakaoSDKAuth in Frameworks */,
+				482B61062BB592D500681097 /* RxCocoa in Frameworks */,
+				482B60EF2BB58F3F00681097 /* Kingfisher in Frameworks */,
+				482B61162BB5957F00681097 /* RxKakaoSDKAuth in Frameworks */,
+				482B611B2BB596CD00681097 /* SwiftKeychainWrapper in Frameworks */,
+				482B610B2BB5931200681097 /* ReactorKit in Frameworks */,
+				482B61082BB592D500681097 /* RxSwift in Frameworks */,
+				482B60F52BB58F9400681097 /* FSCalendar in Frameworks */,
+				482B610E2BB5940500681097 /* GoogleSignIn in Frameworks */,
+				482B60FE2BB5912E00681097 /* Moya in Frameworks */,
+				482B611E2BB598DD00681097 /* Sentry in Frameworks */,
+				482B60FB2BB5902A00681097 /* FlexLayout in Frameworks */,
+				482B61002BB5912E00681097 /* RxMoya in Frameworks */,
+				482B61132BB5956D00681097 /* KakaoSDKUser in Frameworks */,
+				482B60F82BB58FF000681097 /* PinLayout in Frameworks */,
+				482B60F22BB58F6E00681097 /* SnapKit in Frameworks */,
+				482B61232BB599B100681097 /* FirebaseCrashlytics in Frameworks */,
+				482B61212BB599B100681097 /* FirebaseAnalytics in Frameworks */,
+				482B61032BB591D600681097 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +203,28 @@
 			dependencies = (
 			);
 			name = TTOON;
+			packageProductDependencies = (
+				482B60EE2BB58F3F00681097 /* Kingfisher */,
+				482B60F12BB58F6E00681097 /* SnapKit */,
+				482B60F42BB58F9400681097 /* FSCalendar */,
+				482B60F72BB58FF000681097 /* PinLayout */,
+				482B60FA2BB5902A00681097 /* FlexLayout */,
+				482B60FD2BB5912E00681097 /* Moya */,
+				482B60FF2BB5912E00681097 /* RxMoya */,
+				482B61022BB591D600681097 /* Swinject */,
+				482B61052BB592D500681097 /* RxCocoa */,
+				482B61072BB592D500681097 /* RxSwift */,
+				482B610A2BB5931200681097 /* ReactorKit */,
+				482B610D2BB5940500681097 /* GoogleSignIn */,
+				482B61102BB5956D00681097 /* KakaoSDKAuth */,
+				482B61122BB5956D00681097 /* KakaoSDKUser */,
+				482B61152BB5957F00681097 /* RxKakaoSDKAuth */,
+				482B61172BB5957F00681097 /* RxKakaoSDKUser */,
+				482B611A2BB596CD00681097 /* SwiftKeychainWrapper */,
+				482B611D2BB598DD00681097 /* Sentry */,
+				482B61202BB599B100681097 /* FirebaseAnalytics */,
+				482B61222BB599B100681097 /* FirebaseCrashlytics */,
+			);
 			productName = TTOON;
 			productReference = BE36CF8A2BAFF5890017F94E /* TTOON.app */;
 			productType = "com.apple.product-type.application";
@@ -235,6 +297,23 @@
 				Base,
 			);
 			mainGroup = BE36CF812BAFF5890017F94E;
+			packageReferences = (
+				482B60ED2BB58F3F00681097 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				482B60F02BB58F6E00681097 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				482B60F32BB58F9400681097 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				482B60F62BB58FF000681097 /* XCRemoteSwiftPackageReference "PinLayout" */,
+				482B60F92BB5902A00681097 /* XCRemoteSwiftPackageReference "FlexLayout" */,
+				482B60FC2BB5912E00681097 /* XCRemoteSwiftPackageReference "Moya" */,
+				482B61012BB591D600681097 /* XCRemoteSwiftPackageReference "Swinject" */,
+				482B61042BB592D500681097 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				482B61092BB5931200681097 /* XCRemoteSwiftPackageReference "ReactorKit" */,
+				482B610C2BB5940500681097 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				482B610F2BB5956D00681097 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				482B61142BB5957E00681097 /* XCRemoteSwiftPackageReference "kakao-ios-sdk-rx" */,
+				482B61192BB596CD00681097 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+				482B611C2BB598DC00681097 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
+				482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = BE36CF8B2BAFF5890017F94E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -466,6 +545,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2S9WHYP486;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -493,6 +573,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2S9WHYP486;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -625,6 +706,232 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		482B60ED2BB58F3F00681097 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
+		482B60F02BB58F6E00681097 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		482B60F32BB58F9400681097 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+		482B60F62BB58FF000681097 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/PinLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.10.5;
+			};
+		};
+		482B60F92BB5902A00681097 /* XCRemoteSwiftPackageReference "FlexLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/FlexLayout.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.7;
+			};
+		};
+		482B60FC2BB5912E00681097 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		482B61012BB591D600681097 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+		482B61042BB592D500681097 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
+		482B61092BB5931200681097 /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactorKit/ReactorKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
+		482B610C2BB5940500681097 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.0;
+			};
+		};
+		482B610F2BB5956D00681097 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.22.0;
+			};
+		};
+		482B61142BB5957E00681097 /* XCRemoteSwiftPackageReference "kakao-ios-sdk-rx" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk-rx";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.22.0;
+			};
+		};
+		482B61192BB596CD00681097 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+		482B611C2BB598DC00681097 /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.22.4;
+			};
+		};
+		482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.23.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		482B60EE2BB58F3F00681097 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B60ED2BB58F3F00681097 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		482B60F12BB58F6E00681097 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B60F02BB58F6E00681097 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		482B60F42BB58F9400681097 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B60F32BB58F9400681097 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+		482B60F72BB58FF000681097 /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B60F62BB58FF000681097 /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
+		};
+		482B60FA2BB5902A00681097 /* FlexLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B60F92BB5902A00681097 /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayout;
+		};
+		482B60FD2BB5912E00681097 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B60FC2BB5912E00681097 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		482B60FF2BB5912E00681097 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B60FC2BB5912E00681097 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		482B61022BB591D600681097 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B61012BB591D600681097 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		482B61052BB592D500681097 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B61042BB592D500681097 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		482B61072BB592D500681097 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B61042BB592D500681097 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		482B610A2BB5931200681097 /* ReactorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B61092BB5931200681097 /* XCRemoteSwiftPackageReference "ReactorKit" */;
+			productName = ReactorKit;
+		};
+		482B610D2BB5940500681097 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B610C2BB5940500681097 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		482B61102BB5956D00681097 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B610F2BB5956D00681097 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		482B61122BB5956D00681097 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B610F2BB5956D00681097 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+		482B61152BB5957F00681097 /* RxKakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B61142BB5957E00681097 /* XCRemoteSwiftPackageReference "kakao-ios-sdk-rx" */;
+			productName = RxKakaoSDKAuth;
+		};
+		482B61172BB5957F00681097 /* RxKakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B61142BB5957E00681097 /* XCRemoteSwiftPackageReference "kakao-ios-sdk-rx" */;
+			productName = RxKakaoSDKUser;
+		};
+		482B611A2BB596CD00681097 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B61192BB596CD00681097 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
+		};
+		482B611D2BB598DD00681097 /* Sentry */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B611C2BB598DC00681097 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
+			productName = Sentry;
+		};
+		482B61202BB599B100681097 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		482B61222BB599B100681097 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BE36CF822BAFF5890017F94E /* Project object */;
 }
