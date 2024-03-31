@@ -76,3 +76,5 @@ fastlane/.env
 ## Localization JSON Key file
 TTOON/Localization/engaged-code-418809-16024d5258d0.json
 
+## Firebase GoogleServiceInfo
+GoogleService-Info.plist

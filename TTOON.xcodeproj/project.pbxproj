@@ -138,6 +138,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		482C18092BB91A8500622CCB /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		BE36CF812BAFF5890017F94E = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +170,7 @@
 		BE36CF8C2BAFF5890017F94E /* TTOON */ = {
 			isa = PBXGroup;
 			children = (
+				482C18092BB91A8500622CCB /* Resource */,
 				BEA8BB4C2BB86323000F9C15 /* Localization */,
 				BEDF4E492BB709770034FF79 /* Config */,
 				BE36CF8D2BAFF5890017F94E /* AppDelegate.swift */,
