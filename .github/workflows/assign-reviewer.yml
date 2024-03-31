@@ -1,0 +1,44 @@
+name: Assign Reviewer and Notify
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  assign-reviewer-and-notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Assign PR creator as assignee
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.ACTION_TOKEN }}
+          script: |
+            const assignee = context.payload.pull_request.user.login;
+            github.issues.addAssignees({
+              issue_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              assignees: [assignee]
+            });
+
+      - name: Select reviewer
+        id: select-reviewer
+        run: |
+          assignee=$(echo "${{ github.event.pull_request.user.login }}")
+          members=("lyoodong" "limsub") 
+          reviewers=()
+          for member in "${members[@]}"; do
+            if [ "$member" != "$assignee" ]; then
+              reviewers+=("$member")
+            fi
+          done
+          reviewer=${reviewers[$RANDOM % ${#reviewers[@]}]}
+          echo "::set-output name=reviewer::$reviewer"
+          
+      - name: Assign reviewer
+        uses: madrapps/add-reviewers@v1
+        with:
+          reviewers: ${{ steps.select-reviewer.outputs.reviewer }}
+          token: ${{ secrets.ACTION_TOKEN }}
+
