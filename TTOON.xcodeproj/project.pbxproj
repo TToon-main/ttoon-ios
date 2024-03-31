@@ -36,6 +36,9 @@
 		BE36CFA52BAFF58A0017F94E /* TTOONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CFA42BAFF58A0017F94E /* TTOONTests.swift */; };
 		BE36CFAF2BAFF58A0017F94E /* TTOONUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CFAE2BAFF58A0017F94E /* TTOONUITests.swift */; };
 		BE36CFB12BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */; };
+		BE840DBC2BB95FDB000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
+		BE840DBD2BB95FE5000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
+		BE840DBE2BB95FE5000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
 		BEA8BB512BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB522BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB532BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
@@ -79,6 +82,7 @@
 		BE36CFAA2BAFF58A0017F94E /* TTOONUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TTOONUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE36CFAE2BAFF58A0017F94E /* TTOONUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTOONUITests.swift; sourceTree = "<group>"; };
 		BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTOONUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		BEA8BB542BB86351000F9C15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEA8BB562BB86361000F9C15 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEA8BB572BB86385000F9C15 /* localize.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = localize.py; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 		BE36CF812BAFF5890017F94E = {
 			isa = PBXGroup;
 			children = (
+				BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */,
 				BEDF4E502BB70A0C0034FF79 /* .gitignore */,
 				BE36CF8C2BAFF5890017F94E /* TTOON */,
 				BE36CFA32BAFF58A0017F94E /* TTOONTests */,
@@ -215,6 +220,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE36CFB42BAFF58A0017F94E /* Build configuration list for PBXNativeTarget "TTOON" */;
 			buildPhases = (
+				BE840DBF2BB9622B000E67B7 /* Run Swiftlint */,
 				BE36CF862BAFF5890017F94E /* Sources */,
 				BE36CF872BAFF5890017F94E /* Frameworks */,
 				BE36CF882BAFF5890017F94E /* Resources */,
@@ -352,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE840DBC2BB95FDB000E67B7 /* .swiftlint.yml in Resources */,
 				BE36CF9A2BAFF58A0017F94E /* LaunchScreen.storyboard in Resources */,
 				BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */,
 				BEA8BB742BB8660C000F9C15 /* engaged-code-418809-16024d5258d0.json in Resources */,
@@ -368,6 +375,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE840DBD2BB95FE5000E67B7 /* .swiftlint.yml in Resources */,
 				BEA8BB522BB86351000F9C15 /* Localizable.strings in Resources */,
 				BEA8BB752BB8660C000F9C15 /* engaged-code-418809-16024d5258d0.json in Resources */,
 			);
@@ -377,12 +385,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE840DBE2BB95FE5000E67B7 /* .swiftlint.yml in Resources */,
 				BEA8BB532BB86351000F9C15 /* Localizable.strings in Resources */,
 				BEA8BB762BB8660C000F9C15 /* engaged-code-418809-16024d5258d0.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BE840DBF2BB9622B000E67B7 /* Run Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Swiftlint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint --fix && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BE36CF862BAFF5890017F94E /* Sources */ = {
@@ -584,7 +615,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2S9WHYP486;
+				DEVELOPMENT_TEAM = 7HDHR2SNR7;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -613,6 +645,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2S9WHYP486;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
