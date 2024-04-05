@@ -39,12 +39,11 @@
 		BE840DBC2BB95FDB000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
 		BE840DBD2BB95FE5000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
 		BE840DBE2BB95FE5000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
+		BE840DC32BBD923D000E67B7 /* engaged-code-418809-16024d5258d0.json in Resources */ = {isa = PBXBuildFile; fileRef = BE840DC22BBD923D000E67B7 /* engaged-code-418809-16024d5258d0.json */; };
+		BE840DCA2BBD9817000E67B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE840DC92BBD9817000E67B7 /* GoogleService-Info.plist */; };
 		BEA8BB512BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB522BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB532BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
-		BEA8BB742BB8660C000F9C15 /* engaged-code-418809-16024d5258d0.json in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB732BB8660C000F9C15 /* engaged-code-418809-16024d5258d0.json */; };
-		BEA8BB752BB8660C000F9C15 /* engaged-code-418809-16024d5258d0.json in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB732BB8660C000F9C15 /* engaged-code-418809-16024d5258d0.json */; };
-		BEA8BB762BB8660C000F9C15 /* engaged-code-418809-16024d5258d0.json in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB732BB8660C000F9C15 /* engaged-code-418809-16024d5258d0.json */; };
 		BEDF4E4D2BB709770034FF79 /* Stag.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */; };
 		BEDF4E4E2BB709770034FF79 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */; };
 		BEDF4E4F2BB709770034FF79 /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */; };
@@ -83,10 +82,11 @@
 		BE36CFAE2BAFF58A0017F94E /* TTOONUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTOONUITests.swift; sourceTree = "<group>"; };
 		BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTOONUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		BE840DC22BBD923D000E67B7 /* engaged-code-418809-16024d5258d0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "engaged-code-418809-16024d5258d0.json"; sourceTree = "<group>"; };
+		BE840DC92BBD9817000E67B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BEA8BB542BB86351000F9C15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEA8BB562BB86361000F9C15 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEA8BB572BB86385000F9C15 /* localize.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = localize.py; sourceTree = "<group>"; };
-		BEA8BB732BB8660C000F9C15 /* engaged-code-418809-16024d5258d0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "engaged-code-418809-16024d5258d0.json"; sourceTree = "<group>"; };
 		BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stag.xcconfig; sourceTree = "<group>"; };
 		BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
@@ -163,6 +163,7 @@
 		BE36CF8C2BAFF5890017F94E /* TTOON */ = {
 			isa = PBXGroup;
 			children = (
+				BE840DC42BBD9263000E67B7 /* Resource */,
 				BEA8BB4C2BB86323000F9C15 /* Localization */,
 				BEDF4E492BB709770034FF79 /* Config */,
 				BE36CF8D2BAFF5890017F94E /* AppDelegate.swift */,
@@ -193,12 +194,20 @@
 			path = TTOONUITests;
 			sourceTree = "<group>";
 		};
+		BE840DC42BBD9263000E67B7 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BE840DC92BBD9817000E67B7 /* GoogleService-Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		BEA8BB4C2BB86323000F9C15 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
 				BEA8BB552BB86351000F9C15 /* Localizable.strings */,
 				BEA8BB572BB86385000F9C15 /* localize.py */,
-				BEA8BB732BB8660C000F9C15 /* engaged-code-418809-16024d5258d0.json */,
+				BE840DC22BBD923D000E67B7 /* engaged-code-418809-16024d5258d0.json */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -224,6 +233,7 @@
 				BE36CF862BAFF5890017F94E /* Sources */,
 				BE36CF872BAFF5890017F94E /* Frameworks */,
 				BE36CF882BAFF5890017F94E /* Resources */,
+				482C180E2BB91C4600622CCB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -361,11 +371,12 @@
 				BE840DBC2BB95FDB000E67B7 /* .swiftlint.yml in Resources */,
 				BE36CF9A2BAFF58A0017F94E /* LaunchScreen.storyboard in Resources */,
 				BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */,
-				BEA8BB742BB8660C000F9C15 /* engaged-code-418809-16024d5258d0.json in Resources */,
 				BEDF4E4F2BB709770034FF79 /* Prod.xcconfig in Resources */,
 				BE36CF972BAFF58A0017F94E /* Assets.xcassets in Resources */,
 				BEDF4E4E2BB709770034FF79 /* Dev.xcconfig in Resources */,
+				BE840DCA2BBD9817000E67B7 /* GoogleService-Info.plist in Resources */,
 				BEA8BB512BB86351000F9C15 /* Localizable.strings in Resources */,
+				BE840DC32BBD923D000E67B7 /* engaged-code-418809-16024d5258d0.json in Resources */,
 				BE36CF952BAFF5890017F94E /* Main.storyboard in Resources */,
 				BEDF4E4D2BB709770034FF79 /* Stag.xcconfig in Resources */,
 			);
@@ -377,7 +388,6 @@
 			files = (
 				BE840DBD2BB95FE5000E67B7 /* .swiftlint.yml in Resources */,
 				BEA8BB522BB86351000F9C15 /* Localizable.strings in Resources */,
-				BEA8BB752BB8660C000F9C15 /* engaged-code-418809-16024d5258d0.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,13 +397,34 @@
 			files = (
 				BE840DBE2BB95FE5000E67B7 /* .swiftlint.yml in Resources */,
 				BEA8BB532BB86351000F9C15 /* Localizable.strings in Resources */,
-				BEA8BB762BB8660C000F9C15 /* engaged-code-418809-16024d5258d0.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		482C180E2BB91C4600622CCB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
 		BE840DBF2BB9622B000E67B7 /* Run Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -615,6 +646,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7HDHR2SNR7;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
