@@ -14,7 +14,6 @@ class BaseCollectionViewCell: UICollectionViewCell {
         addSubViews()
         layouts()
         configures()
-
     }
     
     required init?(coder: NSCoder) {

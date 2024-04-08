@@ -14,7 +14,6 @@ class BaseTableViewCell: UITableViewCell {
         addSubViews()
         layouts()
         configures()
-
     }
     
     required init?(coder: NSCoder) {

@@ -14,7 +14,6 @@ class BaseViewController: UIViewController {
         addSubViews()
         layouts()
         configures()
-
     }
     
     func addSubViews() { }
