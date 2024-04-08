@@ -9,7 +9,6 @@ import UIKit
 
 // MARK: - Coorinator Protocol
 protocol Coordinator: AnyObject {
-    
     // 1. 부모 코디네이터
     var finishDelegate: CoordinatorFinishDelegate? { get set }
     
@@ -62,7 +61,6 @@ protocol CoordinatorFinishDelegate: AnyObject {
 // 각 코디네이터의 자식 코디네이터 타입을 저장. (enum)
 // 모든 enum을 매개변수로 받기 위한 프로토콜. (제네릭으로 받을 예정)
 protocol ChildCoordinatorTypeProtocol {
-    
 }
 
 

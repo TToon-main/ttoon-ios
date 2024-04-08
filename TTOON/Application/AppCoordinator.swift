@@ -19,7 +19,6 @@ protocol AppCoordinatorProtocol: Coordinator {
 
 // MARK: - App Coordinator Class
 class AppCoordinator: AppCoordinatorProtocol {
-    
     // 1.
     weak var finishDelegate: CoordinatorFinishDelegate? = nil   // AppCoordinator : 부모 코디 x
     
@@ -37,13 +36,11 @@ class AppCoordinator: AppCoordinatorProtocol {
     
     // 5.
     func start() {
-
     }
 }
 
 // MARK: - Child Didfinished
 extension AppCoordinator: CoordinatorFinishDelegate {
-    
     // CoordinatorFinishDelegate
     func coordinatorDidFinish(
         childCoordinator: Coordinator,
