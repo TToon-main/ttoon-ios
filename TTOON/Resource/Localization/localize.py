@@ -68,13 +68,13 @@ PROJECT_DIR = os.environ.get("PROJECT_DIR", "")
 HOME_DIR = PROJECT_DIR if PROJECT_DIR else os.getcwd()
 
 # 스프레드 시트 인증 JSON 파일 경로 설정
-JSON_KEY_PATH = os.path.join(HOME_DIR, "TTOON", "Localization", "engaged-code-418809-16024d5258d0.json")
+JSON_KEY_PATH = os.path.join(HOME_DIR, "TTOON", "Resource", "Localization", "engaged-code-418809-16024d5258d0.json")
 
 # 각 언어에 대한 JSON 및 문자열 파일 경로 설정
-ko_json_file_path = os.path.join(HOME_DIR, "TTOON", "Localization", "ko.lproj", "Localization.json")
-en_json_file_path = os.path.join(HOME_DIR, "TTOON", "Localization", "en.lproj", "Localization.json")
-ko_strings_file_path = os.path.join(HOME_DIR, "TTOON", "Localization", "ko.lproj", "Localizable.strings")
-en_strings_file_path = os.path.join(HOME_DIR, "TTOON", "Localization", "en.lproj", "Localizable.strings")
+ko_json_file_path = os.path.join(HOME_DIR, "TTOON", "Resource", "Localization", "ko.lproj", "Localization.json")
+en_json_file_path = os.path.join(HOME_DIR, "TTOON", "Resource", "Localization", "en.lproj", "Localization.json")
+ko_strings_file_path = os.path.join(HOME_DIR, "TTOON", "Resource", "Localization", "ko.lproj", "Localizable.strings")
+en_strings_file_path = os.path.join(HOME_DIR, "TTOON", "Resource", "Localization", "en.lproj", "Localizable.strings")
 
 
 
