@@ -1,5 +1,5 @@
 //
-//  Staging.xcconfig
+//  Stag.xcconfig
 //  TTOON
 //
 //  Created by Dongwan Ryoo on 3/27/24.
@@ -14,8 +14,9 @@ ENV = staging
 //앱 이름
 APP_NAME = TTOON-staging
 
+//앱 버전
+APP_VERSION = 1.0
+
 //번들 ID
 BUNDLE_IDENTIFIER = com.TTOON.staging
 
-//Base URL
-BASE_URL =
