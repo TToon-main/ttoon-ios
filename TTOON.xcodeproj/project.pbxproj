@@ -78,6 +78,9 @@
 		BE9BBC442BCA552F006FD848 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC432BCA552F006FD848 /* UIFont+.swift */; };
 		BE9BBC452BCA552F006FD848 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC432BCA552F006FD848 /* UIFont+.swift */; };
 		BE9BBC462BCA552F006FD848 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC432BCA552F006FD848 /* UIFont+.swift */; };
+		BE9BBC492BCA5809006FD848 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC482BCA5809006FD848 /* UIColor+.swift */; };
+		BE9BBC4A2BCA5809006FD848 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC482BCA5809006FD848 /* UIColor+.swift */; };
+		BE9BBC4B2BCA5809006FD848 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC482BCA5809006FD848 /* UIColor+.swift */; };
 		BEA8BB512BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB522BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB532BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
@@ -136,6 +139,7 @@
 		BE9BBC102BCA529A006FD848 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		BE9BBC3E2BCA5455006FD848 /* TNFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNFont.swift; sourceTree = "<group>"; };
 		BE9BBC432BCA552F006FD848 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		BE9BBC482BCA5809006FD848 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		BEA8BB542BB86351000F9C15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEA8BB562BB86361000F9C15 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEA8BB572BB86385000F9C15 /* localize.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = localize.py; sourceTree = "<group>"; };
@@ -449,6 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				BE9BBC432BCA552F006FD848 /* UIFont+.swift */,
+				BE9BBC482BCA5809006FD848 /* UIColor+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -732,6 +737,7 @@
 				489FE2C12BC00F700033B61D /* BaseView.swift in Sources */,
 				BE9BBC3F2BCA5455006FD848 /* TNFont.swift in Sources */,
 				489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */,
+				BE9BBC492BCA5809006FD848 /* UIColor+.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
@@ -746,6 +752,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE9BBC402BCA5455006FD848 /* TNFont.swift in Sources */,
+				BE9BBC4A2BCA5809006FD848 /* UIColor+.swift in Sources */,
 				BE9BBC452BCA552F006FD848 /* UIFont+.swift in Sources */,
 				BE36CFA52BAFF58A0017F94E /* TTOONTests.swift in Sources */,
 			);
@@ -759,6 +766,7 @@
 				BE36CFAF2BAFF58A0017F94E /* TTOONUITests.swift in Sources */,
 				BE36CFB12BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift in Sources */,
 				BE9BBC412BCA5455006FD848 /* TNFont.swift in Sources */,
+				BE9BBC4B2BCA5809006FD848 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
