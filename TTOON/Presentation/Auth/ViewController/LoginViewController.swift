@@ -14,8 +14,14 @@ class LoginViewController: BaseViewController {
     private var disposeBag = DisposeBag()
     
     
-    // 추후 DI
-    private let viewModel = LoginViewModel()
+    // 추후 DI (in Coordinator)
+    private let viewModel = LoginViewModel(
+        loginUseCase: LoginUseCase(
+            loginRepository: LoginRepository()
+        )
+    )
+    
+    
     
     override func loadView() {
         self.view = mainView
