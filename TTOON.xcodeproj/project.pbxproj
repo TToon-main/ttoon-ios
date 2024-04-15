@@ -34,6 +34,12 @@
 		489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C82BC00FA40033B61D /* BaseCollectionViewCell.swift */; };
 		489FE2CE2BC010EB0033B61D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2CD2BC010EB0033B61D /* Coordinator.swift */; };
 		489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2CF2BC011670033B61D /* AppCoordinator.swift */; };
+		48F55A702BCD39FE00303C22 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F55A6F2BCD39FE00303C22 /* LoginView.swift */; };
+		48F55A722BCD3A6600303C22 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F55A712BCD3A6600303C22 /* LoginViewController.swift */; };
+		48F55A742BCD3CEC00303C22 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F55A732BCD3CEC00303C22 /* LoginViewModel.swift */; };
+		48F55A762BCD42DD00303C22 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F55A752BCD42DD00303C22 /* LoginUseCase.swift */; };
+		48F55A782BCD43AF00303C22 /* LoginRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F55A772BCD43AF00303C22 /* LoginRepositoryProtocol.swift */; };
+		48F55A7C2BCD440600303C22 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F55A7B2BCD440600303C22 /* LoginRepository.swift */; };
 		BE0132AA2BC4306600C9827C /* engaged-code-418809-16024d5258d0.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */; };
 		BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CF8D2BAFF5890017F94E /* AppDelegate.swift */; };
 		BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CF8F2BAFF5890017F94E /* SceneDelegate.swift */; };
@@ -130,6 +136,13 @@
 		489FE2C82BC00FA40033B61D /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		489FE2CD2BC010EB0033B61D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		489FE2CF2BC011670033B61D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		48F55A6F2BCD39FE00303C22 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		48F55A712BCD3A6600303C22 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		48F55A732BCD3CEC00303C22 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		48F55A752BCD42DD00303C22 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		48F55A772BCD43AF00303C22 /* LoginRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryProtocol.swift; sourceTree = "<group>"; };
+		48F55A7B2BCD440600303C22 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
+		48F55A7D2BCD4A6D00303C22 /* TTOON.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TTOON.entitlements; sourceTree = "<group>"; };
 		BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "engaged-code-418809-16024d5258d0.json"; sourceTree = "<group>"; };
 		BE36CF8A2BAFF5890017F94E /* TTOON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTOON.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE36CF8D2BAFF5890017F94E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -233,6 +246,43 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		489FE2B92BC00EA10033B61D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				489FE2D72BC012580033B61D /* Entity */,
+				489FE2D62BC012540033B61D /* UseCase */,
+				489FE2D52BC012500033B61D /* Interface */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		489FE2BA2BC00EA90033B61D /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				489FE2DC2BC012890033B61D /* CustomView */,
+				489FE2D42BC012250033B61D /* Auth */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		489FE2BB2BC00EB00033B61D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				48F55A792BCD43F300303C22 /* Repository */,
+				489FE2D32BC012100033B61D /* UserDefaults */,
+				489FE2D22BC0120C0033B61D /* Keychain */,
+				489FE2D12BC012090033B61D /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		489FE2BC2BC00EC30033B61D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		489FE2BD2BC00EC90033B61D /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +314,147 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		489FE2D12BC012090033B61D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		489FE2D22BC0120C0033B61D /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		489FE2D32BC012100033B61D /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		489FE2D42BC012250033B61D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				48F55A6E2BCD393300303C22 /* Coordinator */,
+				48F55A6D2BCD392F00303C22 /* View */,
+				48F55A6C2BCD391500303C22 /* ViewModel */,
+				48F55A6B2BCD390F00303C22 /* ViewController */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		489FE2D52BC012500033B61D /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				489FE2D82BC012650033B61D /* Repository */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		489FE2D62BC012540033B61D /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				489FE2DA2BC012790033B61D /* Auth */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		489FE2D72BC012580033B61D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				489FE2DB2BC0127F0033B61D /* Auth */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		489FE2D82BC012650033B61D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				489FE2D92BC012700033B61D /* Auth */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		489FE2D92BC012700033B61D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				48F55A772BCD43AF00303C22 /* LoginRepositoryProtocol.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		489FE2DA2BC012790033B61D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				48F55A752BCD42DD00303C22 /* LoginUseCase.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		489FE2DB2BC0127F0033B61D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		489FE2DC2BC012890033B61D /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		48F55A6B2BCD390F00303C22 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				48F55A712BCD3A6600303C22 /* LoginViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		48F55A6C2BCD391500303C22 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				48F55A732BCD3CEC00303C22 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		48F55A6D2BCD392F00303C22 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48F55A6F2BCD39FE00303C22 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		48F55A6E2BCD393300303C22 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		48F55A792BCD43F300303C22 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				48F55A7A2BCD43F800303C22 /* Auth */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		48F55A7A2BCD43F800303C22 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				48F55A7B2BCD440600303C22 /* LoginRepository.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		BE36CF812BAFF5890017F94E = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +480,7 @@
 		BE36CF8C2BAFF5890017F94E /* TTOON */ = {
 			isa = PBXGroup;
 			children = (
+				48F55A7D2BCD4A6D00303C22 /* TTOON.entitlements */,
 				489FE2B82BC00E830033B61D /* Util */,
 				BE840DC42BBD9263000E67B7 /* Resource */,
 				489FE2BD2BC00EC90033B61D /* Application */,
@@ -745,6 +937,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48F55A722BCD3A6600303C22 /* LoginViewController.swift in Sources */,
 				BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
 				BE9BBC442BCA552F006FD848 /* UIFont+.swift in Sources */,
@@ -761,17 +954,22 @@
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
 				BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */,
+				48F55A742BCD3CEC00303C22 /* LoginViewModel.swift in Sources */,
+				48F55A782BCD43AF00303C22 /* LoginRepositoryProtocol.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
 				BE7C8C152BE8F2F1005F2FB2 /* BaseURL.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
 				BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */,
 				BE7C8C192BE8FD9B005F2FB2 /* LogPlugin.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
+				48F55A702BCD39FE00303C22 /* LoginView.swift in Sources */,
 				BE7C8C172BE8FD50005F2FB2 /* AuthInterceptor.swift in Sources */,
 				BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */,
 				BE7C8C112BE8F258005F2FB2 /* APIProvider.swift in Sources */,
 				489FE2C72BC00F9F0033B61D /* BaseTableViewCell.swift in Sources */,
 				BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */,
+				48F55A762BCD42DD00303C22 /* LoginUseCase.swift in Sources */,
+				48F55A7C2BCD440600303C22 /* LoginRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -955,10 +1153,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 7HDHR2SNR7;
+				DEVELOPMENT_TEAM = 2S9WHYP486;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
@@ -988,6 +1187,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2S9WHYP486;
@@ -1161,10 +1361,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 7HDHR2SNR7;
+				DEVELOPMENT_TEAM = 2S9WHYP486;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
