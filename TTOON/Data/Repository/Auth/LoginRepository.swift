@@ -10,11 +10,13 @@ import RxCocoa
 import RxSwift
 
 import AuthenticationServices
+import KakaoSDKAuth
+import KakaoSDKCommon
+import KakaoSDKUser
 
 
 
 class LoginRepository: NSObject, LoginRepositoryProtocol {
-    
     enum SampleError: Error {
         case sample
     }
@@ -40,6 +42,29 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
     
     func kakaoLoginRequest() {
         print("repo : kakao Login")
+        
+        if UserApi.isKakaoTalkLoginAvailable() {
+            UserApi.shared.loginWithKakaoTalk { oauthToken, error  in
+                if let error {
+                    print("kakao login error : \(error.localizedDescription)")
+                } else {
+                    print("kakao login success")
+                    print("oauth Token : \(oauthToken)")
+                    
+                    
+                    UserApi.shared.me { user, error  in
+                        if let error {
+                            print("kakao user info error : \(error.localizedDescription)")
+                        } else {
+                            print("kakao user info success")
+                            print("카카오 플랫폼 내 사용자 고유 아이디 : \(user?.id)")
+                            
+                            /* === 서버 통신 === */
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func googleLoginRequest() {
@@ -60,7 +85,6 @@ extension LoginRepository: ASAuthorizationControllerDelegate {
             
             /* === 서버 통신 === */
         } else {
-            
         }
     }
     
