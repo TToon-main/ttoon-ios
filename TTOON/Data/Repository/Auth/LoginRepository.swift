@@ -10,6 +10,7 @@ import RxCocoa
 import RxSwift
 
 import AuthenticationServices
+import GoogleSignIn
 import KakaoSDKAuth
 import KakaoSDKCommon
 import KakaoSDKUser
@@ -69,6 +70,8 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
     
     func googleLoginRequest() {
         print("repo : google Login")
+        
+        // VC 매개변수 (self) 가 필요하다!
     }
 }
 
