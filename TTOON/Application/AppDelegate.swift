@@ -5,16 +5,25 @@
 //  Created by Dongwan Ryoo on 3/24/24.
 //
 
+import UIKit
+
 import FirebaseAnalytics
 import FirebaseCore
-import UIKit
+
+import KakaoSDKCommon
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Firebase Analytics
         FirebaseApp.configure()
-        Analytics.logEvent(AnalyticsEventAppOpen, parameters: nil)
+//        Analytics.logEvent(AnalyticsEventAppOpen, parameters: nil)
+        
+        // Kakao Login
+        let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] as? String
+        KakaoSDK.initSDK(appKey: kakaoAppKey ?? "")
+        
         NetworkMonitor.shared.startMonitoring()
         print("url 확인", BaseURL.fetchUrl())
         
