@@ -7,6 +7,8 @@
 		<string>kakaokompassauth</string>
 		<string>kakaolink</string>
 	</array>
+	<key>GIDClientID</key>
+	<string>${GOOGLE_CLIENT_ID}</string>
 	<key>KAKAO_NATIVE_APP_KEY</key>
 	<string>${KAKAO_NATIVE_APP_KEY}</string>
 	<key>CFBundleURLTypes</key>
@@ -17,6 +19,14 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kakao${KAKAO_NATIVE_APP_KEY}</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>${GOOGLE_CLIENT_ID_REVERSED}</string>
 			</array>
 		</dict>
 	</array>

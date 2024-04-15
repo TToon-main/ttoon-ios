@@ -5,6 +5,7 @@
 //  Created by Dongwan Ryoo on 3/24/24.
 //
 
+import GoogleSignIn
 import KakaoSDKAuth
 import UIKit
 
@@ -52,6 +53,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let url = URLContexts.first?.url {
             if AuthApi.isKakaoTalkLoginUrl(url) {
                 _ = AuthController.handleOpenUrl(url: url)
+            }
+            
+            else {
+                _ = GIDSignIn.sharedInstance.handle(url)
             }
         }
     }
