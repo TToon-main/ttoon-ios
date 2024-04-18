@@ -12,7 +12,7 @@ import PinLayout
 
 final class SplashErrorViewController: BaseViewController {
     // MARK: - UI Properties
-    
+   
     private lazy var errorImage = {
         let view = UIImageView()
         view.image = TNImage.splashLogo
