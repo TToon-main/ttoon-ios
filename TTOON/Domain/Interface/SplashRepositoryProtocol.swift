@@ -9,6 +9,6 @@ import Foundation
 
 protocol SplashRepositoryProtocol {
     func fetchNetworkStatus() -> Bool
-    func fetchServerMaintenance() 
-    func fetchMinVersion()
+    func fetchServerMaintenance() -> Bool
+    func fetchMinVersion() -> String
 }

@@ -82,6 +82,7 @@
 		BE9BBC492BCA5809006FD848 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC482BCA5809006FD848 /* UIColor+.swift */; };
 		BE9BBC4A2BCA5809006FD848 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC482BCA5809006FD848 /* UIColor+.swift */; };
 		BE9BBC4B2BCA5809006FD848 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC482BCA5809006FD848 /* UIColor+.swift */; };
+		BEA33A242BD6AA320065D60C /* SplashErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA33A232BD6AA320065D60C /* SplashErrorViewModel.swift */; };
 		BEA8BB512BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB522BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB532BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
@@ -89,6 +90,7 @@
 		BEB456832BD15BCB007F5EEC /* SplashUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB456812BD15BCB007F5EEC /* SplashUseCase.swift */; };
 		BEB456872BD15C06007F5EEC /* SplashRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB456862BD15C06007F5EEC /* SplashRepository.swift */; };
 		BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */; };
+		BEB4568C2BD16572007F5EEC /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4568B2BD16572007F5EEC /* SplashViewModel.swift */; };
 		BEDF4E4D2BB709770034FF79 /* Stag.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */; };
 		BEDF4E4E2BB709770034FF79 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */; };
 		BEDF4E4F2BB709770034FF79 /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */; };
@@ -148,6 +150,7 @@
 		BE9BBC3E2BCA5455006FD848 /* TNFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNFont.swift; sourceTree = "<group>"; };
 		BE9BBC432BCA552F006FD848 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		BE9BBC482BCA5809006FD848 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		BEA33A232BD6AA320065D60C /* SplashErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashErrorViewModel.swift; sourceTree = "<group>"; };
 		BEA8BB542BB86351000F9C15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEA8BB562BB86361000F9C15 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEA8BB572BB86385000F9C15 /* localize.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = localize.py; sourceTree = "<group>"; };
@@ -155,6 +158,7 @@
 		BEB456812BD15BCB007F5EEC /* SplashUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashUseCase.swift; sourceTree = "<group>"; };
 		BEB456862BD15C06007F5EEC /* SplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRepository.swift; sourceTree = "<group>"; };
 		BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		BEB4568B2BD16572007F5EEC /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stag.xcconfig; sourceTree = "<group>"; };
 		BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
@@ -453,6 +457,8 @@
 		BEF48D632BCA5D2B0056E31E /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				BEB4568B2BD16572007F5EEC /* SplashViewModel.swift */,
+				BEA33A232BD6AA320065D60C /* SplashErrorViewModel.swift */,
 				BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */,
 				BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */,
 			);
@@ -721,6 +727,7 @@
 				BEB456832BD15BCB007F5EEC /* SplashUseCase.swift in Sources */,
 				BE9BBC3F2BCA5455006FD848 /* TNFont.swift in Sources */,
 				BEB456822BD15BCB007F5EEC /* SplashRepositoryProtocol.swift in Sources */,
+				BEA33A242BD6AA320065D60C /* SplashErrorViewModel.swift in Sources */,
 				489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */,
 				BE9BBC492BCA5809006FD848 /* UIColor+.swift in Sources */,
 				BEB456872BD15C06007F5EEC /* SplashRepository.swift in Sources */,
@@ -728,6 +735,7 @@
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
+				BEB4568C2BD16572007F5EEC /* SplashViewModel.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
 				BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */,
 				489FE2C72BC00F9F0033B61D /* BaseTableViewCell.swift in Sources */,

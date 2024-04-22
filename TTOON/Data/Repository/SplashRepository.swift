@@ -12,11 +12,11 @@ class SplashRepository: SplashRepositoryProtocol {
         return NetworkMonitor.shared.isConnected
     }
     
-    func fetchServerMaintenance() {
-        print("서버 점검 여부")
+    func fetchServerMaintenance() -> Bool {
+        return false
     }
     
-    func fetchMinVersion() {
-        print("최소 버전")
+    func fetchMinVersion() -> String {
+        return "1.0"
     }
 }

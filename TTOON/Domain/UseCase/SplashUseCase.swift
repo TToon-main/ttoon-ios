@@ -31,8 +31,7 @@ class SplashUseCase: SplashUseCaseProtocol {
     }
     
     func isServerMaintenance() -> Bool {
-        let status = splashRepository.fetchServerMaintenance()
-        return true
+        return splashRepository.fetchServerMaintenance()
     }
     
     func isMinVersionReached() -> Bool {        
@@ -40,7 +39,9 @@ class SplashUseCase: SplashUseCaseProtocol {
             print("현재 버전을 찾을 수 없음")
             return false
         }
-        let minimumVersion = "1.0"
+        
+        let minimumVersion = splashRepository.fetchMinVersion()
+        
         let compare: (String, String) -> Bool = { $0.compare($1, options: .numeric) == .orderedAscending }
         
         return compare(nowVersion, minimumVersion)
