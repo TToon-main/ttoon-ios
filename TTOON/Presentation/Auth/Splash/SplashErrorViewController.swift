@@ -9,15 +9,13 @@ import UIKit
 
 import FlexLayout
 import PinLayout
+import ReactorKit
 import RxCocoa
 import RxSwift
 
-final class SplashErrorViewController: BaseViewController {
+final class SplashErrorViewController: BaseViewController, View {
     // MARK: - UI Properties
-    
-    var splashStatus: SplashStatus?
-    let splashErrorViewModel: SplashErrorViewModel
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
     private lazy var errorImageView = {
         let view = UIImageView()
@@ -50,9 +48,9 @@ final class SplashErrorViewController: BaseViewController {
         return view
     }()
     
-    init(splashErrorViewModel: SplashErrorViewModel) {
-        self.splashErrorViewModel = splashErrorViewModel
+    init(splashErrorReactor: SplashErrorReactor) {
         super.init(nibName: nil, bundle: nil)
+        self.reactor = splashErrorReactor 
     }
     
     @available(*, unavailable)
@@ -64,7 +62,6 @@ final class SplashErrorViewController: BaseViewController {
     
     override func configures() {
         view.backgroundColor = .white
-        bind()
     }
     
     override func addSubViews() {
@@ -101,32 +98,42 @@ final class SplashErrorViewController: BaseViewController {
             .center()
     }
     
-    func bind() {
-        let viewDidLoad = Observable.just(())
-        let retryButtonTap = retryButton.rx.tap.map{ self.splashStatus! }.share()
-        
-        let input = SplashErrorViewModel.Input(viewDidLoad: viewDidLoad, 
-                                               retryButtonTap: retryButtonTap)
-        
-        let output = splashErrorViewModel.transform(input: input)
-        
-        output.checkStatus
-            .subscribe(with: self) { owner, _ in 
-                guard let status = owner.splashStatus else { return }
-                owner.checkStatus(status)
-            }
+    func bind(reactor: SplashErrorReactor) {
+        bindAction(reactor)
+        bindState(reactor)
+    }
+    
+    func bindAction(_ reactor: SplashErrorReactor) {
+        Observable.just(())
+            .map { SplashErrorReactor.Action.viewDidLoad }
+            .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        output.isConnected
+        retryButton.rx.tap
+            .map{ SplashErrorReactor.Action.retryButtonTap }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+    }
+    
+    func bindState(_ reactor: SplashErrorReactor) {
+        reactor.state
+            .map { $0.splashStatus }
+            .bind { self.checkStatus($0!) }
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.isConnected }
+            .compactMap { $0 }
             .subscribe(with: self) { owner, isSuccess in 
-                isSuccess ? owner.dismiss(animated: true) : print("재시도 얼럿")
+                isSuccess ? print("메인 화면 이동") : print("재시도 토스트")
             }
             .disposed(by: disposeBag)
         
-        output.moveStore
+        reactor.state
+            .map { $0.moveStore }
+            .compactMap { $0 }
             .subscribe(with: self) { owner, _ in
-                let url = ""
-                owner.moveStore(url: url)
+                owner.moveStore()
             }
             .disposed(by: disposeBag)
     }
@@ -148,12 +155,12 @@ final class SplashErrorViewController: BaseViewController {
             updateUI(image: TNImage.splashLogo,
                      lbText: "업데이트 필요",
                      btnTitle: "이동")            
-
+            
         case .valid:
             break
         }
     }
-
+    
     func updateUI(image: UIImage?, lbText: String, btnTitle: String?, isHiddenBtn: Bool = false) {
         errorImageView.image = image
         errorLabel.text = lbText 
@@ -161,8 +168,8 @@ final class SplashErrorViewController: BaseViewController {
         retryButton.isHidden = isHiddenBtn
     }
     
-    func moveStore(url: String) {
-        if let url = URL(string: url) {
+    func moveStore() {
+        if let url = URL(string: TNUrl.storeUrl) {
             UIApplication.shared.open(url, options: [:])
         }
     }

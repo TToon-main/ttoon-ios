@@ -8,13 +8,13 @@
 import UIKit
 
 import PinLayout
+import ReactorKit
 import RxCocoa
 import RxSwift
 
-final class SplashViewController: BaseViewController {
+final class SplashViewController: BaseViewController, View {
     // MARK: - Properties
-    let splashViewModel: SplashViewModel
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
     // MARK: - UI Properties
     
@@ -27,9 +27,9 @@ final class SplashViewController: BaseViewController {
     
     // MARK: - Initializer
     
-    init(splashViewModel: SplashViewModel) {
-        self.splashViewModel = splashViewModel
+    init(splashReactor: SplashReactor) {
         super.init(nibName: nil, bundle: nil)
+        self.reactor = splashReactor 
     }
     
     @available(*, unavailable)
@@ -41,7 +41,6 @@ final class SplashViewController: BaseViewController {
     
     override func configures() {
         view.backgroundColor = .white
-        bind()
     }
     
     override func addSubViews() {
@@ -54,26 +53,35 @@ final class SplashViewController: BaseViewController {
             .size(CGSize(width: 96, height: 99))
     }
     
-    func bind() {
-        let viewDidLoad = Observable.just(())
-        let input = SplashViewModel.Input(viewDidLoad: viewDidLoad)
-        let output = splashViewModel.transform(input: input)
-        
-        output.splashStatus
-            .subscribe(with: self) { owner, status in
+    func bind(reactor: SplashReactor) {
+        bindAction(reactor)
+        bindState(reactor)  
+    }
+            
+    func bindAction(_ reactor: SplashReactor) {
+        Observable.just(())
+                .map { SplashReactor.Action.viewDidLoad }
+                .bind(to: reactor.action)
+                .disposed(by: disposeBag)
+    }
+    
+    func bindState(_ reactor: SplashReactor) {
+        reactor.state.map { $0.splashStatus }
+            .compactMap { $0 }
+            .subscribe(with: self) { owner, status in 
                 switch status {
                 case .disConnected:
                     owner.presentVC(.disConnected)
                     print("CHECK disConnected")
-
+                    
                 case .inMaintenance:
                     owner.presentVC(.inMaintenance)
                     print("CHECK inMaintenance")
-
+                    
                 case .needUpdate:
                     owner.presentVC(.needUpdate)
                     print("CHECK needUpdate")
-
+                    
                 case .valid:
                     print("CHECK: 메인 화면 진입")
                 }
@@ -85,9 +93,8 @@ final class SplashViewController: BaseViewController {
         DispatchQueue.main.async {
             let repo = SplashRepository()
             let useCase = SplashUseCase(splashRepository: repo)
-            let vm = SplashErrorViewModel(splashUseCase: useCase)
-            let vc = SplashErrorViewController(splashErrorViewModel: vm)
-            vc.splashStatus = status
+            let reactor = SplashErrorReactor(splashUseCase: useCase, splashStatus: status)
+            let vc = SplashErrorViewController(splashErrorReactor: reactor)
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .crossDissolve
             self.present(vc, animated: true)   
