@@ -13,14 +13,14 @@ extension UIColor {
 
 extension UIColor {
     // bgGrey
-    static var bgGrey01 = UIColor(hexString: "#F7F7FA")!
-    static var bgGrey02 = UIColor(hexString: "#F0F0F4")!
-    static var bgGrey03 = UIColor(hexString: "#E8E8ED")!
-    static var bgGrey04 = UIColor(hexString: "#CDCED6")!
-    static var bgGrey05 = UIColor(hexString: "#A9ABB8")!
-    static var bgGrey06 = UIColor(hexString: "#84889A")!
-    static var bgGrey07 = UIColor(hexString: "#525463")!
-    static var bgGrey08 = UIColor(hexString: "#2B2D36")!
+    static var grey01 = UIColor(hexString: "#F7F7FA")!
+    static var grey02 = UIColor(hexString: "#F0F0F4")!
+    static var grey03 = UIColor(hexString: "#E8E8ED")!
+    static var grey04 = UIColor(hexString: "#CDCED6")!
+    static var grey05 = UIColor(hexString: "#A9ABB8")!
+    static var grey06 = UIColor(hexString: "#84889A")!
+    static var grey07 = UIColor(hexString: "#525463")!
+    static var grey08 = UIColor(hexString: "#2B2D36")!
     
     // point
     static var tnGreen = UIColor(hexString: "#34C184")!

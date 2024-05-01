@@ -62,7 +62,7 @@ final class SplashReactor: Reactor {
         let isMaintenance = splashUseCase.isServerMaintenance()
         let isNeedUpdate = splashUseCase.isMinVersionReached()
         
-        if !isConnect {
+        if isConnect {
             return .disConnected
         } else if isMaintenance {
             return .inMaintenance

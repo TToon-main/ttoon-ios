@@ -23,9 +23,20 @@ final class SplashErrorViewController: BaseViewController, View {
         return view
     }()
     
-    private lazy var errorLabel = {
+    private lazy var errorTitleLabel = {
         let view = UILabel()
-        view.textColor = .black
+        view.textColor = .grey08
+        view.font = .title20b
+        view.textAlignment = .center
+        
+        return view
+    }()
+    
+    private lazy var errorSubTitleLabel = {
+        let view = UILabel()
+        view.textColor = .grey05
+        view.font = .body14m
+        view.numberOfLines = 0
         view.textAlignment = .center
         
         return view
@@ -33,20 +44,22 @@ final class SplashErrorViewController: BaseViewController, View {
     
     private lazy var retryButton = {
         let view = UIButton()
-        view.setTitleColor(.black, for: .normal)
-        view.layer.cornerRadius = 16
-        view.backgroundColor = .bgGrey04
+        view.titleLabel?.font = .body16b
+        view.setTitleColor(.grey07, for: .normal)
+        view.backgroundColor = .grey02
+        view.layer.cornerRadius = 14
         
         return view
     }()
     
     private lazy var container = {
         let view = UIView()
-        view.backgroundColor = .bgGrey01
-        view.layer.cornerRadius = 12
+        view.backgroundColor = .clear
         
         return view
     }()
+    
+    // MARK: - Initializer
     
     init(splashErrorReactor: SplashErrorReactor) {
         super.init(nibName: nil, bundle: nil)
@@ -73,29 +86,29 @@ final class SplashErrorViewController: BaseViewController, View {
             .alignItems(.center)
             .define { flex in
                 flex.addItem(errorImageView)
-                    .marginTop(16)
-                    .size(50)
+                    .size(111)
                 
-                flex.addItem(errorLabel)
-                    .marginTop(16)
-                    .marginHorizontal(16)
+                flex.addItem(errorTitleLabel)
+                    .marginTop(30)
+                
+                flex.addItem(errorSubTitleLabel)
+                    .marginTop(12)
+                    .marginHorizontal(26)
                 
                 flex.addItem(retryButton)
-                    .marginVertical(16)
-                    .width(100)
-                    .height(50)
+                    .marginTop(36)
+                    .width(141)
+                    .height(52)
             }
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         container.pin
-            .left(10%)
-            .right(10%)
+            .top(31%)
+            .horizontally()
         
         container.flex.layout(mode: .adjustHeight)
-        
-        container.pin
-            .center()
     }
     
     func bind(reactor: SplashErrorReactor) {
@@ -142,28 +155,32 @@ final class SplashErrorViewController: BaseViewController, View {
         switch status { 
         case .disConnected:
             updateUI(image: TNImage.splashLogo,
-                     lbText: "인터넷 연결 필요",
+                     lbText: "인터넷 연결이 필요해요",
+                     subText: "서비스 이용을 위해서는\n네트워크 연결을 해주세요!",
                      btnTitle: "재시도")
             
         case .inMaintenance:
             updateUI(image: TNImage.splashLogo,
-                     lbText: "서버 점검 중",
+                     lbText: "서버 점검 중이에요",
+                     subText: "보다 안정적인 서비스를 위해 점검 중이에요.\n예상 종료 시간은 03:00이에요!",
                      btnTitle: nil,
                      isHiddenBtn: true)
             
         case .needUpdate:
             updateUI(image: TNImage.splashLogo,
-                     lbText: "업데이트 필요",
-                     btnTitle: "이동")            
+                     lbText: "업데이트가 필요해요",
+                     subText: "최신 버전으로 업데이트가 필요해요.\n스토어에서 최신 버전을 다운 받아주세요!",
+                     btnTitle: "스토어로 이동")            
             
         case .valid:
             break
         }
     }
     
-    func updateUI(image: UIImage?, lbText: String, btnTitle: String?, isHiddenBtn: Bool = false) {
+    func updateUI(image: UIImage?, lbText: String, subText: String, btnTitle: String?, isHiddenBtn: Bool = false) {
         errorImageView.image = image
-        errorLabel.text = lbText 
+        errorTitleLabel.text = lbText 
+        errorSubTitleLabel.text = subText
         retryButton.setTitle(btnTitle, for: .normal)
         retryButton.isHidden = isHiddenBtn
     }
