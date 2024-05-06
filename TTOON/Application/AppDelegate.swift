@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         Analytics.logEvent(AnalyticsEventAppOpen, parameters: nil)
         NetworkMonitor.shared.startMonitoring()
+        print("url 확인", BaseURL.fetchUrl())
         
         return true
     }

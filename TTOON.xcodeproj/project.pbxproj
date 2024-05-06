@@ -42,6 +42,11 @@
 		BE36CFAF2BAFF58A0017F94E /* TTOONUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CFAE2BAFF58A0017F94E /* TTOONUITests.swift */; };
 		BE36CFB12BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */; };
 		BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */; };
+		BE7C8C112BE8F258005F2FB2 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */; };
+		BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */; };
+		BE7C8C152BE8F2F1005F2FB2 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C142BE8F2F1005F2FB2 /* BaseURL.swift */; };
+		BE7C8C172BE8FD50005F2FB2 /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C162BE8FD50005F2FB2 /* AuthInterceptor.swift */; };
+		BE7C8C192BE8FD9B005F2FB2 /* LogPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C182BE8FD9B005F2FB2 /* LogPlugin.swift */; };
 		BE840DBC2BB95FDB000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
 		BE840DBD2BB95FE5000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
 		BE840DBE2BB95FE5000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
@@ -137,6 +142,11 @@
 		BE36CFAE2BAFF58A0017F94E /* TTOONUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTOONUITests.swift; sourceTree = "<group>"; };
 		BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTOONUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNImage.swift; sourceTree = "<group>"; };
+		BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
+		BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAPI.swift; sourceTree = "<group>"; };
+		BE7C8C142BE8F2F1005F2FB2 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		BE7C8C162BE8FD50005F2FB2 /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
+		BE7C8C182BE8FD9B005F2FB2 /* LogPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPlugin.swift; sourceTree = "<group>"; };
 		BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		BE840DC92BBD9817000E67B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
@@ -307,6 +317,16 @@
 			path = TTOONUITests;
 			sourceTree = "<group>";
 		};
+		BE7C8C0F2BE8F237005F2FB2 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */,
+				BE7C8C142BE8F2F1005F2FB2 /* BaseURL.swift */,
+				BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		BE840DC42BBD9263000E67B7 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,6 +422,7 @@
 		BEB456842BD15BFA007F5EEC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				BE7C8C0F2BE8F237005F2FB2 /* API */,
 				BEB456852BD15BFA007F5EEC /* Repository */,
 			);
 			path = Data;
@@ -418,6 +439,8 @@
 		BEB456882BD15EAB007F5EEC /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				BE7C8C162BE8FD50005F2FB2 /* AuthInterceptor.swift */,
+				BE7C8C182BE8FD9B005F2FB2 /* LogPlugin.swift */,
 				BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */,
 			);
 			path = Network;
@@ -426,8 +449,8 @@
 		BEDF4E492BB709770034FF79 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */,
 				BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */,
+				BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */,
 				BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */,
 			);
 			path = Config;
@@ -737,11 +760,16 @@
 				BEB456872BD15C06007F5EEC /* SplashRepository.swift in Sources */,
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
+				BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
+				BE7C8C152BE8F2F1005F2FB2 /* BaseURL.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
 				BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */,
+				BE7C8C192BE8FD9B005F2FB2 /* LogPlugin.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
+				BE7C8C172BE8FD50005F2FB2 /* AuthInterceptor.swift in Sources */,
 				BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */,
+				BE7C8C112BE8F258005F2FB2 /* APIProvider.swift in Sources */,
 				489FE2C72BC00F9F0033B61D /* BaseTableViewCell.swift in Sources */,
 				BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */,
 			);
@@ -947,6 +975,7 @@
 				MARKETING_VERSION = "$(APP_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEV;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -978,6 +1007,7 @@
 				MARKETING_VERSION = "$(APP_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = PROD;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1151,6 +1181,7 @@
 				MARKETING_VERSION = "$(APP_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = STAG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
