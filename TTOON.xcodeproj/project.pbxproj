@@ -57,6 +57,10 @@
 		48D97A042BEF45FC0087F870 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A032BEF45FC0087F870 /* LoginRepository.swift */; };
 		48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A052BEF472C0087F870 /* SocialLoginButton.swift */; };
 		BE0132AA2BC4306600C9827C /* engaged-code-418809-16024d5258d0.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */; };
+		BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3112BEBAFE500F0C193 /* TNButton.swift */; };
+		BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3132BEBB28800F0C193 /* Reactive+.swift */; };
+		BE32E3172BEBB94E00F0C193 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3162BEBB94E00F0C193 /* TestViewController.swift */; };
+		BE32E3192BEBBD1300F0C193 /* TNAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3182BEBBD1300F0C193 /* TNAlertButton.swift */; };
 		BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CF8D2BAFF5890017F94E /* AppDelegate.swift */; };
 		BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CF8F2BAFF5890017F94E /* SceneDelegate.swift */; };
 		BE36CF972BAFF58A0017F94E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE36CF962BAFF58A0017F94E /* Assets.xcassets */; };
@@ -180,6 +184,10 @@
 		48F55A7B2BCD440600303C22 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		48F55A7D2BCD4A6D00303C22 /* TTOON.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TTOON.entitlements; sourceTree = "<group>"; };
 		BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "engaged-code-418809-16024d5258d0.json"; sourceTree = "<group>"; };
+		BE32E3112BEBAFE500F0C193 /* TNButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNButton.swift; sourceTree = "<group>"; };
+		BE32E3132BEBB28800F0C193 /* Reactive+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+.swift"; sourceTree = "<group>"; };
+		BE32E3162BEBB94E00F0C193 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		BE32E3182BEBBD1300F0C193 /* TNAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNAlertButton.swift; sourceTree = "<group>"; };
 		BE36CF8A2BAFF5890017F94E /* TTOON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTOON.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE36CF8D2BAFF5890017F94E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE36CF8F2BAFF5890017F94E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -328,6 +336,7 @@
 		489FE2B82BC00E830033B61D /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				BE32E3102BEBAF7B00F0C193 /* TNCompopnet */,
 				BE9BBC3D2BCA544E006FD848 /* Constant */,
 				BE9BBC422BCA551B006FD848 /* Extension */,
 			);
@@ -363,6 +372,16 @@
 				BE9BBC072BCA4CCC006FD848 /* Pretendard */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		BE32E3102BEBAF7B00F0C193 /* TNCompopnet */ = {
+			isa = PBXGroup;
+			children = (
+				BE32E3112BEBAFE500F0C193 /* TNButton.swift */,
+				BE32E3182BEBBD1300F0C193 /* TNAlertButton.swift */,
+				BE32E3162BEBB94E00F0C193 /* TestViewController.swift */,
+			);
+			path = TNCompopnet;
 			sourceTree = "<group>";
 		};
 		48D979EF2BEF459F0087F870 /* Coordinator */ = {
@@ -541,6 +560,7 @@
 			children = (
 				BE9BBC432BCA552F006FD848 /* UIFont+.swift */,
 				BE9BBC482BCA5809006FD848 /* UIColor+.swift */,
+				BE32E3132BEBB28800F0C193 /* Reactive+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -937,8 +957,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */,
+				BE32E3192BEBBD1300F0C193 /* TNAlertButton.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
 				BE9BBC442BCA552F006FD848 /* UIFont+.swift in Sources */,
+				BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */,
 				48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */,
 				BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */,
 				48D979FC2BEF45B70087F870 /* LoginRepositoryProtocol.swift in Sources */,
@@ -948,6 +970,7 @@
 				48D979F62BEF459F0087F870 /* LoginViewModel.swift in Sources */,
 				BE9BBC3F2BCA5455006FD848 /* TNFont.swift in Sources */,
 				BEB456822BD15BCB007F5EEC /* SplashRepositoryProtocol.swift in Sources */,
+				BE32E3172BEBB94E00F0C193 /* TestViewController.swift in Sources */,
 				BEA33A242BD6AA320065D60C /* SplashErrorReactor.swift in Sources */,
 				489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */,
 				489730E52BF1CA3B0026706C /* ResponseDTO.swift in Sources */,
@@ -961,6 +984,7 @@
 				48D97A012BEF45ED0087F870 /* BaseURL.swift in Sources */,
 				489730DE2BF0E5B80026706C /* LoginAPI.swift in Sources */,
 				BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */,
+				BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */,
 				489730E22BF0E8840026706C /* AuthDTO.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
 				BE7C8C152BE8F2F1005F2FB2 /* BaseURL.swift in Sources */,
