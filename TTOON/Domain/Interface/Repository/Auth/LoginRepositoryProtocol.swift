@@ -5,12 +5,12 @@
 //  Created by 임승섭 on 4/15/24.
 //
 
-import Foundation
 import RxCocoa
 import RxSwift
+import UIKit
 
 protocol LoginRepositoryProtocol {
     func appleLoginRequest()
     func kakaoLoginRequest()
-    func googleLoginRequest()
+    func googleLoginRequest(withPresentingVC: UIViewController)
 }

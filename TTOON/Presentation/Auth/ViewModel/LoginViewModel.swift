@@ -5,10 +5,9 @@
 //  Created by 임승섭 on 4/15/24.
 //
 
-import Foundation
 import RxCocoa
 import RxSwift
-
+import UIKit
 
 class LoginViewModel {
     private let loginUseCase: LoginUseCaseProtocol
@@ -22,6 +21,8 @@ class LoginViewModel {
         let appleLoginButtonClicked: ControlEvent<Void>
         let kakaoLoginButtonClicked: ControlEvent<Void>
         let googleLoginButtonClicked: ControlEvent<Void>
+        
+        let presentingVC: UIViewController
     }
     
     struct Output {
@@ -45,7 +46,7 @@ class LoginViewModel {
         
         input.googleLoginButtonClicked
             .subscribe(with: self) { owner, _ in
-                owner.loginUseCase.googleLoginRequest()
+                owner.loginUseCase.googleLoginRequest(withPresentingVC: input.presentingVC)            
             }
             .disposed(by: disposeBag)
         

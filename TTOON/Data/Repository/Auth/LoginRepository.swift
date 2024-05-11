@@ -18,15 +18,15 @@ import KakaoSDKUser
 
 
 class LoginRepository: NSObject, LoginRepositoryProtocol {
-    enum SampleError: Error {
-        case sample
-    }
+//    enum SampleError: Error {
+//        case sample
+//    }
     
     
-    // 애플 로그인의 경우, delegate로 새로운 메서드를 호출하기 때문에 리턴값 대신 프로퍼티를 통해 결과 전달
-    // 전달 방법에 대해 좀 더 고민 필요
-    let resultAppleLogin = PublishSubject<Result<Int, SampleError> >()
-    
+//    // 애플 로그인의 경우, delegate로 새로운 메서드를 호출하기 때문에 리턴값 대신 프로퍼티를 통해 결과 전달
+//    // 전달 방법에 대해 좀 더 고민 필요
+//    let resultAppleLogin = PublishSubject<Result<Int, SampleError> >()
+//    
     
     func appleLoginRequest() {
         print("repo : apple Login")
@@ -68,10 +68,21 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
         }
     }
     
-    func googleLoginRequest() {
+    func googleLoginRequest(withPresentingVC: UIViewController) {
         print("repo : google Login")
         
-        // VC 매개변수 (self) 가 필요하다!
+        let googleClientID = Bundle.main.infoDictionary?["GIDClientID"] as? String
+        let signInConfig = GIDConfiguration(clientID: googleClientID ?? "")
+        
+        GIDSignIn.sharedInstance.signIn(withPresenting: withPresentingVC) { result, error in
+            if let error {
+                print("google login error : \(error)")
+            } else {
+                print("유저 아이디 : \(result?.user.userID)")
+                
+                /* === 서버 통신 === */
+            }
+        }
     }
 }
 

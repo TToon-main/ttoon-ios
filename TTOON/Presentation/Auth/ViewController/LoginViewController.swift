@@ -37,32 +37,13 @@ class LoginViewController: BaseViewController {
     
     func bindVM() {
         let input = LoginViewModel.Input(
-            appleLoginButtonClicked: mainView.appleLoginButton.rx.tap,
-            kakaoLoginButtonClicked: mainView.kakaoLoginButton.rx.tap,
-            googleLoginButtonClicked: mainView.googleLoginButton.rx.tap
+            appleLoginButtonClicked: mainView.appleLoginButton.clearButton.rx.tap,
+            kakaoLoginButtonClicked: mainView.kakaoLoginButton.clearButton.rx.tap,
+            googleLoginButtonClicked: mainView.googleLoginButton.clearButton.rx.tap,
+            // 구글 로그인의 경우, presenting할 VC 매개변수가 필요하기 때문에, 예외적으로 여기서만 VM에게 VC을 알게 한다.
+            presentingVC: self
         )
         
         let output = viewModel.transform(input)
-        
-        
-        // google login
-        mainView.googleLoginButton.rx.tap
-            .subscribe(with: self) { owner, _ in
-                owner.requestGoogleLogin()
-            }
-            .disposed(by: disposeBag)
-    }
-    
-    func requestGoogleLogin() {
-        let googleClientID = Bundle.main.infoDictionary?["GIDClientID"] as? String
-        let signInConfig = GIDConfiguration(clientID: googleClientID ?? "")
-        
-        GIDSignIn.sharedInstance.signIn(withPresenting: self) { result, error in
-            if let error {
-                print("google login error : \(error)")
-            } else {
-                print("유저 아이디 : \(result?.user.userID)")
-            }
-        }
     }
 }

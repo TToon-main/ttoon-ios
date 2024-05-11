@@ -5,14 +5,14 @@
 //  Created by 임승섭 on 4/15/24.
 //
 
-import Foundation
 import RxCocoa
 import RxSwift
+import UIKit
 
 protocol LoginUseCaseProtocol {
     func appleLoginRequest()
     func kakaoLoginRequest()
-    func googleLoginRequest()
+    func googleLoginRequest(withPresentingVC: UIViewController)
 }
 
 
@@ -34,7 +34,7 @@ class LoginUseCase: LoginUseCaseProtocol {
         loginRepository.kakaoLoginRequest()
     }
     
-    func googleLoginRequest() {
-        loginRepository.googleLoginRequest()
+    func googleLoginRequest(withPresentingVC: UIViewController) {
+        loginRepository.googleLoginRequest(withPresentingVC: withPresentingVC)
     }
 }
