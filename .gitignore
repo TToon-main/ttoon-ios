@@ -78,3 +78,6 @@ TTOON/Resource/Localization/engaged-code-418809-16024d5258d0.json
 
 ## Firebase GoogleServiceInfo
 TTOON/Resource/GoogleService-Info.plist
+
+## BASE URL
+TTOON/Data/API/BaseURL.swift 
