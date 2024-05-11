@@ -15,7 +15,7 @@ enum SocialLoginType {
     var buttonImage: UIImage {
         switch self {
         case .apple:
-            return .socialLoginImageKakao
+            return .socialLoginImageApple
 
         case .kakao:
             return .socialLoginImageKakao

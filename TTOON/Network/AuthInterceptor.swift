@@ -15,7 +15,7 @@ final class AuthInterceptor: RequestInterceptor {
     private let disposeBag = DisposeBag()
     private init() {}
     
-    //TODO: 인터셉터 구현
+    // TODO: 인터셉터 구현
     
 //    func adapt(_ urlRequest: URLRequest, for _: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
 //        guard let baseURL = Bundle.main.object(forInfoDictionaryKey: "BASE_URL") as? String else {

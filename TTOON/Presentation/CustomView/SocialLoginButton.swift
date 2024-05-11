@@ -19,6 +19,7 @@ class SocialLoginButton: BaseView {
     // MARK: - UI Components
     private lazy var titleImageView = {
         let view = UIImageView()
+        view.contentMode = .scaleAspectFill
         return view
     }()
     

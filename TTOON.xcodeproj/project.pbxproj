@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		480C16582BEEF22B0085A187 /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 480C16552BEEF22B0085A187 /* Prod.xcconfig */; };
-		480C16592BEEF22B0085A187 /* Stag.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 480C16562BEEF22B0085A187 /* Stag.xcconfig */; };
-		480C165A2BEEF22B0085A187 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 480C16572BEEF22B0085A187 /* Dev.xcconfig */; };
-		480C165D2BEEF7C90085A187 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480C165C2BEEF7C90085A187 /* SocialLoginButton.swift */; };
 		480C165F2BEEFA9F0085A187 /* SocialLoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480C165E2BEEFA9F0085A187 /* SocialLoginType.swift */; };
 		482B60EF2BB58F3F00681097 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 482B60EE2BB58F3F00681097 /* Kingfisher */; };
 		482B60F22BB58F6E00681097 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 482B60F12BB58F6E00681097 /* SnapKit */; };
@@ -32,6 +28,12 @@
 		482B611E2BB598DD00681097 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 482B611D2BB598DD00681097 /* Sentry */; };
 		482B61212BB599B100681097 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61202BB599B100681097 /* FirebaseAnalytics */; };
 		482B61232BB599B100681097 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61222BB599B100681097 /* FirebaseCrashlytics */; };
+		488356442BEF3B1E005DC0A6 /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 488356412BEF3B1E005DC0A6 /* Prod.xcconfig */; };
+		488356452BEF3B1E005DC0A6 /* Stag.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 488356422BEF3B1E005DC0A6 /* Stag.xcconfig */; };
+		488356462BEF3B1E005DC0A6 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 488356432BEF3B1E005DC0A6 /* Dev.xcconfig */; };
+		4883564E2BEF42AB005DC0A6 /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4883564B2BEF42AB005DC0A6 /* Prod.xcconfig */; };
+		4883564F2BEF42AB005DC0A6 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4883564C2BEF42AB005DC0A6 /* Dev.xcconfig */; };
+		488356502BEF42AB005DC0A6 /* Stag.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4883564D2BEF42AB005DC0A6 /* Stag.xcconfig */; };
 		489FE2C12BC00F700033B61D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C02BC00F700033B61D /* BaseView.swift */; };
 		489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C22BC00F760033B61D /* BaseViewController.swift */; };
 		489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C42BC00F890033B61D /* BaseViewModel.swift */; };
@@ -39,12 +41,14 @@
 		489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C82BC00FA40033B61D /* BaseCollectionViewCell.swift */; };
 		489FE2CE2BC010EB0033B61D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2CD2BC010EB0033B61D /* Coordinator.swift */; };
 		489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2CF2BC011670033B61D /* AppCoordinator.swift */; };
-		48F55A702BCD39FE00303C22 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F55A6F2BCD39FE00303C22 /* LoginView.swift */; };
-		48F55A722BCD3A6600303C22 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F55A712BCD3A6600303C22 /* LoginViewController.swift */; };
-		48F55A742BCD3CEC00303C22 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F55A732BCD3CEC00303C22 /* LoginViewModel.swift */; };
-		48F55A762BCD42DD00303C22 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F55A752BCD42DD00303C22 /* LoginUseCase.swift */; };
-		48F55A782BCD43AF00303C22 /* LoginRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F55A772BCD43AF00303C22 /* LoginRepositoryProtocol.swift */; };
-		48F55A7C2BCD440600303C22 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F55A7B2BCD440600303C22 /* LoginRepository.swift */; };
+		48D979F62BEF459F0087F870 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F12BEF459F0087F870 /* LoginViewModel.swift */; };
+		48D979F72BEF459F0087F870 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F32BEF459F0087F870 /* LoginView.swift */; };
+		48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F52BEF459F0087F870 /* LoginViewController.swift */; };
+		48D979FC2BEF45B70087F870 /* LoginRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979FB2BEF45B70087F870 /* LoginRepositoryProtocol.swift */; };
+		48D979FF2BEF45C20087F870 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979FE2BEF45C20087F870 /* LoginUseCase.swift */; };
+		48D97A012BEF45ED0087F870 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A002BEF45ED0087F870 /* BaseURL.swift */; };
+		48D97A042BEF45FC0087F870 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A032BEF45FC0087F870 /* LoginRepository.swift */; };
+		48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A052BEF472C0087F870 /* SocialLoginButton.swift */; };
 		BE0132AA2BC4306600C9827C /* engaged-code-418809-16024d5258d0.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */; };
 		BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CF8D2BAFF5890017F94E /* AppDelegate.swift */; };
 		BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CF8F2BAFF5890017F94E /* SceneDelegate.swift */; };
@@ -107,9 +111,6 @@
 		BEB456872BD15C06007F5EEC /* SplashRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB456862BD15C06007F5EEC /* SplashRepository.swift */; };
 		BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */; };
 		BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4568B2BD16572007F5EEC /* SplashReactor.swift */; };
-		BEDF4E4D2BB709770034FF79 /* Stag.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */; };
-		BEDF4E4E2BB709770034FF79 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */; };
-		BEDF4E4F2BB709770034FF79 /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */; };
 		BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E502BB70A0C0034FF79 /* .gitignore */; };
 		BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */; };
 		BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */; };
@@ -134,11 +135,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		480C16552BEEF22B0085A187 /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
-		480C16562BEEF22B0085A187 /* Stag.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stag.xcconfig; sourceTree = "<group>"; };
-		480C16572BEEF22B0085A187 /* Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		480C165C2BEEF7C90085A187 /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		480C165E2BEEFA9F0085A187 /* SocialLoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginType.swift; sourceTree = "<group>"; };
+		488356412BEF3B1E005DC0A6 /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
+		488356422BEF3B1E005DC0A6 /* Stag.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stag.xcconfig; sourceTree = "<group>"; };
+		488356432BEF3B1E005DC0A6 /* Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
+		4883564B2BEF42AB005DC0A6 /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
+		4883564C2BEF42AB005DC0A6 /* Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
+		4883564D2BEF42AB005DC0A6 /* Stag.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stag.xcconfig; sourceTree = "<group>"; };
 		489FE2C02BC00F700033B61D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		489FE2C22BC00F760033B61D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		489FE2C42BC00F890033B61D /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -146,6 +150,14 @@
 		489FE2C82BC00FA40033B61D /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		489FE2CD2BC010EB0033B61D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		489FE2CF2BC011670033B61D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		48D979F12BEF459F0087F870 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		48D979F32BEF459F0087F870 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		48D979F52BEF459F0087F870 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		48D979FB2BEF45B70087F870 /* LoginRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRepositoryProtocol.swift; sourceTree = "<group>"; };
+		48D979FE2BEF45C20087F870 /* LoginUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		48D97A002BEF45ED0087F870 /* BaseURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		48D97A032BEF45FC0087F870 /* LoginRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
+		48D97A052BEF472C0087F870 /* SocialLoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		48F55A6F2BCD39FE00303C22 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		48F55A712BCD3A6600303C22 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		48F55A732BCD3CEC00303C22 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -193,9 +205,6 @@
 		BEB456862BD15C06007F5EEC /* SplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRepository.swift; sourceTree = "<group>"; };
 		BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		BEB4568B2BD16572007F5EEC /* SplashReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashReactor.swift; sourceTree = "<group>"; };
-		BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stag.xcconfig; sourceTree = "<group>"; };
-		BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
-		BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
 		BEDF4E502BB70A0C0034FF79 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashErrorViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +256,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4883564A2BEF422A005DC0A6 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				48F55A712BCD3A6600303C22 /* LoginViewController.swift */,
+				480C165C2BEEF7C90085A187 /* SocialLoginButton.swift */,
+				48F55A732BCD3CEC00303C22 /* LoginViewModel.swift */,
+				48F55A772BCD43AF00303C22 /* LoginRepositoryProtocol.swift */,
+				48F55A6F2BCD39FE00303C22 /* LoginView.swift */,
+				48F55A752BCD42DD00303C22 /* LoginUseCase.swift */,
+				48F55A7B2BCD440600303C22 /* LoginRepository.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		489FE2B82BC00E830033B61D /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,43 +277,6 @@
 				BE9BBC422BCA551B006FD848 /* Extension */,
 			);
 			path = Util;
-			sourceTree = "<group>";
-		};
-		489FE2B92BC00EA10033B61D /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				489FE2D72BC012580033B61D /* Entity */,
-				489FE2D62BC012540033B61D /* UseCase */,
-				489FE2D52BC012500033B61D /* Interface */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		489FE2BA2BC00EA90033B61D /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				489FE2DC2BC012890033B61D /* CustomView */,
-				489FE2D42BC012250033B61D /* Auth */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		489FE2BB2BC00EB00033B61D /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				48F55A792BCD43F300303C22 /* Repository */,
-				489FE2D32BC012100033B61D /* UserDefaults */,
-				489FE2D22BC0120C0033B61D /* Keychain */,
-				489FE2D12BC012090033B61D /* Network */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		489FE2BC2BC00EC30033B61D /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		489FE2BD2BC00EC90033B61D /* Application */ = {
@@ -324,144 +310,65 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		489FE2D12BC012090033B61D /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		489FE2D22BC0120C0033B61D /* Keychain */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Keychain;
-			sourceTree = "<group>";
-		};
-		489FE2D32BC012100033B61D /* UserDefaults */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UserDefaults;
-			sourceTree = "<group>";
-		};
-		489FE2D42BC012250033B61D /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				48F55A6E2BCD393300303C22 /* Coordinator */,
-				48F55A6D2BCD392F00303C22 /* View */,
-				48F55A6C2BCD391500303C22 /* ViewModel */,
-				48F55A6B2BCD390F00303C22 /* ViewController */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		489FE2D52BC012500033B61D /* Interface */ = {
-			isa = PBXGroup;
-			children = (
-				489FE2D82BC012650033B61D /* Repository */,
-			);
-			path = Interface;
-			sourceTree = "<group>";
-		};
-		489FE2D62BC012540033B61D /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-				489FE2DA2BC012790033B61D /* Auth */,
-			);
-			path = UseCase;
-			sourceTree = "<group>";
-		};
-		489FE2D72BC012580033B61D /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				489FE2DB2BC0127F0033B61D /* Auth */,
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		489FE2D82BC012650033B61D /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				489FE2D92BC012700033B61D /* Auth */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		489FE2D92BC012700033B61D /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				48F55A772BCD43AF00303C22 /* LoginRepositoryProtocol.swift */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		489FE2DA2BC012790033B61D /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				48F55A752BCD42DD00303C22 /* LoginUseCase.swift */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		489FE2DB2BC0127F0033B61D /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		489FE2DC2BC012890033B61D /* CustomView */ = {
-			isa = PBXGroup;
-			children = (
-				480C165C2BEEF7C90085A187 /* SocialLoginButton.swift */,
-			);
-			path = CustomView;
-			sourceTree = "<group>";
-		};
-		48F55A6B2BCD390F00303C22 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				48F55A712BCD3A6600303C22 /* LoginViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		48F55A6C2BCD391500303C22 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				48F55A732BCD3CEC00303C22 /* LoginViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		48F55A6D2BCD392F00303C22 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				48F55A6F2BCD39FE00303C22 /* LoginView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		48F55A6E2BCD393300303C22 /* Coordinator */ = {
+		48D979EF2BEF459F0087F870 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		48F55A792BCD43F300303C22 /* Repository */ = {
+		48D979F02BEF459F0087F870 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				48F55A7A2BCD43F800303C22 /* Auth */,
+				48D979F12BEF459F0087F870 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		48D979F22BEF459F0087F870 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48D979F32BEF459F0087F870 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		48D979F42BEF459F0087F870 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				48D979F52BEF459F0087F870 /* LoginViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		48D979F92BEF45B70087F870 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				48D979FA2BEF45B70087F870 /* Auth */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		48F55A7A2BCD43F800303C22 /* Auth */ = {
+		48D979FA2BEF45B70087F870 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				48F55A7B2BCD440600303C22 /* LoginRepository.swift */,
+				48D979FB2BEF45B70087F870 /* LoginRepositoryProtocol.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		48D979FD2BEF45C20087F870 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				48D979FE2BEF45C20087F870 /* LoginUseCase.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		48D97A022BEF45FC0087F870 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				48D97A032BEF45FC0087F870 /* LoginRepository.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -475,6 +382,7 @@
 				BE36CFA32BAFF58A0017F94E /* TTOONTests */,
 				BE36CFAD2BAFF58A0017F94E /* TTOONUITests */,
 				BE36CF8B2BAFF5890017F94E /* Products */,
+				4883564A2BEF422A005DC0A6 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -525,6 +433,7 @@
 			children = (
 				BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */,
 				BE7C8C142BE8F2F1005F2FB2 /* BaseURL.swift */,
+				48D97A002BEF45ED0087F870 /* BaseURL.swift */,
 				BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */,
 			);
 			path = API;
@@ -603,6 +512,7 @@
 		BEB4567D2BD15BCB007F5EEC /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				48D979F92BEF45B70087F870 /* Repository */,
 				BEB4567E2BD15BCB007F5EEC /* SplashRepositoryProtocol.swift */,
 			);
 			path = Interface;
@@ -618,6 +528,7 @@
 		BEB456802BD15BCB007F5EEC /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				48D979FD2BEF45C20087F870 /* Auth */,
 				BEB456812BD15BCB007F5EEC /* SplashUseCase.swift */,
 			);
 			path = UseCase;
@@ -635,6 +546,7 @@
 		BEB456852BD15BFA007F5EEC /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				48D97A022BEF45FC0087F870 /* Auth */,
 				BEB456862BD15C06007F5EEC /* SplashRepository.swift */,
 			);
 			path = Repository;
@@ -653,9 +565,12 @@
 		BEDF4E492BB709770034FF79 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */,
-				BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */,
-				BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */,
+				4883564C2BEF42AB005DC0A6 /* Dev.xcconfig */,
+				4883564B2BEF42AB005DC0A6 /* Prod.xcconfig */,
+				4883564D2BEF42AB005DC0A6 /* Stag.xcconfig */,
+				488356432BEF3B1E005DC0A6 /* Dev.xcconfig */,
+				488356412BEF3B1E005DC0A6 /* Prod.xcconfig */,
+				488356422BEF3B1E005DC0A6 /* Stag.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -672,6 +587,10 @@
 		BEF48D5D2BCA5CD10056E31E /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				48D979EF2BEF459F0087F870 /* Coordinator */,
+				48D979F22BEF459F0087F870 /* View */,
+				48D979F42BEF459F0087F870 /* ViewController */,
+				48D979F02BEF459F0087F870 /* ViewModel */,
 				BEF48D632BCA5D2B0056E31E /* Splash */,
 			);
 			path = Auth;
@@ -680,6 +599,7 @@
 		BEF48D5E2BCA5CD60056E31E /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				48D97A052BEF472C0087F870 /* SocialLoginButton.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -843,25 +763,25 @@
 			files = (
 				BE9BBC1D2BCA529A006FD848 /* Pretendard-ExtraLight.otf in Resources */,
 				BE9BBC142BCA529A006FD848 /* Pretendard-Bold.otf in Resources */,
+				4883564F2BEF42AB005DC0A6 /* Dev.xcconfig in Resources */,
+				488356502BEF42AB005DC0A6 /* Stag.xcconfig in Resources */,
+				488356462BEF3B1E005DC0A6 /* Dev.xcconfig in Resources */,
 				BE840DBC2BB95FDB000E67B7 /* .swiftlint.yml in Resources */,
 				BE9BBC232BCA529A006FD848 /* Pretendard-Medium.otf in Resources */,
 				BE9BBC172BCA529A006FD848 /* Pretendard-ExtraBold.otf in Resources */,
+				4883564E2BEF42AB005DC0A6 /* Prod.xcconfig in Resources */,
 				BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */,
-				480C16582BEEF22B0085A187 /* Prod.xcconfig in Resources */,
+				488356452BEF3B1E005DC0A6 /* Stag.xcconfig in Resources */,
 				BE9BBC1A2BCA529A006FD848 /* Pretendard-Regular.otf in Resources */,
-				480C165A2BEEF22B0085A187 /* Dev.xcconfig in Resources */,
 				BE0132AA2BC4306600C9827C /* engaged-code-418809-16024d5258d0.json in Resources */,
-				BEDF4E4F2BB709770034FF79 /* Prod.xcconfig in Resources */,
 				BE9BBC112BCA529A006FD848 /* Pretendard-Black.otf in Resources */,
 				BE9BBC262BCA529A006FD848 /* Pretendard-Thin.otf in Resources */,
 				BE36CF972BAFF58A0017F94E /* Assets.xcassets in Resources */,
-				BEDF4E4E2BB709770034FF79 /* Dev.xcconfig in Resources */,
 				BE840DCA2BBD9817000E67B7 /* GoogleService-Info.plist in Resources */,
-				480C16592BEEF22B0085A187 /* Stag.xcconfig in Resources */,
 				BE9BBC202BCA529A006FD848 /* Pretendard-SemiBold.otf in Resources */,
 				BEA8BB512BB86351000F9C15 /* Localizable.strings in Resources */,
-				BEDF4E4D2BB709770034FF79 /* Stag.xcconfig in Resources */,
 				BE9BBC292BCA529A006FD848 /* Pretendard-Light.otf in Resources */,
+				488356442BEF3B1E005DC0A6 /* Prod.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -952,26 +872,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48F55A722BCD3A6600303C22 /* LoginViewController.swift in Sources */,
 				BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
 				BE9BBC442BCA552F006FD848 /* UIFont+.swift in Sources */,
+				48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */,
 				BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */,
+				48D979FC2BEF45B70087F870 /* LoginRepositoryProtocol.swift in Sources */,
 				489FE2CE2BC010EB0033B61D /* Coordinator.swift in Sources */,
 				489FE2C12BC00F700033B61D /* BaseView.swift in Sources */,
 				BEB456832BD15BCB007F5EEC /* SplashUseCase.swift in Sources */,
+				48D979F62BEF459F0087F870 /* LoginViewModel.swift in Sources */,
 				BE9BBC3F2BCA5455006FD848 /* TNFont.swift in Sources */,
 				BEB456822BD15BCB007F5EEC /* SplashRepositoryProtocol.swift in Sources */,
 				BEA33A242BD6AA320065D60C /* SplashErrorReactor.swift in Sources */,
 				489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */,
+				48D979F72BEF459F0087F870 /* LoginView.swift in Sources */,
 				BE9BBC492BCA5809006FD848 /* UIColor+.swift in Sources */,
+				48D97A042BEF45FC0087F870 /* LoginRepository.swift in Sources */,
 				BEB456872BD15C06007F5EEC /* SplashRepository.swift in Sources */,
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
-				480C165D2BEEF7C90085A187 /* SocialLoginButton.swift in Sources */,
+				48D97A012BEF45ED0087F870 /* BaseURL.swift in Sources */,
 				BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */,
-				48F55A742BCD3CEC00303C22 /* LoginViewModel.swift in Sources */,
-				48F55A782BCD43AF00303C22 /* LoginRepositoryProtocol.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
 				BE7C8C152BE8F2F1005F2FB2 /* BaseURL.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
@@ -979,14 +901,13 @@
 				BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */,
 				BE7C8C192BE8FD9B005F2FB2 /* LogPlugin.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
-				48F55A702BCD39FE00303C22 /* LoginView.swift in Sources */,
 				BE7C8C172BE8FD50005F2FB2 /* AuthInterceptor.swift in Sources */,
 				BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */,
 				BE7C8C112BE8F258005F2FB2 /* APIProvider.swift in Sources */,
 				489FE2C72BC00F9F0033B61D /* BaseTableViewCell.swift in Sources */,
 				BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */,
-				48F55A762BCD42DD00303C22 /* LoginUseCase.swift in Sources */,
-				48F55A7C2BCD440600303C22 /* LoginRepository.swift in Sources */,
+				48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */,
+				48D979FF2BEF45C20087F870 /* LoginUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1043,7 +964,7 @@
 /* Begin XCBuildConfiguration section */
 		BE36CFB22BAFF58A0017F94E /* DEV */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */;
+			baseConfigurationReference = 4883564C2BEF42AB005DC0A6 /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1108,7 +1029,7 @@
 		};
 		BE36CFB32BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */;
+			baseConfigurationReference = 4883564B2BEF42AB005DC0A6 /* Prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1166,7 +1087,6 @@
 		};
 		BE36CFB52BAFF58A0017F94E /* DEV */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1181,7 +1101,7 @@
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_NAME)";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = SplashErrorViewController;
+				INFOPLIST_KEY_UILaunchStoryboardName = Launch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -1189,11 +1109,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "$(APP_VERSION)";
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.TTOON.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEV;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEV;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1202,7 +1123,6 @@
 		};
 		BE36CFB62BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1215,7 +1135,7 @@
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_NAME)";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = SplashErrorViewController;
+				INFOPLIST_KEY_UILaunchStoryboardName = Launch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -1223,8 +1143,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "$(APP_VERSION)";
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.TTOON.prod;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = PROD;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1235,7 +1156,6 @@
 		};
 		BE36CFB82BAFF58A0017F94E /* DEV */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1255,7 +1175,6 @@
 		};
 		BE36CFB92BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1275,7 +1194,6 @@
 		};
 		BE36CFBB2BAFF58A0017F94E /* DEV */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1293,7 +1211,6 @@
 		};
 		BE36CFBC2BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1311,7 +1228,7 @@
 		};
 		BEFECEEF2BC6B2E10023B37C /* STAG */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */;
+			baseConfigurationReference = 4883564D2BEF42AB005DC0A6 /* Stag.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1376,7 +1293,6 @@
 		};
 		BEFECEF02BC6B2E10023B37C /* STAG */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1390,7 +1306,7 @@
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_NAME)";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = SplashErrorViewController;
+				INFOPLIST_KEY_UILaunchStoryboardName = Launch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -1398,8 +1314,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "$(APP_VERSION)";
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "--BUNDLE-IDENTIFIER-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = STAG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1410,7 +1327,6 @@
 		};
 		BEFECEF12BC6B2E10023B37C /* STAG */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1430,7 +1346,6 @@
 		};
 		BEFECEF22BC6B2E10023B37C /* STAG */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
