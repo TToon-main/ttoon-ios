@@ -5,22 +5,19 @@
 //  Created by Dongwan Ryoo on 3/24/24.
 //
 
+import GoogleSignIn
+import KakaoSDKAuth
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
 
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) { 
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        
-        let repo = SplashRepository()
-        let useCase = SplashUseCase(splashRepository: repo)
-        let reactor = SplashReactor(splashUseCase: useCase)
-        let vc = SplashViewController(splashReactor: reactor)
-        
-        window?.rootViewController = vc
+        let vc = LoginViewController()
+        window?.rootViewController = UINavigationController(rootViewController: vc)
         window?.makeKeyAndVisible()
     }
 
@@ -50,5 +47,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+            if AuthApi.isKakaoTalkLoginUrl(url) {
+                _ = AuthController.handleOpenUrl(url: url)
+            }
+            
+            else {
+                _ = GIDSignIn.sharedInstance.handle(url)
+            }
+        }
     }
 }

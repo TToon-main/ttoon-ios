@@ -22,5 +22,7 @@ class BaseView: UIView {
     
     func addSubViews() { }
     func layouts() { }
-    func configures() { }
+    func configures() { 
+        self.backgroundColor = .white
+    }
 }
