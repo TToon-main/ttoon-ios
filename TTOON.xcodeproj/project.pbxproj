@@ -82,15 +82,22 @@
 		BE9BBC492BCA5809006FD848 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC482BCA5809006FD848 /* UIColor+.swift */; };
 		BE9BBC4A2BCA5809006FD848 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC482BCA5809006FD848 /* UIColor+.swift */; };
 		BE9BBC4B2BCA5809006FD848 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC482BCA5809006FD848 /* UIColor+.swift */; };
+		BEA33A242BD6AA320065D60C /* SplashErrorReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA33A232BD6AA320065D60C /* SplashErrorReactor.swift */; };
 		BEA8BB512BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB522BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB532BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
+		BEB456822BD15BCB007F5EEC /* SplashRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4567E2BD15BCB007F5EEC /* SplashRepositoryProtocol.swift */; };
+		BEB456832BD15BCB007F5EEC /* SplashUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB456812BD15BCB007F5EEC /* SplashUseCase.swift */; };
+		BEB456872BD15C06007F5EEC /* SplashRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB456862BD15C06007F5EEC /* SplashRepository.swift */; };
+		BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */; };
+		BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4568B2BD16572007F5EEC /* SplashReactor.swift */; };
 		BEDF4E4D2BB709770034FF79 /* Stag.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */; };
 		BEDF4E4E2BB709770034FF79 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */; };
 		BEDF4E4F2BB709770034FF79 /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */; };
 		BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E502BB70A0C0034FF79 /* .gitignore */; };
 		BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */; };
 		BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */; };
+		BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8D8172BDFC7880095674D /* TNUrl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,16 +151,22 @@
 		BE9BBC3E2BCA5455006FD848 /* TNFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNFont.swift; sourceTree = "<group>"; };
 		BE9BBC432BCA552F006FD848 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		BE9BBC482BCA5809006FD848 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
-		BE9BBC4C2BCA5C79006FD848 /* Presetation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Presetation; path = "/Users/dongwanryoo/프로젝트/ttoon-ios/TTOON/Presetation"; sourceTree = "<absolute>"; };
+		BEA33A232BD6AA320065D60C /* SplashErrorReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashErrorReactor.swift; sourceTree = "<group>"; };
 		BEA8BB542BB86351000F9C15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEA8BB562BB86361000F9C15 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEA8BB572BB86385000F9C15 /* localize.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = localize.py; sourceTree = "<group>"; };
+		BEB4567E2BD15BCB007F5EEC /* SplashRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashRepositoryProtocol.swift; sourceTree = "<group>"; };
+		BEB456812BD15BCB007F5EEC /* SplashUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashUseCase.swift; sourceTree = "<group>"; };
+		BEB456862BD15C06007F5EEC /* SplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRepository.swift; sourceTree = "<group>"; };
+		BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		BEB4568B2BD16572007F5EEC /* SplashReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashReactor.swift; sourceTree = "<group>"; };
 		BEDF4E4A2BB709770034FF79 /* Stag.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stag.xcconfig; sourceTree = "<group>"; };
 		BEDF4E4B2BB709770034FF79 /* Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		BEDF4E4C2BB709770034FF79 /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
 		BEDF4E502BB70A0C0034FF79 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashErrorViewController.swift; sourceTree = "<group>"; };
+		BEF8D8172BDFC7880095674D /* TNUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNUrl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,33 +223,6 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		489FE2B92BC00EA10033B61D /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				489FE2D72BC012580033B61D /* Entity */,
-				489FE2D62BC012540033B61D /* UseCase */,
-				489FE2D52BC012500033B61D /* Interface */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		489FE2BB2BC00EB00033B61D /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				489FE2D32BC012100033B61D /* UserDefaults */,
-				489FE2D22BC0120C0033B61D /* Keychain */,
-				489FE2D12BC012090033B61D /* Network */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		489FE2BC2BC00EC30033B61D /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		489FE2BD2BC00EC90033B61D /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,81 +254,6 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		489FE2D12BC012090033B61D /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		489FE2D22BC0120C0033B61D /* Keychain */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Keychain;
-			sourceTree = "<group>";
-		};
-		489FE2D32BC012100033B61D /* UserDefaults */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UserDefaults;
-			sourceTree = "<group>";
-		};
-		489FE2D52BC012500033B61D /* Interface */ = {
-			isa = PBXGroup;
-			children = (
-				BE9BBC4C2BCA5C79006FD848 /* Presetation */,
-				489FE2D82BC012650033B61D /* Repository */,
-			);
-			path = Interface;
-			sourceTree = "<group>";
-		};
-		489FE2D62BC012540033B61D /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-				489FE2DA2BC012790033B61D /* Auth */,
-			);
-			path = UseCase;
-			sourceTree = "<group>";
-		};
-		489FE2D72BC012580033B61D /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				489FE2DB2BC0127F0033B61D /* Auth */,
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		489FE2D82BC012650033B61D /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				489FE2D92BC012700033B61D /* Auth */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		489FE2D92BC012700033B61D /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		489FE2DA2BC012790033B61D /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		489FE2DB2BC0127F0033B61D /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
 		BE36CF812BAFF5890017F94E = {
 			isa = PBXGroup;
 			children = (
@@ -372,9 +283,9 @@
 				BE840DC42BBD9263000E67B7 /* Resource */,
 				489FE2BD2BC00EC90033B61D /* Application */,
 				BEF48D5C2BCA5CCC0056E31E /* Presentation */,
-				489FE2B92BC00EA10033B61D /* Domain */,
-				489FE2BB2BC00EB00033B61D /* Data */,
-				489FE2BC2BC00EC30033B61D /* Network */,
+				BEB4567C2BD15BCB007F5EEC /* Domain */,
+				BEB456842BD15BFA007F5EEC /* Data */,
+				BEB456882BD15EAB007F5EEC /* Network */,
 			);
 			path = TTOON;
 			sourceTree = "<group>";
@@ -431,6 +342,7 @@
 			children = (
 				BE9BBC3E2BCA5455006FD848 /* TNFont.swift */,
 				BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */,
+				BEF8D8172BDFC7880095674D /* TNUrl.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -452,6 +364,63 @@
 				BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		BEB4567C2BD15BCB007F5EEC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				BEB4567D2BD15BCB007F5EEC /* Interface */,
+				BEB4567F2BD15BCB007F5EEC /* Entity */,
+				BEB456802BD15BCB007F5EEC /* UseCase */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		BEB4567D2BD15BCB007F5EEC /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				BEB4567E2BD15BCB007F5EEC /* SplashRepositoryProtocol.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		BEB4567F2BD15BCB007F5EEC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		BEB456802BD15BCB007F5EEC /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				BEB456812BD15BCB007F5EEC /* SplashUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		BEB456842BD15BFA007F5EEC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BEB456852BD15BFA007F5EEC /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		BEB456852BD15BFA007F5EEC /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				BEB456862BD15C06007F5EEC /* SplashRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		BEB456882BD15EAB007F5EEC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		BEDF4E492BB709770034FF79 /* Config */ = {
@@ -491,6 +460,8 @@
 		BEF48D632BCA5D2B0056E31E /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				BEB4568B2BD16572007F5EEC /* SplashReactor.swift */,
+				BEA33A232BD6AA320065D60C /* SplashErrorReactor.swift */,
 				BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */,
 				BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */,
 			);
@@ -754,16 +725,23 @@
 				BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
 				BE9BBC442BCA552F006FD848 /* UIFont+.swift in Sources */,
+				BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */,
 				489FE2CE2BC010EB0033B61D /* Coordinator.swift in Sources */,
 				489FE2C12BC00F700033B61D /* BaseView.swift in Sources */,
+				BEB456832BD15BCB007F5EEC /* SplashUseCase.swift in Sources */,
 				BE9BBC3F2BCA5455006FD848 /* TNFont.swift in Sources */,
+				BEB456822BD15BCB007F5EEC /* SplashRepositoryProtocol.swift in Sources */,
+				BEA33A242BD6AA320065D60C /* SplashErrorReactor.swift in Sources */,
 				489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */,
 				BE9BBC492BCA5809006FD848 /* UIColor+.swift in Sources */,
+				BEB456872BD15C06007F5EEC /* SplashRepository.swift in Sources */,
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
+				BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
+				BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */,
 				489FE2C72BC00F9F0033B61D /* BaseTableViewCell.swift in Sources */,
 				BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */,
 			);
