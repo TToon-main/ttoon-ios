@@ -10,11 +10,10 @@ import UIKit
 
 
 class LoginView: BaseView {
-    // MARK: - UI Properties
-    let appleLoginButton = UIButton()
-    let kakaoLoginButton = UIButton()
-    let googleLoginButton = UIButton()
-    
+    // MARK: - UI Components
+    let appleLoginButton = SocialLoginButton(socialLoginType: .apple)
+    let kakaoLoginButton = SocialLoginButton(socialLoginType: .kakao)
+    let googleLoginButton = SocialLoginButton(socialLoginType: .google)
     
     
     // MARK: - Set UI
@@ -29,20 +28,21 @@ class LoginView: BaseView {
     override func layouts() {
         super.layouts()
         
-        appleLoginButton.snp.makeConstraints { make in
-            make.top.equalTo(self).inset(50)
+        googleLoginButton.snp.makeConstraints { make in
+            make.bottom.equalTo(self).inset(72)
+            make.top.equalTo(kakaoLoginButton.snp.bottom).offset(-12)
             make.horizontalEdges.equalTo(self).inset(16)
             make.height.equalTo(50)
         }
         
         kakaoLoginButton.snp.makeConstraints { make in
-            make.top.equalTo(appleLoginButton.snp.bottom).offset(12)
+            make.bottom.equalTo(googleLoginButton.snp.top).offset(-12)
             make.horizontalEdges.equalTo(self).inset(16)
             make.height.equalTo(50)
         }
         
-        googleLoginButton.snp.makeConstraints { make in
-            make.top.equalTo(kakaoLoginButton.snp.bottom).offset(12)
+        appleLoginButton.snp.makeConstraints { make in
+            make.bottom.equalTo(kakaoLoginButton.snp.top).offset(-12)
             make.horizontalEdges.equalTo(self).inset(16)
             make.height.equalTo(50)
         }
@@ -51,11 +51,6 @@ class LoginView: BaseView {
     override func configures() {
         super.configures()
         
-        self.backgroundColor = .purple
-        
-        
-        appleLoginButton.backgroundColor = .black
-        kakaoLoginButton.backgroundColor = .yellow
-        googleLoginButton.backgroundColor = .blue
+        self.backgroundColor = .white
     }
 }
