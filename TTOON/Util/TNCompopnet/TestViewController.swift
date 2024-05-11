@@ -30,11 +30,28 @@ final class TestViewController: BaseViewController {
     
     private lazy var confirmTestButton = {
         let view = TNAlertButton()
-        view.setTitle("테스트", for: .normal)
+        view.setTitle("얼럿", for: .normal)
         view.type = .confirm
+        view.addTarget(self, action: #selector(confirmTestButtonTap), for: .touchUpInside)
         
         return view
     }()
+    
+    private lazy var testSwitch = {
+        let view = TNSwitch()
+        
+        return view
+    }()
+    
+    @objc
+    func confirmTestButtonTap() {
+        TNAlert(viewController: self)
+            .setTitle("setTitle")
+            .setSubTitle("setSubTitle")
+            .addCancelAction("취소", action: nil)
+            .addConfirmAction("확인", action: nil)
+            .present()
+    }
     
     override func configures() {
         view.backgroundColor = .white
@@ -44,6 +61,7 @@ final class TestViewController: BaseViewController {
         view.addSubview(testButton)
         view.addSubview(cancelTestButton)
         view.addSubview(confirmTestButton)
+        view.addSubview(testSwitch)
     }
     
     override func layouts() {
@@ -63,5 +81,9 @@ final class TestViewController: BaseViewController {
             .hCenter()
             .width(141)
             .height(56)
+        
+        testSwitch.pin
+            .top(to: confirmTestButton.edge.bottom)
+            .hCenter()
     }
 }

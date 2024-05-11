@@ -68,6 +68,10 @@
 		BE36CFAF2BAFF58A0017F94E /* TTOONUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CFAE2BAFF58A0017F94E /* TTOONUITests.swift */; };
 		BE36CFB12BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */; };
 		BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */; };
+		BE6011712BEF316D00F8FCEA /* TNSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6011702BEF316D00F8FCEA /* TNSwitch.swift */; };
+		BE6011732BEF348500F8FCEA /* TNAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6011722BEF348500F8FCEA /* TNAlertViewController.swift */; };
+		BE6011752BEF34A300F8FCEA /* TNAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6011742BEF34A300F8FCEA /* TNAlertView.swift */; };
+		BE77224B2BEF499F007CDC17 /* TNAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77224A2BEF499F007CDC17 /* TNAlert.swift */; };
 		BE7C8C112BE8F258005F2FB2 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */; };
 		BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */; };
 		BE7C8C152BE8F2F1005F2FB2 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C142BE8F2F1005F2FB2 /* BaseURL.swift */; };
@@ -199,6 +203,10 @@
 		BE36CFAE2BAFF58A0017F94E /* TTOONUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTOONUITests.swift; sourceTree = "<group>"; };
 		BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTOONUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNImage.swift; sourceTree = "<group>"; };
+		BE6011702BEF316D00F8FCEA /* TNSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNSwitch.swift; sourceTree = "<group>"; };
+		BE6011722BEF348500F8FCEA /* TNAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNAlertViewController.swift; sourceTree = "<group>"; };
+		BE6011742BEF34A300F8FCEA /* TNAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNAlertView.swift; sourceTree = "<group>"; };
+		BE77224A2BEF499F007CDC17 /* TNAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNAlert.swift; sourceTree = "<group>"; };
 		BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAPI.swift; sourceTree = "<group>"; };
 		BE7C8C142BE8F2F1005F2FB2 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
@@ -380,6 +388,10 @@
 				BE32E3112BEBAFE500F0C193 /* TNButton.swift */,
 				BE32E3182BEBBD1300F0C193 /* TNAlertButton.swift */,
 				BE32E3162BEBB94E00F0C193 /* TestViewController.swift */,
+				BE6011702BEF316D00F8FCEA /* TNSwitch.swift */,
+				BE6011722BEF348500F8FCEA /* TNAlertViewController.swift */,
+				BE6011742BEF34A300F8FCEA /* TNAlertView.swift */,
+				BE77224A2BEF499F007CDC17 /* TNAlert.swift */,
 			);
 			path = TNCompopnet;
 			sourceTree = "<group>";
@@ -958,6 +970,7 @@
 			files = (
 				BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */,
 				BE32E3192BEBBD1300F0C193 /* TNAlertButton.swift in Sources */,
+				BE6011732BEF348500F8FCEA /* TNAlertViewController.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
 				BE9BBC442BCA552F006FD848 /* UIFont+.swift in Sources */,
 				BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */,
@@ -972,6 +985,7 @@
 				BEB456822BD15BCB007F5EEC /* SplashRepositoryProtocol.swift in Sources */,
 				BE32E3172BEBB94E00F0C193 /* TestViewController.swift in Sources */,
 				BEA33A242BD6AA320065D60C /* SplashErrorReactor.swift in Sources */,
+				BE6011752BEF34A300F8FCEA /* TNAlertView.swift in Sources */,
 				489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */,
 				489730E52BF1CA3B0026706C /* ResponseDTO.swift in Sources */,
 				48D979F72BEF459F0087F870 /* LoginView.swift in Sources */,
@@ -985,6 +999,7 @@
 				489730DE2BF0E5B80026706C /* LoginAPI.swift in Sources */,
 				BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */,
 				BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */,
+				BE77224B2BEF499F007CDC17 /* TNAlert.swift in Sources */,
 				489730E22BF0E8840026706C /* AuthDTO.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
 				BE7C8C152BE8F2F1005F2FB2 /* BaseURL.swift in Sources */,
@@ -996,6 +1011,7 @@
 				BE7C8C172BE8FD50005F2FB2 /* AuthInterceptor.swift in Sources */,
 				BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */,
 				BE7C8C112BE8F258005F2FB2 /* APIProvider.swift in Sources */,
+				BE6011712BEF316D00F8FCEA /* TNSwitch.swift in Sources */,
 				489FE2C72BC00F9F0033B61D /* BaseTableViewCell.swift in Sources */,
 				BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */,
 				48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */,
