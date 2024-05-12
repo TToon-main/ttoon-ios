@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Google.png",
+      "filename" : "socialLoginImage_apple.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "socialLoginImage_apple@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "socialLoginImage_apple@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
