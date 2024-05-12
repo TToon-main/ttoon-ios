@@ -22,8 +22,9 @@ final class TestViewController: BaseViewController {
     
     private lazy var cancelTestButton = {
         let view = TNAlertButton()
-        view.setTitle("테스트", for: .normal)
+        view.setTitle("바텀 시트", for: .normal)
         view.type = .cancel
+        view.addTarget(self, action: #selector(cancelTestButtonTap), for: .touchUpInside)
         
         return view
     }()
@@ -42,6 +43,19 @@ final class TestViewController: BaseViewController {
         
         return view
     }()
+    
+    @objc
+    func cancelTestButtonTap() {
+        let viewControllerToPresent = TNSheetViewController()
+        viewControllerToPresent.contentTableViewDataSource = ["1", "2", "3"]
+        
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.prefersGrabberVisible = true
+        }
+        
+        present(viewControllerToPresent, animated: true)
+    }
     
     @objc
     func confirmTestButtonTap() {
