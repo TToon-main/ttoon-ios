@@ -9,7 +9,6 @@ import Foundation
 
 // 서버 응답 성공 (데이터 존재 o)
 struct ResponseSuccessDTO<T: Codable>: Codable {
-    
     let isSuccess: Bool
     let code: String
     let message: String
