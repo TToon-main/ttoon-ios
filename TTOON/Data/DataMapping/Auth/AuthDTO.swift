@@ -22,3 +22,13 @@ struct LoginResponseDTO: Codable {
     let refreshToken: String
     let isGuest: Bool
 }
+
+extension LoginResponseDTO {
+    func toDomain() -> LoginResponseModel {
+        return .init(
+            accessToken: accessToken,
+            refreshToken: refreshToken,
+            isGuest: isGuest
+        )
+    }
+}
