@@ -10,7 +10,7 @@ import RxSwift
 import UIKit
 
 protocol LoginRepositoryProtocol {
-    func appleLoginRequest()
-    func kakaoLoginRequest()
-    func googleLoginRequest(withPresentingVC: UIViewController)
+    func appleLoginRequest() -> PublishSubject<Result<LoginResponseModel, Error>>
+    func kakaoLoginRequest() -> PublishSubject<Result<LoginResponseModel, Error>>
+    func googleLoginRequest(withPresentingVC: UIViewController) -> PublishSubject<Result<LoginResponseModel, Error>>
 }

@@ -39,8 +39,8 @@ extension LoginAPI: TargetType {
         case .socialLogin(let dto):
             let params: [String: String] = [
                 "provider": dto.provider,
-                "providerId": dto.providerID// ,
-//                "email": dto.email
+                "providerId": dto.providerID,
+                "email": dto.email
             ]
             return .requestParameters(parameters: params, encoding: JSONEncoding.prettyPrinted)
         }
