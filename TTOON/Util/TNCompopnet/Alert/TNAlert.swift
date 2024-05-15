@@ -12,15 +12,16 @@ struct AlertButtonAction {
     var action: (() -> Void)?
 }
 
-class TNAlert {
-    private let baseViewController: UIViewController
-    private let alertViewController = TNAlertViewController()
+final class TNAlert {
     private var titleMessage: String?
     private var subTitleMessage: String?
     private var cancelAction: AlertButtonAction?
     private var confirmAction: AlertButtonAction?
     
-    init(viewController: UIViewController) {
+    private let baseViewController: UIViewController
+    private let alertViewController = TNAlertViewController()
+    
+    init(_ viewController: UIViewController) {
         baseViewController = viewController
     }
 

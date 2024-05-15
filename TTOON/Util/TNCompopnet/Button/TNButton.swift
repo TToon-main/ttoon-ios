@@ -15,7 +15,7 @@ class TNButton: UIButton {
     
     override var isEnabled: Bool {
         didSet {
-            setBackgroundColor(isEnabled)
+            setBackgroundColor(!isEnabled)
         }
     }
     

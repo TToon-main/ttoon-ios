@@ -17,17 +17,21 @@ protocol SelectedIndexDelegate: AnyObject {
 }
 
 class TNSheetViewController: BaseViewController {
-    lazy var contentTableViewDataSource: [String] = []
-    var selectedIndex: IndexPath?
-    
     private let disposeBag = DisposeBag()
     weak var delegate: SelectedIndexDelegate?
+    
+    lazy var contentTableViewDataSource: [String] = [] {
+        didSet {
+            contentTableView.reloadData()
+        }
+    }
+    
+    var selectedIndex: IndexPath? 
     
     lazy var titleLabel = {
         let view = UILabel()
         view.font = .title20b
         view.textColor = .black
-        view.text = "샘플"
         
         return view
     }()
@@ -38,18 +42,19 @@ class TNSheetViewController: BaseViewController {
         view.delegate = self
         view.dataSource = self
         view.bounces = false
+        view.showsVerticalScrollIndicator = false
+        view.separatorStyle = .none
         
         return view
     }()
     
     lazy var confirmButton = {
         let view = TNButton()
-        view.setTitle("확인", for: .normal)
         
         return view
     }()
     
-    private lazy var container = {
+    lazy var container = {
         let view = UIView()
         view.backgroundColor = .clear
         
@@ -64,9 +69,19 @@ class TNSheetViewController: BaseViewController {
     func bind() {
         confirmButton.rx.tap
             .subscribe(with: self) { owner, _ in
+                owner.delegate?.selectedIndex(index: owner.selectedIndex?.row ?? 0)
                 owner.dismiss(animated: true)
             }
             .disposed(by: disposeBag)
+        
+        if confirmButton.isHidden {
+            contentTableView.rx.itemSelected
+                .subscribe(with: self) { owner, indexPath in
+                    owner.delegate?.selectedIndex(index: indexPath.row)
+                    owner.dismiss(animated: true)
+                }
+                .disposed(by: disposeBag)
+        } 
     }
     
     override func addSubViews() {
@@ -94,12 +109,14 @@ class TNSheetViewController: BaseViewController {
                 flex.addItem(contentTableView)
                     .marginTop(44)
                     .marginHorizontal(20)
+                    .marginBottom(16)
                     .alignItems(.center)
-                    .grow(1)
+                    .shrink(1) // 줄이기
+                    .grow(1) 
                 
                 flex.addItem(confirmButton)
-                    .marginTop(41)
                     .marginHorizontal(16)
+                    .marginBottom(16)
                     .height(56)
                     .alignItems(.center)
             }
@@ -116,6 +133,12 @@ extension TNSheetViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
+        if let selectedIndex = self.selectedIndex {
+            if selectedIndex == indexPath {
+                cell.isChecked.toggle()
+            }  
+        }
+        
         cell.titleLabel.text = contentTableViewDataSource[indexPath.row]
         return cell
     }
@@ -126,13 +149,12 @@ extension TNSheetViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         if let selectedIndex = self.selectedIndex,
-            let prevCell = tableView.cellForRow(at: selectedIndex) as? TNSheetCell {
+           let prevCell = tableView.cellForRow(at: selectedIndex) as? TNSheetCell {
             prevCell.isChecked.toggle()
         }
         
         self.selectedIndex = indexPath
         cell.isChecked.toggle()
-        delegate?.selectedIndex(index: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
