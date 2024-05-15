@@ -15,18 +15,17 @@ import KakaoSDKAuth
 import KakaoSDKCommon
 import KakaoSDKUser
 
-enum SampleError: Error {
-    case a
+enum LoginError: Error {
+    case appleError // 애플 서버 에러
+    case kakaoError // 카카오 서버 에러
+    case googleError // 구글 서버 에러
+    case ttoonError // TToon 서버 에러
+    case otherError(description: String) // 기타
 }
 
 
 
 class LoginRepository: NSObject, LoginRepositoryProtocol {
-//    // 애플 로그인의 경우, delegate로 새로운 메서드를 호출하기 때문에 리턴값 대신 프로퍼티를 통해 결과 전달
-//    // 전달 방법에 대해 좀 더 고민 필요
-//    let resultAppleLogin = PublishSubject<Result<Int, SampleError> >()
-    
-    
     // 소셜 로그인 결과 전달하는 방법에 대해 고민 필요
     private var loginResult = PublishSubject<Result<LoginResponseModel, Error>>()
     
@@ -55,10 +54,12 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
             UserApi.shared.loginWithKakaoTalk { oauthToken, error  in
                 if let error {
                     print("kakao login error : \(error.localizedDescription)")
+                    self.loginResult.onNext(.failure(LoginError.kakaoError))
                 } else {
                     UserApi.shared.me { [weak self] user, error  in
                         if let error {
                             print("kakao user info error : \(error.localizedDescription)")
+                            self?.loginResult.onNext(.failure(LoginError.kakaoError))
                         } else {
                             guard let id = user?.id, let email = user?.kakaoAccount?.email else { return }
                             print("카카오 유저 아이디 : \(id)")
@@ -74,10 +75,12 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
             UserApi.shared.loginWithKakaoAccount { oauthToken, error  in
                 if let error {
                     print("kakao login error : \(error.localizedDescription)")
+                    self.loginResult.onNext(.failure(LoginError.kakaoError))
                 } else {
                     UserApi.shared.me { [weak self] user, error  in
                         if let error {
                             print("kakao user info error : \(error.localizedDescription)")
+                            self?.loginResult.onNext(.failure(LoginError.kakaoError))
                         } else {
                             guard let id = user?.id, let email = user?.kakaoAccount?.email else { return }
                             print("카카오 유저 아이디 : \(id)")
@@ -91,7 +94,6 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
             }
         }
         
-        // 카카오 로그인에 대한 실패 케이스 예외처리 필요.
         
         return loginResult
     }
@@ -105,6 +107,7 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
         GIDSignIn.sharedInstance.signIn(withPresenting: withPresentingVC) { result, error in
             if let error {
                 print("google login error : \(error)")
+                self.loginResult.onNext(.failure(LoginError.googleError))
             } else {
                 guard let id = result?.user.userID, let email = result?.user.profile?.email else { return }
                 
@@ -140,6 +143,7 @@ extension LoginRepository: ASAuthorizationControllerDelegate {
             let requestDTO = LoginRequestDTO(provider: "APPLE", providerID: String(id), email: email)
             self.loginRequest(requestDTO)
         } else {
+            self.loginResult.onNext(.failure(LoginError.appleError))
         }
     }
     
@@ -147,6 +151,8 @@ extension LoginRepository: ASAuthorizationControllerDelegate {
     // apple login failure
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print("login failure")
+        
+        self.loginResult.onNext(.failure(LoginError.appleError))
     }
 }
 
@@ -158,20 +164,17 @@ extension LoginRepository {
             .socialLogin(dto: requestDTO)) { result in
                 switch result {
                 case .success(let response):
-                    // 통신을 해보면, 성공 실패 모두 여기로 응답이 온다. (200, 401)
-                    
-                    print("statusCode : ", response.statusCode)
-                    
-                    // 성공
-                    if let data = try? response.map(ResponseSuccessDTO<LoginResponseDTO>.self) {
-                        // 결과 VM으로 전달
-                        self.loginResult.onNext(.success(data.data.toDomain()))
-                    }
-                    
-                    // 실패
-                    else {
-                        // 결과 VM으로 전달
-                        self.loginResult.onNext(.failure(SampleError.a))
+                    // Moya는 서버와 통신 자체가 성공하기만 하면 success
+                    // 응답 데이터 디코딩
+                    if let data = try? response.map(ResponseDTO<LoginResponseDTO>.self) {
+                        // 성공
+                        if data.isSuccess, let responseData = data.data {
+                            self.loginResult.onNext(.success(responseData.toDomain()))
+                        }
+                        // 실패
+                        else {
+                            self.loginResult.onNext(.failure(LoginError.ttoonError))
+                        }
                     }
                         
                 case .failure(let error):
@@ -179,7 +182,7 @@ extension LoginRepository {
                     print(error.localizedDescription)
                     
                     // 결과 VM으로 전달
-                    self.loginResult.onNext(.failure(error))
+                    self.loginResult.onNext(.failure(LoginError.otherError(description: error.localizedDescription)))
                 }
         }
     }
