@@ -96,10 +96,12 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
             UserApi.shared.loginWithKakaoAccount { oauthToken, error  in
                 if let error {
                     print("kakao login error : \(error.localizedDescription)")
+                    self.loginResult.onNext(.failure(LoginError.kakaoError))
                 } else {
                     UserApi.shared.me { [weak self] user, error  in
                         if let error {
                             print("kakao user info error : \(error.localizedDescription)")
+                            self?.loginResult.onNext(.failure(LoginError.kakaoError))
                         } else {
                             guard let id = user?.id, let email = user?.kakaoAccount?.email else { return }
                             print("카카오 유저 아이디 : \(id)")
@@ -170,6 +172,8 @@ extension LoginRepository: ASAuthorizationControllerDelegate {
     // apple login failure
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print("login failure")
+        
+        self.loginResult.onNext(.failure(LoginError.appleError))
     }
 }
 
@@ -181,20 +185,17 @@ extension LoginRepository {
             .socialLogin(dto: requestDTO)) { result in
                 switch result {
                 case .success(let response):
-                    // 통신을 해보면, 성공 실패 모두 여기로 응답이 온다. (200, 401)
-                    
-                    print("statusCode : ", response.statusCode)
-                    
-                    // 성공
-                    if let data = try? response.map(ResponseSuccessDTO<LoginResponseDTO>.self) {
-                        // 결과 VM으로 전달
-                        self.loginResult.onNext(.success(data.data.toDomain()))
-                    }
-                    
-                    // 실패
-                    else {
-                        // 결과 VM으로 전달
-                        self.loginResult.onNext(.failure(SampleError.a))
+                    // Moya는 서버와 통신 자체가 성공하기만 하면 success
+                    // 응답 데이터 디코딩
+                    if let data = try? response.map(ResponseDTO<LoginResponseDTO>.self) {
+                        // 성공
+                        if data.isSuccess, let responseData = data.data {
+                            self.loginResult.onNext(.success(responseData.toDomain()))
+                        }
+                        // 실패
+                        else {
+                            self.loginResult.onNext(.failure(LoginError.ttoonError))
+                        }
                     }
                         
                 case .failure(let error):
@@ -202,7 +203,7 @@ extension LoginRepository {
                     print(error.localizedDescription)
                     
                     // 결과 VM으로 전달
-                    self.loginResult.onNext(.failure(error))
+                    self.loginResult.onNext(.failure(LoginError.otherError(description: error.localizedDescription)))
                 }
         }
     }
