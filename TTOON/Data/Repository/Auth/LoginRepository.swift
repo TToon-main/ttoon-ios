@@ -50,8 +50,28 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
     func kakaoLoginRequest() -> PublishSubject<Result<LoginResponseModel, Error>> {
         loginResult = PublishSubject<Result<LoginResponseModel, Error>>()
         
+        // 카카오톡 설치 여부 확인
         if UserApi.isKakaoTalkLoginAvailable() {
             UserApi.shared.loginWithKakaoTalk { oauthToken, error  in
+                if let error {
+                    print("kakao login error : \(error.localizedDescription)")
+                } else {
+                    UserApi.shared.me { [weak self] user, error  in
+                        if let error {
+                            print("kakao user info error : \(error.localizedDescription)")
+                        } else {
+                            guard let id = user?.id, let email = user?.kakaoAccount?.email else { return }
+                            print("카카오 유저 아이디 : \(id)")
+                            print("카카오 유저 이메일 : \(email)")
+                            
+                            let requestDTO = LoginRequestDTO(provider: "KAKAO", providerID: String(id), email: email)
+                            self?.loginRequest(requestDTO)
+                        }
+                    }
+                }
+            }
+        } else {
+            UserApi.shared.loginWithKakaoAccount { oauthToken, error  in
                 if let error {
                     print("kakao login error : \(error.localizedDescription)")
                 } else {
@@ -144,8 +164,6 @@ extension LoginRepository {
                     
                     // 성공
                     if let data = try? response.map(ResponseSuccessDTO<LoginResponseDTO>.self) {
-                        print("성공 : ", data)
-                        
                         // 결과 VM으로 전달
                         self.loginResult.onNext(.success(data.data.toDomain()))
                     }
@@ -170,7 +188,7 @@ extension LoginRepository {
 
 // MARK: - private func
 extension LoginRepository {
-    // jwt token decoding
+    // decode email from JWT
     private func decode(jwtToken jwt: String) -> [String: Any] {
         func base64UrlDecode(_ value: String) -> Data? {
             var base64 = value

@@ -36,13 +36,12 @@ class LoginViewModel {
                 self.loginUseCase.appleLoginRequest()
             }
             .subscribe(with: self) { owner, response in
-                print("애플 로그인 response : ", response)
                 switch response {
                 case .success(let data):
-                    print("성공 : ", data)
+                    print("애플 로그인 성공 : ", data)
                     
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    print("애플 로그인 실패 : ", error.localizedDescription)
                 }
             }
             .disposed(by: disposeBag)
@@ -54,14 +53,12 @@ class LoginViewModel {
                 self.loginUseCase.kakaoLoginRequest()
             }
             .subscribe(with: self) { owner, response in
-                print("카카오 로그인 response : ", response)
-                
                 switch response {
                 case .success(let data):
-                    print("성공 : ", data)
+                    print("카카오 로그인 성공 : ", data)
                     
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    print("카카오 로그인 실패 : ", error.localizedDescription)
                 }
             }
             .disposed(by: disposeBag)
@@ -73,14 +70,12 @@ class LoginViewModel {
                 self.loginUseCase.googleLoginRequest(withPresentingVC: input.presentingVC)
             }
             .subscribe(with: self) { owner, response in
-                print("구글 로그인 response : ", response)
-                
                 switch response {
                 case .success(let data):
-                    print("성공 : ", data)
+                    print("구글 로그인 성공 : ", data)
                     
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    print("구글 로그인 실패 : ", error.localizedDescription)
                 }
             }
             .disposed(by: disposeBag)
