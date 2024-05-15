@@ -92,6 +92,25 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
                     }
                 }
             }
+        } else {
+            UserApi.shared.loginWithKakaoAccount { oauthToken, error  in
+                if let error {
+                    print("kakao login error : \(error.localizedDescription)")
+                } else {
+                    UserApi.shared.me { [weak self] user, error  in
+                        if let error {
+                            print("kakao user info error : \(error.localizedDescription)")
+                        } else {
+                            guard let id = user?.id, let email = user?.kakaoAccount?.email else { return }
+                            print("카카오 유저 아이디 : \(id)")
+                            print("카카오 유저 이메일 : \(email)")
+                            
+                            let requestDTO = LoginRequestDTO(provider: "KAKAO", providerID: String(id), email: email)
+                            self?.loginRequest(requestDTO)
+                        }
+                    }
+                }
+            }
         }
         
         
@@ -168,8 +187,6 @@ extension LoginRepository {
                     
                     // 성공
                     if let data = try? response.map(ResponseSuccessDTO<LoginResponseDTO>.self) {
-                        print("성공 : ", data)
-                        
                         // 결과 VM으로 전달
                         self.loginResult.onNext(.success(data.data.toDomain()))
                     }
