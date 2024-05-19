@@ -9,6 +9,7 @@ import UIKit
 
 final class TNBottomSheet {
     private var title: String?
+    private var confirmButtonTitle: String? = "확인"
     private var hiddenConfirmBtn: Bool?
     private var height: CGFloat?
     private var dataSource: [String]?
@@ -23,6 +24,11 @@ final class TNBottomSheet {
     
     func setTitle(_ text: String) -> Self {
         title = text
+        return self
+    }
+    
+    func setConfirmButtonTitle(_ text: String) -> Self {
+        confirmButtonTitle = text
         return self
     }
     
@@ -60,6 +66,7 @@ final class TNBottomSheet {
     func present() -> Self {
         sheetViewController.confirmButton.isHidden = hiddenConfirmBtn ?? false
         sheetViewController.titleLabel.text = title
+        sheetViewController.confirmButton.setTitle(confirmButtonTitle, for: .normal)
         sheetViewController.contentTableViewDataSource = dataSource ?? []
         
         if let selectedIndex {

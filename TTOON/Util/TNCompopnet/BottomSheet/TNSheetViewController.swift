@@ -55,8 +55,12 @@ class TNSheetViewController: BaseViewController {
     }()
     
     lazy var container = {
-        let view = UIView()
+        let view = UIStackView()
         view.backgroundColor = .clear
+        view.axis = .vertical
+        view.spacing = 44
+        view.addArrangedSubview(titleLabel)
+        view.addArrangedSubview(contentTableView)
         
         return view
     }()
@@ -86,40 +90,28 @@ class TNSheetViewController: BaseViewController {
     
     override func addSubViews() {
         view.addSubview(container)
+        view.addSubview(confirmButton)
     }
-    
+
     override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        container.pin
-            .all(view.pin.safeArea)
-        
-        container.flex.layout(mode: .fitContainer)
-    }
-    
-    override func layouts() {
-        container.flex
-            .direction(.column)
-            .define { flex in
-                flex.addItem(titleLabel)
-                    .marginTop(44)
-                    .marginHorizontal(21)
-                    .alignItems(.start)
-                
-                flex.addItem(contentTableView)
-                    .marginTop(44)
-                    .marginHorizontal(20)
-                    .marginBottom(16)
-                    .alignItems(.center)
-                    .shrink(1) // 줄이기
-                    .grow(1) 
-                
-                flex.addItem(confirmButton)
-                    .marginHorizontal(16)
-                    .marginBottom(16)
-                    .height(56)
-                    .alignItems(.center)
+        container.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(44)
+            $0.horizontalEdges.equalToSuperview().inset(21)
+            $0.centerX.equalToSuperview()
+            
+            if confirmButton.isHidden {
+                $0.bottom.equalToSuperview().inset(50)
+            } else {
+                $0.bottom.equalTo(confirmButton.snp.top).offset(-16)
             }
+        }
+        
+        confirmButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(50)
+            $0.horizontalEdges.equalToSuperview().inset(21)
+            $0.height.equalTo(56)
+            $0.centerX.equalToSuperview()
+        }
     }
 }
 
