@@ -23,8 +23,10 @@ class ContactUsView: BaseView {
     let contentTextView = SettingTextView(placeholderText: "어떤 내용이 궁금하신가요?", limitCnt: 200)
     
     let emailSubtitleLabel = SettingSubtitleLabel("문의에 대한 답변을 이메일로 보내드려요")
+    let contentErrorSubtitleLabel = SettingSubtitleLabel("200자 내로 입력해주세요")
     let contentCountLabel = {
         let view = UILabel()
+        view.textAlignment = .right
         view.textColor = .grey05
         view.font = .body14r
         view.text = "0/200"
@@ -65,10 +67,11 @@ class ContactUsView: BaseView {
                     flex.addItem(contentTextView).marginTop(8)
                         .height(260)
                     
-                    flex.addItem().direction(.rowReverse).marginTop(8)
-                        .define { flex in
-                            flex.addItem(contentCountLabel)
-                        }
+                    
+                    flex.addItem().direction(.rowReverse).justifyContent(.spaceBetween).marginTop(8).define { flex in
+                        flex.addItem(contentCountLabel).grow(1)
+                        flex.addItem(contentErrorSubtitleLabel)
+                    }
                 }
                 
                 flex.addItem(completeButton)
@@ -79,9 +82,9 @@ class ContactUsView: BaseView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        // 부모뷰에 대한 컨테이너 레이아웃 설정 (safeArea에 맞춤 (x))
+        // 부모뷰에 대한 컨테이너 레이아웃 설정 (safeArea에 맞춤 - x)
         rootFlexContainer.pin.all(pin.safeArea)
-        // 컨테이너 사이즈 설정 (내부 아이템 높이에 맞춤)
+        // 컨테이너 사이즈 설정 (내부 아이템 높이에 맞춤 - x)
         rootFlexContainer.flex.layout(mode: .fitContainer)
     }
 }

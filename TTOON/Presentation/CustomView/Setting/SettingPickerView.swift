@@ -18,7 +18,7 @@ class SettingPickerView: BaseView {
     }
     
     // MARK: - UI Components
-    private var textLabel = {
+    var textLabel = {
         let view = UILabel()
         view.font = .body16m
         return view

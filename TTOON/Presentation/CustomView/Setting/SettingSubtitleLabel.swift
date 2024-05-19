@@ -18,8 +18,8 @@ class SettingSubtitleLabel: UILabel {
         self.font = .body14m
     }
     
-    func update(_ enabled: Bool, text: String) {
-        self.text = text
+    func update(_ enabled: Bool, enabledText: String, disabledText: String) {
         self.textColor = enabled ? .grey05 : .errorRed
+        self.text = enabled ? enabledText : disabledText
     }
 }
