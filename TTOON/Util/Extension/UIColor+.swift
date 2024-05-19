@@ -27,6 +27,9 @@ extension UIColor {
     static var tnOrange = UIColor(hexString: "#FF903F")!
     static var tnBlue = UIColor(hexString: "#3077FF")!
     static var tnOrangeOff = UIColor(hexString: "#FFE1CB")!
+    
+    // error
+    static var errorRed = UIColor(hexString: "#FF6666")!
 }
 
 extension UIColor {
