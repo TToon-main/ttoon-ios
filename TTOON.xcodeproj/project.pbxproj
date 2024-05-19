@@ -50,6 +50,7 @@
 		48C3F0982BF9E48400BD2142 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C3F0972BF9E48400BD2142 /* DeleteAccountViewController.swift */; };
 		48C3F09A2BF9E64E00BD2142 /* SettingNameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C3F0992BF9E64E00BD2142 /* SettingNameInputView.swift */; };
 		48C3F09C2BFA089900BD2142 /* ContactUsReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C3F09B2BFA089900BD2142 /* ContactUsReactor.swift */; };
+		48C3F09E2BFA2F6800BD2142 /* DeleteAccountReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C3F09D2BFA2F6800BD2142 /* DeleteAccountReactor.swift */; };
 		48D979F62BEF459F0087F870 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F12BEF459F0087F870 /* LoginViewModel.swift */; };
 		48D979F72BEF459F0087F870 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F32BEF459F0087F870 /* LoginView.swift */; };
 		48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F52BEF459F0087F870 /* LoginViewController.swift */; };
@@ -182,6 +183,7 @@
 		48C3F0972BF9E48400BD2142 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
 		48C3F0992BF9E64E00BD2142 /* SettingNameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNameInputView.swift; sourceTree = "<group>"; };
 		48C3F09B2BFA089900BD2142 /* ContactUsReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsReactor.swift; sourceTree = "<group>"; };
+		48C3F09D2BFA2F6800BD2142 /* DeleteAccountReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountReactor.swift; sourceTree = "<group>"; };
 		48D979F12BEF459F0087F870 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		48D979F32BEF459F0087F870 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		48D979F52BEF459F0087F870 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				48C3F09B2BFA089900BD2142 /* ContactUsReactor.swift */,
+				48C3F09D2BFA2F6800BD2142 /* DeleteAccountReactor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1074,6 +1077,7 @@
 				BE9BBC442BCA552F006FD848 /* UIFont+.swift in Sources */,
 				BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */,
 				48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */,
+				48C3F09E2BFA2F6800BD2142 /* DeleteAccountReactor.swift in Sources */,
 				BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */,
 				48D979FC2BEF45B70087F870 /* LoginRepositoryProtocol.swift in Sources */,
 				489FE2CE2BC010EB0033B61D /* Coordinator.swift in Sources */,

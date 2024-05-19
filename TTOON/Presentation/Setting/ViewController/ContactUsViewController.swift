@@ -34,13 +34,6 @@ class ContactUsViewController: BaseViewController, View {
         self.view = mainView
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.navigationItem.titleView?.backgroundColor = .purple
-        self.navigationController?.navigationBar.backgroundColor = .purple
-    }
-    
     func bind(reactor: ContactUsReactor) {
         bindAction(reactor)
         bindState(reactor)
@@ -53,10 +46,13 @@ class ContactUsViewController: BaseViewController, View {
             .disposed(by: disposeBag)
             
         // 카테고리 버튼은 bottom sheet 올라오면 진행
-//        mainView.categoryPickerView.clearButton.rx.tap
-//            .map { ContactUsReactor.Action.categoryTapped(.other)}
-//            .bind(to: reactor.action)
-//            .disposed(by: disposeBag)
+        mainView.categoryPickerView.clearButton.rx.tap
+            .map { _ in
+                let a = ContactCategory.allCases.randomElement()!
+                return ContactUsReactor.Action.categoryTapped(a)
+            }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
         
         mainView.contentTextView.rx.text.orEmpty
             .map { ContactUsReactor.Action.contentText($0) }
@@ -91,10 +87,10 @@ class ContactUsViewController: BaseViewController, View {
             .subscribe(with: self) { owner, value in
                 if value {
                     owner.mainView.contentCountLabel.textColor = .grey05
-                    owner.mainView.contentErrorSubtitleLabel.textColor = .errorRed
                     owner.mainView.contentErrorSubtitleLabel.isHidden = true
                 } else {
                     owner.mainView.contentCountLabel.textColor = .errorRed
+                    owner.mainView.contentErrorSubtitleLabel.textColor = .errorRed
                     owner.mainView.contentErrorSubtitleLabel.isHidden = false
                 }
             }
@@ -104,6 +100,13 @@ class ContactUsViewController: BaseViewController, View {
             .distinctUntilChanged()
             .subscribe(with: self) { owner, cnt in
                 owner.mainView.contentCountLabel.text = "\(cnt)/200"
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.buttonEnabled }
+            .distinctUntilChanged()
+            .subscribe(with: self) { owner, value in
+                owner.mainView.completeButton.backgroundColor = value ? .blue : .red
             }
             .disposed(by: disposeBag)
     }
