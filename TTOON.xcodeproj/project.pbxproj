@@ -32,6 +32,14 @@
 		489730E22BF0E8840026706C /* AuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489730E12BF0E8840026706C /* AuthDTO.swift */; };
 		489730E52BF1CA3B0026706C /* ResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489730E42BF1CA3B0026706C /* ResponseDTO.swift */; };
 		489730E92BF1F0CB0026706C /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489730E82BF1F0CB0026706C /* LoginResponseModel.swift */; };
+		489ADEED2BF8E72700B070B7 /* SettingTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */; };
+		489ADEEF2BF8E8B200B070B7 /* SettingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEEE2BF8E8B200B070B7 /* SettingTextField.swift */; };
+		489ADEF12BF8E8CE00B070B7 /* SettingSubtitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEF02BF8E8CE00B070B7 /* SettingSubtitleLabel.swift */; };
+		489ADEF72BF8EDC700B070B7 /* SettingShowBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEF62BF8EDC700B070B7 /* SettingShowBottomSheetView.swift */; };
+		489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEF82BF9B45600B070B7 /* SettingTextView.swift */; };
+		489ADEFB2BF9BC8300B070B7 /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEFA2BF9BC8300B070B7 /* ContactUsView.swift */; };
+		489ADEFD2BF9BC8C00B070B7 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEFC2BF9BC8C00B070B7 /* DeleteAccountView.swift */; };
+		489ADEFF2BF9C4D800B070B7 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEFE2BF9C4D800B070B7 /* ContactUsViewController.swift */; };
 		489FE2C12BC00F700033B61D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C02BC00F700033B61D /* BaseView.swift */; };
 		489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C22BC00F760033B61D /* BaseViewController.swift */; };
 		489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C42BC00F890033B61D /* BaseViewModel.swift */; };
@@ -153,6 +161,14 @@
 		489730E12BF0E8840026706C /* AuthDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDTO.swift; sourceTree = "<group>"; };
 		489730E42BF1CA3B0026706C /* ResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDTO.swift; sourceTree = "<group>"; };
 		489730E82BF1F0CB0026706C /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
+		489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTitleLabel.swift; sourceTree = "<group>"; };
+		489ADEEE2BF8E8B200B070B7 /* SettingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextField.swift; sourceTree = "<group>"; };
+		489ADEF02BF8E8CE00B070B7 /* SettingSubtitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSubtitleLabel.swift; sourceTree = "<group>"; };
+		489ADEF62BF8EDC700B070B7 /* SettingShowBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingShowBottomSheetView.swift; sourceTree = "<group>"; };
+		489ADEF82BF9B45600B070B7 /* SettingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextView.swift; sourceTree = "<group>"; };
+		489ADEFA2BF9BC8300B070B7 /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
+		489ADEFC2BF9BC8C00B070B7 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
+		489ADEFE2BF9C4D800B070B7 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		489FE2C02BC00F700033B61D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		489FE2C22BC00F760033B61D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		489FE2C42BC00F890033B61D /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -333,6 +349,60 @@
 				489730E82BF1F0CB0026706C /* LoginResponseModel.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		489ADEEA2BF8E70900B070B7 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				489ADEF52BF8ED7100B070B7 /* Coordinator */,
+				489ADEF42BF8ED6B00B070B7 /* ViewModel */,
+				489ADEF32BF8ED6700B070B7 /* ViewController */,
+				489ADEF22BF8ED6400B070B7 /* View */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		489ADEEB2BF8E71000B070B7 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */,
+				489ADEF02BF8E8CE00B070B7 /* SettingSubtitleLabel.swift */,
+				489ADEEE2BF8E8B200B070B7 /* SettingTextField.swift */,
+				489ADEF62BF8EDC700B070B7 /* SettingShowBottomSheetView.swift */,
+				489ADEF82BF9B45600B070B7 /* SettingTextView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		489ADEF22BF8ED6400B070B7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				489ADEFA2BF9BC8300B070B7 /* ContactUsView.swift */,
+				489ADEFC2BF9BC8C00B070B7 /* DeleteAccountView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		489ADEF32BF8ED6700B070B7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				489ADEFE2BF9C4D800B070B7 /* ContactUsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		489ADEF42BF8ED6B00B070B7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		489ADEF52BF8ED7100B070B7 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		489FE2B82BC00E830033B61D /* Util */ = {
@@ -694,6 +764,7 @@
 		BEF48D5C2BCA5CCC0056E31E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				489ADEEA2BF8E70900B070B7 /* Setting */,
 				BEF48D5E2BCA5CD60056E31E /* CustomView */,
 				BEF48D5D2BCA5CD10056E31E /* Auth */,
 			);
@@ -715,6 +786,7 @@
 		BEF48D5E2BCA5CD60056E31E /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				489ADEEB2BF8E71000B070B7 /* Setting */,
 				48D97A052BEF472C0087F870 /* SocialLoginButton.swift */,
 			);
 			path = CustomView;
@@ -998,8 +1070,11 @@
 				489FE2C12BC00F700033B61D /* BaseView.swift in Sources */,
 				BEB456832BD15BCB007F5EEC /* SplashUseCase.swift in Sources */,
 				48D979F62BEF459F0087F870 /* LoginViewModel.swift in Sources */,
+				489ADEED2BF8E72700B070B7 /* SettingTitleLabel.swift in Sources */,
+				489ADEFF2BF9C4D800B070B7 /* ContactUsViewController.swift in Sources */,
 				BE9BBC3F2BCA5455006FD848 /* TNFont.swift in Sources */,
 				BEB456822BD15BCB007F5EEC /* SplashRepositoryProtocol.swift in Sources */,
+				489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */,
 				BE3418EB2BF0B18200E17CC5 /* TNSheetViewController.swift in Sources */,
 				BE32E3172BEBB94E00F0C193 /* TestViewController.swift in Sources */,
 				BEA33A242BD6AA320065D60C /* SplashErrorReactor.swift in Sources */,
@@ -1014,6 +1089,7 @@
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
 				489730E92BF1F0CB0026706C /* LoginResponseModel.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
+				489ADEF12BF8E8CE00B070B7 /* SettingSubtitleLabel.swift in Sources */,
 				48D97A012BEF45ED0087F870 /* BaseURL.swift in Sources */,
 				489730DE2BF0E5B80026706C /* LoginAPI.swift in Sources */,
 				BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */,
@@ -1022,14 +1098,18 @@
 				489730E22BF0E8840026706C /* AuthDTO.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
 				BE7C8C152BE8F2F1005F2FB2 /* BaseURL.swift in Sources */,
+				489ADEF72BF8EDC700B070B7 /* SettingShowBottomSheetView.swift in Sources */,
 				BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
 				480C165F2BEEFA9F0085A187 /* SocialLoginType.swift in Sources */,
 				BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */,
+				489ADEFB2BF9BC8300B070B7 /* ContactUsView.swift in Sources */,
 				BE7C8C192BE8FD9B005F2FB2 /* LogPlugin.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
 				BE7C8C172BE8FD50005F2FB2 /* AuthInterceptor.swift in Sources */,
 				BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */,
+				489ADEFD2BF9BC8C00B070B7 /* DeleteAccountView.swift in Sources */,
+				489ADEEF2BF8E8B200B070B7 /* SettingTextField.swift in Sources */,
 				BE7C8C112BE8F258005F2FB2 /* APIProvider.swift in Sources */,
 				BE6011712BEF316D00F8FCEA /* TNSwitch.swift in Sources */,
 				489FE2C72BC00F9F0033B61D /* BaseTableViewCell.swift in Sources */,
@@ -1225,7 +1305,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Launch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1236,8 +1316,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.TTOON.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TTOON.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEV;
@@ -1259,7 +1338,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Launch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1429,7 +1508,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Launch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
