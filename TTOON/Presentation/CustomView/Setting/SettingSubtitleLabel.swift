@@ -10,7 +10,6 @@ import UIKit
 // 세팅 화면에서 텍스트필드, 텍스트뷰의 아래 부가 설명으로 들어가는 레이블
 
 class SettingSubtitleLabel: UILabel {
-    
     convenience init(_ text: String) {
         self.init()
         
@@ -20,7 +19,6 @@ class SettingSubtitleLabel: UILabel {
     }
     
     func update(_ enabled: Bool, text: String) {
-        
         self.text = text
         self.textColor = enabled ? .grey05 : .errorRed
     }
