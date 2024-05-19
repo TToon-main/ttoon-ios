@@ -35,7 +35,7 @@
 		489ADEED2BF8E72700B070B7 /* SettingTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */; };
 		489ADEEF2BF8E8B200B070B7 /* SettingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEEE2BF8E8B200B070B7 /* SettingTextField.swift */; };
 		489ADEF12BF8E8CE00B070B7 /* SettingSubtitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEF02BF8E8CE00B070B7 /* SettingSubtitleLabel.swift */; };
-		489ADEF72BF8EDC700B070B7 /* SettingShowBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEF62BF8EDC700B070B7 /* SettingShowBottomSheetView.swift */; };
+		489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEF62BF8EDC700B070B7 /* SettingPickerView.swift */; };
 		489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEF82BF9B45600B070B7 /* SettingTextView.swift */; };
 		489ADEFB2BF9BC8300B070B7 /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEFA2BF9BC8300B070B7 /* ContactUsView.swift */; };
 		489ADEFD2BF9BC8C00B070B7 /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEFC2BF9BC8C00B070B7 /* DeleteAccountView.swift */; };
@@ -47,6 +47,8 @@
 		489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C82BC00FA40033B61D /* BaseCollectionViewCell.swift */; };
 		489FE2CE2BC010EB0033B61D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2CD2BC010EB0033B61D /* Coordinator.swift */; };
 		489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2CF2BC011670033B61D /* AppCoordinator.swift */; };
+		48C3F0982BF9E48400BD2142 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C3F0972BF9E48400BD2142 /* DeleteAccountViewController.swift */; };
+		48C3F09A2BF9E64E00BD2142 /* SettingNameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C3F0992BF9E64E00BD2142 /* SettingNameInputView.swift */; };
 		48D979F62BEF459F0087F870 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F12BEF459F0087F870 /* LoginViewModel.swift */; };
 		48D979F72BEF459F0087F870 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F32BEF459F0087F870 /* LoginView.swift */; };
 		48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F52BEF459F0087F870 /* LoginViewController.swift */; };
@@ -164,7 +166,7 @@
 		489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTitleLabel.swift; sourceTree = "<group>"; };
 		489ADEEE2BF8E8B200B070B7 /* SettingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextField.swift; sourceTree = "<group>"; };
 		489ADEF02BF8E8CE00B070B7 /* SettingSubtitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSubtitleLabel.swift; sourceTree = "<group>"; };
-		489ADEF62BF8EDC700B070B7 /* SettingShowBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingShowBottomSheetView.swift; sourceTree = "<group>"; };
+		489ADEF62BF8EDC700B070B7 /* SettingPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPickerView.swift; sourceTree = "<group>"; };
 		489ADEF82BF9B45600B070B7 /* SettingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextView.swift; sourceTree = "<group>"; };
 		489ADEFA2BF9BC8300B070B7 /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
 		489ADEFC2BF9BC8C00B070B7 /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
@@ -176,6 +178,8 @@
 		489FE2C82BC00FA40033B61D /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		489FE2CD2BC010EB0033B61D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		489FE2CF2BC011670033B61D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		48C3F0972BF9E48400BD2142 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
+		48C3F0992BF9E64E00BD2142 /* SettingNameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNameInputView.swift; sourceTree = "<group>"; };
 		48D979F12BEF459F0087F870 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		48D979F32BEF459F0087F870 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		48D979F52BEF459F0087F870 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -368,8 +372,9 @@
 				489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */,
 				489ADEF02BF8E8CE00B070B7 /* SettingSubtitleLabel.swift */,
 				489ADEEE2BF8E8B200B070B7 /* SettingTextField.swift */,
-				489ADEF62BF8EDC700B070B7 /* SettingShowBottomSheetView.swift */,
+				489ADEF62BF8EDC700B070B7 /* SettingPickerView.swift */,
 				489ADEF82BF9B45600B070B7 /* SettingTextView.swift */,
+				48C3F0992BF9E64E00BD2142 /* SettingNameInputView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				489ADEFE2BF9C4D800B070B7 /* ContactUsViewController.swift */,
+				48C3F0972BF9E48400BD2142 /* DeleteAccountViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1075,6 +1081,7 @@
 				BE9BBC3F2BCA5455006FD848 /* TNFont.swift in Sources */,
 				BEB456822BD15BCB007F5EEC /* SplashRepositoryProtocol.swift in Sources */,
 				489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */,
+				48C3F0982BF9E48400BD2142 /* DeleteAccountViewController.swift in Sources */,
 				BE3418EB2BF0B18200E17CC5 /* TNSheetViewController.swift in Sources */,
 				BE32E3172BEBB94E00F0C193 /* TestViewController.swift in Sources */,
 				BEA33A242BD6AA320065D60C /* SplashErrorReactor.swift in Sources */,
@@ -1096,8 +1103,10 @@
 				BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */,
 				BE77224B2BEF499F007CDC17 /* TNAlert.swift in Sources */,
 				489730E22BF0E8840026706C /* AuthDTO.swift in Sources */,
+				48C3F09A2BF9E64E00BD2142 /* SettingNameInputView.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
 				BE7C8C152BE8F2F1005F2FB2 /* BaseURL.swift in Sources */,
+				489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */,
 				489ADEF72BF8EDC700B070B7 /* SettingShowBottomSheetView.swift in Sources */,
 				BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
