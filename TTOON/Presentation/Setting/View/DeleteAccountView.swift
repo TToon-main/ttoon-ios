@@ -37,8 +37,10 @@ class DeleteAccountView: BaseView {
     let reasonTitleLabel = SettingTitleLabel("탈퇴 이유")
     let reasonPickerView = SettingPickerView("탈퇴하시는 이유를 알려주세요")
     let reasonTextView = SettingTextView(placeholderText: "탈퇴하시는 이유를 알려주세요", limitCnt: 100)
+    let reasonErrorSubtitleLabel = SettingSubtitleLabel("100자 내로 입력해주세요")
     let reasonCountLabel = {
         let view = UILabel()
+        view.textAlignment = .right
         view.textColor = .grey05
         view.font = .body14r
         view.text = "0/100"
@@ -78,8 +80,11 @@ class DeleteAccountView: BaseView {
                     flex.addItem(reasonPickerView).marginTop(8)
                         .height(52)
                     flex.addItem(reasonTextView).marginTop(8).height(151)
-                    flex.addItem().direction(.rowReverse).marginTop(8).define { flex in
-                        flex.addItem(reasonCountLabel).marginTop(8)
+                    
+                    
+                    flex.addItem().direction(.rowReverse).justifyContent(.spaceBetween).marginTop(8).define { flex in
+                        flex.addItem(reasonCountLabel).grow(1)
+                        flex.addItem(reasonErrorSubtitleLabel)
                     }
                 }
                 
