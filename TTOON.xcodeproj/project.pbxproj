@@ -34,6 +34,13 @@
 		4883564E2BEF42AB005DC0A6 /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4883564B2BEF42AB005DC0A6 /* Prod.xcconfig */; };
 		4883564F2BEF42AB005DC0A6 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4883564C2BEF42AB005DC0A6 /* Dev.xcconfig */; };
 		488356502BEF42AB005DC0A6 /* Stag.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4883564D2BEF42AB005DC0A6 /* Stag.xcconfig */; };
+		489730D92BEF8B7F0026706C /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 489730D62BEF8B7E0026706C /* Dev.xcconfig */; };
+		489730DA2BEF8B7F0026706C /* Stag.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 489730D72BEF8B7F0026706C /* Stag.xcconfig */; };
+		489730DB2BEF8B7F0026706C /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 489730D82BEF8B7F0026706C /* Prod.xcconfig */; };
+		489730DE2BF0E5B80026706C /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489730DD2BF0E5B80026706C /* LoginAPI.swift */; };
+		489730E22BF0E8840026706C /* AuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489730E12BF0E8840026706C /* AuthDTO.swift */; };
+		489730E52BF1CA3B0026706C /* ResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489730E42BF1CA3B0026706C /* ResponseDTO.swift */; };
+		489730E92BF1F0CB0026706C /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489730E82BF1F0CB0026706C /* LoginResponseModel.swift */; };
 		489FE2C12BC00F700033B61D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C02BC00F700033B61D /* BaseView.swift */; };
 		489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C22BC00F760033B61D /* BaseViewController.swift */; };
 		489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C42BC00F890033B61D /* BaseViewModel.swift */; };
@@ -143,6 +150,13 @@
 		4883564B2BEF42AB005DC0A6 /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
 		4883564C2BEF42AB005DC0A6 /* Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		4883564D2BEF42AB005DC0A6 /* Stag.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stag.xcconfig; sourceTree = "<group>"; };
+		489730D62BEF8B7E0026706C /* Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
+		489730D72BEF8B7F0026706C /* Stag.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stag.xcconfig; sourceTree = "<group>"; };
+		489730D82BEF8B7F0026706C /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
+		489730DD2BF0E5B80026706C /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		489730E12BF0E8840026706C /* AuthDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDTO.swift; sourceTree = "<group>"; };
+		489730E42BF1CA3B0026706C /* ResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDTO.swift; sourceTree = "<group>"; };
+		489730E82BF1F0CB0026706C /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		489FE2C02BC00F700033B61D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		489FE2C22BC00F760033B61D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		489FE2C42BC00F890033B61D /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -268,6 +282,47 @@
 				48F55A7B2BCD440600303C22 /* LoginRepository.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		489730DC2BF0E5AB0026706C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				489730DD2BF0E5B80026706C /* LoginAPI.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		489730DF2BF0E86D0026706C /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				489730E32BF1C9DC0026706C /* Common */,
+				489730E02BF0E8700026706C /* Auth */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		489730E02BF0E8700026706C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				489730E12BF0E8840026706C /* AuthDTO.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		489730E32BF1C9DC0026706C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				489730E42BF1CA3B0026706C /* ResponseDTO.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		489730E72BF1F0C20026706C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				489730E82BF1F0CB0026706C /* LoginResponseModel.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		489FE2B82BC00E830033B61D /* Util */ = {
@@ -431,10 +486,11 @@
 		BE7C8C0F2BE8F237005F2FB2 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				489730DC2BF0E5AB0026706C /* Auth */,
+				BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */,
 				BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */,
 				BE7C8C142BE8F2F1005F2FB2 /* BaseURL.swift */,
 				48D97A002BEF45ED0087F870 /* BaseURL.swift */,
-				BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -521,6 +577,7 @@
 		BEB4567F2BD15BCB007F5EEC /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				489730E72BF1F0C20026706C /* Auth */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -537,6 +594,7 @@
 		BEB456842BD15BFA007F5EEC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				489730DF2BF0E86D0026706C /* DataMapping */,
 				BE7C8C0F2BE8F237005F2FB2 /* API */,
 				BEB456852BD15BFA007F5EEC /* Repository */,
 			);
@@ -565,6 +623,9 @@
 		BEDF4E492BB709770034FF79 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				489730D62BEF8B7E0026706C /* Dev.xcconfig */,
+				489730D82BEF8B7F0026706C /* Prod.xcconfig */,
+				489730D72BEF8B7F0026706C /* Stag.xcconfig */,
 				4883564C2BEF42AB005DC0A6 /* Dev.xcconfig */,
 				4883564B2BEF42AB005DC0A6 /* Prod.xcconfig */,
 				4883564D2BEF42AB005DC0A6 /* Stag.xcconfig */,
@@ -762,12 +823,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE9BBC1D2BCA529A006FD848 /* Pretendard-ExtraLight.otf in Resources */,
+				489730DB2BEF8B7F0026706C /* Prod.xcconfig in Resources */,
 				BE9BBC142BCA529A006FD848 /* Pretendard-Bold.otf in Resources */,
+				489730D92BEF8B7F0026706C /* Dev.xcconfig in Resources */,
 				4883564F2BEF42AB005DC0A6 /* Dev.xcconfig in Resources */,
 				488356502BEF42AB005DC0A6 /* Stag.xcconfig in Resources */,
 				488356462BEF3B1E005DC0A6 /* Dev.xcconfig in Resources */,
 				BE840DBC2BB95FDB000E67B7 /* .swiftlint.yml in Resources */,
 				BE9BBC232BCA529A006FD848 /* Pretendard-Medium.otf in Resources */,
+				489730DA2BEF8B7F0026706C /* Stag.xcconfig in Resources */,
 				BE9BBC172BCA529A006FD848 /* Pretendard-ExtraBold.otf in Resources */,
 				4883564E2BEF42AB005DC0A6 /* Prod.xcconfig in Resources */,
 				BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */,
@@ -886,14 +950,18 @@
 				BEB456822BD15BCB007F5EEC /* SplashRepositoryProtocol.swift in Sources */,
 				BEA33A242BD6AA320065D60C /* SplashErrorReactor.swift in Sources */,
 				489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */,
+				489730E52BF1CA3B0026706C /* ResponseDTO.swift in Sources */,
 				48D979F72BEF459F0087F870 /* LoginView.swift in Sources */,
 				BE9BBC492BCA5809006FD848 /* UIColor+.swift in Sources */,
 				48D97A042BEF45FC0087F870 /* LoginRepository.swift in Sources */,
 				BEB456872BD15C06007F5EEC /* SplashRepository.swift in Sources */,
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
+				489730E92BF1F0CB0026706C /* LoginResponseModel.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
 				48D97A012BEF45ED0087F870 /* BaseURL.swift in Sources */,
+				489730DE2BF0E5B80026706C /* LoginAPI.swift in Sources */,
 				BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */,
+				489730E22BF0E8840026706C /* AuthDTO.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
 				BE7C8C152BE8F2F1005F2FB2 /* BaseURL.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,

@@ -22,7 +22,7 @@ class LoginViewModel {
         let kakaoLoginButtonClicked: ControlEvent<Void>
         let googleLoginButtonClicked: ControlEvent<Void>
         
-        let presentingVC: UIViewController
+        let presentingVC: UIViewController  // 구글 로그인 구현 시 presentingVC가 필요함 (repo로 전달)
     }
     
     struct Output {
@@ -31,24 +31,57 @@ class LoginViewModel {
     
     func transform(_ input: Input) -> Output {
         input.appleLoginButtonClicked
-            .subscribe(with: self) { owner, _ in
-                owner.loginUseCase.appleLoginRequest()
+            .withUnretained(self)
+            .flatMap { _ in                
+                self.loginUseCase.appleLoginRequest()
+            }
+            .subscribe(with: self) { owner, response in
+                switch response {
+                case .success(let data):
+                    print("애플 로그인 성공 : ", data)
+                    
+                case .failure(let error):
+                    print("애플 로그인 실패 : ", error.localizedDescription)
+                }
             }
             .disposed(by: disposeBag)
-        
+            
         
         input.kakaoLoginButtonClicked
-            .subscribe(with: self) { owner, _ in
-                owner.loginUseCase.kakaoLoginRequest()
+            .withUnretained(self)
+            .flatMap { _ in
+                self.loginUseCase.kakaoLoginRequest()
+            }
+            .subscribe(with: self) { owner, response in
+                switch response {
+                case .success(let data):
+                    print("카카오 로그인 성공 : ", data)
+                    
+                case .failure(let error):
+                    print("카카오 로그인 실패 : ", error.localizedDescription)
+                }
             }
             .disposed(by: disposeBag)
         
         
         input.googleLoginButtonClicked
-            .subscribe(with: self) { owner, _ in
-                owner.loginUseCase.googleLoginRequest(withPresentingVC: input.presentingVC)            
+            .withUnretained(self)
+            .flatMap { _ in
+                self.loginUseCase.googleLoginRequest(withPresentingVC: input.presentingVC)
+            }
+            .subscribe(with: self) { owner, response in
+                switch response {
+                case .success(let data):
+                    print("구글 로그인 성공 : ", data)
+                    
+                case .failure(let error):
+                    print("구글 로그인 실패 : ", error.localizedDescription)
+                }
             }
             .disposed(by: disposeBag)
+        
+        
+        
         
         return Output()
     }

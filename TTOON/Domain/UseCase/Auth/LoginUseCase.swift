@@ -10,9 +10,9 @@ import RxSwift
 import UIKit
 
 protocol LoginUseCaseProtocol {
-    func appleLoginRequest()
-    func kakaoLoginRequest()
-    func googleLoginRequest(withPresentingVC: UIViewController)
+    func appleLoginRequest() -> PublishSubject<Result<LoginResponseModel, Error>>
+    func kakaoLoginRequest() -> PublishSubject<Result<LoginResponseModel, Error>>
+    func googleLoginRequest(withPresentingVC: UIViewController) -> PublishSubject<Result<LoginResponseModel, Error>>
 }
 
 
@@ -26,15 +26,15 @@ class LoginUseCase: LoginUseCaseProtocol {
     }
     
     // MARK: - method
-    func appleLoginRequest() {
-        loginRepository.appleLoginRequest()
+    func appleLoginRequest() -> PublishSubject<Result<LoginResponseModel, Error>> {
+        return loginRepository.appleLoginRequest()
     }
     
-    func kakaoLoginRequest() {
-        loginRepository.kakaoLoginRequest()
+    func kakaoLoginRequest() -> PublishSubject<Result<LoginResponseModel, Error>> {
+        return loginRepository.kakaoLoginRequest()
     }
     
-    func googleLoginRequest(withPresentingVC: UIViewController) {
-        loginRepository.googleLoginRequest(withPresentingVC: withPresentingVC)
+    func googleLoginRequest(withPresentingVC: UIViewController) -> PublishSubject<Result<LoginResponseModel, Error>> {
+        return loginRepository.googleLoginRequest(withPresentingVC: withPresentingVC)
     }
 }
