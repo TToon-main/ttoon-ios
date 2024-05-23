@@ -56,7 +56,6 @@
 		48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F52BEF459F0087F870 /* LoginViewController.swift */; };
 		48D979FC2BEF45B70087F870 /* LoginRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979FB2BEF45B70087F870 /* LoginRepositoryProtocol.swift */; };
 		48D979FF2BEF45C20087F870 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979FE2BEF45C20087F870 /* LoginUseCase.swift */; };
-		48D97A012BEF45ED0087F870 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A002BEF45ED0087F870 /* BaseURL.swift */; };
 		48D97A042BEF45FC0087F870 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A032BEF45FC0087F870 /* LoginRepository.swift */; };
 		48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A052BEF472C0087F870 /* SocialLoginButton.swift */; };
 		BE0132AA2BC4306600C9827C /* engaged-code-418809-16024d5258d0.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */; };
@@ -74,16 +73,25 @@
 		BE36CFB12BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */; };
 		BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */; };
 		BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47BF572BF4A6DE0048F707 /* TNBottomSheet.swift */; };
-		BE47BF612BF4D3900048F707 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BE47BF5D2BF4D3900048F707 /* Dev.xcconfig */; };
-		BE47BF622BF4D3900048F707 /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BE47BF5E2BF4D3900048F707 /* Prod.xcconfig */; };
-		BE47BF632BF4D3900048F707 /* Stag.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BE47BF5F2BF4D3900048F707 /* Stag.xcconfig */; };
+		BE5758DA2BF9E19600EC4545 /* Config in Resources */ = {isa = PBXBuildFile; fileRef = BE5758D92BF9E19600EC4545 /* Config */; };
+		BE5758DF2BF9E6A000EC4545 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758DE2BF9E6A000EC4545 /* BaseURL.swift */; };
+		BE5758E82BF9F15300EC4545 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758E72BF9F15300EC4545 /* MyPageView.swift */; };
+		BE5758EA2BF9F16100EC4545 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758E92BF9F16100EC4545 /* MyPageViewController.swift */; };
+		BE5758EC2BF9F16B00EC4545 /* MyPageReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758EB2BF9F16B00EC4545 /* MyPageReactor.swift */; };
+		BE5758EE2BFB12D400EC4545 /* ProfileSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758ED2BFB12D400EC4545 /* ProfileSummaryView.swift */; };
+		BE5758F02BFB1C3100EC4545 /* UILable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758EF2BFB1C3100EC4545 /* UILable+.swift */; };
+		BE5758F22BFB1C9900EC4545 /* UnderLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758F12BFB1C9900EC4545 /* UnderLineView.swift */; };
+		BE5758F42BFB1DCC00EC4545 /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758F32BFB1DCC00EC4545 /* MyPageTableViewCell.swift */; };
+		BE5758F62BFB1F9900EC4545 /* MyPageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758F52BFB1F9900EC4545 /* MyPageTableView.swift */; };
+		BE5758FA2BFB435D00EC4545 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758F92BFB435D00EC4545 /* AlarmViewController.swift */; };
+		BE5758FC2BFB438100EC4545 /* AlarmTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758FB2BFB438100EC4545 /* AlarmTableView.swift */; };
+		BE5758FE2BFB43AE00EC4545 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758FD2BFB43AE00EC4545 /* AlarmTableViewCell.swift */; };
 		BE6011712BEF316D00F8FCEA /* TNSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6011702BEF316D00F8FCEA /* TNSwitch.swift */; };
 		BE6011732BEF348500F8FCEA /* TNAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6011722BEF348500F8FCEA /* TNAlertViewController.swift */; };
 		BE6011752BEF34A300F8FCEA /* TNAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6011742BEF34A300F8FCEA /* TNAlertView.swift */; };
 		BE77224B2BEF499F007CDC17 /* TNAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77224A2BEF499F007CDC17 /* TNAlert.swift */; };
 		BE7C8C112BE8F258005F2FB2 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */; };
 		BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */; };
-		BE7C8C152BE8F2F1005F2FB2 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C142BE8F2F1005F2FB2 /* BaseURL.swift */; };
 		BE7C8C172BE8FD50005F2FB2 /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C162BE8FD50005F2FB2 /* AuthInterceptor.swift */; };
 		BE7C8C192BE8FD9B005F2FB2 /* LogPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C182BE8FD9B005F2FB2 /* LogPlugin.swift */; };
 		BE840DBC2BB95FDB000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
@@ -189,7 +197,6 @@
 		48D979F52BEF459F0087F870 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		48D979FB2BEF45B70087F870 /* LoginRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRepositoryProtocol.swift; sourceTree = "<group>"; };
 		48D979FE2BEF45C20087F870 /* LoginUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
-		48D97A002BEF45ED0087F870 /* BaseURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		48D97A032BEF45FC0087F870 /* LoginRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		48D97A052BEF472C0087F870 /* SocialLoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		48F55A6F2BCD39FE00303C22 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -218,16 +225,25 @@
 		BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTOONUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNImage.swift; sourceTree = "<group>"; };
 		BE47BF572BF4A6DE0048F707 /* TNBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNBottomSheet.swift; sourceTree = "<group>"; };
-		BE47BF5D2BF4D3900048F707 /* Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
-		BE47BF5E2BF4D3900048F707 /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
-		BE47BF5F2BF4D3900048F707 /* Stag.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stag.xcconfig; sourceTree = "<group>"; };
+		BE5758D92BF9E19600EC4545 /* Config */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Config; path = TTOON/Resource/Config; sourceTree = SOURCE_ROOT; };
+		BE5758DE2BF9E6A000EC4545 /* BaseURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		BE5758E72BF9F15300EC4545 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		BE5758E92BF9F16100EC4545 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		BE5758EB2BF9F16B00EC4545 /* MyPageReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageReactor.swift; sourceTree = "<group>"; };
+		BE5758ED2BFB12D400EC4545 /* ProfileSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummaryView.swift; sourceTree = "<group>"; };
+		BE5758EF2BFB1C3100EC4545 /* UILable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILable+.swift"; sourceTree = "<group>"; };
+		BE5758F12BFB1C9900EC4545 /* UnderLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderLineView.swift; sourceTree = "<group>"; };
+		BE5758F32BFB1DCC00EC4545 /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
+		BE5758F52BFB1F9900EC4545 /* MyPageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableView.swift; sourceTree = "<group>"; };
+		BE5758F92BFB435D00EC4545 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
+		BE5758FB2BFB438100EC4545 /* AlarmTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableView.swift; sourceTree = "<group>"; };
+		BE5758FD2BFB43AE00EC4545 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		BE6011702BEF316D00F8FCEA /* TNSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNSwitch.swift; sourceTree = "<group>"; };
 		BE6011722BEF348500F8FCEA /* TNAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNAlertViewController.swift; sourceTree = "<group>"; };
 		BE6011742BEF34A300F8FCEA /* TNAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNAlertView.swift; sourceTree = "<group>"; };
 		BE77224A2BEF499F007CDC17 /* TNAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNAlert.swift; sourceTree = "<group>"; };
 		BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAPI.swift; sourceTree = "<group>"; };
-		BE7C8C142BE8F2F1005F2FB2 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		BE7C8C162BE8FD50005F2FB2 /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
 		BE7C8C182BE8FD9B005F2FB2 /* LogPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPlugin.swift; sourceTree = "<group>"; };
 		BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -625,24 +641,80 @@
 			path = Switch;
 			sourceTree = "<group>";
 		};
-		BE47BF602BF4D3900048F707 /* Config */ = {
+		BE5758E12BF9F10C00EC4545 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				BE47BF5D2BF4D3900048F707 /* Dev.xcconfig */,
-				BE47BF5E2BF4D3900048F707 /* Prod.xcconfig */,
-				BE47BF5F2BF4D3900048F707 /* Stag.xcconfig */,
+				BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */,
+				BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */,
 			);
-			path = Config;
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BE5758E22BF9F11C00EC4545 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BEB4568B2BD16572007F5EEC /* SplashReactor.swift */,
+				BEA33A232BD6AA320065D60C /* SplashErrorReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE5758E32BF9F13600EC4545 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				BE5758E62BF9F14800EC4545 /* ViewModel */,
+				BE5758E52BF9F13F00EC4545 /* ViewController */,
+				BE5758E42BF9F13B00EC4545 /* View */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		BE5758E42BF9F13B00EC4545 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE5758F72BFB411200EC4545 /* SubViews */,
+				BE5758E72BF9F15300EC4545 /* MyPageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE5758E52BF9F13F00EC4545 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BE5758E92BF9F16100EC4545 /* MyPageViewController.swift */,
+				BE5758F92BFB435D00EC4545 /* AlarmViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BE5758E62BF9F14800EC4545 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE5758EB2BF9F16B00EC4545 /* MyPageReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE5758F72BFB411200EC4545 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				BE5758ED2BFB12D400EC4545 /* ProfileSummaryView.swift */,
+				BE5758F12BFB1C9900EC4545 /* UnderLineView.swift */,
+				BE5758F32BFB1DCC00EC4545 /* MyPageTableViewCell.swift */,
+				BE5758F52BFB1F9900EC4545 /* MyPageTableView.swift */,
+				BE5758FB2BFB438100EC4545 /* AlarmTableView.swift */,
+				BE5758FD2BFB43AE00EC4545 /* AlarmTableViewCell.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		BE7C8C0F2BE8F237005F2FB2 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				BE5758DE2BF9E6A000EC4545 /* BaseURL.swift */,
 				489730DC2BF0E5AB0026706C /* Auth */,
 				BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */,
 				BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */,
-				BE7C8C142BE8F2F1005F2FB2 /* BaseURL.swift */,
-				48D97A002BEF45ED0087F870 /* BaseURL.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -652,8 +724,8 @@
 			children = (
 				489FE2BF2BC00F480033B61D /* Font */,
 				BEA8BB4C2BB86323000F9C15 /* Localization */,
+				BE5758D92BF9E19600EC4545 /* Config */,
 				489FE2BE2BC00F440033B61D /* Base */,
-				BE47BF602BF4D3900048F707 /* Config */,
 				BE36CF962BAFF58A0017F94E /* Assets.xcassets */,
 				BE36CF9B2BAFF58A0017F94E /* Info.plist */,
 				BE840DC92BBD9817000E67B7 /* GoogleService-Info.plist */,
@@ -694,6 +766,7 @@
 				BE9BBC432BCA552F006FD848 /* UIFont+.swift */,
 				BE9BBC482BCA5809006FD848 /* UIColor+.swift */,
 				BE32E3132BEBB28800F0C193 /* Reactive+.swift */,
+				BE5758EF2BFB1C3100EC4545 /* UILable+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -776,8 +849,10 @@
 		BEF48D5C2BCA5CCC0056E31E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				BE5758E32BF9F13600EC4545 /* MyPage */,
 				489ADEEA2BF8E70900B070B7 /* Setting */,
 				BEF48D5E2BCA5CD60056E31E /* CustomView */,
+				BEF48D632BCA5D2B0056E31E /* Splash */,
 				BEF48D5D2BCA5CD10056E31E /* Auth */,
 			);
 			path = Presentation;
@@ -790,7 +865,6 @@
 				48D979F22BEF459F0087F870 /* View */,
 				48D979F42BEF459F0087F870 /* ViewController */,
 				48D979F02BEF459F0087F870 /* ViewModel */,
-				BEF48D632BCA5D2B0056E31E /* Splash */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -807,10 +881,8 @@
 		BEF48D632BCA5D2B0056E31E /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				BEB4568B2BD16572007F5EEC /* SplashReactor.swift */,
-				BEA33A232BD6AA320065D60C /* SplashErrorReactor.swift */,
-				BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */,
-				BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */,
+				BE5758E22BF9F11C00EC4545 /* ViewModel */,
+				BE5758E12BF9F10C00EC4545 /* ViewController */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -970,12 +1042,10 @@
 				BE9BBC1A2BCA529A006FD848 /* Pretendard-Regular.otf in Resources */,
 				BE0132AA2BC4306600C9827C /* engaged-code-418809-16024d5258d0.json in Resources */,
 				BE9BBC112BCA529A006FD848 /* Pretendard-Black.otf in Resources */,
-				BE47BF632BF4D3900048F707 /* Stag.xcconfig in Resources */,
 				BE9BBC262BCA529A006FD848 /* Pretendard-Thin.otf in Resources */,
-				BE47BF622BF4D3900048F707 /* Prod.xcconfig in Resources */,
-				BE47BF612BF4D3900048F707 /* Dev.xcconfig in Resources */,
 				BE36CF972BAFF58A0017F94E /* Assets.xcassets in Resources */,
 				BE840DCA2BBD9817000E67B7 /* GoogleService-Info.plist in Resources */,
+				BE5758DA2BF9E19600EC4545 /* Config in Resources */,
 				BE9BBC202BCA529A006FD848 /* Pretendard-SemiBold.otf in Resources */,
 				BEA8BB512BB86351000F9C15 /* Localizable.strings in Resources */,
 				BE9BBC292BCA529A006FD848 /* Pretendard-Light.otf in Resources */,
@@ -1069,14 +1139,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE5758F62BFB1F9900EC4545 /* MyPageTableView.swift in Sources */,
 				BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */,
 				48C3F09C2BFA089900BD2142 /* ContactUsReactor.swift in Sources */,
 				BE32E3192BEBBD1300F0C193 /* TNAlertButton.swift in Sources */,
 				BE6011732BEF348500F8FCEA /* TNAlertViewController.swift in Sources */,
+				BE5758EC2BF9F16B00EC4545 /* MyPageReactor.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
 				BE9BBC442BCA552F006FD848 /* UIFont+.swift in Sources */,
 				BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */,
 				48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */,
+				BE5758EA2BF9F16100EC4545 /* MyPageViewController.swift in Sources */,
 				48C3F09E2BFA2F6800BD2142 /* DeleteAccountReactor.swift in Sources */,
 				BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */,
 				48D979FC2BEF45B70087F870 /* LoginRepositoryProtocol.swift in Sources */,
@@ -1096,16 +1169,20 @@
 				BE6011752BEF34A300F8FCEA /* TNAlertView.swift in Sources */,
 				BE3418ED2BF0B25900E17CC5 /* TNSheetCell.swift in Sources */,
 				489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */,
+				BE5758EE2BFB12D400EC4545 /* ProfileSummaryView.swift in Sources */,
 				489730E52BF1CA3B0026706C /* ResponseDTO.swift in Sources */,
 				48D979F72BEF459F0087F870 /* LoginView.swift in Sources */,
 				BE9BBC492BCA5809006FD848 /* UIColor+.swift in Sources */,
 				48D97A042BEF45FC0087F870 /* LoginRepository.swift in Sources */,
+				BE5758F02BFB1C3100EC4545 /* UILable+.swift in Sources */,
+				BE5758FE2BFB43AE00EC4545 /* AlarmTableViewCell.swift in Sources */,
 				BEB456872BD15C06007F5EEC /* SplashRepository.swift in Sources */,
+				BE5758E82BF9F15300EC4545 /* MyPageView.swift in Sources */,
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
 				489730E92BF1F0CB0026706C /* LoginResponseModel.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
+				BE5758FC2BFB438100EC4545 /* AlarmTableView.swift in Sources */,
 				489ADEF12BF8E8CE00B070B7 /* SettingSubtitleLabel.swift in Sources */,
-				48D97A012BEF45ED0087F870 /* BaseURL.swift in Sources */,
 				489730DE2BF0E5B80026706C /* LoginAPI.swift in Sources */,
 				BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */,
 				BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */,
@@ -1123,7 +1200,9 @@
 				489ADEFB2BF9BC8300B070B7 /* ContactUsView.swift in Sources */,
 				BE7C8C192BE8FD9B005F2FB2 /* LogPlugin.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
+				BE5758F42BFB1DCC00EC4545 /* MyPageTableViewCell.swift in Sources */,
 				BE7C8C172BE8FD50005F2FB2 /* AuthInterceptor.swift in Sources */,
+				BE5758DF2BF9E6A000EC4545 /* BaseURL.swift in Sources */,
 				BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */,
 				489ADEFD2BF9BC8C00B070B7 /* DeleteAccountView.swift in Sources */,
 				489ADEEF2BF8E8B200B070B7 /* SettingTextField.swift in Sources */,
@@ -1133,6 +1212,8 @@
 				BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */,
 				48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */,
 				48D979FF2BEF45C20087F870 /* LoginUseCase.swift in Sources */,
+				BE5758FA2BFB435D00EC4545 /* AlarmViewController.swift in Sources */,
+				BE5758F22BFB1C9900EC4545 /* UnderLineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
