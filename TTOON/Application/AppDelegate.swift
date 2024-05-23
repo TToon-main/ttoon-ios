@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         KakaoSDK.initSDK(appKey: kakaoAppKey ?? "")
         
         NetworkMonitor.shared.startMonitoring()
-        print("url 확인", BaseURL.fetchUrl())
         
         return true
     }
