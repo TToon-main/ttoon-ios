@@ -92,27 +92,6 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
                     }
                 }
             }
-        } else {
-            UserApi.shared.loginWithKakaoAccount { oauthToken, error  in
-                if let error {
-                    print("kakao login error : \(error.localizedDescription)")
-                    self.loginResult.onNext(.failure(LoginError.kakaoError))
-                } else {
-                    UserApi.shared.me { [weak self] user, error  in
-                        if let error {
-                            print("kakao user info error : \(error.localizedDescription)")
-                            self?.loginResult.onNext(.failure(LoginError.kakaoError))
-                        } else {
-                            guard let id = user?.id, let email = user?.kakaoAccount?.email else { return }
-                            print("카카오 유저 아이디 : \(id)")
-                            print("카카오 유저 이메일 : \(email)")
-                            
-                            let requestDTO = LoginRequestDTO(provider: "KAKAO", providerID: String(id), email: email)
-                            self?.loginRequest(requestDTO)
-                        }
-                    }
-                }
-            }
         }
         
         
@@ -177,52 +156,10 @@ extension LoginRepository: ASAuthorizationControllerDelegate {
     }
 }
 
-
 // MARK: - Login API Request
 extension LoginRepository {
     func loginRequest(_ requestDTO: LoginRequestDTO) {
-        self.provider.unAuthProvider.request(
-            .socialLogin(dto: requestDTO)) { result in
-                switch result {
-                case .success(let response):
-                    // Moya는 서버와 통신 자체가 성공하기만 하면 success
-                    // 응답 데이터 디코딩
-                    if let data = try? response.map(ResponseDTO<LoginResponseDTO>.self) {
-                        // 성공
-                        if data.isSuccess, let responseData = data.data {
-                            self.loginResult.onNext(.success(responseData.toDomain()))
-                        }
-                        // 실패
-                        else {
-                            self.loginResult.onNext(.failure(LoginError.ttoonError))
-                        }
-                    }
-                        
-                case .failure(let error):
-                
-                    print(error.localizedDescription)
-                    
-                    // 결과 VM으로 전달
-                    self.loginResult.onNext(.failure(LoginError.otherError(description: error.localizedDescription)))
-                }
-        }
-    }
-}
-
-
-// MARK: - private func
-extension LoginRepository {
-    // jwt token decoding
-        
-        self.loginResult.onNext(.failure(LoginError.appleError))
-    }
-}
-
-
-// MARK: - Login API Request
-extension LoginRepository {
-    func loginRequest(_ requestDTO: LoginRequestDTO) {
-        self.provider.unAuthProvider.request(
+        self.provider.unAuth.request(
             .socialLogin(dto: requestDTO)) { result in
                 switch result {
                 case .success(let response):
@@ -254,34 +191,6 @@ extension LoginRepository {
 // MARK: - private func
 extension LoginRepository {
     // decode email from JWT
-    private func decode(jwtToken jwt: String) -> [String: Any] {
-        func base64UrlDecode(_ value: String) -> Data? {
-            var base64 = value
-                .replacingOccurrences(of: "-", with: "+")
-                .replacingOccurrences(of: "_", with: "/")
-
-            let length = Double(base64.lengthOfBytes(using: String.Encoding.utf8))
-            let requiredLength = 4 * ceil(length / 4.0)
-            let paddingLength = requiredLength - length
-            if paddingLength > 0 {
-                let padding = "".padding(toLength: Int(paddingLength), withPad: "=", startingAt: 0)
-//                base64 = base64 + padding
-                base64 += padding
-            }
-            return Data(base64Encoded: base64, options: .ignoreUnknownCharacters)
-        }
-
-        func decodeJWTPart(_ value: String) -> [String: Any]? {
-            guard let bodyData = base64UrlDecode(value),
-                  let json = try? JSONSerialization.jsonObject(with: bodyData, options: []), let payload = json as? [String: Any] else {
-                return nil
-            }
-
-            return payload
-        }
-        
-        let segments = jwt.components(separatedBy: ".")
-        return decodeJWTPart(segments[1]) ?? [:]
     private func decode(jwtToken jwt: String) -> [String: Any] {
         func base64UrlDecode(_ value: String) -> Data? {
             var base64 = value

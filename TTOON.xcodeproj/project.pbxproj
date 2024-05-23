@@ -73,13 +73,12 @@
 		BE36CFB12BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */; };
 		BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */; };
 		BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47BF572BF4A6DE0048F707 /* TNBottomSheet.swift */; };
-		BE5758DA2BF9E19600EC4545 /* Config in Resources */ = {isa = PBXBuildFile; fileRef = BE5758D92BF9E19600EC4545 /* Config */; };
 		BE5758DF2BF9E6A000EC4545 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758DE2BF9E6A000EC4545 /* BaseURL.swift */; };
 		BE5758E82BF9F15300EC4545 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758E72BF9F15300EC4545 /* MyPageView.swift */; };
 		BE5758EA2BF9F16100EC4545 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758E92BF9F16100EC4545 /* MyPageViewController.swift */; };
 		BE5758EC2BF9F16B00EC4545 /* MyPageReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758EB2BF9F16B00EC4545 /* MyPageReactor.swift */; };
 		BE5758EE2BFB12D400EC4545 /* ProfileSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758ED2BFB12D400EC4545 /* ProfileSummaryView.swift */; };
-		BE5758F02BFB1C3100EC4545 /* UILable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758EF2BFB1C3100EC4545 /* UILable+.swift */; };
+		BE5758F02BFB1C3100EC4545 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758EF2BFB1C3100EC4545 /* UILabel+.swift */; };
 		BE5758F22BFB1C9900EC4545 /* UnderLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758F12BFB1C9900EC4545 /* UnderLineView.swift */; };
 		BE5758F42BFB1DCC00EC4545 /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758F32BFB1DCC00EC4545 /* MyPageTableViewCell.swift */; };
 		BE5758F62BFB1F9900EC4545 /* MyPageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758F52BFB1F9900EC4545 /* MyPageTableView.swift */; };
@@ -225,13 +224,15 @@
 		BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTOONUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNImage.swift; sourceTree = "<group>"; };
 		BE47BF572BF4A6DE0048F707 /* TNBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNBottomSheet.swift; sourceTree = "<group>"; };
-		BE5758D92BF9E19600EC4545 /* Config */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Config; path = TTOON/Resource/Config; sourceTree = SOURCE_ROOT; };
+		BE4C7C922BFF2C0200AB3D09 /* Prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
+		BE4C7C932BFF2C0200AB3D09 /* Stag.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Stag.xcconfig; sourceTree = "<group>"; };
+		BE4C7C942BFF2C0300AB3D09 /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		BE5758DE2BF9E6A000EC4545 /* BaseURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		BE5758E72BF9F15300EC4545 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		BE5758E92BF9F16100EC4545 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		BE5758EB2BF9F16B00EC4545 /* MyPageReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageReactor.swift; sourceTree = "<group>"; };
 		BE5758ED2BFB12D400EC4545 /* ProfileSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummaryView.swift; sourceTree = "<group>"; };
-		BE5758EF2BFB1C3100EC4545 /* UILable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILable+.swift"; sourceTree = "<group>"; };
+		BE5758EF2BFB1C3100EC4545 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		BE5758F12BFB1C9900EC4545 /* UnderLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderLineView.swift; sourceTree = "<group>"; };
 		BE5758F32BFB1DCC00EC4545 /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
 		BE5758F52BFB1F9900EC4545 /* MyPageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableView.swift; sourceTree = "<group>"; };
@@ -337,18 +338,19 @@
 		489730DC2BF0E5AB0026706C /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */,
 				489730DD2BF0E5B80026706C /* LoginAPI.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		489730DF2BF0E86D0026706C /* DataMapping */ = {
+		489730DF2BF0E86D0026706C /* DTO */ = {
 			isa = PBXGroup;
 			children = (
 				489730E32BF1C9DC0026706C /* Common */,
 				489730E02BF0E8700026706C /* Auth */,
 			);
-			path = DataMapping;
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		489730E02BF0E8700026706C /* Auth */ = {
@@ -379,9 +381,9 @@
 			isa = PBXGroup;
 			children = (
 				489ADEF52BF8ED7100B070B7 /* Coordinator */,
-				489ADEF42BF8ED6B00B070B7 /* ViewModel */,
-				489ADEF32BF8ED6700B070B7 /* ViewController */,
-				489ADEF22BF8ED6400B070B7 /* View */,
+				BE4C7CA02BFF2F0000AB3D09 /* DeleteAccount */,
+				BE4C7C9F2BFF2EFA00AB3D09 /* ContactUs */,
+				BE5758E32BF9F13600EC4545 /* MyPage */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -399,33 +401,6 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
-		489ADEF22BF8ED6400B070B7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				489ADEFA2BF9BC8300B070B7 /* ContactUsView.swift */,
-				489ADEFC2BF9BC8C00B070B7 /* DeleteAccountView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		489ADEF32BF8ED6700B070B7 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				489ADEFE2BF9C4D800B070B7 /* ContactUsViewController.swift */,
-				48C3F0972BF9E48400BD2142 /* DeleteAccountViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		489ADEF42BF8ED6B00B070B7 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				48C3F09B2BFA089900BD2142 /* ContactUsReactor.swift */,
-				48C3F09D2BFA2F6800BD2142 /* DeleteAccountReactor.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		489ADEF52BF8ED7100B070B7 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +411,9 @@
 		489FE2B82BC00E830033B61D /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				BE4C7CA92BFF39D200AB3D09 /* Enums */,
+				489FE2BE2BC00F440033B61D /* Base */,
+				BE4C7CA82BFF384900AB3D09 /* Monitor */,
 				BE32E3102BEBAF7B00F0C193 /* TNCompopnet */,
 				BE9BBC3D2BCA544E006FD848 /* Constant */,
 				BE9BBC422BCA551B006FD848 /* Extension */,
@@ -516,6 +494,7 @@
 		48D979FA2BEF45B70087F870 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				BEB4567E2BD15BCB007F5EEC /* SplashRepositoryProtocol.swift */,
 				48D979FB2BEF45B70087F870 /* LoginRepositoryProtocol.swift */,
 			);
 			path = Auth;
@@ -524,6 +503,7 @@
 		48D979FD2BEF45C20087F870 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				BEB456812BD15BCB007F5EEC /* SplashUseCase.swift */,
 				48D979FE2BEF45C20087F870 /* LoginUseCase.swift */,
 			);
 			path = Auth;
@@ -532,6 +512,7 @@
 		48D97A022BEF45FC0087F870 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				BEB456862BD15C06007F5EEC /* SplashRepository.swift */,
 				48D97A032BEF45FC0087F870 /* LoginRepository.swift */,
 			);
 			path = Auth;
@@ -576,8 +557,8 @@
 			isa = PBXGroup;
 			children = (
 				48F55A7D2BCD4A6D00303C22 /* TTOON.entitlements */,
-				489FE2B82BC00E830033B61D /* Util */,
 				BE840DC42BBD9263000E67B7 /* Resource */,
+				489FE2B82BC00E830033B61D /* Util */,
 				489FE2BD2BC00EC90033B61D /* Application */,
 				BEF48D5C2BCA5CCC0056E31E /* Presentation */,
 				BEB4567C2BD15BCB007F5EEC /* Domain */,
@@ -641,6 +622,126 @@
 			path = Switch;
 			sourceTree = "<group>";
 		};
+		BE4C7C952BFF2C1700AB3D09 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				BE4C7C942BFF2C0300AB3D09 /* Dev.xcconfig */,
+				BE4C7C922BFF2C0200AB3D09 /* Prod.xcconfig */,
+				BE4C7C932BFF2C0200AB3D09 /* Stag.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		BE4C7C9E2BFF2E8700AB3D09 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				48D979F22BEF459F0087F870 /* View */,
+				48D979F42BEF459F0087F870 /* ViewController */,
+				48D979F02BEF459F0087F870 /* ViewModel */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BE4C7C9F2BFF2EFA00AB3D09 /* ContactUs */ = {
+			isa = PBXGroup;
+			children = (
+				BE4C7CA32BFF2F1400AB3D09 /* ViewController */,
+				BE4C7CA22BFF2F1100AB3D09 /* ViewModel */,
+				BE4C7CA12BFF2F0D00AB3D09 /* View */,
+			);
+			path = ContactUs;
+			sourceTree = "<group>";
+		};
+		BE4C7CA02BFF2F0000AB3D09 /* DeleteAccount */ = {
+			isa = PBXGroup;
+			children = (
+				BE4C7CA62BFF2F2D00AB3D09 /* ViewController */,
+				BE4C7CA52BFF2F2C00AB3D09 /* ViewModel */,
+				BE4C7CA42BFF2F2B00AB3D09 /* View */,
+			);
+			path = DeleteAccount;
+			sourceTree = "<group>";
+		};
+		BE4C7CA12BFF2F0D00AB3D09 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				489ADEFA2BF9BC8300B070B7 /* ContactUsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE4C7CA22BFF2F1100AB3D09 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				48C3F09B2BFA089900BD2142 /* ContactUsReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE4C7CA32BFF2F1400AB3D09 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				489ADEFE2BF9C4D800B070B7 /* ContactUsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BE4C7CA42BFF2F2B00AB3D09 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				489ADEFC2BF9BC8C00B070B7 /* DeleteAccountView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE4C7CA52BFF2F2C00AB3D09 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				48C3F09D2BFA2F6800BD2142 /* DeleteAccountReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE4C7CA62BFF2F2D00AB3D09 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				48C3F0972BF9E48400BD2142 /* DeleteAccountViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BE4C7CA72BFF2FBC00AB3D09 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				48D97A052BEF472C0087F870 /* SocialLoginButton.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		BE4C7CA82BFF384900AB3D09 /* Monitor */ = {
+			isa = PBXGroup;
+			children = (
+				BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */,
+			);
+			path = Monitor;
+			sourceTree = "<group>";
+		};
+		BE4C7CA92BFF39D200AB3D09 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				BE4C7CAA2BFF39D600AB3D09 /* Auth */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		BE4C7CAA2BFF39D600AB3D09 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				480C165E2BEEFA9F0085A187 /* SocialLoginType.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		BE5758E12BF9F10C00EC4545 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -672,8 +773,8 @@
 		BE5758E42BF9F13B00EC4545 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BE5758F72BFB411200EC4545 /* SubViews */,
 				BE5758E72BF9F15300EC4545 /* MyPageView.swift */,
+				BE5758F72BFB411200EC4545 /* SubViews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -711,10 +812,7 @@
 		BE7C8C0F2BE8F237005F2FB2 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				BE5758DE2BF9E6A000EC4545 /* BaseURL.swift */,
 				489730DC2BF0E5AB0026706C /* Auth */,
-				BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */,
-				BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -723,9 +821,8 @@
 			isa = PBXGroup;
 			children = (
 				489FE2BF2BC00F480033B61D /* Font */,
+				BE4C7C952BFF2C1700AB3D09 /* Config */,
 				BEA8BB4C2BB86323000F9C15 /* Localization */,
-				BE5758D92BF9E19600EC4545 /* Config */,
-				489FE2BE2BC00F440033B61D /* Base */,
 				BE36CF962BAFF58A0017F94E /* Assets.xcassets */,
 				BE36CF9B2BAFF58A0017F94E /* Info.plist */,
 				BE840DC92BBD9817000E67B7 /* GoogleService-Info.plist */,
@@ -753,7 +850,6 @@
 			isa = PBXGroup;
 			children = (
 				BE9BBC3E2BCA5455006FD848 /* TNFont.swift */,
-				480C165E2BEEFA9F0085A187 /* SocialLoginType.swift */,
 				BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */,
 				BEF8D8172BDFC7880095674D /* TNUrl.swift */,
 			);
@@ -766,7 +862,7 @@
 				BE9BBC432BCA552F006FD848 /* UIFont+.swift */,
 				BE9BBC482BCA5809006FD848 /* UIColor+.swift */,
 				BE32E3132BEBB28800F0C193 /* Reactive+.swift */,
-				BE5758EF2BFB1C3100EC4545 /* UILable+.swift */,
+				BE5758EF2BFB1C3100EC4545 /* UILabel+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -795,7 +891,6 @@
 			isa = PBXGroup;
 			children = (
 				48D979F92BEF45B70087F870 /* Repository */,
-				BEB4567E2BD15BCB007F5EEC /* SplashRepositoryProtocol.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -812,7 +907,6 @@
 			isa = PBXGroup;
 			children = (
 				48D979FD2BEF45C20087F870 /* Auth */,
-				BEB456812BD15BCB007F5EEC /* SplashUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -820,9 +914,9 @@
 		BEB456842BD15BFA007F5EEC /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				489730DF2BF0E86D0026706C /* DataMapping */,
-				BE7C8C0F2BE8F237005F2FB2 /* API */,
+				489730DF2BF0E86D0026706C /* DTO */,
 				BEB456852BD15BFA007F5EEC /* Repository */,
+				BE7C8C0F2BE8F237005F2FB2 /* API */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -831,7 +925,6 @@
 			isa = PBXGroup;
 			children = (
 				48D97A022BEF45FC0087F870 /* Auth */,
-				BEB456862BD15C06007F5EEC /* SplashRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -839,9 +932,10 @@
 		BEB456882BD15EAB007F5EEC /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */,
 				BE7C8C162BE8FD50005F2FB2 /* AuthInterceptor.swift */,
+				BE5758DE2BF9E6A000EC4545 /* BaseURL.swift */,
 				BE7C8C182BE8FD9B005F2FB2 /* LogPlugin.swift */,
-				BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -849,11 +943,9 @@
 		BEF48D5C2BCA5CCC0056E31E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				BE5758E32BF9F13600EC4545 /* MyPage */,
-				489ADEEA2BF8E70900B070B7 /* Setting */,
 				BEF48D5E2BCA5CD60056E31E /* CustomView */,
-				BEF48D632BCA5D2B0056E31E /* Splash */,
 				BEF48D5D2BCA5CD10056E31E /* Auth */,
+				489ADEEA2BF8E70900B070B7 /* Setting */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -862,9 +954,8 @@
 			isa = PBXGroup;
 			children = (
 				48D979EF2BEF459F0087F870 /* Coordinator */,
-				48D979F22BEF459F0087F870 /* View */,
-				48D979F42BEF459F0087F870 /* ViewController */,
-				48D979F02BEF459F0087F870 /* ViewModel */,
+				BEF48D632BCA5D2B0056E31E /* Splash */,
+				BE4C7C9E2BFF2E8700AB3D09 /* Login */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -872,8 +963,8 @@
 		BEF48D5E2BCA5CD60056E31E /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				BE4C7CA72BFF2FBC00AB3D09 /* Auth */,
 				489ADEEB2BF8E71000B070B7 /* Setting */,
-				48D97A052BEF472C0087F870 /* SocialLoginButton.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -1045,7 +1136,6 @@
 				BE9BBC262BCA529A006FD848 /* Pretendard-Thin.otf in Resources */,
 				BE36CF972BAFF58A0017F94E /* Assets.xcassets in Resources */,
 				BE840DCA2BBD9817000E67B7 /* GoogleService-Info.plist in Resources */,
-				BE5758DA2BF9E19600EC4545 /* Config in Resources */,
 				BE9BBC202BCA529A006FD848 /* Pretendard-SemiBold.otf in Resources */,
 				BEA8BB512BB86351000F9C15 /* Localizable.strings in Resources */,
 				BE9BBC292BCA529A006FD848 /* Pretendard-Light.otf in Resources */,
@@ -1174,7 +1264,7 @@
 				48D979F72BEF459F0087F870 /* LoginView.swift in Sources */,
 				BE9BBC492BCA5809006FD848 /* UIColor+.swift in Sources */,
 				48D97A042BEF45FC0087F870 /* LoginRepository.swift in Sources */,
-				BE5758F02BFB1C3100EC4545 /* UILable+.swift in Sources */,
+				BE5758F02BFB1C3100EC4545 /* UILabel+.swift in Sources */,
 				BE5758FE2BFB43AE00EC4545 /* AlarmTableViewCell.swift in Sources */,
 				BEB456872BD15C06007F5EEC /* SplashRepository.swift in Sources */,
 				BE5758E82BF9F15300EC4545 /* MyPageView.swift in Sources */,
@@ -1190,9 +1280,8 @@
 				489730E22BF0E8840026706C /* AuthDTO.swift in Sources */,
 				48C3F09A2BF9E64E00BD2142 /* SettingNameInputView.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
-				BE7C8C152BE8F2F1005F2FB2 /* BaseURL.swift in Sources */,
 				489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */,
-				489ADEF72BF8EDC700B070B7 /* SettingShowBottomSheetView.swift in Sources */,
+				489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */,
 				BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
 				480C165F2BEEFA9F0085A187 /* SocialLoginType.swift in Sources */,
@@ -1268,72 +1357,9 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		BE36CFB22BAFF58A0017F94E /* DEV */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = DEV;
-		};
 		BE36CFB32BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE4C7C922BFF2C0200AB3D09 /* Prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1383,13 +1409,14 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = PROD;
 		};
-		BE36CFB52BAFF58A0017F94E /* DEV */ = {
+		BE36CFB62BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1398,49 +1425,15 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 7HDHR2SNR7;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "TTOON-dev";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Launch;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TTOON.dev;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEV;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = DEV;
-		};
-		BE36CFB62BAFF58A0017F94E /* PROD */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2S9WHYP486;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TTOON/Resource/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = Launch;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1450,31 +1443,17 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.TTOON.prod;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = PROD;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = PROD;
-		};
-		BE36CFB82BAFF58A0017F94E /* DEV */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TTOONTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TTOON.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TTOON";
-			};
-			name = DEV;
 		};
 		BE36CFB92BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
@@ -1495,23 +1474,6 @@
 			};
 			name = PROD;
 		};
-		BE36CFBB2BAFF58A0017F94E /* DEV */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TTOONUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TTOON;
-			};
-			name = DEV;
-		};
 		BE36CFBC2BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1529,8 +1491,9 @@
 			};
 			name = PROD;
 		};
-		BEFECEEF2BC6B2E10023B37C /* STAG */ = {
+		BE4C7C962BFF2C2900AB3D09 /* DEV */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE4C7C942BFF2C0300AB3D09 /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1564,18 +1527,12 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1584,33 +1541,167 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
 			};
-			name = STAG;
+			name = DEV;
 		};
-		BEFECEF02BC6B2E10023B37C /* STAG */ = {
+		BE4C7C972BFF2C2900AB3D09 /* DEV */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 2S9WHYP486;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2S9WHYP486;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "TTOON-dev";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Launch;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TTOON.dev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TToon Service - DEV";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = PROD;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = DEV;
+		};
+		BE4C7C982BFF2C2900AB3D09 /* DEV */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TTOONTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TTOON.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TTOON";
+			};
+			name = DEV;
+		};
+		BE4C7C992BFF2C2900AB3D09 /* DEV */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TTOONUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TTOON;
+			};
+			name = DEV;
+		};
+		BE4C7C9A2BFF2C2F00AB3D09 /* STAG */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE4C7C932BFF2C0200AB3D09 /* Stag.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = STAG;
+		};
+		BE4C7C9B2BFF2C2F00AB3D09 /* STAG */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TTOON/Resource/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "TTOON-dev";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Launch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1618,16 +1709,21 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "--BUNDLE-IDENTIFIER-";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.TTOON.prod;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = STAG;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = PROD;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = STAG;
 		};
-		BEFECEF12BC6B2E10023B37C /* STAG */ = {
+		BE4C7C9C2BFF2C2F00AB3D09 /* STAG */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -1646,7 +1742,7 @@
 			};
 			name = STAG;
 		};
-		BEFECEF22BC6B2E10023B37C /* STAG */ = {
+		BE4C7C9D2BFF2C2F00AB3D09 /* STAG */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -1669,42 +1765,42 @@
 		BE36CF852BAFF5890017F94E /* Build configuration list for PBXProject "TTOON" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BE36CFB22BAFF58A0017F94E /* DEV */,
-				BEFECEEF2BC6B2E10023B37C /* STAG */,
 				BE36CFB32BAFF58A0017F94E /* PROD */,
+				BE4C7C9A2BFF2C2F00AB3D09 /* STAG */,
+				BE4C7C962BFF2C2900AB3D09 /* DEV */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = DEV;
+			defaultConfigurationName = PROD;
 		};
 		BE36CFB42BAFF58A0017F94E /* Build configuration list for PBXNativeTarget "TTOON" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BE36CFB52BAFF58A0017F94E /* DEV */,
-				BEFECEF02BC6B2E10023B37C /* STAG */,
 				BE36CFB62BAFF58A0017F94E /* PROD */,
+				BE4C7C9B2BFF2C2F00AB3D09 /* STAG */,
+				BE4C7C972BFF2C2900AB3D09 /* DEV */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = DEV;
+			defaultConfigurationName = PROD;
 		};
 		BE36CFB72BAFF58A0017F94E /* Build configuration list for PBXNativeTarget "TTOONTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BE36CFB82BAFF58A0017F94E /* DEV */,
-				BEFECEF12BC6B2E10023B37C /* STAG */,
 				BE36CFB92BAFF58A0017F94E /* PROD */,
+				BE4C7C9C2BFF2C2F00AB3D09 /* STAG */,
+				BE4C7C982BFF2C2900AB3D09 /* DEV */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = DEV;
+			defaultConfigurationName = PROD;
 		};
 		BE36CFBA2BAFF58A0017F94E /* Build configuration list for PBXNativeTarget "TTOONUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BE36CFBB2BAFF58A0017F94E /* DEV */,
-				BEFECEF22BC6B2E10023B37C /* STAG */,
 				BE36CFBC2BAFF58A0017F94E /* PROD */,
+				BE4C7C9D2BFF2C2F00AB3D09 /* STAG */,
+				BE4C7C992BFF2C2900AB3D09 /* DEV */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = DEV;
+			defaultConfigurationName = PROD;
 		};
 /* End XCConfigurationList section */
 

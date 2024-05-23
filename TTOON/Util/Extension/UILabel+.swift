@@ -1,5 +1,5 @@
 //
-//  UILable+.swift
+//  UILabel+.swift
 //  TTOON
 //
 //  Created by Dongwan Ryoo on 5/20/24.

@@ -20,9 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let repo = SplashRepository()
         let useCase = SplashUseCase(splashRepository: repo)
         let reactor = SplashReactor(splashUseCase: useCase)
-        let vc = SplashViewController(splashReactor: reactor)
+        let vc = LoginViewController()
         
-        window?.rootViewController = MyPageViewController()
+        window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }
 
