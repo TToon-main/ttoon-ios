@@ -56,9 +56,9 @@ final class TestViewController: BaseViewController {
     func sheetButtonTap() {
         TNBottomSheet(self)
             .setTitle("타이틀")
-            .setHeight(450)
-            .setDataSource(["예시1", "예시2", "예시3", "예시4", "예시5", "예시5"])
-//            .setSelectedIndex(3)
+            .setHeight(500)
+            .setDataSource(["예시1", "예시2"])
+            .setSelectedIndex(1)
             .isHiddenConfirmBtn(true)
             .present()
     }
