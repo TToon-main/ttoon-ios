@@ -10,8 +10,8 @@ import Foundation
 import Moya
 import RxSwift
 
-final class AuthInterceptor: RequestInterceptor {
-    static let shared = AuthInterceptor()
+final class Interceptor: RequestInterceptor {
+    static let shared = Interceptor()
     private let disposeBag = DisposeBag()
     private init() {}
     

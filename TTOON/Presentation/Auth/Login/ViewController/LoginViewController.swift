@@ -21,9 +21,7 @@ class LoginViewController: BaseViewController {
             loginRepository: LoginRepository()
         )
     )
-    
-    
-    
+
     override func loadView() {
         self.view = mainView
     }
