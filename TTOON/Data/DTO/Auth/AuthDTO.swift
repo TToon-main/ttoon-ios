@@ -12,8 +12,8 @@ import Foundation
 
 // 로그인
 struct LoginRequestDTO {
-    let provider: String
     let providerID: String
+    let provider: String
     let email: String
 }
 

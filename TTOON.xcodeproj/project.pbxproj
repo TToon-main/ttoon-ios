@@ -30,6 +30,7 @@
 		482B61232BB599B100681097 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61222BB599B100681097 /* FirebaseCrashlytics */; };
 		486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */; };
 		486A80C52C09FEEA0089D46C /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A80C42C09FEEA0089D46C /* SettingCoordinator.swift */; };
+		486A80C82C0E09060089D46C /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A80C72C0E09060089D46C /* KeychainStorage.swift */; };
 		486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */; };
 		489730DE2BF0E5B80026706C /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489730DD2BF0E5B80026706C /* LoginAPI.swift */; };
 		489730E22BF0E8840026706C /* AuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489730E12BF0E8840026706C /* AuthDTO.swift */; };
@@ -173,6 +174,7 @@
 		480C165E2BEEFA9F0085A187 /* SocialLoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginType.swift; sourceTree = "<group>"; };
 		486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		486A80C42C09FEEA0089D46C /* SettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
+		486A80C72C0E09060089D46C /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 		486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		489730DD2BF0E5B80026706C /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		489730E12BF0E8840026706C /* AuthDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDTO.swift; sourceTree = "<group>"; };
@@ -327,6 +329,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		486A80C62C0E08B50089D46C /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				486A80C72C0E09060089D46C /* KeychainStorage.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
 		486C5C2A2C09F1CB0094411D /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -937,6 +947,7 @@
 		BEB456842BD15BFA007F5EEC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				486A80C62C0E08B50089D46C /* Keychain */,
 				489730DF2BF0E86D0026706C /* DTO */,
 				BEB456852BD15BFA007F5EEC /* Repository */,
 				BE7C8C0F2BE8F237005F2FB2 /* API */,
@@ -1331,6 +1342,7 @@
 				48D979FF2BEF45C20087F870 /* LoginUseCase.swift in Sources */,
 				BE5758FA2BFB435D00EC4545 /* AlarmViewController.swift in Sources */,
 				BE5758F22BFB1C9900EC4545 /* UnderLineView.swift in Sources */,
+				486A80C82C0E09060089D46C /* KeychainStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

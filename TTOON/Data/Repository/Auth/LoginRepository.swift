@@ -65,7 +65,12 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
                             print("카카오 유저 아이디 : \(id)")
                             print("카카오 유저 이메일 : \(email)")
                             
-                            let requestDTO = LoginRequestDTO(provider: "KAKAO", providerID: String(id), email: email)
+//                            let requestDTO = LoginRequestDTO(provider: "KAKAO", providerID: String(id), email: email)
+                            let requestDTO = LoginRequestDTO(
+                                providerID: String(id),
+                                provider: "KAKAO",
+                                email: email
+                            )
                             self?.loginRequest(requestDTO)
                         }
                     }
@@ -86,7 +91,12 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
                             print("카카오 유저 아이디 : \(id)")
                             print("카카오 유저 이메일 : \(email)")
                             
-                            let requestDTO = LoginRequestDTO(provider: "KAKAO", providerID: String(id), email: email)
+//                            let requestDTO = LoginRequestDTO(provider: "KAKAO", providerID: String(id), email: email)
+                            let requestDTO = LoginRequestDTO(
+                                providerID: String(id),
+                                provider: "KAKAO",
+                                email: email
+                            )
                             self?.loginRequest(requestDTO)
                         }
                     }
@@ -114,7 +124,12 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
                 print("구글 유저 아이디 : \(id)")
                 print("구글 유저 이메일 : \(email)")
                 
-                let requestDTO = LoginRequestDTO(provider: "GOOGLE", providerID: String(id), email: email)
+//                let requestDTO = LoginRequestDTO(provider: "GOOGLE", providerID: String(id), email: email)
+                let requestDTO = LoginRequestDTO(
+                    providerID: String(id),
+                    provider: "GOOGLE",
+                    email: email
+                )
                 self.loginRequest(requestDTO)
             }
         }
@@ -140,7 +155,7 @@ extension LoginRepository: ASAuthorizationControllerDelegate {
             print("애플 유저 아이디 : \(id)")
             print("애플 유저 이메일 : \(email)")
             
-            let requestDTO = LoginRequestDTO(provider: "APPLE", providerID: String(id), email: email)
+            let requestDTO = LoginRequestDTO(providerID: String(id), provider: "APPLE", email: email)
             self.loginRequest(requestDTO)
         } else {
             self.loginResult.onNext(.failure(LoginError.appleError))
@@ -168,12 +183,26 @@ extension LoginRepository {
                     if let data = try? response.map(ResponseDTO<LoginResponseDTO>.self) {
                         // 성공
                         if data.isSuccess, let responseData = data.data {
+                            // 키체인 토큰 업데이트
+                            KeychainStorage.shared.accessToken = responseData.accessToken
+                            KeychainStorage.shared.refreshToken = responseData.refreshToken
+                            
+                            print("키체인 업데이트 완료")
+                            print("access : \(KeychainStorage.shared.accessToken)")
+                            print("refesh : \(KeychainStorage.shared.refreshToken)")
+                            
+                            
                             self.loginResult.onNext(.success(responseData.toDomain()))
                         }
                         // 실패
                         else {
                             self.loginResult.onNext(.failure(LoginError.ttoonError))
                         }
+                    }
+                    else {
+                        print("*")
+                        print(response.response)
+                        self.loginResult.onNext(.failure(LoginError.ttoonError))
                     }
                         
                 case .failure(let error):
