@@ -16,11 +16,20 @@ class LoginViewController: BaseViewController {
     
     
     // 추후 DI (in Coordinator)
-    private let viewModel = LoginViewModel(
-        loginUseCase: LoginUseCase(
-            loginRepository: LoginRepository()
-        )
-    )
+//    private let viewModel = LoginViewModel(
+//        loginUseCase: LoginUseCase(
+//            loginRepository: LoginRepository()
+//        )
+//    )
+    
+    private var viewModel: LoginViewModel!
+    
+    // 승섭: 이런 방식으로 VC를 생성하기도 했습니다!!
+    static func create(with vm: LoginViewModel) -> LoginViewController {
+        let vc = LoginViewController()
+        vc.viewModel = vm
+        return vc
+    }
 
     override func loadView() {
         self.view = mainView
