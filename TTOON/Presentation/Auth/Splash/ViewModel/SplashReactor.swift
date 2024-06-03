@@ -19,6 +19,8 @@ enum SplashStatus {
 final class SplashReactor: Reactor {    
     let splashUseCase: SplashUseCaseProtocol
     
+    var sendTransitionEvent: ((SplashReactor.TransitionEvent) -> Void)?
+    
     init(splashUseCase: SplashUseCaseProtocol) {
         self.splashUseCase = splashUseCase
     }
@@ -47,7 +49,8 @@ final class SplashReactor: Reactor {
               return .just(.setSplashStatus(checkSplashStatus()))
           }
       }
-
+        
+      // 사실상 ViewController에 Output 전달이 필요하지 않아 보인다.
       func reduce(state: State, mutation: Mutation) -> State {
           var newState = state
           switch mutation {
@@ -57,19 +60,43 @@ final class SplashReactor: Reactor {
           return newState
       }
     
+    
+    // 위치가 적절한 지는 의문이지만, 여기서 코디로 이벤트 전달!
     private func checkSplashStatus() -> SplashStatus {
         let isConnect = splashUseCase.isNetworkConnected()
         let isMaintenance = splashUseCase.isServerMaintenance()
         let isNeedUpdate = splashUseCase.isMinVersionReached()
+
         
         if !isConnect {
+            sendTransitionEvent?(.goSplashErrorView(.disConnected))
             return .disConnected
         } else if isMaintenance {
+            sendTransitionEvent?(.goSplashErrorView(.inMaintenance))
             return .inMaintenance
         } else if isNeedUpdate {
+            sendTransitionEvent?(.goSplashErrorView(.needUpdate))
             return .needUpdate
         } else {
+            // 여기서 토큰 여부 확인! (기존 VC에 있던 코드)
+            let isTokenValid = false
+            
+            sendTransitionEvent?( 
+                (isTokenValid) ? .goHomeView : .goLoginView
+            )
+            
             return .valid
         }
+    }
+}
+
+// 코디네이터에게 전달할 화면 전환 이벤트
+extension SplashReactor {
+    enum TransitionEvent {
+        case goSplashErrorView(SplashStatus)    // 무슨 에러인지까지 전달해준다
+        // disConnected, inMaintenance, needUpdate
+        
+        case goLoginView
+        case goHomeView
     }
 }

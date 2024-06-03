@@ -338,7 +338,6 @@
 		486C5C2B2C09F1D30094411D /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -967,6 +966,7 @@
 		BEF48D5C2BCA5CCC0056E31E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */,
 				486C5C2A2C09F1CB0094411D /* Home */,
 				BEF48D5E2BCA5CD60056E31E /* CustomView */,
 				BEF48D5D2BCA5CD10056E31E /* Auth */,

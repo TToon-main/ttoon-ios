@@ -131,7 +131,8 @@ final class SplashErrorViewController: BaseViewController, View {
     func bindState(_ reactor: SplashErrorReactor) {
         reactor.state
             .map { $0.splashStatus }
-            .bind { self.checkStatus($0!) }
+            .compactMap { $0 }
+            .bind { self.checkStatus($0) }
             .disposed(by: disposeBag)
         
         reactor.state
@@ -178,6 +179,7 @@ final class SplashErrorViewController: BaseViewController, View {
     }
     
     func updateUI(image: UIImage?, lbText: String, subText: String, btnTitle: String?, isHiddenBtn: Bool = false) {
+        print(#function)
         errorImageView.image = image
         errorTitleLabel.text = lbText 
         errorSubTitleLabel.text = subText
