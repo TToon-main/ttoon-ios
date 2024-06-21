@@ -93,6 +93,11 @@
 		BE6011732BEF348500F8FCEA /* TNAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6011722BEF348500F8FCEA /* TNAlertViewController.swift */; };
 		BE6011752BEF34A300F8FCEA /* TNAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6011742BEF34A300F8FCEA /* TNAlertView.swift */; };
 		BE77224B2BEF499F007CDC17 /* TNAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77224A2BEF499F007CDC17 /* TNAlert.swift */; };
+		BE78BED32C25AE53000A5D11 /* ToonCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BED22C25AE53000A5D11 /* ToonCoordinator.swift */; };
+		BE78BEDA2C25BB19000A5D11 /* SelectStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BED92C25BB19000A5D11 /* SelectStyleViewController.swift */; };
+		BE78BEDC2C25BB28000A5D11 /* SelectStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BEDB2C25BB28000A5D11 /* SelectStyleView.swift */; };
+		BE78BEDE2C25BB36000A5D11 /* SelectStyleReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BEDD2C25BB36000A5D11 /* SelectStyleReactor.swift */; };
+		BE78BEE12C25BB5E000A5D11 /* CreateToonNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BEE02C25BB5E000A5D11 /* CreateToonNavigationBar.swift */; };
 		BE7C8C112BE8F258005F2FB2 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */; };
 		BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */; };
 		BE7C8C172BE8FD50005F2FB2 /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C162BE8FD50005F2FB2 /* AuthInterceptor.swift */; };
@@ -251,6 +256,11 @@
 		BE6011722BEF348500F8FCEA /* TNAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNAlertViewController.swift; sourceTree = "<group>"; };
 		BE6011742BEF34A300F8FCEA /* TNAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNAlertView.swift; sourceTree = "<group>"; };
 		BE77224A2BEF499F007CDC17 /* TNAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNAlert.swift; sourceTree = "<group>"; };
+		BE78BED22C25AE53000A5D11 /* ToonCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToonCoordinator.swift; path = ../../../../../../Downloads/ToonCoordinator.swift; sourceTree = "<group>"; };
+		BE78BED92C25BB19000A5D11 /* SelectStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStyleViewController.swift; sourceTree = "<group>"; };
+		BE78BEDB2C25BB28000A5D11 /* SelectStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStyleView.swift; sourceTree = "<group>"; };
+		BE78BEDD2C25BB36000A5D11 /* SelectStyleReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStyleReactor.swift; sourceTree = "<group>"; };
+		BE78BEE02C25BB5E000A5D11 /* CreateToonNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonNavigationBar.swift; sourceTree = "<group>"; };
 		BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAPI.swift; sourceTree = "<group>"; };
 		BE7C8C162BE8FD50005F2FB2 /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
@@ -842,6 +852,73 @@
 			path = SubViews;
 			sourceTree = "<group>";
 		};
+		BE78BED02C25AE1C000A5D11 /* Toon */ = {
+			isa = PBXGroup;
+			children = (
+				BE78BED42C25AED6000A5D11 /* CreateToon */,
+				BE78BED12C25AE38000A5D11 /* Coordinator */,
+			);
+			path = Toon;
+			sourceTree = "<group>";
+		};
+		BE78BED12C25AE38000A5D11 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BE78BED22C25AE53000A5D11 /* ToonCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		BE78BED42C25AED6000A5D11 /* CreateToon */ = {
+			isa = PBXGroup;
+			children = (
+				BE78BED62C25AF07000A5D11 /* View */,
+				BE78BED72C25AF09000A5D11 /* ViewController */,
+				BE78BED52C25AEE0000A5D11 /* ViewModel */,
+			);
+			path = CreateToon;
+			sourceTree = "<group>";
+		};
+		BE78BED52C25AEE0000A5D11 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE78BEDD2C25BB36000A5D11 /* SelectStyleReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE78BED62C25AF07000A5D11 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE78BEDB2C25BB28000A5D11 /* SelectStyleView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE78BED72C25AF09000A5D11 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BE78BED92C25BB19000A5D11 /* SelectStyleViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BE78BEDF2C25BB46000A5D11 /* Toon */ = {
+			isa = PBXGroup;
+			children = (
+				BE78BEE22C25BB66000A5D11 /* CreateToon */,
+				BE78BEE02C25BB5E000A5D11 /* CreateToonNavigationBar.swift */,
+			);
+			path = Toon;
+			sourceTree = "<group>";
+		};
+		BE78BEE22C25BB66000A5D11 /* CreateToon */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CreateToon;
+			sourceTree = "<group>";
+		};
 		BE7C8C0F2BE8F237005F2FB2 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -978,10 +1055,11 @@
 			isa = PBXGroup;
 			children = (
 				486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */,
-				486C5C2A2C09F1CB0094411D /* Home */,
 				BEF48D5E2BCA5CD60056E31E /* CustomView */,
+				486C5C2A2C09F1CB0094411D /* Home */,
 				BEF48D5D2BCA5CD10056E31E /* Auth */,
 				489ADEEA2BF8E70900B070B7 /* Setting */,
+				BE78BED02C25AE1C000A5D11 /* Toon */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -999,6 +1077,7 @@
 		BEF48D5E2BCA5CD60056E31E /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				BE78BEDF2C25BB46000A5D11 /* Toon */,
 				BE4C7CA72BFF2FBC00AB3D09 /* Auth */,
 				489ADEEB2BF8E71000B070B7 /* Setting */,
 			);
@@ -1301,6 +1380,7 @@
 				BE9BBC492BCA5809006FD848 /* UIColor+.swift in Sources */,
 				48D97A042BEF45FC0087F870 /* LoginRepository.swift in Sources */,
 				BE5758F02BFB1C3100EC4545 /* UILabel+.swift in Sources */,
+				BE78BEDE2C25BB36000A5D11 /* SelectStyleReactor.swift in Sources */,
 				BE5758FE2BFB43AE00EC4545 /* AlarmTableViewCell.swift in Sources */,
 				BEB456872BD15C06007F5EEC /* SplashRepository.swift in Sources */,
 				486A80C52C09FEEA0089D46C /* SettingCoordinator.swift in Sources */,
@@ -1310,8 +1390,10 @@
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
 				BE5758FC2BFB438100EC4545 /* AlarmTableView.swift in Sources */,
 				489ADEF12BF8E8CE00B070B7 /* SettingSubtitleLabel.swift in Sources */,
+				BE78BEE12C25BB5E000A5D11 /* CreateToonNavigationBar.swift in Sources */,
 				489730DE2BF0E5B80026706C /* LoginAPI.swift in Sources */,
 				BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */,
+				BE78BEDC2C25BB28000A5D11 /* SelectStyleView.swift in Sources */,
 				BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */,
 				BE77224B2BEF499F007CDC17 /* TNAlert.swift in Sources */,
 				489730E22BF0E8840026706C /* AuthDTO.swift in Sources */,
@@ -1336,8 +1418,10 @@
 				BE7C8C112BE8F258005F2FB2 /* APIProvider.swift in Sources */,
 				BE6011712BEF316D00F8FCEA /* TNSwitch.swift in Sources */,
 				489FE2C72BC00F9F0033B61D /* BaseTableViewCell.swift in Sources */,
+				BE78BED32C25AE53000A5D11 /* ToonCoordinator.swift in Sources */,
 				486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */,
 				BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */,
+				BE78BEDA2C25BB19000A5D11 /* SelectStyleViewController.swift in Sources */,
 				48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */,
 				48D979FF2BEF45C20087F870 /* LoginUseCase.swift in Sources */,
 				BE5758FA2BFB435D00EC4545 /* AlarmViewController.swift in Sources */,
