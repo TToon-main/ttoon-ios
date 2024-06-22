@@ -65,12 +65,7 @@ class TNSheetViewController: BaseViewController {
         return view
     }()
     
-    override func configures() {
-        view.backgroundColor = .white
-        bind()
-    }
-    
-    func bind() {
+    override func bind() {
         confirmButton.rx.tap
             .subscribe(with: self) { owner, _ in
                 owner.delegate?.selectedIndex(index: owner.selectedIndex?.row ?? 0)

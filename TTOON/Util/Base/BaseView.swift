@@ -8,6 +8,10 @@
 import UIKit
 
 class BaseView: UIView {
+    lazy var safeGuide = self.safeAreaLayoutGuide
+    lazy var width = UIScreen.main.bounds.width
+    lazy var height = UIScreen.main.bounds.height
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
