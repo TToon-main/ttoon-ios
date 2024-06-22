@@ -22,6 +22,7 @@ class SelectStyleView: BaseView {
         return view
     }()
     
+    
     let createToonCollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 106, height: 132)
@@ -33,10 +34,19 @@ class SelectStyleView: BaseView {
         return view
     }()
     
+    let createToonConfirmButton = {
+        let view = TNButton()
+//        view.isEnabled = false
+        view.setTitle("완료", for: .normal)
+            
+        return view
+    }()
+    
     override func addSubViews() {
         addSubview(titleLabel)
         addSubview(subTitleLabel)
         addSubview(createToonCollectionView)
+        addSubview(createToonConfirmButton)
     }
     
     override func layouts() {
@@ -54,6 +64,12 @@ class SelectStyleView: BaseView {
             $0.top.equalTo(subTitleLabel.snp.bottom).offset(84)
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.height.equalTo(132)
+        }
+        
+        createToonConfirmButton.snp.makeConstraints {
+            $0.bottom.equalTo(safeGuide).offset(-36)
+            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.height.equalTo(56)
         }
     }
 }
