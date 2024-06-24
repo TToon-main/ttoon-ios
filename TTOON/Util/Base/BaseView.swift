@@ -12,6 +12,7 @@ class BaseView: UIView {
         super.init(frame: frame)
         
         addSubViews()
+        bind()
         layouts()
         configures()
     }
@@ -24,5 +25,8 @@ class BaseView: UIView {
     func layouts() { }
     func configures() { 
         self.backgroundColor = .white
+    }
+    
+    func bind() {
     }
 }

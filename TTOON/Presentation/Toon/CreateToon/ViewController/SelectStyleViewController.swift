@@ -66,5 +66,13 @@ extension SelectStyleViewController: View {
             .map { $0.isEnabledConfirmButton }
             .bind(to: selectStyleView.rx.isEnabledConfirmButton)
             .disposed(by: disposeBag)
+        
+        selectStyleView.createToonConfirmButton.rx
+            .tap
+            .subscribe(with: self ) { owner, _ in
+                let vc = EnterInfoViewController()
+                owner.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
     }
 }
