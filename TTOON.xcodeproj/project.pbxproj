@@ -99,7 +99,7 @@
 		BE78BEE12C25BB5E000A5D11 /* CreateToonNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BEE02C25BB5E000A5D11 /* CreateToonNavigationBar.swift */; };
 		BE78BEE42C25BBB9000A5D11 /* CreateToonTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BEE32C25BBB9000A5D11 /* CreateToonTitleLabel.swift */; };
 		BE78BEE62C25BBC5000A5D11 /* CreateToonSubTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BEE52C25BBC5000A5D11 /* CreateToonSubTitleLabel.swift */; };
-		BE78BEE82C25BD6D000A5D11 /* CreateToonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BEE72C25BD6D000A5D11 /* CreateToonViewController.swift */; };
+		BE78BEE82C25BD6D000A5D11 /* CreateToonBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BEE72C25BD6D000A5D11 /* CreateToonBaseViewController.swift */; };
 		BE78BEEA2C25C347000A5D11 /* CreateToonCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BEE92C25C347000A5D11 /* CreateToonCollectionView.swift */; };
 		BE78BEEC2C25C3EF000A5D11 /* CreateToonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BEEB2C25C3EF000A5D11 /* CreateToonCollectionViewCell.swift */; };
 		BE78BEEF2C25C5A6000A5D11 /* Pro+IDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BEEE2C25C5A6000A5D11 /* Pro+IDF.swift */; };
@@ -154,6 +154,15 @@
 		BEA8BB522BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB532BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEAB66D12C26AA12001B1B63 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB66D02C26AA12001B1B63 /* UICollectionView+.swift */; };
+		BEAB66D32C26AD9F001B1B63 /* EnterInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB66D22C26AD9F001B1B63 /* EnterInfoView.swift */; };
+		BEAB66D52C26ADB4001B1B63 /* EnterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB66D42C26ADB4001B1B63 /* EnterInfoViewController.swift */; };
+		BEAB66D72C26ADF1001B1B63 /* EnterInfoReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB66D62C26ADF1001B1B63 /* EnterInfoReactor.swift */; };
+		BEAB66D92C26AE7E001B1B63 /* CreateToonSelectCharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB66D82C26AE7E001B1B63 /* CreateToonSelectCharactersView.swift */; };
+		BEAB66DB2C26AEEE001B1B63 /* CreateToonSelectCharactersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB66DA2C26AEEE001B1B63 /* CreateToonSelectCharactersButton.swift */; };
+		BEAB66DD2C26B180001B1B63 /* CreateToonDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB66DC2C26B180001B1B63 /* CreateToonDivider.swift */; };
+		BEAB66DF2C26B652001B1B63 /* CreateToonDiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB66DE2C26B652001B1B63 /* CreateToonDiaryView.swift */; };
+		BEAB66E12C26B6AC001B1B63 /* CreateToonMidTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB66E02C26B6AC001B1B63 /* CreateToonMidTitleLabel.swift */; };
+		BEAB66E32C26B713001B1B63 /* CreateToonMidSubTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB66E22C26B713001B1B63 /* CreateToonMidSubTitleLabel.swift */; };
 		BEB456822BD15BCB007F5EEC /* SplashRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4567E2BD15BCB007F5EEC /* SplashRepositoryProtocol.swift */; };
 		BEB456832BD15BCB007F5EEC /* SplashUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB456812BD15BCB007F5EEC /* SplashUseCase.swift */; };
 		BEB456872BD15C06007F5EEC /* SplashRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB456862BD15C06007F5EEC /* SplashRepository.swift */; };
@@ -270,7 +279,7 @@
 		BE78BEE02C25BB5E000A5D11 /* CreateToonNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonNavigationBar.swift; sourceTree = "<group>"; };
 		BE78BEE32C25BBB9000A5D11 /* CreateToonTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonTitleLabel.swift; sourceTree = "<group>"; };
 		BE78BEE52C25BBC5000A5D11 /* CreateToonSubTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonSubTitleLabel.swift; sourceTree = "<group>"; };
-		BE78BEE72C25BD6D000A5D11 /* CreateToonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonViewController.swift; sourceTree = "<group>"; };
+		BE78BEE72C25BD6D000A5D11 /* CreateToonBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonBaseViewController.swift; sourceTree = "<group>"; };
 		BE78BEE92C25C347000A5D11 /* CreateToonCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonCollectionView.swift; sourceTree = "<group>"; };
 		BE78BEEB2C25C3EF000A5D11 /* CreateToonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE78BEEE2C25C5A6000A5D11 /* Pro+IDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pro+IDF.swift"; sourceTree = "<group>"; };
@@ -299,6 +308,15 @@
 		BEA8BB562BB86361000F9C15 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEA8BB572BB86385000F9C15 /* localize.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = localize.py; sourceTree = "<group>"; };
 		BEAB66D02C26AA12001B1B63 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
+		BEAB66D22C26AD9F001B1B63 /* EnterInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterInfoView.swift; sourceTree = "<group>"; };
+		BEAB66D42C26ADB4001B1B63 /* EnterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterInfoViewController.swift; sourceTree = "<group>"; };
+		BEAB66D62C26ADF1001B1B63 /* EnterInfoReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterInfoReactor.swift; sourceTree = "<group>"; };
+		BEAB66D82C26AE7E001B1B63 /* CreateToonSelectCharactersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonSelectCharactersView.swift; sourceTree = "<group>"; };
+		BEAB66DA2C26AEEE001B1B63 /* CreateToonSelectCharactersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonSelectCharactersButton.swift; sourceTree = "<group>"; };
+		BEAB66DC2C26B180001B1B63 /* CreateToonDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonDivider.swift; sourceTree = "<group>"; };
+		BEAB66DE2C26B652001B1B63 /* CreateToonDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonDiaryView.swift; sourceTree = "<group>"; };
+		BEAB66E02C26B6AC001B1B63 /* CreateToonMidTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonMidTitleLabel.swift; sourceTree = "<group>"; };
+		BEAB66E22C26B713001B1B63 /* CreateToonMidSubTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonMidSubTitleLabel.swift; sourceTree = "<group>"; };
 		BEB4567E2BD15BCB007F5EEC /* SplashRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BEB456812BD15BCB007F5EEC /* SplashUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashUseCase.swift; sourceTree = "<group>"; };
 		BEB456862BD15C06007F5EEC /* SplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRepository.swift; sourceTree = "<group>"; };
@@ -891,6 +909,7 @@
 			isa = PBXGroup;
 			children = (
 				BE78BEDD2C25BB36000A5D11 /* SelectStyleReactor.swift */,
+				BEAB66D62C26ADF1001B1B63 /* EnterInfoReactor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -899,6 +918,7 @@
 			isa = PBXGroup;
 			children = (
 				BE78BEDB2C25BB28000A5D11 /* SelectStyleView.swift */,
+				BEAB66D22C26AD9F001B1B63 /* EnterInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -907,7 +927,8 @@
 			isa = PBXGroup;
 			children = (
 				BE78BED92C25BB19000A5D11 /* SelectStyleViewController.swift */,
-				BE78BEE72C25BD6D000A5D11 /* CreateToonViewController.swift */,
+				BEAB66D42C26ADB4001B1B63 /* EnterInfoViewController.swift */,
+				BE78BEE72C25BD6D000A5D11 /* CreateToonBaseViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -926,8 +947,14 @@
 				BE78BEE02C25BB5E000A5D11 /* CreateToonNavigationBar.swift */,
 				BE78BEE32C25BBB9000A5D11 /* CreateToonTitleLabel.swift */,
 				BE78BEE52C25BBC5000A5D11 /* CreateToonSubTitleLabel.swift */,
+				BEAB66E02C26B6AC001B1B63 /* CreateToonMidTitleLabel.swift */,
+				BEAB66E22C26B713001B1B63 /* CreateToonMidSubTitleLabel.swift */,
 				BE78BEE92C25C347000A5D11 /* CreateToonCollectionView.swift */,
 				BE78BEEB2C25C3EF000A5D11 /* CreateToonCollectionViewCell.swift */,
+				BEAB66D82C26AE7E001B1B63 /* CreateToonSelectCharactersView.swift */,
+				BEAB66DA2C26AEEE001B1B63 /* CreateToonSelectCharactersButton.swift */,
+				BEAB66DC2C26B180001B1B63 /* CreateToonDivider.swift */,
+				BEAB66DE2C26B652001B1B63 /* CreateToonDiaryView.swift */,
 			);
 			path = CreateToon;
 			sourceTree = "<group>";
@@ -1374,19 +1401,25 @@
 				BE32E3192BEBBD1300F0C193 /* TNAlertButton.swift in Sources */,
 				BE6011732BEF348500F8FCEA /* TNAlertViewController.swift in Sources */,
 				BE5758EC2BF9F16B00EC4545 /* MyPageReactor.swift in Sources */,
+				BEAB66D52C26ADB4001B1B63 /* EnterInfoViewController.swift in Sources */,
+				BEAB66E12C26B6AC001B1B63 /* CreateToonMidTitleLabel.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
 				BE78BEF32C25C5EE000A5D11 /* UIViewController+.swift in Sources */,
 				BE9BBC442BCA552F006FD848 /* UIFont+.swift in Sources */,
 				BE78BEEF2C25C5A6000A5D11 /* Pro+IDF.swift in Sources */,
 				BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */,
 				48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */,
+				BEAB66E32C26B713001B1B63 /* CreateToonMidSubTitleLabel.swift in Sources */,
 				BE5758EA2BF9F16100EC4545 /* MyPageViewController.swift in Sources */,
 				48C3F09E2BFA2F6800BD2142 /* DeleteAccountReactor.swift in Sources */,
 				BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */,
 				48D979FC2BEF45B70087F870 /* LoginRepositoryProtocol.swift in Sources */,
+				BEAB66DB2C26AEEE001B1B63 /* CreateToonSelectCharactersButton.swift in Sources */,
 				489FE2CE2BC010EB0033B61D /* Coordinator.swift in Sources */,
 				489FE2C12BC00F700033B61D /* BaseView.swift in Sources */,
+				BEAB66D72C26ADF1001B1B63 /* EnterInfoReactor.swift in Sources */,
 				BEB456832BD15BCB007F5EEC /* SplashUseCase.swift in Sources */,
+				BEAB66DD2C26B180001B1B63 /* CreateToonDivider.swift in Sources */,
 				48D979F62BEF459F0087F870 /* LoginViewModel.swift in Sources */,
 				489ADEED2BF8E72700B070B7 /* SettingTitleLabel.swift in Sources */,
 				BE78BEE42C25BBB9000A5D11 /* CreateToonTitleLabel.swift in Sources */,
@@ -1398,6 +1431,7 @@
 				BEB456822BD15BCB007F5EEC /* SplashRepositoryProtocol.swift in Sources */,
 				BE78BEEC2C25C3EF000A5D11 /* CreateToonCollectionViewCell.swift in Sources */,
 				489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */,
+				BEAB66DF2C26B652001B1B63 /* CreateToonDiaryView.swift in Sources */,
 				48C3F0982BF9E48400BD2142 /* DeleteAccountViewController.swift in Sources */,
 				BE3418EB2BF0B18200E17CC5 /* TNSheetViewController.swift in Sources */,
 				BE32E3172BEBB94E00F0C193 /* TestViewController.swift in Sources */,
@@ -1416,6 +1450,7 @@
 				BEB456872BD15C06007F5EEC /* SplashRepository.swift in Sources */,
 				486A80C52C09FEEA0089D46C /* SettingCoordinator.swift in Sources */,
 				BE5758E82BF9F15300EC4545 /* MyPageView.swift in Sources */,
+				BEAB66D92C26AE7E001B1B63 /* CreateToonSelectCharactersView.swift in Sources */,
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
 				489730E92BF1F0CB0026706C /* LoginResponseModel.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
@@ -1441,7 +1476,7 @@
 				BE7C8C192BE8FD9B005F2FB2 /* LogPlugin.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
 				BE5758F42BFB1DCC00EC4545 /* MyPageTableViewCell.swift in Sources */,
-				BE78BEE82C25BD6D000A5D11 /* CreateToonViewController.swift in Sources */,
+				BE78BEE82C25BD6D000A5D11 /* CreateToonBaseViewController.swift in Sources */,
 				BE7C8C172BE8FD50005F2FB2 /* AuthInterceptor.swift in Sources */,
 				BE5758DF2BF9E6A000EC4545 /* BaseURL.swift in Sources */,
 				BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */,
@@ -1451,6 +1486,7 @@
 				BE6011712BEF316D00F8FCEA /* TNSwitch.swift in Sources */,
 				489FE2C72BC00F9F0033B61D /* BaseTableViewCell.swift in Sources */,
 				486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */,
+				BEAB66D32C26AD9F001B1B63 /* EnterInfoView.swift in Sources */,
 				BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */,
 				BE78BEDA2C25BB19000A5D11 /* SelectStyleViewController.swift in Sources */,
 				48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */,

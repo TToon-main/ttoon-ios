@@ -1,5 +1,5 @@
 //
-//  CreateToonViewController.swift
+//  CreateToonBaseViewController.swift
 //  TTOON
 //
 //  Created by Dongwan Ryoo on 6/21/24.
@@ -36,5 +36,7 @@ class CreateToonBaseViewController: BaseViewController {
     
     private func setNavigationItem() {
         self.navigationItem.title = "기록 추가하기"
+        self.navigationItem.backButtonTitle = ""
+        self.navigationController?.navigationBar.tintColor = UIColor.black
     }
-} 
+}

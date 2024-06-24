@@ -10,8 +10,8 @@ import UIKit
 
 
 class SettingTextView: UITextView {
-    private var placeholderText: String = ""
-    private var limitCnt: Int = 1000
+    var placeholderText: String = ""
+    var limitCnt: Int = 1000
     private var disposeBag = DisposeBag()
     
     convenience init(placeholderText: String, limitCnt: Int) {
