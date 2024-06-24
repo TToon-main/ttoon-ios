@@ -114,6 +114,9 @@
 		BE840DBD2BB95FE5000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
 		BE840DBE2BB95FE5000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
 		BE840DCA2BBD9817000E67B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE840DC92BBD9817000E67B7 /* GoogleService-Info.plist */; };
+		BE9760902C29A39000EDAEA0 /* CreateLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97608F2C29A39000EDAEA0 /* CreateLoadingView.swift */; };
+		BE9760922C29A3CB00EDAEA0 /* CreateLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9760912C29A3CB00EDAEA0 /* CreateLoadingViewController.swift */; };
+		BE9760942C29A3E600EDAEA0 /* CreateLoadingReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9760932C29A3E600EDAEA0 /* CreateLoadingReactor.swift */; };
 		BE9BBC112BCA529A006FD848 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */; };
 		BE9BBC122BCA529A006FD848 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */; };
 		BE9BBC132BCA529A006FD848 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */; };
@@ -293,6 +296,9 @@
 		BE7C8C182BE8FD9B005F2FB2 /* LogPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPlugin.swift; sourceTree = "<group>"; };
 		BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		BE840DC92BBD9817000E67B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BE97608F2C29A39000EDAEA0 /* CreateLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLoadingView.swift; sourceTree = "<group>"; };
+		BE9760912C29A3CB00EDAEA0 /* CreateLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLoadingViewController.swift; sourceTree = "<group>"; };
+		BE9760932C29A3E600EDAEA0 /* CreateLoadingReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLoadingReactor.swift; sourceTree = "<group>"; };
 		BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		BE9BBC092BCA5299006FD848 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		BE9BBC0A2BCA5299006FD848 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
@@ -911,6 +917,7 @@
 			children = (
 				BE78BEDD2C25BB36000A5D11 /* SelectStyleReactor.swift */,
 				BEAB66D62C26ADF1001B1B63 /* EnterInfoReactor.swift */,
+				BE9760932C29A3E600EDAEA0 /* CreateLoadingReactor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -921,6 +928,7 @@
 				BE78BEDB2C25BB28000A5D11 /* SelectStyleView.swift */,
 				BEAB66D22C26AD9F001B1B63 /* EnterInfoView.swift */,
 				BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */,
+				BE97608F2C29A39000EDAEA0 /* CreateLoadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -931,6 +939,7 @@
 				BE78BED92C25BB19000A5D11 /* SelectStyleViewController.swift */,
 				BEAB66D42C26ADB4001B1B63 /* EnterInfoViewController.swift */,
 				BE78BEE72C25BD6D000A5D11 /* CreateToonBaseViewController.swift */,
+				BE9760912C29A3CB00EDAEA0 /* CreateLoadingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1273,6 +1282,7 @@
 				482B61192BB596CD00681097 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 				482B611C2BB598DC00681097 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 				482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				BE9760952C29A48500EDAEA0 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = BE36CF8B2BAFF5890017F94E /* Products */;
 			projectDirPath = "";
@@ -1395,6 +1405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE9760942C29A3E600EDAEA0 /* CreateLoadingReactor.swift in Sources */,
 				BE5758F62BFB1F9900EC4545 /* MyPageTableView.swift in Sources */,
 				BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */,
 				48C3F09C2BFA089900BD2142 /* ContactUsReactor.swift in Sources */,
@@ -1427,6 +1438,7 @@
 				BE9BBC3F2BCA5455006FD848 /* TNFont.swift in Sources */,
 				BE78BEF12C25C5DC000A5D11 /* UIView+.swift in Sources */,
 				BEAB66D12C26AA12001B1B63 /* UICollectionView+.swift in Sources */,
+				BE9760922C29A3CB00EDAEA0 /* CreateLoadingViewController.swift in Sources */,
 				BEB456822BD15BCB007F5EEC /* SplashRepositoryProtocol.swift in Sources */,
 				489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */,
 				BEAB66DF2C26B652001B1B63 /* CreateToonDiaryView.swift in Sources */,
@@ -1481,6 +1493,7 @@
 				BE6011712BEF316D00F8FCEA /* TNSwitch.swift in Sources */,
 				489FE2C72BC00F9F0033B61D /* BaseTableViewCell.swift in Sources */,
 				486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */,
+				BE9760902C29A39000EDAEA0 /* CreateLoadingView.swift in Sources */,
 				BEAB66D32C26AD9F001B1B63 /* EnterInfoView.swift in Sources */,
 				BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */,
 				48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */,
@@ -2108,6 +2121,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 10.23.0;
+			};
+		};
+		BE9760952C29A48500EDAEA0 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
