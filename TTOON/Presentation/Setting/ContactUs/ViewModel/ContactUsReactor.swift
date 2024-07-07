@@ -9,9 +9,10 @@ import Foundation
 import ReactorKit
 import RxSwift
 
-// TODO: Button Enabled output으로 전달해야 함
-
 class ContactUsReactor: Reactor {
+    // TODO: UseCase DI 처리하기
+    private let contactUsUseCase = ContactUsUseCase(ContactUsRepository())
+    
     init() {
     }
     
@@ -28,7 +29,12 @@ class ContactUsReactor: Reactor {
         case setContentValidity(Bool)
         case setContentCount(Int)
         case enabledButton(Bool)
-        case complete(Bool)
+        case complete(Result<Bool, Error>)
+        
+        // 네트워크 통신 요청에 필요한 정보
+        case setEmailString(String)
+        case setCategoryString(String)
+        case setContentString(String)
     }
     
     struct State {
@@ -38,6 +44,11 @@ class ContactUsReactor: Reactor {
         var contentCount: Int = 0
         var buttonEnabled: Bool = false
         var completeResult: Result<Bool, Error>?
+        
+        // 네트워크 통신 요청에 필요한 정보
+        var emailString: String = ""
+        var categoryString: String = ""
+        var contentString: String = ""
     }
     
     
@@ -60,6 +71,7 @@ class ContactUsReactor: Reactor {
             
             return .concat([
                 .just(.setEmailValidity(isValid)),
+                .just(.setEmailString(email)),
                 .just(.enabledButton(checkButtonEnabled(
                     emailValid: isValidForCompleteButton,
                     category: currentState.category,
@@ -67,10 +79,12 @@ class ContactUsReactor: Reactor {
                 )))
             ])
             
+            
         case .categoryTapped(let category):
             
             return .concat([
                 .just(.setCategory(category)),
+                .just(.setCategoryString(category.description)),
                 .just(.enabledButton(checkButtonEnabled(
                     emailValid: currentState.isEmailValid,
                     category: category,
@@ -92,6 +106,7 @@ class ContactUsReactor: Reactor {
             return .concat([
                 .just(.setContentValidity(isValid)),
                 .just(.setContentCount(count)),
+                .just(.setContentString(content)),
                 .just(.enabledButton(checkButtonEnabled(
                     emailValid: currentState.isEmailValid,
                     category: currentState.category,
@@ -102,8 +117,25 @@ class ContactUsReactor: Reactor {
         case .completeButtonTapped:
             // TODO:
             // 네트워크 통신
-            // 화면 전환 로직
-            return .just(.complete(true))
+            // 얼럿 띄워주기
+            
+            // 1. 네트워크 통신
+            let email = currentState.emailString
+            let category = currentState.categoryString
+            let content = currentState.contentString
+            
+            let requestModel = ContactUsRequestModel(
+                receiver: email,
+                category: category,
+                body: content
+            )
+            
+            return contactUsUseCase.contactUsRequest(requestModel)
+                .asObservable()
+                .map { result in
+                    print("func mutate - completButton Tapped - 결과 : \(result)")
+                    return .complete(result)
+                }
         }
     }
     
@@ -127,8 +159,17 @@ class ContactUsReactor: Reactor {
         case .enabledButton(let value):
             newState.buttonEnabled = value
             
-        case .complete:
-            newState.completeResult = .success(true)
+        case .setEmailString(let email):
+            newState.emailString = email
+            
+        case .setCategoryString(let category):
+            newState.categoryString = category
+            
+        case .setContentString(let content):
+            newState.contentString = content
+            
+        case .complete(let result):
+            newState.completeResult = result
         }
         
         return newState
