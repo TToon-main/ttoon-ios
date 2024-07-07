@@ -34,6 +34,11 @@ class ContactUsViewController: BaseViewController, View {
         self.view = mainView
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+    }
+    
     func bind(reactor: ContactUsReactor) {
         bindAction(reactor)
         bindState(reactor)
@@ -106,7 +111,7 @@ class ContactUsViewController: BaseViewController, View {
         reactor.state.map { $0.buttonEnabled }
             .distinctUntilChanged()
             .subscribe(with: self) { owner, value in
-                owner.mainView.completeButton.backgroundColor = value ? .blue : .red
+                owner.mainView.completeButton.isEnabled = value
             }
             .disposed(by: disposeBag)
     }
