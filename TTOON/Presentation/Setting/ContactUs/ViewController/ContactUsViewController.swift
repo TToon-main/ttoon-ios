@@ -114,6 +114,29 @@ class ContactUsViewController: BaseViewController, View {
                 owner.mainView.completeButton.isEnabled = value
             }
             .disposed(by: disposeBag)
+        
+        
+        reactor.state.map { $0.completeResult }
+            .throttle(.seconds(3), scheduler: MainScheduler.instance)
+            .subscribe(with: self) { owner, result in
+                if let result {
+                    if case .success(let value) = result,
+                    value == true {
+                        TNAlert(self)
+                            .setTitle("문의하기가 완료되었습니다")
+                            .setSubTitle("1:1 문의에 대한 답변은 이메일로 보내드려요")
+                            .addConfirmAction("확인", action: nil) // 화면 전환 시켜주기
+                            .present()
+                    } else {
+                        TNAlert(self)
+                            .setTitle("문의하기에 실패하였습니다")
+                            .setSubTitle("잠시 후 다시 시도해주세요")
+                            .addConfirmAction("확인", action: nil) // 따로 action 없어도 된다
+                            .present()
+                    }
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     

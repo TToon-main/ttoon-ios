@@ -60,7 +60,6 @@ extension SettingAPI: TargetType {
         switch self {
         case .contactUs:
             let accesstoken = KeychainStorage.shared.accessToken
-            print("akak : \(accesstoken)")
             return [
                 "Content-Type": "application/json",
                 "Authorization": "Bearer \(accesstoken ?? "")"

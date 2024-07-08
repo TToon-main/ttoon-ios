@@ -31,9 +31,6 @@ class ContactUsRepository: NSObject, ContactUsRepositoryProtocol {
                         single(.success(.failure(SampleError(rawValue: response.statusCode)!)))
                     }
                     
-                    print("contact us repo : \(response)")
-                    
-                    
                 case .failure(let error):
                     single(.success(.failure(error)))
                 }
