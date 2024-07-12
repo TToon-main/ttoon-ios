@@ -117,6 +117,10 @@
 		BE9760902C29A39000EDAEA0 /* CreateLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97608F2C29A39000EDAEA0 /* CreateLoadingView.swift */; };
 		BE9760922C29A3CB00EDAEA0 /* CreateLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9760912C29A3CB00EDAEA0 /* CreateLoadingViewController.swift */; };
 		BE9760942C29A3E600EDAEA0 /* CreateLoadingReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9760932C29A3E600EDAEA0 /* CreateLoadingReactor.swift */; };
+		BE9760982C29A50900EDAEA0 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BE9760972C29A50900EDAEA0 /* Lottie */; };
+		BE97609B2C29A5F900EDAEA0 /* toonLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = BE97609A2C29A5F900EDAEA0 /* toonLottie.json */; };
+		BE97609D2C29AEB600EDAEA0 /* CreateResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97609C2C29AEB600EDAEA0 /* CreateResultView.swift */; };
+		BE97609F2C29B05100EDAEA0 /* CreateResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97609E2C29B05100EDAEA0 /* CreateResultViewController.swift */; };
 		BE9BBC112BCA529A006FD848 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */; };
 		BE9BBC122BCA529A006FD848 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */; };
 		BE9BBC132BCA529A006FD848 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */; };
@@ -299,6 +303,9 @@
 		BE97608F2C29A39000EDAEA0 /* CreateLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLoadingView.swift; sourceTree = "<group>"; };
 		BE9760912C29A3CB00EDAEA0 /* CreateLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLoadingViewController.swift; sourceTree = "<group>"; };
 		BE9760932C29A3E600EDAEA0 /* CreateLoadingReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLoadingReactor.swift; sourceTree = "<group>"; };
+		BE97609A2C29A5F900EDAEA0 /* toonLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = toonLottie.json; sourceTree = "<group>"; };
+		BE97609C2C29AEB600EDAEA0 /* CreateResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateResultView.swift; sourceTree = "<group>"; };
+		BE97609E2C29B05100EDAEA0 /* CreateResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateResultViewController.swift; sourceTree = "<group>"; };
 		BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		BE9BBC092BCA5299006FD848 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		BE9BBC0A2BCA5299006FD848 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
@@ -349,6 +356,7 @@
 				482B611B2BB596CD00681097 /* SwiftKeychainWrapper in Frameworks */,
 				482B610B2BB5931200681097 /* ReactorKit in Frameworks */,
 				482B61082BB592D500681097 /* RxSwift in Frameworks */,
+				BE9760982C29A50900EDAEA0 /* Lottie in Frameworks */,
 				482B60F52BB58F9400681097 /* FSCalendar in Frameworks */,
 				482B610E2BB5940500681097 /* GoogleSignIn in Frameworks */,
 				482B60FE2BB5912E00681097 /* Moya in Frameworks */,
@@ -929,6 +937,7 @@
 				BEAB66D22C26AD9F001B1B63 /* EnterInfoView.swift */,
 				BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */,
 				BE97608F2C29A39000EDAEA0 /* CreateLoadingView.swift */,
+				BE97609C2C29AEB600EDAEA0 /* CreateResultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -940,6 +949,7 @@
 				BEAB66D42C26ADB4001B1B63 /* EnterInfoViewController.swift */,
 				BE78BEE72C25BD6D000A5D11 /* CreateToonBaseViewController.swift */,
 				BE9760912C29A3CB00EDAEA0 /* CreateLoadingViewController.swift */,
+				BE97609E2C29B05100EDAEA0 /* CreateResultViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -989,6 +999,7 @@
 		BE840DC42BBD9263000E67B7 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				BE9760992C29A5F000EDAEA0 /* Lottie */,
 				489FE2BF2BC00F480033B61D /* Font */,
 				BE4C7C952BFF2C1700AB3D09 /* Config */,
 				BEA8BB4C2BB86323000F9C15 /* Localization */,
@@ -997,6 +1008,14 @@
 				BE840DC92BBD9817000E67B7 /* GoogleService-Info.plist */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		BE9760992C29A5F000EDAEA0 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				BE97609A2C29A5F900EDAEA0 /* toonLottie.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 		BE9BBC072BCA4CCC006FD848 /* Pretendard */ = {
@@ -1192,6 +1211,7 @@
 				482B611D2BB598DD00681097 /* Sentry */,
 				482B61202BB599B100681097 /* FirebaseAnalytics */,
 				482B61222BB599B100681097 /* FirebaseCrashlytics */,
+				BE9760972C29A50900EDAEA0 /* Lottie */,
 			);
 			productName = TTOON;
 			productReference = BE36CF8A2BAFF5890017F94E /* TTOON.app */;
@@ -1282,7 +1302,7 @@
 				482B61192BB596CD00681097 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 				482B611C2BB598DC00681097 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 				482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				BE9760952C29A48500EDAEA0 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				BE9760962C29A50900EDAEA0 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = BE36CF8B2BAFF5890017F94E /* Products */;
 			projectDirPath = "";
@@ -1308,6 +1328,7 @@
 				BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */,
 				BE9BBC1A2BCA529A006FD848 /* Pretendard-Regular.otf in Resources */,
 				BE0132AA2BC4306600C9827C /* engaged-code-418809-16024d5258d0.json in Resources */,
+				BE97609B2C29A5F900EDAEA0 /* toonLottie.json in Resources */,
 				BE9BBC112BCA529A006FD848 /* Pretendard-Black.otf in Resources */,
 				BE9BBC262BCA529A006FD848 /* Pretendard-Thin.otf in Resources */,
 				BE36CF972BAFF58A0017F94E /* Assets.xcassets in Resources */,
@@ -1440,6 +1461,8 @@
 				BEAB66D12C26AA12001B1B63 /* UICollectionView+.swift in Sources */,
 				BE9760922C29A3CB00EDAEA0 /* CreateLoadingViewController.swift in Sources */,
 				BEB456822BD15BCB007F5EEC /* SplashRepositoryProtocol.swift in Sources */,
+				BE97609F2C29B05100EDAEA0 /* CreateResultViewController.swift in Sources */,
+				BE78BEEC2C25C3EF000A5D11 /* CreateToonCollectionViewCell.swift in Sources */,
 				489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */,
 				BEAB66DF2C26B652001B1B63 /* CreateToonDiaryView.swift in Sources */,
 				48C3F0982BF9E48400BD2142 /* DeleteAccountViewController.swift in Sources */,
@@ -1479,6 +1502,7 @@
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
 				480C165F2BEEFA9F0085A187 /* SocialLoginType.swift in Sources */,
 				BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */,
+				BE97609D2C29AEB600EDAEA0 /* CreateResultView.swift in Sources */,
 				489ADEFB2BF9BC8300B070B7 /* ContactUsView.swift in Sources */,
 				BE7C8C192BE8FD9B005F2FB2 /* LogPlugin.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
@@ -2123,7 +2147,7 @@
 				minimumVersion = 10.23.0;
 			};
 		};
-		BE9760952C29A48500EDAEA0 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+		BE9760962C29A50900EDAEA0 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
 			requirement = {
@@ -2233,6 +2257,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		BE9760972C29A50900EDAEA0 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE9760962C29A50900EDAEA0 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

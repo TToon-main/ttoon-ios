@@ -49,4 +49,13 @@ extension EnterInfoViewController: View {
             .bind(to: enterInfoScrollView.rx.validTextFieldText)
             .disposed(by: disposeBag)
     }
+    
+    override func bind() {
+        enterInfoView.confirmButton.rx.tap
+            .subscribe(with: self) { owner, _ in
+                let vc = CreateLoadingViewController()
+                owner.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
+    }
 }
