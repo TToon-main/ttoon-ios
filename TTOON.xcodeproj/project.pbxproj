@@ -110,6 +110,8 @@
 		BE78BF4A2C4269EB000A5D11 /* CharacterPickerBSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF492C4269EB000A5D11 /* CharacterPickerBSViewController.swift */; };
 		BE78BF4C2C42B9FE000A5D11 /* CharacterPickerBSReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF4B2C42B9FE000A5D11 /* CharacterPickerBSReactor.swift */; };
 		BE78BF4E2C42BAB2000A5D11 /* CharacterPickerBSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF4D2C42BAB2000A5D11 /* CharacterPickerBSView.swift */; };
+		BE78BF502C42BBE8000A5D11 /* CharacterPickerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF4F2C42BBE8000A5D11 /* CharacterPickerTableView.swift */; };
+		BE78BF522C42BC78000A5D11 /* CharacterPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF512C42BC78000A5D11 /* CharacterPickerTableViewCell.swift */; };
 		BE7C8C112BE8F258005F2FB2 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */; };
 		BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */; };
 		BE7C8C172BE8FD50005F2FB2 /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C162BE8FD50005F2FB2 /* AuthInterceptor.swift */; };
@@ -301,6 +303,8 @@
 		BE78BF492C4269EB000A5D11 /* CharacterPickerBSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPickerBSViewController.swift; sourceTree = "<group>"; };
 		BE78BF4B2C42B9FE000A5D11 /* CharacterPickerBSReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPickerBSReactor.swift; sourceTree = "<group>"; };
 		BE78BF4D2C42BAB2000A5D11 /* CharacterPickerBSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPickerBSView.swift; sourceTree = "<group>"; };
+		BE78BF4F2C42BBE8000A5D11 /* CharacterPickerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPickerTableView.swift; sourceTree = "<group>"; };
+		BE78BF512C42BC78000A5D11 /* CharacterPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPickerTableViewCell.swift; sourceTree = "<group>"; };
 		BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAPI.swift; sourceTree = "<group>"; };
 		BE7C8C162BE8FD50005F2FB2 /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
@@ -994,6 +998,8 @@
 				BEAB66DA2C26AEEE001B1B63 /* CreateToonSelectCharactersButton.swift */,
 				BEAB66DC2C26B180001B1B63 /* CreateToonDivider.swift */,
 				BEAB66DE2C26B652001B1B63 /* CreateToonDiaryView.swift */,
+				BE78BF4F2C42BBE8000A5D11 /* CharacterPickerTableView.swift */,
+				BE78BF512C42BC78000A5D11 /* CharacterPickerTableViewCell.swift */,
 			);
 			path = CreateToon;
 			sourceTree = "<group>";
@@ -1509,6 +1515,7 @@
 				BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */,
 				BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */,
 				BE77224B2BEF499F007CDC17 /* TNAlert.swift in Sources */,
+				BE78BF502C42BBE8000A5D11 /* CharacterPickerTableView.swift in Sources */,
 				489730E22BF0E8840026706C /* AuthDTO.swift in Sources */,
 				48C3F09A2BF9E64E00BD2142 /* SettingNameInputView.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
@@ -1523,6 +1530,7 @@
 				BE97609D2C29AEB600EDAEA0 /* CreateResultView.swift in Sources */,
 				489ADEFB2BF9BC8300B070B7 /* ContactUsView.swift in Sources */,
 				BE7C8C192BE8FD9B005F2FB2 /* LogPlugin.swift in Sources */,
+				BE78BF522C42BC78000A5D11 /* CharacterPickerTableViewCell.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
 				BE5758F42BFB1DCC00EC4545 /* MyPageTableViewCell.swift in Sources */,
 				BE78BEE82C25BD6D000A5D11 /* CreateToonBaseViewController.swift in Sources */,
