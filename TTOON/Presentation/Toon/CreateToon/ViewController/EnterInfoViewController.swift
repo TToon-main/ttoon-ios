@@ -70,9 +70,9 @@ extension EnterInfoViewController: View {
         // TODO: 임시
         presentModifyCharacterVC
             .subscribe(with: self) { owner, _ in
-                
-//                let vc = CreateLoadingViewController()
-//                owner.navigationController?.pushViewController(vc, animated: true)
+                let reactor = CharacterModifyReactor()
+                let vc = CharacterModifyViewController(reactor: reactor)
+                owner.navigationController?.pushViewController(vc, animated: true)
             }
             .disposed(by: disposeBag)
     }

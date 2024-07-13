@@ -112,6 +112,9 @@
 		BE78BF4E2C42BAB2000A5D11 /* CharacterPickerBSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF4D2C42BAB2000A5D11 /* CharacterPickerBSView.swift */; };
 		BE78BF502C42BBE8000A5D11 /* CharacterPickerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF4F2C42BBE8000A5D11 /* CharacterPickerTableView.swift */; };
 		BE78BF522C42BC78000A5D11 /* CharacterPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF512C42BC78000A5D11 /* CharacterPickerTableViewCell.swift */; };
+		BE78BF542C42D06D000A5D11 /* CharacterModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF532C42D06D000A5D11 /* CharacterModifyViewController.swift */; };
+		BE78BF562C42D095000A5D11 /* CharacterModifyReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF552C42D095000A5D11 /* CharacterModifyReactor.swift */; };
+		BE78BF582C42D0D1000A5D11 /* CharacterModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF572C42D0D1000A5D11 /* CharacterModifyView.swift */; };
 		BE7C8C112BE8F258005F2FB2 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */; };
 		BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */; };
 		BE7C8C172BE8FD50005F2FB2 /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C162BE8FD50005F2FB2 /* AuthInterceptor.swift */; };
@@ -305,6 +308,9 @@
 		BE78BF4D2C42BAB2000A5D11 /* CharacterPickerBSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPickerBSView.swift; sourceTree = "<group>"; };
 		BE78BF4F2C42BBE8000A5D11 /* CharacterPickerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPickerTableView.swift; sourceTree = "<group>"; };
 		BE78BF512C42BC78000A5D11 /* CharacterPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPickerTableViewCell.swift; sourceTree = "<group>"; };
+		BE78BF532C42D06D000A5D11 /* CharacterModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModifyViewController.swift; sourceTree = "<group>"; };
+		BE78BF552C42D095000A5D11 /* CharacterModifyReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModifyReactor.swift; sourceTree = "<group>"; };
+		BE78BF572C42D0D1000A5D11 /* CharacterModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModifyView.swift; sourceTree = "<group>"; };
 		BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAPI.swift; sourceTree = "<group>"; };
 		BE7C8C162BE8FD50005F2FB2 /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
@@ -947,6 +953,7 @@
 				BEAB66D62C26ADF1001B1B63 /* EnterInfoReactor.swift */,
 				BE9760932C29A3E600EDAEA0 /* CreateLoadingReactor.swift */,
 				BE78BF4B2C42B9FE000A5D11 /* CharacterPickerBSReactor.swift */,
+				BE78BF552C42D095000A5D11 /* CharacterModifyReactor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -960,6 +967,7 @@
 				BE97608F2C29A39000EDAEA0 /* CreateLoadingView.swift */,
 				BE97609C2C29AEB600EDAEA0 /* CreateResultView.swift */,
 				BE78BF4D2C42BAB2000A5D11 /* CharacterPickerBSView.swift */,
+				BE78BF572C42D0D1000A5D11 /* CharacterModifyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -973,6 +981,7 @@
 				BE9760912C29A3CB00EDAEA0 /* CreateLoadingViewController.swift */,
 				BE97609E2C29B05100EDAEA0 /* CreateResultViewController.swift */,
 				BE78BF492C4269EB000A5D11 /* CharacterPickerBSViewController.swift */,
+				BE78BF532C42D06D000A5D11 /* CharacterModifyViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1530,6 +1539,7 @@
 				BE78BF4C2C42B9FE000A5D11 /* CharacterPickerBSReactor.swift in Sources */,
 				489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */,
 				489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */,
+				BE78BF542C42D06D000A5D11 /* CharacterModifyViewController.swift in Sources */,
 				486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */,
 				BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
@@ -1559,7 +1569,9 @@
 				BE78BF4E2C42BAB2000A5D11 /* CharacterPickerBSView.swift in Sources */,
 				48D979FF2BEF45C20087F870 /* LoginUseCase.swift in Sources */,
 				BE5758FA2BFB435D00EC4545 /* AlarmViewController.swift in Sources */,
+				BE78BF582C42D0D1000A5D11 /* CharacterModifyView.swift in Sources */,
 				BE5758F22BFB1C9900EC4545 /* UnderLineView.swift in Sources */,
+				BE78BF562C42D095000A5D11 /* CharacterModifyReactor.swift in Sources */,
 				BE78BEE62C25BBC5000A5D11 /* CreateToonSubTitleLabel.swift in Sources */,
 				486A80C82C0E09060089D46C /* KeychainStorage.swift in Sources */,
 				BE78BF4A2C4269EB000A5D11 /* CharacterPickerBSViewController.swift in Sources */,
