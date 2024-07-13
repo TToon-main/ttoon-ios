@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxSwift
+
 struct CharacterPickerTableViewCellDataSource {
     let name: String?
     let isMainCharacter: Bool
@@ -16,6 +18,8 @@ struct CharacterPickerTableViewCellDataSource {
 }
 
 class CharacterPickerTableViewCell: BaseTableViewCell {
+    var disposeBag = DisposeBag()
+    
     private let titleLabel = {
         let view = UILabel()
         view.text = "조혜원"
@@ -56,12 +60,16 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
         return view
     }()
     
-    private let modifyCharacterButton = {
+    let modifyCharacterButton = {
         let view = UIButton()
         view.setTitle("수정하기", for: .normal)
         view.setTitleColor(.grey05, for: .normal)
-        view.setImage(UIImage(systemName: "checkmark"), for: .normal)
-        view.semanticContentAttribute = .forceLeftToRight
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 9, weight: .regular, scale: .default)
+        let image = UIImage(systemName: "chevron.right", withConfiguration: imageConfig)
+        view.setImage(image, for: .normal)
+        view.semanticContentAttribute = .forceRightToLeft
+        view.tintColor = .grey05
+        view.titleLabel?.font = .body14m
         
         return view
     }()
@@ -72,6 +80,11 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
         
         return view
     }()
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
     
     override func configures() {
         selectionStyle = .none
@@ -102,7 +115,7 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
         
         mainCharacterButton.snp.makeConstraints { 
             $0.leading.equalTo(titleLabel.snp.trailing).offset(8)
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().offset(20)
             $0.height.equalTo(25)
             $0.width.equalTo(71)
         }

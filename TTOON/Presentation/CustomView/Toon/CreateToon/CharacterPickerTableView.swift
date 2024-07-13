@@ -20,7 +20,8 @@ final class CharacterPickerTableView: UITableView {
     private func configure() {
         separatorStyle = .none
         backgroundColor = .clear
-        rowHeight = 88
+        rowHeight = 108
         register(CharacterPickerTableViewCell.self, forCellReuseIdentifier: CharacterPickerTableViewCell.IDF)
+        showsHorizontalScrollIndicator = false
     }
 }
