@@ -11,9 +11,14 @@ import ReactorKit
 import RxCocoa
 import RxSwift
 
+protocol PresentModifyCharacterVCDelegate: AnyObject {
+    func presentModifyCharacterViewController()
+}
+
 class CharacterPickerBSViewController: BaseViewController {
     var disposeBag = DisposeBag()
     private let characterPickerBSView = CharacterPickerBSView()
+    weak var delegate: PresentModifyCharacterVCDelegate?
     
     init(reactor: CharacterPickerBSReactor) {
         super.init(nibName: nil, bundle: nil)
@@ -47,8 +52,16 @@ class CharacterPickerBSViewController: BaseViewController {
                     cell.setCell(item)
             }
                 .disposed(by: disposeBag)
+        
+        characterPickerBSView.modifyCharacterButton.rx.tap
+            .subscribe(with: self) { owner, _ in 
+                owner.dismiss(animated: true)
+                owner.delegate?.presentModifyCharacterViewController()
+            }
+            .disposed(by: disposeBag)
     }
 }
+
 extension CharacterPickerBSViewController: View {
     func bind(reactor: CharacterPickerBSReactor) {
         bindAction(reactor: reactor)

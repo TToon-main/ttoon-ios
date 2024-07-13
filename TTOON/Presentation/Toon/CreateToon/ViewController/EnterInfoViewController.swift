@@ -66,6 +66,22 @@ extension EnterInfoViewController: View {
             .compactMap{ $0 }
             .bind(onNext: presentCreateLoadingVC)
             .disposed(by: disposeBag)
+        
+        // TODO: 임시
+        presentModifyCharacterVC
+            .subscribe(with: self) { owner, _ in
+                
+//                let vc = CreateLoadingViewController()
+//                owner.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
+    }
+}
+
+// TODO: 임시
+extension EnterInfoViewController: PresentModifyCharacterVCDelegate {
+    func presentModifyCharacterViewController() {
+        self.presentModifyCharacterVC.onNext(())
     }
     
     private func presentCreateLoadingVC() {
