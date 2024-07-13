@@ -28,8 +28,8 @@ class CharacterPickerBSView: BaseView {
         let view = UIButton()
         view.setTitle("인물 추가 · 수정하기", for: .normal)
         view.setTitleColor(.grey06, for: .normal)
-        let iamgeConfig = UIImage.SymbolConfiguration(pointSize: 18, weight: .regular, scale: .default)
-        let image = UIImage(systemName: "plus", withConfiguration: iamgeConfig)
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 18, weight: .regular, scale: .default)
+        let image = UIImage(systemName: "plus", withConfiguration: imageConfig)
         view.setImage(image, for: .normal)
         view.tintColor = .grey06
         
