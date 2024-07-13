@@ -11,14 +11,9 @@ import ReactorKit
 import RxCocoa
 import RxSwift
 
-// protocol PresentModifyCharacterVCDelegate: AnyObject {
-//    func presentModifyCharacterViewController()
-// }
-
 class CharacterDeleteBSViewController: BaseViewController {
     var disposeBag = DisposeBag()
     private let characterDeleteBSView = CharacterDeleteBSView()
-    weak var delegate: PresentModifyCharacterVCDelegate?
     
     init(reactor: CharacterDeleteBSReactor) {
         super.init(nibName: nil, bundle: nil)
