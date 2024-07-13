@@ -13,6 +13,7 @@ import RxSwift
 
 class SelectStyleViewController: CreateToonBaseViewController {
     private let selectStyleView = SelectStyleView()
+    private let viewWillAppear = PublishSubject<SelectStyleReactor.Action>()
     var disposeBag = DisposeBag()
     
     init(reactor: SelectStyleReactor) {
@@ -32,6 +33,16 @@ class SelectStyleViewController: CreateToonBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindMockData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewWillAppear.onNext(.viewWillAppear)
+    }
+    
+    private func presentEnterInfoVC() {
+        let vc = EnterInfoViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 extension SelectStyleViewController: View {
@@ -59,6 +70,15 @@ extension SelectStyleViewController: View {
             .modelSelected
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        selectStyleView.rx
+            .confirmButtonTap
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        viewWillAppear
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: SelectStyleReactor) {
@@ -67,12 +87,10 @@ extension SelectStyleViewController: View {
             .bind(to: selectStyleView.rx.isEnabledConfirmButton)
             .disposed(by: disposeBag)
         
-        selectStyleView.createToonConfirmButton.rx
-            .tap
-            .subscribe(with: self ) { owner, _ in
-                let vc = EnterInfoViewController()
-                owner.navigationController?.pushViewController(vc, animated: true)
-            }
+        reactor.state
+            .map { $0.presentEnterInfoVC }
+            .compactMap{ $0 }
+            .bind(onNext: presentEnterInfoVC)
             .disposed(by: disposeBag)
     }
 }
