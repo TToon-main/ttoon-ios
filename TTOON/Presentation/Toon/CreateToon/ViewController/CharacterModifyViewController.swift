@@ -66,6 +66,9 @@ class CharacterModifyViewController: BaseViewController {
         
         characterModifyView.tableView.rx.itemDeleted
             .subscribe(with: self) { owner, _ in
+                let reactor = CharacterDeleteBSReactor()
+                let vc = CharacterDeleteBSViewController(reactor: reactor)
+                owner.present(vc, animated: true)
             }
             .disposed(by: disposeBag)
     }

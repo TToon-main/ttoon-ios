@@ -116,6 +116,9 @@
 		BE78BF542C42D06D000A5D11 /* CharacterModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF532C42D06D000A5D11 /* CharacterModifyViewController.swift */; };
 		BE78BF562C42D095000A5D11 /* CharacterModifyReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF552C42D095000A5D11 /* CharacterModifyReactor.swift */; };
 		BE78BF582C42D0D1000A5D11 /* CharacterModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF572C42D0D1000A5D11 /* CharacterModifyView.swift */; };
+		BE78BF5A2C42D6D9000A5D11 /* CharacterDeleteBSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF592C42D6D9000A5D11 /* CharacterDeleteBSView.swift */; };
+		BE78BF5C2C42D6F5000A5D11 /* CharacterDeleteBSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF5B2C42D6F5000A5D11 /* CharacterDeleteBSViewController.swift */; };
+		BE78BF5E2C42D73A000A5D11 /* CharacterDeleteBSReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF5D2C42D73A000A5D11 /* CharacterDeleteBSReactor.swift */; };
 		BE7C8C112BE8F258005F2FB2 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */; };
 		BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */; };
 		BE7C8C172BE8FD50005F2FB2 /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C162BE8FD50005F2FB2 /* AuthInterceptor.swift */; };
@@ -313,6 +316,9 @@
 		BE78BF532C42D06D000A5D11 /* CharacterModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModifyViewController.swift; sourceTree = "<group>"; };
 		BE78BF552C42D095000A5D11 /* CharacterModifyReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModifyReactor.swift; sourceTree = "<group>"; };
 		BE78BF572C42D0D1000A5D11 /* CharacterModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModifyView.swift; sourceTree = "<group>"; };
+		BE78BF592C42D6D9000A5D11 /* CharacterDeleteBSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDeleteBSView.swift; sourceTree = "<group>"; };
+		BE78BF5B2C42D6F5000A5D11 /* CharacterDeleteBSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDeleteBSViewController.swift; sourceTree = "<group>"; };
+		BE78BF5D2C42D73A000A5D11 /* CharacterDeleteBSReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDeleteBSReactor.swift; sourceTree = "<group>"; };
 		BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAPI.swift; sourceTree = "<group>"; };
 		BE7C8C162BE8FD50005F2FB2 /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
@@ -956,6 +962,7 @@
 				BE9760932C29A3E600EDAEA0 /* CreateLoadingReactor.swift */,
 				BE78BF4B2C42B9FE000A5D11 /* CharacterPickerBSReactor.swift */,
 				BE78BF552C42D095000A5D11 /* CharacterModifyReactor.swift */,
+				BE78BF5D2C42D73A000A5D11 /* CharacterDeleteBSReactor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -970,6 +977,7 @@
 				BE97609C2C29AEB600EDAEA0 /* CreateResultView.swift */,
 				BE78BF4D2C42BAB2000A5D11 /* CharacterPickerBSView.swift */,
 				BE78BF572C42D0D1000A5D11 /* CharacterModifyView.swift */,
+				BE78BF592C42D6D9000A5D11 /* CharacterDeleteBSView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -984,6 +992,7 @@
 				BE97609E2C29B05100EDAEA0 /* CreateResultViewController.swift */,
 				BE78BF492C4269EB000A5D11 /* CharacterPickerBSViewController.swift */,
 				BE78BF532C42D06D000A5D11 /* CharacterModifyViewController.swift */,
+				BE78BF5B2C42D6F5000A5D11 /* CharacterDeleteBSViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1501,6 +1510,7 @@
 				BEAB66D12C26AA12001B1B63 /* UICollectionView+.swift in Sources */,
 				BE9760922C29A3CB00EDAEA0 /* CreateLoadingViewController.swift in Sources */,
 				BEB456822BD15BCB007F5EEC /* SplashRepositoryProtocol.swift in Sources */,
+				BE78BF5C2C42D6F5000A5D11 /* CharacterDeleteBSViewController.swift in Sources */,
 				BE97609F2C29B05100EDAEA0 /* CreateResultViewController.swift in Sources */,
 				BE78BEEC2C25C3EF000A5D11 /* CreateToonCollectionViewCell.swift in Sources */,
 				489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */,
@@ -1533,10 +1543,12 @@
 				489730DE2BF0E5B80026706C /* LoginAPI.swift in Sources */,
 				BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */,
 				BE78BEDC2C25BB28000A5D11 /* SelectStyleView.swift in Sources */,
+				BE78BF5A2C42D6D9000A5D11 /* CharacterDeleteBSView.swift in Sources */,
 				BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */,
 				BE77224B2BEF499F007CDC17 /* TNAlert.swift in Sources */,
 				BE78BF502C42BBE8000A5D11 /* CharacterPickerTableView.swift in Sources */,
 				489730E22BF0E8840026706C /* AuthDTO.swift in Sources */,
+				BE78BF5E2C42D73A000A5D11 /* CharacterDeleteBSReactor.swift in Sources */,
 				48C3F09A2BF9E64E00BD2142 /* SettingNameInputView.swift in Sources */,
 				BE0473682C551D8000484B96 /* UIButton+.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
