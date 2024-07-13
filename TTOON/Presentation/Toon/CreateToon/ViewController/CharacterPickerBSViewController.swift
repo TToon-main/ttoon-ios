@@ -28,6 +28,26 @@ class CharacterPickerBSViewController: BaseViewController {
     override func loadView() {
         view = characterPickerBSView
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bindMockUp()
+    }
+    
+    func bindMockUp() {
+        let mockUpData = [
+            CharacterPickerTableViewCellDataSource(name: "이름 1", isMainCharacter: true, characterDescription: "캐릭터에 대한 묘사 및 설명", isSelected: false, isModify: false),
+            CharacterPickerTableViewCellDataSource(name: "이름 1", isMainCharacter: true, characterDescription: "캐릭터에 대한 묘사 및 설명", isSelected: true, isModify: false),
+            CharacterPickerTableViewCellDataSource(name: "이름 1", isMainCharacter: true, characterDescription: "캐릭터에 대한 묘사 및 설명", isSelected: true, isModify: false)]
+        
+        Observable.just(mockUpData)
+            .bind(to: characterPickerBSView.tableView.rx.items(
+                cellIdentifier: CharacterPickerTableViewCell.IDF,
+                cellType: CharacterPickerTableViewCell.self)) { index, item, cell in
+                    cell.setCell(item)
+            }
+                .disposed(by: disposeBag)
+    }
 }
 extension CharacterPickerBSViewController: View {
     func bind(reactor: CharacterPickerBSReactor) {
