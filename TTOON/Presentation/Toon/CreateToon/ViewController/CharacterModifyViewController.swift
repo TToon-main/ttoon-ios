@@ -63,6 +63,16 @@ class CharacterModifyViewController: BaseViewController {
                 owner.dismiss(animated: true)
             }
             .disposed(by: disposeBag)
+  
+        
+        modifyButtonTap
+            .subscribe(with: self) { owner, _ in
+                let reactor = CharacterEditorReactor()
+                let vc = CharacterEditorViewController(reactor: reactor)
+                
+                owner.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func setNavigationItem() {
