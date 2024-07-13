@@ -36,6 +36,10 @@ extension EnterInfoViewController: View {
         bindState(reactor: reactor)
     }
     
+    override func addSubViews() {
+        super.addSubViews()
+        view.addSubview(scrollView)
+        scrollView.addSubview(enterInfoView)
     func bindAction(reactor: EnterInfoReactor) {
         enterInfoScrollView.rx
             .textFieldDidChange
@@ -48,6 +52,9 @@ extension EnterInfoViewController: View {
             .disposed(by: disposeBag)
     }
     
+    override func configures() {
+        super.configures()
+        view.backgroundColor = .white
     func bindState(reactor: EnterInfoReactor) {
         reactor.state
             .map { $0.validTextFieldText }
