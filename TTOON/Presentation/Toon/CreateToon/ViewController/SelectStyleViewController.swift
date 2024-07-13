@@ -7,15 +7,17 @@
 
 import UIKit
 
+import ReactorKit
 import RxCocoa
 import RxSwift
 
 class SelectStyleViewController: CreateToonBaseViewController {
     private let selectStyleView = SelectStyleView()
-    private let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
-    init() {
+    init(reactor: SelectStyleReactor) {
         super.init(nibName: nil, bundle: nil)
+        self.reactor = reactor
     }
     
     @available(*, unavailable)
@@ -27,40 +29,42 @@ class SelectStyleViewController: CreateToonBaseViewController {
         view = selectStyleView
     }
     
-    override func bind() {
-        let cells = ["그림체 1", "그림체 2", "그림체 3"] 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bindMockData()
+    }
+}
+extension SelectStyleViewController: View {
+    func bindMockData() {
+        let cells = ["그림체 1", "그림체 2", "그림체 3"]
         let items = BehaviorSubject(value: cells)
         
-        items
-            .bind(to: selectStyleView.createToonCollectionView.rx
-                .items(cellIdentifier: CreateToonCollectionViewCell.IDF, 
-                       cellType: CreateToonCollectionViewCell.self)) 
+        // CollectionView 바인딩
+        items.bind(to: selectStyleView.createToonCollectionView.rx
+            .items(cellIdentifier: CreateToonCollectionViewCell.IDF, 
+                   cellType: CreateToonCollectionViewCell.self)) 
         { index, item, cell in 
             cell.titleLabel.text = item
-            }
+        }
         .disposed(by: disposeBag)
-        
-        
-        selectStyleView.createToonCollectionView.rx
-            .itemSelected
-            .subscribe(with: self ) { owner, indexPath in 
-                guard let cell = owner.selectStyleView.createToonCollectionView.cellForItem(at: indexPath) else {
-                    return
-                }
-                    
-                cell.isSelected = true
-            }
+    }
+    
+    func bind(reactor: SelectStyleReactor) {
+        bindAction(reactor: reactor)
+        bindState(reactor: reactor)
+    }
+    
+    func bindAction(reactor: SelectStyleReactor) {
+        selectStyleView.rx
+            .modelSelected
+            .bind(to: reactor.action)
             .disposed(by: disposeBag)
-        
-        selectStyleView.createToonCollectionView.rx
-            .itemDeselected
-            .subscribe(with: self ) { owner, indexPath in 
-                guard let cell = owner.selectStyleView.createToonCollectionView.cellForItem(at: indexPath) else {
-                    return
-                }
-                    
-                cell.isSelected = false
-            }
+    }
+    
+    func bindState(reactor: SelectStyleReactor) {
+        reactor.state
+            .map { $0.isEnabledConfirmButton }
+            .bind(to: selectStyleView.rx.isEnabledConfirmButton)
             .disposed(by: disposeBag)
     }
 }

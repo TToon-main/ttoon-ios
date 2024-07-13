@@ -7,6 +7,11 @@
 
 import UIKit
 
+import FlexLayout
+import PinLayout
+import RxCocoa
+import RxSwift
+
 class SelectStyleView: BaseView {
     let titleLabel = {
         let view = CreateToonTitleLabel()
@@ -36,40 +41,40 @@ class SelectStyleView: BaseView {
     
     let createToonConfirmButton = {
         let view = TNButton()
-//        view.isEnabled = false
+        view.isEnabled = false
         view.setTitle("완료", for: .normal)
-            
+        
         return view
     }()
     
-    override func addSubViews() {
-        addSubview(titleLabel)
-        addSubview(subTitleLabel)
-        addSubview(createToonCollectionView)
-        addSubview(createToonConfirmButton)
+    override func layouts() {
+        flex.direction(.column).padding(16).define { (flex) in
+            flex.addItem(titleLabel)
+            flex.addItem(subTitleLabel)
+            flex.addItem(createToonCollectionView)
+            flex.addItem(createToonConfirmButton)
+        }
     }
     
-    override func layouts() {
-        titleLabel.snp.makeConstraints {
-            $0.top.equalTo(safeGuide).offset(36)
-            $0.leading.equalToSuperview().offset(16)
-        }
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
-        subTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(16)
-            $0.leading.equalToSuperview().offset(16)
-        }
-        
-        createToonCollectionView.snp.makeConstraints {
-            $0.top.equalTo(subTitleLabel.snp.bottom).offset(84)
-            $0.horizontalEdges.equalToSuperview().inset(16)
-            $0.height.equalTo(132)
-        }
-        
-        createToonConfirmButton.snp.makeConstraints {
-            $0.bottom.equalTo(safeGuide).offset(-36)
-            $0.horizontalEdges.equalToSuperview().inset(16)
-            $0.height.equalTo(56)
-        }
+        titleLabel.pin.top(safeAreaInsets.top + 36).left(16).sizeToFit()
+        subTitleLabel.pin.below(of: titleLabel).marginTop(16).left(16).sizeToFit()
+        createToonCollectionView.pin.below(of: subTitleLabel).marginTop(84).horizontally(16).height(132)
+        createToonConfirmButton.pin.bottom(safeAreaInsets.bottom + 36).horizontally(16).height(56)
+    }
+}
+
+extension Reactive where Base: SelectStyleView {
+    var modelSelected: Observable<SelectStyleReactor.Action> {
+        return base.createToonCollectionView.rx.modelSelected(String.self)
+            .map { _ in SelectStyleReactor.Action.modelSelected }
+    }
+}
+
+extension Reactive where Base: SelectStyleView {
+    var isEnabledConfirmButton: Binder<Bool> {
+        return base.createToonConfirmButton.rx.isEnabled
     }
 }
