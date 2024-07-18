@@ -33,12 +33,6 @@ class ContactUsView: BaseView {
         return view
     }()
     
-//    let completeButton = {
-//        let view = UIButton()
-//        view.backgroundColor = .black
-//        return view
-//    }()
-    
     let completeButton = {
         let view = TNButton()
         view.setTitle("완료", for: .normal)

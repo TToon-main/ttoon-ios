@@ -23,7 +23,7 @@ class ContactUsViewController: BaseViewController, View {
         
         let reactor = ContactUsReactor()
         self.reactor = reactor
-        bind(reactor: reactor)
+//        bind(reactor: reactor)
     }
     
     required init?(coder: NSCoder) {

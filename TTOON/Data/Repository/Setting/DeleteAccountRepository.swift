@@ -20,8 +20,12 @@ class DeleteAccountRepository: DeleteAccountRepositoryProtocol {
             // 2. 요청
             let request = self.provider.auth.request(.deleteAccount(dto: requestDTO)) { result in
                 switch result {
-                case .success:
-                    single(.success(.success(true))) // 응답 데이터가 없다
+                case .success(let response):
+                    if response.statusCode == 200 {
+                        single(.success(.success(true)))
+                    } else {
+                        single(.success(.failure(SampleError(rawValue: response.statusCode)!)))
+                    }
                     
                 case .failure(let error):
                     single(.success(.failure(error)))

@@ -1,8 +1,8 @@
 //
-//  CategoryBottomSheetViewController.swift
+//  DeleteAccountReasonBottomSheetViewController.swift
 //  TTOON
 //
-//  Created by 임승섭 on 7/7/24.
+//  Created by 임승섭 on 7/9/24.
 //
 
 import ReactorKit
@@ -10,40 +10,37 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-class CategoryBottomSheetViewController: BaseViewController, View {
-    // MARK: - property
+class DeleteAccountReasonBottomSheetViewController: BaseViewController, View {
+    // ContactUs의 CategoryBottomSheetVC와 거의 동일
+    
+    // MARK: - Property
     var disposeBag = DisposeBag()
     
-    // 뭘 체크했는지 저장 - nil이 아니면 무언가 선택되었다고 간주하고, 완료 버튼 활성화
-    var selectedCategory: ContactCategory? {
+    var selectedReason: DeleteAccountReason? {
         didSet {
-            self.bottomSheetView.completeButton.isEnabled = (selectedCategory != nil)
+            self.bottomSheetView.completeButton.isEnabled = (selectedReason != nil)
         }
     }
     
     
     // MARK: - UI property
-    // 기본 뷰는 그대로. 회색 배경으로만 변경
-    // 그 위에 CategoryBottomSheetView 인스턴스 얹어두는 형식
-    // 즉, mainView를 변경하는 형식은 아님
+    // mainView를 변경하는 게 아니라, addSubView로 얹어둔다.
     let bottomSheetView = CategoryBottomSheetView()
     
     
-
-    
-    // 문의하기 화면의 뷰모델을 전달받는다.
-    init(_ reactor: ContactUsReactor) {
+    init(_ reactor: DeleteAccountReactor) {
         super.init(nibName: nil, bundle: nil)
-    
         
         self.reactor = reactor
-//        bind(reactor: reactor)    // 완료 버튼을 누르면 액션만 넘겨준다.
+//        bind(reactor: reactor)  // 완료 버튼 누르면 액션
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    // MARK: - UI Setting
     override func addSubViews() {
         super.addSubViews()
         
@@ -56,7 +53,7 @@ class CategoryBottomSheetViewController: BaseViewController, View {
         bottomSheetView.snp.makeConstraints { make in
             make.bottom.equalTo(view).inset(24)
             make.horizontalEdges.equalTo(view).inset(16)
-            make.height.equalTo(489)
+            make.height.equalTo(547)
         }
     }
     
@@ -72,48 +69,45 @@ class CategoryBottomSheetViewController: BaseViewController, View {
     }
 }
 
-// reactor bind
-extension CategoryBottomSheetViewController {
-    func bind(reactor: ContactUsReactor) {
-        // 액션만 진행! 완료버튼 클릭시 선택한 카테고리 action으로 넘겨주기
+// reactor
+extension DeleteAccountReasonBottomSheetViewController {
+    func bind(reactor: DeleteAccountReactor) {
         bottomSheetView.completeButton.rx.tap
             .map {
-                let category = self.selectedCategory!
+                let reason = self.selectedReason!
                 self.dismiss(animated: true)
+                print("delete account bottom sheet complete button tapped")
                 
-                return ContactUsReactor.Action.categoryTapped(category)
+                return DeleteAccountReactor.Action.deleteReason(reason)
             }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }
 }
 
-// 테이블뷰
-extension CategoryBottomSheetViewController: UITableViewDelegate, UITableViewDataSource {
-    // 피그마 : 문자열 높이 22, 이미지 높이 24, 문자열 사이 간격 36
-    // => 셀 높이 40으로 설정
-    
+
+// tableView
+extension DeleteAccountReasonBottomSheetViewController: UITableViewDelegate, UITableViewDataSource {
     private func setUpTableView() {
         bottomSheetView.categoryTableView.delegate = self
         bottomSheetView.categoryTableView.dataSource = self
         
-        // 이미 선택된 카테고리가 있으면, selectedCategory에 저장
-        // 저장되면 didSet
-        if let alreadySelectedCategory = self.reactor?.currentState.category  {
-            self.selectedCategory = alreadySelectedCategory
+        // 이미 선택된게 있으면, 체크해준다
+        if let alreadySelectedReason = self.reactor?.currentState.deleteReason {
+            self.selectedReason = alreadySelectedReason
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ContactCategory.allCases.count
+        return DeleteAccountReason.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as? TNSheetCell else { return UITableViewCell() }
         
-        cell.titleLabel.text = ContactCategory(rawValue: indexPath.row)?.description
+        cell.titleLabel.text = DeleteAccountReason(rawValue: indexPath.row)?.description
         
-        if let selectedIdx = self.selectedCategory?.rawValue,
+        if let selectedIdx = self.selectedReason?.rawValue,
            selectedIdx == indexPath.row {
             cell.isChecked = true
         }
@@ -122,9 +116,8 @@ extension CategoryBottomSheetViewController: UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // 현재 테이블뷰 높이를 계산하고, 그거 나누기 개수
         let tableViewHeight = self.bottomSheetView.categoryTableView.frame.height
-        let rowCnt = CGFloat(ContactCategory.allCases.count)
+        let rowCnt = CGFloat(DeleteAccountReason.allCases.count)
         
         return tableViewHeight/rowCnt
     }
@@ -132,9 +125,8 @@ extension CategoryBottomSheetViewController: UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? TNSheetCell else { return }
         cell.isChecked = true
-        self.selectedCategory = ContactCategory(rawValue: indexPath.row)
+        self.selectedReason = DeleteAccountReason(rawValue: indexPath.row)
         
-        // 선택된 셀 외의 모든 셀의 isChecked를 false로 설정하여 단일 선택을 유지합니다.
         for i in 0..<tableView.numberOfRows(inSection: indexPath.section) {
             if i != indexPath.row {
                 let otherIndexPath = IndexPath(row: i, section: indexPath.section)

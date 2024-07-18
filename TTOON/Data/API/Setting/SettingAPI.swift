@@ -58,19 +58,19 @@ extension SettingAPI: TargetType {
     
     var headers: [String: String]? {
         switch self {
-        case .contactUs:
-            let accesstoken = KeychainStorage.shared.accessToken
-            return [
-                "Content-Type": "application/json",
-                "Authorization": "Bearer \(accesstoken ?? "")"
-            ]
-            
         case .deleteAccount:
             let accesstoken = KeychainStorage.shared.accessToken
             return [
                 "Content-Type": "application/json",
                 "Authorization": "Bearer \(accesstoken ?? "")",
                 "sender": "app"
+            ]
+            
+        default:
+            let accessToken = KeychainStorage.shared.accessToken
+            return [
+                "Content-Type": "application/json",
+                "Authorization": "Bearer \(accesstoken ?? "")"
             ]
         }
     }
