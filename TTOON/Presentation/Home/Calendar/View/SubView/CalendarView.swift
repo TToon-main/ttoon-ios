@@ -50,12 +50,10 @@ class CalendarView: BaseView {
         self.backgroundColor = .grey01
         settingCalendar()   // 캘린더 세팅 (UI)
     }
-    
 }
 
 extension CalendarView {
     private func settingCalendar() {
-        
         calendar.register(TToonCalendarCell.self, forCellReuseIdentifier: TToonCalendarCell.description())
         
         // 오늘 날짜 선택
