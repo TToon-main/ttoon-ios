@@ -123,7 +123,7 @@ class BottomDiaryView: BaseView {
 }
 
 
-// Swipe CollectionView
+// Swipe CollectionView Layout
 extension BottomDiaryView {
     private func createDiaryImageSwipeCollectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
@@ -139,5 +139,21 @@ extension BottomDiaryView {
         layout.minimumInteritemSpacing = 8
         
         return layout
+    }
+}
+
+
+// design View
+extension BottomDiaryView {
+    // 추후 Entity에 struct 만들어서 받을 예정
+//    struct A {
+//        let date: Date
+//        let tilte: String
+//        let content: String
+//        let images: [String]
+//    }
+    
+    func updateDate(_ date: Date) {
+        dateTitleLabel.text = date.toString(of: .fullKorean)
     }
 }
