@@ -41,19 +41,10 @@ class HomeCalendarViewController: BaseViewController, View {
         
         connectCalendar() // 캘린더
         connectCollectionView() // 스와이프 컬렉션뷰
-        
-//        // sample
-//        view.backgroundColor = .white
-//        view.addSubview(calendarView)
-//        calendarView.snp.makeConstraints { make in
-//            make.horizontalEdges.equalTo(view)
-//            make.top.equalTo(view.safeAreaLayoutGuide)
-//            make.height.equalTo(409)
-//        }
     }
 }
 
-// MARK: - ReactorKit
+// MARK: - ReactorKit bind
 extension HomeCalendarViewController {
     func bind(reactor: HomeCalendarReactor) {
         bindAction(reactor: reactor)
@@ -67,6 +58,15 @@ extension HomeCalendarViewController {
                 HomeCalendarReactor.Action.didSelectCalendarCell($0)
             }
             .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        // 연월 변경 버튼 클릭 - 따로 reactor에 bind 없이 바텀 시트 띄우는 로직
+        mainView.calendarView.selectYearMonthView.clearButton.rx.tap
+            .subscribe(with: self) { owner, _ in
+                let vc = SelectYearMonthBottomSheetViewController(self.reactor!)
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
+            }
             .disposed(by: disposeBag)
     }
     
@@ -84,6 +84,16 @@ extension HomeCalendarViewController {
                 
                 
                 // TODO: diaryView reload
+            }
+            .disposed(by: disposeBag)
+        
+        // currentYearMonth - 어차피 CurrentDate도 수정되기 때문에 중복된 코드는 없애자.
+        reactor.state.map { $0.currentYearMonth }
+            .distinctUntilChanged()
+            .subscribe(with: self) { owner, yearMonth in
+                owner.mainView.calendarView.selectYearMonthView.updateYearMonth(yearMonth)
+                
+                owner.mainView.calendarView.updateCalendar(yearMonth)
             }
             .disposed(by: disposeBag)
     }
@@ -109,7 +119,6 @@ extension HomeCalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
         else { cell.ttoonImageView.image = nil }
         
         
-        
         // 현재 선택된 날짜이면 주황색 테두리
         cell.selectedBorderBackgroundView.isHidden = date.toString(of: .fulldate) != self.reactor?.currentState.currentDate.toString(of: .fulldate)
         
@@ -117,6 +126,7 @@ extension HomeCalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        // 셀을 클릭했다는 이벤트를 이러한 방식으로 전달한다.
         self.calendarCellDidSelected.onNext(date)
     }
 }

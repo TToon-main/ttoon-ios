@@ -5,7 +5,9 @@
 //  Created by 임승섭 on 7/18/24.
 //
 
+import RxSwift
 import UIKit
+
 
 // 2024년 5월 + chevron down
 // 112 x 23
@@ -73,4 +75,7 @@ class SelectYearMonthView: BaseView {
 
 // TODO: - 레이블 텍스트 변경
 extension SelectYearMonthView {
+    func updateYearMonth(_ yearMonth: String) {
+        yearMonthLabel.text = yearMonth
+    }
 }

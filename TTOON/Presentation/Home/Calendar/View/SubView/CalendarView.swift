@@ -87,4 +87,15 @@ extension CalendarView {
         
         calendar.placeholderType = .none
     }
+    
+    // 연월을 수정했을 때, 캘린더를 다시 그려야 한다.
+    func updateCalendar(_ yearMonth: String) {
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([.year, .month, .day], from: yearMonth.toDate(to: .yearMonthKorean) ?? Date())
+        components.day = 1 // 아마 출력은 2일이라고 뜨는데, 선택된 날짜 확인해보면 1일로 뜰 것
+        
+        let newDate = calendar.date(from: components) ?? Date()
+        
+        self.calendar.setCurrentPage(newDate, animated: true)
+    }
 }
