@@ -63,6 +63,7 @@
 		48D97A042BEF45FC0087F870 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A032BEF45FC0087F870 /* LoginRepository.swift */; };
 		48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A052BEF472C0087F870 /* SocialLoginButton.swift */; };
 		BE0132AA2BC4306600C9827C /* engaged-code-418809-16024d5258d0.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */; };
+		BE0B92402C4D2AB800B9F36F /* EnterInfoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */; };
 		BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3112BEBAFE500F0C193 /* TNButton.swift */; };
 		BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3132BEBB28800F0C193 /* Reactive+.swift */; };
 		BE32E3172BEBB94E00F0C193 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3162BEBB94E00F0C193 /* TestViewController.swift */; };
@@ -236,6 +237,7 @@
 		48F55A7B2BCD440600303C22 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		48F55A7D2BCD4A6D00303C22 /* TTOON.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TTOON.entitlements; sourceTree = "<group>"; };
 		BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "engaged-code-418809-16024d5258d0.json"; sourceTree = "<group>"; };
+		BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterInfoScrollView.swift; sourceTree = "<group>"; };
 		BE32E3112BEBAFE500F0C193 /* TNButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNButton.swift; sourceTree = "<group>"; };
 		BE32E3132BEBB28800F0C193 /* Reactive+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+.swift"; sourceTree = "<group>"; };
 		BE32E3162BEBB94E00F0C193 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -919,6 +921,7 @@
 			children = (
 				BE78BEDB2C25BB28000A5D11 /* SelectStyleView.swift */,
 				BEAB66D22C26AD9F001B1B63 /* EnterInfoView.swift */,
+				BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1424,6 +1427,7 @@
 				489ADEED2BF8E72700B070B7 /* SettingTitleLabel.swift in Sources */,
 				BE78BEE42C25BBB9000A5D11 /* CreateToonTitleLabel.swift in Sources */,
 				BE78BEEA2C25C347000A5D11 /* CreateToonCollectionView.swift in Sources */,
+				BE0B92402C4D2AB800B9F36F /* EnterInfoScrollView.swift in Sources */,
 				489ADEFF2BF9C4D800B070B7 /* ContactUsViewController.swift in Sources */,
 				BE9BBC3F2BCA5455006FD848 /* TNFont.swift in Sources */,
 				BE78BEF12C25C5DC000A5D11 /* UIView+.swift in Sources */,
