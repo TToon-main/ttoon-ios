@@ -13,7 +13,7 @@ import RxCocoa
 import RxSwift
 
 class EnterInfoScrollView: BaseView {
-    private let enterInfoView = EnterInfoView()
+    let enterInfoView = EnterInfoView()
     
     private let scrollView = {
         let view = UIScrollView()
@@ -38,7 +38,24 @@ class EnterInfoScrollView: BaseView {
         scrollView.pin.all()
         enterInfoView.pin.all()
         
-        //스크롤 뷰의 핵심! -> contentsize를 명시하지 않으면, 스크롤이 되지 않는다.
+        // 스크롤 뷰의 핵심! -> contentsize를 명시하지 않으면, 스크롤이 되지 않는다.
         scrollView.contentSize = enterInfoView.frame.size
     }   
+}
+
+extension Reactive where Base: EnterInfoScrollView {
+    var textFieldDidChange: Observable<EnterInfoReactor.Action> {
+        return base.enterInfoView.enterDiaryTextView.diaryInputTextView.rx.text
+            .compactMap { $0 }
+            .distinctUntilChanged()
+            .map { EnterInfoReactor.Action.textFieldDidChange($0)}
+    }
+}
+
+extension Reactive where Base: EnterInfoScrollView {
+    var validTextFieldText: Binder<String?> {
+        return Binder(base) { view, text in
+            view.enterInfoView.enterDiaryTextView.diaryInputTextView.text = text
+        }
+    }
 }
