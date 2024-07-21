@@ -41,7 +41,9 @@ class SelectStyleViewController: CreateToonBaseViewController {
     }
     
     private func presentEnterInfoVC() {
-        let vc = EnterInfoViewController()
+        // TODO: DI
+        let reactor = EnterInfoReactor()
+        let vc = EnterInfoViewController(reactor: reactor)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
