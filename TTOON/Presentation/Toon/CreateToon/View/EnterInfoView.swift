@@ -7,6 +7,9 @@
 
 import UIKit
 
+import FlexLayout
+import PinLayout
+
 class EnterInfoView: BaseView {
     let enterInfoTitleLabel = {
         let view = CreateToonTitleLabel()
@@ -29,7 +32,7 @@ class EnterInfoView: BaseView {
     
     let enterDiaryTextView = {
         let view = CreateToonDiaryView()
-    
+        
         return view
     }()
     
@@ -40,43 +43,18 @@ class EnterInfoView: BaseView {
         return view
     }()
     
-    override func addSubViews() {
-        addSubview(enterInfoTitleLabel)
-        addSubview(selectCharactersView)
-        addSubview(divider01)
-        addSubview(enterDiaryTextView)
-        addSubview(confirmButton)
+    override func layouts() {
+        flex.define { 
+            $0.addItem(enterInfoTitleLabel).marginTop(36).marginHorizontal(16)
+            $0.addItem(selectCharactersView).marginTop(48).marginHorizontal(16).height(94)
+            $0.addItem(divider01).marginTop(28).alignSelf(.center)
+            $0.addItem(enterDiaryTextView).marginTop(32).marginHorizontal(16).height(371)
+            $0.addItem(confirmButton).marginTop(47).marginHorizontal(16).height(52).marginBottom(36)
+        }
     }
     
-    override func layouts() {
-        enterInfoTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(safeGuide).offset(36)
-            $0.horizontalEdges.equalToSuperview().inset(16)
-        }
-        
-        selectCharactersView.snp.makeConstraints {
-            $0.top.equalTo(enterInfoTitleLabel.snp.bottom).offset(48)
-            $0.horizontalEdges.equalToSuperview().inset(16)
-            $0.height.equalTo(94)
-        }
-        
-        divider01.snp.makeConstraints {
-            $0.top.equalTo(selectCharactersView.snp.bottom).offset(28)
-            $0.centerX.equalToSuperview()
-        }
-        
-        enterDiaryTextView.snp.makeConstraints {
-            $0.top.equalTo(divider01.snp.bottom).offset(32)
-            $0.horizontalEdges.equalToSuperview().inset(16)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(371)
-        }
-        
-        confirmButton.snp.makeConstraints {
-            $0.top.equalTo(enterDiaryTextView.snp.bottom).offset(47)
-            $0.horizontalEdges.equalToSuperview().inset(16)
-            $0.height.equalTo(52)
-            $0.bottom.equalToSuperview().offset(-36)
-        }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        flex.layout()
     }
 }
