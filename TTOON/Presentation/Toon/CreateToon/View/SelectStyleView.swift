@@ -71,6 +71,11 @@ extension Reactive where Base: SelectStyleView {
         return base.createToonCollectionView.rx.modelSelected(String.self)
             .map { _ in SelectStyleReactor.Action.modelSelected }
     }
+    
+    var confirmButtonTap: Observable<SelectStyleReactor.Action> {
+        return base.createToonConfirmButton.rx.tap
+            .map { _ in SelectStyleReactor.Action.confirmButtonTap }
+    }
 }
 
 extension Reactive where Base: SelectStyleView {
