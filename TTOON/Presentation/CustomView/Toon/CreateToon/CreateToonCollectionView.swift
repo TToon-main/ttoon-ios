@@ -20,9 +20,9 @@ class CreateToonCollectionView: UICollectionView {
     
     private func configure() {
         backgroundColor = .clear
-        register(CreateToonCollectionViewCell.self, forCellWithReuseIdentifier: CreateToonCollectionViewCell.IDF)
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
         bounces = false
+        registerCell(cell: CreateToonCollectionViewCell.self)
     }
 }

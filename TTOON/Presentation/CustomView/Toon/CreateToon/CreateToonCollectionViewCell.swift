@@ -26,6 +26,13 @@ final class CreateToonCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
+    let toonImageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        
+        return view
+    }()
+    
     override func configures() {
         contentView.layer.cornerRadius = 12
         contentView.backgroundColor = .grey01
@@ -33,6 +40,7 @@ final class CreateToonCollectionViewCell: BaseCollectionViewCell {
     
     override func addSubViews() {
         contentView.addSubview(titleLabel)
+        contentView.addSubview(toonImageView)
     }
     
     override func layouts() {
@@ -43,6 +51,10 @@ final class CreateToonCollectionViewCell: BaseCollectionViewCell {
         titleLabel.snp.makeConstraints { 
             $0.bottom.equalToSuperview().offset(-11)
             $0.centerX.horizontalEdges.equalToSuperview()
+        }
+        
+        toonImageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
     
