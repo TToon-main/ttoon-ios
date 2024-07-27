@@ -50,6 +50,11 @@ extension Reactive where Base: EnterInfoScrollView {
             .distinctUntilChanged()
             .map { EnterInfoReactor.Action.textFieldDidChange($0)}
     }
+    
+    var confirmButtonTap: Observable<EnterInfoReactor.Action> {
+        return base.enterInfoView.confirmButton.rx.tap
+            .map { EnterInfoReactor.Action.confirmButtonTap }
+    }
 }
 
 extension Reactive where Base: EnterInfoScrollView {
