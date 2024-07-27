@@ -8,7 +8,7 @@
 import UIKit
 
 class CreateToonBaseViewController: BaseViewController {
-    private let progressBar = {
+    let progressBar = {
         let view = UIProgressView()
         view.progress = 0.5
         view.progressTintColor = .tnOrange
@@ -29,7 +29,7 @@ class CreateToonBaseViewController: BaseViewController {
     override func layouts() {
         progressBar.snp.makeConstraints {
             $0.top.equalTo(safeGuide)
-            $0.width.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(4)
         }
     }

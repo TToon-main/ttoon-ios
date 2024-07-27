@@ -63,6 +63,7 @@
 		48D97A042BEF45FC0087F870 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A032BEF45FC0087F870 /* LoginRepository.swift */; };
 		48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A052BEF472C0087F870 /* SocialLoginButton.swift */; };
 		BE0132AA2BC4306600C9827C /* engaged-code-418809-16024d5258d0.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */; };
+		BE0473662C550E5600484B96 /* ViewLifeCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0473652C550E5600484B96 /* ViewLifeCycle.swift */; };
 		BE0B92402C4D2AB800B9F36F /* EnterInfoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */; };
 		BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3112BEBAFE500F0C193 /* TNButton.swift */; };
 		BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3132BEBB28800F0C193 /* Reactive+.swift */; };
@@ -114,6 +115,12 @@
 		BE840DBD2BB95FE5000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
 		BE840DBE2BB95FE5000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
 		BE840DCA2BBD9817000E67B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE840DC92BBD9817000E67B7 /* GoogleService-Info.plist */; };
+		BE9760902C29A39000EDAEA0 /* CreateLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97608F2C29A39000EDAEA0 /* CreateLoadingView.swift */; };
+		BE9760922C29A3CB00EDAEA0 /* CreateLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9760912C29A3CB00EDAEA0 /* CreateLoadingViewController.swift */; };
+		BE9760942C29A3E600EDAEA0 /* CreateLoadingReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9760932C29A3E600EDAEA0 /* CreateLoadingReactor.swift */; };
+		BE97609B2C29A5F900EDAEA0 /* toonLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = BE97609A2C29A5F900EDAEA0 /* toonLottie.json */; };
+		BE97609D2C29AEB600EDAEA0 /* CreateResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97609C2C29AEB600EDAEA0 /* CreateResultView.swift */; };
+		BE97609F2C29B05100EDAEA0 /* CreateResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97609E2C29B05100EDAEA0 /* CreateResultViewController.swift */; };
 		BE9BBC112BCA529A006FD848 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */; };
 		BE9BBC122BCA529A006FD848 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */; };
 		BE9BBC132BCA529A006FD848 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */; };
@@ -237,6 +244,7 @@
 		48F55A7B2BCD440600303C22 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		48F55A7D2BCD4A6D00303C22 /* TTOON.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TTOON.entitlements; sourceTree = "<group>"; };
 		BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "engaged-code-418809-16024d5258d0.json"; sourceTree = "<group>"; };
+		BE0473652C550E5600484B96 /* ViewLifeCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLifeCycle.swift; sourceTree = "<group>"; };
 		BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterInfoScrollView.swift; sourceTree = "<group>"; };
 		BE32E3112BEBAFE500F0C193 /* TNButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNButton.swift; sourceTree = "<group>"; };
 		BE32E3132BEBB28800F0C193 /* Reactive+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+.swift"; sourceTree = "<group>"; };
@@ -293,6 +301,12 @@
 		BE7C8C182BE8FD9B005F2FB2 /* LogPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPlugin.swift; sourceTree = "<group>"; };
 		BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		BE840DC92BBD9817000E67B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BE97608F2C29A39000EDAEA0 /* CreateLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLoadingView.swift; sourceTree = "<group>"; };
+		BE9760912C29A3CB00EDAEA0 /* CreateLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLoadingViewController.swift; sourceTree = "<group>"; };
+		BE9760932C29A3E600EDAEA0 /* CreateLoadingReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLoadingReactor.swift; sourceTree = "<group>"; };
+		BE97609A2C29A5F900EDAEA0 /* toonLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = toonLottie.json; sourceTree = "<group>"; };
+		BE97609C2C29AEB600EDAEA0 /* CreateResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateResultView.swift; sourceTree = "<group>"; };
+		BE97609E2C29B05100EDAEA0 /* CreateResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateResultViewController.swift; sourceTree = "<group>"; };
 		BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		BE9BBC092BCA5299006FD848 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		BE9BBC0A2BCA5299006FD848 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
@@ -598,6 +612,14 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		BE0473642C550E4A00484B96 /* Gloabal */ = {
+			isa = PBXGroup;
+			children = (
+				BE0473652C550E5600484B96 /* ViewLifeCycle.swift */,
+			);
+			path = Gloabal;
+			sourceTree = "<group>";
+		};
 		BE32E3102BEBAF7B00F0C193 /* TNCompopnet */ = {
 			isa = PBXGroup;
 			children = (
@@ -809,6 +831,7 @@
 		BE4C7CA92BFF39D200AB3D09 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				BE0473642C550E4A00484B96 /* Gloabal */,
 				BE4C7CAA2BFF39D600AB3D09 /* Auth */,
 			);
 			path = Enums;
@@ -912,6 +935,7 @@
 			children = (
 				BE78BEDD2C25BB36000A5D11 /* SelectStyleReactor.swift */,
 				BEAB66D62C26ADF1001B1B63 /* EnterInfoReactor.swift */,
+				BE9760932C29A3E600EDAEA0 /* CreateLoadingReactor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -922,6 +946,8 @@
 				BE78BEDB2C25BB28000A5D11 /* SelectStyleView.swift */,
 				BEAB66D22C26AD9F001B1B63 /* EnterInfoView.swift */,
 				BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */,
+				BE97608F2C29A39000EDAEA0 /* CreateLoadingView.swift */,
+				BE97609C2C29AEB600EDAEA0 /* CreateResultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -932,6 +958,8 @@
 				BE78BED92C25BB19000A5D11 /* SelectStyleViewController.swift */,
 				BEAB66D42C26ADB4001B1B63 /* EnterInfoViewController.swift */,
 				BE78BEE72C25BD6D000A5D11 /* CreateToonBaseViewController.swift */,
+				BE9760912C29A3CB00EDAEA0 /* CreateLoadingViewController.swift */,
+				BE97609E2C29B05100EDAEA0 /* CreateResultViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -981,6 +1009,7 @@
 		BE840DC42BBD9263000E67B7 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				BE9760992C29A5F000EDAEA0 /* Lottie */,
 				489FE2BF2BC00F480033B61D /* Font */,
 				BE4C7C952BFF2C1700AB3D09 /* Config */,
 				BEA8BB4C2BB86323000F9C15 /* Localization */,
@@ -989,6 +1018,14 @@
 				BE840DC92BBD9817000E67B7 /* GoogleService-Info.plist */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		BE9760992C29A5F000EDAEA0 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				BE97609A2C29A5F900EDAEA0 /* toonLottie.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 		BE9BBC072BCA4CCC006FD848 /* Pretendard */ = {
@@ -1301,6 +1338,7 @@
 				BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */,
 				BE9BBC1A2BCA529A006FD848 /* Pretendard-Regular.otf in Resources */,
 				BE0132AA2BC4306600C9827C /* engaged-code-418809-16024d5258d0.json in Resources */,
+				BE97609B2C29A5F900EDAEA0 /* toonLottie.json in Resources */,
 				BE9BBC112BCA529A006FD848 /* Pretendard-Black.otf in Resources */,
 				BE9BBC262BCA529A006FD848 /* Pretendard-Thin.otf in Resources */,
 				BE36CF972BAFF58A0017F94E /* Assets.xcassets in Resources */,
@@ -1398,6 +1436,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE0473662C550E5600484B96 /* ViewLifeCycle.swift in Sources */,
+				BE9760942C29A3E600EDAEA0 /* CreateLoadingReactor.swift in Sources */,
 				BE5758F62BFB1F9900EC4545 /* MyPageTableView.swift in Sources */,
 				BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */,
 				48C3F09C2BFA089900BD2142 /* ContactUsReactor.swift in Sources */,
@@ -1432,7 +1472,9 @@
 				BE9BBC3F2BCA5455006FD848 /* TNFont.swift in Sources */,
 				BE78BEF12C25C5DC000A5D11 /* UIView+.swift in Sources */,
 				BEAB66D12C26AA12001B1B63 /* UICollectionView+.swift in Sources */,
+				BE9760922C29A3CB00EDAEA0 /* CreateLoadingViewController.swift in Sources */,
 				BEB456822BD15BCB007F5EEC /* SplashRepositoryProtocol.swift in Sources */,
+				BE97609F2C29B05100EDAEA0 /* CreateResultViewController.swift in Sources */,
 				BE78BEEC2C25C3EF000A5D11 /* CreateToonCollectionViewCell.swift in Sources */,
 				489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */,
 				BEAB66DF2C26B652001B1B63 /* CreateToonDiaryView.swift in Sources */,
@@ -1476,6 +1518,7 @@
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
 				480C165F2BEEFA9F0085A187 /* SocialLoginType.swift in Sources */,
 				BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */,
+				BE97609D2C29AEB600EDAEA0 /* CreateResultView.swift in Sources */,
 				489ADEFB2BF9BC8300B070B7 /* ContactUsView.swift in Sources */,
 				BE7C8C192BE8FD9B005F2FB2 /* LogPlugin.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
@@ -1490,6 +1533,7 @@
 				BE6011712BEF316D00F8FCEA /* TNSwitch.swift in Sources */,
 				489FE2C72BC00F9F0033B61D /* BaseTableViewCell.swift in Sources */,
 				486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */,
+				BE9760902C29A39000EDAEA0 /* CreateLoadingView.swift in Sources */,
 				BEAB66D32C26AD9F001B1B63 /* EnterInfoView.swift in Sources */,
 				BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */,
 				BE78BEDA2C25BB19000A5D11 /* SelectStyleViewController.swift in Sources */,

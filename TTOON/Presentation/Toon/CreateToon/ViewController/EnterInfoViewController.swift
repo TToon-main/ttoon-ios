@@ -41,6 +41,11 @@ extension EnterInfoViewController: View {
             .textFieldDidChange
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        enterInfoScrollView.rx
+            .confirmButtonTap
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: EnterInfoReactor) {
@@ -48,5 +53,17 @@ extension EnterInfoViewController: View {
             .map { $0.validTextFieldText }
             .bind(to: enterInfoScrollView.rx.validTextFieldText)
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.presentCreateLoadingVC }
+            .compactMap{ $0 }
+            .bind(onNext: presentCreateLoadingVC)
+            .disposed(by: disposeBag)
+    }
+    
+    private func presentCreateLoadingVC() {
+        let reactor = CreateLoadingReactor()
+        let vc = CreateLoadingViewController(reactor: reactor)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
