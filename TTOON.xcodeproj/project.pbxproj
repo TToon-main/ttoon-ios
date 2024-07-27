@@ -117,7 +117,6 @@
 		BE9760902C29A39000EDAEA0 /* CreateLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97608F2C29A39000EDAEA0 /* CreateLoadingView.swift */; };
 		BE9760922C29A3CB00EDAEA0 /* CreateLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9760912C29A3CB00EDAEA0 /* CreateLoadingViewController.swift */; };
 		BE9760942C29A3E600EDAEA0 /* CreateLoadingReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9760932C29A3E600EDAEA0 /* CreateLoadingReactor.swift */; };
-		BE9760982C29A50900EDAEA0 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BE9760972C29A50900EDAEA0 /* Lottie */; };
 		BE97609B2C29A5F900EDAEA0 /* toonLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = BE97609A2C29A5F900EDAEA0 /* toonLottie.json */; };
 		BE97609D2C29AEB600EDAEA0 /* CreateResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97609C2C29AEB600EDAEA0 /* CreateResultView.swift */; };
 		BE97609F2C29B05100EDAEA0 /* CreateResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97609E2C29B05100EDAEA0 /* CreateResultViewController.swift */; };
@@ -356,7 +355,6 @@
 				482B611B2BB596CD00681097 /* SwiftKeychainWrapper in Frameworks */,
 				482B610B2BB5931200681097 /* ReactorKit in Frameworks */,
 				482B61082BB592D500681097 /* RxSwift in Frameworks */,
-				BE9760982C29A50900EDAEA0 /* Lottie in Frameworks */,
 				482B60F52BB58F9400681097 /* FSCalendar in Frameworks */,
 				482B610E2BB5940500681097 /* GoogleSignIn in Frameworks */,
 				482B60FE2BB5912E00681097 /* Moya in Frameworks */,
@@ -1214,7 +1212,6 @@
 				482B611D2BB598DD00681097 /* Sentry */,
 				482B61202BB599B100681097 /* FirebaseAnalytics */,
 				482B61222BB599B100681097 /* FirebaseCrashlytics */,
-				BE9760972C29A50900EDAEA0 /* Lottie */,
 			);
 			productName = TTOON;
 			productReference = BE36CF8A2BAFF5890017F94E /* TTOON.app */;
@@ -1305,7 +1302,6 @@
 				482B61192BB596CD00681097 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 				482B611C2BB598DC00681097 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 				482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				BE9760962C29A50900EDAEA0 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = BE36CF8B2BAFF5890017F94E /* Products */;
 			projectDirPath = "";
@@ -2157,14 +2153,6 @@
 				minimumVersion = 10.23.0;
 			};
 		};
-		BE9760962C29A50900EDAEA0 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.4.3;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2267,11 +2255,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
-		};
-		BE9760972C29A50900EDAEA0 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BE9760962C29A50900EDAEA0 /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

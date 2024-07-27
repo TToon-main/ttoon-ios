@@ -17,8 +17,4 @@ class CreateLoadingViewController: BaseViewController {
     override func loadView() {
         view = createLoadingView
     }
-    
-    override func layouts() {
-        createLoadingView.updateProgress(0.29)
-    }
 }

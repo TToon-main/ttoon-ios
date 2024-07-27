@@ -7,16 +7,14 @@
 
 import UIKit
 
-import Lottie
 import SnapKit
 
 class CreateLoadingView: BaseView {
     var progressLabelLeading: Constraint?
     
-    let createAnimationView = {
-        let view = LottieAnimationView(name: "toonLottie")
-        view.loopMode = .loop
-        view.play()
+    let createLoadingImageView = {
+        let view = UIImageView()
+        view.image = TNImage.createLoadingIcon
         
         return view
     }()
@@ -26,17 +24,6 @@ class CreateLoadingView: BaseView {
         view.progress = 0.5
         view.progressTintColor = .tnOrange
         view.backgroundColor = .grey01
-        
-        return view
-    }()
-    
-    lazy var progressLabel = {
-        let view = UILabel()
-        view.text = toProgressText(progressBar.progress)
-        view.textAlignment = .center
-        view.font = .body12r
-        view.textColor = .white
-        view.backgroundColor = .tnGreen
         
         return view
     }()
@@ -51,49 +38,28 @@ class CreateLoadingView: BaseView {
     }()
     
     override func addSubViews() {
-        addSubview(createAnimationView)
+        addSubview(createLoadingImageView)
         addSubview(progressBar)
-        addSubview(progressLabel)
         addSubview(subTitleLabel)
     }
     
     override func layouts() {
-        createAnimationView.snp.makeConstraints {
+        createLoadingImageView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(height * 0.25)
             $0.centerX.equalToSuperview()
-            $0.size.equalTo(134)
+            $0.height.equalTo(144)
+            $0.width.equalTo(140)
         }
         
         progressBar.snp.makeConstraints {
-            $0.top.equalTo(createAnimationView.snp.bottom).offset(55)
+            $0.top.equalTo(createLoadingImageView.snp.bottom).offset(55)
             $0.horizontalEdges.equalToSuperview().inset(72)
             $0.height.equalTo(12)
-        }
-        
-        progressLabel.snp.makeConstraints {
-            $0.bottom.equalTo(progressBar.snp.top).offset(-4)
-            $0.width.equalTo(28)
-            $0.height.equalTo(20)
-            progressLabelLeading = $0.leading.equalTo(progressBar.snp.leading).inset(12).constraint
         }
         
         subTitleLabel.snp.makeConstraints {
             $0.top.equalTo(progressBar.snp.bottom).offset(30)
             $0.horizontalEdges.equalToSuperview().inset(86)
         }
-    }
-    
-    func updateProgress(_ progress: Float) {
-        progressBar.progress = progress
-        let progressOffset = progressBar.bounds.width * CGFloat(progress)
-        let offset = 72 - (progressLabel.bounds.width / 2) + progressOffset
-        progressLabelLeading?.update(offset: offset)
-        progressLabel.text = toProgressText(progress)
-        layoutIfNeeded()
-    }
-    
-    func toProgressText(_ progress: Float) -> String {
-        let progress = Int(progress * 100)
-        return "\(progress)%"
     }
 }
