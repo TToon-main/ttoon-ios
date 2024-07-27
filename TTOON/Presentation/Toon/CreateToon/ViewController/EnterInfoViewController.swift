@@ -62,7 +62,8 @@ extension EnterInfoViewController: View {
     }
     
     private func presentCreateLoadingVC() {
-        let vc = CreateLoadingViewController()
+        let reactor = CreateLoadingReactor()
+        let vc = CreateLoadingViewController(reactor: reactor)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

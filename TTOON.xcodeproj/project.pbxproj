@@ -63,6 +63,7 @@
 		48D97A042BEF45FC0087F870 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A032BEF45FC0087F870 /* LoginRepository.swift */; };
 		48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A052BEF472C0087F870 /* SocialLoginButton.swift */; };
 		BE0132AA2BC4306600C9827C /* engaged-code-418809-16024d5258d0.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */; };
+		BE0473662C550E5600484B96 /* ViewLifeCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0473652C550E5600484B96 /* ViewLifeCycle.swift */; };
 		BE0B92402C4D2AB800B9F36F /* EnterInfoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */; };
 		BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3112BEBAFE500F0C193 /* TNButton.swift */; };
 		BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3132BEBB28800F0C193 /* Reactive+.swift */; };
@@ -243,6 +244,7 @@
 		48F55A7B2BCD440600303C22 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		48F55A7D2BCD4A6D00303C22 /* TTOON.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TTOON.entitlements; sourceTree = "<group>"; };
 		BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "engaged-code-418809-16024d5258d0.json"; sourceTree = "<group>"; };
+		BE0473652C550E5600484B96 /* ViewLifeCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLifeCycle.swift; sourceTree = "<group>"; };
 		BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterInfoScrollView.swift; sourceTree = "<group>"; };
 		BE32E3112BEBAFE500F0C193 /* TNButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNButton.swift; sourceTree = "<group>"; };
 		BE32E3132BEBB28800F0C193 /* Reactive+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+.swift"; sourceTree = "<group>"; };
@@ -610,6 +612,14 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		BE0473642C550E4A00484B96 /* Gloabal */ = {
+			isa = PBXGroup;
+			children = (
+				BE0473652C550E5600484B96 /* ViewLifeCycle.swift */,
+			);
+			path = Gloabal;
+			sourceTree = "<group>";
+		};
 		BE32E3102BEBAF7B00F0C193 /* TNCompopnet */ = {
 			isa = PBXGroup;
 			children = (
@@ -821,6 +831,7 @@
 		BE4C7CA92BFF39D200AB3D09 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				BE0473642C550E4A00484B96 /* Gloabal */,
 				BE4C7CAA2BFF39D600AB3D09 /* Auth */,
 			);
 			path = Enums;
@@ -1425,6 +1436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE0473662C550E5600484B96 /* ViewLifeCycle.swift in Sources */,
 				BE9760942C29A3E600EDAEA0 /* CreateLoadingReactor.swift in Sources */,
 				BE5758F62BFB1F9900EC4545 /* MyPageTableView.swift in Sources */,
 				BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */,

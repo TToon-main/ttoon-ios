@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 
 class CreateLoadingView: BaseView {
@@ -21,7 +23,6 @@ class CreateLoadingView: BaseView {
     
     let progressBar = {
         let view = UIProgressView()
-        view.progress = 0.5
         view.progressTintColor = .tnOrange
         view.backgroundColor = .grey01
         
@@ -61,5 +62,11 @@ class CreateLoadingView: BaseView {
             $0.top.equalTo(progressBar.snp.bottom).offset(30)
             $0.horizontalEdges.equalToSuperview().inset(86)
         }
+    }
+}
+
+extension Reactive where Base: CreateLoadingView {
+    var currentProgress: Binder<Float> {
+        return base.progressBar.rx.progress
     }
 }
