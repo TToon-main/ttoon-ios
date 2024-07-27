@@ -56,6 +56,7 @@ extension EnterInfoViewController: View {
         
         reactor.state
             .map { $0.presentCreateLoadingVC }
+            .compactMap{ $0 }
             .bind(onNext: presentCreateLoadingVC)
             .disposed(by: disposeBag)
     }

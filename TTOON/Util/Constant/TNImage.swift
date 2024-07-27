@@ -10,4 +10,5 @@ import UIKit
 struct TNImage {
     static var splashLogo = UIImage(named: "splashLogo")
     static var doneRound = UIImage(named: "doneRound")
+    static var createLoadingIcon = UIImage(named: "createLoading")
 }
