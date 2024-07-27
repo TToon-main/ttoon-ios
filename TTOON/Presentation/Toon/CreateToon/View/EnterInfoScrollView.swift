@@ -37,8 +37,6 @@ class EnterInfoScrollView: BaseView {
         super.layoutSubviews()
         scrollView.pin.all()
         enterInfoView.pin.all()
-        
-        // 스크롤 뷰의 핵심! -> contentsize를 명시하지 않으면, 스크롤이 되지 않는다.
         scrollView.contentSize = enterInfoView.frame.size
     }   
 }
