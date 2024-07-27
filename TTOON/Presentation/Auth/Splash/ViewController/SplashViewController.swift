@@ -71,26 +71,24 @@ final class SplashViewController: BaseViewController, View {
             .subscribe(with: self) { owner, status in 
                 switch status {
                 case .disConnected:
-                    owner.presentVC(.disConnected)
-                    print("CHECK disConnected")
+                    owner.presentErrorVC(.disConnected)
                     
                 case .inMaintenance:
-                    owner.presentVC(.inMaintenance)
-                    print("CHECK inMaintenance")
+                    owner.presentErrorVC(.inMaintenance)
                     
                 case .needUpdate:
-                    owner.presentVC(.needUpdate)
-                    print("CHECK needUpdate")
+                    owner.presentErrorVC(.needUpdate)
                     
                 case .valid:
-                    print("CHECK: 메인 화면 진입")
+                    owner.presentMainVC()
                 }
             }
             .disposed(by: disposeBag)
     }
     
-    func presentVC(_ status: SplashStatus) {
-        DispatchQueue.main.async {
+    //의도적으로 2초의 delayTime 부여
+    func presentErrorVC(_ status: SplashStatus) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             let repo = SplashRepository()
             let useCase = SplashUseCase(splashRepository: repo)
             let reactor = SplashErrorReactor(splashUseCase: useCase, splashStatus: status)
@@ -99,5 +97,22 @@ final class SplashViewController: BaseViewController, View {
             vc.modalTransitionStyle = .crossDissolve
             self.present(vc, animated: true)   
         }
+    }
+    
+    //splashStatus의 상태가 valid일 경우 메인 화면 진입
+    //token이 유효성에 따라서, 홈화면으로 바로 진입 or 로그인 화면으로 진입
+    func presentMainVC() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            let isTokenValidate = false // 토큰 유효한지 여부 BoolType
+            isTokenValidate ? self.presetHomeVC() : self.presetLoginVC()
+        }
+    }
+    
+    //로그인 화면으로 진입: 토큰 만료
+    func presetLoginVC() {
+    }
+    
+    //홈 화면으로 진입: 토큰 유효
+    func presetHomeVC() {
     }
 }

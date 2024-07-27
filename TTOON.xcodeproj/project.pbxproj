@@ -28,6 +28,9 @@
 		482B611E2BB598DD00681097 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 482B611D2BB598DD00681097 /* Sentry */; };
 		482B61212BB599B100681097 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61202BB599B100681097 /* FirebaseAnalytics */; };
 		482B61232BB599B100681097 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61222BB599B100681097 /* FirebaseCrashlytics */; };
+		486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */; };
+		486A80C52C09FEEA0089D46C /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A80C42C09FEEA0089D46C /* SettingCoordinator.swift */; };
+		486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */; };
 		489730DE2BF0E5B80026706C /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489730DD2BF0E5B80026706C /* LoginAPI.swift */; };
 		489730E22BF0E8840026706C /* AuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489730E12BF0E8840026706C /* AuthDTO.swift */; };
 		489730E52BF1CA3B0026706C /* ResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489730E42BF1CA3B0026706C /* ResponseDTO.swift */; };
@@ -168,6 +171,9 @@
 /* Begin PBXFileReference section */
 		480C165C2BEEF7C90085A187 /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		480C165E2BEEFA9F0085A187 /* SocialLoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginType.swift; sourceTree = "<group>"; };
+		486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		486A80C42C09FEEA0089D46C /* SettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
+		486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		489730DD2BF0E5B80026706C /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		489730E12BF0E8840026706C /* AuthDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDTO.swift; sourceTree = "<group>"; };
 		489730E42BF1CA3B0026706C /* ResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDTO.swift; sourceTree = "<group>"; };
@@ -321,6 +327,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		486C5C2A2C09F1CB0094411D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				486C5C2B2C09F1D30094411D /* Coordinator */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		486C5C2B2C09F1D30094411D /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		4883564A2BEF422A005DC0A6 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,6 +426,7 @@
 		489ADEF52BF8ED7100B070B7 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				486A80C42C09FEEA0089D46C /* SettingCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -455,6 +478,7 @@
 		48D979EF2BEF459F0087F870 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -943,6 +967,7 @@
 		BEF48D5C2BCA5CCC0056E31E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				486C5C2A2C09F1CB0094411D /* Home */,
 				BEF48D5E2BCA5CD60056E31E /* CustomView */,
 				BEF48D5D2BCA5CD10056E31E /* Auth */,
 				489ADEEA2BF8E70900B070B7 /* Setting */,
@@ -1267,6 +1292,7 @@
 				BE5758F02BFB1C3100EC4545 /* UILabel+.swift in Sources */,
 				BE5758FE2BFB43AE00EC4545 /* AlarmTableViewCell.swift in Sources */,
 				BEB456872BD15C06007F5EEC /* SplashRepository.swift in Sources */,
+				486A80C52C09FEEA0089D46C /* SettingCoordinator.swift in Sources */,
 				BE5758E82BF9F15300EC4545 /* MyPageView.swift in Sources */,
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
 				489730E92BF1F0CB0026706C /* LoginResponseModel.swift in Sources */,
@@ -1282,6 +1308,7 @@
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
 				489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */,
 				489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */,
+				486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */,
 				BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
 				480C165F2BEEFA9F0085A187 /* SocialLoginType.swift in Sources */,
@@ -1298,6 +1325,7 @@
 				BE7C8C112BE8F258005F2FB2 /* APIProvider.swift in Sources */,
 				BE6011712BEF316D00F8FCEA /* TNSwitch.swift in Sources */,
 				489FE2C72BC00F9F0033B61D /* BaseTableViewCell.swift in Sources */,
+				486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */,
 				BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */,
 				48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */,
 				48D979FF2BEF45C20087F870 /* LoginUseCase.swift in Sources */,

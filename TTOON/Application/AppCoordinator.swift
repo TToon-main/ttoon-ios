@@ -14,7 +14,8 @@ protocol AppCoordinatorProtocol: Coordinator {
     // view
     
     // flow
-
+    func showAuthFlow()
+    func showTabBarFlow()
 }
 
 // MARK: - App Coordinator Class
@@ -24,8 +25,8 @@ class AppCoordinator: AppCoordinatorProtocol {
     
     // 2.
     var navigationController: UINavigationController
-    required init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    required init(_ nav: UINavigationController) {
+        self.navigationController = nav
     }
     
     // 3.
@@ -36,6 +37,23 @@ class AppCoordinator: AppCoordinatorProtocol {
     
     // 5.
     func start() {
+        showAuthFlow()
+    }
+    
+    
+    // Protocol Method
+    func showAuthFlow() {
+        let authC = AuthCoordinator(navigationController)
+        authC.finishDelegate = self
+        childCoordinators.append(authC)
+        authC.start()
+    }
+    
+    func showTabBarFlow() {
+        let tabBarC = TabBarCoordinator(navigationController)
+        tabBarC.finishDelegate = self
+        childCoordinators.append(tabBarC)
+        tabBarC.start()
     }
 }
 
@@ -57,6 +75,7 @@ extension AppCoordinator: CoordinatorFinishDelegate {
 // MARK: - Child Coordinator 타입
 extension AppCoordinator {
     enum ChildCoordinatorType: ChildCoordinatorTypeProtocol {
-        // auth, ...
+        case auth
+        case tabBar
     }
 }
