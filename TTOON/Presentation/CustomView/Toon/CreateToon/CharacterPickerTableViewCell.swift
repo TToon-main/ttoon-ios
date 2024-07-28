@@ -107,6 +107,11 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
     }
     
     override func layouts() {
+        contentView.snp.makeConstraints { 
+            $0.verticalEdges.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
         titleLabel.snp.makeConstraints { 
             $0.leading.equalToSuperview()
             $0.centerY.equalTo(mainCharacterButton)

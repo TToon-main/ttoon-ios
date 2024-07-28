@@ -63,7 +63,7 @@ class CharacterPickerBSView: BaseView {
         
         tableView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(44)
-            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalTo(modifyCharacterButton.snp.top).offset(-24)
         }
         
