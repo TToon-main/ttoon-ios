@@ -5,6 +5,7 @@
 //  Created by Dongwan Ryoo on 7/14/24.
 //
 
+import RxSwift
 import UIKit
 
 class CharacterModifyView: BaseView {
@@ -37,5 +38,21 @@ class CharacterModifyView: BaseView {
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.height.equalTo(56)
         }
+    }
+}
+
+extension Reactive where Base: CharacterModifyView {
+    var deletedCharacterTap: Observable<CharacterModifyReactor.Action> {
+        return base.tableView.rx.itemDeleted
+            .flatMap { indexPath -> Observable<CharacterModifyReactor.Action> in
+                guard let cell = base.tableView.cellForRow(at: indexPath) as? CharacterPickerTableViewCell else {
+                    return .never()
+                }
+                
+                let name = cell.titleLabel.text
+                let action = CharacterModifyReactor.Action.deletedCharacterTap(name)
+                
+                return .just(action) 
+            }
     }
 }
