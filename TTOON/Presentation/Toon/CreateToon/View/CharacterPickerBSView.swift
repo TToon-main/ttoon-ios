@@ -43,6 +43,11 @@ class CharacterPickerBSView: BaseView {
         return view
     }()
     
+    override func configures() {
+        super.configures()
+        layer.cornerRadius = 24
+    }
+    
     override func addSubViews() {
         addSubview(titleLabel)
         addSubview(tableView)
@@ -59,12 +64,12 @@ class CharacterPickerBSView: BaseView {
         tableView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(44)
             $0.horizontalEdges.equalToSuperview().inset(16)
-            $0.height.equalTo(88 * 3)
+            $0.bottom.equalTo(modifyCharacterButton.snp.top).offset(-24)
         }
         
         modifyCharacterButton.snp.makeConstraints {
-            $0.top.equalTo(tableView.snp.bottom).offset(24)
             $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(confirmButton.snp.top).offset(-32)
             $0.height.equalTo(24)
             $0.width.equalTo(200)
         }

@@ -53,6 +53,11 @@ extension Reactive where Base: EnterInfoScrollView {
         return base.enterInfoView.confirmButton.rx.tap
             .map { EnterInfoReactor.Action.confirmButtonTap }
     }
+    
+    var selectCharactersButtonTap: Observable<EnterInfoReactor.Action> {
+        return base.enterInfoView.selectCharactersView.selectCharactersButton.rx.tap
+            .map { EnterInfoReactor.Action.selectCharactersButtonTap }
+    }
 }
 
 extension Reactive where Base: EnterInfoScrollView {

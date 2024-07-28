@@ -30,13 +30,21 @@ class CharacterPickerBSViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func loadView() {
-        view = characterPickerBSView
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindMockUp()
+    }
+    
+    override func addSubViews() {
+        view.addSubview(characterPickerBSView)
+    }
+    
+    override func layouts() {
+        characterPickerBSView.snp.makeConstraints { 
+            $0.top.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-24)
+            $0.horizontalEdges.equalToSuperview().inset(16)
+        }
     }
     
     func bindMockUp() {
