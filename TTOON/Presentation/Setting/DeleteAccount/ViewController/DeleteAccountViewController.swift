@@ -14,12 +14,17 @@ class DeleteAccountViewController: BaseViewController, View {
     var disposeBag = DisposeBag()
     private let mainView = DeleteAccountView()
     
+    // 얼럿에도 연결해야 하고, reactor로도 연결해야 해서, 임의의 프로퍼티를 하나 만든다.
+    // 버튼이 눌리면, 해당 subject에 이벤트를 발생시킨다.
+    // -> reactor로 bind되어 네트워크 통신을 수행한다.
+    var deleteAccountButtonTapped = PublishSubject<Void>()
+    
     init(deleteAccountReactor: DeleteAccountReactor) {
         super.init(nibName: nil, bundle: nil)
         
         let reactor = DeleteAccountReactor()
         self.reactor = reactor
-        bind(reactor: reactor)
+//        bind(reactor: reactor)
     }
     
     required init?(coder: NSCoder) {
@@ -32,10 +37,10 @@ class DeleteAccountViewController: BaseViewController, View {
         self.view = mainView
     }
     
-    // 비즈니스 로직 정리
-    // 1. 탈퇴 이유 bottom sheet에서 클릭 -> bottom sheet에서 클릭 -> label 변경 및 VM 저장 (직접 입력을 선택한 경우, 아래 텍스트뷰 hidden false)
-    // 2. 탈퇴 이유 (직접 입력) 텍스트 -> 유효성 검증 -> countLabel 변경
-    // 3. 버튼 클릭 -> 이메일 전송
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+    }
     
     func bind(reactor: DeleteAccountReactor) {
         bindAction(reactor)
@@ -43,23 +48,41 @@ class DeleteAccountViewController: BaseViewController, View {
     }
     
     func bindAction(_ reactor: DeleteAccountReactor) {
-        // bottom sheet 올라오면 진행
+        // 바텀시트 올려주기만 하기
         mainView.reasonPickerView.clearButton.rx.tap
-            .map {
-                let a = DeleteAccountReason.allCases.randomElement()!
-                
-                return DeleteAccountReactor.Action.deleteReason(a)
+            .subscribe(with: self) { owenr, _ in
+                let vc = DeleteAccountReasonBottomSheetViewController(self.reactor!)
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
             }
-            .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
+        // 직접 입력일 때만 등장하는 텍스트뷰
         mainView.reasonTextView.rx.text.orEmpty
             .map { DeleteAccountReactor.Action.directInputText($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
+        
+        // 완료 버튼의 tap은 단순히 얼럿만 띄워준다.
+        // 얼럿의 버튼이 실제 탈퇴하기 버튼
         mainView.completeButton.rx.tap
-            .map { DeleteAccountReactor.Action.completeButtonTapped }
+            .throttle(.seconds(3), scheduler: MainScheduler.instance)
+            .subscribe(with: self) { owner, _ in
+                TNAlert(self)
+                    .setTitle("정말 탈퇴하시겠어요?")
+                    .setSubTitle("그동안의 소중한 기록이 모두 사라지고, 탈퇴 후에는 다시 복구할 수 없어요.")
+                    .addCancelAction("돌아가기", action: nil)
+                    .addConfirmAction("탈퇴하기", action: {
+                        self.deleteAccountButtonTapped.onNext(()) // Void 이벤트 발생 -> bind된 reactor에서 코드 실행
+                    })
+                    .present()
+            }
+            .disposed(by: disposeBag)
+        
+        // 얼럿 버튼을 연걸 -> 네트워크 통신 수행
+        self.deleteAccountButtonTapped
+            .map { DeleteAccountReactor.Action.confirmButtonTapped }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }
@@ -67,12 +90,13 @@ class DeleteAccountViewController: BaseViewController, View {
     func bindState(_ reactor: DeleteAccountReactor) {
         reactor.state.map { $0.deleteReason }
             .map { value in
-                if let value { return value.rawValue }
+                if let value { return value.description }
                 else { return "탈퇴하시는 이유를 알려주세요" }
             }
             .distinctUntilChanged()
             .bind(to: mainView.reasonPickerView.textLabel.rx.text )
             .disposed(by: disposeBag)
+        
         
         reactor.state.map { $0.showTextView }
             .distinctUntilChanged()
@@ -118,21 +142,45 @@ class DeleteAccountViewController: BaseViewController, View {
         reactor.state.map { $0.buttonEnabled }
             .distinctUntilChanged()
             .subscribe(with: self) { owner, value in
-                owner.mainView.completeButton.backgroundColor = value ? .blue : .red
+                owner.mainView.completeButton.isEnabled = value
             }
             .disposed(by: disposeBag)
         
         
         // 누른 결과?
+        // 버튼을 누른 결과
+        // 버튼을 눌렀을 때 네트워크 콜을 하는 것이 아니라,
+        // 진짜 탈퇴하겠냐 물어보는 얼럿에서 확인을 눌렀을 때 네트워크 콜을 한다
+        // 즉, action으로 넘겨주는 건 completeButton의 tap이 아니라, 얼럿 버튼의 tap이 되어야 함
         
+        // TODO: 얼럿 버튼을 누른 결과
+        reactor.state.map { $0.completeResult }
     }
 }
 
-enum DeleteAccountReason: String, CaseIterable {
-    case serviceInconvenient = "서비스 이용이 불편해서"
-    case notHelpfulForWriting = "일기 작성에 도움이 되지 않아서"
-    case ineffectiveForDailyRecords = "꾸준한 일상 기록에 효과가 없어서"
-    case unsatisfactoryImages = "생성되는 이미지가 마음에 들지 않아서"
-    case switchingToOtherService = "타 서비스로 이동"
-    case directInput = "직접 입력"
+
+enum DeleteAccountReason: Int, CaseIterable {
+    case serviceInconvenient
+    case notHelpfulForWriting
+    case ineffectiveForDailyRecords
+    case unsatisfactoryImages
+    case switchingToOtherService
+    case directInput
+    
+    var description: String {
+        switch self {
+        case .serviceInconvenient:
+            return "서비스 이용이 불편해서"
+        case .notHelpfulForWriting:
+            return "일기 작성에 도움이 되지 않아서"
+        case .ineffectiveForDailyRecords:
+            return "꾸준한 일상 기록에 효과가 없어서"
+        case .unsatisfactoryImages:
+            return "생성되는 이미지가 마음에 들지 않아서"
+        case .switchingToOtherService:
+            return "타 서비스로 이동"
+        case .directInput:
+            return "직접 입력"
+        }
+    }
 }
