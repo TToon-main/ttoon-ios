@@ -66,9 +66,7 @@ class CharacterModifyViewController: BaseViewController {
         
         characterModifyView.tableView.rx.itemDeleted
             .subscribe(with: self) { owner, _ in
-                let reactor = CharacterDeleteBSReactor()
-                let vc = CharacterDeleteBSViewController(reactor: reactor)
-                owner.present(vc, animated: true)
+                owner.presentCharacterDeleteBS()
             }
             .disposed(by: disposeBag)
     }
@@ -77,6 +75,20 @@ class CharacterModifyViewController: BaseViewController {
         self.navigationItem.title = "등장인물 목록"
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = UIColor.black
+    }
+    
+    private func presentCharacterDeleteBS() {
+        let reactor = CharacterDeleteBSReactor()
+        let viewControllerToPresent = CharacterDeleteBSViewController(reactor: reactor)
+        
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.detents = [.custom { context in return 392 } ]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        present(viewControllerToPresent, animated: true, completion: nil)
     }
 }
 

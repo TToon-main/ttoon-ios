@@ -25,13 +25,21 @@ class CharacterDeleteBSViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func loadView() {
-        view = characterDeleteBSView
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindMockUp()
+    }
+    
+    override func addSubViews() {
+        view.addSubview(characterDeleteBSView)
+    }
+    
+    override func layouts() {
+        characterDeleteBSView.snp.makeConstraints { 
+            $0.top.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().offset(-24)
+        }
     }
     
     func bindMockUp() {
@@ -45,8 +53,26 @@ extension CharacterDeleteBSViewController: View {
     }
     
     func bindAction(reactor: CharacterDeleteBSReactor) {
+        characterDeleteBSView.rx
+            .backButtonTap
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        characterDeleteBSView.rx
+            .deleteButtonTap
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: CharacterDeleteBSReactor) {
+        reactor.state
+            .map { $0.dismiss }
+            .compactMap { $0 }
+            .bind(onNext: dismiss)
+            .disposed(by: disposeBag)
+    }
+    
+    private func dismiss() {
+        self.dismiss(animated: true)
     }
 }
