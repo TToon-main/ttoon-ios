@@ -63,12 +63,6 @@ class CharacterModifyViewController: BaseViewController {
                 owner.dismiss(animated: true)
             }
             .disposed(by: disposeBag)
-        
-        characterModifyView.tableView.rx.itemDeleted
-            .subscribe(with: self) { owner, _ in
-                owner.presentCharacterDeleteBS()
-            }
-            .disposed(by: disposeBag)
     }
     
     private func setNavigationItem() {
@@ -77,8 +71,8 @@ class CharacterModifyViewController: BaseViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.black
     }
     
-    private func presentCharacterDeleteBS() {
-        let reactor = CharacterDeleteBSReactor()
+    private func presentCharacterDeleteBS(name: String?) {
+        let reactor = CharacterDeleteBSReactor(userName: name)
         let viewControllerToPresent = CharacterDeleteBSViewController(reactor: reactor)
         
         if let sheet = viewControllerToPresent.sheetPresentationController {
@@ -99,8 +93,17 @@ extension CharacterModifyViewController: View {
     }
     
     func bindAction(reactor: CharacterModifyReactor) {
+        characterModifyView.rx
+            .deletedCharacterTap
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: CharacterModifyReactor) {
+        reactor.state
+            .map { $0.presentCharacterDeleteBS }
+            .compactMap { $0 }
+            .bind(onNext: presentCharacterDeleteBS)
+            .disposed(by: disposeBag)
     }
 }

@@ -12,7 +12,6 @@ import RxSwift
 class CharacterDeleteBSView: BaseView {
     let titleLabel = {
         let view = CreateToonMidTitleLabel()
-        view.text = "‘조혜원’ 캐릭터를\n정말 삭제하시겠어요?"
         
         return view
     }()
@@ -101,5 +100,11 @@ extension Reactive where Base: CharacterDeleteBSView {
     var backButtonTap: Observable<CharacterDeleteBSReactor.Action> {
         return base.backButton.rx.tap
             .map { CharacterDeleteBSReactor.Action.backButtonTap }
+    }
+    
+    var userName: Binder<String> {
+        return Binder(base) { view, text in
+            view.titleLabel.text = "‘\(text)’ 캐릭터를\n정말 삭제하시겠어요?"
+        }
     }
 }

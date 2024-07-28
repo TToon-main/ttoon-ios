@@ -14,6 +14,7 @@ import RxSwift
 class CharacterDeleteBSViewController: BaseViewController {
     var disposeBag = DisposeBag()
     private let characterDeleteBSView = CharacterDeleteBSView()
+    private let viewLifeCycle = PublishSubject<CharacterDeleteBSReactor.Action>()
     
     init(reactor: CharacterDeleteBSReactor) {
         super.init(nibName: nil, bundle: nil)
@@ -28,6 +29,11 @@ class CharacterDeleteBSViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindMockUp()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewLifeCycle.onNext(.viewLifeCycle(.viewWillAppear))
     }
     
     override func addSubViews() {
@@ -53,6 +59,10 @@ extension CharacterDeleteBSViewController: View {
     }
     
     func bindAction(reactor: CharacterDeleteBSReactor) {
+        viewLifeCycle
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
         characterDeleteBSView.rx
             .backButtonTap
             .bind(to: reactor.action)
@@ -69,6 +79,12 @@ extension CharacterDeleteBSViewController: View {
             .map { $0.dismiss }
             .compactMap { $0 }
             .bind(onNext: dismiss)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.userName }
+            .compactMap { $0 }
+            .bind(to: characterDeleteBSView.rx.userName)
             .disposed(by: disposeBag)
     }
     
