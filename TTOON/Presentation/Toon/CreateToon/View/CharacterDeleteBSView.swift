@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxSwift
+
 class CharacterDeleteBSView: BaseView {
     let titleLabel = {
         let view = CreateToonMidTitleLabel()
@@ -22,11 +24,18 @@ class CharacterDeleteBSView: BaseView {
         return view
     }()
     
+    let trashImageView = {
+        let view = UIImageView() 
+        view.image = TNImage.characterDeleteIcon
+        
+        return view
+    }()
+    
     let backButton = {
         let view = TNAlertButton()
         view.setTitle("돌아가기", for: .normal)
         view.type = .cancel
-    
+        
         return view
     }()
     
@@ -47,9 +56,15 @@ class CharacterDeleteBSView: BaseView {
         return view
     }()
     
+    override func configures() {
+        super.configures()
+        layer.cornerRadius = 25
+    }
+    
     override func addSubViews() {
         addSubview(titleLabel)
         addSubview(subTitleLabel)
+        addSubview(trashImageView)
         addSubview(buttonStack)
     }
     
@@ -64,10 +79,27 @@ class CharacterDeleteBSView: BaseView {
             $0.top.equalTo(titleLabel.snp.bottom).offset(12)
         }
         
+        trashImageView.snp.makeConstraints {
+            $0.top.equalTo(subTitleLabel.snp.bottom).offset(12)
+            $0.centerX.equalToSuperview()
+        }
+        
         buttonStack.snp.makeConstraints {
             $0.height.equalTo(56)
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().offset(-40)
         }
+    }
+}
+
+extension Reactive where Base: CharacterDeleteBSView {
+    var deleteButtonTap: Observable<CharacterDeleteBSReactor.Action> {
+        return base.confirmButton.rx.tap
+            .map { CharacterDeleteBSReactor.Action.deleteButtonTap }
+    }
+    
+    var backButtonTap: Observable<CharacterDeleteBSReactor.Action> {
+        return base.backButton.rx.tap
+            .map { CharacterDeleteBSReactor.Action.backButtonTap }
     }
 }
