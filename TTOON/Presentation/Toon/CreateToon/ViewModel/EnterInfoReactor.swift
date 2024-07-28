@@ -12,18 +12,21 @@ final class EnterInfoReactor: Reactor {
     // 뷰에서 입력받은 유저 이벤트
     enum Action {
         case textFieldDidChange(String)
+        case selectCharactersButtonTap
         case confirmButtonTap
     }
     
     // Action과 State의 매개체
     enum Mutation {
         case setTextFieldText(String?)
+        case setSelectCharactersButtonTap
         case setConfirmButtonTap
     }
     
     // 뷰에 전달할 상태
     struct State {
         var validTextFieldText: String? = nil
+        var presentCharacterPickerBS: Void? = nil
         var presentCreateLoadingVC: Void? = nil
     }
     
@@ -36,6 +39,9 @@ final class EnterInfoReactor: Reactor {
             let validText = truncText(text: text)
             return .just(.setTextFieldText(validText))
             
+        case .selectCharactersButtonTap:
+            return .just(.setSelectCharactersButtonTap)
+            
         case .confirmButtonTap:
             return .just(.setConfirmButtonTap)
         }
@@ -47,6 +53,9 @@ final class EnterInfoReactor: Reactor {
         switch mutation {
         case .setTextFieldText(let text):
             newState.validTextFieldText = text
+            
+        case .setSelectCharactersButtonTap:
+            newState.presentCharacterPickerBS = ()
             
         case .setConfirmButtonTap:
             newState.presentCreateLoadingVC = ()

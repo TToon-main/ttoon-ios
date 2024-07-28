@@ -43,6 +43,11 @@ extension EnterInfoViewController: View {
             .disposed(by: disposeBag)
         
         enterInfoScrollView.rx
+            .selectCharactersButtonTap
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        enterInfoScrollView.rx
             .confirmButtonTap
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
@@ -52,6 +57,12 @@ extension EnterInfoViewController: View {
         reactor.state
             .map { $0.validTextFieldText }
             .bind(to: enterInfoScrollView.rx.validTextFieldText)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.presentCharacterPickerBS }
+            .compactMap{ $0 }
+            .bind(onNext: presentCharacterPickerBS)
             .disposed(by: disposeBag)
         
         reactor.state
@@ -65,5 +76,19 @@ extension EnterInfoViewController: View {
         let reactor = CreateLoadingReactor()
         let vc = CreateLoadingViewController(reactor: reactor)
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func presentCharacterPickerBS() {
+        let reactor = CharacterPickerBSReactor()
+        let viewControllerToPresent = CharacterPickerBSViewController(reactor: reactor)
+        
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.detents = [.custom { context in return 583 } ]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        present(viewControllerToPresent, animated: true, completion: nil)
     }
 }

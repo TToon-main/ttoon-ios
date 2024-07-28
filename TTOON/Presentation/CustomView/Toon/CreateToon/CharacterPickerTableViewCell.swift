@@ -54,8 +54,7 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
     
     private let checkImageView = {
         let view = UIImageView()
-        view.image = UIImage(systemName: "checkmark")
-        view.tintColor = .tnOrange
+        view.image = TNImage.doneRound
         
         return view
     }()
