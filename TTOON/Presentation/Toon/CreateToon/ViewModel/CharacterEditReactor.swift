@@ -1,14 +1,14 @@
 //
-//  CharacterEditorReactor.swift
+//  CharacterEditReactor.swift
 //  TTOON
 //
-//  Created by Dongwan Ryoo on 7/14/24.
+//  Created by Dongwan Ryoo on 7/28/24.
 //
 
 import ReactorKit
 import RxSwift
 
-final class CharacterEditorReactor: Reactor {    
+final class CharacterEditReactor: Reactor {    
     // 뷰에서 입력받은 유저 이벤트
     enum Action {
     }
