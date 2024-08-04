@@ -63,17 +63,26 @@ class CharacterModifyViewController: BaseViewController {
                 owner.dismiss(animated: true)
             }
             .disposed(by: disposeBag)
-        
-        characterModifyView.tableView.rx.itemDeleted
-            .subscribe(with: self) { owner, _ in
-            }
-            .disposed(by: disposeBag)
     }
     
     private func setNavigationItem() {
         self.navigationItem.title = "등장인물 목록"
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = UIColor.black
+    }
+    
+    private func presentCharacterDeleteBS(name: String?) {
+        let reactor = CharacterDeleteBSReactor(userName: name)
+        let viewControllerToPresent = CharacterDeleteBSViewController(reactor: reactor)
+        
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.detents = [.custom { context in return 392 } ]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        present(viewControllerToPresent, animated: true, completion: nil)
     }
 }
 
@@ -84,8 +93,17 @@ extension CharacterModifyViewController: View {
     }
     
     func bindAction(reactor: CharacterModifyReactor) {
+        characterModifyView.rx
+            .deletedCharacterTap
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: CharacterModifyReactor) {
+        reactor.state
+            .map { $0.presentCharacterDeleteBS }
+            .compactMap { $0 }
+            .bind(onNext: presentCharacterDeleteBS)
+            .disposed(by: disposeBag)
     }
 }

@@ -20,7 +20,7 @@ struct CharacterPickerTableViewCellDataSource {
 class CharacterPickerTableViewCell: BaseTableViewCell {
     var disposeBag = DisposeBag()
     
-    private let titleLabel = {
+    let titleLabel = {
         let view = UILabel()
         view.text = "조혜원"
         view.font = .body16b
