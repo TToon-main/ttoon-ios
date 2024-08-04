@@ -8,6 +8,8 @@
 import RxSwift
 import UIKit
 
+import RxCocoa
+
 class CharacterModifyView: BaseView {
     let tableView = {
         let view = CharacterPickerTableView()
@@ -54,5 +56,10 @@ extension Reactive where Base: CharacterModifyView {
                 
                 return .just(action) 
             }
+    }
+    
+    var addCharacterButtonTap: Observable<CharacterModifyReactor.Action> {
+        return base.confirmButton.rx.tap
+            .map { CharacterModifyReactor.Action.addCharacterButtonTap }
     }
 }
