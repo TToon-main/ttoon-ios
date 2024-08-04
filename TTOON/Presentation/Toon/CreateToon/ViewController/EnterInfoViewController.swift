@@ -35,6 +35,11 @@ class EnterInfoViewController: CreateToonBaseViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func configures() {
+        super.configures()
+        setNavigationItem(title: "기록 추가하기")
+    }
 }
 
 extension EnterInfoViewController: View {

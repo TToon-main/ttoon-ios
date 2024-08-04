@@ -40,6 +40,11 @@ class SelectStyleViewController: CreateToonBaseViewController {
         viewWillAppear.onNext(.viewWillAppear)
     }
     
+    override func configures() {
+        super.configures()
+        setNavigationItem(title: "기록 추가하기")
+    }
+    
     private func presentEnterInfoVC() {
         // TODO: DI
         let reactor = EnterInfoReactor()

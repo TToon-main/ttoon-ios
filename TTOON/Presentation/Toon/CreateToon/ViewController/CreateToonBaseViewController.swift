@@ -21,11 +21,6 @@ class CreateToonBaseViewController: BaseViewController {
         view.addSubview(progressBar)
     }
     
-    override func configures() {
-        super.configures()
-        setNavigationItem()
-    }
-    
     override func layouts() {
         progressBar.snp.makeConstraints {
             $0.top.equalTo(safeGuide)
@@ -34,8 +29,8 @@ class CreateToonBaseViewController: BaseViewController {
         }
     }
     
-    private func setNavigationItem() {
-        self.navigationItem.title = "기록 추가하기"
+    func setNavigationItem(title: String) {
+        self.navigationItem.title = title
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = UIColor.black
     }
