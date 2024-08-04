@@ -1,8 +1,8 @@
 //
-//  CharacterEditorViewController.swift
+//  CharacterEditViewController.swift
 //  TTOON
 //
-//  Created by Dongwan Ryoo on 7/14/24.
+//  Created by Dongwan Ryoo on 7/28/24.
 //
 
 import UIKit
@@ -11,11 +11,11 @@ import ReactorKit
 import RxCocoa
 import RxSwift
 
-class CharacterEditorViewController: BaseViewController {
+class CharacterEditViewController: BaseViewController {
     var disposeBag = DisposeBag()
     private let characterEditorView = CharacterEditorView()
     
-    init(reactor: CharacterEditorReactor) {
+    init(reactor: CharacterEditReactor) {
         super.init(nibName: nil, bundle: nil)
         self.reactor = reactor
     }
@@ -36,6 +36,7 @@ class CharacterEditorViewController: BaseViewController {
     
     override func configures() {
         setNavigationItem()
+        characterEditorView.setUpView(editType: .edit)
     }
     
     // TODO: 임시
@@ -61,15 +62,15 @@ class CharacterEditorViewController: BaseViewController {
     }
 }
 
-extension CharacterEditorViewController: View {
-    func bind(reactor: CharacterEditorReactor) {
+extension CharacterEditViewController: View {
+    func bind(reactor: CharacterEditReactor) {
         bindAction(reactor: reactor)
         bindState(reactor: reactor)
     }
     
-    func bindAction(reactor: CharacterEditorReactor) {
+    func bindAction(reactor: CharacterEditReactor) {
     }
     
-    func bindState(reactor: CharacterEditorReactor) {
+    func bindState(reactor: CharacterEditReactor) {
     }
 }

@@ -14,6 +14,7 @@ import RxSwift
 class CharacterModifyViewController: BaseViewController {
     var disposeBag = DisposeBag()
     private let characterModifyView = CharacterModifyView()
+    private let viewLifeCycle = PublishSubject<CharacterModifyReactor.Action>()
     
     init(reactor: CharacterModifyReactor) {
         super.init(nibName: nil, bundle: nil)
@@ -32,6 +33,11 @@ class CharacterModifyViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindMockUp()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewLifeCycle.onNext(.viewLifeCycle(.viewWillAppear))
     }
     
     override func configures() {
@@ -57,18 +63,12 @@ class CharacterModifyViewController: BaseViewController {
                         .disposed(by: cell.disposeBag)
             }
                 .disposed(by: disposeBag)
-        
-        characterModifyView.confirmButton.rx.tap
-            .subscribe(with: self) { owner, _ in 
-                owner.dismiss(animated: true)
-            }
-            .disposed(by: disposeBag)
   
         
         modifyButtonTap
             .subscribe(with: self) { owner, _ in
-                let reactor = CharacterEditorReactor()
-                let vc = CharacterEditorViewController(reactor: reactor)
+                let reactor = CharacterEditReactor()
+                let vc = CharacterEditViewController(reactor: reactor)
                 
                 owner.navigationController?.pushViewController(vc, animated: true)
             }
@@ -94,6 +94,13 @@ class CharacterModifyViewController: BaseViewController {
         }
         present(viewControllerToPresent, animated: true, completion: nil)
     }
+    
+    private func  presentCharacterEditorVC() {
+        let reactor = CharacterAddReactor()
+        let vc = CharacterAddViewController(reactor: reactor)
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension CharacterModifyViewController: View {
@@ -107,6 +114,11 @@ extension CharacterModifyViewController: View {
             .deletedCharacterTap
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        characterModifyView.rx
+            .addCharacterButtonTap
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: CharacterModifyReactor) {
@@ -114,6 +126,12 @@ extension CharacterModifyViewController: View {
             .map { $0.presentCharacterDeleteBS }
             .compactMap { $0 }
             .bind(onNext: presentCharacterDeleteBS)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.presentCharacterEditorVC }
+            .compactMap { $0 }
+            .bind(onNext: presentCharacterEditorVC)
             .disposed(by: disposeBag)
     }
 }
