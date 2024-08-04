@@ -95,8 +95,11 @@ extension EnterInfoViewController: View {
     }
     
     private func presentCreateLoadingVC() {
-        let reactor = CreateLoadingReactor()
-        let vc = CreateLoadingViewController(reactor: reactor)
+        // TODO: - 임시로 화면 
+//        let reactor = CreateLoadingReactor()
+//        let vc = CreateLoadingViewController(reactor: reactor)
+        
+        let vc = CreateResultViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

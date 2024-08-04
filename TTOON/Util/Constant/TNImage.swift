@@ -13,4 +13,5 @@ struct TNImage {
     static var createLoadingIcon = UIImage(named: "createLoading")
     static var btnArrowDownIcon = UIImage(named: "btnArrowDown")
     static var characterDeleteIcon = UIImage(named: "characterDelete") 
+    static var completeToonIcon = UIImage(named: "completeToon")
 }

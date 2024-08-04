@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 
 class CreateResultView: BaseView {
@@ -26,7 +28,7 @@ class CreateResultView: BaseView {
     
     let resultImageView = {
         let view = UIImageView()
-        view.backgroundColor = .grey01
+        view.image = TNImage.completeToonIcon
         
         return view
     }()
@@ -66,5 +68,11 @@ class CreateResultView: BaseView {
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.height.equalTo(56)
         }
+    }
+}
+
+extension Reactive where Base: CreateResultView {
+    var confirmButtonTap: Observable<Void> {
+        return base.confirmButton.rx.tap.asObservable()
     }
 }

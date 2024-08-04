@@ -10,11 +10,19 @@ import UIKit
 import RxSwift
 
 class CreateResultViewController: BaseViewController {
-    private let disposeBag = DisposeBag()
-    
+    var disposeBag = DisposeBag()
     private let createResultView = CreateResultView()
     
     override func loadView() {
         view = createResultView
+    }
+    
+    override func bind() {
+        createResultView.rx.confirmButtonTap
+            .bind(onNext: presentCompleteToonVC)
+            .disposed(by: disposeBag)
+    }
+    
+    func presentCompleteToonVC() {
     }
 }
