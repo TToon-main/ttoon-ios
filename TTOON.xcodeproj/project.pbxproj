@@ -64,6 +64,7 @@
 		48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A052BEF472C0087F870 /* SocialLoginButton.swift */; };
 		BE0132AA2BC4306600C9827C /* engaged-code-418809-16024d5258d0.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */; };
 		BE0473662C550E5600484B96 /* ViewLifeCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0473652C550E5600484B96 /* ViewLifeCycle.swift */; };
+		BE0473682C551D8000484B96 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0473672C551D8000484B96 /* UIButton+.swift */; };
 		BE0B92402C4D2AB800B9F36F /* EnterInfoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */; };
 		BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3112BEBAFE500F0C193 /* TNButton.swift */; };
 		BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3132BEBB28800F0C193 /* Reactive+.swift */; };
@@ -107,6 +108,14 @@
 		BE78BEEF2C25C5A6000A5D11 /* Pro+IDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BEEE2C25C5A6000A5D11 /* Pro+IDF.swift */; };
 		BE78BEF12C25C5DC000A5D11 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BEF02C25C5DC000A5D11 /* UIView+.swift */; };
 		BE78BEF32C25C5EE000A5D11 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BEF22C25C5EE000A5D11 /* UIViewController+.swift */; };
+		BE78BF4A2C4269EB000A5D11 /* CharacterPickerBSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF492C4269EB000A5D11 /* CharacterPickerBSViewController.swift */; };
+		BE78BF4C2C42B9FE000A5D11 /* CharacterPickerBSReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF4B2C42B9FE000A5D11 /* CharacterPickerBSReactor.swift */; };
+		BE78BF4E2C42BAB2000A5D11 /* CharacterPickerBSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF4D2C42BAB2000A5D11 /* CharacterPickerBSView.swift */; };
+		BE78BF502C42BBE8000A5D11 /* CharacterPickerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF4F2C42BBE8000A5D11 /* CharacterPickerTableView.swift */; };
+		BE78BF522C42BC78000A5D11 /* CharacterPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF512C42BC78000A5D11 /* CharacterPickerTableViewCell.swift */; };
+		BE78BF542C42D06D000A5D11 /* CharacterModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF532C42D06D000A5D11 /* CharacterModifyViewController.swift */; };
+		BE78BF562C42D095000A5D11 /* CharacterModifyReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF552C42D095000A5D11 /* CharacterModifyReactor.swift */; };
+		BE78BF582C42D0D1000A5D11 /* CharacterModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE78BF572C42D0D1000A5D11 /* CharacterModifyView.swift */; };
 		BE7C8C112BE8F258005F2FB2 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */; };
 		BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */; };
 		BE7C8C172BE8FD50005F2FB2 /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C8C162BE8FD50005F2FB2 /* AuthInterceptor.swift */; };
@@ -245,6 +254,7 @@
 		48F55A7D2BCD4A6D00303C22 /* TTOON.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TTOON.entitlements; sourceTree = "<group>"; };
 		BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "engaged-code-418809-16024d5258d0.json"; sourceTree = "<group>"; };
 		BE0473652C550E5600484B96 /* ViewLifeCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLifeCycle.swift; sourceTree = "<group>"; };
+		BE0473672C551D8000484B96 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterInfoScrollView.swift; sourceTree = "<group>"; };
 		BE32E3112BEBAFE500F0C193 /* TNButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNButton.swift; sourceTree = "<group>"; };
 		BE32E3132BEBB28800F0C193 /* Reactive+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+.swift"; sourceTree = "<group>"; };
@@ -295,6 +305,14 @@
 		BE78BEEE2C25C5A6000A5D11 /* Pro+IDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pro+IDF.swift"; sourceTree = "<group>"; };
 		BE78BEF02C25C5DC000A5D11 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		BE78BEF22C25C5EE000A5D11 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		BE78BF492C4269EB000A5D11 /* CharacterPickerBSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPickerBSViewController.swift; sourceTree = "<group>"; };
+		BE78BF4B2C42B9FE000A5D11 /* CharacterPickerBSReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPickerBSReactor.swift; sourceTree = "<group>"; };
+		BE78BF4D2C42BAB2000A5D11 /* CharacterPickerBSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPickerBSView.swift; sourceTree = "<group>"; };
+		BE78BF4F2C42BBE8000A5D11 /* CharacterPickerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPickerTableView.swift; sourceTree = "<group>"; };
+		BE78BF512C42BC78000A5D11 /* CharacterPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPickerTableViewCell.swift; sourceTree = "<group>"; };
+		BE78BF532C42D06D000A5D11 /* CharacterModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModifyViewController.swift; sourceTree = "<group>"; };
+		BE78BF552C42D095000A5D11 /* CharacterModifyReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModifyReactor.swift; sourceTree = "<group>"; };
+		BE78BF572C42D0D1000A5D11 /* CharacterModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModifyView.swift; sourceTree = "<group>"; };
 		BE7C8C102BE8F258005F2FB2 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		BE7C8C122BE8F269005F2FB2 /* SplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAPI.swift; sourceTree = "<group>"; };
 		BE7C8C162BE8FD50005F2FB2 /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
@@ -936,6 +954,8 @@
 				BE78BEDD2C25BB36000A5D11 /* SelectStyleReactor.swift */,
 				BEAB66D62C26ADF1001B1B63 /* EnterInfoReactor.swift */,
 				BE9760932C29A3E600EDAEA0 /* CreateLoadingReactor.swift */,
+				BE78BF4B2C42B9FE000A5D11 /* CharacterPickerBSReactor.swift */,
+				BE78BF552C42D095000A5D11 /* CharacterModifyReactor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -948,6 +968,8 @@
 				BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */,
 				BE97608F2C29A39000EDAEA0 /* CreateLoadingView.swift */,
 				BE97609C2C29AEB600EDAEA0 /* CreateResultView.swift */,
+				BE78BF4D2C42BAB2000A5D11 /* CharacterPickerBSView.swift */,
+				BE78BF572C42D0D1000A5D11 /* CharacterModifyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -960,6 +982,8 @@
 				BE78BEE72C25BD6D000A5D11 /* CreateToonBaseViewController.swift */,
 				BE9760912C29A3CB00EDAEA0 /* CreateLoadingViewController.swift */,
 				BE97609E2C29B05100EDAEA0 /* CreateResultViewController.swift */,
+				BE78BF492C4269EB000A5D11 /* CharacterPickerBSViewController.swift */,
+				BE78BF532C42D06D000A5D11 /* CharacterModifyViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -986,6 +1010,8 @@
 				BEAB66DA2C26AEEE001B1B63 /* CreateToonSelectCharactersButton.swift */,
 				BEAB66DC2C26B180001B1B63 /* CreateToonDivider.swift */,
 				BEAB66DE2C26B652001B1B63 /* CreateToonDiaryView.swift */,
+				BE78BF4F2C42BBE8000A5D11 /* CharacterPickerTableView.swift */,
+				BE78BF512C42BC78000A5D11 /* CharacterPickerTableViewCell.swift */,
 			);
 			path = CreateToon;
 			sourceTree = "<group>";
@@ -1064,6 +1090,7 @@
 				BE78BEF02C25C5DC000A5D11 /* UIView+.swift */,
 				BE78BEF22C25C5EE000A5D11 /* UIViewController+.swift */,
 				BEAB66D02C26AA12001B1B63 /* UICollectionView+.swift */,
+				BE0473672C551D8000484B96 /* UIButton+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1508,11 +1535,15 @@
 				BE78BEDC2C25BB28000A5D11 /* SelectStyleView.swift in Sources */,
 				BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */,
 				BE77224B2BEF499F007CDC17 /* TNAlert.swift in Sources */,
+				BE78BF502C42BBE8000A5D11 /* CharacterPickerTableView.swift in Sources */,
 				489730E22BF0E8840026706C /* AuthDTO.swift in Sources */,
 				48C3F09A2BF9E64E00BD2142 /* SettingNameInputView.swift in Sources */,
+				BE0473682C551D8000484B96 /* UIButton+.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
+				BE78BF4C2C42B9FE000A5D11 /* CharacterPickerBSReactor.swift in Sources */,
 				489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */,
 				489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */,
+				BE78BF542C42D06D000A5D11 /* CharacterModifyViewController.swift in Sources */,
 				486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */,
 				BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
@@ -1521,6 +1552,7 @@
 				BE97609D2C29AEB600EDAEA0 /* CreateResultView.swift in Sources */,
 				489ADEFB2BF9BC8300B070B7 /* ContactUsView.swift in Sources */,
 				BE7C8C192BE8FD9B005F2FB2 /* LogPlugin.swift in Sources */,
+				BE78BF522C42BC78000A5D11 /* CharacterPickerTableViewCell.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
 				BE5758F42BFB1DCC00EC4545 /* MyPageTableViewCell.swift in Sources */,
 				BE78BEE82C25BD6D000A5D11 /* CreateToonBaseViewController.swift in Sources */,
@@ -1538,11 +1570,15 @@
 				BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */,
 				BE78BEDA2C25BB19000A5D11 /* SelectStyleViewController.swift in Sources */,
 				48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */,
+				BE78BF4E2C42BAB2000A5D11 /* CharacterPickerBSView.swift in Sources */,
 				48D979FF2BEF45C20087F870 /* LoginUseCase.swift in Sources */,
 				BE5758FA2BFB435D00EC4545 /* AlarmViewController.swift in Sources */,
+				BE78BF582C42D0D1000A5D11 /* CharacterModifyView.swift in Sources */,
 				BE5758F22BFB1C9900EC4545 /* UnderLineView.swift in Sources */,
+				BE78BF562C42D095000A5D11 /* CharacterModifyReactor.swift in Sources */,
 				BE78BEE62C25BBC5000A5D11 /* CreateToonSubTitleLabel.swift in Sources */,
 				486A80C82C0E09060089D46C /* KeychainStorage.swift in Sources */,
+				BE78BF4A2C4269EB000A5D11 /* CharacterPickerBSViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -37,8 +37,6 @@ class EnterInfoScrollView: BaseView {
         super.layoutSubviews()
         scrollView.pin.all()
         enterInfoView.pin.all()
-        
-        // 스크롤 뷰의 핵심! -> contentsize를 명시하지 않으면, 스크롤이 되지 않는다.
         scrollView.contentSize = enterInfoView.frame.size
     }   
 }
@@ -54,6 +52,11 @@ extension Reactive where Base: EnterInfoScrollView {
     var confirmButtonTap: Observable<EnterInfoReactor.Action> {
         return base.enterInfoView.confirmButton.rx.tap
             .map { EnterInfoReactor.Action.confirmButtonTap }
+    }
+    
+    var selectCharactersButtonTap: Observable<EnterInfoReactor.Action> {
+        return base.enterInfoView.selectCharactersView.selectCharactersButton.rx.tap
+            .map { EnterInfoReactor.Action.selectCharactersButtonTap }
     }
 }
 

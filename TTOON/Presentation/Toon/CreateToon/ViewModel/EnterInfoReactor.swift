@@ -11,19 +11,27 @@ import RxSwift
 final class EnterInfoReactor: Reactor {    
     // 뷰에서 입력받은 유저 이벤트
     enum Action {
+        case viewLifeCycle(ViewLifeCycle)
         case textFieldDidChange(String)
+        case selectCharactersButtonTap
+        case presentModifyCharacterVC
         case confirmButtonTap
     }
     
     // Action과 State의 매개체
     enum Mutation {
+        case setViewLifeCycle(ViewLifeCycle)
         case setTextFieldText(String?)
+        case setSelectCharactersButtonTap
+        case setPresentModifyCharacterVC
         case setConfirmButtonTap
     }
     
     // 뷰에 전달할 상태
     struct State {
         var validTextFieldText: String? = nil
+        var presentCharacterPickerBS: Void? = nil
+        var presentModifyCharacterVC: Void? = nil 
         var presentCreateLoadingVC: Void? = nil
     }
     
@@ -36,8 +44,17 @@ final class EnterInfoReactor: Reactor {
             let validText = truncText(text: text)
             return .just(.setTextFieldText(validText))
             
+        case .selectCharactersButtonTap:
+            return .just(.setSelectCharactersButtonTap)
+            
+        case .presentModifyCharacterVC:
+            return .just(.setPresentModifyCharacterVC)
+            
         case .confirmButtonTap:
             return .just(.setConfirmButtonTap)
+            
+        case .viewLifeCycle(let cycle):
+            return .just(.setViewLifeCycle(cycle))
         }
     }
     
@@ -45,8 +62,22 @@ final class EnterInfoReactor: Reactor {
         var newState = state
         
         switch mutation {
+        case .setViewLifeCycle(let cycle):
+            if cycle == .viewWillAppear {
+                newState.presentCreateLoadingVC = nil
+                newState.presentModifyCharacterVC = nil
+                newState.presentCharacterPickerBS = nil   
+            }
+            
         case .setTextFieldText(let text):
             newState.validTextFieldText = text
+            
+        case .setSelectCharactersButtonTap:
+            newState.presentCharacterPickerBS = ()
+            
+        case .setPresentModifyCharacterVC:
+            newState.presentCharacterPickerBS = nil
+            newState.presentModifyCharacterVC = ()
             
         case .setConfirmButtonTap:
             newState.presentCreateLoadingVC = ()
