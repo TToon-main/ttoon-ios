@@ -15,10 +15,6 @@ class CompleteToonViewController: CreateToonBaseViewController {
     var disposeBag = DisposeBag()
     private let completeToonView = CompleteToonView()
     
-    override func loadView() {
-        view = completeToonView
-    }
-    
     init(reactor: CompleteToonReactor) {
         super.init(nibName: nil, bundle: nil)
         self.reactor = reactor
@@ -29,9 +25,20 @@ class CompleteToonViewController: CreateToonBaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layouts() {
+        super.layouts()
+        view.addSubview(completeToonView)
+        
+        completeToonView.snp.makeConstraints { 
+            $0.top.equalTo(progressBar.snp.bottom)
+            $0.bottom.horizontalEdges.equalToSuperview()
+        }
+    }
+    
     override func configures() {
         super.configures()
         setNavigationItem(title: "네컷만화 완성하기")
+        view.backgroundColor = .white
     }
 }
 

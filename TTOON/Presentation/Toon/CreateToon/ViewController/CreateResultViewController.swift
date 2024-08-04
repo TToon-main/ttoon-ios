@@ -17,6 +17,17 @@ class CreateResultViewController: BaseViewController {
         view = createResultView
     }
     
+    override func configures() {
+        super.configures()
+        setNavigationItem(title: "")
+    }
+    
+    func setNavigationItem(title: String) {
+        self.navigationItem.title = title
+        self.navigationItem.backButtonTitle = ""
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+    }
+    
     override func bind() {
         createResultView.rx.confirmButtonTap
             .bind(onNext: presentCompleteToonVC)

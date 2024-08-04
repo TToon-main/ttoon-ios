@@ -68,6 +68,11 @@
 		BE05C08D2C5F632500EEB19C /* CompleteToonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C08C2C5F632500EEB19C /* CompleteToonView.swift */; };
 		BE05C08F2C5F632B00EEB19C /* CompleteToonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C08E2C5F632B00EEB19C /* CompleteToonViewController.swift */; };
 		BE05C0912C5F633300EEB19C /* CompleteToonReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C0902C5F633300EEB19C /* CompleteToonReactor.swift */; };
+		BE05C0932C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C0922C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift */; };
+		BE05C0952C5F68D700EEB19C /* CreateToonCompleteToonCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C0942C5F68D700EEB19C /* CreateToonCompleteToonCollectionView.swift */; };
+		BE05C0972C5F690D00EEB19C /* CreateToonCompleteToonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C0962C5F690D00EEB19C /* CreateToonCompleteToonCollectionViewCell.swift */; };
+		BE05C0992C5F6C5C00EEB19C /* CreateToonCompleteToonResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C0982C5F6C5C00EEB19C /* CreateToonCompleteToonResultView.swift */; };
+		BE05C09B2C5F6C8100EEB19C /* CreateToonCompleteToonResultImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C09A2C5F6C8100EEB19C /* CreateToonCompleteToonResultImageView.swift */; };
 		BE0B92402C4D2AB800B9F36F /* EnterInfoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */; };
 		BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3112BEBAFE500F0C193 /* TNButton.swift */; };
 		BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3132BEBB28800F0C193 /* Reactive+.swift */; };
@@ -271,6 +276,11 @@
 		BE05C08C2C5F632500EEB19C /* CompleteToonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToonView.swift; sourceTree = "<group>"; };
 		BE05C08E2C5F632B00EEB19C /* CompleteToonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToonViewController.swift; sourceTree = "<group>"; };
 		BE05C0902C5F633300EEB19C /* CompleteToonReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToonReactor.swift; sourceTree = "<group>"; };
+		BE05C0922C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToonSelectOrderType.swift; sourceTree = "<group>"; };
+		BE05C0942C5F68D700EEB19C /* CreateToonCompleteToonCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonCompleteToonCollectionView.swift; sourceTree = "<group>"; };
+		BE05C0962C5F690D00EEB19C /* CreateToonCompleteToonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonCompleteToonCollectionViewCell.swift; sourceTree = "<group>"; };
+		BE05C0982C5F6C5C00EEB19C /* CreateToonCompleteToonResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonCompleteToonResultView.swift; sourceTree = "<group>"; };
+		BE05C09A2C5F6C8100EEB19C /* CreateToonCompleteToonResultImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonCompleteToonResultImageView.swift; sourceTree = "<group>"; };
 		BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterInfoScrollView.swift; sourceTree = "<group>"; };
 		BE32E3112BEBAFE500F0C193 /* TNButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNButton.swift; sourceTree = "<group>"; };
 		BE32E3132BEBB28800F0C193 /* Reactive+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+.swift"; sourceTree = "<group>"; };
@@ -1050,6 +1060,10 @@
 				BE78BF4F2C42BBE8000A5D11 /* CharacterPickerTableView.swift */,
 				BE78BF512C42BC78000A5D11 /* CharacterPickerTableViewCell.swift */,
 				BE8884182C5681A2003EC2A3 /* CreateToonIsMainCharacterSwitch.swift */,
+				BE05C0942C5F68D700EEB19C /* CreateToonCompleteToonCollectionView.swift */,
+				BE05C0962C5F690D00EEB19C /* CreateToonCompleteToonCollectionViewCell.swift */,
+				BE05C0982C5F6C5C00EEB19C /* CreateToonCompleteToonResultView.swift */,
+				BE05C09A2C5F6C8100EEB19C /* CreateToonCompleteToonResultImageView.swift */,
 			);
 			path = CreateToon;
 			sourceTree = "<group>";
@@ -1088,6 +1102,7 @@
 			isa = PBXGroup;
 			children = (
 				BE8884162C567227003EC2A3 /* CharacterEditType.swift */,
+				BE05C0922C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift */,
 			);
 			path = Toon;
 			sourceTree = "<group>";
@@ -1519,6 +1534,8 @@
 				BE8884172C567227003EC2A3 /* CharacterEditType.swift in Sources */,
 				BEAB66E12C26B6AC001B1B63 /* CreateToonMidTitleLabel.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
+				BE05C0992C5F6C5C00EEB19C /* CreateToonCompleteToonResultView.swift in Sources */,
+				BE78BEF32C25C5EE000A5D11 /* UIViewController+.swift in Sources */,
 				BE9BBC442BCA552F006FD848 /* UIFont+.swift in Sources */,
 				BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */,
 				48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */,
@@ -1530,6 +1547,7 @@
 				BEAB66DB2C26AEEE001B1B63 /* CreateToonSelectCharactersButton.swift in Sources */,
 				489FE2CE2BC010EB0033B61D /* Coordinator.swift in Sources */,
 				489FE2C12BC00F700033B61D /* BaseView.swift in Sources */,
+				BE05C0972C5F690D00EEB19C /* CreateToonCompleteToonCollectionViewCell.swift in Sources */,
 				BEAB66D72C26ADF1001B1B63 /* EnterInfoReactor.swift in Sources */,
 				BEB456832BD15BCB007F5EEC /* SplashUseCase.swift in Sources */,
 				BEAB66DD2C26B180001B1B63 /* CreateToonDivider.swift in Sources */,
@@ -1567,6 +1585,8 @@
 				BE9BBC492BCA5809006FD848 /* UIColor+.swift in Sources */,
 				48D97A042BEF45FC0087F870 /* LoginRepository.swift in Sources */,
 				BE5758F02BFB1C3100EC4545 /* UILabel+.swift in Sources */,
+				BE78BEDE2C25BB36000A5D11 /* SelectStyleReactor.swift in Sources */,
+				BE05C0952C5F68D700EEB19C /* CreateToonCompleteToonCollectionView.swift in Sources */,
 				BE5758FE2BFB43AE00EC4545 /* AlarmTableViewCell.swift in Sources */,
 				BEB456872BD15C06007F5EEC /* SplashRepository.swift in Sources */,
 				486A80C52C09FEEA0089D46C /* SettingCoordinator.swift in Sources */,
@@ -1578,6 +1598,8 @@
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
 				BE5758FC2BFB438100EC4545 /* AlarmTableView.swift in Sources */,
 				489ADEF12BF8E8CE00B070B7 /* SettingSubtitleLabel.swift in Sources */,
+				BE78BEE12C25BB5E000A5D11 /* CreateToonNavigationBar.swift in Sources */,
+				BE05C0932C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift in Sources */,
 				489730DE2BF0E5B80026706C /* LoginAPI.swift in Sources */,
 				BE7C8C132BE8F269005F2FB2 /* SplashAPI.swift in Sources */,
 				BE78BEDC2C25BB28000A5D11 /* SelectStyleView.swift in Sources */,
@@ -1607,6 +1629,7 @@
 				BE78BF522C42BC78000A5D11 /* CharacterPickerTableViewCell.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
 				BE5758F42BFB1DCC00EC4545 /* MyPageTableViewCell.swift in Sources */,
+				BE05C09B2C5F6C8100EEB19C /* CreateToonCompleteToonResultImageView.swift in Sources */,
 				BE78BEE82C25BD6D000A5D11 /* CreateToonBaseViewController.swift in Sources */,
 				BE7C8C172BE8FD50005F2FB2 /* AuthInterceptor.swift in Sources */,
 				BE5758DF2BF9E6A000EC4545 /* BaseURL.swift in Sources */,
