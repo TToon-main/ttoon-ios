@@ -13,7 +13,7 @@ import RxSwift
 
 class CompleteToonViewController: CreateToonBaseViewController {
     var disposeBag = DisposeBag()
-    private let completeToonView = CompleteToonView()
+    private let completeToonScrollView = CompleteToonScrollView()
     
     init(reactor: CompleteToonReactor) {
         super.init(nibName: nil, bundle: nil)
@@ -25,20 +25,37 @@ class CompleteToonViewController: CreateToonBaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func configures() {
+        super.configures()
+        setNavigationItem(title: "네컷만화 완성하기")
+        view.backgroundColor = .white
+        completeToonScrollView.completeToonView.setUpView(isCompleted: false)
+        bindMockUp()
+    }
+    
     override func layouts() {
         super.layouts()
-        view.addSubview(completeToonView)
+        view.addSubview(completeToonScrollView)
         
-        completeToonView.snp.makeConstraints { 
+        completeToonScrollView.snp.makeConstraints { 
             $0.top.equalTo(progressBar.snp.bottom)
             $0.bottom.horizontalEdges.equalToSuperview()
         }
     }
     
-    override func configures() {
-        super.configures()
-        setNavigationItem(title: "네컷만화 완성하기")
-        view.backgroundColor = .white
+    func bindMockUp() {
+        let mockUpData = [
+            CreateToonCompleteToonCollectionViewCellDataSource(isSelected: false),
+            CreateToonCompleteToonCollectionViewCellDataSource(isSelected: true),
+            CreateToonCompleteToonCollectionViewCellDataSource(isSelected: false)]
+        
+        Observable.just(mockUpData)
+            .bind(to: completeToonScrollView.completeToonView.selectToonCollectionView.rx.items(
+                cellIdentifier: CreateToonCompleteToonCollectionViewCell.IDF,
+                cellType: CreateToonCompleteToonCollectionViewCell.self)) { index, item, cell in
+                    cell.setCell(item)
+            }
+                .disposed(by: disposeBag)
     }
 }
 
@@ -52,5 +69,9 @@ extension CompleteToonViewController: View {
     }
     
     private func bindState(reactor: CompleteToonReactor) {
+        reactor.state
+            .map { $0.currentOrder }
+            .bind(to: completeToonScrollView.completeToonView.rx.selectOrder)
+            .disposed(by: disposeBag)
     }
 }

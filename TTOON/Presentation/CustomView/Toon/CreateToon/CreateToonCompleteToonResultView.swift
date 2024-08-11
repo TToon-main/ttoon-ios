@@ -20,7 +20,7 @@ class CreateToonCompleteToonResultView: BaseView {
         let view = UILabel()
         view.textColor = .grey06
         view.font = .body14r
-        view.isHidden = true
+        view.numberOfLines = 0
         
         return view
     }()
@@ -40,6 +40,11 @@ class CreateToonCompleteToonResultView: BaseView {
     let thirdImageView = CreateToonCompleteToonResultImageView(frame: .zero)
     let forthImageView = CreateToonCompleteToonResultImageView(frame: .zero)
     
+    override func configures() {
+        backgroundColor = .grey01
+        layer.cornerRadius = 8
+    }
+    
     override func layouts() {
         addSubview(textContainer)
         addSubview(firstImageView)
@@ -52,7 +57,7 @@ class CreateToonCompleteToonResultView: BaseView {
             $0.leading.equalToSuperview().offset(12)
         }
         
-        let imageLength = bounds.width - 27
+        let imageLength = (width - 27 - 32) / 2
         
         firstImageView.snp.makeConstraints { 
             $0.size.equalTo(imageLength)

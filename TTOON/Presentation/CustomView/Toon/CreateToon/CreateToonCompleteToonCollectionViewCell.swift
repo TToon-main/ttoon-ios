@@ -10,6 +10,10 @@ import UIKit
 import RxCocoa
 import RxSwift
 
+struct CreateToonCompleteToonCollectionViewCellDataSource {
+    let isSelected: Bool
+}
+
 final class CreateToonCompleteToonCollectionViewCell: BaseCollectionViewCell {
     override var isSelected: Bool {
         didSet {
@@ -65,5 +69,9 @@ final class CreateToonCompleteToonCollectionViewCell: BaseCollectionViewCell {
             contentView.layer.borderWidth = 0
             opacityView.isHidden = false
         }
+    }
+    
+    func setCell(_ item: CreateToonCompleteToonCollectionViewCellDataSource) {
+        isSelected = item.isSelected
     }
 }

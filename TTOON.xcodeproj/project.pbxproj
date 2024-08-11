@@ -73,6 +73,7 @@
 		BE05C0972C5F690D00EEB19C /* CreateToonCompleteToonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C0962C5F690D00EEB19C /* CreateToonCompleteToonCollectionViewCell.swift */; };
 		BE05C0992C5F6C5C00EEB19C /* CreateToonCompleteToonResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C0982C5F6C5C00EEB19C /* CreateToonCompleteToonResultView.swift */; };
 		BE05C09B2C5F6C8100EEB19C /* CreateToonCompleteToonResultImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C09A2C5F6C8100EEB19C /* CreateToonCompleteToonResultImageView.swift */; };
+		BE05C09F2C5F7DCC00EEB19C /* CompleteToonScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C09E2C5F7DCC00EEB19C /* CompleteToonScrollView.swift */; };
 		BE0B92402C4D2AB800B9F36F /* EnterInfoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */; };
 		BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3112BEBAFE500F0C193 /* TNButton.swift */; };
 		BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3132BEBB28800F0C193 /* Reactive+.swift */; };
@@ -281,6 +282,7 @@
 		BE05C0962C5F690D00EEB19C /* CreateToonCompleteToonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonCompleteToonCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE05C0982C5F6C5C00EEB19C /* CreateToonCompleteToonResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonCompleteToonResultView.swift; sourceTree = "<group>"; };
 		BE05C09A2C5F6C8100EEB19C /* CreateToonCompleteToonResultImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonCompleteToonResultImageView.swift; sourceTree = "<group>"; };
+		BE05C09E2C5F7DCC00EEB19C /* CompleteToonScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToonScrollView.swift; sourceTree = "<group>"; };
 		BE0B923F2C4D2AB800B9F36F /* EnterInfoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterInfoScrollView.swift; sourceTree = "<group>"; };
 		BE32E3112BEBAFE500F0C193 /* TNButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNButton.swift; sourceTree = "<group>"; };
 		BE32E3132BEBB28800F0C193 /* Reactive+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+.swift"; sourceTree = "<group>"; };
@@ -1013,6 +1015,7 @@
 				BE78BF592C42D6D9000A5D11 /* CharacterDeleteBSView.swift */,
 				BE78BF5F2C42DBEB000A5D11 /* CharacterEditorView.swift */,
 				BE05C08C2C5F632500EEB19C /* CompleteToonView.swift */,
+				BE05C09E2C5F7DCC00EEB19C /* CompleteToonScrollView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1650,6 +1653,7 @@
 				BE5758FA2BFB435D00EC4545 /* AlarmViewController.swift in Sources */,
 				BE78BF582C42D0D1000A5D11 /* CharacterModifyView.swift in Sources */,
 				BE5758F22BFB1C9900EC4545 /* UnderLineView.swift in Sources */,
+				BE05C09F2C5F7DCC00EEB19C /* CompleteToonScrollView.swift in Sources */,
 				BE78BF562C42D095000A5D11 /* CharacterModifyReactor.swift in Sources */,
 				BE78BEE62C25BBC5000A5D11 /* CreateToonSubTitleLabel.swift in Sources */,
 				486A80C82C0E09060089D46C /* KeychainStorage.swift in Sources */,
