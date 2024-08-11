@@ -26,6 +26,7 @@ class LoginViewModel {
     }
     
     struct Output {
+        
     }
     
     

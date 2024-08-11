@@ -78,6 +78,7 @@
 		BE840DCA2BBD9817000E67B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE840DC92BBD9817000E67B7 /* GoogleService-Info.plist */; };
 		BE8884172C567227003EC2A3 /* CharacterEditType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8884162C567227003EC2A3 /* CharacterEditType.swift */; };
 		BE97609B2C29A5F900EDAEA0 /* toonLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = BE97609A2C29A5F900EDAEA0 /* toonLottie.json */; };
+		BE97FB8D2C68A2D60094D754 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97FB8C2C68A2D60094D754 /* TabbarViewController.swift */; };
 		BE9BBC112BCA529A006FD848 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */; };
 		BE9BBC122BCA529A006FD848 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */; };
 		BE9BBC132BCA529A006FD848 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */; };
@@ -357,6 +358,7 @@
 		BE97609A2C29A5F900EDAEA0 /* toonLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = toonLottie.json; sourceTree = "<group>"; };
 		BE97609C2C29AEB600EDAEA0 /* CreateResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateResultView.swift; sourceTree = "<group>"; };
 		BE97609E2C29B05100EDAEA0 /* CreateResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateResultViewController.swift; sourceTree = "<group>"; };
+		BE97FB8C2C68A2D60094D754 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		BE9BBC092BCA5299006FD848 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		BE9BBC0A2BCA5299006FD848 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
@@ -902,6 +904,15 @@
 				BE97609A2C29A5F900EDAEA0 /* toonLottie.json */,
 			);
 			path = Lottie;
+			sourceTree = "<group>";
+		};
+		BE97FB8B2C68A2C80094D754 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */,
+				BE97FB8C2C68A2D60094D754 /* TabbarViewController.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 		BE9BBC072BCA4CCC006FD848 /* Pretendard */ = {
@@ -1525,8 +1536,8 @@
 		BEF48D5C2BCA5CCC0056E31E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				BE97FB8B2C68A2C80094D754 /* Tabbar */,
 				BE9C9B932C68986F000AAF0E /* Setting */,
-				486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */,
 				BE9C9B1E2C688CD7000AAF0E /* Home */,
 				BE9C9AEC2C688CAF000AAF0E /* Toon */,
 				BEF48D5E2BCA5CD60056E31E /* CustomView */,
@@ -1879,6 +1890,7 @@
 				BE9C9BBE2C68989F000AAF0E /* SettingModel.swift in Sources */,
 				489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */,
 				BE3418EB2BF0B18200E17CC5 /* TNSheetViewController.swift in Sources */,
+				BE97FB8D2C68A2D60094D754 /* TabbarViewController.swift in Sources */,
 				BE32E3172BEBB94E00F0C193 /* TestViewController.swift in Sources */,
 				BE9C9BA32C68986F000AAF0E /* UnderLineView.swift in Sources */,
 				BE9C9B062C688CAF000AAF0E /* CharacterModifyReactor.swift in Sources */,
