@@ -60,6 +60,7 @@ extension SettingAPI: TargetType {
         switch self {
         case .deleteAccount:
             let accesstoken = KeychainStorage.shared.accessToken
+            
             return [
                 "Content-Type": "application/json",
                 "Authorization": "Bearer \(accesstoken ?? "")",
@@ -68,9 +69,10 @@ extension SettingAPI: TargetType {
             
         default:
             let accessToken = KeychainStorage.shared.accessToken
+            
             return [
                 "Content-Type": "application/json",
-                "Authorization": "Bearer \(accesstoken ?? "")"
+                "Authorization": "Bearer \(accessToken ?? "")"
             ]
         }
     }

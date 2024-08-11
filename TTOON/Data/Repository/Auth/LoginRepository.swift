@@ -174,7 +174,7 @@ extension LoginRepository: ASAuthorizationControllerDelegate {
 // MARK: - Login API Request
 extension LoginRepository {
     func loginRequest(_ requestDTO: LoginRequestDTO) {
-        self.provider.unAuth.request(
+        self.provider.log.request(
             .socialLogin(dto: requestDTO)) { result in
                 switch result {
                 case .success(let response):

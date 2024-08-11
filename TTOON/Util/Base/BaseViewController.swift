@@ -8,6 +8,10 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    var height = UIScreen.main.bounds.height
+    var width = UIScreen.main.bounds.width
+    lazy var safeGuide = view.safeAreaLayoutGuide
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

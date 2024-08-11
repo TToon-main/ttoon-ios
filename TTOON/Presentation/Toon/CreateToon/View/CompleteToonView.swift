@@ -88,37 +88,6 @@ class CompleteToonView: BaseView {
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().offset(36)
         }
-        
-        // ViewModel...
-        let appTerminate = UIApplication.rx.willTerminate.asObservable()
-        
-        // Observable<Event<T>> 타입
-        let request = appTerminate
-            .map { 
-                //API 요청..
-            }
-            .share()
-        
-        // success Observable
-        let success = appTerminate
-            .compactMap(\.element)
-        
-        // error Observable
-        let error =  appTerminate
-            .compactMap(\.error)
-        
-        success
-            .subscribe(with: self) { _, _ in
-                print("API 응답")
-            }
-            .disposed(by: disposeBag)
-        
-        error
-            .subscribe(with: self) { _, _ in
-                print("API error")
-            }
-            .disposed(by: disposeBag)
-        
     }
     
     func setUpView(isCompleted: Bool) {

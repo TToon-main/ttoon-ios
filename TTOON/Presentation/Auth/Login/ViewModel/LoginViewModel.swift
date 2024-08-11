@@ -41,7 +41,7 @@ class LoginViewModel {
                     print("애플 로그인 성공 : ", data)
                     
                 case .failure(let error):
-                    print("애플 로그인 실패 : ", error.localizedDescription)
+                    print("애플 로그인 실패 : ", error)
                 }
             }
             .disposed(by: disposeBag)
@@ -58,7 +58,7 @@ class LoginViewModel {
                     print("카카오 로그인 성공 : ", data)
                     
                 case .failure(let error):
-                    print("카카오 로그인 실패 : ", error.localizedDescription)
+                    print("카카오 로그인 실패 : ", error)
                 }
             }
             .disposed(by: disposeBag)

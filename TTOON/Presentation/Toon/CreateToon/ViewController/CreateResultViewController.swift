@@ -20,6 +20,7 @@ class CreateResultViewController: BaseViewController {
     override func configures() {
         super.configures()
         setNavigationItem(title: "")
+        bind()
     }
     
     func setNavigationItem(title: String) {
@@ -28,7 +29,7 @@ class CreateResultViewController: BaseViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.black
     }
     
-    override func bind() {
+    private func bind() {
         createResultView.rx.confirmButtonTap
             .bind(onNext: presentCompleteToonVC)
             .disposed(by: disposeBag)
