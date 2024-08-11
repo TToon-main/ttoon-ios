@@ -16,7 +16,7 @@ enum SettingAPI {
 
 extension SettingAPI: TargetType {
     var baseURL: URL {
-        return BaseURL.fetchUrl()
+        return URL(string: "https://ttoon.site")!
     }
     
     var path: String {

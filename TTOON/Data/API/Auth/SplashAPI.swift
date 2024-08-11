@@ -17,7 +17,7 @@ enum SplashAPI {
 extension SplashAPI: TargetType {
     // baseURL
     var baseURL: URL {
-        return BaseURL.fetchUrl() 
+        return URL(string: "https://ttoon.site")! 
     }
     
     // switch self를 통해, 각 타겟에 대한 엔드포인트 지정
