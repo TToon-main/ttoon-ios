@@ -12,6 +12,7 @@ import UIKit
 class LoginViewModel {
     private let loginUseCase: LoginUseCaseProtocol
     private let disposeBag = DisposeBag()
+    private let showTabbar = PublishSubject<Void>()
     
     init(loginUseCase: LoginUseCaseProtocol) {
         self.loginUseCase = loginUseCase
@@ -26,7 +27,7 @@ class LoginViewModel {
     }
     
     struct Output {
-        
+    let showTabbar: Observable<Void> 
     }
     
     
@@ -40,6 +41,7 @@ class LoginViewModel {
                 switch response {
                 case .success(let data):
                     print("애플 로그인 성공 : ", data)
+                    self.showTabbar.onNext(())
                     
                 case .failure(let error):
                     print("애플 로그인 실패 : ", error)
@@ -57,6 +59,7 @@ class LoginViewModel {
                 switch response {
                 case .success(let data):
                     print("카카오 로그인 성공 : ", data)
+                    self.showTabbar.onNext(())
                     
                 case .failure(let error):
                     print("카카오 로그인 실패 : ", error)
@@ -74,16 +77,14 @@ class LoginViewModel {
                 switch response {
                 case .success(let data):
                     print("구글 로그인 성공 : ", data)
+                    self.showTabbar.onNext(())
                     
                 case .failure(let error):
                     print("구글 로그인 실패 : ", error.localizedDescription)
                 }
             }
             .disposed(by: disposeBag)
-        
-        
-        
-        
-        return Output()
+
+        return Output(showTabbar: showTabbar.asObservable())
     }
 }
