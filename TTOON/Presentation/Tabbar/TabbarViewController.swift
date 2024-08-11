@@ -18,7 +18,8 @@ final class TabbarViewController: UITabBarController {
     private let homeReactor = HomeCalendarReactor()
     private lazy var homeVC = HomeCalendarViewController(reactor: homeReactor)
     
-    private let feedVC = UIViewController()
+    private let selectStyleReactor = SelectStyleReactor()
+    private lazy var selectStyleVC = SelectStyleViewController(reactor: selectStyleReactor)
     
     private let checkVC = UIViewController()
     
@@ -50,10 +51,10 @@ extension TabbarViewController {
     }
     
     private func addNavigationBarViewControllers() {
-        let homeTab = createViewController(title: "캘린더", imageName: "boardTab", viewController: homeVC)
-        let feedTab = createViewController(title: "피드", imageName: "calendarTab", viewController: feedVC)
-        let checkTab = createViewController(title: "출석체크", imageName: "bellTab", viewController: checkVC)
-        let myPageTab = createViewController(title: "마이페이지", imageName: "userTab", viewController: myPageVC)
+        let homeTab = createViewController(title: "캘린더", imageName: "home", viewController: homeVC)
+        let feedTab = createViewController(title: "툰 생성(임시)", imageName: "feed", viewController: selectStyleVC)
+        let checkTab = createViewController(title: "출석체크", imageName: "check", viewController: checkVC)
+        let myPageTab = createViewController(title: "마이페이지", imageName: "myPage", viewController: myPageVC)
         
         viewControllers = [homeTab, feedTab, checkTab, myPageTab]
     }
