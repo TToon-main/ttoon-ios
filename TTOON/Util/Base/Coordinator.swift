@@ -73,11 +73,23 @@ enum CoordinatorType {
     // Auth
     case auth
     
-    
-    // Setting
-    case setting
-    
-    
     // Home
     case tabBar
+    
+    
+    // CalendarScene
+    case calendarScene
+    
+    
+    // FeedScene
+    case feedScene
+    
+    
+    // AttendanceScene
+    case attendanceScene
+    
+    
+    // MyPageScene (Setting) -> 이름 수정해주기
+    case mypage
+    case setting
 }

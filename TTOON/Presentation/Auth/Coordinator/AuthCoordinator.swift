@@ -97,6 +97,19 @@ class AuthCoordinator: AuthCoordinatorProtocol {
         let vm = LoginViewModel(loginUseCase: useCase)
         let vc = LoginViewController.create(with: vm)
         
+        // VM과 코디 사이의 이벤트 교환
+        vm.didSendEventClosure = { [weak self] event in
+            switch event {
+            case .goTabBarFlow:
+                // (아마 로그인 성공 시)
+                // 탭바를 띄워야 한다.
+                
+                // 1. 현재 떠있는 Auth 코디 종료
+                // 2. App코디에게 TabBar 코디 실행하라고 요청
+                self?.finish(AppCoordinator.ChildCoordinatorType.tabBar)
+            }
+        }
+        
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         navigationController.topViewController?.present(vc, animated: true)
@@ -106,6 +119,7 @@ class AuthCoordinator: AuthCoordinatorProtocol {
 
 extension AuthCoordinator: CoordinatorFinishDelegate {
     func coordinatorDidFinish(childCoordinator: Coordinator, nextFlow: ChildCoordinatorTypeProtocol?) {
+        // (8/17) 현재 Auth코디는 자식 코디가 없기 때문에 이 메서드가 실행될 일이 없습니다.
         childCoordinators = childCoordinators.filter { $0.type != childCoordinator.type }
         navigationController.viewControllers.removeAll()
         
