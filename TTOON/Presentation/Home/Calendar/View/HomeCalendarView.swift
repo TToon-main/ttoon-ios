@@ -48,7 +48,7 @@ class HomeCalendarView: BaseView {
         }
         
         calendarView.snp.makeConstraints { make in
-            make.top.equalTo(contentView).inset(80)
+            make.top.equalTo(contentView).inset(100)
             make.horizontalEdges.equalTo(contentView)
             make.height.equalTo(409)
         }

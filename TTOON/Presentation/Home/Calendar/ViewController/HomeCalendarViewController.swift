@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 import UIKit
 
+
 class HomeCalendarViewController: BaseViewController, View {
     var disposeBag = DisposeBag()
     
@@ -18,7 +19,7 @@ class HomeCalendarViewController: BaseViewController, View {
     
     // MARK: - UI Component (View)
     let mainView = HomeCalendarView()
-    
+    let ttoonNavigationView = TToonLogHomeNavigationView()
     
     
     init(reactor: HomeCalendarReactor) {
@@ -39,6 +40,7 @@ class HomeCalendarViewController: BaseViewController, View {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setTToonLogHomeNavigation(ttoonNavigationView)
         connectCalendar() // 캘린더
         connectCollectionView() // 스와이프 컬렉션뷰
     }
@@ -52,6 +54,14 @@ extension HomeCalendarViewController {
     }
     
     func bindAction(reactor: HomeCalendarReactor) {
+        // TODO: 네비게이션 버튼 눌렀을 때 액션 전달
+//        ttoonNavigationView.addFriendButton.rx.tap
+//            .map { <#Void#> in
+//                <#code#>
+//            }
+        
+        
+        
         // 캘린더 셀 선택
         self.calendarCellDidSelected
             .map {
@@ -98,8 +108,6 @@ extension HomeCalendarViewController {
             .disposed(by: disposeBag)
     }
 }
-
-
 
 // MARK: - Calendar
 extension HomeCalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
