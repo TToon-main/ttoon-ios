@@ -11,6 +11,7 @@ import UIKit
 
 protocol CalendarSceneCoordinatorProtocol: Coordinator {
     // view
+    func showCalendarView()
     func showAddFriendView()
 }
 class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
@@ -32,15 +33,32 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
     // 5.
     func start() {
         print("start CalendarSceneCoordinator")
+        showCalendarView()
+    }
+    
+    // Protocol Method
+    func showCalendarView() {
         let reactor = HomeCalendarReactor()
         let vc = HomeCalendarViewController(reactor: reactor)
+        
+        reactor.didSendEventClosure = { [weak self] event in
+            switch event {
+            case .showAddFriendView:
+                self?.showAddFriendView()
+            }
+        }
         
         navigationController.pushViewController(vc, animated: true)
     }
     
-    // Protocol Method
+    
     func showAddFriendView() {
         print(#function)
+        
+        let reactor = AddFriendReactor()
+        let vc = AddFriendViewController(reactor: reactor)
+        
+        navigationController.pushViewController(vc, animated: true)
     }
 }
 extension CalendarSceneCoordinator: CoordinatorFinishDelegate {
