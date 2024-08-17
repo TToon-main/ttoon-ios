@@ -17,4 +17,8 @@ struct TNImage {
     static var completeToonIcon = UIImage(named: "completeToon")
     
     static var TToonLogo = UIImage(named: "TToonLogo")
+
+    static var homeNavigationLogo = UIImage(named: "navigationLogo")
+    static var homeNavigationAddFriend = UIImage(named: "navigationAddFriend")
+    static var homeNavigationMenu = UIImage(named: "navigationMenu")
 }
