@@ -28,4 +28,7 @@ struct TNImage {
     static var tabBarFeed = UIImage(named: "feed")
     static var tabBarAttendace = UIImage(named: "check")
     static var tabBarMyPage = UIImage(named: "myPage")
+    
+    static var highFive_gray = UIImage(named: "HighFive_gray")
+    static var highFive_color = UIImage(named: "HighFive_color")
 }
