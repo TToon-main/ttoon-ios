@@ -8,10 +8,15 @@
 import UIKit
 
 class BaseView: UIView {
+    var height = UIScreen.main.bounds.height
+    var width = UIScreen.main.bounds.width
+    lazy var safeGuide = safeAreaLayoutGuide
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         addSubViews()
+        bind()
         layouts()
         configures()
     }
@@ -24,5 +29,8 @@ class BaseView: UIView {
     func layouts() { }
     func configures() { 
         self.backgroundColor = .white
+    }
+    
+    func bind() {
     }
 }

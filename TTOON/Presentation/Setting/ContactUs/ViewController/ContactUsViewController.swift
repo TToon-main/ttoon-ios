@@ -23,7 +23,7 @@ class ContactUsViewController: BaseViewController, View {
         
         let reactor = ContactUsReactor()
         self.reactor = reactor
-        bind(reactor: reactor)
+//        bind(reactor: reactor)
     }
     
     required init?(coder: NSCoder) {
@@ -32,6 +32,11 @@ class ContactUsViewController: BaseViewController, View {
     
     override func loadView() {
         self.view = mainView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
     }
     
     func bind(reactor: ContactUsReactor) {
@@ -45,13 +50,13 @@ class ContactUsViewController: BaseViewController, View {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
             
-        // 카테고리 버튼은 bottom sheet 올라오면 진행
+        // 여긴 따로 액션 없이, 바텀시트 띄워주는 로직만 실행
         mainView.categoryPickerView.clearButton.rx.tap
-            .map { _ in
-                let a = ContactCategory.allCases.randomElement()!
-                return ContactUsReactor.Action.categoryTapped(a)
+            .subscribe(with: self) { owner, _ in
+                let vc = CategoryBottomSheetViewController(self.reactor!)
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
             }
-            .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
         mainView.contentTextView.rx.text.orEmpty
@@ -75,7 +80,7 @@ class ContactUsViewController: BaseViewController, View {
         
         reactor.state.map { $0.category }
             .map { value in
-                if let value { return value.rawValue }
+                if let value { return value.description }
                 else { return "카테고리를 선택해주세요" }
             }
             .distinctUntilChanged()
@@ -106,7 +111,30 @@ class ContactUsViewController: BaseViewController, View {
         reactor.state.map { $0.buttonEnabled }
             .distinctUntilChanged()
             .subscribe(with: self) { owner, value in
-                owner.mainView.completeButton.backgroundColor = value ? .blue : .red
+                owner.mainView.completeButton.isEnabled = value
+            }
+            .disposed(by: disposeBag)
+        
+        
+        reactor.state.map { $0.completeResult }
+            .throttle(.seconds(3), scheduler: MainScheduler.instance)
+            .subscribe(with: self) { owner, result in
+                if let result {
+                    if case .success(let value) = result,
+                    value == true {
+                        TNAlert(self)
+                            .setTitle("문의하기가 완료되었습니다")
+                            .setSubTitle("1:1 문의에 대한 답변은 이메일로 보내드려요")
+                            .addConfirmAction("확인", action: nil) // 화면 전환 시켜주기
+                            .present()
+                    } else {
+                        TNAlert(self)
+                            .setTitle("문의하기에 실패하였습니다")
+                            .setSubTitle("잠시 후 다시 시도해주세요")
+                            .addConfirmAction("확인", action: nil) // 따로 action 없어도 된다
+                            .present()
+                    }
+                }
             }
             .disposed(by: disposeBag)
     }
@@ -123,10 +151,25 @@ class ContactUsViewController: BaseViewController, View {
 }
 
 
-enum ContactCategory: String, CaseIterable {
-    case serviceInconveneint = "서비스 이용이 불편해요"
-    case imageNotGenerated = "원하는 그림이 생성되지 않아요"
-    case slowSpeed = "속도가 너무 느려요"
-    case serviceError = "서비스 이용에 오류가 있어요"
-    case other = "기타"
+enum ContactCategory: Int, CaseIterable {
+    case serviceInconveneint
+    case imageNotGenerated
+    case slowSpeed
+    case serviceError
+    case other
+    
+    var description: String {
+        switch self {
+        case .serviceInconveneint:
+            return "서비스 이용이 불편해요"
+        case .imageNotGenerated:
+            return "원하는 그림이 생성되지 않아요"
+        case .slowSpeed:
+            return "속도가 너무 느려요"
+        case .serviceError:
+            return "서비스 이용에 오류가 있어요"
+        case .other:
+            return "기타"
+        }
+    }
 }

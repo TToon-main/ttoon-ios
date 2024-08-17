@@ -42,14 +42,15 @@ class TNSheetCell: BaseTableViewCell {
     override func layouts() {
         contentView.flex
             .direction(.row)
+            .alignItems(.center) // 추가된 부분
             .define { flex in
                 flex.addItem(titleLabel)
-                    .marginLeft(0)
+                    .marginLeft(20)
                     .marginVertical(0)
                     .grow(1)
 
                 flex.addItem(checkImage)
-                    .marginRight(0)
+                    .marginRight(20)
                     .marginVertical(10)
                     .size(24)
             }

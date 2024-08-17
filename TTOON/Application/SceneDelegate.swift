@@ -11,19 +11,20 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+    
+    var appCoordinator: AppCoordinator?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        let repo = SplashRepository()
-        let useCase = SplashUseCase(splashRepository: repo)
-        let reactor = SplashReactor(splashUseCase: useCase)
-        let vc = LoginViewController()
-        
-        window?.rootViewController = vc
+        let nav = UINavigationController()
+        window?.rootViewController = nav
         window?.makeKeyAndVisible()
+        
+        appCoordinator = AppCoordinator(nav)
+        appCoordinator?.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

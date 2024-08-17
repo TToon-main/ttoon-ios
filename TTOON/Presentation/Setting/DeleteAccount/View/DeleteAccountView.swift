@@ -16,7 +16,7 @@ class DeleteAccountView: BaseView {
     // MARK: UI Components
     let mainTitleLabel = {
         let view = UILabel()
-        view.text = "조혜원님이 떠나신다니\n너무 아쉬워요"
+        view.text = "000님이 떠나신다니\n너무 아쉬워요"
         view.font = .title24b
         view.numberOfLines = 2
         return view
@@ -32,7 +32,7 @@ class DeleteAccountView: BaseView {
     }()
     
     let nameTitleLabel = SettingTitleLabel("이름")
-    let nameInputView = SettingNameInputView("조혜원")
+    let nameInputView = SettingNameInputView("000")
     
     let reasonTitleLabel = SettingTitleLabel("탈퇴 이유")
     let reasonPickerView = SettingPickerView("탈퇴하시는 이유를 알려주세요")
@@ -46,10 +46,11 @@ class DeleteAccountView: BaseView {
         view.text = "0/100"
         return view
     }()
-    
+
     let completeButton = {
-        let view = UIButton()
-        view.backgroundColor = .black
+        let view = TNButton()
+        view.setTitle("완료", for: .normal)
+        view.isEnabled = false
         return view
     }()
     
