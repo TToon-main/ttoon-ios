@@ -155,13 +155,13 @@ final class SplashErrorViewController: BaseViewController, View {
     func checkStatus(_ status: SplashStatus) {
         switch status { 
         case .disConnected:
-            updateUI(image: TNImage.splashLogo,
+            updateUI(image: TNImage.splashError,
                      lbText: "인터넷 연결이 필요해요",
                      subText: "서비스 이용을 위해서는\n네트워크 연결을 해주세요!",
                      btnTitle: "재시도")
             
         case .needUpdate:
-            updateUI(image: TNImage.splashLogo,
+            updateUI(image: TNImage.splashError,
                      lbText: "업데이트가 필요해요",
                      subText: "최신 버전으로 업데이트가 필요해요.\n스토어에서 최신 버전을 다운 받아주세요!",
                      btnTitle: "스토어로 이동")            
