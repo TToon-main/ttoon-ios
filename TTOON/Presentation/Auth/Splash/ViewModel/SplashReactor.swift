@@ -9,12 +9,6 @@ import ReactorKit
 
 import RxSwift
 
-enum SplashStatus {
-    case disConnected
-    case needUpdate
-    case valid
-}
-
 final class SplashReactor: Reactor {    
     let splashUseCase: SplashUseCaseProtocol
     
@@ -66,7 +60,7 @@ final class SplashReactor: Reactor {
         let isNeedUpdate = splashUseCase.isMinVersionReached()
 
         
-        if isConnect {
+        if !isConnect {
             sendTransitionEvent?(.goSplashErrorView(.disConnected))
             return .disConnected 
         } else if isNeedUpdate {
@@ -85,12 +79,15 @@ final class SplashReactor: Reactor {
     }
 }
 
-// 코디네이터에게 전달할 화면 전환 이벤트
 extension SplashReactor {
+    enum SplashStatus {
+        case disConnected
+        case needUpdate
+        case valid
+    }
+    
     enum TransitionEvent {
-        case goSplashErrorView(SplashStatus)    // 무슨 에러인지까지 전달해준다
-        // disConnected, inMaintenance, needUpdate
-        
+        case goSplashErrorView(SplashStatus) 
         case goLoginView
         case goHomeView
     }

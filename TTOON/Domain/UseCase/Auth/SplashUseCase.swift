@@ -11,7 +11,6 @@ import RxSwift
 
 protocol SplashUseCaseProtocol {
     func isNetworkConnected() -> Bool
-    func isServerMaintenance() -> Bool
     func isMinVersionReached() -> Bool
 }
 
@@ -28,10 +27,6 @@ class SplashUseCase: SplashUseCaseProtocol {
     
     func isNetworkConnected() -> Bool {
         return splashRepository.fetchNetworkStatus()
-    }
-    
-    func isServerMaintenance() -> Bool {
-        return splashRepository.fetchServerMaintenance()
     }
     
     func isMinVersionReached() -> Bool {        

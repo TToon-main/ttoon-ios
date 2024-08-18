@@ -12,10 +12,6 @@ class SplashRepository: SplashRepositoryProtocol {
         return NetworkMonitor.shared.isConnected
     }
     
-    func fetchServerMaintenance() -> Bool {
-        return false
-    }
-    
     func fetchMinVersion() -> String {
         return "1.0"
     }
