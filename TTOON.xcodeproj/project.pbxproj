@@ -47,7 +47,6 @@
 		48D979F72BEF459F0087F870 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F32BEF459F0087F870 /* LoginView.swift */; };
 		48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F52BEF459F0087F870 /* LoginViewController.swift */; };
 		48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A052BEF472C0087F870 /* SocialLoginButton.swift */; };
-		BE0132AA2BC4306600C9827C /* engaged-code-418809-16024d5258d0.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */; };
 		BE0473662C550E5600484B96 /* ViewLifeCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0473652C550E5600484B96 /* ViewLifeCycle.swift */; };
 		BE0473682C551D8000484B96 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0473672C551D8000484B96 /* UIButton+.swift */; };
 		BE05C0932C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C0922C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift */; };
@@ -75,7 +74,6 @@
 		BE840DBC2BB95FDB000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
 		BE840DBD2BB95FE5000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
 		BE840DBE2BB95FE5000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
-		BE840DCA2BBD9817000E67B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE840DC92BBD9817000E67B7 /* GoogleService-Info.plist */; };
 		BE8884172C567227003EC2A3 /* CharacterEditType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8884162C567227003EC2A3 /* CharacterEditType.swift */; };
 		BE97609B2C29A5F900EDAEA0 /* toonLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = BE97609A2C29A5F900EDAEA0 /* toonLottie.json */; };
 		BE97FB8D2C68A2D60094D754 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97FB8C2C68A2D60094D754 /* TabbarViewController.swift */; };
@@ -146,17 +144,6 @@
 		BE9C9B092C688CAF000AAF0E /* CreateLoadingReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9AE72C688CAF000AAF0E /* CreateLoadingReactor.swift */; };
 		BE9C9B0A2C688CAF000AAF0E /* EnterInfoReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9AE82C688CAF000AAF0E /* EnterInfoReactor.swift */; };
 		BE9C9B0B2C688CAF000AAF0E /* SelectStyleReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9AE92C688CAF000AAF0E /* SelectStyleReactor.swift */; };
-		BE9C9B1F2C688CD7000AAF0E /* BottomDiaryImageSwipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B0E2C688CD7000AAF0E /* BottomDiaryImageSwipeCollectionViewCell.swift */; };
-		BE9C9B202C688CD7000AAF0E /* TToonCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B0F2C688CD7000AAF0E /* TToonCalendarCell.swift */; };
-		BE9C9B212C688CD7000AAF0E /* BottomDiaryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B112C688CD7000AAF0E /* BottomDiaryEmptyView.swift */; };
-		BE9C9B222C688CD7000AAF0E /* BottomDiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B122C688CD7000AAF0E /* BottomDiaryView.swift */; };
-		BE9C9B232C688CD7000AAF0E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B132C688CD7000AAF0E /* CalendarView.swift */; };
-		BE9C9B242C688CD7000AAF0E /* SelectYearMonthBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B142C688CD7000AAF0E /* SelectYearMonthBottomSheetView.swift */; };
-		BE9C9B252C688CD7000AAF0E /* HomeCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B162C688CD7000AAF0E /* HomeCalendarView.swift */; };
-		BE9C9B262C688CD7000AAF0E /* HomeCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B182C688CD7000AAF0E /* HomeCalendarViewController.swift */; };
-		BE9C9B272C688CD7000AAF0E /* SelectYearMonthBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B192C688CD7000AAF0E /* SelectYearMonthBottomSheetViewController.swift */; };
-		BE9C9B282C688CD7000AAF0E /* HomeCalendarReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B1B2C688CD7000AAF0E /* HomeCalendarReactor.swift */; };
-		BE9C9B2D2C688D11000AAF0E /* SelectYearMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B2A2C688D11000AAF0E /* SelectYearMonthView.swift */; };
 		BE9C9B402C688D16000AAF0E /* CharacterPickerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B2E2C688D16000AAF0E /* CharacterPickerTableView.swift */; };
 		BE9C9B412C688D16000AAF0E /* CharacterPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B2F2C688D16000AAF0E /* CharacterPickerTableViewCell.swift */; };
 		BE9C9B422C688D16000AAF0E /* CreateToonCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B302C688D16000AAF0E /* CreateToonCollectionView.swift */; };
@@ -184,7 +171,6 @@
 		BE9C9B962C68986F000AAF0E /* CategoryBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B742C68986F000AAF0E /* CategoryBottomSheetViewController.swift */; };
 		BE9C9B972C68986F000AAF0E /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B752C68986F000AAF0E /* ContactUsViewController.swift */; };
 		BE9C9B982C68986F000AAF0E /* ContactUsReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B772C68986F000AAF0E /* ContactUsReactor.swift */; };
-		BE9C9B992C68986F000AAF0E /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B7A2C68986F000AAF0E /* SettingCoordinator.swift */; };
 		BE9C9B9A2C68986F000AAF0E /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B7C2C68986F000AAF0E /* DeleteAccountView.swift */; };
 		BE9C9B9B2C68986F000AAF0E /* DeleteAccountReasonBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B7E2C68986F000AAF0E /* DeleteAccountReasonBottomSheetViewController.swift */; };
 		BE9C9B9C2C68986F000AAF0E /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9B7F2C68986F000AAF0E /* DeleteAccountViewController.swift */; };
@@ -232,6 +218,26 @@
 		BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */; };
 		BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4568B2BD16572007F5EEC /* SplashReactor.swift */; };
 		BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E502BB70A0C0034FF79 /* .gitignore */; };
+		BEE8BCC82C71FFF5003800E0 /* CalendarSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */; };
+		BEE8BCC92C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB42C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift */; };
+		BEE8BCCA2C71FFF5003800E0 /* TToonCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB52C71FFF5003800E0 /* TToonCalendarCell.swift */; };
+		BEE8BCCB2C71FFF5003800E0 /* BottomDiaryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB72C71FFF5003800E0 /* BottomDiaryEmptyView.swift */; };
+		BEE8BCCC2C71FFF5003800E0 /* BottomDiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB82C71FFF5003800E0 /* BottomDiaryView.swift */; };
+		BEE8BCCD2C71FFF5003800E0 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB92C71FFF5003800E0 /* CalendarView.swift */; };
+		BEE8BCCE2C71FFF5003800E0 /* SelectYearMonthBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCBA2C71FFF5003800E0 /* SelectYearMonthBottomSheetView.swift */; };
+		BEE8BCCF2C71FFF5003800E0 /* HomeCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCBC2C71FFF5003800E0 /* HomeCalendarView.swift */; };
+		BEE8BCD02C71FFF5003800E0 /* HomeCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCBE2C71FFF5003800E0 /* HomeCalendarViewController.swift */; };
+		BEE8BCD12C71FFF5003800E0 /* SelectYearMonthBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCBF2C71FFF5003800E0 /* SelectYearMonthBottomSheetViewController.swift */; };
+		BEE8BCD22C71FFF5003800E0 /* HomeCalendarReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCC12C71FFF5003800E0 /* HomeCalendarReactor.swift */; };
+		BEE8BCD32C71FFF5003800E0 /* FeedSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCC42C71FFF5003800E0 /* FeedSceneCoordinator.swift */; };
+		BEE8BCD52C720106003800E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEE8BCD42C720106003800E0 /* GoogleService-Info.plist */; };
+		BEE8BCDA2C720114003800E0 /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEE8BCD72C720114003800E0 /* Prod.xcconfig */; };
+		BEE8BCDB2C720114003800E0 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEE8BCD82C720114003800E0 /* Dev.xcconfig */; };
+		BEE8BCDC2C720114003800E0 /* Stag.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEE8BCD92C720114003800E0 /* Stag.xcconfig */; };
+		BEE8BCE12C7202E6003800E0 /* SelectYearMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCDD2C7202E6003800E0 /* SelectYearMonthView.swift */; };
+		BEE8BCE22C7202E6003800E0 /* TToonLogHomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCDF2C7202E6003800E0 /* TToonLogHomeNavigationView.swift */; };
+		BEE8BCE62C7202FE003800E0 /* MyPageSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCE32C7202FE003800E0 /* MyPageSceneCoordinator.swift */; };
+		BEE8BCE72C7202FE003800E0 /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCE42C7202FE003800E0 /* SettingCoordinator.swift */; };
 		BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */; };
 		BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */; };
 		BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8D8172BDFC7880095674D /* TNUrl.swift */; };
@@ -283,7 +289,6 @@
 		48F55A772BCD43AF00303C22 /* LoginRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryProtocol.swift; sourceTree = "<group>"; };
 		48F55A7B2BCD440600303C22 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		48F55A7D2BCD4A6D00303C22 /* TTOON.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TTOON.entitlements; sourceTree = "<group>"; };
-		BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "engaged-code-418809-16024d5258d0.json"; sourceTree = "<group>"; };
 		BE0473652C550E5600484B96 /* ViewLifeCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLifeCycle.swift; sourceTree = "<group>"; };
 		BE0473672C551D8000484B96 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		BE05C08C2C5F632500EEB19C /* CompleteToonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToonView.swift; sourceTree = "<group>"; };
@@ -314,9 +319,6 @@
 		BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTOONUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNImage.swift; sourceTree = "<group>"; };
 		BE47BF572BF4A6DE0048F707 /* TNBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNBottomSheet.swift; sourceTree = "<group>"; };
-		BE4C7C922BFF2C0200AB3D09 /* Prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
-		BE4C7C932BFF2C0200AB3D09 /* Stag.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Stag.xcconfig; sourceTree = "<group>"; };
-		BE4C7C942BFF2C0300AB3D09 /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		BE5758EF2BFB1C3100EC4545 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		BE6011702BEF316D00F8FCEA /* TNSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNSwitch.swift; sourceTree = "<group>"; };
 		BE6011722BEF348500F8FCEA /* TNAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNAlertViewController.swift; sourceTree = "<group>"; };
@@ -347,7 +349,6 @@
 		BE78BF612C42DBEF000A5D11 /* CharacterAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAddViewController.swift; sourceTree = "<group>"; };
 		BE78BF632C42DBFF000A5D11 /* CharacterAddReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAddReactor.swift; sourceTree = "<group>"; };
 		BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		BE840DC92BBD9817000E67B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BE8884162C567227003EC2A3 /* CharacterEditType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEditType.swift; sourceTree = "<group>"; };
 		BE8884182C5681A2003EC2A3 /* CreateToonIsMainCharacterSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonIsMainCharacterSwitch.swift; sourceTree = "<group>"; };
 		BE88841A2C568A78003EC2A3 /* CharacterEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEditViewController.swift; sourceTree = "<group>"; };
@@ -402,17 +403,6 @@
 		BE9C9AE72C688CAF000AAF0E /* CreateLoadingReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateLoadingReactor.swift; sourceTree = "<group>"; };
 		BE9C9AE82C688CAF000AAF0E /* EnterInfoReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterInfoReactor.swift; sourceTree = "<group>"; };
 		BE9C9AE92C688CAF000AAF0E /* SelectStyleReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectStyleReactor.swift; sourceTree = "<group>"; };
-		BE9C9B0E2C688CD7000AAF0E /* BottomDiaryImageSwipeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomDiaryImageSwipeCollectionViewCell.swift; sourceTree = "<group>"; };
-		BE9C9B0F2C688CD7000AAF0E /* TToonCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TToonCalendarCell.swift; sourceTree = "<group>"; };
-		BE9C9B112C688CD7000AAF0E /* BottomDiaryEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomDiaryEmptyView.swift; sourceTree = "<group>"; };
-		BE9C9B122C688CD7000AAF0E /* BottomDiaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomDiaryView.swift; sourceTree = "<group>"; };
-		BE9C9B132C688CD7000AAF0E /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		BE9C9B142C688CD7000AAF0E /* SelectYearMonthBottomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectYearMonthBottomSheetView.swift; sourceTree = "<group>"; };
-		BE9C9B162C688CD7000AAF0E /* HomeCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCalendarView.swift; sourceTree = "<group>"; };
-		BE9C9B182C688CD7000AAF0E /* HomeCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCalendarViewController.swift; sourceTree = "<group>"; };
-		BE9C9B192C688CD7000AAF0E /* SelectYearMonthBottomSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectYearMonthBottomSheetViewController.swift; sourceTree = "<group>"; };
-		BE9C9B1B2C688CD7000AAF0E /* HomeCalendarReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCalendarReactor.swift; sourceTree = "<group>"; };
-		BE9C9B2A2C688D11000AAF0E /* SelectYearMonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectYearMonthView.swift; sourceTree = "<group>"; };
 		BE9C9B2E2C688D16000AAF0E /* CharacterPickerTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterPickerTableView.swift; sourceTree = "<group>"; };
 		BE9C9B2F2C688D16000AAF0E /* CharacterPickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterPickerTableViewCell.swift; sourceTree = "<group>"; };
 		BE9C9B302C688D16000AAF0E /* CreateToonCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateToonCollectionView.swift; sourceTree = "<group>"; };
@@ -440,7 +430,6 @@
 		BE9C9B742C68986F000AAF0E /* CategoryBottomSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryBottomSheetViewController.swift; sourceTree = "<group>"; };
 		BE9C9B752C68986F000AAF0E /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		BE9C9B772C68986F000AAF0E /* ContactUsReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsReactor.swift; sourceTree = "<group>"; };
-		BE9C9B7A2C68986F000AAF0E /* SettingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
 		BE9C9B7C2C68986F000AAF0E /* DeleteAccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		BE9C9B7E2C68986F000AAF0E /* DeleteAccountReasonBottomSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteAccountReasonBottomSheetViewController.swift; sourceTree = "<group>"; };
 		BE9C9B7F2C68986F000AAF0E /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
@@ -497,6 +486,26 @@
 		BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		BEB4568B2BD16572007F5EEC /* SplashReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashReactor.swift; sourceTree = "<group>"; };
 		BEDF4E502BB70A0C0034FF79 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarSceneCoordinator.swift; sourceTree = "<group>"; };
+		BEE8BCB42C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomDiaryImageSwipeCollectionViewCell.swift; sourceTree = "<group>"; };
+		BEE8BCB52C71FFF5003800E0 /* TToonCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TToonCalendarCell.swift; sourceTree = "<group>"; };
+		BEE8BCB72C71FFF5003800E0 /* BottomDiaryEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomDiaryEmptyView.swift; sourceTree = "<group>"; };
+		BEE8BCB82C71FFF5003800E0 /* BottomDiaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomDiaryView.swift; sourceTree = "<group>"; };
+		BEE8BCB92C71FFF5003800E0 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		BEE8BCBA2C71FFF5003800E0 /* SelectYearMonthBottomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectYearMonthBottomSheetView.swift; sourceTree = "<group>"; };
+		BEE8BCBC2C71FFF5003800E0 /* HomeCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCalendarView.swift; sourceTree = "<group>"; };
+		BEE8BCBE2C71FFF5003800E0 /* HomeCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCalendarViewController.swift; sourceTree = "<group>"; };
+		BEE8BCBF2C71FFF5003800E0 /* SelectYearMonthBottomSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectYearMonthBottomSheetViewController.swift; sourceTree = "<group>"; };
+		BEE8BCC12C71FFF5003800E0 /* HomeCalendarReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCalendarReactor.swift; sourceTree = "<group>"; };
+		BEE8BCC42C71FFF5003800E0 /* FeedSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedSceneCoordinator.swift; sourceTree = "<group>"; };
+		BEE8BCD42C720106003800E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BEE8BCD72C720114003800E0 /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
+		BEE8BCD82C720114003800E0 /* Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
+		BEE8BCD92C720114003800E0 /* Stag.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stag.xcconfig; sourceTree = "<group>"; };
+		BEE8BCDD2C7202E6003800E0 /* SelectYearMonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectYearMonthView.swift; sourceTree = "<group>"; };
+		BEE8BCDF2C7202E6003800E0 /* TToonLogHomeNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TToonLogHomeNavigationView.swift; sourceTree = "<group>"; };
+		BEE8BCE32C7202FE003800E0 /* MyPageSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageSceneCoordinator.swift; sourceTree = "<group>"; };
+		BEE8BCE42C7202FE003800E0 /* SettingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
 		BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashErrorViewController.swift; sourceTree = "<group>"; };
 		BEF8D8172BDFC7880095674D /* TNUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNUrl.swift; sourceTree = "<group>"; };
@@ -803,16 +812,6 @@
 			path = Switch;
 			sourceTree = "<group>";
 		};
-		BE4C7C952BFF2C1700AB3D09 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				BE4C7C942BFF2C0300AB3D09 /* Dev.xcconfig */,
-				BE4C7C922BFF2C0200AB3D09 /* Prod.xcconfig */,
-				BE4C7C932BFF2C0200AB3D09 /* Stag.xcconfig */,
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
 		BE4C7C9E2BFF2E8700AB3D09 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -878,13 +877,13 @@
 		BE840DC42BBD9263000E67B7 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				BEE8BCD62C72010F003800E0 /* Config */,
 				BE9760992C29A5F000EDAEA0 /* Lottie */,
 				489FE2BF2BC00F480033B61D /* Font */,
-				BE4C7C952BFF2C1700AB3D09 /* Config */,
 				BEA8BB4C2BB86323000F9C15 /* Localization */,
 				BE36CF962BAFF58A0017F94E /* Assets.xcassets */,
 				BE36CF9B2BAFF58A0017F94E /* Info.plist */,
-				BE840DC92BBD9817000E67B7 /* GoogleService-Info.plist */,
+				BEE8BCD42C720106003800E0 /* GoogleService-Info.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1036,87 +1035,6 @@
 			path = Toon;
 			sourceTree = "<group>";
 		};
-		BE9C9B102C688CD7000AAF0E /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				BE9C9B0E2C688CD7000AAF0E /* BottomDiaryImageSwipeCollectionViewCell.swift */,
-				BE9C9B0F2C688CD7000AAF0E /* TToonCalendarCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		BE9C9B152C688CD7000AAF0E /* SubView */ = {
-			isa = PBXGroup;
-			children = (
-				BE9C9B112C688CD7000AAF0E /* BottomDiaryEmptyView.swift */,
-				BE9C9B122C688CD7000AAF0E /* BottomDiaryView.swift */,
-				BE9C9B132C688CD7000AAF0E /* CalendarView.swift */,
-				BE9C9B142C688CD7000AAF0E /* SelectYearMonthBottomSheetView.swift */,
-			);
-			path = SubView;
-			sourceTree = "<group>";
-		};
-		BE9C9B172C688CD7000AAF0E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BE9C9B102C688CD7000AAF0E /* Cell */,
-				BE9C9B152C688CD7000AAF0E /* SubView */,
-				BE9C9B162C688CD7000AAF0E /* HomeCalendarView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		BE9C9B1A2C688CD7000AAF0E /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				BE9C9B182C688CD7000AAF0E /* HomeCalendarViewController.swift */,
-				BE9C9B192C688CD7000AAF0E /* SelectYearMonthBottomSheetViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		BE9C9B1C2C688CD7000AAF0E /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				BE9C9B1B2C688CD7000AAF0E /* HomeCalendarReactor.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		BE9C9B1D2C688CD7000AAF0E /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				BE9C9B172C688CD7000AAF0E /* View */,
-				BE9C9B1A2C688CD7000AAF0E /* ViewController */,
-				BE9C9B1C2C688CD7000AAF0E /* ViewModel */,
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
-		BE9C9B1E2C688CD7000AAF0E /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				BE9C9B1D2C688CD7000AAF0E /* Calendar */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		BE9C9B2B2C688D11000AAF0E /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				BE9C9B2A2C688D11000AAF0E /* SelectYearMonthView.swift */,
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
-		BE9C9B2C2C688D11000AAF0E /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				BE9C9B2B2C688D11000AAF0E /* Calendar */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		BE9C9B3E2C688D16000AAF0E /* CreateToon */ = {
 			isa = PBXGroup;
 			children = (
@@ -1201,14 +1119,6 @@
 				BE9C9B782C68986F000AAF0E /* ViewModel */,
 			);
 			path = ContactUs;
-			sourceTree = "<group>";
-		};
-		BE9C9B7B2C68986F000AAF0E /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				BE9C9B7A2C68986F000AAF0E /* SettingCoordinator.swift */,
-			);
-			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		BE9C9B7D2C68986F000AAF0E /* View */ = {
@@ -1298,8 +1208,8 @@
 		BE9C9B932C68986F000AAF0E /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				BEE8BCE52C7202FE003800E0 /* Coordinator */,
 				BE9C9B792C68986F000AAF0E /* ContactUs */,
-				BE9C9B7B2C68986F000AAF0E /* Coordinator */,
 				BE9C9B832C68986F000AAF0E /* DeleteAccount */,
 				BE9C9B922C68986F000AAF0E /* MyPage */,
 			);
@@ -1528,17 +1438,144 @@
 			children = (
 				BEA8BB552BB86351000F9C15 /* Localizable.strings */,
 				BEA8BB572BB86385000F9C15 /* localize.py */,
-				BE0132A92BC4306600C9827C /* engaged-code-418809-16024d5258d0.json */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
+		};
+		BEE8BCB32C71FFF5003800E0 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		BEE8BCB62C71FFF5003800E0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BEE8BCB42C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift */,
+				BEE8BCB52C71FFF5003800E0 /* TToonCalendarCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BEE8BCBB2C71FFF5003800E0 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				BEE8BCB72C71FFF5003800E0 /* BottomDiaryEmptyView.swift */,
+				BEE8BCB82C71FFF5003800E0 /* BottomDiaryView.swift */,
+				BEE8BCB92C71FFF5003800E0 /* CalendarView.swift */,
+				BEE8BCBA2C71FFF5003800E0 /* SelectYearMonthBottomSheetView.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		BEE8BCBD2C71FFF5003800E0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BEE8BCB62C71FFF5003800E0 /* Cell */,
+				BEE8BCBB2C71FFF5003800E0 /* SubView */,
+				BEE8BCBC2C71FFF5003800E0 /* HomeCalendarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BEE8BCC02C71FFF5003800E0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BEE8BCBE2C71FFF5003800E0 /* HomeCalendarViewController.swift */,
+				BEE8BCBF2C71FFF5003800E0 /* SelectYearMonthBottomSheetViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BEE8BCC22C71FFF5003800E0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BEE8BCC12C71FFF5003800E0 /* HomeCalendarReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BEE8BCC32C71FFF5003800E0 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				BEE8BCB32C71FFF5003800E0 /* Coordinator */,
+				BEE8BCBD2C71FFF5003800E0 /* View */,
+				BEE8BCC02C71FFF5003800E0 /* ViewController */,
+				BEE8BCC22C71FFF5003800E0 /* ViewModel */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		BEE8BCC52C71FFF5003800E0 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BEE8BCC42C71FFF5003800E0 /* FeedSceneCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		BEE8BCC62C71FFF5003800E0 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				BEE8BCC52C71FFF5003800E0 /* Coordinator */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		BEE8BCC72C71FFF5003800E0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BEE8BCC32C71FFF5003800E0 /* Calendar */,
+				BEE8BCC62C71FFF5003800E0 /* Feed */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BEE8BCD62C72010F003800E0 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				BEE8BCD82C720114003800E0 /* Dev.xcconfig */,
+				BEE8BCD72C720114003800E0 /* Prod.xcconfig */,
+				BEE8BCD92C720114003800E0 /* Stag.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		BEE8BCDE2C7202E6003800E0 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				BEE8BCDD2C7202E6003800E0 /* SelectYearMonthView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		BEE8BCE02C7202E6003800E0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BEE8BCDE2C7202E6003800E0 /* Calendar */,
+				BEE8BCDF2C7202E6003800E0 /* TToonLogHomeNavigationView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BEE8BCE52C7202FE003800E0 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BEE8BCE32C7202FE003800E0 /* MyPageSceneCoordinator.swift */,
+				BEE8BCE42C7202FE003800E0 /* SettingCoordinator.swift */,
+			);
+			name = Coordinator;
+			path = TTOON/Presentation/Setting/Coordinator;
+			sourceTree = SOURCE_ROOT;
 		};
 		BEF48D5C2BCA5CCC0056E31E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				BE97FB8B2C68A2C80094D754 /* Tabbar */,
 				BE9C9B932C68986F000AAF0E /* Setting */,
-				BE9C9B1E2C688CD7000AAF0E /* Home */,
+				BEE8BCC72C71FFF5003800E0 /* Home */,
 				BE9C9AEC2C688CAF000AAF0E /* Toon */,
 				BEF48D5E2BCA5CD60056E31E /* CustomView */,
 				BEF48D5D2BCA5CD10056E31E /* Auth */,
@@ -1560,7 +1597,7 @@
 			isa = PBXGroup;
 			children = (
 				BE9C9B3F2C688D16000AAF0E /* Toon */,
-				BE9C9B2C2C688D11000AAF0E /* Home */,
+				BEE8BCE02C7202E6003800E0 /* Home */,
 				BE4C7CA72BFF2FBC00AB3D09 /* Auth */,
 				489ADEEB2BF8E71000B070B7 /* Setting */,
 			);
@@ -1729,12 +1766,14 @@
 				BE9BBC172BCA529A006FD848 /* Pretendard-ExtraBold.otf in Resources */,
 				BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */,
 				BE9BBC1A2BCA529A006FD848 /* Pretendard-Regular.otf in Resources */,
-				BE0132AA2BC4306600C9827C /* engaged-code-418809-16024d5258d0.json in Resources */,
+				BEE8BCDB2C720114003800E0 /* Dev.xcconfig in Resources */,
 				BE97609B2C29A5F900EDAEA0 /* toonLottie.json in Resources */,
 				BE9BBC112BCA529A006FD848 /* Pretendard-Black.otf in Resources */,
+				BEE8BCDC2C720114003800E0 /* Stag.xcconfig in Resources */,
+				BEE8BCDA2C720114003800E0 /* Prod.xcconfig in Resources */,
+				BEE8BCD52C720106003800E0 /* GoogleService-Info.plist in Resources */,
 				BE9BBC262BCA529A006FD848 /* Pretendard-Thin.otf in Resources */,
 				BE36CF972BAFF58A0017F94E /* Assets.xcassets in Resources */,
-				BE840DCA2BBD9817000E67B7 /* GoogleService-Info.plist in Resources */,
 				BE9BBC202BCA529A006FD848 /* Pretendard-SemiBold.otf in Resources */,
 				BEA8BB512BB86351000F9C15 /* Localizable.strings in Resources */,
 				BE9BBC292BCA529A006FD848 /* Pretendard-Light.otf in Resources */,
@@ -1831,15 +1870,16 @@
 				BE9C9BEC2C6898C2000AAF0E /* LoginRepository.swift in Sources */,
 				BE0473662C550E5600484B96 /* ViewLifeCycle.swift in Sources */,
 				BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */,
+				BEE8BCD12C71FFF5003800E0 /* SelectYearMonthBottomSheetViewController.swift in Sources */,
 				BE9C9AEF2C688CAF000AAF0E /* CharacterModifyView.swift in Sources */,
 				BE9C9B612C68959D000AAF0E /* CreateToonSubTitleLabel.swift in Sources */,
 				BE9C9BBD2C68989F000AAF0E /* LoginResponseModel.swift in Sources */,
-				BE9C9B212C688CD7000AAF0E /* BottomDiaryEmptyView.swift in Sources */,
 				BE9C9B4D2C688D16000AAF0E /* CreateToonMidTitleLabel.swift in Sources */,
 				BE9C9BF02C6898C2000AAF0E /* APIProvider.swift in Sources */,
 				BE32E3192BEBBD1300F0C193 /* TNAlertButton.swift in Sources */,
 				BE6011732BEF348500F8FCEA /* TNAlertViewController.swift in Sources */,
 				BE8884172C567227003EC2A3 /* CharacterEditType.swift in Sources */,
+				BEE8BCCE2C71FFF5003800E0 /* SelectYearMonthBottomSheetView.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
 				BE9C9B472C688D16000AAF0E /* CreateToonCompleteToonResultImageView.swift in Sources */,
 				BE78BEF32C25C5EE000A5D11 /* UIViewController+.swift in Sources */,
@@ -1849,14 +1889,13 @@
 				BE9C9BEE2C6898C2000AAF0E /* ContactUsRepository.swift in Sources */,
 				BE9BBC442BCA552F006FD848 /* UIFont+.swift in Sources */,
 				BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */,
-				BE9C9B242C688CD7000AAF0E /* SelectYearMonthBottomSheetView.swift in Sources */,
 				BE9C9B9B2C68986F000AAF0E /* DeleteAccountReasonBottomSheetViewController.swift in Sources */,
 				BE9C9B462C688D16000AAF0E /* CreateToonCompleteToonHorizontalImageStack.swift in Sources */,
-				BE9C9B1F2C688CD7000AAF0E /* BottomDiaryImageSwipeCollectionViewCell.swift in Sources */,
 				48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */,
 				BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */,
 				BE9C9AF92C688CAF000AAF0E /* CharacterDeleteBSViewController.swift in Sources */,
 				489FE2CE2BC010EB0033B61D /* Coordinator.swift in Sources */,
+				BEE8BCCD2C71FFF5003800E0 /* CalendarView.swift in Sources */,
 				489FE2C12BC00F700033B61D /* BaseView.swift in Sources */,
 				BE9C9B9F2C68986F000AAF0E /* AlarmTableViewCell.swift in Sources */,
 				BE9C9BEA2C6898C2000AAF0E /* SettingDTO.swift in Sources */,
@@ -1864,6 +1903,7 @@
 				BE9C9B002C688CAF000AAF0E /* CreateToonBaseViewController.swift in Sources */,
 				48D979F62BEF459F0087F870 /* LoginViewModel.swift in Sources */,
 				BE9C9B482C688D16000AAF0E /* CreateToonCompleteToonResultView.swift in Sources */,
+				BEE8BCD02C71FFF5003800E0 /* HomeCalendarViewController.swift in Sources */,
 				BE9C9BA72C68986F000AAF0E /* MyPageReactor.swift in Sources */,
 				489ADEED2BF8E72700B070B7 /* SettingTitleLabel.swift in Sources */,
 				BE9C9AF02C688CAF000AAF0E /* CharacterPickerBSView.swift in Sources */,
@@ -1877,7 +1917,6 @@
 				BE9C9AFF2C688CAF000AAF0E /* CreateResultViewController.swift in Sources */,
 				BE9C9B4F2C688D16000AAF0E /* CreateToonSelectCharactersView.swift in Sources */,
 				BE9C9B602C68959D000AAF0E /* CreateToonTitleLabel.swift in Sources */,
-				BE9C9B232C688CD7000AAF0E /* CalendarView.swift in Sources */,
 				BE9C9BA52C68986F000AAF0E /* AlarmViewController.swift in Sources */,
 				BE9C9BE82C6898C2000AAF0E /* AuthDTO.swift in Sources */,
 				BE9BBC3F2BCA5455006FD848 /* TNFont.swift in Sources */,
@@ -1886,7 +1925,6 @@
 				BEAB66D12C26AA12001B1B63 /* UICollectionView+.swift in Sources */,
 				BE9C9B412C688D16000AAF0E /* CharacterPickerTableViewCell.swift in Sources */,
 				BE9C9AF52C688CAF000AAF0E /* EnterInfoScrollView.swift in Sources */,
-				BE9C9B252C688CD7000AAF0E /* HomeCalendarView.swift in Sources */,
 				BE9C9BBE2C68989F000AAF0E /* SettingModel.swift in Sources */,
 				489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */,
 				BE3418EB2BF0B18200E17CC5 /* TNSheetViewController.swift in Sources */,
@@ -1894,8 +1932,11 @@
 				BE32E3172BEBB94E00F0C193 /* TestViewController.swift in Sources */,
 				BE9C9BA32C68986F000AAF0E /* UnderLineView.swift in Sources */,
 				BE9C9B062C688CAF000AAF0E /* CharacterModifyReactor.swift in Sources */,
+				BEE8BCE62C7202FE003800E0 /* MyPageSceneCoordinator.swift in Sources */,
 				BE9C9AFC2C688CAF000AAF0E /* CharacterPickerBSViewController.swift in Sources */,
+				BEE8BCCA2C71FFF5003800E0 /* TToonCalendarCell.swift in Sources */,
 				BE9C9B9D2C68986F000AAF0E /* DeleteAccountReactor.swift in Sources */,
+				BEE8BCE22C7202E6003800E0 /* TToonLogHomeNavigationView.swift in Sources */,
 				BEA33A242BD6AA320065D60C /* SplashErrorReactor.swift in Sources */,
 				BE9C9BE62C6898C2000AAF0E /* SettingAPI.swift in Sources */,
 				BE9C9B452C688D16000AAF0E /* CreateToonCompleteToonCollectionViewCell.swift in Sources */,
@@ -1907,9 +1948,10 @@
 				BE9C9B552C689149000AAF0E /* Date+.swift in Sources */,
 				BE9BBC492BCA5809006FD848 /* UIColor+.swift in Sources */,
 				BE9C9BC12C68989F000AAF0E /* ContactUsRepositoryProtocol.swift in Sources */,
-				BE9C9B202C688CD7000AAF0E /* TToonCalendarCell.swift in Sources */,
+				BEE8BCD22C71FFF5003800E0 /* HomeCalendarReactor.swift in Sources */,
 				BE9C9BC02C68989F000AAF0E /* SplashRepositoryProtocol.swift in Sources */,
 				BE9C9B5D2C689362000AAF0E /* IDF.swift in Sources */,
+				BEE8BCCF2C71FFF5003800E0 /* HomeCalendarView.swift in Sources */,
 				BE9C9B4C2C688D16000AAF0E /* CreateToonMidSubTitleLabel.swift in Sources */,
 				BE5758F02BFB1C3100EC4545 /* UILabel+.swift in Sources */,
 				BE9C9B072C688CAF000AAF0E /* CharacterPickerBSReactor.swift in Sources */,
@@ -1921,9 +1963,10 @@
 				BE9C9AFD2C688CAF000AAF0E /* CompleteToonViewController.swift in Sources */,
 				489ADEF12BF8E8CE00B070B7 /* SettingSubtitleLabel.swift in Sources */,
 				BE9C9B962C68986F000AAF0E /* CategoryBottomSheetViewController.swift in Sources */,
-				BE9C9B992C68986F000AAF0E /* SettingCoordinator.swift in Sources */,
+				BEE8BCCB2C71FFF5003800E0 /* BottomDiaryEmptyView.swift in Sources */,
 				BE05C0932C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift in Sources */,
 				BE9C9B4B2C688D16000AAF0E /* CreateToonIsMainCharacterSwitch.swift in Sources */,
+				BEE8BCE72C7202FE003800E0 /* SettingCoordinator.swift in Sources */,
 				BE9C9B982C68986F000AAF0E /* ContactUsReactor.swift in Sources */,
 				BE9C9B0A2C688CAF000AAF0E /* EnterInfoReactor.swift in Sources */,
 				BE9C9AF12C688CAF000AAF0E /* CompleteToonScrollView.swift in Sources */,
@@ -1933,19 +1976,19 @@
 				BE9C9BA02C68986F000AAF0E /* MyPageTableView.swift in Sources */,
 				BE9C9B9C2C68986F000AAF0E /* DeleteAccountViewController.swift in Sources */,
 				BE77224B2BEF499F007CDC17 /* TNAlert.swift in Sources */,
-				BE9C9B262C688CD7000AAF0E /* HomeCalendarViewController.swift in Sources */,
-				BE9C9B222C688CD7000AAF0E /* BottomDiaryView.swift in Sources */,
 				BE9C9AF72C688CAF000AAF0E /* SelectStyleView.swift in Sources */,
-				BE9C9B2D2C688D11000AAF0E /* SelectYearMonthView.swift in Sources */,
 				BE9C9B582C68927F000AAF0E /* DateFormatType.swift in Sources */,
+				BEE8BCC82C71FFF5003800E0 /* CalendarSceneCoordinator.swift in Sources */,
 				BE9C9BEF2C6898C2000AAF0E /* DeleteAccountRepository.swift in Sources */,
 				BE9C9B042C688CAF000AAF0E /* CharacterDeleteBSReactor.swift in Sources */,
 				BE9C9BE42C6898C2000AAF0E /* LoginAPI.swift in Sources */,
+				BEE8BCC92C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift in Sources */,
 				48C3F09A2BF9E64E00BD2142 /* SettingNameInputView.swift in Sources */,
 				BE9C9B422C688D16000AAF0E /* CreateToonCollectionView.swift in Sources */,
 				BE9C9B432C688D16000AAF0E /* CreateToonCollectionViewCell.swift in Sources */,
 				BE0473682C551D8000484B96 /* UIButton+.swift in Sources */,
 				BE9C9BA62C68986F000AAF0E /* MyPageViewController.swift in Sources */,
+				BEE8BCCC2C71FFF5003800E0 /* BottomDiaryView.swift in Sources */,
 				BE9C9BED2C6898C2000AAF0E /* SplashRepository.swift in Sources */,
 				BE9C9B9E2C68986F000AAF0E /* AlarmTableView.swift in Sources */,
 				BE9C9AED2C688CAF000AAF0E /* CharacterDeleteBSView.swift in Sources */,
@@ -1956,6 +1999,7 @@
 				486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */,
 				BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
+				BEE8BCE12C7202E6003800E0 /* SelectYearMonthView.swift in Sources */,
 				BE9C9B972C68986F000AAF0E /* ContactUsViewController.swift in Sources */,
 				480C165F2BEEFA9F0085A187 /* SocialLoginType.swift in Sources */,
 				BE9C9AEE2C688CAF000AAF0E /* CharacterEditorView.swift in Sources */,
@@ -1984,12 +2028,11 @@
 				48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */,
 				BE9C9AFE2C688CAF000AAF0E /* CreateLoadingViewController.swift in Sources */,
 				BE9C9B032C688CAF000AAF0E /* CharacterAddReactor.swift in Sources */,
+				BEE8BCD32C71FFF5003800E0 /* FeedSceneCoordinator.swift in Sources */,
 				BE9C9B052C688CAF000AAF0E /* CharacterEditReactor.swift in Sources */,
 				BE9C9B4A2C688D16000AAF0E /* CreateToonDivider.swift in Sources */,
 				BE9C9BC22C68989F000AAF0E /* DeleteAccountRepositoryProtocol.swift in Sources */,
 				BE9C9BEB2C6898C2000AAF0E /* KeychainStorage.swift in Sources */,
-				BE9C9B272C688CD7000AAF0E /* SelectYearMonthBottomSheetViewController.swift in Sources */,
-				BE9C9B282C688CD7000AAF0E /* HomeCalendarReactor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2046,7 +2089,6 @@
 /* Begin XCBuildConfiguration section */
 		BE36CFB32BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE4C7C922BFF2C0200AB3D09 /* Prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -2180,7 +2222,6 @@
 		};
 		BE4C7C962BFF2C2900AB3D09 /* DEV */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE4C7C942BFF2C0300AB3D09 /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -2244,7 +2285,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -2263,6 +2304,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TTOON.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TToon Service - DEV";
@@ -2315,7 +2357,6 @@
 		};
 		BE4C7C9A2BFF2C2F00AB3D09 /* STAG */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE4C7C932BFF2C0200AB3D09 /* Stag.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;

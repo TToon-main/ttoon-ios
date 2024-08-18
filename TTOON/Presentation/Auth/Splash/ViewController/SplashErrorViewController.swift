@@ -160,13 +160,6 @@ final class SplashErrorViewController: BaseViewController, View {
                      subText: "서비스 이용을 위해서는\n네트워크 연결을 해주세요!",
                      btnTitle: "재시도")
             
-        case .inMaintenance:
-            updateUI(image: TNImage.splashLogo,
-                     lbText: "서버 점검 중이에요",
-                     subText: "보다 안정적인 서비스를 위해 점검 중이에요.\n예상 종료 시간은 03:00이에요!",
-                     btnTitle: nil,
-                     isHiddenBtn: true)
-            
         case .needUpdate:
             updateUI(image: TNImage.splashLogo,
                      lbText: "업데이트가 필요해요",

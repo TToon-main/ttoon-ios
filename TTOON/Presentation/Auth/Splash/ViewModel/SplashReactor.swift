@@ -11,7 +11,6 @@ import RxSwift
 
 enum SplashStatus {
     case disConnected
-    case inMaintenance
     case needUpdate
     case valid
 }
@@ -64,16 +63,12 @@ final class SplashReactor: Reactor {
     // 위치가 적절한 지는 의문이지만, 여기서 코디로 이벤트 전달!
     private func checkSplashStatus() -> SplashStatus {
         let isConnect = splashUseCase.isNetworkConnected()
-        let isMaintenance = splashUseCase.isServerMaintenance()
         let isNeedUpdate = splashUseCase.isMinVersionReached()
 
         
-        if !isConnect {
+        if isConnect {
             sendTransitionEvent?(.goSplashErrorView(.disConnected))
-            return .disConnected
-        } else if isMaintenance {
-            sendTransitionEvent?(.goSplashErrorView(.inMaintenance))
-            return .inMaintenance
+            return .disConnected 
         } else if isNeedUpdate {
             sendTransitionEvent?(.goSplashErrorView(.needUpdate))
             return .needUpdate
