@@ -54,6 +54,10 @@ final class SplashViewController: BaseViewController, View {
     }
     
     func bind(reactor: SplashReactor) {
+        bindAction(reactor)
+    }
+            
+    func bindAction(_ reactor: SplashReactor) {
         Observable.just(())
                 .map { SplashReactor.Action.viewDidLoad }
                 .bind(to: reactor.action)
