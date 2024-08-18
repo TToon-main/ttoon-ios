@@ -10,12 +10,6 @@ import ReactorKit
 
 import RxSwift
 
-enum SplashStatus {
-    case disConnected
-    case needUpdate
-    case valid
-}
-
 final class SplashReactor: Reactor {    
     let splashUseCase: SplashUseCaseProtocol
     
@@ -87,6 +81,12 @@ final class SplashReactor: Reactor {
 }
 
 extension SplashReactor {
+    enum SplashStatus {
+        case disConnected
+        case needUpdate
+        case valid
+    }
+    
     enum TransitionEvent {
         case goSplashErrorView(SplashStatus) 
         case goLoginView
