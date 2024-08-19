@@ -53,16 +53,16 @@ class LoginViewController: BaseViewController {
         
         let output = viewModel.transform(input)
         
-        output.showTabbar
-            .bind(onNext: showTabbar)
-            .disposed(by: disposeBag)
+//        output.showTabbar
+//            .bind(onNext: showTabbar)
+//            .disposed(by: disposeBag)
     }
     
-    func showTabbar() {
-        let tabbar = TabbarViewController()
-        tabbar.modalTransitionStyle = .crossDissolve
-        tabbar.modalPresentationStyle = .overCurrentContext
-        
-        present(tabbar, animated: true)
-    }
+//    func showTabbar() {
+//        let tabbar = TabbarViewController()
+//        tabbar.modalTransitionStyle = .crossDissolve
+//        tabbar.modalPresentationStyle = .overCurrentContext
+//        
+//        present(tabbar, animated: true)
+//    }
 }
