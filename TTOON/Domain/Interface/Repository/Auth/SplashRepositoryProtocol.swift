@@ -7,7 +7,9 @@
 
 import Foundation
 
+import RxSwift
+
 protocol SplashRepositoryProtocol {
     func fetchNetworkStatus() -> Bool
-    func fetchMinVersion() -> String
+    func fetchMinVersion() -> Observable<Event<String>>
 }

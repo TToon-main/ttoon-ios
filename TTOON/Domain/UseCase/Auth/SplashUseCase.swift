@@ -1,5 +1,5 @@
 //
-//  SplashUsecase.swift
+//  SplashUseCase.swift
 //  TTOON
 //
 //  Created by Dongwan Ryoo on 4/18/24.
@@ -11,13 +11,13 @@ import RxSwift
 
 protocol SplashUseCaseProtocol {
     func isNetworkConnected() -> Bool
-    func isMinVersionReached() -> Bool
+    func isMinVersionReached() -> Observable<String>
 }
 
 class SplashUseCase: SplashUseCaseProtocol {
     // MARK: - repository interface
     let splashRepository: SplashRepositoryProtocol
-    
+
     // MARK: - init
     init(splashRepository: SplashRepositoryProtocol) {
         self.splashRepository = splashRepository
@@ -29,16 +29,10 @@ class SplashUseCase: SplashUseCaseProtocol {
         return splashRepository.fetchNetworkStatus()
     }
     
-    func isMinVersionReached() -> Bool {        
-        guard let nowVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else {
-            print("현재 버전을 찾을 수 없음")
-            return false
-        }
+    func isMinVersionReached() -> Observable<String> {         
+        let getVersionRequest = splashRepository.fetchMinVersion()
+        let minVersion = getVersionRequest.compactMap { $0.element }
         
-        let minimumVersion = splashRepository.fetchMinVersion()
-        
-        let compare: (String, String) -> Bool = { $0.compare($1, options: .numeric) == .orderedAscending }
-        
-        return compare(nowVersion, minimumVersion)
+        return minVersion
     }
 }

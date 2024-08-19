@@ -24,7 +24,7 @@ extension SplashAPI: TargetType {
     var path: String {
         switch self {
         case.getMinVersion:
-            return "/getVersion" // 예시 엔드페포인트
+            return "/api/auth/version" 
         }
     }
     
@@ -46,6 +46,6 @@ extension SplashAPI: TargetType {
     
     // switch self를 통해, 각 타겟에 헤더 지정
     var headers: [String: String]? {
-        return nil
+        return ["Content-Type": "application/json"]
     }
 }
