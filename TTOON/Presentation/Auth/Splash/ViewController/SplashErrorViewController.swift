@@ -136,14 +136,6 @@ final class SplashErrorViewController: BaseViewController, View {
             .disposed(by: disposeBag)
         
         reactor.state
-            .map { $0.isConnected }
-            .compactMap { $0 }
-            .subscribe(with: self) { owner, isSuccess in 
-                isSuccess ? print("메인 화면 이동") : print("재시도 토스트")
-            }
-            .disposed(by: disposeBag)
-        
-        reactor.state
             .map { $0.moveStore }
             .compactMap { $0 }
             .subscribe(with: self) { owner, _ in
@@ -152,7 +144,7 @@ final class SplashErrorViewController: BaseViewController, View {
             .disposed(by: disposeBag)
     }
     
-    func checkStatus(_ status: SplashStatus) {
+    private func checkStatus(_ status: SplashStatus) {
         switch status { 
         case .disConnected:
             updateUI(image: TNImage.splashError,
@@ -171,7 +163,7 @@ final class SplashErrorViewController: BaseViewController, View {
         }
     }
     
-    func updateUI(image: UIImage?, lbText: String, subText: String, btnTitle: String?, isHiddenBtn: Bool = false) {
+    private func updateUI(image: UIImage?, lbText: String, subText: String, btnTitle: String?, isHiddenBtn: Bool = false) {
         print(#function)
         errorImageView.image = image
         errorTitleLabel.text = lbText 
@@ -180,7 +172,7 @@ final class SplashErrorViewController: BaseViewController, View {
         retryButton.isHidden = isHiddenBtn
     }
     
-    func moveStore() {
+    private func moveStore() {
         if let url = URL(string: TNUrl.storeUrl) {
             UIApplication.shared.open(url, options: [:])
         }
