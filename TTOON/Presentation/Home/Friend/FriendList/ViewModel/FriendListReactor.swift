@@ -1,5 +1,5 @@
 //
-//  AddFriendReactor.swift
+//  FriendListReactor.swift
 //  TTOON
 //
 //  Created by 임승섭 on 8/17/24.
@@ -9,7 +9,7 @@ import Foundation
 import ReactorKit
 import RxSwift
 
-class AddFriendReactor: Reactor {
+class FriendListReactor: Reactor {
     init() { }
     
     enum Action {

@@ -55,9 +55,9 @@ extension HomeCalendarViewController {
     
     func bindAction(reactor: HomeCalendarReactor) {
         // 네비게이션 버튼 눌렀을 때 액션 전달
-        ttoonNavigationView.addFriendButton.rx.tap
+        ttoonNavigationView.friendListButton.rx.tap
             .map {
-                HomeCalendarReactor.Action.addFriendButtonTapped
+                HomeCalendarReactor.Action.friendListButtonTapped
             }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)

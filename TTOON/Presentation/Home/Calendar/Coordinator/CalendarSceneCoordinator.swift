@@ -12,7 +12,7 @@ import UIKit
 protocol CalendarSceneCoordinatorProtocol: Coordinator {
     // view
     func showCalendarView()
-    func showAddFriendView()
+    func showFriendListView()
 }
 class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
     // 1.
@@ -43,8 +43,8 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
         
         reactor.didSendEventClosure = { [weak self] event in
             switch event {
-            case .showAddFriendView:
-                self?.showAddFriendView()
+            case .showFriendListView:
+                self?.showFriendListView()
             }
         }
         
@@ -52,11 +52,13 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
     }
     
     
-    func showAddFriendView() {
+    func showFriendListView() {
         print(#function)
         
-        let reactor = AddFriendReactor()
-        let vc = AddFriendViewController(reactor: reactor)
+//        let reactor = FriendListReactor()
+//        let vc = FriendListViewController(reactor: reactor)
+        
+        let vc = FriendTabViewController()
         
         navigationController.pushViewController(vc, animated: true)
     }
