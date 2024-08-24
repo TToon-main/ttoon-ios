@@ -48,6 +48,7 @@ final class MyPageViewController: BaseViewController {
     // MARK: - Configures
     override func configures() {
         setTableView()
+        setNavigationItem()
     }
     
     func setTableView() {
@@ -61,10 +62,17 @@ final class MyPageViewController: BaseViewController {
       }
       return "1.0"
     }
+    
+    private func setNavigationItem() {
+        self.navigationItem.title = "마이페이지"
+        self.navigationItem.backButtonTitle = ""
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+    }
 }
 
 
 // MARK: - Header 관련 코드
+
 extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return myPageTableViewDataSource.count
