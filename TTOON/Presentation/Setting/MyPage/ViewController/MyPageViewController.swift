@@ -71,7 +71,7 @@ final class MyPageViewController: BaseViewController {
 }
 
 
-// MARK: - Header 관련 코드
+// MARK: - Header, Footer 관련 코드
 
 extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -93,8 +93,7 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
         headerView.addSubview(titleLabel)
         
         titleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.centerY.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview().inset(16)
         }
         
         return headerView
@@ -115,12 +114,20 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
         
         return titleLabel
     }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 2 {
+            return 0
+        }
+        
+        return 48
+    }
 }
 
 // MARK: - Cell 관련 코드
 extension MyPageViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageTableViewCell", for: indexPath) as? MyPageTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPageTableViewCell.IDF, for: indexPath) as? MyPageTableViewCell else {
             return UITableViewCell()
         }
     

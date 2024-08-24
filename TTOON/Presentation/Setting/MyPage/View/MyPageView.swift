@@ -46,7 +46,7 @@ final class MyPageView: BaseView {
         
         myPageTableView.snp.makeConstraints {
             $0.top.equalTo(underLineView.snp.bottom).offset(24)
-            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalTo(self.safeAreaLayoutGuide)
         }
     }
