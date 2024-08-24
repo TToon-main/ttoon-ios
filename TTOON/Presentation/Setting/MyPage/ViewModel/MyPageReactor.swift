@@ -5,4 +5,60 @@
 //  Created by Dongwan Ryoo on 5/19/24.
 //
 
-import Foundation
+
+import ReactorKit
+import RxSwift
+
+final class MyPageReactor: Reactor {    
+    let useCase: MyPageUseCase
+    
+    init(useCase: MyPageUseCase) {
+        self.useCase = useCase
+    }
+    
+    // 뷰에서 입력받은 유저 이벤트
+    enum Action {
+        case viewWillAppear
+    }
+    
+    // Action과 State의 매개체
+    enum Mutation {
+        case setUpUserInfo(UserInfoResponseModel)
+    }
+    
+    // 뷰에 전달할 상태
+    struct State {
+        var userInfo: UserInfoResponseModel? = .none 
+    }
+    
+    // 전달할 상태의 초기값
+    let initialState: State = State()
+    
+    func mutate(action: Action) -> Observable<Mutation> {
+        switch action {
+        case .viewWillAppear:
+            print("실행")
+            return userInfo()
+                .map { Mutation.setUpUserInfo($0) } 
+        }
+    }
+    
+    func reduce(state: State, mutation: Mutation) -> State {
+        var newState = State()
+        
+        switch mutation {
+        case .setUpUserInfo(let userInfoResponseModel):
+            newState.userInfo = userInfoResponseModel
+        }
+        
+        return newState
+    }
+}
+
+extension MyPageReactor {
+    func userInfo() -> Observable<UserInfoResponseModel>  {
+        return useCase.getUserInfo()
+            .map { $0.element }
+            .compactMap { $0 }
+    }
+}

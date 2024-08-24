@@ -23,7 +23,10 @@ final class TabbarViewController: UITabBarController {
     
     private let checkVC = UIViewController()
     
-    private let myPageVC = MyPageViewController()
+    private let repository = MyPageRepository()
+    private lazy var useCase = MyPageUseCase(repository: repository)
+    private lazy var myPageReactor = MyPageReactor(useCase: useCase)
+    private lazy var myPageVC = MyPageViewController(myPageReactor: myPageReactor)
     
     // MARK: - Lifecycle
     

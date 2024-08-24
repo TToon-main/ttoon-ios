@@ -8,7 +8,7 @@
 import UIKit
 
 final class ProfileSummaryView: BaseView {
-    private lazy var profileImageView = {
+    lazy var profileImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 28
         view.backgroundColor = .grey01
@@ -17,16 +17,15 @@ final class ProfileSummaryView: BaseView {
         return view
     }()
     
-    private lazy var profileLabel = {
+    lazy var profileLabel = {
         let view = UILabel()
         view.font = .title20b
         view.textColor = .black
-        view.makeSampleText(4)
         
         return view
     }()
     
-    private lazy var pointImageView = {
+    lazy var pointImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 9
         view.backgroundColor = .grey01
@@ -35,11 +34,10 @@ final class ProfileSummaryView: BaseView {
         return view
     }()
     
-    private lazy var pointLabel = {
+    lazy var pointLabel = {
         let view = UILabel()
         view.font = .body14r
         view.textColor = .grey07
-        view.makeSampleText(3)
         
         return view
     }()
@@ -82,6 +80,7 @@ final class ProfileSummaryView: BaseView {
         
         profileLabel.snp.makeConstraints {
             $0.leading.equalTo(profileImageView.snp.trailing).offset(16)
+            $0.trailing.equalToSuperview().inset(110)
             $0.top.equalTo(profileImageView)
         }
         

@@ -30,4 +30,5 @@ struct UserInfoResponseModel {
     let profileUrl: URL?
     let email: String
     let provider: SocialLoginType
+    let point: String
 }

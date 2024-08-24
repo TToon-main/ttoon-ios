@@ -7,6 +7,10 @@
 
 import UIKit
 
+import ReactorKit
+import RxCocoa
+import RxSwift
+
 final class MyPageViewController: BaseViewController {
     // MARK: - Properties
     private lazy var appSetSection: MyPageTableViewDataSource = {
@@ -37,8 +41,20 @@ final class MyPageViewController: BaseViewController {
     
     private lazy var myPageTableViewDataSource = [appSetSection, appInfoSection, accountSection]
     
+    var disposeBag = DisposeBag()
+    
     // MARK: - UI Properties
     private let myPageView = MyPageView()
+    
+    // MARK: - Init
+    init(myPageReactor: MyPageReactor) {
+        super.init(nibName: nil, bundle: nil)
+        self.reactor = myPageReactor 
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - LifeCycles
     override func loadView() {
@@ -70,6 +86,28 @@ final class MyPageViewController: BaseViewController {
     }
 }
 
+extension MyPageViewController: View {
+    func bind(reactor: MyPageReactor) {
+        bindState(reactor: reactor)
+        bindAction(reactor: reactor)
+    }
+    
+    func bindAction(reactor: MyPageReactor) {
+        rx.viewWillAppear
+            .do { _ in print("바인딩 성공")}
+            .map { _ in MyPageReactor.Action.viewWillAppear }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+    }
+    
+    func bindState(reactor: MyPageReactor) {
+        reactor.state
+            .map { $0.userInfo }
+            .compactMap { $0 }
+            .bind(to: myPageView.rx.userInfo)
+            .disposed(by: disposeBag)
+    }
+}
 
 // MARK: - Header, Footer 관련 코드
 

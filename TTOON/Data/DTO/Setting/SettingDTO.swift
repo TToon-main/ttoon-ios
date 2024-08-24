@@ -37,19 +37,26 @@ extension DeleteAccountRequestDTO {
 
 // 탈퇴하기 - 응답 데이터 x
 
-struct UserInfoResponseDTO {
+struct UserInfoResponseDTO: Codable {
     let nickName: String
-    let url: String
+    let point: Int
     let email: String
     let provider: String
+    let imageUrl: String?
 }
+
 extension UserInfoResponseDTO {
     func toDomain() -> UserInfoResponseModel {
-        let nickName = self.nickName
-        let profileUrl = URL(string: self.url)
-        let email = self.email
+        let profileUrl = URL(string: self.imageUrl ?? "") 
         let provider = SocialLoginType(rawValue: provider)!
+        let point = String(point)
         
-        return UserInfoResponseModel(nickName: nickName, profileUrl: profileUrl, email: email, provider: provider)
+        return UserInfoResponseModel(
+            nickName: nickName, 
+            profileUrl: profileUrl, 
+            email: email, 
+            provider: provider, 
+            point: point
+        )
     }
 }
