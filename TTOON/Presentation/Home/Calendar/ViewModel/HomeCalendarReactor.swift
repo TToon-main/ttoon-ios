@@ -20,7 +20,7 @@ class HomeCalendarReactor: Reactor {
     }
     
     enum Action {
-        case addFriendButtonTapped  // 친구 추가하기 아이콘 클릭
+        case friendListButtonTapped  // 친구 추가하기 아이콘 클릭
         case didSelectCalendarCell(Date) // 캘린더 셀 클릭
         case selectYearMonth(String)  // 연월 수정
     }
@@ -43,8 +43,8 @@ class HomeCalendarReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .addFriendButtonTapped:
-            didSendEventClosure?(.showAddFriendView)
+        case .friendListButtonTapped:
+            didSendEventClosure?(.showFriendListView)
             return .just(.void)
             
         case .didSelectCalendarCell(let date):
@@ -91,6 +91,6 @@ class HomeCalendarReactor: Reactor {
 
 extension HomeCalendarReactor {
     enum Event {
-        case showAddFriendView
+        case showFriendListView
     }
 }

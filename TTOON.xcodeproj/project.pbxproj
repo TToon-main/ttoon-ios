@@ -28,6 +28,16 @@
 		482B611E2BB598DD00681097 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 482B611D2BB598DD00681097 /* Sentry */; };
 		482B61212BB599B100681097 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61202BB599B100681097 /* FirebaseAnalytics */; };
 		482B61232BB599B100681097 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61222BB599B100681097 /* FirebaseCrashlytics */; };
+		4839A9EF2C78A54900FF3250 /* FriendListReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9EA2C78A54900FF3250 /* FriendListReactor.swift */; };
+		4839A9F02C78A54900FF3250 /* FriendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9EC2C78A54900FF3250 /* FriendListView.swift */; };
+		4839A9F12C78A54900FF3250 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9EE2C78A54900FF3250 /* FriendListViewController.swift */; };
+		4839A9F42C78A56B00FF3250 /* NoFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9F32C78A56B00FF3250 /* NoFriendView.swift */; };
+		4839A9F62C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9F52C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift */; };
+		4839A9F92C78AE5A00FF3250 /* indicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9F82C78AE5A00FF3250 /* indicatorView.swift */; };
+		4839A9FB2C78B30D00FF3250 /* FriendListPopUpBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9FA2C78B30D00FF3250 /* FriendListPopUpBottomSheetViewController.swift */; };
+		4839A9FE2C79C7CC00FF3250 /* FriendTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9FD2C79C7CC00FF3250 /* FriendTabViewController.swift */; };
+		4839AA012C79C84000FF3250 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 4839AA002C79C84000FF3250 /* Tabman */; };
+		4839AA082C79D49100FF3250 /* FriendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839AA072C79D49100FF3250 /* FriendRequestViewController.swift */; };
 		4839AA172C7B153C00FF3250 /* FriendAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839AA162C7B153C00FF3250 /* FriendAPI.swift */; };
 		486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */; };
 		486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */; };
@@ -265,6 +275,15 @@
 		480C165C2BEEF7C90085A187 /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		480C165E2BEEFA9F0085A187 /* SocialLoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginType.swift; sourceTree = "<group>"; };
 		4839AA162C7B153C00FF3250 /* FriendAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAPI.swift; sourceTree = "<group>"; };
+		4839A9EA2C78A54900FF3250 /* FriendListReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListReactor.swift; sourceTree = "<group>"; };
+		4839A9EC2C78A54900FF3250 /* FriendListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListView.swift; sourceTree = "<group>"; };
+		4839A9EE2C78A54900FF3250 /* FriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		4839A9F32C78A56B00FF3250 /* NoFriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoFriendView.swift; sourceTree = "<group>"; };
+		4839A9F52C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListPopUpBottomSheetView.swift; sourceTree = "<group>"; };
+		4839A9F82C78AE5A00FF3250 /* indicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = indicatorView.swift; sourceTree = "<group>"; };
+		4839A9FA2C78B30D00FF3250 /* FriendListPopUpBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListPopUpBottomSheetViewController.swift; sourceTree = "<group>"; };
+		4839A9FD2C79C7CC00FF3250 /* FriendTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTabViewController.swift; sourceTree = "<group>"; };
+		4839AA072C79D49100FF3250 /* FriendRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestViewController.swift; sourceTree = "<group>"; };
 		486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTitleLabel.swift; sourceTree = "<group>"; };
@@ -520,6 +539,7 @@
 			files = (
 				482B61182BB5957F00681097 /* RxKakaoSDKUser in Frameworks */,
 				482B61112BB5956D00681097 /* KakaoSDKAuth in Frameworks */,
+				4839AA012C79C84000FF3250 /* Tabman in Frameworks */,
 				482B61062BB592D500681097 /* RxCocoa in Frameworks */,
 				482B60EF2BB58F3F00681097 /* Kingfisher in Frameworks */,
 				482B61162BB5957F00681097 /* RxKakaoSDKAuth in Frameworks */,
@@ -570,8 +590,106 @@
 			isa = PBXGroup;
 			children = (
 				4839AA162C7B153C00FF3250 /* FriendAPI.swift */,
+		4839A9E82C78A54900FF3250 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				4839AA032C79D47700FF3250 /* FriendRequest */,
+				4839AA022C79D46A00FF3250 /* FriendList */,
+				4839A9FC2C79C79E00FF3250 /* Tabman */,
 			);
 			path = Friend;
+			sourceTree = "<group>";
+		};
+		4839A9E92C78A54900FF3250 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4839A9EA2C78A54900FF3250 /* FriendListReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4839A9EB2C78A54900FF3250 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4839A9EC2C78A54900FF3250 /* FriendListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4839A9ED2C78A54900FF3250 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4839A9EE2C78A54900FF3250 /* FriendListViewController.swift */,
+				4839A9FA2C78B30D00FF3250 /* FriendListPopUpBottomSheetViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4839A9F22C78A56B00FF3250 /* FriendList */ = {
+			isa = PBXGroup;
+			children = (
+				4839A9F32C78A56B00FF3250 /* NoFriendView.swift */,
+				4839A9F52C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift */,
+			);
+			path = FriendList;
+			sourceTree = "<group>";
+		};
+		4839A9F72C78AE5000FF3250 /* Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				4839A9F82C78AE5A00FF3250 /* indicatorView.swift */,
+			);
+			path = Indicator;
+			sourceTree = "<group>";
+		};
+		4839A9FC2C79C79E00FF3250 /* Tabman */ = {
+			isa = PBXGroup;
+			children = (
+				4839A9FD2C79C7CC00FF3250 /* FriendTabViewController.swift */,
+			);
+			path = Tabman;
+			sourceTree = "<group>";
+		};
+		4839AA022C79D46A00FF3250 /* FriendList */ = {
+			isa = PBXGroup;
+			children = (
+				4839A9E92C78A54900FF3250 /* ViewModel */,
+				4839A9EB2C78A54900FF3250 /* View */,
+				4839A9ED2C78A54900FF3250 /* ViewController */,
+			);
+			path = FriendList;
+			sourceTree = "<group>";
+		};
+		4839AA032C79D47700FF3250 /* FriendRequest */ = {
+			isa = PBXGroup;
+			children = (
+				4839AA062C79D48200FF3250 /* ViewModel */,
+				4839AA052C79D47F00FF3250 /* View */,
+				4839AA042C79D47B00FF3250 /* ViewController */,
+			);
+			path = FriendRequest;
+			sourceTree = "<group>";
+		};
+		4839AA042C79D47B00FF3250 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4839AA072C79D49100FF3250 /* FriendRequestViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4839AA052C79D47F00FF3250 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4839AA062C79D48200FF3250 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4883564A2BEF422A005DC0A6 /* Recovered References */ = {
@@ -729,6 +847,7 @@
 		BE32E3102BEBAF7B00F0C193 /* TNCompopnet */ = {
 			isa = PBXGroup;
 			children = (
+				4839A9F72C78AE5000FF3250 /* Indicator */,
 				BE47BF5C2BF4CDE10048F707 /* Switch */,
 				BE47BF5B2BF4C98E0048F707 /* BottomSheet */,
 				BE47BF5A2BF4C8A60048F707 /* Alert */,
@@ -1546,6 +1665,7 @@
 		BEE8BCC72C71FFF5003800E0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4839A9E82C78A54900FF3250 /* Friend */,
 				BEE8BCC32C71FFF5003800E0 /* Calendar */,
 				BEE8BCC62C71FFF5003800E0 /* Feed */,
 			);
@@ -1573,6 +1693,7 @@
 		BEE8BCE02C7202E6003800E0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4839A9F22C78A56B00FF3250 /* FriendList */,
 				BEE8BCDE2C7202E6003800E0 /* Calendar */,
 				BEE8BCDF2C7202E6003800E0 /* TToonLogHomeNavigationView.swift */,
 			);
@@ -1671,6 +1792,7 @@
 				482B611D2BB598DD00681097 /* Sentry */,
 				482B61202BB599B100681097 /* FirebaseAnalytics */,
 				482B61222BB599B100681097 /* FirebaseCrashlytics */,
+				4839AA002C79C84000FF3250 /* Tabman */,
 			);
 			productName = TTOON;
 			productReference = BE36CF8A2BAFF5890017F94E /* TTOON.app */;
@@ -1761,6 +1883,7 @@
 				482B61192BB596CD00681097 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 				482B611C2BB598DC00681097 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 				482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				4839A9FF2C79C83F00FF3250 /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = BE36CF8B2BAFF5890017F94E /* Products */;
 			projectDirPath = "";
@@ -1904,6 +2027,7 @@
 				BE78BEF32C25C5EE000A5D11 /* UIViewController+.swift in Sources */,
 				BE9C9B492C688D16000AAF0E /* CreateToonDiaryView.swift in Sources */,
 				BE9C9B012C688CAF000AAF0E /* EnterInfoViewController.swift in Sources */,
+				4839A9F02C78A54900FF3250 /* FriendListView.swift in Sources */,
 				BE9C9BF12C6898C2000AAF0E /* AuthInterceptor.swift in Sources */,
 				BE9C9BEE2C6898C2000AAF0E /* ContactUsRepository.swift in Sources */,
 				BE9BBC442BCA552F006FD848 /* UIFont+.swift in Sources */,
@@ -1923,6 +2047,7 @@
 				48D979F62BEF459F0087F870 /* LoginViewModel.swift in Sources */,
 				BE9C9B482C688D16000AAF0E /* CreateToonCompleteToonResultView.swift in Sources */,
 				BEE8BCD02C71FFF5003800E0 /* HomeCalendarViewController.swift in Sources */,
+				4839A9F12C78A54900FF3250 /* FriendListViewController.swift in Sources */,
 				BE9C9BA72C68986F000AAF0E /* MyPageReactor.swift in Sources */,
 				489ADEED2BF8E72700B070B7 /* SettingTitleLabel.swift in Sources */,
 				BE9C9AF02C688CAF000AAF0E /* CharacterPickerBSView.swift in Sources */,
@@ -1935,6 +2060,7 @@
 				BE9C9BE52C6898C2000AAF0E /* SplashAPI.swift in Sources */,
 				BE9C9AFF2C688CAF000AAF0E /* CreateResultViewController.swift in Sources */,
 				BE9C9B4F2C688D16000AAF0E /* CreateToonSelectCharactersView.swift in Sources */,
+				4839A9F42C78A56B00FF3250 /* NoFriendView.swift in Sources */,
 				BE9C9B602C68959D000AAF0E /* CreateToonTitleLabel.swift in Sources */,
 				BE9C9BA52C68986F000AAF0E /* AlarmViewController.swift in Sources */,
 				BE9C9BE82C6898C2000AAF0E /* AuthDTO.swift in Sources */,
@@ -1945,6 +2071,7 @@
 				BE9C9B412C688D16000AAF0E /* CharacterPickerTableViewCell.swift in Sources */,
 				BE9C9AF52C688CAF000AAF0E /* EnterInfoScrollView.swift in Sources */,
 				BE9C9BBE2C68989F000AAF0E /* SettingModel.swift in Sources */,
+				4839A9FE2C79C7CC00FF3250 /* FriendTabViewController.swift in Sources */,
 				489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */,
 				BE3418EB2BF0B18200E17CC5 /* TNSheetViewController.swift in Sources */,
 				BE97FB8D2C68A2D60094D754 /* TabbarViewController.swift in Sources */,
@@ -1980,6 +2107,7 @@
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
 				BE9C9AFD2C688CAF000AAF0E /* CompleteToonViewController.swift in Sources */,
+				4839A9FB2C78B30D00FF3250 /* FriendListPopUpBottomSheetViewController.swift in Sources */,
 				489ADEF12BF8E8CE00B070B7 /* SettingSubtitleLabel.swift in Sources */,
 				BE9C9B962C68986F000AAF0E /* CategoryBottomSheetViewController.swift in Sources */,
 				BEE8BCCB2C71FFF5003800E0 /* BottomDiaryEmptyView.swift in Sources */,
@@ -2012,6 +2140,7 @@
 				BE9C9BED2C6898C2000AAF0E /* SplashRepository.swift in Sources */,
 				BE9C9B9E2C68986F000AAF0E /* AlarmTableView.swift in Sources */,
 				BE9C9AED2C688CAF000AAF0E /* CharacterDeleteBSView.swift in Sources */,
+				4839AA082C79D49100FF3250 /* FriendRequestViewController.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
 				BE9C9B022C688CAF000AAF0E /* SelectStyleViewController.swift in Sources */,
 				489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */,
@@ -2019,6 +2148,7 @@
 				486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */,
 				BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
+				4839A9EF2C78A54900FF3250 /* FriendListReactor.swift in Sources */,
 				BEE8BCE12C7202E6003800E0 /* SelectYearMonthView.swift in Sources */,
 				BE9C9B972C68986F000AAF0E /* ContactUsViewController.swift in Sources */,
 				480C165F2BEEFA9F0085A187 /* SocialLoginType.swift in Sources */,
@@ -2029,6 +2159,7 @@
 				BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */,
 				BE9C9BC52C68989F000AAF0E /* ContactUsUseCase.swift in Sources */,
 				BE9C9BBF2C68989F000AAF0E /* LoginRepositoryProtocol.swift in Sources */,
+				4839A9F62C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift in Sources */,
 				BE9C9B402C688D16000AAF0E /* CharacterPickerTableView.swift in Sources */,
 				BE9C9B092C688CAF000AAF0E /* CreateLoadingReactor.swift in Sources */,
 				BE9C9AF82C688CAF000AAF0E /* CharacterAddViewController.swift in Sources */,
@@ -2044,6 +2175,7 @@
 				489FE2C72BC00F9F0033B61D /* BaseTableViewCell.swift in Sources */,
 				486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */,
 				BE9C9AFA2C688CAF000AAF0E /* CharacterEditViewController.swift in Sources */,
+				4839A9F92C78AE5A00FF3250 /* indicatorView.swift in Sources */,
 				BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */,
 				48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */,
 				BE9C9AFE2C688CAF000AAF0E /* CreateLoadingViewController.swift in Sources */,
@@ -2173,7 +2305,7 @@
 				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2S9WHYP486;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2306,7 +2438,7 @@
 				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2S9WHYP486;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2438,7 +2570,7 @@
 				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2S9WHYP486;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2671,6 +2803,14 @@
 				minimumVersion = 10.23.0;
 			};
 		};
+		4839A9FF2C79C83F00FF3250 /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2773,6 +2913,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		4839AA002C79C84000FF3250 /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4839A9FF2C79C83F00FF3250 /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

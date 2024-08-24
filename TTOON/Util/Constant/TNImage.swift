@@ -18,7 +18,7 @@ struct TNImage {
 	
 	// Home Navigation Bar    
     static var homeNavigationLogo = UIImage(named: "navigationLogo")
-    static var homeNavigationAddFriend = UIImage(named: "navigationAddFriend")
+    static var homeNavigationFriendList = UIImage(named: "navigationFriendList")
     static var homeNavigationMenu = UIImage(named: "navigationMenu")
 
     static var TToonLogo = UIImage(named: "TToonLogo")

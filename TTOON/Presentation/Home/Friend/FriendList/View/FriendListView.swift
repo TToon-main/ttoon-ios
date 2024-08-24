@@ -1,5 +1,5 @@
 //
-//  AddFriendView.swift
+//  FriendListView.swift
 //  TTOON
 //
 //  Created by 임승섭 on 8/17/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddFriendView: BaseView {
+class FriendListView: BaseView {
     // MARK: - UI Components
     let noFriendView = NoFriendView()
     

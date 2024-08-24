@@ -9,7 +9,7 @@ import UIKit
 
 protocol FeedSceneCoordinatorProtocol: Coordinator {
     // view
-    func showAddFriendView()
+    func showFriendListView()
 }
 class FeedSceneCoordinator: FeedSceneCoordinatorProtocol {
     // 1.
@@ -37,7 +37,7 @@ class FeedSceneCoordinator: FeedSceneCoordinatorProtocol {
     }
     
     // Protocol Method
-    func showAddFriendView() {
+    func showFriendListView() {
         print(#function)
     }
 }
