@@ -12,6 +12,7 @@ final class ProfileSummaryView: BaseView {
         let view = UIImageView()
         view.layer.cornerRadius = 28
         view.backgroundColor = .grey01
+        view.image =  TNImage.userIcon
         
         return view
     }()
@@ -29,6 +30,7 @@ final class ProfileSummaryView: BaseView {
         let view = UIImageView()
         view.layer.cornerRadius = 9
         view.backgroundColor = .grey01
+        view.image = TNImage.pointIcon
         
         return view
     }()
@@ -45,7 +47,7 @@ final class ProfileSummaryView: BaseView {
     private lazy var pointContainer = {
         let view = UIStackView()
         view.backgroundColor = .clear
-        view.spacing = 8
+        view.spacing = 4
         view.addArrangedSubview(pointImageView)
         view.addArrangedSubview(pointLabel)
         
@@ -55,9 +57,9 @@ final class ProfileSummaryView: BaseView {
     private lazy var profileSettingButton = {
         let view = UIButton()
         view.setTitle("프로필 설정", for: .normal)
-        view.setTitleColor(.grey03, for: .normal)
+        view.setTitleColor(.textMidGrey03, for: .normal)
         view.titleLabel?.font = .body14m
-        view.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        view.setImage(TNImage.arrowSmallLight?.withTintColor(.textMidGrey03), for: .normal)
         view.semanticContentAttribute = .forceRightToLeft
         
         return view

@@ -22,6 +22,9 @@ extension UIColor {
     static var grey07 = UIColor(hexString: "#525463")!
     static var grey08 = UIColor(hexString: "#2B2D36")!
     
+    // text grey
+    static var textMidGrey03 = UIColor(hexString: "#8A8A8A")!
+    
     // point
     static var tnGreen = UIColor(hexString: "#34C184")!
     static var tnOrange = UIColor(hexString: "#FF903F")!

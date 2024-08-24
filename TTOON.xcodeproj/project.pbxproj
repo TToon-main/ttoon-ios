@@ -238,7 +238,6 @@
 		BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */; };
 		BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4568B2BD16572007F5EEC /* SplashReactor.swift */; };
 		BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E502BB70A0C0034FF79 /* .gitignore */; };
-		BEE8BCC82C71FFF5003800E0 /* CalendarSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */; };
 		BEE8BCC92C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB42C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift */; };
 		BEE8BCCA2C71FFF5003800E0 /* TToonCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB52C71FFF5003800E0 /* TToonCalendarCell.swift */; };
 		BEE8BCCB2C71FFF5003800E0 /* BottomDiaryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB72C71FFF5003800E0 /* BottomDiaryEmptyView.swift */; };
@@ -249,14 +248,11 @@
 		BEE8BCD02C71FFF5003800E0 /* HomeCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCBE2C71FFF5003800E0 /* HomeCalendarViewController.swift */; };
 		BEE8BCD12C71FFF5003800E0 /* SelectYearMonthBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCBF2C71FFF5003800E0 /* SelectYearMonthBottomSheetViewController.swift */; };
 		BEE8BCD22C71FFF5003800E0 /* HomeCalendarReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCC12C71FFF5003800E0 /* HomeCalendarReactor.swift */; };
-		BEE8BCD32C71FFF5003800E0 /* FeedSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCC42C71FFF5003800E0 /* FeedSceneCoordinator.swift */; };
 		BEE8BCD52C720106003800E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEE8BCD42C720106003800E0 /* GoogleService-Info.plist */; };
 		BEE8BCDA2C720114003800E0 /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEE8BCD72C720114003800E0 /* Prod.xcconfig */; };
 		BEE8BCDB2C720114003800E0 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEE8BCD82C720114003800E0 /* Dev.xcconfig */; };
 		BEE8BCDC2C720114003800E0 /* Stag.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEE8BCD92C720114003800E0 /* Stag.xcconfig */; };
 		BEE8BCE12C7202E6003800E0 /* SelectYearMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCDD2C7202E6003800E0 /* SelectYearMonthView.swift */; };
-		BEE8BCE22C7202E6003800E0 /* TToonLogHomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCDF2C7202E6003800E0 /* TToonLogHomeNavigationView.swift */; };
-		BEE8BCE62C7202FE003800E0 /* MyPageSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCE32C7202FE003800E0 /* MyPageSceneCoordinator.swift */; };
 		BEE8BCE72C7202FE003800E0 /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCE42C7202FE003800E0 /* SettingCoordinator.swift */; };
 		BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */; };
 		BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */; };
@@ -2171,7 +2167,6 @@
 				BE9C9AFC2C688CAF000AAF0E /* CharacterPickerBSViewController.swift in Sources */,
 				BEE8BCCA2C71FFF5003800E0 /* TToonCalendarCell.swift in Sources */,
 				BE9C9B9D2C68986F000AAF0E /* DeleteAccountReactor.swift in Sources */,
-				BEE8BCE22C7202E6003800E0 /* TToonLogHomeNavigationView.swift in Sources */,
 				BEA33A242BD6AA320065D60C /* SplashErrorReactor.swift in Sources */,
 				BE9C9BE62C6898C2000AAF0E /* SettingAPI.swift in Sources */,
 				BE9C9B452C688D16000AAF0E /* CreateToonCompleteToonCollectionViewCell.swift in Sources */,
@@ -2276,7 +2271,6 @@
 				48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */,
 				BE9C9AFE2C688CAF000AAF0E /* CreateLoadingViewController.swift in Sources */,
 				BE9C9B032C688CAF000AAF0E /* CharacterAddReactor.swift in Sources */,
-				BEE8BCD32C71FFF5003800E0 /* FeedSceneCoordinator.swift in Sources */,
 				BE9C9B052C688CAF000AAF0E /* CharacterEditReactor.swift in Sources */,
 				BE9C9B4A2C688D16000AAF0E /* CreateToonDivider.swift in Sources */,
 				BE9C9BC22C68989F000AAF0E /* DeleteAccountRepositoryProtocol.swift in Sources */,

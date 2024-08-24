@@ -13,7 +13,7 @@ class LoginView: BaseView {
     // MARK: - UI Components
     let logoImageView = {
         let view = UIImageView()
-        view.image = TNImage.TToonLogo
+        view.image = TNImage.ttoonLogo
         view.contentMode = .scaleAspectFit
         return view
     }()
