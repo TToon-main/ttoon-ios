@@ -23,3 +23,11 @@ struct DeleteAccountRequestModel {
 }
 
 // 탈퇴하기 - 응답 데이터 x
+
+// 프로필 조회
+struct UserInfoResponseModel {
+    let nickName: String
+    let profileUrl: URL?
+    let email: String
+    let provider: SocialLoginType
+}

@@ -36,3 +36,20 @@ extension DeleteAccountRequestDTO {
 }
 
 // 탈퇴하기 - 응답 데이터 x
+
+struct UserInfoResponseDTO {
+    let nickName: String
+    let url: String
+    let email: String
+    let provider: String
+}
+extension UserInfoResponseDTO {
+    func toDomain() -> UserInfoResponseModel {
+        let nickName = self.nickName
+        let profileUrl = URL(string: self.url)
+        let email = self.email
+        let provider = SocialLoginType(rawValue: provider)!
+        
+        return UserInfoResponseModel(nickName: nickName, profileUrl: profileUrl, email: email, provider: provider)
+    }
+}

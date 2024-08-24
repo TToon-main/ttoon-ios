@@ -12,6 +12,7 @@ import Moya
 enum SettingAPI {
     case contactUs(dto: ContactUsRequestDTO)
     case deleteAccount(dto: DeleteAccountRequestDTO)
+    case getUserInfo
 }
 
 extension SettingAPI: TargetType {
@@ -25,6 +26,8 @@ extension SettingAPI: TargetType {
             return "/api/ask"
         case .deleteAccount:
             return "/api/revoke"
+        case .getUserInfo:
+            return "/api/profile"
         }
     }
     
@@ -35,6 +38,9 @@ extension SettingAPI: TargetType {
 
         case .deleteAccount:
             return .delete
+            
+        case .getUserInfo:
+            return .get
         }
     }
     
@@ -53,6 +59,9 @@ extension SettingAPI: TargetType {
                 "revokerReason": dto.revokeReason
             ]
             return .requestParameters(parameters: params, encoding: JSONEncoding.prettyPrinted)
+            
+        default:
+            return .requestPlain
         }
     }
     
