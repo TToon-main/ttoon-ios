@@ -148,4 +148,15 @@ extension Reactive where Base: ProfileSetView {
         return base.emailStackView.copyButton.rx.tap
             .compactMap { _ in  return base.emailStackView.infoLabel.text }
     }
+    
+    var textFiledText: Observable<String> {
+        return base.nickNameTextFiled.rx.controlEvent(.allEditingEvents)
+            .compactMap { _ in base.nickNameTextFiled.text }
+    }
+    
+    var truncatedText: Binder<String> {
+        return Binder(base) { view, text in
+            view.nickNameTextFiled.text = text
+        }
+    }
 } 

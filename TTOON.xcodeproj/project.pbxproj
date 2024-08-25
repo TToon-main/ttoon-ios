@@ -265,6 +265,7 @@
 		BEEEF1BB2C7B11E20048CA17 /* ProfileSetReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1BA2C7B11E20048CA17 /* ProfileSetReactor.swift */; };
 		BEEEF1BD2C7B143A0048CA17 /* ProfileSetStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1BC2C7B143A0048CA17 /* ProfileSetStackView.swift */; };
 		BEEEF1BF2C7B1F230048CA17 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1BE2C7B1F230048CA17 /* UITextField+.swift */; };
+		BEEEF1C22C7B32090048CA17 /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1C12C7B32090048CA17 /* ValidationManager.swift */; };
 		BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */; };
 		BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */; };
 		BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8D8172BDFC7880095674D /* TNUrl.swift */; };
@@ -563,6 +564,7 @@
 		BEEEF1BA2C7B11E20048CA17 /* ProfileSetReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetReactor.swift; sourceTree = "<group>"; };
 		BEEEF1BC2C7B143A0048CA17 /* ProfileSetStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetStackView.swift; sourceTree = "<group>"; };
 		BEEEF1BE2C7B1F230048CA17 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		BEEEF1C12C7B32090048CA17 /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashErrorViewController.swift; sourceTree = "<group>"; };
 		BEF8D8172BDFC7880095674D /* TNUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNUrl.swift; sourceTree = "<group>"; };
@@ -875,6 +877,7 @@
 		489FE2B82BC00E830033B61D /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				BEEEF1C02C7B31FF0048CA17 /* Manager */,
 				BE9C9B5B2C689308000AAF0E /* Protocol */,
 				BE4C7CA92BFF39D200AB3D09 /* Enums */,
 				489FE2BE2BC00F440033B61D /* Base */,
@@ -1826,6 +1829,14 @@
 			path = TTOON/Presentation/Setting/Coordinator;
 			sourceTree = SOURCE_ROOT;
 		};
+		BEEEF1C02C7B31FF0048CA17 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				BEEEF1C12C7B32090048CA17 /* ValidationManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		BEF48D5C2BCA5CCC0056E31E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -2169,6 +2180,7 @@
 				BE9C9B482C688D16000AAF0E /* CreateToonCompleteToonResultView.swift in Sources */,
 				BEE8BCD02C71FFF5003800E0 /* HomeCalendarViewController.swift in Sources */,
 				BE9C9BA72C68986F000AAF0E /* MyPageReactor.swift in Sources */,
+				BEEEF1C22C7B32090048CA17 /* ValidationManager.swift in Sources */,
 				489ADEED2BF8E72700B070B7 /* SettingTitleLabel.swift in Sources */,
 				BE9C9AF02C688CAF000AAF0E /* CharacterPickerBSView.swift in Sources */,
 				BE9C9B0B2C688CAF000AAF0E /* SelectStyleReactor.swift in Sources */,

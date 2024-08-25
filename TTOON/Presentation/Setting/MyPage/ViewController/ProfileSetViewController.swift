@@ -61,12 +61,22 @@ extension ProfileSetViewController: View {
             .map { ProfileSetReactor.Action.copyButtonTap($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        profileSetView.rx.textFiledText
+            .map { ProfileSetReactor.Action.truncateNickName($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(_ reactor: ProfileSetReactor) {
         reactor.state
             .compactMap { $0.profileInfo }
             .bind(to: profileSetView.rx.model)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .compactMap { $0.truncatedText }
+            .bind(to: profileSetView.rx.truncatedText)
             .disposed(by: disposeBag)
     }
 }

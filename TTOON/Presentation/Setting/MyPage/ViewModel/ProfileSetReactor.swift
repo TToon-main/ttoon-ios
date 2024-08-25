@@ -20,16 +20,19 @@ final class ProfileSetReactor: Reactor {
     enum Action {
         case viewWillAppear
         case copyButtonTap(String)
+        case truncateNickName(String)
     }
     
     // Action과 State의 매개체
     enum Mutation {
         case setUpProfile(SetProfileResponseModel)
+        case setTruncateNickName(String)
     }
     
     // 뷰에 전달할 상태
     struct State {
         var profileInfo: SetProfileResponseModel? = .none
+        var truncatedText: String? = .none
     }
     
     // 전달할 상태의 초기값
@@ -43,6 +46,10 @@ final class ProfileSetReactor: Reactor {
         case  .copyButtonTap(let email): 
             copyEmail(email: email)
             return .never()
+            
+        case .truncateNickName(let nickName):
+            let truncatedText = truncateText(text: nickName)
+            return .just(.setTruncateNickName(truncatedText)) 
         }
     }
     
@@ -52,6 +59,9 @@ final class ProfileSetReactor: Reactor {
         switch mutation {
         case .setUpProfile(let model):
             newState.profileInfo = model
+
+        case .setTruncateNickName(let nickName):
+            newState.truncatedText = nickName
         }
         
         return newState
@@ -67,5 +77,9 @@ extension ProfileSetReactor {
     
     func copyEmail(email: String) {
         useCase.copyToClipboard(text: email)
+    }
+    
+    func truncateText(text: String) -> String {
+        return useCase.truncateText(text)
     }
 }

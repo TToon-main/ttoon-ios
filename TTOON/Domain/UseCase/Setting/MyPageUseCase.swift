@@ -31,4 +31,8 @@ class MyPageUseCase {
     func copyToClipboard(text: String) {
         UIPasteboard.general.string = text
     }
+    
+    func truncateText(_ text: String, limit: Int = 10) -> String {
+        ValidationManager.shared.truncateText(text, limit: limit)
+    }
 }
