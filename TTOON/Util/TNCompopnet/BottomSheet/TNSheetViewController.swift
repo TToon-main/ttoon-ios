@@ -67,6 +67,7 @@ class TNSheetViewController: BaseViewController {
     
     override func configures() {
         view.backgroundColor = .white
+        view.layer.cornerRadius = 25
         bind()
     }
     
@@ -94,6 +95,11 @@ class TNSheetViewController: BaseViewController {
     }
 
     override func viewDidLayoutSubviews() {
+        view.snp.makeConstraints { 
+            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().offset(-11)
+        }
+        
         container.snp.makeConstraints {
             $0.top.equalToSuperview().offset(44)
             $0.horizontalEdges.equalToSuperview().inset(21)

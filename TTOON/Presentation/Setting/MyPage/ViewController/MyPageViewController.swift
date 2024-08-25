@@ -15,7 +15,7 @@ final class MyPageViewController: BaseViewController {
     // MARK: - Properties
     private lazy var appSetSection: MyPageTableViewDataSource = {
         let notificationRow = MyPageTableViewCellDataSource(title: "알림 설정", info: "On")
-        let languageRow = MyPageTableViewCellDataSource(title: "언어 설정", info: "한국어")
+        let languageRow = MyPageTableViewCellDataSource(title: "언어 설정", info: setUpLang())
         
         return MyPageTableViewDataSource(sectionTitle: "설정", cellData: [notificationRow, languageRow])
     }()
@@ -73,10 +73,10 @@ final class MyPageViewController: BaseViewController {
     }
     
     func currentAppVersion() -> String {
-      if let info: [String: Any] = Bundle.main.infoDictionary, let currentVersion: String = info["CFBundleShortVersionString"] as? String {
+        if let info: [String: Any] = Bundle.main.infoDictionary, let currentVersion: String = info["CFBundleShortVersionString"] as? String {
             return currentVersion
-      }
-      return "1.0"
+        }
+        return "1.0"
     }
     
     private func setNavigationItem() {
@@ -94,7 +94,6 @@ extension MyPageViewController: View {
     
     func bindAction(reactor: MyPageReactor) {
         rx.viewWillAppear
-            .do { _ in print("바인딩 성공")}
             .map { _ in MyPageReactor.Action.viewWillAppear }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
@@ -106,6 +105,16 @@ extension MyPageViewController: View {
             .compactMap { $0 }
             .bind(to: myPageView.rx.userInfo)
             .disposed(by: disposeBag)
+    }
+    
+    func setUpLang() -> String {
+        guard let languageCode = Locale.current.language.languageCode?.identifier else { return "한국어" }
+        
+        if languageCode == "ko" {
+            return "한국어"
+        } else {
+            return "Eng"
+        }
     }
 }
 
@@ -168,7 +177,7 @@ extension MyPageViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPageTableViewCell.IDF, for: indexPath) as? MyPageTableViewCell else {
             return UITableViewCell()
         }
-    
+        
         let data = myPageTableViewDataSource[indexPath.section].cellData[indexPath.row]
         cell.setCell(data)
         
@@ -181,31 +190,30 @@ extension MyPageViewController {
         }
         
         if indexPath == IndexPath(row: 0, section: 0) {
-            let vc = AlarmViewController()
-            present(vc, animated: true)
+            presentAlarmVC()
         }
         
         if indexPath == IndexPath(row: 1, section: 0) {
-            guard let cell = tableView.cellForRow(at: indexPath) as? MyPageTableViewCell else {
-                return
-            }
-            
-            var index = 0
-            
-            if cell.infoLabel.text == "한국어" {
-                index = 1
-            } else {
-                index = 0
-            }
-            
-            TNBottomSheet(self)
-                .setDataSource(self.languageDataSource)
-                .setSelectedIndex(index)
-                .setTitle("언어 설정을 변경해주세요")
-                .isHiddenConfirmBtn(true)
-                .setHeight(241)
-                .present()
+            presentChangeLangVC()
         }
+    }
+    
+    private func presentChangeLangVC() {
+        let viewControllerToPresent = MyPageChangeLangViewController()
+        
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.detents = [.custom { context in return 265 } ]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        present(viewControllerToPresent, animated: true, completion: nil)
+    }
+    
+    private func presentAlarmVC() {
+        let vc = AlarmViewController()
+        present(vc, animated: true)
     }
     
     func presetLogoutAlert() {

@@ -258,6 +258,8 @@
 		BEEEF1A82C7A46340048CA17 /* MyPageRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1A72C7A46340048CA17 /* MyPageRepositoryProtocol.swift */; };
 		BEEEF1AD2C7A48910048CA17 /* MyPageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1AC2C7A48910048CA17 /* MyPageRepository.swift */; };
 		BEEEF1B12C7AFEF20048CA17 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1B02C7AFEF20048CA17 /* UIImageView+.swift */; };
+		BEEEF1B32C7B02240048CA17 /* MyPageChangeLangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1B22C7B02240048CA17 /* MyPageChangeLangView.swift */; };
+		BEEEF1B52C7B034F0048CA17 /* MyPageChangeLangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1B42C7B034F0048CA17 /* MyPageChangeLangViewController.swift */; };
 		BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */; };
 		BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */; };
 		BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8D8172BDFC7880095674D /* TNUrl.swift */; };
@@ -549,6 +551,8 @@
 		BEEEF1A72C7A46340048CA17 /* MyPageRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BEEEF1AC2C7A48910048CA17 /* MyPageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRepository.swift; sourceTree = "<group>"; };
 		BEEEF1B02C7AFEF20048CA17 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		BEEEF1B22C7B02240048CA17 /* MyPageChangeLangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageChangeLangView.swift; sourceTree = "<group>"; };
+		BEEEF1B42C7B034F0048CA17 /* MyPageChangeLangViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageChangeLangViewController.swift; sourceTree = "<group>"; };
 		BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashErrorViewController.swift; sourceTree = "<group>"; };
 		BEF8D8172BDFC7880095674D /* TNUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNUrl.swift; sourceTree = "<group>"; };
@@ -1403,6 +1407,7 @@
 			children = (
 				BE9C9B8A2C68986F000AAF0E /* SubViews */,
 				BE9C9B8B2C68986F000AAF0E /* MyPageView.swift */,
+				BEEEF1B22C7B02240048CA17 /* MyPageChangeLangView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1412,6 +1417,7 @@
 			children = (
 				BE9C9B8D2C68986F000AAF0E /* AlarmViewController.swift */,
 				BE9C9B8E2C68986F000AAF0E /* MyPageViewController.swift */,
+				BEEEF1B42C7B034F0048CA17 /* MyPageChangeLangViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2139,6 +2145,7 @@
 				BEEEF1A62C7A461B0048CA17 /* MyPageUseCase.swift in Sources */,
 				BE9C9B9F2C68986F000AAF0E /* AlarmTableViewCell.swift in Sources */,
 				BE9C9BEA2C6898C2000AAF0E /* SettingDTO.swift in Sources */,
+				BEEEF1B52C7B034F0048CA17 /* MyPageChangeLangViewController.swift in Sources */,
 				BE9C9BC62C68989F000AAF0E /* DeleteAccountUseCase.swift in Sources */,
 				BEEEF1AD2C7A48910048CA17 /* MyPageRepository.swift in Sources */,
 				BE9C9B002C688CAF000AAF0E /* CreateToonBaseViewController.swift in Sources */,
@@ -2252,6 +2259,7 @@
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
 				480D39702C85E843009C26DA /* ReceivedFriendRequestTableViewCell.swift in Sources */,
 				BEE8BCE12C7202E6003800E0 /* SelectYearMonthView.swift in Sources */,
+				BEEEF1B32C7B02240048CA17 /* MyPageChangeLangView.swift in Sources */,
 				BE9C9B972C68986F000AAF0E /* ContactUsViewController.swift in Sources */,
 				480C165F2BEEFA9F0085A187 /* SocialLoginType.swift in Sources */,
 				BE9C9AEE2C688CAF000AAF0E /* CharacterEditorView.swift in Sources */,

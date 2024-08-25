@@ -37,7 +37,6 @@ final class MyPageReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .viewWillAppear:
-            print("실행")
             return userInfo()
                 .map { Mutation.setUpUserInfo($0) } 
         }

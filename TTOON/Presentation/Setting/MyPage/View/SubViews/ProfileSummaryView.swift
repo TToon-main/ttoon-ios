@@ -78,12 +78,6 @@ final class ProfileSummaryView: BaseView {
             $0.size.equalTo(56)
         }
         
-        profileLabel.snp.makeConstraints {
-            $0.leading.equalTo(profileImageView.snp.trailing).offset(16)
-            $0.trailing.equalToSuperview().inset(110)
-            $0.top.equalTo(profileImageView)
-        }
-        
         pointImageView.snp.makeConstraints {
             $0.size.equalTo(18)
         }
@@ -96,6 +90,12 @@ final class ProfileSummaryView: BaseView {
         profileSettingButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(16)
             $0.top.equalTo(profileLabel.snp.top).offset(16)
+        }
+        
+        profileLabel.snp.makeConstraints {
+            $0.leading.equalTo(profileImageView.snp.trailing).offset(16)
+            $0.trailing.equalTo(profileSettingButton.snp.leading).offset(-25)
+            $0.top.equalTo(profileImageView)
         }
     }   
 }
