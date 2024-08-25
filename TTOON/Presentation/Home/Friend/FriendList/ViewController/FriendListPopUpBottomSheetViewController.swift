@@ -8,13 +8,38 @@
 import UIKit
 
 class FriendListPopUpBottomSheetViewController: BaseViewController {
-    let bottomSheetView = FriendListPopUpBottomSheetView(
-        title: "‘발랄한 고양이'님과\n친구를 끊으시겠어요?",
-        subTitle: "친구를 추가하면 친구와 서로의 기록을\n살펴보고 반응해줄 수 있어요",
+    var bottomSheetView = FriendListPopUpBottomSheetView(
+        title: "",
+        subTitle: "",
         image: TNImage.highFive_color!,
-        confirmButtonTitle: "하이",
+        confirmButtonTitle: "",
         cancelButtonTitle: nil
     )
+    
+    init(
+        title: String,
+        subTitle: String,
+        image: UIImage,
+        confirmButtonTitle: String,
+        cancelButtonTitle: String?
+    ) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.bottomSheetView = FriendListPopUpBottomSheetView(
+            title: title,
+            subTitle: subTitle,
+            image: image,
+            confirmButtonTitle: confirmButtonTitle,
+            cancelButtonTitle: cancelButtonTitle
+        )
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     
     override func addSubViews() {
         super.addSubViews()
