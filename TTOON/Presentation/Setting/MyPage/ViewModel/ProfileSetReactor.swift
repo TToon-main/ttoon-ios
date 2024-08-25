@@ -7,6 +7,7 @@
 
 import ReactorKit
 import RxSwift
+import UIKit
 
 final class ProfileSetReactor: Reactor {
     let useCase: MyPageUseCase
@@ -18,6 +19,7 @@ final class ProfileSetReactor: Reactor {
     // 뷰에서 입력받은 유저 이벤트
     enum Action {
         case viewWillAppear
+        case copyButtonTap(String)
     }
     
     // Action과 State의 매개체
@@ -35,12 +37,18 @@ final class ProfileSetReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .viewWillAppear: userInfo().map { Mutation.setUpProfile($0)}
+        case .viewWillAppear: 
+            return userInfo().map { Mutation.setUpProfile($0)}
+            
+        case  .copyButtonTap(let email): 
+            copyEmail(email: email)
+            return .never()
         }
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
+        
         switch mutation {
         case .setUpProfile(let model):
             newState.profileInfo = model
@@ -55,5 +63,9 @@ extension ProfileSetReactor {
         return useCase.getProfileInfo()
             .map { $0.element }
             .compactMap { $0 }
+    }
+    
+    func copyEmail(email: String) {
+        useCase.copyToClipboard(text: email)
     }
 }

@@ -143,4 +143,9 @@ extension Reactive where Base: ProfileSetView {
             view.emailStackView.setUp(model.emailStackInfo)
         }
     }
+    
+    var copyButtonTap: Observable<String> {
+        return base.emailStackView.copyButton.rx.tap
+            .compactMap { _ in  return base.emailStackView.infoLabel.text }
+    }
 } 

@@ -5,7 +5,7 @@
 //  Created by Dongwan Ryoo on 8/25/24.
 //
 
-import Foundation
+import UIKit
 
 import RxSwift
 
@@ -26,5 +26,9 @@ class MyPageUseCase {
         return repository.getUserInfo()
             .map { $0.toDomain() }
             .materialize()
+    }
+    
+    func copyToClipboard(text: String) {
+        UIPasteboard.general.string = text
     }
 }

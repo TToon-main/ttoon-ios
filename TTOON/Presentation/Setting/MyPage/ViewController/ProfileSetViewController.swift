@@ -56,6 +56,11 @@ extension ProfileSetViewController: View {
             .map { _ in ProfileSetReactor.Action.viewWillAppear }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        profileSetView.rx.copyButtonTap
+            .map { ProfileSetReactor.Action.copyButtonTap($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(_ reactor: ProfileSetReactor) {
