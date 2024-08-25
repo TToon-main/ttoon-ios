@@ -7,13 +7,13 @@
 
 import UIKit
 
-struct ProfileStackModel {
-    let title: String
-    let provider: SocialLoginType?
-    let isHiddenCopyButton: Bool
-}
-
 class ProfileSetStackView: BaseView {
+    private var infoLabelWidth: CGFloat = 0 {
+        didSet {
+            layoutIfNeeded()
+        }
+    }
+    
     let titleLabel = {
         let view = UILabel()
         view.textColor = .grey08
@@ -44,6 +44,7 @@ class ProfileSetStackView: BaseView {
         view.setTitle("복사", for: .normal)
         view.backgroundColor = .grey01
         view.layer.cornerRadius = 8
+        view.isHidden = true
         
         return view
     }()
@@ -81,6 +82,10 @@ class ProfileSetStackView: BaseView {
             $0.height.equalTo(30)
         }
         
+        infoLabel.snp.makeConstraints { 
+            $0.width.lessThanOrEqualTo(180)
+        }
+        
         container.snp.makeConstraints { 
             $0.height.equalTo(22)
             $0.edges.equalToSuperview()
@@ -88,11 +93,12 @@ class ProfileSetStackView: BaseView {
     }
     
     func setUp(_ model: ProfileStackModel) {
-        titleLabel.text = model.title
+        infoLabel.text = model.title
         copyButton.isHidden = model.isHiddenCopyButton
         
-        if let type = model.provider {
+        if let type = model.provider {            
             providerImage.isHidden = false
+            providerImage.image = type.buttonImage
         }
     }
 }

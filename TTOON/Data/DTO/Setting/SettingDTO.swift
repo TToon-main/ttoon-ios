@@ -59,4 +59,17 @@ extension UserInfoResponseDTO {
             point: point
         )
     }
+    
+    func toDomain() -> SetProfileResponseModel {
+        let profileUrl = URL(string: self.imageUrl ?? "") 
+        let provider = SocialLoginType(rawValue: provider)!
+        
+        let nameStackInfo =  ProfileStackModel(title: "실명", provider: nil, isHiddenCopyButton: true)
+        let emailStackInfo =  ProfileStackModel(title: email, provider: provider, isHiddenCopyButton: false)
+        
+        return SetProfileResponseModel(nickName: nickName,
+                                       profileUrl: profileUrl, 
+                                       nameStackInfo: nameStackInfo, 
+                                       emailStackInfo: emailStackInfo)
+    }
 }

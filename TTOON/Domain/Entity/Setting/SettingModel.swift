@@ -32,3 +32,16 @@ struct UserInfoResponseModel {
     let provider: SocialLoginType
     let point: String
 }
+
+struct SetProfileResponseModel {
+    let nickName: String
+    let profileUrl: URL?
+    let nameStackInfo: ProfileStackModel
+    let emailStackInfo: ProfileStackModel
+}
+
+struct ProfileStackModel {
+    let title: String
+    let provider: SocialLoginType?
+    let isHiddenCopyButton: Bool
+}

@@ -228,7 +228,9 @@ extension MyPageViewController {
     }
     
     private func presentSetProfileVC() {
-        let reactor = ProfileSetReactor()
+        let repo = MyPageRepository()
+        let useCase = MyPageUseCase(repository: repo)
+        let reactor = ProfileSetReactor(useCase: useCase)
         let vc = ProfileSetViewController(profileSetReactor: reactor)
         navigationController?.pushViewController(vc, animated: true)
     }

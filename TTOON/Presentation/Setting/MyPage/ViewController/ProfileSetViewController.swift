@@ -47,13 +47,21 @@ final class ProfileSetViewController: BaseViewController {
 
 extension ProfileSetViewController: View {
     func bind(reactor: ProfileSetReactor) {
-        bindAction(reactor)
         bindState(reactor)
+        bindAction(reactor)
     }
     
     func bindAction(_ reactor: ProfileSetReactor) {
+        rx.viewWillAppear
+            .map { _ in ProfileSetReactor.Action.viewWillAppear }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(_ reactor: ProfileSetReactor) {
+        reactor.state
+            .compactMap { $0.profileInfo }
+            .bind(to: profileSetView.rx.model)
+            .disposed(by: disposeBag)
     }
 }

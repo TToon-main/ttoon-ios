@@ -21,4 +21,10 @@ class MyPageUseCase {
             .map { $0.toDomain() }
             .materialize()
     }
+    
+    func getProfileInfo() -> Observable<Event<SetProfileResponseModel>> {
+        return repository.getUserInfo()
+            .map { $0.toDomain() }
+            .materialize()
+    }
 }

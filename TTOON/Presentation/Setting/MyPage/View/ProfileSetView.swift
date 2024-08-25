@@ -7,6 +7,9 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 class ProfileSetView: BaseView {
     let profileImageView = {
         let view = UIImageView()
@@ -38,6 +41,7 @@ class ProfileSetView: BaseView {
         view.layer.cornerRadius = 8
         view.addLeftPadding(20)
         view.tintColor = .tnOrange
+        view.clearButtonMode = .always
         
         return view
     }()
@@ -129,3 +133,14 @@ class ProfileSetView: BaseView {
         }
     }
 }
+
+extension Reactive where Base: ProfileSetView {
+    var model: Binder<SetProfileResponseModel> {
+        return Binder(base) { view, model  in            
+            view.profileImageView.load(url: model.profileUrl)
+            view.nickNameTextFiled.text = model.nickName
+            view.nameStackView.setUp(model.nameStackInfo)
+            view.emailStackView.setUp(model.emailStackInfo)
+        }
+    }
+} 
