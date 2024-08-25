@@ -26,8 +26,6 @@ class FriendListPopUpBottomSheetView: BaseView {
     }
     
     // MARK: - UI Component
-    let indicatorView = IndicatorView()
-    
     let titleLabel = {
         let view = UILabel()
         view.font = .title20b
@@ -82,7 +80,7 @@ class FriendListPopUpBottomSheetView: BaseView {
     override func addSubViews() {
         super.addSubViews()
         
-        [indicatorView, titleLabel, subTitleLabel, buttonStackView, iconImageView].forEach{ self.addSubview($0)
+        [titleLabel, subTitleLabel, buttonStackView, iconImageView].forEach{ self.addSubview($0)
         }
     }
     
@@ -103,13 +101,6 @@ class FriendListPopUpBottomSheetView: BaseView {
             .init(800),
             for: .vertical
         )
-        
-        indicatorView.snp.makeConstraints { make in
-            make.height.equalTo(4)
-            make.width.equalTo(49)
-            make.centerX.equalTo(self)
-            make.top.equalTo(self).inset(12)
-        }
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(self).inset(44)

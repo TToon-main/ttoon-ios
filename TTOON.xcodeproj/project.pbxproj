@@ -38,6 +38,10 @@
 		4839A9FE2C79C7CC00FF3250 /* FriendTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9FD2C79C7CC00FF3250 /* FriendTabViewController.swift */; };
 		4839AA012C79C84000FF3250 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 4839AA002C79C84000FF3250 /* Tabman */; };
 		4839AA082C79D49100FF3250 /* FriendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839AA072C79D49100FF3250 /* FriendRequestViewController.swift */; };
+		4839AA0C2C79DDEB00FF3250 /* FriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839AA0B2C79DDEB00FF3250 /* FriendListTableViewCell.swift */; };
+		4839AA0E2C79DE1F00FF3250 /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839AA0D2C79DE1F00FF3250 /* UserListTableViewCell.swift */; };
+		4839AA102C79DE6100FF3250 /* ReceivedFriendRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839AA0F2C79DE6100FF3250 /* ReceivedFriendRequestTableViewCell.swift */; };
+		4839AA122C79DE9E00FF3250 /* TableViewProfileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839AA112C79DE9E00FF3250 /* TableViewProfileInfoView.swift */; };
 		486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */; };
 		486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */; };
 		489ADEED2BF8E72700B070B7 /* SettingTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */; };
@@ -282,6 +286,10 @@
 		4839A9FA2C78B30D00FF3250 /* FriendListPopUpBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListPopUpBottomSheetViewController.swift; sourceTree = "<group>"; };
 		4839A9FD2C79C7CC00FF3250 /* FriendTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTabViewController.swift; sourceTree = "<group>"; };
 		4839AA072C79D49100FF3250 /* FriendRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestViewController.swift; sourceTree = "<group>"; };
+		4839AA0B2C79DDEB00FF3250 /* FriendListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListTableViewCell.swift; sourceTree = "<group>"; };
+		4839AA0D2C79DE1F00FF3250 /* UserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
+		4839AA0F2C79DE6100FF3250 /* ReceivedFriendRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedFriendRequestTableViewCell.swift; sourceTree = "<group>"; };
+		4839AA112C79DE9E00FF3250 /* TableViewProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewProfileInfoView.swift; sourceTree = "<group>"; };
 		486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTitleLabel.swift; sourceTree = "<group>"; };
@@ -597,6 +605,7 @@
 		4839A9EB2C78A54900FF3250 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4839AA0A2C79DDBE00FF3250 /* Cell */,
 				4839A9EC2C78A54900FF3250 /* FriendListView.swift */,
 			);
 			path = View;
@@ -616,6 +625,7 @@
 			children = (
 				4839A9F32C78A56B00FF3250 /* NoFriendView.swift */,
 				4839A9F52C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift */,
+				4839AA112C79DE9E00FF3250 /* TableViewProfileInfoView.swift */,
 			);
 			path = FriendList;
 			sourceTree = "<group>";
@@ -676,6 +686,16 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4839AA0A2C79DDBE00FF3250 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4839AA0B2C79DDEB00FF3250 /* FriendListTableViewCell.swift */,
+				4839AA0D2C79DE1F00FF3250 /* UserListTableViewCell.swift */,
+				4839AA0F2C79DE6100FF3250 /* ReceivedFriendRequestTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		4883564A2BEF422A005DC0A6 /* Recovered References */ = {
@@ -2007,6 +2027,7 @@
 				BE6011732BEF348500F8FCEA /* TNAlertViewController.swift in Sources */,
 				BE8884172C567227003EC2A3 /* CharacterEditType.swift in Sources */,
 				BEE8BCCE2C71FFF5003800E0 /* SelectYearMonthBottomSheetView.swift in Sources */,
+				4839AA0E2C79DE1F00FF3250 /* UserListTableViewCell.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
 				BE9C9B472C688D16000AAF0E /* CreateToonCompleteToonResultImageView.swift in Sources */,
 				BE78BEF32C25C5EE000A5D11 /* UIViewController+.swift in Sources */,
@@ -2071,6 +2092,7 @@
 				BEA33A242BD6AA320065D60C /* SplashErrorReactor.swift in Sources */,
 				BE9C9BE62C6898C2000AAF0E /* SettingAPI.swift in Sources */,
 				BE9C9B452C688D16000AAF0E /* CreateToonCompleteToonCollectionViewCell.swift in Sources */,
+				4839AA102C79DE6100FF3250 /* ReceivedFriendRequestTableViewCell.swift in Sources */,
 				BE6011752BEF34A300F8FCEA /* TNAlertView.swift in Sources */,
 				BE3418ED2BF0B25900E17CC5 /* TNSheetCell.swift in Sources */,
 				489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */,
@@ -2089,6 +2111,7 @@
 				BE9C9B942C68986F000AAF0E /* CategoryBottomSheetView.swift in Sources */,
 				BE9C9AF62C688CAF000AAF0E /* EnterInfoView.swift in Sources */,
 				BE9C9BA42C68986F000AAF0E /* MyPageView.swift in Sources */,
+				4839AA0C2C79DDEB00FF3250 /* FriendListTableViewCell.swift in Sources */,
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
 				BE9C9AFD2C688CAF000AAF0E /* CompleteToonViewController.swift in Sources */,
@@ -2145,6 +2168,7 @@
 				BE9C9BBF2C68989F000AAF0E /* LoginRepositoryProtocol.swift in Sources */,
 				4839A9F62C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift in Sources */,
 				BE9C9B402C688D16000AAF0E /* CharacterPickerTableView.swift in Sources */,
+				4839AA122C79DE9E00FF3250 /* TableViewProfileInfoView.swift in Sources */,
 				BE9C9B092C688CAF000AAF0E /* CreateLoadingReactor.swift in Sources */,
 				BE9C9AF82C688CAF000AAF0E /* CharacterAddViewController.swift in Sources */,
 				BE9C9AFB2C688CAF000AAF0E /* CharacterModifyViewController.swift in Sources */,
@@ -2225,6 +2249,7 @@
 /* Begin XCBuildConfiguration section */
 		BE36CFB32BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD72C720114003800E0 /* Prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -2283,13 +2308,14 @@
 		};
 		BE36CFB62BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD72C720114003800E0 /* Prod.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2S9WHYP486;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2322,6 +2348,7 @@
 		};
 		BE36CFB92BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD72C720114003800E0 /* Prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2341,6 +2368,7 @@
 		};
 		BE36CFBC2BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD72C720114003800E0 /* Prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2358,6 +2386,7 @@
 		};
 		BE4C7C962BFF2C2900AB3D09 /* DEV */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD82C720114003800E0 /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -2416,13 +2445,14 @@
 		};
 		BE4C7C972BFF2C2900AB3D09 /* DEV */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD82C720114003800E0 /* Dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2S9WHYP486;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2454,6 +2484,7 @@
 		};
 		BE4C7C982BFF2C2900AB3D09 /* DEV */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD82C720114003800E0 /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2473,6 +2504,7 @@
 		};
 		BE4C7C992BFF2C2900AB3D09 /* DEV */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD82C720114003800E0 /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2490,6 +2522,7 @@
 		};
 		BE4C7C9A2BFF2C2F00AB3D09 /* STAG */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD92C720114003800E0 /* Stag.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -2548,13 +2581,14 @@
 		};
 		BE4C7C9B2BFF2C2F00AB3D09 /* STAG */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD92C720114003800E0 /* Stag.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2S9WHYP486;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2587,6 +2621,7 @@
 		};
 		BE4C7C9C2BFF2C2F00AB3D09 /* STAG */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD92C720114003800E0 /* Stag.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2606,6 +2641,7 @@
 		};
 		BE4C7C9D2BFF2C2F00AB3D09 /* STAG */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD92C720114003800E0 /* Stag.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2632,7 +2668,7 @@
 				BE4C7C962BFF2C2900AB3D09 /* DEV */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = PROD;
+			defaultConfigurationName = DEV;
 		};
 		BE36CFB42BAFF58A0017F94E /* Build configuration list for PBXNativeTarget "TTOON" */ = {
 			isa = XCConfigurationList;
@@ -2642,7 +2678,7 @@
 				BE4C7C972BFF2C2900AB3D09 /* DEV */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = PROD;
+			defaultConfigurationName = DEV;
 		};
 		BE36CFB72BAFF58A0017F94E /* Build configuration list for PBXNativeTarget "TTOONTests" */ = {
 			isa = XCConfigurationList;
@@ -2652,7 +2688,7 @@
 				BE4C7C982BFF2C2900AB3D09 /* DEV */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = PROD;
+			defaultConfigurationName = DEV;
 		};
 		BE36CFBA2BAFF58A0017F94E /* Build configuration list for PBXNativeTarget "TTOONUITests" */ = {
 			isa = XCConfigurationList;
@@ -2662,7 +2698,7 @@
 				BE4C7C992BFF2C2900AB3D09 /* DEV */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = PROD;
+			defaultConfigurationName = DEV;
 		};
 /* End XCConfigurationList section */
 
