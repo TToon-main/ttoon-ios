@@ -53,10 +53,8 @@
 		4839A9F42C78A56B00FF3250 /* NoFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9F32C78A56B00FF3250 /* NoFriendView.swift */; };
 		4839A9F62C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9F52C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift */; };
 		4839A9F92C78AE5A00FF3250 /* indicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9F82C78AE5A00FF3250 /* indicatorView.swift */; };
-		4839A9FB2C78B30D00FF3250 /* FriendListPopUpBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9FA2C78B30D00FF3250 /* FriendListPopUpBottomSheetViewController.swift */; };
-		4839A9FE2C79C7CC00FF3250 /* FriendTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9FD2C79C7CC00FF3250 /* FriendTabViewController.swift */; };
 		4839AA012C79C84000FF3250 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 4839AA002C79C84000FF3250 /* Tabman */; };
-		4839AA082C79D49100FF3250 /* FriendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839AA072C79D49100FF3250 /* FriendRequestViewController.swift */; };
+		4839AA122C79DE9E00FF3250 /* TableViewProfileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839AA112C79DE9E00FF3250 /* TableViewProfileInfoView.swift */; };
 		4839AA172C7B153C00FF3250 /* FriendAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839AA162C7B153C00FF3250 /* FriendAPI.swift */; };
 		486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */; };
 		486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */; };
@@ -334,9 +332,8 @@
 		4839A9F32C78A56B00FF3250 /* NoFriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoFriendView.swift; sourceTree = "<group>"; };
 		4839A9F52C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListPopUpBottomSheetView.swift; sourceTree = "<group>"; };
 		4839A9F82C78AE5A00FF3250 /* indicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = indicatorView.swift; sourceTree = "<group>"; };
-		4839A9FA2C78B30D00FF3250 /* FriendListPopUpBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListPopUpBottomSheetViewController.swift; sourceTree = "<group>"; };
-		4839A9FD2C79C7CC00FF3250 /* FriendTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTabViewController.swift; sourceTree = "<group>"; };
-		4839AA072C79D49100FF3250 /* FriendRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestViewController.swift; sourceTree = "<group>"; };
+		4839AA112C79DE9E00FF3250 /* TableViewProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewProfileInfoView.swift; sourceTree = "<group>"; };
+		4839AA162C7B153C00FF3250 /* FriendAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAPI.swift; sourceTree = "<group>"; };
 		486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTitleLabel.swift; sourceTree = "<group>"; };
@@ -817,48 +814,150 @@
 		4839AA132C7B14F300FF3250 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				4839AA152C7B153300FF3250 /* Friend */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		4839AA152C7B153300FF3250 /* Friend */ = {
-			isa = PBXGroup;
-			children = (
-				4839AA162C7B153C00FF3250 /* FriendAPI.swift */,
-		4839A9E82C78A54900FF3250 /* Friend */ = {
-			isa = PBXGroup;
-			children = (
-				4839AA032C79D47700FF3250 /* FriendRequest */,
-				4839AA022C79D46A00FF3250 /* FriendList */,
-				4839A9FC2C79C79E00FF3250 /* Tabman */,
+				480D397C2C8877A2009C26DA /* SearchFriend */,
+				480D395B2C85E843009C26DA /* ReceivedFriendRequest */,
+				480D39602C85E843009C26DA /* FriendList */,
+				480D396C2C85E843009C26DA /* Tabman */,
 			);
 			path = Friend;
 			sourceTree = "<group>";
 		};
-		4839A9E92C78A54900FF3250 /* ViewModel */ = {
+		480D395B2C85E843009C26DA /* ReceivedFriendRequest */ = {
 			isa = PBXGroup;
 			children = (
-				4839A9EA2C78A54900FF3250 /* FriendListReactor.swift */,
+				480D395C2C85E843009C26DA /* ViewModel */,
+				480D395D2C85E843009C26DA /* View */,
+				480D395E2C85E843009C26DA /* ViewController */,
+			);
+			path = ReceivedFriendRequest;
+			sourceTree = "<group>";
+		};
+		480D395C2C85E843009C26DA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				480D397A2C85FCDB009C26DA /* ReceivedFriendRequestReactor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		4839A9EB2C78A54900FF3250 /* View */ = {
+		480D395D2C85E843009C26DA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4839A9EC2C78A54900FF3250 /* FriendListView.swift */,
+				480D39792C85FB9A009C26DA /* Cell */,
+				480D39772C85FB97009C26DA /* ReceivedFriendRequestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		4839A9ED2C78A54900FF3250 /* ViewController */ = {
+		480D395E2C85E843009C26DA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4839A9EE2C78A54900FF3250 /* FriendListViewController.swift */,
-				4839A9FA2C78B30D00FF3250 /* FriendListPopUpBottomSheetViewController.swift */,
+				480D395F2C85E843009C26DA /* ReceivedFriendRequestViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		480D39602C85E843009C26DA /* FriendList */ = {
+			isa = PBXGroup;
+			children = (
+				480D39612C85E843009C26DA /* ViewModel */,
+				480D39632C85E843009C26DA /* View */,
+				480D39692C85E843009C26DA /* ViewController */,
+			);
+			path = FriendList;
+			sourceTree = "<group>";
+		};
+		480D39612C85E843009C26DA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				480D39622C85E843009C26DA /* FriendListReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		480D39632C85E843009C26DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				480D39642C85E843009C26DA /* Cell */,
+				480D39682C85E843009C26DA /* FriendListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		480D39642C85E843009C26DA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				480D39662C85E843009C26DA /* FriendListTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		480D39692C85E843009C26DA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				480D396A2C85E843009C26DA /* FriendListViewController.swift */,
+				480D396B2C85E843009C26DA /* FriendListPopUpBottomSheetViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		480D396C2C85E843009C26DA /* Tabman */ = {
+			isa = PBXGroup;
+			children = (
+				480D396D2C85E843009C26DA /* FriendTabViewController.swift */,
+			);
+			path = Tabman;
+			sourceTree = "<group>";
+		};
+		480D39792C85FB9A009C26DA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				480D39652C85E843009C26DA /* ReceivedFriendRequestTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		480D397C2C8877A2009C26DA /* SearchFriend */ = {
+			isa = PBXGroup;
+			children = (
+				480D397F2C8877B1009C26DA /* View */,
+				480D397E2C8877AE009C26DA /* ViewModel */,
+				480D397D2C8877A8009C26DA /* ViewController */,
+			);
+			path = SearchFriend;
+			sourceTree = "<group>";
+		};
+		480D397D2C8877A8009C26DA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				480D39802C8877C2009C26DA /* SearchFriendViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		480D397E2C8877AE009C26DA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				480D39842C88798C009C26DA /* SearchFriendReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		480D397F2C8877B1009C26DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				480D39862C8879F4009C26DA /* Cell */,
+				480D39822C887972009C26DA /* SearchFriendView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		480D39862C8879F4009C26DA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				480D39672C85E843009C26DA /* UserListTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		4839A9F22C78A56B00FF3250 /* FriendList */ = {
@@ -866,6 +965,7 @@
 			children = (
 				4839A9F32C78A56B00FF3250 /* NoFriendView.swift */,
 				4839A9F52C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift */,
+				4839AA112C79DE9E00FF3250 /* TableViewProfileInfoView.swift */,
 			);
 			path = FriendList;
 			sourceTree = "<group>";
@@ -878,54 +978,20 @@
 			path = Indicator;
 			sourceTree = "<group>";
 		};
-		4839A9FC2C79C79E00FF3250 /* Tabman */ = {
+		4839AA132C7B14F300FF3250 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				4839A9FD2C79C7CC00FF3250 /* FriendTabViewController.swift */,
+				4839AA152C7B153300FF3250 /* Friend */,
 			);
-			path = Tabman;
+			path = Home;
 			sourceTree = "<group>";
 		};
-		4839AA022C79D46A00FF3250 /* FriendList */ = {
+		4839AA152C7B153300FF3250 /* Friend */ = {
 			isa = PBXGroup;
 			children = (
-				4839A9E92C78A54900FF3250 /* ViewModel */,
-				4839A9EB2C78A54900FF3250 /* View */,
-				4839A9ED2C78A54900FF3250 /* ViewController */,
+				4839AA162C7B153C00FF3250 /* FriendAPI.swift */,
 			);
-			path = FriendList;
-			sourceTree = "<group>";
-		};
-		4839AA032C79D47700FF3250 /* FriendRequest */ = {
-			isa = PBXGroup;
-			children = (
-				4839AA062C79D48200FF3250 /* ViewModel */,
-				4839AA052C79D47F00FF3250 /* View */,
-				4839AA042C79D47B00FF3250 /* ViewController */,
-			);
-			path = FriendRequest;
-			sourceTree = "<group>";
-		};
-		4839AA042C79D47B00FF3250 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				4839AA072C79D49100FF3250 /* FriendRequestViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		4839AA052C79D47F00FF3250 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		4839AA062C79D48200FF3250 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
+			path = Friend;
 			sourceTree = "<group>";
 		};
 		4883564A2BEF422A005DC0A6 /* Recovered References */ = {
@@ -2304,7 +2370,6 @@
 				BEEEF1C92C82DF6B0048CA17 /* TNTextFiled.swift in Sources */,
 				BE9C9B492C688D16000AAF0E /* CreateToonDiaryView.swift in Sources */,
 				BE9C9B012C688CAF000AAF0E /* EnterInfoViewController.swift in Sources */,
-				4839A9F02C78A54900FF3250 /* FriendListView.swift in Sources */,
 				BE9C9BF12C6898C2000AAF0E /* AuthInterceptor.swift in Sources */,
 				BE9C9BEE2C6898C2000AAF0E /* ContactUsRepository.swift in Sources */,
 				BE9BBC442BCA552F006FD848 /* UIFont+.swift in Sources */,
@@ -2327,7 +2392,6 @@
 				48D979F62BEF459F0087F870 /* LoginViewModel.swift in Sources */,
 				BE9C9B482C688D16000AAF0E /* CreateToonCompleteToonResultView.swift in Sources */,
 				BEE8BCD02C71FFF5003800E0 /* HomeCalendarViewController.swift in Sources */,
-				4839A9F12C78A54900FF3250 /* FriendListViewController.swift in Sources */,
 				BE9C9BA72C68986F000AAF0E /* MyPageReactor.swift in Sources */,
 				BEEEF1C22C7B32090048CA17 /* ValidationManager.swift in Sources */,
 				489ADEED2BF8E72700B070B7 /* SettingTitleLabel.swift in Sources */,
@@ -2359,7 +2423,6 @@
 				BE9C9AF52C688CAF000AAF0E /* EnterInfoScrollView.swift in Sources */,
 				BEEEF1CB2C82DF8E0048CA17 /* TextStatusView.swift in Sources */,
 				BE9C9BBE2C68989F000AAF0E /* SettingModel.swift in Sources */,
-				4839A9FE2C79C7CC00FF3250 /* FriendTabViewController.swift in Sources */,
 				489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */,
 				BE3418EB2BF0B18200E17CC5 /* TNSheetViewController.swift in Sources */,
 				BE97FB8D2C68A2D60094D754 /* TabbarViewController.swift in Sources */,
@@ -2395,7 +2458,6 @@
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
 				BE9C9AFD2C688CAF000AAF0E /* CompleteToonViewController.swift in Sources */,
-				4839A9FB2C78B30D00FF3250 /* FriendListPopUpBottomSheetViewController.swift in Sources */,
 				489ADEF12BF8E8CE00B070B7 /* SettingSubtitleLabel.swift in Sources */,
 				BE9C9B962C68986F000AAF0E /* CategoryBottomSheetViewController.swift in Sources */,
 				BEE8BCCB2C71FFF5003800E0 /* BottomDiaryEmptyView.swift in Sources */,
@@ -2430,7 +2492,6 @@
 				BE9C9BED2C6898C2000AAF0E /* SplashRepository.swift in Sources */,
 				BE9C9B9E2C68986F000AAF0E /* AlarmTableView.swift in Sources */,
 				BE9C9AED2C688CAF000AAF0E /* CharacterDeleteBSView.swift in Sources */,
-				4839AA082C79D49100FF3250 /* FriendRequestViewController.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
 				BE9C9B022C688CAF000AAF0E /* SelectStyleViewController.swift in Sources */,
 				489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */,
