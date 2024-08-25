@@ -63,4 +63,8 @@ extension Reactive where Base: MyPageView {
             view.profileSummaryView.profileImageView.load(url: model.profileUrl)    
         }
     }
+    
+    var profileSettingButtonTap: Observable<Void> {
+        return base.profileSummaryView.profileSettingButton.rx.tap.asObservable()
+    }
 }

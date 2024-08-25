@@ -97,6 +97,11 @@ extension MyPageViewController: View {
             .map { _ in MyPageReactor.Action.viewWillAppear }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        myPageView.rx.profileSettingButtonTap
+            .map { MyPageReactor.Action.profileSettingButtonTap }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: MyPageReactor) {
@@ -104,6 +109,12 @@ extension MyPageViewController: View {
             .map { $0.userInfo }
             .compactMap { $0 }
             .bind(to: myPageView.rx.userInfo)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.presentProfileSetVC }
+            .compactMap { $0 }
+            .bind(onNext: presentSetProfileVC)
             .disposed(by: disposeBag)
     }
     
@@ -216,7 +227,13 @@ extension MyPageViewController {
         present(vc, animated: true)
     }
     
-    func presetLogoutAlert() {
+    private func presentSetProfileVC() {
+        let reactor = ProfileSetReactor()
+        let vc = ProfileSetViewController(profileSetReactor: reactor)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func presetLogoutAlert() {
         TNAlert(self)
             .setTitle("로그아웃 하시겠어요?")
             .setSubTitle("재접속하시면 다시 로그인 해야해요.")

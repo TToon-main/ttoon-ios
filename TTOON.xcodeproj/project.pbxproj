@@ -263,6 +263,8 @@
 		BEEEF1B72C7B11CA0048CA17 /* ProfileSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1B62C7B11CA0048CA17 /* ProfileSetView.swift */; };
 		BEEEF1B92C7B11D90048CA17 /* ProfileSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1B82C7B11D90048CA17 /* ProfileSetViewController.swift */; };
 		BEEEF1BB2C7B11E20048CA17 /* ProfileSetReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1BA2C7B11E20048CA17 /* ProfileSetReactor.swift */; };
+		BEEEF1BD2C7B143A0048CA17 /* ProfileSetStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1BC2C7B143A0048CA17 /* ProfileSetStackView.swift */; };
+		BEEEF1BF2C7B1F230048CA17 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1BE2C7B1F230048CA17 /* UITextField+.swift */; };
 		BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */; };
 		BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */; };
 		BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8D8172BDFC7880095674D /* TNUrl.swift */; };
@@ -559,6 +561,8 @@
 		BEEEF1B62C7B11CA0048CA17 /* ProfileSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetView.swift; sourceTree = "<group>"; };
 		BEEEF1B82C7B11D90048CA17 /* ProfileSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetViewController.swift; sourceTree = "<group>"; };
 		BEEEF1BA2C7B11E20048CA17 /* ProfileSetReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetReactor.swift; sourceTree = "<group>"; };
+		BEEEF1BC2C7B143A0048CA17 /* ProfileSetStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetStackView.swift; sourceTree = "<group>"; };
+		BEEEF1BE2C7B1F230048CA17 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashErrorViewController.swift; sourceTree = "<group>"; };
 		BEF8D8172BDFC7880095674D /* TNUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNUrl.swift; sourceTree = "<group>"; };
@@ -1192,6 +1196,7 @@
 				BEAB66D02C26AA12001B1B63 /* UICollectionView+.swift */,
 				BE0473672C551D8000484B96 /* UIButton+.swift */,
 				BEEEF1B02C7AFEF20048CA17 /* UIImageView+.swift */,
+				BEEEF1BE2C7B1F230048CA17 /* UITextField+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1404,6 +1409,7 @@
 				BE9C9B872C68986F000AAF0E /* MyPageTableViewCell.swift */,
 				BE9C9B882C68986F000AAF0E /* ProfileSummaryView.swift */,
 				BE9C9B892C68986F000AAF0E /* UnderLineView.swift */,
+				BEEEF1BC2C7B143A0048CA17 /* ProfileSetStackView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -2181,6 +2187,7 @@
 				BE9C9B602C68959D000AAF0E /* CreateToonTitleLabel.swift in Sources */,
 				BE9C9BA52C68986F000AAF0E /* AlarmViewController.swift in Sources */,
 				BE9C9BE82C6898C2000AAF0E /* AuthDTO.swift in Sources */,
+				BEEEF1BF2C7B1F230048CA17 /* UITextField+.swift in Sources */,
 				BE9BBC3F2BCA5455006FD848 /* TNFont.swift in Sources */,
 				BE78BEF12C25C5DC000A5D11 /* UIView+.swift in Sources */,
 				BE9C9BA12C68986F000AAF0E /* MyPageTableViewCell.swift in Sources */,
@@ -2292,6 +2299,7 @@
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
 				BE9C9AF32C688CAF000AAF0E /* CreateLoadingView.swift in Sources */,
 				480D396F2C85E843009C26DA /* FriendListReactor.swift in Sources */,
+				BEEEF1BD2C7B143A0048CA17 /* ProfileSetStackView.swift in Sources */,
 				BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */,
 				BE9C9AF22C688CAF000AAF0E /* CompleteToonView.swift in Sources */,
 				BE9C9B4E2C688D16000AAF0E /* CreateToonSelectCharactersButton.swift in Sources */,

@@ -19,16 +19,19 @@ final class MyPageReactor: Reactor {
     // 뷰에서 입력받은 유저 이벤트
     enum Action {
         case viewWillAppear
+        case profileSettingButtonTap
     }
     
     // Action과 State의 매개체
     enum Mutation {
         case setUpUserInfo(UserInfoResponseModel)
+        case setPresentProfileSetVC
     }
     
     // 뷰에 전달할 상태
     struct State {
-        var userInfo: UserInfoResponseModel? = .none 
+        var userInfo: UserInfoResponseModel? = .none
+        var presentProfileSetVC: Void? = .none
     }
     
     // 전달할 상태의 초기값
@@ -39,6 +42,9 @@ final class MyPageReactor: Reactor {
         case .viewWillAppear:
             return userInfo()
                 .map { Mutation.setUpUserInfo($0) } 
+
+        case .profileSettingButtonTap:
+            return .just(.setPresentProfileSetVC)
         }
     }
     
@@ -48,6 +54,10 @@ final class MyPageReactor: Reactor {
         switch mutation {
         case .setUpUserInfo(let userInfoResponseModel):
             newState.userInfo = userInfoResponseModel
+            newState.presentProfileSetVC = nil
+            
+        case .setPresentProfileSetVC:
+            newState.presentProfileSetVC = ()
         }
         
         return newState

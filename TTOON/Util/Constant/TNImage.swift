@@ -8,6 +8,7 @@
 import UIKit
 
 struct TNImage {
+    static var addProfileIcon = UIImage(named: "addProfileIcon")
     static var arrowSmallLight = UIImage(named: "arrowSmallLight")
     static var btnArrowDownIcon = UIImage(named: "btnArrowDown")
     static var characterDeleteIcon = UIImage(named: "characterDelete")

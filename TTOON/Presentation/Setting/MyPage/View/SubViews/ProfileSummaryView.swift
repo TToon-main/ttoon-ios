@@ -52,7 +52,7 @@ final class ProfileSummaryView: BaseView {
         return view
     }()
     
-    private lazy var profileSettingButton = {
+    lazy var profileSettingButton = {
         let view = UIButton()
         view.setTitle("프로필 설정", for: .normal)
         view.setTitleColor(.textMidGrey03, for: .normal)

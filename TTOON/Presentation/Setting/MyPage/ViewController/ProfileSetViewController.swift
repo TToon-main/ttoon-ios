@@ -32,6 +32,17 @@ final class ProfileSetViewController: BaseViewController {
     override func loadView() {
         view = profileSetView
     }
+    
+    override func configures() {
+        setNavigationItem()
+        hideKeyboardWhenTappedAround()
+    }
+    
+    private func setNavigationItem() {
+        self.navigationItem.title = "프로필 설정"
+        self.navigationItem.backButtonTitle = ""
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+    }
 }
 
 extension ProfileSetViewController: View {
