@@ -257,6 +257,7 @@
 		BEEEF1A62C7A461B0048CA17 /* MyPageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1A52C7A461B0048CA17 /* MyPageUseCase.swift */; };
 		BEEEF1A82C7A46340048CA17 /* MyPageRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1A72C7A46340048CA17 /* MyPageRepositoryProtocol.swift */; };
 		BEEEF1AD2C7A48910048CA17 /* MyPageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1AC2C7A48910048CA17 /* MyPageRepository.swift */; };
+		BEEEF1B12C7AFEF20048CA17 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1B02C7AFEF20048CA17 /* UIImageView+.swift */; };
 		BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */; };
 		BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */; };
 		BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8D8172BDFC7880095674D /* TNUrl.swift */; };
@@ -547,6 +548,7 @@
 		BEEEF1A52C7A461B0048CA17 /* MyPageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUseCase.swift; sourceTree = "<group>"; };
 		BEEEF1A72C7A46340048CA17 /* MyPageRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BEEEF1AC2C7A48910048CA17 /* MyPageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRepository.swift; sourceTree = "<group>"; };
+		BEEEF1B02C7AFEF20048CA17 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashErrorViewController.swift; sourceTree = "<group>"; };
 		BEF8D8172BDFC7880095674D /* TNUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNUrl.swift; sourceTree = "<group>"; };
@@ -1179,6 +1181,7 @@
 				BE78BEF22C25C5EE000A5D11 /* UIViewController+.swift */,
 				BEAB66D02C26AA12001B1B63 /* UICollectionView+.swift */,
 				BE0473672C551D8000484B96 /* UIButton+.swift */,
+				BEEEF1B02C7AFEF20048CA17 /* UIImageView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -2152,6 +2155,7 @@
 				BE9C9B952C68986F000AAF0E /* ContactUsView.swift in Sources */,
 				BE9C9B9A2C68986F000AAF0E /* DeleteAccountView.swift in Sources */,
 				BE9C9BC42C68989F000AAF0E /* SplashUseCase.swift in Sources */,
+				BEEEF1B12C7AFEF20048CA17 /* UIImageView+.swift in Sources */,
 				BE9C9BF22C6898C2000AAF0E /* BaseURL.swift in Sources */,
 				BE9C9BE52C6898C2000AAF0E /* SplashAPI.swift in Sources */,
 				BE9C9AFF2C688CAF000AAF0E /* CreateResultViewController.swift in Sources */,
