@@ -260,6 +260,9 @@
 		BEEEF1B12C7AFEF20048CA17 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1B02C7AFEF20048CA17 /* UIImageView+.swift */; };
 		BEEEF1B32C7B02240048CA17 /* MyPageChangeLangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1B22C7B02240048CA17 /* MyPageChangeLangView.swift */; };
 		BEEEF1B52C7B034F0048CA17 /* MyPageChangeLangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1B42C7B034F0048CA17 /* MyPageChangeLangViewController.swift */; };
+		BEEEF1B72C7B11CA0048CA17 /* ProfileSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1B62C7B11CA0048CA17 /* ProfileSetView.swift */; };
+		BEEEF1B92C7B11D90048CA17 /* ProfileSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1B82C7B11D90048CA17 /* ProfileSetViewController.swift */; };
+		BEEEF1BB2C7B11E20048CA17 /* ProfileSetReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1BA2C7B11E20048CA17 /* ProfileSetReactor.swift */; };
 		BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */; };
 		BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */; };
 		BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8D8172BDFC7880095674D /* TNUrl.swift */; };
@@ -553,6 +556,9 @@
 		BEEEF1B02C7AFEF20048CA17 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		BEEEF1B22C7B02240048CA17 /* MyPageChangeLangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageChangeLangView.swift; sourceTree = "<group>"; };
 		BEEEF1B42C7B034F0048CA17 /* MyPageChangeLangViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageChangeLangViewController.swift; sourceTree = "<group>"; };
+		BEEEF1B62C7B11CA0048CA17 /* ProfileSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetView.swift; sourceTree = "<group>"; };
+		BEEEF1B82C7B11D90048CA17 /* ProfileSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetViewController.swift; sourceTree = "<group>"; };
+		BEEEF1BA2C7B11E20048CA17 /* ProfileSetReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetReactor.swift; sourceTree = "<group>"; };
 		BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashErrorViewController.swift; sourceTree = "<group>"; };
 		BEF8D8172BDFC7880095674D /* TNUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNUrl.swift; sourceTree = "<group>"; };
@@ -1408,6 +1414,7 @@
 				BE9C9B8A2C68986F000AAF0E /* SubViews */,
 				BE9C9B8B2C68986F000AAF0E /* MyPageView.swift */,
 				BEEEF1B22C7B02240048CA17 /* MyPageChangeLangView.swift */,
+				BEEEF1B62C7B11CA0048CA17 /* ProfileSetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1418,6 +1425,7 @@
 				BE9C9B8D2C68986F000AAF0E /* AlarmViewController.swift */,
 				BE9C9B8E2C68986F000AAF0E /* MyPageViewController.swift */,
 				BEEEF1B42C7B034F0048CA17 /* MyPageChangeLangViewController.swift */,
+				BEEEF1B82C7B11D90048CA17 /* ProfileSetViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1426,6 +1434,7 @@
 			isa = PBXGroup;
 			children = (
 				BE9C9B902C68986F000AAF0E /* MyPageReactor.swift */,
+				BEEEF1BA2C7B11E20048CA17 /* ProfileSetReactor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2124,6 +2133,7 @@
 				BE6011732BEF348500F8FCEA /* TNAlertViewController.swift in Sources */,
 				BE8884172C567227003EC2A3 /* CharacterEditType.swift in Sources */,
 				BEE8BCCE2C71FFF5003800E0 /* SelectYearMonthBottomSheetView.swift in Sources */,
+				BEEEF1B72C7B11CA0048CA17 /* ProfileSetView.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
 				480D39782C85FB97009C26DA /* ReceivedFriendRequestView.swift in Sources */,
 				BE9C9B472C688D16000AAF0E /* CreateToonCompleteToonResultImageView.swift in Sources */,
@@ -2211,6 +2221,7 @@
 				BE9C9B942C68986F000AAF0E /* CategoryBottomSheetView.swift in Sources */,
 				BE9C9AF62C688CAF000AAF0E /* EnterInfoView.swift in Sources */,
 				BE9C9BA42C68986F000AAF0E /* MyPageView.swift in Sources */,
+				BEEEF1B92C7B11D90048CA17 /* ProfileSetViewController.swift in Sources */,
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
 				BE9C9AFD2C688CAF000AAF0E /* CompleteToonViewController.swift in Sources */,
@@ -2243,6 +2254,7 @@
 				BE9C9B422C688D16000AAF0E /* CreateToonCollectionView.swift in Sources */,
 				BE9C9B432C688D16000AAF0E /* CreateToonCollectionViewCell.swift in Sources */,
 				BE0473682C551D8000484B96 /* UIButton+.swift in Sources */,
+				BEEEF1BB2C7B11E20048CA17 /* ProfileSetReactor.swift in Sources */,
 				BE9C9BA62C68986F000AAF0E /* MyPageViewController.swift in Sources */,
 				BEE8BCCC2C71FFF5003800E0 /* BottomDiaryView.swift in Sources */,
 				BE9C9BED2C6898C2000AAF0E /* SplashRepository.swift in Sources */,
