@@ -598,9 +598,6 @@
 			isa = PBXGroup;
 			children = (
 				4839AA162C7B153C00FF3250 /* FriendAPI.swift */,
-		4839A9E82C78A54900FF3250 /* Friend */ = {
-			isa = PBXGroup;
-			children = (
 				4839AA032C79D47700FF3250 /* FriendRequest */,
 				4839AA022C79D46A00FF3250 /* FriendList */,
 				4839A9FC2C79C79E00FF3250 /* Tabman */,

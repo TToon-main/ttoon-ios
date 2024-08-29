@@ -49,10 +49,13 @@ class BottomDiaryView: BaseView {
         view.register(BottomDiaryImageSwipeCollectionViewCell.self, forCellWithReuseIdentifier: BottomDiaryImageSwipeCollectionViewCell.description())
         
         view.showsHorizontalScrollIndicator = false
-        view.isPagingEnabled = true
+//        view.isPagingEnabled = true
         
 //        view.bounces = false // ?
 //        view.alwaysBounceHorizontal = false // ?
+        
+        view.decelerationRate = .fast
+        view.isPagingEnabled = true
         
         return view
     }()

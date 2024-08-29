@@ -24,16 +24,11 @@ class TToonLogHomeNavigationView: BaseView {
         view.setImage(TNImage.homeNavigationFriendList, for: .normal)
         return view
     }()
-    let menuButton = {
-        let view = UIButton()
-        view.setImage(TNImage.homeNavigationMenu, for: .normal)
-        return view
-    }()
   
     override func addSubViews() {
         super.addSubViews()
         
-        [logoImageView, friendListButton, menuButton].forEach { item in
+        [logoImageView, addFriendButton].forEach { item in
             self.addSubview(item)
         }
     }
@@ -44,13 +39,8 @@ class TToonLogHomeNavigationView: BaseView {
             make.centerY.equalTo(self)
             make.width.equalTo(120)
         }
-        menuButton.snp.makeConstraints { make in
+        addFriendButton.snp.makeConstraints { make in
             make.trailing.equalTo(self)
-            make.centerY.equalTo(self)
-            make.size.equalTo(24)
-        }
-        friendListButton.snp.makeConstraints { make in
-            make.trailing.equalTo(menuButton.snp.leading).offset(-20)
             make.centerY.equalTo(self)
             make.size.equalTo(24)
         }

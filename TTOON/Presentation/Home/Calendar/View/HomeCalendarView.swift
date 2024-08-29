@@ -64,7 +64,7 @@ class HomeCalendarView: BaseView {
     override func configures() {
         super.configures()
         
-        bottomDiaryView.roundCorners(cornerRadius: 22, maskedCorners: [.layerMinXMinYCorner, .layerMaxXMinYCorner]) // 적용이 안된다...?
+        self.backgroundColor = .grey01
     }
 }
 
