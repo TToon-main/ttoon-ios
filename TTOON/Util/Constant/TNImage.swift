@@ -32,6 +32,8 @@ struct TNImage {
 
     static var createLoadingIcon = UIImage(named: "createLoading")
     static var doneRound = UIImage(named: "doneRound")
+    static var myPageAppleIcon = UIImage(named: "myPageAppleIcon")
+    static var myPageKakaoIcon = UIImage(named: "myPageKakaoIcon")
     static var pointIcon = UIImage(named: "pointIcon")
     static var splashError = UIImage(named: "splashError")
     static var splashLogo = UIImage(named: "splashLogo")

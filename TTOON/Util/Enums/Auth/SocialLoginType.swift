@@ -25,6 +25,19 @@ enum SocialLoginType: String {
         }
     }
     
+    var myPageImage: UIImage {
+        switch self {
+        case .apple:
+            return .myPageAppleIcon
+
+        case .kakao:
+            return .myPageKakaoIcon
+
+        case .google:
+            return .socialLoginImageGoogle
+        }
+    }
+    
     var buttonTitle: String {
         switch self {
         case .apple:

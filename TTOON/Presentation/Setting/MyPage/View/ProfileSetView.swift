@@ -62,16 +62,17 @@ class ProfileSetView: BaseView {
         return view
     }()
     
-    let nameStackView = {
+    let emailStackView = {
         let view = ProfileSetStackView()
-        view.titleLabel.text = "이름"
+        view.titleLabel.text = "이메일"
         
         return view
     }()
     
-    let emailStackView = {
-        let view = ProfileSetStackView()
-        view.titleLabel.text = "이메일"
+    let saveButton = {
+        let view = TNButton()
+        view.isEnabled = false
+        view.setTitle("저장", for: .normal)
         
         return view
     }()
@@ -83,8 +84,8 @@ class ProfileSetView: BaseView {
         self.addSubview(nickNameTextFiled)
         self.addSubview(divider)
         self.addSubview(userInfoTitleLabel)
-        self.addSubview(nameStackView)
         self.addSubview(emailStackView)
+        self.addSubview(saveButton)
     }
     
     override func layouts() {
@@ -121,15 +122,16 @@ class ProfileSetView: BaseView {
             $0.top.equalTo(divider.snp.bottom).offset(28)
             $0.horizontalEdges.equalToSuperview().inset(16)
         }
-        
-        nameStackView.snp.makeConstraints { 
+
+        emailStackView.snp.makeConstraints { 
             $0.top.equalTo(userInfoTitleLabel.snp.bottom).offset(16)
             $0.horizontalEdges.equalToSuperview().inset(16)
         }
         
-        emailStackView.snp.makeConstraints { 
-            $0.top.equalTo(nameStackView.snp.bottom).offset(28)
+        saveButton.snp.makeConstraints { 
             $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.height.equalTo(56)
+            $0.bottom.equalTo(safeGuide).offset(-36)
         }
     }
 }
@@ -139,7 +141,6 @@ extension Reactive where Base: ProfileSetView {
         return Binder(base) { view, model  in            
             view.profileImageView.load(url: model.profileUrl)
             view.nickNameTextFiled.text = model.nickName
-            view.nameStackView.setUp(model.nameStackInfo)
             view.emailStackView.setUp(model.emailStackInfo)
         }
     }

@@ -56,6 +56,7 @@ class ProfileSetStackView: BaseView {
         view.addArrangedSubview(self.copyButton)
         view.setCustomSpacing(8, after: self.providerImage)
         view.setCustomSpacing(11, after: self.infoLabel)
+        view.alignment = .center
         
         return view
     }()
@@ -87,7 +88,7 @@ class ProfileSetStackView: BaseView {
         }
         
         container.snp.makeConstraints { 
-            $0.height.equalTo(22)
+            $0.height.equalTo(30)
             $0.edges.equalToSuperview()
         }
     }
@@ -98,7 +99,7 @@ class ProfileSetStackView: BaseView {
         
         if let type = model.provider {            
             providerImage.isHidden = false
-            providerImage.image = type.buttonImage
+            providerImage.image = type.myPageImage
         }
     }
 }
