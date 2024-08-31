@@ -35,13 +35,9 @@ class ProfileSetView: BaseView {
     }()
     
     let nickNameTextFiled = {
-        let view = UITextField()
-        view.backgroundColor = .grey01
-        view.placeholder = "닉네임 (최대 10자)"
-        view.layer.cornerRadius = 8
-        view.addLeftPadding(20)
-        view.tintColor = .tnOrange
-        view.clearButtonMode = .always
+        let view = TNTextFiled()
+        view.textFiled.placeholder = "닉네임 (최대 10자)"
+        view.textFiled.clearButtonMode = .always
         
         return view
     }()
@@ -109,7 +105,6 @@ class ProfileSetView: BaseView {
         nickNameTextFiled.snp.makeConstraints { 
             $0.top.equalTo(textFiledTitleLabel.snp.bottom).offset(8) 
             $0.horizontalEdges.equalToSuperview().inset(16)
-            $0.height.equalTo(52)
         }
         
         divider.snp.makeConstraints { 
@@ -140,7 +135,7 @@ extension Reactive where Base: ProfileSetView {
     var model: Binder<SetProfileResponseModel> {
         return Binder(base) { view, model  in            
             view.profileImageView.load(url: model.profileUrl)
-            view.nickNameTextFiled.text = model.nickName
+            view.nickNameTextFiled.textFiled.text = model.nickName
             view.emailStackView.setUp(model.emailStackInfo)
         }
     }
@@ -151,13 +146,16 @@ extension Reactive where Base: ProfileSetView {
     }
     
     var textFiledText: Observable<String> {
-        return base.nickNameTextFiled.rx.controlEvent(.allEditingEvents)
-            .compactMap { _ in base.nickNameTextFiled.text }
+        return base.nickNameTextFiled.rx.textDidChange
     }
     
     var truncatedText: Binder<String> {
         return Binder(base) { view, text in
-            view.nickNameTextFiled.text = text
+            view.nickNameTextFiled.textFiled.text = text
         }
+    }
+    
+    var errorMessage: Binder<String?> {
+        return base.nickNameTextFiled.rx.errorMassage
     }
 } 

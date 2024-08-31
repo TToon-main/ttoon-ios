@@ -266,6 +266,9 @@
 		BEEEF1BD2C7B143A0048CA17 /* ProfileSetStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1BC2C7B143A0048CA17 /* ProfileSetStackView.swift */; };
 		BEEEF1BF2C7B1F230048CA17 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1BE2C7B1F230048CA17 /* UITextField+.swift */; };
 		BEEEF1C22C7B32090048CA17 /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1C12C7B32090048CA17 /* ValidationManager.swift */; };
+		BEEEF1C92C82DF6B0048CA17 /* TNTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1C82C82DF6B0048CA17 /* TNTextFiled.swift */; };
+		BEEEF1CB2C82DF8E0048CA17 /* TextStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1CA2C82DF8E0048CA17 /* TextStatusView.swift */; };
+		BEEEF1CD2C82EEA40048CA17 /* innerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEEF1CC2C82EEA40048CA17 /* innerTextField.swift */; };
 		BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */; };
 		BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */; };
 		BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8D8172BDFC7880095674D /* TNUrl.swift */; };
@@ -565,6 +568,9 @@
 		BEEEF1BC2C7B143A0048CA17 /* ProfileSetStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetStackView.swift; sourceTree = "<group>"; };
 		BEEEF1BE2C7B1F230048CA17 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		BEEEF1C12C7B32090048CA17 /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
+		BEEEF1C82C82DF6B0048CA17 /* TNTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNTextFiled.swift; sourceTree = "<group>"; };
+		BEEEF1CA2C82DF8E0048CA17 /* TextStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStatusView.swift; sourceTree = "<group>"; };
+		BEEEF1CC2C82EEA40048CA17 /* innerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = innerTextField.swift; sourceTree = "<group>"; };
 		BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashErrorViewController.swift; sourceTree = "<group>"; };
 		BEF8D8172BDFC7880095674D /* TNUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNUrl.swift; sourceTree = "<group>"; };
@@ -956,6 +962,7 @@
 			isa = PBXGroup;
 			children = (
 				4839A9F72C78AE5000FF3250 /* Indicator */,
+				BEEEF1C72C82DF560048CA17 /* TextFiled */,
 				BE47BF5C2BF4CDE10048F707 /* Switch */,
 				BE47BF5B2BF4C98E0048F707 /* BottomSheet */,
 				BE47BF5A2BF4C8A60048F707 /* Alert */,
@@ -1837,6 +1844,16 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		BEEEF1C72C82DF560048CA17 /* TextFiled */ = {
+			isa = PBXGroup;
+			children = (
+				BEEEF1C82C82DF6B0048CA17 /* TNTextFiled.swift */,
+				BEEEF1CA2C82DF8E0048CA17 /* TextStatusView.swift */,
+				BEEEF1CC2C82EEA40048CA17 /* innerTextField.swift */,
+			);
+			path = TextFiled;
+			sourceTree = "<group>";
+		};
 		BEF48D5C2BCA5CCC0056E31E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -2155,6 +2172,7 @@
 				480D39782C85FB97009C26DA /* ReceivedFriendRequestView.swift in Sources */,
 				BE9C9B472C688D16000AAF0E /* CreateToonCompleteToonResultImageView.swift in Sources */,
 				BE78BEF32C25C5EE000A5D11 /* UIViewController+.swift in Sources */,
+				BEEEF1C92C82DF6B0048CA17 /* TNTextFiled.swift in Sources */,
 				BE9C9B492C688D16000AAF0E /* CreateToonDiaryView.swift in Sources */,
 				BE9C9B012C688CAF000AAF0E /* EnterInfoViewController.swift in Sources */,
 				BE9C9BF12C6898C2000AAF0E /* AuthInterceptor.swift in Sources */,
@@ -2186,6 +2204,7 @@
 				BE9C9B0B2C688CAF000AAF0E /* SelectStyleReactor.swift in Sources */,
 				BEEEF1A82C7A46340048CA17 /* MyPageRepositoryProtocol.swift in Sources */,
 				BE9C9B082C688CAF000AAF0E /* CompleteToonReactor.swift in Sources */,
+				BEEEF1CD2C82EEA40048CA17 /* innerTextField.swift in Sources */,
 				480D39722C85E843009C26DA /* UserListTableViewCell.swift in Sources */,
 				BE9C9B952C68986F000AAF0E /* ContactUsView.swift in Sources */,
 				BE9C9B9A2C68986F000AAF0E /* DeleteAccountView.swift in Sources */,
@@ -2207,6 +2226,7 @@
 				480D39752C85E843009C26DA /* FriendListPopUpBottomSheetViewController.swift in Sources */,
 				BE9C9B412C688D16000AAF0E /* CharacterPickerTableViewCell.swift in Sources */,
 				BE9C9AF52C688CAF000AAF0E /* EnterInfoScrollView.swift in Sources */,
+				BEEEF1CB2C82DF8E0048CA17 /* TextStatusView.swift in Sources */,
 				BE9C9BBE2C68989F000AAF0E /* SettingModel.swift in Sources */,
 				489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */,
 				BE3418EB2BF0B18200E17CC5 /* TNSheetViewController.swift in Sources */,

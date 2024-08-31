@@ -63,7 +63,7 @@ extension ProfileSetViewController: View {
             .disposed(by: disposeBag)
         
         profileSetView.rx.textFiledText
-            .map { ProfileSetReactor.Action.truncateNickName($0) }
+            .map { ProfileSetReactor.Action.nickName($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }
@@ -77,6 +77,11 @@ extension ProfileSetViewController: View {
         reactor.state
             .compactMap { $0.truncatedText }
             .bind(to: profileSetView.rx.truncatedText)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.errorMessage }
+            .bind(to: profileSetView.nickNameTextFiled.rx.errorMassage)
             .disposed(by: disposeBag)
     }
 }

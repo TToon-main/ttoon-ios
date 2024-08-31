@@ -20,7 +20,7 @@ final class ProfileSetReactor: Reactor {
     enum Action {
         case viewWillAppear
         case copyButtonTap(String)
-        case truncateNickName(String)
+        case nickName(String)
     }
     
     // Action과 State의 매개체
@@ -33,6 +33,7 @@ final class ProfileSetReactor: Reactor {
     struct State {
         var profileInfo: SetProfileResponseModel? = .none
         var truncatedText: String? = .none
+        var errorMessage: String? = .none
     }
     
     // 전달할 상태의 초기값
@@ -47,9 +48,9 @@ final class ProfileSetReactor: Reactor {
             copyEmail(email: email)
             return .never()
             
-        case .truncateNickName(let nickName):
-            let truncatedText = truncateText(text: nickName)
-            return .just(.setTruncateNickName(truncatedText)) 
+        case .nickName(let text):
+            let truncatedText = truncateText(text: text)
+            return .just(.setTruncateNickName(truncatedText))
         }
     }
     
@@ -62,6 +63,7 @@ final class ProfileSetReactor: Reactor {
 
         case .setTruncateNickName(let nickName):
             newState.truncatedText = nickName
+            newState.errorMessage = self.isDuplicateNickName(text: nickName)
         }
         
         return newState
@@ -81,5 +83,13 @@ extension ProfileSetReactor {
     
     func truncateText(text: String) -> String {
         return useCase.truncateText(text)
+    }
+    
+    func isDuplicateNickName(text: String) -> String? {
+        if text == "에러" {
+            return "중복된 메세지 입니다."
+        } else {
+            return nil
+        }
     }
 }
