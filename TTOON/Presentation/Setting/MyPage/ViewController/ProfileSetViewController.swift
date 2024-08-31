@@ -5,6 +5,7 @@
 //  Created by Dongwan Ryoo on 8/25/24.
 //
 
+import PhotosUI
 import UIKit
 
 import ReactorKit
@@ -43,6 +44,17 @@ final class ProfileSetViewController: BaseViewController {
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = UIColor.black
     }
+    
+    private func presentImagePicker() {
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 1
+        configuration.filter = .images
+        
+        let pickerViewController = PHPickerViewController(configuration: configuration)
+        pickerViewController.delegate = self 
+        
+        present(pickerViewController, animated: true)
+    }
 }
 
 extension ProfileSetViewController: View {
@@ -66,6 +78,11 @@ extension ProfileSetViewController: View {
             .map { ProfileSetReactor.Action.nickName($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        profileSetView.rx.changeImageButtonTap
+            .map { ProfileSetReactor.Action.changeImageButtonTap }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(_ reactor: ProfileSetReactor) {
@@ -83,5 +100,34 @@ extension ProfileSetViewController: View {
             .map { $0.errorMessage }
             .bind(to: profileSetView.nickNameTextFiled.rx.errorMassage)
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .compactMap { $0.presentImagePicker }
+            .bind(onNext: presentImagePicker)
+            .disposed(by: disposeBag)
+    }
+}
+
+extension ProfileSetViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        
+        print("이미지 선택")
+        
+        if let provider = results.first?.itemProvider{
+            if provider.canLoadObject(ofClass: UIImage.self){
+                provider.loadObject(ofClass: UIImage.self) { image, error  in
+                    if let error{
+                        print(error)
+                    }
+                    
+                    if let selectedImage = image as? UIImage{
+                        DispatchQueue.main.async {
+                            self.profileSetView.profileImageView.image = selectedImage
+                        }
+                    }
+                }
+            }
+        }
     }
 }

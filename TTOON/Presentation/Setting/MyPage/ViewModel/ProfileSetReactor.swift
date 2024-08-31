@@ -21,12 +21,14 @@ final class ProfileSetReactor: Reactor {
         case viewWillAppear
         case copyButtonTap(String)
         case nickName(String)
+        case changeImageButtonTap
     }
     
     // Action과 State의 매개체
     enum Mutation {
         case setUpProfile(SetProfileResponseModel)
         case setTruncateNickName(String)
+        case setChangeImage
     }
     
     // 뷰에 전달할 상태
@@ -34,6 +36,7 @@ final class ProfileSetReactor: Reactor {
         var profileInfo: SetProfileResponseModel? = .none
         var truncatedText: String? = .none
         var errorMessage: String? = .none
+        var presentImagePicker: Void? = .none 
     }
     
     // 전달할 상태의 초기값
@@ -51,6 +54,9 @@ final class ProfileSetReactor: Reactor {
         case .nickName(let text):
             let truncatedText = truncateText(text: text)
             return .just(.setTruncateNickName(truncatedText))
+            
+        case .changeImageButtonTap:
+            return .just(.setChangeImage)
         }
     }
     
@@ -60,10 +66,15 @@ final class ProfileSetReactor: Reactor {
         switch mutation {
         case .setUpProfile(let model):
             newState.profileInfo = model
+            newState.presentImagePicker = nil
 
         case .setTruncateNickName(let nickName):
             newState.truncatedText = nickName
             newState.errorMessage = self.isDuplicateNickName(text: nickName)
+            newState.presentImagePicker = nil
+            
+        case .setChangeImage:
+            newState.presentImagePicker = ()
         }
         
         return newState

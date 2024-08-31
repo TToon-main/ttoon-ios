@@ -14,6 +14,9 @@ class ProfileSetView: BaseView {
     let profileImageView = {
         let view = UIImageView()
         view.image = TNImage.userIcon
+        view.clipsToBounds = true
+        view.contentMode = .scaleAspectFill
+        view.layer.cornerRadius = 45
         
         return view
     }()
@@ -143,6 +146,10 @@ extension Reactive where Base: ProfileSetView {
     var copyButtonTap: Observable<String> {
         return base.emailStackView.copyButton.rx.tap
             .compactMap { _ in  return base.emailStackView.infoLabel.text }
+    }
+    
+    var changeImageButtonTap: Observable<Void> {
+        return base.changeImageButton.rx.tap.asObservable()
     }
     
     var textFiledText: Observable<String> {
