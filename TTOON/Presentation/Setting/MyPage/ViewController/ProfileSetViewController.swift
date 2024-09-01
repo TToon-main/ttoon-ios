@@ -55,6 +55,14 @@ final class ProfileSetViewController: BaseViewController {
         
         present(pickerViewController, animated: true)
     }
+    
+    private func presentCamera() {
+        let pickerViewController = UIImagePickerController()
+        pickerViewController.sourceType = .camera
+        pickerViewController.delegate = self
+        
+        present(pickerViewController, animated: true)
+    }
 }
 
 extension ProfileSetViewController: View {
@@ -112,8 +120,6 @@ extension ProfileSetViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)
         
-        print("이미지 선택")
-        
         if let provider = results.first?.itemProvider{
             if provider.canLoadObject(ofClass: UIImage.self){
                 provider.loadObject(ofClass: UIImage.self) { image, error  in
@@ -129,5 +135,21 @@ extension ProfileSetViewController: PHPickerViewControllerDelegate {
                 }
             }
         }
+    }
+}
+
+extension ProfileSetViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let selectedImage = info[.originalImage] as? UIImage {
+            DispatchQueue.main.async {
+                self.profileSetView.profileImageView.image = selectedImage
+            }
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }

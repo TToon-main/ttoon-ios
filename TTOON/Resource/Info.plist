@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>앱을 이용하려면 카메라 권한이 필요합니다</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict/>
 	<key>APP_NAME</key>
 	<string>$(APP_NAME)</string>
 	<key>CFBundleURLTypes</key>
