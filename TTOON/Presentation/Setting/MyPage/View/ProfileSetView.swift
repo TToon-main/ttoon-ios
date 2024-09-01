@@ -13,7 +13,6 @@ import RxSwift
 class ProfileSetView: BaseView {
     let profileImageView = {
         let view = UIImageView()
-        view.image = TNImage.userIcon
         view.clipsToBounds = true
         view.contentMode = .scaleAspectFill
         view.layer.cornerRadius = 45
@@ -137,7 +136,7 @@ class ProfileSetView: BaseView {
 extension Reactive where Base: ProfileSetView {
     var model: Binder<SetProfileResponseModel> {
         return Binder(base) { view, model  in            
-            view.profileImageView.load(url: model.profileUrl)
+            view.profileImageView.load(url: model.profileUrl, defaultImage: TNImage.userIcon)
             view.nickNameTextFiled.textFiled.text = model.nickName
             view.emailStackView.setUp(model.emailStackInfo)
         }

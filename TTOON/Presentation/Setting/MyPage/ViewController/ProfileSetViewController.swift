@@ -185,6 +185,6 @@ extension ProfileSetViewController {
     }
     
     private func deleteImage() {
-        self.profileSetView.profileImageView.image = nil 
+        self.profileSetView.profileImageView.load(url: nil, defaultImage: TNImage.userIcon) 
     }
 }

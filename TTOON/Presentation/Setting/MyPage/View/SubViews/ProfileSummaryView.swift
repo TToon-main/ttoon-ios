@@ -12,7 +12,6 @@ final class ProfileSummaryView: BaseView {
         let view = UIImageView()
         view.layer.cornerRadius = 28
         view.backgroundColor = .grey01
-        view.image =  TNImage.userIcon
         
         return view
     }()
