@@ -44,25 +44,6 @@ final class ProfileSetViewController: BaseViewController {
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = UIColor.black
     }
-    
-    private func presentImagePicker() {
-        var configuration = PHPickerConfiguration()
-        configuration.selectionLimit = 1
-        configuration.filter = .images
-        
-        let pickerViewController = PHPickerViewController(configuration: configuration)
-        pickerViewController.delegate = self 
-        
-        present(pickerViewController, animated: true)
-    }
-    
-    private func presentCamera() {
-        let pickerViewController = UIImagePickerController()
-        pickerViewController.sourceType = .camera
-        pickerViewController.delegate = self
-        
-        present(pickerViewController, animated: true)
-    }
 }
 
 extension ProfileSetViewController: View {
@@ -111,7 +92,7 @@ extension ProfileSetViewController: View {
         
         reactor.state
             .compactMap { $0.presentImagePicker }
-            .bind(onNext: presentImagePicker)
+            .bind(onNext: presentSetProfileImageActionSheetVC)
             .disposed(by: disposeBag)
     }
 }
@@ -151,5 +132,59 @@ extension ProfileSetViewController: UIImagePickerControllerDelegate, UINavigatio
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - 이미지 변경과 관련된 액션
+
+extension ProfileSetViewController {
+    private func presentSetProfileImageActionSheetVC() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let takePhotoAction = UIAlertAction(title: "사진 찍기", style: .default) { action in
+            self.presentCamera()
+        }
+        
+        actionSheet.addAction(takePhotoAction)
+        
+        let chooseImageAction = UIAlertAction(title: "갤러리에서 선택", style: .default) { action in
+            self.presentImagePicker()
+        }
+        
+        actionSheet.addAction(chooseImageAction)
+        
+        let deleteProfileAction = UIAlertAction(title: "사진 삭제하기", style: .destructive) { action in
+            self.deleteImage()
+        }
+        
+        actionSheet.addAction(deleteProfileAction)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        actionSheet.addAction(cancelAction)
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    private func presentImagePicker() {
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 1
+        configuration.filter = .images
+        
+        let pickerViewController = PHPickerViewController(configuration: configuration)
+        pickerViewController.delegate = self 
+        
+        present(pickerViewController, animated: true)
+    }
+    
+    private func presentCamera() {
+        let pickerViewController = UIImagePickerController()
+        pickerViewController.sourceType = .camera
+        pickerViewController.delegate = self
+        
+        present(pickerViewController, animated: true)
+    }
+    
+    private func deleteImage() {
+        self.profileSetView.profileImageView.image = nil 
     }
 }
