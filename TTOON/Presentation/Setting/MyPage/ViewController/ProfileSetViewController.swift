@@ -45,6 +45,10 @@ final class ProfileSetViewController: BaseViewController {
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = UIColor.black
     }
+    
+    private func pop() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension ProfileSetViewController: View {
@@ -54,8 +58,8 @@ extension ProfileSetViewController: View {
     }
     
     func bindAction(_ reactor: ProfileSetReactor) {
-        rx.viewWillAppear
-            .map { _ in ProfileSetReactor.Action.viewWillAppear }
+        rx.viewDidLoad
+            .map { _ in ProfileSetReactor.Action.viewDidLoad }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
@@ -109,6 +113,12 @@ extension ProfileSetViewController: View {
         reactor.state
             .map { $0.isSaveButtonEnabled }
             .bind(to: profileSetView.rx.isEnabledSaveButton)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .filter { $0.pop }
+            .map { _ in return }
+            .bind(onNext: pop)
             .disposed(by: disposeBag)
     }
 }

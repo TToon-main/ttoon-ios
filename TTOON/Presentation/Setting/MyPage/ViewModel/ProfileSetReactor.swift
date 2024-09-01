@@ -18,7 +18,7 @@ final class ProfileSetReactor: Reactor {
     
     // 뷰에서 입력받은 유저 이벤트
     enum Action {
-        case viewWillAppear
+        case viewDidLoad
         case copyButtonTap(String)
         case nickName(String)
         case changeImageButtonTap
@@ -50,7 +50,7 @@ final class ProfileSetReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .viewWillAppear: 
+        case .viewDidLoad: 
             return userInfo().map { Mutation.setUpProfile($0)}
             
         case  .copyButtonTap(let email): 
@@ -73,10 +73,8 @@ final class ProfileSetReactor: Reactor {
             return .just(.setChangeImage)
             
         case .saveButtonTap(let model):
-            print("보내라")
-            // 네트워크 요청
-            
-            return .just(.setPop(true))
+            return useCase.postProfile(dto: model.toDTO())
+                .map {  Mutation.setPop($0)}
             
         case .imageDidChanged:
             return .just(.setSaveButtonEnabled(true))
@@ -107,8 +105,8 @@ final class ProfileSetReactor: Reactor {
             newState.profileInfo = nil
             
         case .setPop(let isPop):
-            newState.presentImagePicker = nil
             newState.pop = isPop
+            newState.presentImagePicker = nil
             newState.profileInfo = nil
         }
         

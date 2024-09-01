@@ -5,7 +5,7 @@
 //  Created by 임승섭 on 7/7/24.
 //
 
-import Foundation
+import UIKit
 
 // 문의하기 - 요청
 struct ContactUsRequestDTO {
@@ -72,4 +72,10 @@ extension UserInfoResponseDTO {
                                        nameStackInfo: nameStackInfo, 
                                        emailStackInfo: emailStackInfo)
     }
+}
+
+struct PostProfileRequestDTO {
+    let nickName: String
+    let isDelete: Bool
+    let image: UIImage?
 }

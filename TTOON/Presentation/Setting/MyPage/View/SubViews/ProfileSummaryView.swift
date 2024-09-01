@@ -11,7 +11,9 @@ final class ProfileSummaryView: BaseView {
     lazy var profileImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 28
-        view.backgroundColor = .grey01
+        view.clipsToBounds = true
+        view.contentMode = .scaleAspectFill
+        view.image = TNImage.userIcon
         
         return view
     }()
@@ -93,7 +95,7 @@ final class ProfileSummaryView: BaseView {
         
         profileLabel.snp.makeConstraints {
             $0.leading.equalTo(profileImageView.snp.trailing).offset(16)
-            $0.trailing.equalTo(profileSettingButton.snp.leading).offset(-25)
+            $0.trailing.lessThanOrEqualTo(profileSettingButton.snp.leading).offset(-25)
             $0.top.equalTo(profileImageView)
         }
     }   

@@ -19,4 +19,11 @@ class MyPageRepository: MyPageRepositoryProtocol {
             .compactMap{ $0.data }
             .asObservable()
     }
+    
+    func postProfile(dto: PostProfileRequestDTO) -> Observable<Bool> {
+        return provider.log.rx.request(.postProfile(dto: dto))
+            .map(ResponseDTO<String>.self)
+            .map { $0.isSuccess }
+            .asObservable()
+    }
 }

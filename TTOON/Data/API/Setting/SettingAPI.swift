@@ -13,6 +13,7 @@ enum SettingAPI {
     case contactUs(dto: ContactUsRequestDTO)
     case deleteAccount(dto: DeleteAccountRequestDTO)
     case getUserInfo
+    case postProfile(dto: PostProfileRequestDTO)
 }
 
 extension SettingAPI: TargetType {
@@ -28,6 +29,8 @@ extension SettingAPI: TargetType {
             return "/api/revoke"
         case .getUserInfo:
             return "/api/profile"
+        case .postProfile:
+            return "/api/profile"
         }
     }
     
@@ -35,12 +38,15 @@ extension SettingAPI: TargetType {
         switch self {
         case .contactUs:
             return .post
-
+            
         case .deleteAccount:
             return .delete
             
         case .getUserInfo:
             return .get
+            
+        case .postProfile:
+            return .post
         }
     }
     
@@ -60,6 +66,21 @@ extension SettingAPI: TargetType {
             ]
             return .requestParameters(parameters: params, encoding: JSONEncoding.prettyPrinted)
             
+        case .postProfile(let dto):
+            var multipartData: [MultipartFormData] = []
+            
+            let params: [String: String] = [
+                "nickName": dto.nickName,
+                "isDelete": "\(dto.isDelete)"
+            ]
+            
+            if let image = dto.image,
+               let imageData = image.jpegData(compressionQuality: 0.1) {
+                multipartData.append(MultipartFormData(provider: .data(imageData), name: "file", fileName: "\(UUID().uuidString).jpg", mimeType: "image/jpeg"))
+            }
+            
+            return .uploadCompositeMultipart(multipartData, urlParameters: params)
+
         default:
             return .requestPlain
         }
