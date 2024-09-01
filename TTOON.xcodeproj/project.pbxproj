@@ -67,6 +67,7 @@
 		48D979F72BEF459F0087F870 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F32BEF459F0087F870 /* LoginView.swift */; };
 		48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F52BEF459F0087F870 /* LoginViewController.swift */; };
 		48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A052BEF472C0087F870 /* SocialLoginButton.swift */; };
+		BE011F8A2C847B7D00E74408 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = BE011F892C847B7D00E74408 /* SkeletonView */; };
 		BE0473662C550E5600484B96 /* ViewLifeCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0473652C550E5600484B96 /* ViewLifeCycle.swift */; };
 		BE0473682C551D8000484B96 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0473672C551D8000484B96 /* UIButton+.swift */; };
 		BE05C0932C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C0922C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift */; };
@@ -582,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				482B61182BB5957F00681097 /* RxKakaoSDKUser in Frameworks */,
+				BE011F8A2C847B7D00E74408 /* SkeletonView in Frameworks */,
 				482B61112BB5956D00681097 /* KakaoSDKAuth in Frameworks */,
 				4839AA012C79C84000FF3250 /* Tabman in Frameworks */,
 				482B61062BB592D500681097 /* RxCocoa in Frameworks */,
@@ -1937,6 +1939,7 @@
 				482B61202BB599B100681097 /* FirebaseAnalytics */,
 				482B61222BB599B100681097 /* FirebaseCrashlytics */,
 				4839AA002C79C84000FF3250 /* Tabman */,
+				BE011F892C847B7D00E74408 /* SkeletonView */,
 			);
 			productName = TTOON;
 			productReference = BE36CF8A2BAFF5890017F94E /* TTOON.app */;
@@ -2028,6 +2031,7 @@
 				482B611C2BB598DC00681097 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 				482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				4839A9FF2C79C83F00FF3250 /* XCRemoteSwiftPackageReference "Tabman" */,
+				BE011F882C847B7D00E74408 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = BE36CF8B2BAFF5890017F94E /* Products */;
 			projectDirPath = "";
@@ -2989,6 +2993,14 @@
 				minimumVersion = 3.2.0;
 			};
 		};
+		BE011F882C847B7D00E74408 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.31.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -3096,6 +3108,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4839A9FF2C79C83F00FF3250 /* XCRemoteSwiftPackageReference "Tabman" */;
 			productName = Tabman;
+		};
+		BE011F892C847B7D00E74408 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE011F882C847B7D00E74408 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

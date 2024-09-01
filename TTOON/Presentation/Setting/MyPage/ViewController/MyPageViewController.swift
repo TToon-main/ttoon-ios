@@ -41,6 +41,8 @@ final class MyPageViewController: BaseViewController {
     
     private lazy var myPageTableViewDataSource = [appSetSection, appInfoSection, accountSection]
     
+    private var viewWillAppear = PublishSubject<Void>()
+    
     var disposeBag = DisposeBag()
     
     // MARK: - UI Properties
@@ -61,6 +63,11 @@ final class MyPageViewController: BaseViewController {
         view = myPageView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewWillAppear.onNext(())
+    }
+    
     // MARK: - Configures
     override func configures() {
         setTableView()
@@ -76,6 +83,7 @@ final class MyPageViewController: BaseViewController {
         if let info: [String: Any] = Bundle.main.infoDictionary, let currentVersion: String = info["CFBundleShortVersionString"] as? String {
             return currentVersion
         }
+        
         return "1.0"
     }
     
@@ -93,7 +101,7 @@ extension MyPageViewController: View {
     }
     
     func bindAction(reactor: MyPageReactor) {
-        rx.viewWillAppear
+        viewWillAppear
             .map { _ in MyPageReactor.Action.viewWillAppear }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
@@ -108,6 +116,8 @@ extension MyPageViewController: View {
         reactor.state
             .map { $0.userInfo }
             .compactMap { $0 }
+            .delay(.milliseconds(500), scheduler: MainScheduler.instance)
+            .do { _ in self.myPageView.hideSkeleton() }
             .bind(to: myPageView.rx.userInfo)
             .disposed(by: disposeBag)
         
@@ -196,16 +206,24 @@ extension MyPageViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath == IndexPath(row: 0, section: 2) {
-            presetLogoutAlert()
-        }
-        
         if indexPath == IndexPath(row: 0, section: 0) {
             presentAlarmVC()
         }
         
         if indexPath == IndexPath(row: 1, section: 0) {
             presentChangeLangVC()
+        }
+        
+        if indexPath == IndexPath(row: 4, section: 1) {
+            presentContactUsVC()
+        }
+        
+        if indexPath == IndexPath(row: 0, section: 2) {
+            presetLogoutAlert()
+        }
+        
+        if indexPath == IndexPath(row: 1, section: 2) {
+            presentDeleteAccountVC()
         }
     }
     
@@ -236,11 +254,27 @@ extension MyPageViewController {
     }
     
     private func presetLogoutAlert() {
+        let confirmAction = { self.navigationController?.popToRootViewController(animated: true)
+                return
+        }
+        
         TNAlert(self)
             .setTitle("로그아웃 하시겠어요?")
             .setSubTitle("재접속하시면 다시 로그인 해야해요.")
             .addCancelAction("취소")
-            .addConfirmAction("로그아웃")
+            .addConfirmAction("로그아웃", action: confirmAction)
             .present()
+    }
+    
+    private func presentContactUsVC() {
+        let reactor = ContactUsReactor()
+        let vc = ContactUsViewController(contactUsReactor: reactor)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func presentDeleteAccountVC() {
+        let reactor = DeleteAccountReactor()
+        let vc = DeleteAccountViewController(deleteAccountReactor: reactor)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

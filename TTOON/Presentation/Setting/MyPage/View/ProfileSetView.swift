@@ -9,6 +9,7 @@ import UIKit
 
 import RxCocoa
 import RxSwift
+import SkeletonView
 
 class ProfileSetView: BaseView {
     let profileImageView = {
@@ -16,6 +17,8 @@ class ProfileSetView: BaseView {
         view.clipsToBounds = true
         view.contentMode = .scaleAspectFill
         view.layer.cornerRadius = 45
+        view.skeletonCornerRadius = 45
+        view.isSkeletonable = true
         
         return view
     }()
@@ -40,6 +43,7 @@ class ProfileSetView: BaseView {
         let view = TNTextFiled()
         view.textFiled.placeholder = "닉네임 (최대 10자)"
         view.textFiled.clearButtonMode = .always
+        view.isSkeletonable = true
         
         return view
     }()
@@ -74,6 +78,11 @@ class ProfileSetView: BaseView {
         
         return view
     }()
+    
+    override func configures() {
+        super.configures()
+        showSkeleton()   
+    }
     
     override func addSubViews() {
         self.addSubview(profileImageView)
@@ -131,6 +140,18 @@ class ProfileSetView: BaseView {
             $0.bottom.equalTo(safeGuide).offset(-36)
         }
     }
+    
+    func showSkeleton() {
+        [ profileImageView].forEach { view in
+            view.showGradientSkeleton()
+        }
+    }
+    
+    func hideSkeleton() {
+        [ profileImageView].forEach { view in
+            view.hideSkeleton(transition: .crossDissolve(0.2))
+        }
+    }
 }
 
 extension Reactive where Base: ProfileSetView {
@@ -139,6 +160,7 @@ extension Reactive where Base: ProfileSetView {
             view.profileImageView.load(url: model.profileUrl, defaultImage: TNImage.userIcon)
             view.nickNameTextFiled.textFiled.text = model.nickName
             view.emailStackView.setUp(model.emailStackInfo)
+            view.hideSkeleton()
         }
     }
     

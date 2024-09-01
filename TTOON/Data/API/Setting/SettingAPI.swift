@@ -67,25 +67,30 @@ extension SettingAPI: TargetType {
             return .requestParameters(parameters: params, encoding: JSONEncoding.prettyPrinted)
             
         case .postProfile(let dto):
-            var multipartData: [MultipartFormData] = []
             
-            let params: [String: String] = [
-                "nickName": dto.nickName,
-                "isDelete": "\(dto.isDelete)"
-            ]
+            var multipartData: [MultipartFormData] = []
             
             if let image = dto.image,
                let imageData = image.jpegData(compressionQuality: 0.1) {
                 multipartData.append(MultipartFormData(provider: .data(imageData), name: "file", fileName: "\(UUID().uuidString).jpg", mimeType: "image/jpeg"))
             }
             
-            return .uploadCompositeMultipart(multipartData, urlParameters: params)
+            let params: [String: String] = [
+                "nickName": dto.nickName,
+                "isDelete": "\(dto.isDelete)"
+            ]
+            
+            if multipartData.isEmpty {
+                return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+            } else {
+                return .uploadCompositeMultipart(multipartData, urlParameters: params)
+            }
 
         default:
             return .requestPlain
         }
     }
-    
+
     var headers: [String: String]? {
         switch self {
         case .deleteAccount:

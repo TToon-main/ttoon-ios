@@ -85,6 +85,7 @@ extension ProfileSetViewController: View {
         
         imageDidChanged
             .map { ProfileSetReactor.Action.imageDidChanged }
+            .do { _ in self.profileSetView.hideSkeleton() }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }
@@ -92,6 +93,8 @@ extension ProfileSetViewController: View {
     func bindState(_ reactor: ProfileSetReactor) {
         reactor.state
             .compactMap { $0.profileInfo }
+            .delay(.milliseconds(500), scheduler: MainScheduler.asyncInstance)
+            .do { _ in self.profileSetView.hideSkeleton() }
             .bind(to: profileSetView.rx.model)
             .disposed(by: disposeBag)
         
@@ -171,18 +174,21 @@ extension ProfileSetViewController {
         
         let takePhotoAction = UIAlertAction(title: "사진 찍기", style: .default) { action in
             self.presentCamera()
+            self.profileSetView.showSkeleton()
         }
         
         actionSheet.addAction(takePhotoAction)
         
         let chooseImageAction = UIAlertAction(title: "갤러리에서 선택", style: .default) { action in
             self.presentImagePicker()
+            self.profileSetView.showSkeleton()
         }
         
         actionSheet.addAction(chooseImageAction)
         
         let deleteProfileAction = UIAlertAction(title: "사진 삭제하기", style: .destructive) { action in
             self.deleteImage()
+            self.profileSetView.showSkeleton()
         }
         
         actionSheet.addAction(deleteProfileAction)

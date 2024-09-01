@@ -7,21 +7,30 @@
 
 import UIKit
 
+import SkeletonView
+
 final class ProfileSummaryView: BaseView {
-    lazy var profileImageView = {
+    let profileImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 28
         view.clipsToBounds = true
         view.contentMode = .scaleAspectFill
         view.image = TNImage.userIcon
         
+        view.isSkeletonable = true
+        view.skeletonCornerRadius = 28
+        
         return view
     }()
     
-    lazy var profileLabel = {
+    let profileLabel = {
         let view = UILabel()
         view.font = .title20b
         view.textColor = .black
+        view.text = "          "
+
+        view.isSkeletonable = true
+        view.linesCornerRadius = 6
         
         return view
     }()
@@ -49,6 +58,9 @@ final class ProfileSummaryView: BaseView {
         view.spacing = 4
         view.addArrangedSubview(pointImageView)
         view.addArrangedSubview(pointLabel)
+        
+        view.isSkeletonable = true
+        view.skeletonCornerRadius = 9
         
         return view
     }()
@@ -78,7 +90,7 @@ final class ProfileSummaryView: BaseView {
             $0.top.equalToSuperview().offset(29)
             $0.size.equalTo(56)
         }
-        
+    
         pointImageView.snp.makeConstraints {
             $0.size.equalTo(18)
         }
@@ -98,5 +110,19 @@ final class ProfileSummaryView: BaseView {
             $0.trailing.lessThanOrEqualTo(profileSettingButton.snp.leading).offset(-25)
             $0.top.equalTo(profileImageView)
         }
-    }   
+    } 
+    
+    func showSkeleton() {
+        [profileImageView, profileLabel, pointContainer]
+            .forEach { view in                
+                view.showSkeleton(usingColor: .clouds)
+            }
+    }
+    
+    func hideSkeleton() {
+        [profileImageView, profileLabel, pointContainer]
+            .forEach { view in
+                view.hideSkeleton(transition: .crossDissolve(0.5))
+            }
+    }
 }

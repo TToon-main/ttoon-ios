@@ -29,6 +29,11 @@ final class MyPageView: BaseView {
         return view
     }()
     
+    override func configures() {
+        super.configures()
+        showSkeleton()
+    }
+    
     override func addSubViews() {
         addSubview(profileSummaryView)
         addSubview(underLineView)
@@ -53,6 +58,14 @@ final class MyPageView: BaseView {
             $0.bottom.equalTo(self.safeAreaLayoutGuide)
         }
     }
+    
+    private func showSkeleton() {
+        profileSummaryView.showSkeleton()
+    }
+    
+    func hideSkeleton() {
+        profileSummaryView.hideSkeleton()
+    }
 }
 
 extension Reactive where Base: MyPageView {
@@ -63,6 +76,7 @@ extension Reactive where Base: MyPageView {
             view.profileSummaryView.profileImageView.load(url: model.profileUrl, defaultImage: TNImage.userIcon)    
         }
     }
+    
     
     var profileSettingButtonTap: Observable<Void> {
         return base.profileSummaryView.profileSettingButton.rx.tap.asObservable()
