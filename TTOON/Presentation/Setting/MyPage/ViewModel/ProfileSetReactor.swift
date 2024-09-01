@@ -29,6 +29,7 @@ final class ProfileSetReactor: Reactor {
         case setUpProfile(SetProfileResponseModel)
         case setTruncateNickName(String)
         case setChangeImage
+        case setSaveButtonEnabled(Bool)
     }
     
     // 뷰에 전달할 상태
@@ -37,6 +38,7 @@ final class ProfileSetReactor: Reactor {
         var truncatedText: String? = .none
         var errorMessage: String? = .none
         var presentImagePicker: Void? = .none 
+        var isSaveButtonEnabled: Bool = false
     }
     
     // 전달할 상태의 초기값
@@ -53,7 +55,15 @@ final class ProfileSetReactor: Reactor {
             
         case .nickName(let text):
             let truncatedText = truncateText(text: text)
-            return .just(.setTruncateNickName(truncatedText))
+            
+            let nickNameChanged = truncatedText != currentState.profileInfo?.nickName 
+            let notEmpty = !truncatedText.isEmpty
+            let isSaveEnabled = notEmpty && nickNameChanged
+            
+            return Observable.concat([
+                .just(.setTruncateNickName(truncatedText)),
+                .just(.setSaveButtonEnabled(isSaveEnabled))
+            ])
             
         case .changeImageButtonTap:
             return .just(.setChangeImage)
@@ -67,7 +77,7 @@ final class ProfileSetReactor: Reactor {
         case .setUpProfile(let model):
             newState.profileInfo = model
             newState.presentImagePicker = nil
-
+            
         case .setTruncateNickName(let nickName):
             newState.truncatedText = nickName
             newState.errorMessage = self.isDuplicateNickName(text: nickName)
@@ -75,6 +85,9 @@ final class ProfileSetReactor: Reactor {
             
         case .setChangeImage:
             newState.presentImagePicker = ()
+            
+        case .setSaveButtonEnabled(let isEnabled):
+            newState.isSaveButtonEnabled = isEnabled
         }
         
         return newState

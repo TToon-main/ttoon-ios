@@ -94,6 +94,11 @@ extension ProfileSetViewController: View {
             .compactMap { $0.presentImagePicker }
             .bind(onNext: presentSetProfileImageActionSheetVC)
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.isSaveButtonEnabled }
+            .bind(to: profileSetView.rx.isEnabledSaveButton)
+            .disposed(by: disposeBag)
     }
 }
 

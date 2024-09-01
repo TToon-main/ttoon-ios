@@ -164,4 +164,8 @@ extension Reactive where Base: ProfileSetView {
     var errorMessage: Binder<String?> {
         return base.nickNameTextFiled.rx.errorMassage
     }
+    
+    var isEnabledSaveButton: Binder<Bool> {
+        return base.saveButton.rx.isEnabled
+    }
 } 
