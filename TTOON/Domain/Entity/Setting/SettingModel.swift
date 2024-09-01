@@ -5,7 +5,7 @@
 //  Created by 임승섭 on 7/7/24.
 //
 
-import Foundation
+import UIKit
 
 // 문의하기 - 요청
 struct ContactUsRequestModel {
@@ -44,4 +44,16 @@ struct ProfileStackModel {
     let title: String
     let provider: SocialLoginType?
     let isHiddenCopyButton: Bool
+}
+
+class SetProfileRequestModel {
+    var nickName: String
+    var isDelete: Bool
+    var image: UIImage?
+    
+    init(nickName: String, isDelete: Bool, image: UIImage? = nil) {
+        self.nickName = nickName
+        self.isDelete = isDelete
+        self.image = image
+    }
 }

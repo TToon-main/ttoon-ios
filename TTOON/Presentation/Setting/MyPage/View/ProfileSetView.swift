@@ -168,4 +168,17 @@ extension Reactive where Base: ProfileSetView {
     var isEnabledSaveButton: Binder<Bool> {
         return base.saveButton.rx.isEnabled
     }
+    
+    var saveButtonTap: Observable<SetProfileRequestModel> {
+        return base.saveButton.rx.tap
+            .map { _ in
+                let nickName = base.nickNameTextFiled.textFiled.text ?? ""
+                
+                let isDelete = base.profileImageView.image == TNImage.userIcon
+                
+                let image: UIImage? = isDelete ? nil : base.profileImageView.image
+                
+                return SetProfileRequestModel(nickName: nickName, isDelete: isDelete, image: image)
+            }
+    }
 } 

@@ -22,6 +22,8 @@ final class ProfileSetReactor: Reactor {
         case copyButtonTap(String)
         case nickName(String)
         case changeImageButtonTap
+        case saveButtonTap(SetProfileRequestModel)
+        case imageDidChanged
     }
     
     // Action과 State의 매개체
@@ -30,6 +32,7 @@ final class ProfileSetReactor: Reactor {
         case setTruncateNickName(String)
         case setChangeImage
         case setSaveButtonEnabled(Bool)
+        case setPop(Bool)
     }
     
     // 뷰에 전달할 상태
@@ -39,6 +42,7 @@ final class ProfileSetReactor: Reactor {
         var errorMessage: String? = .none
         var presentImagePicker: Void? = .none 
         var isSaveButtonEnabled: Bool = false
+        var pop: Bool = false 
     }
     
     // 전달할 상태의 초기값
@@ -67,6 +71,15 @@ final class ProfileSetReactor: Reactor {
             
         case .changeImageButtonTap:
             return .just(.setChangeImage)
+            
+        case .saveButtonTap(let model):
+            print("보내라")
+            // 네트워크 요청
+            
+            return .just(.setPop(true))
+            
+        case .imageDidChanged:
+            return .just(.setSaveButtonEnabled(true))
         }
     }
     
@@ -77,17 +90,26 @@ final class ProfileSetReactor: Reactor {
         case .setUpProfile(let model):
             newState.profileInfo = model
             newState.presentImagePicker = nil
-            
+
         case .setTruncateNickName(let nickName):
             newState.truncatedText = nickName
             newState.errorMessage = self.isDuplicateNickName(text: nickName)
             newState.presentImagePicker = nil
+            newState.profileInfo = nil
             
         case .setChangeImage:
             newState.presentImagePicker = ()
+            newState.profileInfo = nil
             
         case .setSaveButtonEnabled(let isEnabled):
             newState.isSaveButtonEnabled = isEnabled
+            newState.presentImagePicker = nil
+            newState.profileInfo = nil
+            
+        case .setPop(let isPop):
+            newState.presentImagePicker = nil
+            newState.pop = isPop
+            newState.profileInfo = nil
         }
         
         return newState

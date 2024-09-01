@@ -15,6 +15,7 @@ import RxSwift
 final class ProfileSetViewController: BaseViewController {
     // MARK: - Properties
     var disposeBag = DisposeBag()
+    var imageDidChanged = PublishSubject<Void>()
     
     // MARK: - UI Properties
     private let profileSetView = ProfileSetView()
@@ -72,6 +73,16 @@ extension ProfileSetViewController: View {
             .map { ProfileSetReactor.Action.changeImageButtonTap }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        profileSetView.rx.saveButtonTap
+            .map { ProfileSetReactor.Action.saveButtonTap($0)  }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        imageDidChanged
+            .map { ProfileSetReactor.Action.imageDidChanged }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(_ reactor: ProfileSetReactor) {
@@ -116,6 +127,7 @@ extension ProfileSetViewController: PHPickerViewControllerDelegate {
                     if let selectedImage = image as? UIImage{
                         DispatchQueue.main.async {
                             self.profileSetView.profileImageView.image = selectedImage
+                            self.imageDidChanged.onNext(())
                         }
                     }
                 }
@@ -129,6 +141,7 @@ extension ProfileSetViewController: UIImagePickerControllerDelegate, UINavigatio
         if let selectedImage = info[.originalImage] as? UIImage {
             DispatchQueue.main.async {
                 self.profileSetView.profileImageView.image = selectedImage
+                self.imageDidChanged.onNext(())
             }
         }
         
@@ -190,6 +203,11 @@ extension ProfileSetViewController {
     }
     
     private func deleteImage() {
-        self.profileSetView.profileImageView.load(url: nil, defaultImage: TNImage.userIcon) 
+        let isDefaultImage = profileSetView.profileImageView.image != TNImage.userIcon
+        
+        if isDefaultImage {
+            self.profileSetView.profileImageView.load(url: nil, defaultImage: TNImage.userIcon)
+            imageDidChanged.onNext(())   
+        }
     }
 }
