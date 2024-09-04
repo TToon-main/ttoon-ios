@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import RxSwift
 
 // 이미지, 닉네임, 버튼('수락'), 버튼('거절')
 class ReceivedFriendRequestTableViewCell: BaseTableViewCell {
+    var disposeBag = DisposeBag()
+    
     let profileInfoView = TableViewProfileInfoView()
     
     let acceptButton = UserListTableViewButton()
@@ -53,5 +56,11 @@ class ReceivedFriendRequestTableViewCell: BaseTableViewCell {
         
         acceptButton.type = .accept
         rejectButton.type = .reject
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        disposeBag = DisposeBag()
     }
 }

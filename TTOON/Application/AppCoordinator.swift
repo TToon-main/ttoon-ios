@@ -38,6 +38,7 @@ class AppCoordinator: AppCoordinatorProtocol {
     // 5.
     func start() {
         showAuthFlow()
+//        showTabBarFlow()
     }
     
     

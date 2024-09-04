@@ -44,10 +44,13 @@ extension FriendAPI: TargetType {
         switch self {
         case .rejectRequest, .deleteFriend:
             return .delete
+
         case .friendList, .userList:
             return .get
+
         case .addFriend:
             return .post
+
         case .accptRequest:
             return .patch
         }
@@ -55,22 +58,25 @@ extension FriendAPI: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .accptRequest, .friendList
-            return .requestPlain
+//        case .accptRequest, .friendList:
+//            return .requestPlain
         
-        case .addFriend(let nickname), .rejectRequest(let nickname), case .deleteFriend(let nickname):
-            let params: [String: String] = [
-                "nickname": nickname
-            ]
-            return .requestParameters(parameters: params, encoding: JSONEncoding.prettyPrinted)
+//        case .addFriend(let nickname), .rejectRequest(let nickname), case .deleteFriend(let nickname):
+//            let params: [String: String] = [
+//                "nickname": nickname
+//            ]
+//            return .requestParameters(parameters: params, encoding: JSONEncoding.prettyPrinted)
             
-        // 예정
-        case .userList(let searchString, let _):
+        default:
             return .requestPlain
+            
+//        // 예정
+//        case .userList(let searchString, let _):
+//            return .requestPlain
         }
     }
     
-    var headers: [String : String]? {
+    var headers: [String: String]? {
         switch self {
         default:
             let accessToken = KeychainStorage.shared.accessToken

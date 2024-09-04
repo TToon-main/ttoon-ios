@@ -5,11 +5,14 @@
 //  Created by 임승섭 on 8/24/24.
 //
 
+import RxSwift
 import UIKit
 
 // 이미지, 닉네임, 버튼('친구 삭제')
 // cell height 76
 class FriendListTableViewCell: BaseTableViewCell {
+    var disposeBag = DisposeBag()
+    
     let profileInfoView = TableViewProfileInfoView()
     
     let deleteFriendButton = UserListTableViewButton()
@@ -44,5 +47,11 @@ class FriendListTableViewCell: BaseTableViewCell {
         super.configures()
         
         deleteFriendButton.type = .deleteFriend
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        disposeBag = DisposeBag()
     }
 }

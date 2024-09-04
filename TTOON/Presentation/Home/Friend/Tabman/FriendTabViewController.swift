@@ -6,14 +6,19 @@
 //
 
 import Pageboy
+import RxSwift
 import Tabman
 import UIKit
 
 
-
 class FriendTabViewController: TabmanViewController {
+    // 탭맨 뷰컨은 따로 뷰모델이 없기 때문에 VC에 didSendEventClosure 추가
+    var didSendEventClosure: ((FriendTabViewController.Event) -> Void)?
+    
+    var disposeBag = DisposeBag()
+    
     let friendListVC = FriendListViewController(reactor: FriendListReactor())
-    let friendRequestVC = FriendRequestViewController()
+    let friendRequestVC = ReceivedFriendRequestViewController(reactor: ReceivedFriendRequestReactor())
     
     private lazy var vcs = [friendListVC, friendRequestVC]
     
@@ -32,20 +37,21 @@ class FriendTabViewController: TabmanViewController {
 
 extension FriendTabViewController {
     private func settingNavigation() {
+        // 타이틀
         navigationItem.title = "내 친구 목록"
         navigationItem.titleView?.backgroundColor = .white
+        
+        // 오른쪽 버튼 (친구 추가 화면 이동)
+        let goSearchFriendButton = UIBarButtonItem(image: TNImage.homeNavigationFriendList, menu: nil)
+        goSearchFriendButton.tintColor = .black
+        goSearchFriendButton.rx.tap
+            .subscribe(with: self) { owner, _ in
+                owner.didSendEventClosure?(.showSearchFriendView)
+            }
+            .disposed(by: disposeBag)
+        
+        navigationItem.rightBarButtonItem = goSearchFriendButton
     }
-    
-//    // 그냥 탭을 올리면 네비게이션 영역이 안보이는 이슈가 있어, Custom Container 이용하는 방식 채택
-//    private func settingCustomContainer() {
-//        customContainer.backgroundColor = .clear
-//        
-//        view.addSubview(customContainer)
-//        customContainer.snp.makeConstraints { make in
-//            make.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-//            make.height.equalTo(46)
-//        }
-//    }
     
     
     private func settingTabman() {
@@ -69,7 +75,6 @@ extension FriendTabViewController {
             button.selectedTintColor = .tnOrange
         }
         
-//        addBar(bar, dataSource: self, at: .custom(view: customContainer, layout: nil))
         addBar(bar, dataSource: self, at: .top)
     }
 }
@@ -90,5 +95,11 @@ extension FriendTabViewController: PageboyViewControllerDataSource, TMBarDataSou
     
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         return TMBarItem(title: (index == 0) ? "친구 목록" : "친구 요청")
+    }
+}
+
+extension FriendTabViewController {
+    enum Event {
+        case showSearchFriendView
     }
 }

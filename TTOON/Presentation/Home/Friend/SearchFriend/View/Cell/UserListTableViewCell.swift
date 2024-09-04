@@ -5,10 +5,12 @@
 //  Created by 임승섭 on 8/24/24.
 //
 
+import RxSwift
 import UIKit
 
 // 이미지, 닉네임, 버튼('친구 신청하기', '친구 신청완료')
 class UserListTableViewCell: BaseTableViewCell {
+    var disposeBag = DisposeBag()
     let profileInfoView = TableViewProfileInfoView()
     
     let requestFriendButton = UserListTableViewButton()
@@ -28,7 +30,7 @@ class UserListTableViewCell: BaseTableViewCell {
         requestFriendButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(19)
             make.centerY.equalToSuperview()
-            make.width.equalTo(108)
+//            make.width.equalTo(108)
             make.height.equalTo(36)
         }
         
@@ -38,6 +40,12 @@ class UserListTableViewCell: BaseTableViewCell {
             make.trailing.equalTo(requestFriendButton.snp
                 .leading).offset(-4)
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        disposeBag = DisposeBag()
     }
 }
 
@@ -49,9 +57,9 @@ class UserListTableViewCell: BaseTableViewCell {
 enum UserListTableViewRequestButtonType {
     case deleteFriend   // "친구 삭제"
     
-    case sendRequest    // "친구 신청하기"
-    case sentRequest    // "친구 신청완료"
-    // 추가 케이스 생길 수 있음
+    case sendRequest    // "친구 신청"
+    case sentRequest    // "요청됨"
+    case alreadyFriend  // "나의 친구"
     
     case accept // 수락
     case reject // 거절
@@ -93,14 +101,29 @@ class UserListTableViewButton: UIButton {
         case .sendRequest:  // 친구 요청하기
             backgroundColor = .tnOrange
             setTitleColor(.white, for: .normal)
-            setTitle("친구 신청하기", for: .normal)
+            setTitle("친구 신청", for: .normal)
             isEnabled = true
+            self.snp.makeConstraints { make in
+                make.width.equalTo(84)
+            }
             
         case .sentRequest:  // 친구 요청 완료
             backgroundColor = .grey02
             setTitleColor(.grey08, for: .normal)
-            setTitle("친구 신청완료", for: .normal)
+            setTitle("요청됨", for: .normal)
             isEnabled = false
+            self.snp.makeConstraints { make in
+                make.width.equalTo(69)
+            }
+            
+        case .alreadyFriend: // 나의 친구
+            backgroundColor = .grey02
+            setTitleColor(.grey08, for: .normal)
+            setTitle("나의 친구", for: .normal)
+            isEnabled = false
+            self.snp.makeConstraints { make in
+                make.width.equalTo(84)
+            }
             
             
             

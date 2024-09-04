@@ -7,39 +7,30 @@
 
 import UIKit
 
+// 친구 목록 뷰
+// - 데이터 없을 때 : "아직 추가된 친구가 없어요"
+// - 데이터 있을 때 : 테이블뷰 (셀 - '친구 삭제' (FriendListTableViewCell)
 class FriendListView: BaseView {
     // MARK: - UI Components
     let noFriendView = NoFriendView()
     
-    /* ===== Sample ===== */
-    let button1 = {
-        let view = UIButton()
-        view.backgroundColor = .lightGray
-        view.setTitle("팝업 버튼 1", for: .normal)
+    let friendListTableView = {
+        let view = UITableView()
+        view.register(
+            FriendListTableViewCell.self,
+            forCellReuseIdentifier: FriendListTableViewCell.description()
+        )
+        view.rowHeight = 76
+        view.allowsSelection = false
         return view
     }()
-    let button2 = {
-        let view = UIButton()
-        view.backgroundColor = .lightGray
-        view.setTitle("팝업 버튼 2", for: .normal)
-        return view
-    }()
-    /* ================== */
     
     override func addSubViews() {
         super.addSubViews()
         
-        [noFriendView].forEach {
+        [noFriendView, friendListTableView].forEach {
             self.addSubview($0)
         }
-        
-        
-        
-        /* ===== Sample ===== */
-        [button1, button2].forEach {
-            self.addSubview($0)
-        }
-        /* ================== */
     }
     
     override func layouts() {
@@ -48,26 +39,9 @@ class FriendListView: BaseView {
         noFriendView.snp.makeConstraints { make in
             make.center.equalTo(self)
         }
-        
-        
-        
-        /* ===== Sample ===== */
-        button1.snp.makeConstraints { make in
-            make.top.equalTo(self).inset(150)
-            make.leading.equalTo(self).inset(16)
-            make.width.equalTo(120)
-            make.height.equalTo(80)
+        friendListTableView.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(120)
+            make.horizontalEdges.bottom.equalToSuperview()
         }
-        button2.snp.makeConstraints { make in
-            make.top.equalTo(self).inset(150)
-            make.trailing.equalTo(self).inset(16)
-            make.width.equalTo(120)
-            make.height.equalTo(80)
-        }
-        /* ================== */
     }
 }
-
-
-/* ===== Sample ===== */
-/* ================== */

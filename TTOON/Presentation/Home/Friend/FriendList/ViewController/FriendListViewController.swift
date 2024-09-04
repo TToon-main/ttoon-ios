@@ -33,18 +33,11 @@
         super.viewDidLoad()
         
         setNavigation()
+        loadData()
         
-        sampleLogic()
+        presentIntroductionAddFriendPopUpView()
     }
-     
-     
-     // sample
-     func sampleLogic() {
-         mainView.button1.addTarget(self, action: #selector(presentIntroductionAddFriendPopUpView), for: .touchUpInside)
-         mainView.button2.addTarget(self, action: #selector(presentConfirmFriendDeletionPopupView), for: .touchUpInside)
-     }
- }
-
+}
 
 // MARK: - ReactorKit bind
  extension FriendListViewController {
@@ -57,12 +50,32 @@
     }
     
     func bindState(reactor: FriendListReactor) {
+        reactor.state.map { $0.friendList }
+            .bind(to: mainView.friendListTableView.rx.items(cellIdentifier: FriendListTableViewCell.description(), cellType: FriendListTableViewCell.self)) { row, user, cell in
+                cell.profileInfoView.profileNicknameLabel.text = String(user.id)
+                
+//                cell.deleteFriendButton.rx.tap
+//                    .map { FriendListReactor.Action.deleteFriend(user.id) }
+//                    .bind(to: reactor.action)
+//                    .disposed(by: cell.disposeBag)
+                cell.deleteFriendButton.rx.tap
+                    .subscribe(with: self) { owner, _ in
+                        owner.presentConfirmFriendDeletionPopupView(name: String(user.id))
+                    }
+                    .disposed(by: cell.disposeBag)
+            }
+            .disposed(by: disposeBag)
     }
  }
 
 
 // MARK: - private func
- extension FriendListViewController {
+extension FriendListViewController {
+    private func loadData() {
+        reactor?.action.onNext(.loadFriendList)
+    }
+     
+     
     private func setNavigation() {
         self.navigationItem.title = "친구 목록"
     }
@@ -89,9 +102,9 @@
     }
      
      // 친구 삭제 시도 시, "'000'님과 친구를 끊으시겠어요?" 팝업을 보여준다.
-     @objc private func presentConfirmFriendDeletionPopupView() {
+    @objc private func presentConfirmFriendDeletionPopupView(name: String) {
          let vc = FriendListPopUpBottomSheetViewController(
-             title: "'000'님과\n친구를 끊으시겠어요?",
+             title: "\(name)님과\n친구를 끊으시겠어요?",
              subTitle: "친구를 삭제하면, 이제 친구의 기록을\n볼 수 없게 되어요",
              image: TNImage.characterDeleteIcon!,
              confirmButtonTitle: "삭제할래요",

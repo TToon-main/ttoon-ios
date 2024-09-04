@@ -28,7 +28,7 @@ class TToonLogHomeNavigationView: BaseView {
     override func addSubViews() {
         super.addSubViews()
         
-        [logoImageView, addFriendButton].forEach { item in
+        [logoImageView, friendListButton].forEach { item in
             self.addSubview(item)
         }
     }
@@ -39,7 +39,7 @@ class TToonLogHomeNavigationView: BaseView {
             make.centerY.equalTo(self)
             make.width.equalTo(120)
         }
-        addFriendButton.snp.makeConstraints { make in
+        friendListButton.snp.makeConstraints { make in
             make.trailing.equalTo(self)
             make.centerY.equalTo(self)
             make.size.equalTo(24)

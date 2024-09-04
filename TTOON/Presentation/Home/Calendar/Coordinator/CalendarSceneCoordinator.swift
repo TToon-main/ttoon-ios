@@ -53,13 +53,21 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
     
     
     func showFriendListView() {
-        print(#function)
-        
-//        let reactor = FriendListReactor()
-//        let vc = FriendListViewController(reactor: reactor)
-        
+        // 탭맨 뷰컨은 따로 뷰모델이 없기 때문에 VC에 didSendEventClosure 추가
         let vc = FriendTabViewController()
+        vc.didSendEventClosure = { [weak self] event in
+            switch event {
+            case .showSearchFriendView:
+                self?.showSearchFriendView()
+            }
+        }
         
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    
+    func showSearchFriendView() {
+        let vc = SearchFriendViewController(reactor: SearchFriendReactor())
         navigationController.pushViewController(vc, animated: true)
     }
 }
