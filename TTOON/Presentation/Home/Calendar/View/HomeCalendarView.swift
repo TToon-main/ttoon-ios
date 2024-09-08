@@ -48,7 +48,7 @@ class HomeCalendarView: BaseView {
         }
         
         calendarView.snp.makeConstraints { make in
-            make.top.equalTo(contentView).inset(80)
+            make.top.equalTo(contentView).inset(100)
             make.horizontalEdges.equalTo(contentView)
             make.height.equalTo(409)
         }
@@ -64,7 +64,7 @@ class HomeCalendarView: BaseView {
     override func configures() {
         super.configures()
         
-        bottomDiaryView.roundCorners(cornerRadius: 22, maskedCorners: [.layerMinXMinYCorner, .layerMaxXMinYCorner]) // 적용이 안된다...?
+        self.backgroundColor = .grey01
     }
 }
 

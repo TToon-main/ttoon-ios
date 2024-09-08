@@ -38,6 +38,7 @@ class AppCoordinator: AppCoordinatorProtocol {
     // 5.
     func start() {
         showAuthFlow()
+//        showTabBarFlow()
     }
     
     
@@ -68,6 +69,24 @@ extension AppCoordinator: CoordinatorFinishDelegate {
         // 1. Child
         // 2. Child의 Child (직접 찾아야 함)
         // 3. 부모 타고 가야 하는 코디
+
+        print("App 코디 : child finish 연락 받음. nextFlow : \(nextFlow)")
+        // 1. App 코디의 child인 경우 (auth, tabBar)
+        if let nextFlow = nextFlow as? AppCoordinator.ChildCoordinatorType {
+            switch nextFlow {
+            case .auth:
+                print("auth 코디 실행해야 한다!")
+            
+            case .tabBar:
+                print("tabBar 코디 실행해야 한다!")
+                self.showTabBarFlow()
+            }
+        }
+        
+        
+        
+        // 2. 기타 코디일 가능성도 있음 (tabBar의 child, ...)
+        
      
     }
 }

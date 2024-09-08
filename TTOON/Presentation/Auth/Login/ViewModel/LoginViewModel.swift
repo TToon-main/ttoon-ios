@@ -12,7 +12,8 @@ import UIKit
 class LoginViewModel {
     private let loginUseCase: LoginUseCaseProtocol
     private let disposeBag = DisposeBag()
-    private let showTabbar = PublishSubject<Void>()
+//    private let showTabbar = PublishSubject<Void>()
+    var didSendEventClosure: ( (LoginViewModel.Event) -> Void)?
     
     init(loginUseCase: LoginUseCaseProtocol) {
         self.loginUseCase = loginUseCase
@@ -27,7 +28,7 @@ class LoginViewModel {
     }
     
     struct Output {
-    let showTabbar: Observable<Void> 
+//        let showTabbar: Observable<Void> 
     }
     
     
@@ -41,7 +42,8 @@ class LoginViewModel {
                 switch response {
                 case .success(let data):
                     print("애플 로그인 성공 : ", data)
-                    self.showTabbar.onNext(())
+                    owner.didSendEventClosure?(.goTabBarFlow)
+//                    self.showTabbar.onNext(())
                     
                 case .failure(let error):
                     print("애플 로그인 실패 : ", error)
@@ -59,7 +61,8 @@ class LoginViewModel {
                 switch response {
                 case .success(let data):
                     print("카카오 로그인 성공 : ", data)
-                    self.showTabbar.onNext(())
+                    owner.didSendEventClosure?(.goTabBarFlow)
+//                    self.showTabbar.onNext(())
                     
                 case .failure(let error):
                     print("카카오 로그인 실패 : ", error)
@@ -77,7 +80,8 @@ class LoginViewModel {
                 switch response {
                 case .success(let data):
                     print("구글 로그인 성공 : ", data)
-                    self.showTabbar.onNext(())
+                    owner.didSendEventClosure?(.goTabBarFlow)
+//                    self.showTabbar.onNext(())
                     
                 case .failure(let error):
                     print("구글 로그인 실패 : ", error.localizedDescription)
@@ -85,6 +89,14 @@ class LoginViewModel {
             }
             .disposed(by: disposeBag)
 
-        return Output(showTabbar: showTabbar.asObservable())
+        return Output()
+    }
+}
+
+
+// 코디에 전달하는 이벤트
+extension LoginViewModel {
+    enum Event {
+        case goTabBarFlow
     }
 }

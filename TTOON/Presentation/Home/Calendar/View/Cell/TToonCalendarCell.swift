@@ -77,7 +77,7 @@ class TToonCalendarCell: FSCalendarCell {
             make.size.equalTo(boundSize())
         }
         
-        print("**** bound : \(boundSize())")
+//        print("**** bound : \(boundSize())")
     }
     
     private func configures() {

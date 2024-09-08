@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		480C165F2BEEFA9F0085A187 /* SocialLoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480C165E2BEEFA9F0085A187 /* SocialLoginType.swift */; };
+		480D396E2C85E843009C26DA /* ReceivedFriendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D395F2C85E843009C26DA /* ReceivedFriendRequestViewController.swift */; };
+		480D396F2C85E843009C26DA /* FriendListReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D39622C85E843009C26DA /* FriendListReactor.swift */; };
+		480D39702C85E843009C26DA /* ReceivedFriendRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D39652C85E843009C26DA /* ReceivedFriendRequestTableViewCell.swift */; };
+		480D39712C85E843009C26DA /* FriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D39662C85E843009C26DA /* FriendListTableViewCell.swift */; };
+		480D39722C85E843009C26DA /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D39672C85E843009C26DA /* UserListTableViewCell.swift */; };
+		480D39732C85E843009C26DA /* FriendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D39682C85E843009C26DA /* FriendListView.swift */; };
+		480D39742C85E843009C26DA /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D396A2C85E843009C26DA /* FriendListViewController.swift */; };
+		480D39752C85E843009C26DA /* FriendListPopUpBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D396B2C85E843009C26DA /* FriendListPopUpBottomSheetViewController.swift */; };
+		480D39762C85E843009C26DA /* FriendTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D396D2C85E843009C26DA /* FriendTabViewController.swift */; };
+		480D39782C85FB97009C26DA /* ReceivedFriendRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D39772C85FB97009C26DA /* ReceivedFriendRequestView.swift */; };
+		480D397B2C85FCDB009C26DA /* ReceivedFriendRequestReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D397A2C85FCDB009C26DA /* ReceivedFriendRequestReactor.swift */; };
+		480D39812C8877C3009C26DA /* SearchFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D39802C8877C2009C26DA /* SearchFriendViewController.swift */; };
+		480D39832C887972009C26DA /* SearchFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D39822C887972009C26DA /* SearchFriendView.swift */; };
+		480D39852C88798C009C26DA /* SearchFriendReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D39842C88798C009C26DA /* SearchFriendReactor.swift */; };
 		482B60EF2BB58F3F00681097 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 482B60EE2BB58F3F00681097 /* Kingfisher */; };
 		482B60F22BB58F6E00681097 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 482B60F12BB58F6E00681097 /* SnapKit */; };
 		482B60F52BB58F9400681097 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 482B60F42BB58F9400681097 /* FSCalendar */; };
@@ -28,6 +42,12 @@
 		482B611E2BB598DD00681097 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 482B611D2BB598DD00681097 /* Sentry */; };
 		482B61212BB599B100681097 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61202BB599B100681097 /* FirebaseAnalytics */; };
 		482B61232BB599B100681097 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 482B61222BB599B100681097 /* FirebaseCrashlytics */; };
+		4839A9F42C78A56B00FF3250 /* NoFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9F32C78A56B00FF3250 /* NoFriendView.swift */; };
+		4839A9F62C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9F52C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift */; };
+		4839A9F92C78AE5A00FF3250 /* indicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839A9F82C78AE5A00FF3250 /* indicatorView.swift */; };
+		4839AA012C79C84000FF3250 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 4839AA002C79C84000FF3250 /* Tabman */; };
+		4839AA122C79DE9E00FF3250 /* TableViewProfileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839AA112C79DE9E00FF3250 /* TableViewProfileInfoView.swift */; };
+		4839AA172C7B153C00FF3250 /* FriendAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839AA162C7B153C00FF3250 /* FriendAPI.swift */; };
 		486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */; };
 		486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */; };
 		489ADEED2BF8E72700B070B7 /* SettingTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */; };
@@ -263,6 +283,25 @@
 /* Begin PBXFileReference section */
 		480C165C2BEEF7C90085A187 /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		480C165E2BEEFA9F0085A187 /* SocialLoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginType.swift; sourceTree = "<group>"; };
+		480D395F2C85E843009C26DA /* ReceivedFriendRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivedFriendRequestViewController.swift; sourceTree = "<group>"; };
+		480D39622C85E843009C26DA /* FriendListReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListReactor.swift; sourceTree = "<group>"; };
+		480D39652C85E843009C26DA /* ReceivedFriendRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivedFriendRequestTableViewCell.swift; sourceTree = "<group>"; };
+		480D39662C85E843009C26DA /* FriendListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListTableViewCell.swift; sourceTree = "<group>"; };
+		480D39672C85E843009C26DA /* UserListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
+		480D39682C85E843009C26DA /* FriendListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListView.swift; sourceTree = "<group>"; };
+		480D396A2C85E843009C26DA /* FriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		480D396B2C85E843009C26DA /* FriendListPopUpBottomSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListPopUpBottomSheetViewController.swift; sourceTree = "<group>"; };
+		480D396D2C85E843009C26DA /* FriendTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTabViewController.swift; sourceTree = "<group>"; };
+		480D39772C85FB97009C26DA /* ReceivedFriendRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedFriendRequestView.swift; sourceTree = "<group>"; };
+		480D397A2C85FCDB009C26DA /* ReceivedFriendRequestReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedFriendRequestReactor.swift; sourceTree = "<group>"; };
+		480D39802C8877C2009C26DA /* SearchFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendViewController.swift; sourceTree = "<group>"; };
+		480D39822C887972009C26DA /* SearchFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendView.swift; sourceTree = "<group>"; };
+		480D39842C88798C009C26DA /* SearchFriendReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendReactor.swift; sourceTree = "<group>"; };
+		4839A9F32C78A56B00FF3250 /* NoFriendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoFriendView.swift; sourceTree = "<group>"; };
+		4839A9F52C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListPopUpBottomSheetView.swift; sourceTree = "<group>"; };
+		4839A9F82C78AE5A00FF3250 /* indicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = indicatorView.swift; sourceTree = "<group>"; };
+		4839AA112C79DE9E00FF3250 /* TableViewProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewProfileInfoView.swift; sourceTree = "<group>"; };
+		4839AA162C7B153C00FF3250 /* FriendAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAPI.swift; sourceTree = "<group>"; };
 		486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTitleLabel.swift; sourceTree = "<group>"; };
@@ -518,6 +557,7 @@
 			files = (
 				482B61182BB5957F00681097 /* RxKakaoSDKUser in Frameworks */,
 				482B61112BB5956D00681097 /* KakaoSDKAuth in Frameworks */,
+				4839AA012C79C84000FF3250 /* Tabman in Frameworks */,
 				482B61062BB592D500681097 /* RxCocoa in Frameworks */,
 				482B60EF2BB58F3F00681097 /* Kingfisher in Frameworks */,
 				482B61162BB5957F00681097 /* RxKakaoSDKAuth in Frameworks */,
@@ -556,6 +596,189 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		480D395A2C85E843009C26DA /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				480D397C2C8877A2009C26DA /* SearchFriend */,
+				480D395B2C85E843009C26DA /* ReceivedFriendRequest */,
+				480D39602C85E843009C26DA /* FriendList */,
+				480D396C2C85E843009C26DA /* Tabman */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
+		480D395B2C85E843009C26DA /* ReceivedFriendRequest */ = {
+			isa = PBXGroup;
+			children = (
+				480D395C2C85E843009C26DA /* ViewModel */,
+				480D395D2C85E843009C26DA /* View */,
+				480D395E2C85E843009C26DA /* ViewController */,
+			);
+			path = ReceivedFriendRequest;
+			sourceTree = "<group>";
+		};
+		480D395C2C85E843009C26DA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				480D397A2C85FCDB009C26DA /* ReceivedFriendRequestReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		480D395D2C85E843009C26DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				480D39792C85FB9A009C26DA /* Cell */,
+				480D39772C85FB97009C26DA /* ReceivedFriendRequestView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		480D395E2C85E843009C26DA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				480D395F2C85E843009C26DA /* ReceivedFriendRequestViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		480D39602C85E843009C26DA /* FriendList */ = {
+			isa = PBXGroup;
+			children = (
+				480D39612C85E843009C26DA /* ViewModel */,
+				480D39632C85E843009C26DA /* View */,
+				480D39692C85E843009C26DA /* ViewController */,
+			);
+			path = FriendList;
+			sourceTree = "<group>";
+		};
+		480D39612C85E843009C26DA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				480D39622C85E843009C26DA /* FriendListReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		480D39632C85E843009C26DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				480D39642C85E843009C26DA /* Cell */,
+				480D39682C85E843009C26DA /* FriendListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		480D39642C85E843009C26DA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				480D39662C85E843009C26DA /* FriendListTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		480D39692C85E843009C26DA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				480D396A2C85E843009C26DA /* FriendListViewController.swift */,
+				480D396B2C85E843009C26DA /* FriendListPopUpBottomSheetViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		480D396C2C85E843009C26DA /* Tabman */ = {
+			isa = PBXGroup;
+			children = (
+				480D396D2C85E843009C26DA /* FriendTabViewController.swift */,
+			);
+			path = Tabman;
+			sourceTree = "<group>";
+		};
+		480D39792C85FB9A009C26DA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				480D39652C85E843009C26DA /* ReceivedFriendRequestTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		480D397C2C8877A2009C26DA /* SearchFriend */ = {
+			isa = PBXGroup;
+			children = (
+				480D397F2C8877B1009C26DA /* View */,
+				480D397E2C8877AE009C26DA /* ViewModel */,
+				480D397D2C8877A8009C26DA /* ViewController */,
+			);
+			path = SearchFriend;
+			sourceTree = "<group>";
+		};
+		480D397D2C8877A8009C26DA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				480D39802C8877C2009C26DA /* SearchFriendViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		480D397E2C8877AE009C26DA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				480D39842C88798C009C26DA /* SearchFriendReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		480D397F2C8877B1009C26DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				480D39862C8879F4009C26DA /* Cell */,
+				480D39822C887972009C26DA /* SearchFriendView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		480D39862C8879F4009C26DA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				480D39672C85E843009C26DA /* UserListTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		4839A9F22C78A56B00FF3250 /* FriendList */ = {
+			isa = PBXGroup;
+			children = (
+				4839A9F32C78A56B00FF3250 /* NoFriendView.swift */,
+				4839A9F52C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift */,
+				4839AA112C79DE9E00FF3250 /* TableViewProfileInfoView.swift */,
+			);
+			path = FriendList;
+			sourceTree = "<group>";
+		};
+		4839A9F72C78AE5000FF3250 /* Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				4839A9F82C78AE5A00FF3250 /* indicatorView.swift */,
+			);
+			path = Indicator;
+			sourceTree = "<group>";
+		};
+		4839AA132C7B14F300FF3250 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4839AA152C7B153300FF3250 /* Friend */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4839AA152C7B153300FF3250 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				4839AA162C7B153C00FF3250 /* FriendAPI.swift */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
 		4883564A2BEF422A005DC0A6 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -711,6 +934,7 @@
 		BE32E3102BEBAF7B00F0C193 /* TNCompopnet */ = {
 			isa = PBXGroup;
 			children = (
+				4839A9F72C78AE5000FF3250 /* Indicator */,
 				BE47BF5C2BF4CDE10048F707 /* Switch */,
 				BE47BF5B2BF4C98E0048F707 /* BottomSheet */,
 				BE47BF5A2BF4C8A60048F707 /* Alert */,
@@ -1334,6 +1558,7 @@
 		BE9C9BCD2C6898C2000AAF0E /* API */ = {
 			isa = PBXGroup;
 			children = (
+				4839AA132C7B14F300FF3250 /* Home */,
 				BE9C9BC92C6898C2000AAF0E /* Auth */,
 				BE9C9BCB2C6898C2000AAF0E /* Setting */,
 			);
@@ -1527,6 +1752,7 @@
 		BEE8BCC72C71FFF5003800E0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				480D395A2C85E843009C26DA /* Friend */,
 				BEE8BCC32C71FFF5003800E0 /* Calendar */,
 				BEE8BCC62C71FFF5003800E0 /* Feed */,
 			);
@@ -1554,6 +1780,7 @@
 		BEE8BCE02C7202E6003800E0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4839A9F22C78A56B00FF3250 /* FriendList */,
 				BEE8BCDE2C7202E6003800E0 /* Calendar */,
 				BEE8BCDF2C7202E6003800E0 /* TToonLogHomeNavigationView.swift */,
 			);
@@ -1652,6 +1879,7 @@
 				482B611D2BB598DD00681097 /* Sentry */,
 				482B61202BB599B100681097 /* FirebaseAnalytics */,
 				482B61222BB599B100681097 /* FirebaseCrashlytics */,
+				4839AA002C79C84000FF3250 /* Tabman */,
 			);
 			productName = TTOON;
 			productReference = BE36CF8A2BAFF5890017F94E /* TTOON.app */;
@@ -1742,6 +1970,7 @@
 				482B61192BB596CD00681097 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 				482B611C2BB598DC00681097 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 				482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				4839A9FF2C79C83F00FF3250 /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = BE36CF8B2BAFF5890017F94E /* Products */;
 			projectDirPath = "";
@@ -1867,6 +2096,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				480D39742C85E843009C26DA /* FriendListViewController.swift in Sources */,
 				BE9C9BEC2C6898C2000AAF0E /* LoginRepository.swift in Sources */,
 				BE0473662C550E5600484B96 /* ViewLifeCycle.swift in Sources */,
 				BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */,
@@ -1881,6 +2111,7 @@
 				BE8884172C567227003EC2A3 /* CharacterEditType.swift in Sources */,
 				BEE8BCCE2C71FFF5003800E0 /* SelectYearMonthBottomSheetView.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
+				480D39782C85FB97009C26DA /* ReceivedFriendRequestView.swift in Sources */,
 				BE9C9B472C688D16000AAF0E /* CreateToonCompleteToonResultImageView.swift in Sources */,
 				BE78BEF32C25C5EE000A5D11 /* UIViewController+.swift in Sources */,
 				BE9C9B492C688D16000AAF0E /* CreateToonDiaryView.swift in Sources */,
@@ -1909,6 +2140,7 @@
 				BE9C9AF02C688CAF000AAF0E /* CharacterPickerBSView.swift in Sources */,
 				BE9C9B0B2C688CAF000AAF0E /* SelectStyleReactor.swift in Sources */,
 				BE9C9B082C688CAF000AAF0E /* CompleteToonReactor.swift in Sources */,
+				480D39722C85E843009C26DA /* UserListTableViewCell.swift in Sources */,
 				BE9C9B952C68986F000AAF0E /* ContactUsView.swift in Sources */,
 				BE9C9B9A2C68986F000AAF0E /* DeleteAccountView.swift in Sources */,
 				BE9C9BC42C68989F000AAF0E /* SplashUseCase.swift in Sources */,
@@ -1916,6 +2148,7 @@
 				BE9C9BE52C6898C2000AAF0E /* SplashAPI.swift in Sources */,
 				BE9C9AFF2C688CAF000AAF0E /* CreateResultViewController.swift in Sources */,
 				BE9C9B4F2C688D16000AAF0E /* CreateToonSelectCharactersView.swift in Sources */,
+				4839A9F42C78A56B00FF3250 /* NoFriendView.swift in Sources */,
 				BE9C9B602C68959D000AAF0E /* CreateToonTitleLabel.swift in Sources */,
 				BE9C9BA52C68986F000AAF0E /* AlarmViewController.swift in Sources */,
 				BE9C9BE82C6898C2000AAF0E /* AuthDTO.swift in Sources */,
@@ -1923,6 +2156,7 @@
 				BE78BEF12C25C5DC000A5D11 /* UIView+.swift in Sources */,
 				BE9C9BA12C68986F000AAF0E /* MyPageTableViewCell.swift in Sources */,
 				BEAB66D12C26AA12001B1B63 /* UICollectionView+.swift in Sources */,
+				480D39752C85E843009C26DA /* FriendListPopUpBottomSheetViewController.swift in Sources */,
 				BE9C9B412C688D16000AAF0E /* CharacterPickerTableViewCell.swift in Sources */,
 				BE9C9AF52C688CAF000AAF0E /* EnterInfoScrollView.swift in Sources */,
 				BE9C9BBE2C68989F000AAF0E /* SettingModel.swift in Sources */,
@@ -1933,6 +2167,7 @@
 				BE9C9BA32C68986F000AAF0E /* UnderLineView.swift in Sources */,
 				BE9C9B062C688CAF000AAF0E /* CharacterModifyReactor.swift in Sources */,
 				BEE8BCE62C7202FE003800E0 /* MyPageSceneCoordinator.swift in Sources */,
+				480D39712C85E843009C26DA /* FriendListTableViewCell.swift in Sources */,
 				BE9C9AFC2C688CAF000AAF0E /* CharacterPickerBSViewController.swift in Sources */,
 				BEE8BCCA2C71FFF5003800E0 /* TToonCalendarCell.swift in Sources */,
 				BE9C9B9D2C68986F000AAF0E /* DeleteAccountReactor.swift in Sources */,
@@ -1967,18 +2202,21 @@
 				BE05C0932C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift in Sources */,
 				BE9C9B4B2C688D16000AAF0E /* CreateToonIsMainCharacterSwitch.swift in Sources */,
 				BEE8BCE72C7202FE003800E0 /* SettingCoordinator.swift in Sources */,
+				480D39812C8877C3009C26DA /* SearchFriendViewController.swift in Sources */,
 				BE9C9B982C68986F000AAF0E /* ContactUsReactor.swift in Sources */,
 				BE9C9B0A2C688CAF000AAF0E /* EnterInfoReactor.swift in Sources */,
 				BE9C9AF12C688CAF000AAF0E /* CompleteToonScrollView.swift in Sources */,
 				BE9C9BC32C68989F000AAF0E /* LoginUseCase.swift in Sources */,
 				BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */,
 				BE9C9BF32C6898C2000AAF0E /* LogPlugin.swift in Sources */,
+				4839AA172C7B153C00FF3250 /* FriendAPI.swift in Sources */,
 				BE9C9BA02C68986F000AAF0E /* MyPageTableView.swift in Sources */,
 				BE9C9B9C2C68986F000AAF0E /* DeleteAccountViewController.swift in Sources */,
 				BE77224B2BEF499F007CDC17 /* TNAlert.swift in Sources */,
 				BE9C9AF72C688CAF000AAF0E /* SelectStyleView.swift in Sources */,
 				BE9C9B582C68927F000AAF0E /* DateFormatType.swift in Sources */,
 				BEE8BCC82C71FFF5003800E0 /* CalendarSceneCoordinator.swift in Sources */,
+				480D39762C85E843009C26DA /* FriendTabViewController.swift in Sources */,
 				BE9C9BEF2C6898C2000AAF0E /* DeleteAccountRepository.swift in Sources */,
 				BE9C9B042C688CAF000AAF0E /* CharacterDeleteBSReactor.swift in Sources */,
 				BE9C9BE42C6898C2000AAF0E /* LoginAPI.swift in Sources */,
@@ -1995,10 +2233,13 @@
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
 				BE9C9B022C688CAF000AAF0E /* SelectStyleViewController.swift in Sources */,
 				489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */,
+				480D39732C85E843009C26DA /* FriendListView.swift in Sources */,
+				480D39832C887972009C26DA /* SearchFriendView.swift in Sources */,
 				489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */,
 				486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */,
 				BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
+				480D39702C85E843009C26DA /* ReceivedFriendRequestTableViewCell.swift in Sources */,
 				BEE8BCE12C7202E6003800E0 /* SelectYearMonthView.swift in Sources */,
 				BE9C9B972C68986F000AAF0E /* ContactUsViewController.swift in Sources */,
 				480C165F2BEEFA9F0085A187 /* SocialLoginType.swift in Sources */,
@@ -2007,14 +2248,19 @@
 				BE9C9BA22C68986F000AAF0E /* ProfileSummaryView.swift in Sources */,
 				BE9C9AF42C688CAF000AAF0E /* CreateResultView.swift in Sources */,
 				BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */,
+				480D396E2C85E843009C26DA /* ReceivedFriendRequestViewController.swift in Sources */,
 				BE9C9BC52C68989F000AAF0E /* ContactUsUseCase.swift in Sources */,
 				BE9C9BBF2C68989F000AAF0E /* LoginRepositoryProtocol.swift in Sources */,
+				4839A9F62C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift in Sources */,
+				480D39852C88798C009C26DA /* SearchFriendReactor.swift in Sources */,
 				BE9C9B402C688D16000AAF0E /* CharacterPickerTableView.swift in Sources */,
+				4839AA122C79DE9E00FF3250 /* TableViewProfileInfoView.swift in Sources */,
 				BE9C9B092C688CAF000AAF0E /* CreateLoadingReactor.swift in Sources */,
 				BE9C9AF82C688CAF000AAF0E /* CharacterAddViewController.swift in Sources */,
 				BE9C9AFB2C688CAF000AAF0E /* CharacterModifyViewController.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
 				BE9C9AF32C688CAF000AAF0E /* CreateLoadingView.swift in Sources */,
+				480D396F2C85E843009C26DA /* FriendListReactor.swift in Sources */,
 				BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */,
 				BE9C9AF22C688CAF000AAF0E /* CompleteToonView.swift in Sources */,
 				BE9C9B4E2C688D16000AAF0E /* CreateToonSelectCharactersButton.swift in Sources */,
@@ -2024,7 +2270,9 @@
 				489FE2C72BC00F9F0033B61D /* BaseTableViewCell.swift in Sources */,
 				486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */,
 				BE9C9AFA2C688CAF000AAF0E /* CharacterEditViewController.swift in Sources */,
+				4839A9F92C78AE5A00FF3250 /* indicatorView.swift in Sources */,
 				BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */,
+				480D397B2C85FCDB009C26DA /* ReceivedFriendRequestReactor.swift in Sources */,
 				48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */,
 				BE9C9AFE2C688CAF000AAF0E /* CreateLoadingViewController.swift in Sources */,
 				BE9C9B032C688CAF000AAF0E /* CharacterAddReactor.swift in Sources */,
@@ -2089,6 +2337,7 @@
 /* Begin XCBuildConfiguration section */
 		BE36CFB32BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD72C720114003800E0 /* Prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -2147,14 +2396,15 @@
 		};
 		BE36CFB62BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD72C720114003800E0 /* Prod.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = 2S9WHYP486;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
@@ -2186,6 +2436,7 @@
 		};
 		BE36CFB92BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD72C720114003800E0 /* Prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2205,6 +2456,7 @@
 		};
 		BE36CFBC2BAFF58A0017F94E /* PROD */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD72C720114003800E0 /* Prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2222,6 +2474,7 @@
 		};
 		BE4C7C962BFF2C2900AB3D09 /* DEV */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD82C720114003800E0 /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -2280,16 +2533,15 @@
 		};
 		BE4C7C972BFF2C2900AB3D09 /* DEV */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD82C720114003800E0 /* Dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2S9WHYP486;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = 2S9WHYP486;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
@@ -2307,7 +2559,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.TTOON.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TToon Service - DEV";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -2321,6 +2572,7 @@
 		};
 		BE4C7C982BFF2C2900AB3D09 /* DEV */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD82C720114003800E0 /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2340,6 +2592,7 @@
 		};
 		BE4C7C992BFF2C2900AB3D09 /* DEV */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD82C720114003800E0 /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2357,6 +2610,7 @@
 		};
 		BE4C7C9A2BFF2C2F00AB3D09 /* STAG */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD92C720114003800E0 /* Stag.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -2415,13 +2669,15 @@
 		};
 		BE4C7C9B2BFF2C2F00AB3D09 /* STAG */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD92C720114003800E0 /* Stag.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = 2S9WHYP486;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
@@ -2453,6 +2709,7 @@
 		};
 		BE4C7C9C2BFF2C2F00AB3D09 /* STAG */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD92C720114003800E0 /* Stag.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2472,6 +2729,7 @@
 		};
 		BE4C7C9D2BFF2C2F00AB3D09 /* STAG */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE8BCD92C720114003800E0 /* Stag.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2498,7 +2756,7 @@
 				BE4C7C962BFF2C2900AB3D09 /* DEV */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = PROD;
+			defaultConfigurationName = DEV;
 		};
 		BE36CFB42BAFF58A0017F94E /* Build configuration list for PBXNativeTarget "TTOON" */ = {
 			isa = XCConfigurationList;
@@ -2508,7 +2766,7 @@
 				BE4C7C972BFF2C2900AB3D09 /* DEV */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = PROD;
+			defaultConfigurationName = DEV;
 		};
 		BE36CFB72BAFF58A0017F94E /* Build configuration list for PBXNativeTarget "TTOONTests" */ = {
 			isa = XCConfigurationList;
@@ -2518,7 +2776,7 @@
 				BE4C7C982BFF2C2900AB3D09 /* DEV */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = PROD;
+			defaultConfigurationName = DEV;
 		};
 		BE36CFBA2BAFF58A0017F94E /* Build configuration list for PBXNativeTarget "TTOONUITests" */ = {
 			isa = XCConfigurationList;
@@ -2528,7 +2786,7 @@
 				BE4C7C992BFF2C2900AB3D09 /* DEV */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = PROD;
+			defaultConfigurationName = DEV;
 		};
 /* End XCConfigurationList section */
 
@@ -2653,6 +2911,14 @@
 				minimumVersion = 10.23.0;
 			};
 		};
+		4839A9FF2C79C83F00FF3250 /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2755,6 +3021,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		4839AA002C79C84000FF3250 /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4839A9FF2C79C83F00FF3250 /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

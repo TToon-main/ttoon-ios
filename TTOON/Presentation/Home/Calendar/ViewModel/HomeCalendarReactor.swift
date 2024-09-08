@@ -9,6 +9,8 @@ import Foundation
 import ReactorKit
 
 class HomeCalendarReactor: Reactor {
+    var didSendEventClosure: ((HomeCalendarReactor.Event) -> Void)?
+    
     init() {
         // 맨 처음은 현재 날짜.
         self.initialState = State(
@@ -18,11 +20,13 @@ class HomeCalendarReactor: Reactor {
     }
     
     enum Action {
+        case friendListButtonTapped  // 친구 추가하기 아이콘 클릭
         case didSelectCalendarCell(Date) // 캘린더 셀 클릭
         case selectYearMonth(String)  // 연월 수정
     }
     
     enum Mutation {
+        case void   // 친구 추가하기 버튼의 경우, 추가적으로 처리할 일은 없다.
         case setCurrentDate(Date)
         case setCurrentYearMonth(String)
     }
@@ -39,6 +43,10 @@ class HomeCalendarReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
+        case .friendListButtonTapped:
+            didSendEventClosure?(.showFriendListView)
+            return .just(.void)
+            
         case .didSelectCalendarCell(let date):
             // TODO: diaryView에 들어갈 데이터 로드 (네트워크 통신)
             return .just(.setCurrentDate(date))
@@ -64,6 +72,9 @@ class HomeCalendarReactor: Reactor {
         var newState = state
         
         switch mutation {
+        case .void:
+            break
+            
         case .setCurrentDate(let date):
             print("(r) currentDate 변경 : \(date)")
             newState.currentDate = date
@@ -74,5 +85,12 @@ class HomeCalendarReactor: Reactor {
         }
         
         return newState
+    }
+}
+
+
+extension HomeCalendarReactor {
+    enum Event {
+        case showFriendListView
     }
 }

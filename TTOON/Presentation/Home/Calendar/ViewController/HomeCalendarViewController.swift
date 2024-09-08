@@ -11,14 +11,19 @@ import RxCocoa
 import RxSwift
 import UIKit
 
+
 class HomeCalendarViewController: BaseViewController, View {
     var disposeBag = DisposeBag()
     
     let calendarCellDidSelected = PublishSubject<Date>() // FSCalendar의 rx.didSelect가 없어서 이걸 통해 이벤트를 전달한다.
     
+    
+    private var previousOffset: CGFloat = 0
+    private var currentPage: Int = 0
+    
     // MARK: - UI Component (View)
     let mainView = HomeCalendarView()
-    
+    let ttoonNavigationView = TToonLogHomeNavigationView()
     
     
     init(reactor: HomeCalendarReactor) {
@@ -39,6 +44,7 @@ class HomeCalendarViewController: BaseViewController, View {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setTToonLogHomeNavigation(ttoonNavigationView)
         connectCalendar() // 캘린더
         connectCollectionView() // 스와이프 컬렉션뷰
     }
@@ -52,6 +58,15 @@ extension HomeCalendarViewController {
     }
     
     func bindAction(reactor: HomeCalendarReactor) {
+        // 네비게이션 버튼 눌렀을 때 액션 전달
+        ttoonNavigationView.friendListButton.rx.tap
+            .map {
+                HomeCalendarReactor.Action.friendListButtonTapped
+            }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        
         // 캘린더 셀 선택
         self.calendarCellDidSelected
             .map {
@@ -99,8 +114,6 @@ extension HomeCalendarViewController {
     }
 }
 
-
-
 // MARK: - Calendar
 extension HomeCalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     private func connectCalendar() {
@@ -132,7 +145,7 @@ extension HomeCalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
 }
 
 // MARK: - Swipe CollectionView
-extension HomeCalendarViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeCalendarViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     private func connectCollectionView() {
         mainView.bottomDiaryView.diaryImageSwipeCollectionView.delegate = self
         mainView.bottomDiaryView.diaryImageSwipeCollectionView.dataSource = self
@@ -152,4 +165,33 @@ extension HomeCalendarViewController: UICollectionViewDelegate, UICollectionView
         
         return cell
     }
+    
+//    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+//        let point = self.targetContentOffset(scrollView, withVelocity: velocity)
+//        targetContentOffset.pointee = point
+//        
+//        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: velocity.x, options: .allowUserInteraction, animations: {
+//            self.mainView.bottomDiaryView.diaryImageSwipeCollectionView.setContentOffset(point, animated: true)
+//        }, completion: nil)
+//    }
+//    
+//    func targetContentOffset(_ scrollView: UIScrollView, withVelocity velocity: CGPoint) -> CGPoint {
+//        let collectionView = self.mainView.bottomDiaryView.diaryImageSwipeCollectionView
+//        
+//        guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return .zero }
+//        
+//        if self.previousOffset > collectionView.contentOffset.x && velocity.x < 0 {
+//            currentPage -= 1
+//        } else if previousOffset < collectionView.contentOffset.x && velocity.x > 0 {
+//            currentPage += 1
+//        }
+//        
+//        let additional = (flowLayout.itemSize.width + flowLayout.minimumLineSpacing) - flowLayout.headerReferenceSize.width
+//        
+//        let updatedOffset = (flowLayout.itemSize.width + flowLayout.minimumLineSpacing) * CGFloat(currentPage) - additional
+//        
+//        previousOffset = updatedOffset
+//        
+//        return CGPoint(x: updatedOffset, y: 0)
+//    }
 }
