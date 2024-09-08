@@ -52,7 +52,7 @@
     func bindState(reactor: FriendListReactor) {
         reactor.state.map { $0.friendList }
             .bind(to: mainView.friendListTableView.rx.items(cellIdentifier: FriendListTableViewCell.description(), cellType: FriendListTableViewCell.self)) { row, user, cell in
-                cell.profileInfoView.profileNicknameLabel.text = String(user.id)
+                cell.profileInfoView.profileNicknameLabel.text = String(user.nickname)
                 
 //                cell.deleteFriendButton.rx.tap
 //                    .map { FriendListReactor.Action.deleteFriend(user.id) }
@@ -60,7 +60,7 @@
 //                    .disposed(by: cell.disposeBag)
                 cell.deleteFriendButton.rx.tap
                     .subscribe(with: self) { owner, _ in
-                        owner.presentConfirmFriendDeletionPopupView(name: String(user.id))
+                        owner.presentConfirmFriendDeletionPopupView(name: String(user.nickname))
                     }
                     .disposed(by: cell.disposeBag)
             }
@@ -72,7 +72,7 @@
 // MARK: - private func
 extension FriendListViewController {
     private func loadData() {
-        reactor?.action.onNext(.loadFriendList)
+        reactor?.action.onNext(.loadInitialFriendList)
     }
      
      

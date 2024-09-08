@@ -15,7 +15,6 @@ class UserListTableViewCell: BaseTableViewCell {
     
     let requestFriendButton = UserListTableViewButton()
     
-    
     override func addSubViews() {
         super.addSubViews()
         

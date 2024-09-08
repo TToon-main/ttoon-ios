@@ -53,15 +53,15 @@ extension ReceivedFriendRequestViewController {
             .bind(to: mainView.receivedRequestListTableView.rx.items(
                 cellIdentifier: ReceivedFriendRequestTableViewCell.description(),
                 cellType: ReceivedFriendRequestTableViewCell.self)) { row, user, cell in
-                cell.profileInfoView.profileNicknameLabel.text = String(user.id)
+//                cell.profileInfoView.profileNicknameLabel.text = user.nickname
                 
                 cell.acceptButton.rx.tap
-                    .map { ReceivedFriendRequestReactor.Action.acceptRequest(user.id) }
+                        .map { ReceivedFriendRequestReactor.Action.acceptRequest(user.friendId) }
                     .bind(to: reactor.action)
                     .disposed(by: cell.disposeBag)
                 
                 cell.rejectButton.rx.tap
-                    .map { ReceivedFriendRequestReactor.Action.rejectRequest(user.id) }
+                    .map { ReceivedFriendRequestReactor.Action.rejectRequest(user.friendId) }
                     .bind(to: reactor.action)
                     .disposed(by: cell.disposeBag)
             }

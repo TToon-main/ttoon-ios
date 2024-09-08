@@ -46,3 +46,6 @@ class SearchFriendReactor: Reactor {
         return newState
     }
 }
+struct UserInfo {
+    let id: Int
+}

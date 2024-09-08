@@ -25,6 +25,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         appCoordinator = AppCoordinator(nav)
         appCoordinator?.start()
+        
+        
+//        guard let scene = (scene as? UIWindowScene) else { return }
+//        window = UIWindow(windowScene: scene)
+//        let vc = FriendTabViewController()
+//        window?.rootViewController = UINavigationController(rootViewController: vc)
+//        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

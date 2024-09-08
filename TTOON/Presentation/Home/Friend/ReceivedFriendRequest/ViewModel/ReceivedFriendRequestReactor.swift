@@ -10,7 +10,11 @@ import ReactorKit
 import RxSwift
 
 class ReceivedFriendRequestReactor: Reactor {
-    init() { }
+    private let receivedFriendRequestUseCase: ReceivedFriendRequestUseCase
+    
+    init(_ useCase: ReceivedFriendRequestUseCase) {
+        self.receivedFriendRequestUseCase = useCase
+    }
     
     enum Action {
         case loadReceivedRequestList
@@ -19,12 +23,12 @@ class ReceivedFriendRequestReactor: Reactor {
     }
     
     enum Mutation {
-        case setReceivedRequestList([UserInfo])
+        case setReceivedRequestList(Result<[UserInfoModel], Error>)
         case sample(Int)
     }
     
     struct State {
-        var receivedRequestList: [UserInfo] = []
+        var receivedRequestList: [UserInfoModel] = []
     }
     
     let initialState = State()
@@ -33,9 +37,16 @@ class ReceivedFriendRequestReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .loadReceivedRequestList:
-            var friendList: [UserInfo] = []
-            for i in 0...100 { friendList.append(UserInfo(id: i)) }
-            return .just(.setReceivedRequestList(friendList))
+            
+            // 네트워크 통신
+            return receivedFriendRequestUseCase.receivedRequestList(0)
+                .asObservable()
+                .map { result in
+                    print("load received list : \(result)")
+                    return .setReceivedRequestList(result)
+                }
+            
+        
              
         case .acceptRequest(let id):
                             
@@ -50,8 +61,16 @@ class ReceivedFriendRequestReactor: Reactor {
         var newState = state
         
         switch mutation {
-        case .setReceivedRequestList(let requestList):
-            newState.receivedRequestList = requestList
+        case .setReceivedRequestList(let result):
+            switch result {
+            case .success(let requestList):
+                newState.receivedRequestList = requestList
+                
+            case .failure(let error):
+                print("ERror: \(error)")
+            }
+            
+            
 
         case .sample(let id):
             print("sample : ", id)

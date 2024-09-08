@@ -17,8 +17,9 @@ class FriendTabViewController: TabmanViewController {
     
     var disposeBag = DisposeBag()
     
-    let friendListVC = FriendListViewController(reactor: FriendListReactor())
-    let friendRequestVC = ReceivedFriendRequestViewController(reactor: ReceivedFriendRequestReactor())
+//    let friendListVC = FriendListViewController(reactor: FriendListReactor())
+    let friendListVC = FriendListViewController(reactor: FriendListReactor(FriendListUseCase(FriendListRepository())))
+    let friendRequestVC = ReceivedFriendRequestViewController(reactor: ReceivedFriendRequestReactor(ReceivedFriendRequestUseCase(ReceivedFriendRequestRepository())))
     
     private lazy var vcs = [friendListVC, friendRequestVC]
     
