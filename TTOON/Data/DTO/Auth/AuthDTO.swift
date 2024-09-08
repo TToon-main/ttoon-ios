@@ -32,3 +32,14 @@ extension LoginResponseDTO {
         )
     }
 }
+
+struct PostRefreshTokenRequestDTO {
+    let accessToken: String
+    let refreshToken: String
+}
+
+struct PostRefreshTokenResponseDTO: Codable {
+    let accessToken: String
+    let refreshToken: String
+    let isGuest: Bool
+}
