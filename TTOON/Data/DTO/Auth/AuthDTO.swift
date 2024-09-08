@@ -43,3 +43,7 @@ struct PostRefreshTokenResponseDTO: Codable {
     let refreshToken: String
     let isGuest: Bool
 }
+
+struct PostIsValidNickNameRequestDTO: Codable {
+    let nickName: String
+}

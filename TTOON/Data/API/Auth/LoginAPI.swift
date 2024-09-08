@@ -14,6 +14,7 @@ import Moya
 enum LoginAPI {
     case postRefreshToken(dto: PostRefreshTokenRequestDTO)
     case socialLogin(dto: LoginRequestDTO)
+    case postIsValidNickName(dto: PostIsValidNickNameRequestDTO)
 }
 
 extension LoginAPI: TargetType {
@@ -27,12 +28,14 @@ extension LoginAPI: TargetType {
             return "/api/auth/app/login"
         case .postRefreshToken:
             return "/api/auth/reissue"
+        case .postIsValidNickName:
+            return "/api/join"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .socialLogin, .postRefreshToken:
+        case .socialLogin, .postRefreshToken, .postIsValidNickName:
             return .post
         }
     }
@@ -49,6 +52,9 @@ extension LoginAPI: TargetType {
             
         case .postRefreshToken:
             return .requestPlain
+            
+        case .postIsValidNickName(let dto):
+            return .requestJSONEncodable(dto)
         }
     }
     
@@ -61,6 +67,9 @@ extension LoginAPI: TargetType {
             return ["Content-type": "application/json", 
                     "Authorization": "Bearer \(dto.accessToken)",
                     "refreshToken": "\(dto.refreshToken)"]
+
+        case .postIsValidNickName:
+            return nil
         }
     }
 }
