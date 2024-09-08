@@ -5,7 +5,7 @@
 //  Created by Dongwan Ryoo on 5/6/24.
 //
 
-import Foundation
+import UIKit
 
 import Alamofire
 import Moya
@@ -55,7 +55,7 @@ final class Interceptor: RequestInterceptor {
         
         /// refreshToken이 없을 경우,  error 전달
         guard let refreshToken = KeychainStorage.shared.refreshToken else {
-            deleteToken()
+            self.popToLoginVC()
             completion(.doNotRetryWithError(error))
             return 
         }
@@ -85,18 +85,15 @@ final class Interceptor: RequestInterceptor {
                         KeychainStorage.shared.refreshToken = refreshToken
                         completion(.retry)
                     } else {
-                        self.deleteToken()
                         self.popToLoginVC()
                         completion(.doNotRetry)
                     }
                 } catch {
-                    self.deleteToken()
                     self.popToLoginVC()
                     completion(.doNotRetryWithError(error))
                 }
 
             case .failure(let error):
-                self.deleteToken()
                 self.popToLoginVC()
                 completion(.doNotRetryWithError(error))
             }
@@ -104,9 +101,8 @@ final class Interceptor: RequestInterceptor {
     }
     
     private func popToLoginVC() {
-    }
-    
-    private func deleteToken() {
-        KeychainStorage.shared.removeAllKeys()
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+            sceneDelegate.logout()
+        }
     }
 } 
