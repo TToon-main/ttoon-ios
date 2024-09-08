@@ -255,6 +255,13 @@
 		BE9C9BF22C6898C2000AAF0E /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9BE12C6898C2000AAF0E /* BaseURL.swift */; };
 		BE9C9BF32C6898C2000AAF0E /* LogPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9BE22C6898C2000AAF0E /* LogPlugin.swift */; };
 		BEA33A242BD6AA320065D60C /* SplashErrorReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA33A232BD6AA320065D60C /* SplashErrorReactor.swift */; };
+		BEA6BFD32C8DE355001F07E7 /* SetNickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA6BFD22C8DE355001F07E7 /* SetNickNameView.swift */; };
+		BEA6BFD52C8DE35B001F07E7 /* SetNickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA6BFD42C8DE35B001F07E7 /* SetNickNameViewController.swift */; };
+		BEA6BFD72C8DE365001F07E7 /* SetNickNameReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA6BFD62C8DE365001F07E7 /* SetNickNameReactor.swift */; };
+		BEA6BFDE2C9085EC001F07E7 /* TToonLogHomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCDF2C7202E6003800E0 /* TToonLogHomeNavigationView.swift */; };
+		BEA6BFDF2C9086A6001F07E7 /* CalendarSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */; };
+		BEA6BFE02C9086B3001F07E7 /* MyPageSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCE32C7202FE003800E0 /* MyPageSceneCoordinator.swift */; };
+		BEA6BFE12C9086DD001F07E7 /* FeedSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCC42C71FFF5003800E0 /* FeedSceneCoordinator.swift */; };
 		BEA8BB512BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB522BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB532BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
@@ -557,6 +564,9 @@
 		BE9C9BE12C6898C2000AAF0E /* BaseURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		BE9C9BE22C6898C2000AAF0E /* LogPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogPlugin.swift; sourceTree = "<group>"; };
 		BEA33A232BD6AA320065D60C /* SplashErrorReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashErrorReactor.swift; sourceTree = "<group>"; };
+		BEA6BFD22C8DE355001F07E7 /* SetNickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNickNameView.swift; sourceTree = "<group>"; };
+		BEA6BFD42C8DE35B001F07E7 /* SetNickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNickNameViewController.swift; sourceTree = "<group>"; };
+		BEA6BFD62C8DE365001F07E7 /* SetNickNameReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNickNameReactor.swift; sourceTree = "<group>"; };
 		BEA8BB542BB86351000F9C15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEA8BB562BB86361000F9C15 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEA8BB572BB86385000F9C15 /* localize.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = localize.py; sourceTree = "<group>"; };
@@ -1779,6 +1789,40 @@
 			path = TTOON/Network;
 			sourceTree = SOURCE_ROOT;
 		};
+		BEA6BFCD2C8DE31C001F07E7 /* SetNickName */ = {
+			isa = PBXGroup;
+			children = (
+				BEA6BFD02C8DE33A001F07E7 /* ViewModel */,
+				BEA6BFCF2C8DE334001F07E7 /* ViewController */,
+				BEA6BFCE2C8DE330001F07E7 /* View */,
+			);
+			path = SetNickName;
+			sourceTree = "<group>";
+		};
+		BEA6BFCE2C8DE330001F07E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BEA6BFD22C8DE355001F07E7 /* SetNickNameView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BEA6BFCF2C8DE334001F07E7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BEA6BFD42C8DE35B001F07E7 /* SetNickNameViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BEA6BFD02C8DE33A001F07E7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BEA6BFD62C8DE365001F07E7 /* SetNickNameReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BEA8BB4C2BB86323000F9C15 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -1937,6 +1981,7 @@
 				48D979EF2BEF459F0087F870 /* Coordinator */,
 				BEF48D632BCA5D2B0056E31E /* Splash */,
 				BE4C7C9E2BFF2E8700AB3D09 /* Login */,
+				BEA6BFCD2C8DE31C001F07E7 /* SetNickName */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -2301,10 +2346,12 @@
 				BE9C9AFC2C688CAF000AAF0E /* CharacterPickerBSViewController.swift in Sources */,
 				BEE8BCCA2C71FFF5003800E0 /* TToonCalendarCell.swift in Sources */,
 				BE9C9B9D2C68986F000AAF0E /* DeleteAccountReactor.swift in Sources */,
+				BEA6BFD32C8DE355001F07E7 /* SetNickNameView.swift in Sources */,
 				BEE8BCE22C7202E6003800E0 /* TToonLogHomeNavigationView.swift in Sources */,
 				BEA33A242BD6AA320065D60C /* SplashErrorReactor.swift in Sources */,
 				BE9C9BE62C6898C2000AAF0E /* SettingAPI.swift in Sources */,
 				BE9C9B452C688D16000AAF0E /* CreateToonCompleteToonCollectionViewCell.swift in Sources */,
+				BEA6BFD52C8DE35B001F07E7 /* SetNickNameViewController.swift in Sources */,
 				BE6011752BEF34A300F8FCEA /* TNAlertView.swift in Sources */,
 				BE3418ED2BF0B25900E17CC5 /* TNSheetCell.swift in Sources */,
 				489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */,
@@ -2358,6 +2405,7 @@
 				480D39762C85E843009C26DA /* FriendTabViewController.swift in Sources */,
 				BE9C9BEF2C6898C2000AAF0E /* DeleteAccountRepository.swift in Sources */,
 				BE9C9B042C688CAF000AAF0E /* CharacterDeleteBSReactor.swift in Sources */,
+				BEA6BFD72C8DE365001F07E7 /* SetNickNameReactor.swift in Sources */,
 				BE9C9BE42C6898C2000AAF0E /* LoginAPI.swift in Sources */,
 				BEE8BCC92C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift in Sources */,
 				48C3F09A2BF9E64E00BD2142 /* SettingNameInputView.swift in Sources */,
