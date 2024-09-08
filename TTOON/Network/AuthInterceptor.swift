@@ -31,7 +31,9 @@ final class Interceptor: RequestInterceptor {
         /// Token을 헤더에 포함한 request로 변형
         var authorizedUrlRequest = urlRequest
         
-        authorizedUrlRequest.setValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
+        authorizedUrlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        authorizedUrlRequest.setValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")        
+
         completion(.success(authorizedUrlRequest))
     }
     
@@ -63,7 +65,6 @@ final class Interceptor: RequestInterceptor {
     }
     
     private func requestRefreshToken(refreshToken: String, _ completion: @escaping (RetryResult) -> Void) {
-        
         let accessToken = KeychainStorage.shared.accessToken ?? ""
         let dto = PostRefreshTokenRequestDTO(
             accessToken: accessToken,

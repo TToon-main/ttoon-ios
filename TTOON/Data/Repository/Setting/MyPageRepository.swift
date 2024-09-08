@@ -21,7 +21,7 @@ class MyPageRepository: MyPageRepositoryProtocol {
     }
     
     func patchProfile(dto: PatchProfileRequestDTO) -> Observable<Bool> {
-        return provider.log.rx.request(.patchProfile(dto: dto))
+        return provider.auth.rx.request(.patchProfile(dto: dto))
             .map(ResponseDTO<String>.self)
             .map { $0.isSuccess }
             .asObservable()
