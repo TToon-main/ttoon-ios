@@ -74,7 +74,7 @@ extension UserInfoResponseDTO {
     }
 }
 
-struct PostProfileRequestDTO {
+struct PatchProfileRequestDTO {
     let nickName: String
     let isDelete: Bool
     let image: UIImage?

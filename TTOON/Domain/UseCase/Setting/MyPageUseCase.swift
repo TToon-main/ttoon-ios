@@ -36,7 +36,7 @@ class MyPageUseCase {
         ValidationManager.shared.truncateText(text, limit: limit)
     }
     
-    func postProfile(dto: PostProfileRequestDTO) -> Observable<Bool> {
-        return repository.postProfile(dto: dto)
+    func patchProfile(dto: PatchProfileRequestDTO) -> Observable<Bool> {
+        return repository.patchProfile(dto: dto)
     }
 }

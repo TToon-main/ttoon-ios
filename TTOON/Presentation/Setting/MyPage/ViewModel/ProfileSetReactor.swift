@@ -73,7 +73,7 @@ final class ProfileSetReactor: Reactor {
             return .just(.setChangeImage)
             
         case .saveButtonTap(let model):
-            return useCase.postProfile(dto: model.toDTO())
+            return useCase.patchProfile(dto: model.toDTO())
                 .map {  Mutation.setPop($0)}
             
         case .imageDidChanged:

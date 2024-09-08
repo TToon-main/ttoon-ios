@@ -57,8 +57,8 @@ class SetProfileRequestModel {
         self.image = image
     }
     
-    func toDTO() -> PostProfileRequestDTO {
-        return PostProfileRequestDTO(nickName: nickName,
+    func toDTO() -> PatchProfileRequestDTO {
+        return PatchProfileRequestDTO(nickName: nickName,
                                      isDelete: isDelete,
                                      image: image)
     }

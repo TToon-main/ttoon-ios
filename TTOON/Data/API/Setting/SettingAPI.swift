@@ -13,7 +13,7 @@ enum SettingAPI {
     case contactUs(dto: ContactUsRequestDTO)
     case deleteAccount(dto: DeleteAccountRequestDTO)
     case getUserInfo
-    case postProfile(dto: PostProfileRequestDTO)
+    case patchProfile(dto: PatchProfileRequestDTO)
 }
 
 extension SettingAPI: TargetType {
@@ -29,7 +29,7 @@ extension SettingAPI: TargetType {
             return "/api/revoke"
         case .getUserInfo:
             return "/api/profile"
-        case .postProfile:
+        case .patchProfile:
             return "/api/profile"
         }
     }
@@ -45,8 +45,8 @@ extension SettingAPI: TargetType {
         case .getUserInfo:
             return .get
             
-        case .postProfile:
-            return .post
+        case .patchProfile:
+            return .patch
         }
     }
     
@@ -66,7 +66,7 @@ extension SettingAPI: TargetType {
             ]
             return .requestParameters(parameters: params, encoding: JSONEncoding.prettyPrinted)
             
-        case .postProfile(let dto):
+        case .patchProfile(let dto):
             
             var multipartData: [MultipartFormData] = []
             
