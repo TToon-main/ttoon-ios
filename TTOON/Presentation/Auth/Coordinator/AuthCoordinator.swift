@@ -79,6 +79,25 @@ class AuthCoordinator: AuthCoordinatorProtocol {
         let useCase = SplashUseCase(splashRepository: repo)
         let reactor = SplashErrorReactor(splashUseCase: useCase, splashStatus: status)
         
+        reactor.sendTransitionEvent = { [weak self] event in
+            // 2초 딜레이 부여
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                switch event {
+                case .goSplashErrorView(let splashStatus):
+                    self?.showSplashErrorView(status: splashStatus)
+                    
+                case .goLoginView:
+                    self?.navigationController.topViewController?.dismiss(animated: true) {
+                        self?.showLoginView() 
+                    }
+                    
+                case .goHomeView:
+                    print("코디 : go Home view")
+                }
+            }
+        }
+        
         
         let vc = SplashErrorViewController(splashErrorReactor: reactor)
         vc.modalPresentationStyle = .overFullScreen

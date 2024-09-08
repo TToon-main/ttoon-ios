@@ -136,14 +136,6 @@ final class SplashErrorViewController: BaseViewController, View {
             .disposed(by: disposeBag)
         
         reactor.state
-            .map { $0.isConnected }
-            .compactMap { $0 }
-            .subscribe(with: self) { owner, isSuccess in 
-                isSuccess ? print("메인 화면 이동") : print("재시도 토스트")
-            }
-            .disposed(by: disposeBag)
-        
-        reactor.state
             .map { $0.moveStore }
             .compactMap { $0 }
             .subscribe(with: self) { owner, _ in
@@ -152,23 +144,16 @@ final class SplashErrorViewController: BaseViewController, View {
             .disposed(by: disposeBag)
     }
     
-    func checkStatus(_ status: SplashStatus) {
+    private func checkStatus(_ status: SplashStatus) {
         switch status { 
         case .disConnected:
-            updateUI(image: TNImage.splashLogo,
+            updateUI(image: TNImage.splashError,
                      lbText: "인터넷 연결이 필요해요",
                      subText: "서비스 이용을 위해서는\n네트워크 연결을 해주세요!",
                      btnTitle: "재시도")
             
-        case .inMaintenance:
-            updateUI(image: TNImage.splashLogo,
-                     lbText: "서버 점검 중이에요",
-                     subText: "보다 안정적인 서비스를 위해 점검 중이에요.\n예상 종료 시간은 03:00이에요!",
-                     btnTitle: nil,
-                     isHiddenBtn: true)
-            
         case .needUpdate:
-            updateUI(image: TNImage.splashLogo,
+            updateUI(image: TNImage.splashError,
                      lbText: "업데이트가 필요해요",
                      subText: "최신 버전으로 업데이트가 필요해요.\n스토어에서 최신 버전을 다운 받아주세요!",
                      btnTitle: "스토어로 이동")            
@@ -178,7 +163,7 @@ final class SplashErrorViewController: BaseViewController, View {
         }
     }
     
-    func updateUI(image: UIImage?, lbText: String, subText: String, btnTitle: String?, isHiddenBtn: Bool = false) {
+    private func updateUI(image: UIImage?, lbText: String, subText: String, btnTitle: String?, isHiddenBtn: Bool = false) {
         print(#function)
         errorImageView.image = image
         errorTitleLabel.text = lbText 
@@ -187,7 +172,7 @@ final class SplashErrorViewController: BaseViewController, View {
         retryButton.isHidden = isHiddenBtn
     }
     
-    func moveStore() {
+    private func moveStore() {
         if let url = URL(string: TNUrl.storeUrl) {
             UIApplication.shared.open(url, options: [:])
         }

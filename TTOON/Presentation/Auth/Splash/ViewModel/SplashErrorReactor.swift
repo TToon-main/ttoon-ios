@@ -10,6 +10,7 @@ import ReactorKit
 import RxSwift
 
 final class SplashErrorReactor: Reactor {
+    var sendTransitionEvent: ((SplashReactor.TransitionEvent) -> Void)?
     private let splashUseCase: SplashUseCaseProtocol
     private let splashStatus: SplashStatus
     
@@ -30,7 +31,6 @@ final class SplashErrorReactor: Reactor {
     
     struct State {
         var splashStatus: SplashStatus? = .none
-        var isConnected: Bool? = .none
         var moveStore: Void? = .none
     }
     
@@ -57,7 +57,14 @@ final class SplashErrorReactor: Reactor {
             
             if status == .disConnected {
                 let isConnected = splashUseCase.isNetworkConnected()
-                newState.isConnected = isConnected
+                
+                print("디버그", isConnected)
+                
+                if isConnected {
+                    // TODO: - 토큰 여부 확인
+                    
+                    sendTransitionEvent?(.goLoginView)
+                }
             } else if status == .needUpdate {
                 newState.moveStore = () 
             }
