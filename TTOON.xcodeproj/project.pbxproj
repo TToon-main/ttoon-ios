@@ -258,6 +258,7 @@
 		BEA6BFD32C8DE355001F07E7 /* SetNickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA6BFD22C8DE355001F07E7 /* SetNickNameView.swift */; };
 		BEA6BFD52C8DE35B001F07E7 /* SetNickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA6BFD42C8DE35B001F07E7 /* SetNickNameViewController.swift */; };
 		BEA6BFD72C8DE365001F07E7 /* SetNickNameReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA6BFD62C8DE365001F07E7 /* SetNickNameReactor.swift */; };
+		BEA6BFD92C8DE8E9001F07E7 /* SetNickNameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA6BFD82C8DE8E9001F07E7 /* SetNickNameUseCase.swift */; };
 		BEA6BFDE2C9085EC001F07E7 /* TToonLogHomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCDF2C7202E6003800E0 /* TToonLogHomeNavigationView.swift */; };
 		BEA6BFDF2C9086A6001F07E7 /* CalendarSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */; };
 		BEA6BFE02C9086B3001F07E7 /* MyPageSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCE32C7202FE003800E0 /* MyPageSceneCoordinator.swift */; };
@@ -567,6 +568,7 @@
 		BEA6BFD22C8DE355001F07E7 /* SetNickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNickNameView.swift; sourceTree = "<group>"; };
 		BEA6BFD42C8DE35B001F07E7 /* SetNickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNickNameViewController.swift; sourceTree = "<group>"; };
 		BEA6BFD62C8DE365001F07E7 /* SetNickNameReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNickNameReactor.swift; sourceTree = "<group>"; };
+		BEA6BFD82C8DE8E9001F07E7 /* SetNickNameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNickNameUseCase.swift; sourceTree = "<group>"; };
 		BEA8BB542BB86351000F9C15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEA8BB562BB86361000F9C15 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEA8BB572BB86385000F9C15 /* localize.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = localize.py; sourceTree = "<group>"; };
@@ -1632,6 +1634,7 @@
 			children = (
 				BE9C9BB52C68989F000AAF0E /* LoginUseCase.swift */,
 				BE9C9BB62C68989F000AAF0E /* SplashUseCase.swift */,
+				BEA6BFD82C8DE8E9001F07E7 /* SetNickNameUseCase.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -2373,6 +2376,8 @@
 				BE9C9B942C68986F000AAF0E /* CategoryBottomSheetView.swift in Sources */,
 				BE9C9AF62C688CAF000AAF0E /* EnterInfoView.swift in Sources */,
 				BE9C9BA42C68986F000AAF0E /* MyPageView.swift in Sources */,
+				BEA6BFD92C8DE8E9001F07E7 /* SetNickNameUseCase.swift in Sources */,
+				BEEEF1B92C7B11D90048CA17 /* ProfileSetViewController.swift in Sources */,
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
 				BE9C9AFD2C688CAF000AAF0E /* CompleteToonViewController.swift in Sources */,
