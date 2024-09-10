@@ -232,6 +232,10 @@
 		BE9C9BF22C6898C2000AAF0E /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9BE12C6898C2000AAF0E /* BaseURL.swift */; };
 		BE9C9BF32C6898C2000AAF0E /* LogPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C9BE22C6898C2000AAF0E /* LogPlugin.swift */; };
 		BEA33A242BD6AA320065D60C /* SplashErrorReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA33A232BD6AA320065D60C /* SplashErrorReactor.swift */; };
+		BEA6BFDE2C9085EC001F07E7 /* TToonLogHomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCDF2C7202E6003800E0 /* TToonLogHomeNavigationView.swift */; };
+		BEA6BFDF2C9086A6001F07E7 /* CalendarSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */; };
+		BEA6BFE02C9086B3001F07E7 /* MyPageSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCE32C7202FE003800E0 /* MyPageSceneCoordinator.swift */; };
+		BEA6BFE12C9086DD001F07E7 /* FeedSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCC42C71FFF5003800E0 /* FeedSceneCoordinator.swift */; };
 		BEA8BB512BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB522BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB532BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
@@ -2157,6 +2161,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEA6BFE12C9086DD001F07E7 /* FeedSceneCoordinator.swift in Sources */,
+				BEA6BFE02C9086B3001F07E7 /* MyPageSceneCoordinator.swift in Sources */,
+				BEA6BFDF2C9086A6001F07E7 /* CalendarSceneCoordinator.swift in Sources */,
+				BEA6BFDE2C9085EC001F07E7 /* TToonLogHomeNavigationView.swift in Sources */,
 				480D39742C85E843009C26DA /* FriendListViewController.swift in Sources */,
 				BE9C9BEC2C6898C2000AAF0E /* LoginRepository.swift in Sources */,
 				BE0473662C550E5600484B96 /* ViewLifeCycle.swift in Sources */,
@@ -2238,7 +2246,6 @@
 				BE32E3172BEBB94E00F0C193 /* TestViewController.swift in Sources */,
 				BE9C9BA32C68986F000AAF0E /* UnderLineView.swift in Sources */,
 				BE9C9B062C688CAF000AAF0E /* CharacterModifyReactor.swift in Sources */,
-				BEE8BCE62C7202FE003800E0 /* MyPageSceneCoordinator.swift in Sources */,
 				480D39712C85E843009C26DA /* FriendListTableViewCell.swift in Sources */,
 				BE9C9AFC2C688CAF000AAF0E /* CharacterPickerBSViewController.swift in Sources */,
 				BEE8BCCA2C71FFF5003800E0 /* TToonCalendarCell.swift in Sources */,
@@ -2287,7 +2294,6 @@
 				BE77224B2BEF499F007CDC17 /* TNAlert.swift in Sources */,
 				BE9C9AF72C688CAF000AAF0E /* SelectStyleView.swift in Sources */,
 				BE9C9B582C68927F000AAF0E /* DateFormatType.swift in Sources */,
-				BEE8BCC82C71FFF5003800E0 /* CalendarSceneCoordinator.swift in Sources */,
 				480D39762C85E843009C26DA /* FriendTabViewController.swift in Sources */,
 				BE9C9BEF2C6898C2000AAF0E /* DeleteAccountRepository.swift in Sources */,
 				BE9C9B042C688CAF000AAF0E /* CharacterDeleteBSReactor.swift in Sources */,

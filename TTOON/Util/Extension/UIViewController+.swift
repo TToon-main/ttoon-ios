@@ -41,6 +41,5 @@ extension UIViewController {
                 UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
             }
         }
-
     }
 }
