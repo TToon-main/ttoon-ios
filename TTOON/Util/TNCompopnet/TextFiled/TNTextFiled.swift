@@ -45,7 +45,7 @@ class TNTextFiled: BaseView {
 }
 
 extension Reactive where Base: TNTextFiled {
-    var textDidChange: Observable<String> {
+    var textDidChanged: Observable<String> {
         return base.textFiled.rx.controlEvent(.editingChanged)
             .compactMap { _ in base.textFiled.text }
     }

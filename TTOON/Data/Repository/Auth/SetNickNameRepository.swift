@@ -7,14 +7,14 @@
 
 import Foundation
 
+import Moya
 import RxSwift
 
 class SetNickNameRepository: SetNickNameRepositoryProtocol {
+    let provider = APIProvider<LoginAPI>()
     
     func postIsValidNickName(dto: PostIsValidNickNameRequestDTO) -> Observable<Event<Bool>> {
-        let provider = APIProvider<LoginAPI>()
-        
-        return provider.auth.rx.request(.postIsValidNickName(dto: dto))
+        return provider.log.rx.request(.postIsValidNickName(dto: dto))
             .map(ResponseDTO<PostRefreshTokenResponseDTO>.self)
             .map{ $0.isSuccess }
             .asObservable()

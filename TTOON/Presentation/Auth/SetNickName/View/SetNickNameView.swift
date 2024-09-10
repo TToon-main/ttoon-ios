@@ -7,6 +7,9 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 class SetNickNameView: BaseView {
     let titleLabel = {
         let view = CreateToonTitleLabel()
@@ -72,6 +75,54 @@ class SetNickNameView: BaseView {
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.height.equalTo(56)
             $0.bottom.equalTo(safeGuide).offset(-36)
+        }
+    }
+}
+
+
+// MARK: - Custom Observable
+extension Reactive where Base: SetNickNameView {
+    var textDidChanged: Observable<String> {
+        return base.textField.rx.textDidChanged
+    }
+    
+    var confirmButtonTap: Observable<String> {
+        return base.confirmButton.rx.tap
+            .compactMap { _ in return base.textField.textFiled.text }
+    }
+}
+
+// MARK: - Custom Observer
+
+extension Reactive where Base: SetNickNameView {
+    var isFocusTextField: Binder<Bool> {
+        return Binder(base) { view, isFocus in
+            if isFocus {
+                view.textField.textFiled.becomeFirstResponder()     
+            }
+        }
+    }
+    
+    var text: Binder<String?> {
+        return base.textField.rx.text
+    }
+    
+    var isEnabledConfirmButton: Binder<Bool> {
+        return base.confirmButton.rx.isEnabled
+    }
+    
+    var isValidText: Binder<TextFieldStatus> {
+        return Binder(base) { view, state in
+            switch state {
+            case .valid:
+                print("요청 성공")
+                
+            case .duplication:
+                print("중복된 요청")
+                
+            case .unknown:
+                print("알 수 없는 에러 요청")
+            }
         }
     }
 }

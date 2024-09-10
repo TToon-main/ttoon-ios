@@ -174,7 +174,7 @@ extension Reactive where Base: ProfileSetView {
     }
     
     var textFiledText: Observable<String> {
-        return base.nickNameTextFiled.rx.textDidChange
+        return base.nickNameTextFiled.rx.textDidChanged
     }
     
     var truncatedText: Binder<String> {

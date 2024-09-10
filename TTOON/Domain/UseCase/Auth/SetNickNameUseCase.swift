@@ -13,17 +13,30 @@ protocol SetNickNameUseCaseProtocol {
 }
 
 class SetNickNameUseCase: SetNickNameUseCaseProtocol {
-    let splashRepository: SplashRepositoryProtocol
+    let setNickNameRepository: SetNickNameRepository
     
     // MARK: - init
-    init(splashRepository: SplashRepositoryProtocol) {
-        self.splashRepository = splashRepository
+    init(setNickNameRepository: SetNickNameRepository) {
+        self.setNickNameRepository = setNickNameRepository
     }
     
     // MARK: - method
     
-    func isValidText(text: String) -> Observable<TextFieldStatus> {
-        return .just(.valid)
+    func isValidText(dto: PostIsValidNickNameRequestDTO) -> Observable<TextFieldStatus> {
+        let request = setNickNameRepository.postIsValidNickName(dto: dto)
+            .share()
+        
+        let success = request
+            .compactMap { $0.element }
+            .map { $0 ? TextFieldStatus.valid : TextFieldStatus.duplication } 
+        
+        let fail = request
+            .compactMap { $0.error }
+            .map { _ in TextFieldStatus.unknown }
+        
+        print("isValidText 실행", dto)
+
+        return Observable.merge(success, fail)
     }
     
     func truncateText(text: String) -> String {

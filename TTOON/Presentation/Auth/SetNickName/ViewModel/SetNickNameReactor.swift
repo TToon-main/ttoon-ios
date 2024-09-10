@@ -10,6 +10,7 @@ import RxSwift
 
 enum TextFieldStatus {
     case duplication
+    case unknown
     case valid
 }
 
@@ -29,6 +30,7 @@ final class SetNickNameReactor: Reactor {
     
     // Action과 State의 매개체
     enum Mutation {
+        case isEnabledConfirmButton(isEnabled: Bool)
         case setFocusTextField(isFocus: Bool)
         case truncateText(text: String) 
         case isValid(status: TextFieldStatus)
@@ -36,9 +38,10 @@ final class SetNickNameReactor: Reactor {
     
     // 뷰에 전달할 상태
     struct State {
+        var isEnabledConfirmButton: Bool = false
         var focusTextField: Bool = false
         var text: String? = nil
-        var textFieldStatus: TextFieldStatus = .valid
+        var textFieldStatus: TextFieldStatus = .unknown
     }
     
     // 전달할 상태의 초기값
@@ -52,10 +55,16 @@ final class SetNickNameReactor: Reactor {
         case .textFiledText(let text):
             let truncateText = setNickNameUseCase.truncateText(text: text)
             
-            return .just(.truncateText(text: truncateText))
+            let isEnabled = !text.isEmpty
+            
+            return .concat([
+                .just(.truncateText(text: truncateText)),
+                .just(.isEnabledConfirmButton(isEnabled: isEnabled))
+            ]) 
             
         case .confirmButtonTap(let text):
-            return setNickNameUseCase.isValidText(text: text)
+            let dto = PostIsValidNickNameRequestDTO(nickName: text)
+            return setNickNameUseCase.isValidText(dto: dto)
                 .map {  Mutation.isValid(status: $0) }
         }
     }
@@ -72,9 +81,14 @@ final class SetNickNameReactor: Reactor {
             newState.textFieldStatus = status 
             return newState
             
-        case .truncateText(text: let text):
+        case .truncateText(let text):
             var newState = state
             newState.text = text
+            return newState
+            
+        case .isEnabledConfirmButton(let isEnabled):
+            var newState = state
+            newState.isEnabledConfirmButton = isEnabled
             return newState
         }
     }
