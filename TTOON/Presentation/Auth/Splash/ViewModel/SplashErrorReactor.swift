@@ -58,8 +58,6 @@ final class SplashErrorReactor: Reactor {
             if status == .disConnected {
                 let isConnected = splashUseCase.isNetworkConnected()
                 
-                print("디버그", isConnected)
-                
                 if isConnected {
                     // TODO: - 토큰 여부 확인
                     

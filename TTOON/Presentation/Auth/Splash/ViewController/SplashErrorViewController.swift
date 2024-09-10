@@ -164,7 +164,6 @@ final class SplashErrorViewController: BaseViewController, View {
     }
     
     private func updateUI(image: UIImage?, lbText: String, subText: String, btnTitle: String?, isHiddenBtn: Bool = false) {
-        print(#function)
         errorImageView.image = image
         errorTitleLabel.text = lbText 
         errorSubTitleLabel.text = subText

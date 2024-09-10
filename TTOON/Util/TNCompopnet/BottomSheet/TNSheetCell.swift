@@ -45,7 +45,7 @@ class TNSheetCell: BaseTableViewCell {
             .alignItems(.center) // 추가된 부분
             .define { flex in
                 flex.addItem(titleLabel)
-                    .marginLeft(20)
+                    .marginLeft(0)
                     .marginVertical(0)
                     .grow(1)
 

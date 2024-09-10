@@ -31,6 +31,7 @@ class MyPageTableViewCell: BaseTableViewCell {
     
     lazy var infoLabel = {
         let view = UILabel()
+        view.numberOfLines = 0
         view.font = .body14m
         view.textColor = .grey05
         view.makeSampleText(2)
@@ -60,18 +61,18 @@ class MyPageTableViewCell: BaseTableViewCell {
     }
     
     override func addSubViews() {
-        addSubview(titleLabel)
-        addSubview(container)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(container)
     }
     
-    override func layouts() {
+    override func layouts() {    
         titleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview()
+            $0.leading.equalToSuperview().offset(16)
             $0.centerY.equalToSuperview()
         }
         
         container.snp.makeConstraints {
-            $0.trailing.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(16)
             $0.centerY.equalToSuperview()
         }
     }

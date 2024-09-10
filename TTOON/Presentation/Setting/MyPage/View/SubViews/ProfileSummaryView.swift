@@ -7,37 +7,47 @@
 
 import UIKit
 
+import SkeletonView
+
 final class ProfileSummaryView: BaseView {
-    private lazy var profileImageView = {
+    let profileImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 28
-        view.backgroundColor = .grey01
+        view.clipsToBounds = true
+        view.contentMode = .scaleAspectFill
+        view.image = TNImage.userIcon
+        
+        view.isSkeletonable = true
+        view.skeletonCornerRadius = 28
         
         return view
     }()
     
-    private lazy var profileLabel = {
+    let profileLabel = {
         let view = UILabel()
         view.font = .title20b
         view.textColor = .black
-        view.makeSampleText(4)
+        view.text = "          "
+
+        view.isSkeletonable = true
+        view.linesCornerRadius = 6
         
         return view
     }()
     
-    private lazy var pointImageView = {
+    lazy var pointImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 9
         view.backgroundColor = .grey01
+        view.image = TNImage.pointIcon
         
         return view
     }()
     
-    private lazy var pointLabel = {
+    lazy var pointLabel = {
         let view = UILabel()
         view.font = .body14r
         view.textColor = .grey07
-        view.makeSampleText(3)
         
         return view
     }()
@@ -45,19 +55,22 @@ final class ProfileSummaryView: BaseView {
     private lazy var pointContainer = {
         let view = UIStackView()
         view.backgroundColor = .clear
-        view.spacing = 8
+        view.spacing = 4
         view.addArrangedSubview(pointImageView)
         view.addArrangedSubview(pointLabel)
+        
+        view.isSkeletonable = true
+        view.skeletonCornerRadius = 9
         
         return view
     }()
     
-    private lazy var profileSettingButton = {
+    lazy var profileSettingButton = {
         let view = UIButton()
         view.setTitle("프로필 설정", for: .normal)
-        view.setTitleColor(.grey03, for: .normal)
+        view.setTitleColor(.textMidGrey03, for: .normal)
         view.titleLabel?.font = .body14m
-        view.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        view.setImage(TNImage.arrowSmallLight?.withTintColor(.textMidGrey03), for: .normal)
         view.semanticContentAttribute = .forceRightToLeft
         
         return view
@@ -77,12 +90,7 @@ final class ProfileSummaryView: BaseView {
             $0.top.equalToSuperview().offset(29)
             $0.size.equalTo(56)
         }
-        
-        profileLabel.snp.makeConstraints {
-            $0.leading.equalTo(profileImageView.snp.trailing).offset(16)
-            $0.top.equalTo(profileImageView)
-        }
-        
+    
         pointImageView.snp.makeConstraints {
             $0.size.equalTo(18)
         }
@@ -96,5 +104,25 @@ final class ProfileSummaryView: BaseView {
             $0.trailing.equalToSuperview().inset(16)
             $0.top.equalTo(profileLabel.snp.top).offset(16)
         }
-    }   
+        
+        profileLabel.snp.makeConstraints {
+            $0.leading.equalTo(profileImageView.snp.trailing).offset(16)
+            $0.trailing.lessThanOrEqualTo(profileSettingButton.snp.leading).offset(-25)
+            $0.top.equalTo(profileImageView)
+        }
+    } 
+    
+    func showSkeleton() {
+        [profileImageView, profileLabel, pointContainer]
+            .forEach { view in                
+                view.showSkeleton(usingColor: .clouds)
+            }
+    }
+    
+    func hideSkeleton() {
+        [profileImageView, profileLabel, pointContainer]
+            .forEach { view in
+                view.hideSkeleton(transition: .crossDissolve(0.5))
+            }
+    }
 }

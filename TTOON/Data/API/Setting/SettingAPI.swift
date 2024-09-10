@@ -12,6 +12,8 @@ import Moya
 enum SettingAPI {
     case contactUs(dto: ContactUsRequestDTO)
     case deleteAccount(dto: DeleteAccountRequestDTO)
+    case getUserInfo
+    case patchProfile(dto: PatchProfileRequestDTO)
 }
 
 extension SettingAPI: TargetType {
@@ -25,6 +27,10 @@ extension SettingAPI: TargetType {
             return "/api/ask"
         case .deleteAccount:
             return "/api/revoke"
+        case .getUserInfo:
+            return "/api/profile"
+        case .patchProfile:
+            return "/api/profile"
         }
     }
     
@@ -32,9 +38,15 @@ extension SettingAPI: TargetType {
         switch self {
         case .contactUs:
             return .post
-
+            
         case .deleteAccount:
             return .delete
+            
+        case .getUserInfo:
+            return .get
+            
+        case .patchProfile:
+            return .patch
         }
     }
     
@@ -53,9 +65,32 @@ extension SettingAPI: TargetType {
                 "revokerReason": dto.revokeReason
             ]
             return .requestParameters(parameters: params, encoding: JSONEncoding.prettyPrinted)
+            
+        case .patchProfile(let dto):
+            
+            var multipartData: [MultipartFormData] = []
+            
+            if let image = dto.image,
+               let imageData = image.jpegData(compressionQuality: 0.1) {
+                multipartData.append(MultipartFormData(provider: .data(imageData), name: "file", fileName: "\(UUID().uuidString).jpg", mimeType: "image/jpeg"))
+            }
+            
+            let params: [String: String] = [
+                "nickName": dto.nickName,
+                "isDelete": "\(dto.isDelete)"
+            ]
+            
+            if multipartData.isEmpty {
+                return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+            } else {
+                return .uploadCompositeMultipart(multipartData, urlParameters: params)
+            }
+
+        default:
+            return .requestPlain
         }
     }
-    
+
     var headers: [String: String]? {
         switch self {
         case .deleteAccount:

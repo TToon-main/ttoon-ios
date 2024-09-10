@@ -67,7 +67,7 @@ final class SplashReactor: Reactor {
         
         return splashUseCase.isMinVersionReached()
             .flatMap { minVersion -> Observable<SplashStatus> in
-                if isConnect {
+                if !isConnect {
                     self.sendTransitionEvent?(.goSplashErrorView(.disConnected))
                     return .just(.disConnected)
                 } else if self.isMinVersionReached(minVersion) { 

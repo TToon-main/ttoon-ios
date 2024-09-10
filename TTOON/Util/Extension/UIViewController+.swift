@@ -7,8 +7,9 @@
 
 import UIKit
 
+// MARK: - 키보드 내리기
+
 extension UIViewController {
-    // 키보드 내리기
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
@@ -32,5 +33,13 @@ extension UIViewController {
             make.height.equalTo(navHeight)
         }
         navigationItem.titleView = view
+    }
+
+	func moveToSetting() {
+        if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
+            }
+        }
     }
 }

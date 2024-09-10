@@ -7,10 +7,10 @@
 
 import UIKit
 
-enum SocialLoginType {
-    case apple
-    case kakao
-    case google
+enum SocialLoginType: String {
+    case apple = "APPLE"
+    case kakao = "KAKAO"
+    case google = "GOOGLE"
     
     var buttonImage: UIImage {
         switch self {
@@ -19,6 +19,19 @@ enum SocialLoginType {
 
         case .kakao:
             return .socialLoginImageKakao
+
+        case .google:
+            return .socialLoginImageGoogle
+        }
+    }
+    
+    var myPageImage: UIImage {
+        switch self {
+        case .apple:
+            return .myPageAppleIcon
+
+        case .kakao:
+            return .myPageKakaoIcon
 
         case .google:
             return .socialLoginImageGoogle

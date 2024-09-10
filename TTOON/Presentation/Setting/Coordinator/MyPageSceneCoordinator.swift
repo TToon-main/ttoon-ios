@@ -38,7 +38,11 @@ class MyPageSceneCoordinator: MyPageSceneCoordinatorProtocol {
     // Protocol Method
     func showMyPageView() {
         print(#function)
-        let vc = MyPageViewController()
+        
+        let repository = MyPageRepository()
+        let useCase = MyPageUseCase(repository: repository)
+        let reactor = MyPageReactor(useCase: useCase)
+        let vc = MyPageViewController(myPageReactor: reactor)
         navigationController.pushViewController(vc, animated: true)
     }
     func showContactUsView() {

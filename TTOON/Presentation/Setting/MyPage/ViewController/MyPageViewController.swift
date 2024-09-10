@@ -7,11 +7,15 @@
 
 import UIKit
 
+import ReactorKit
+import RxCocoa
+import RxSwift
+
 final class MyPageViewController: BaseViewController {
     // MARK: - Properties
     private lazy var appSetSection: MyPageTableViewDataSource = {
         let notificationRow = MyPageTableViewCellDataSource(title: "알림 설정", info: "On")
-        let languageRow = MyPageTableViewCellDataSource(title: "언어 설정", info: "한국어")
+        let languageRow = MyPageTableViewCellDataSource(title: "언어 설정", info: setUpLang())
         
         return MyPageTableViewDataSource(sectionTitle: "설정", cellData: [notificationRow, languageRow])
     }()
@@ -37,17 +41,37 @@ final class MyPageViewController: BaseViewController {
     
     private lazy var myPageTableViewDataSource = [appSetSection, appInfoSection, accountSection]
     
+    private var viewWillAppear = PublishSubject<Void>()
+    
+    var disposeBag = DisposeBag()
+    
     // MARK: - UI Properties
     private let myPageView = MyPageView()
+    
+    // MARK: - Init
+    init(myPageReactor: MyPageReactor) {
+        super.init(nibName: nil, bundle: nil)
+        self.reactor = myPageReactor 
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - LifeCycles
     override func loadView() {
         view = myPageView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewWillAppear.onNext(())
+    }
+    
     // MARK: - Configures
     override func configures() {
         setTableView()
+        setNavigationItem()
     }
     
     func setTableView() {
@@ -56,15 +80,67 @@ final class MyPageViewController: BaseViewController {
     }
     
     func currentAppVersion() -> String {
-      if let info: [String: Any] = Bundle.main.infoDictionary, let currentVersion: String = info["CFBundleShortVersionString"] as? String {
+        if let info: [String: Any] = Bundle.main.infoDictionary, let currentVersion: String = info["CFBundleShortVersionString"] as? String {
             return currentVersion
-      }
-      return "1.0"
+        }
+        
+        return "1.0"
+    }
+    
+    private func setNavigationItem() {
+        self.navigationItem.title = "마이페이지"
+        self.navigationItem.backButtonTitle = ""
+        self.navigationController?.navigationBar.tintColor = UIColor.black
     }
 }
 
+extension MyPageViewController: View {
+    func bind(reactor: MyPageReactor) {
+        bindState(reactor: reactor)
+        bindAction(reactor: reactor)
+    }
+    
+    func bindAction(reactor: MyPageReactor) {
+        viewWillAppear
+            .map { _ in MyPageReactor.Action.viewWillAppear }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        myPageView.rx.profileSettingButtonTap
+            .map { MyPageReactor.Action.profileSettingButtonTap }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+    }
+    
+    func bindState(reactor: MyPageReactor) {
+        reactor.state
+            .map { $0.userInfo }
+            .compactMap { $0 }
+            .delay(.milliseconds(500), scheduler: MainScheduler.instance)
+            .do { _ in self.myPageView.hideSkeleton() }
+            .bind(to: myPageView.rx.userInfo)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.presentProfileSetVC }
+            .compactMap { $0 }
+            .bind(onNext: presentSetProfileVC)
+            .disposed(by: disposeBag)
+    }
+    
+    func setUpLang() -> String {
+        guard let languageCode = Locale.current.language.languageCode?.identifier else { return "한국어" }
+        
+        if languageCode == "ko" {
+            return "한국어"
+        } else {
+            return "Eng"
+        }
+    }
+}
 
-// MARK: - Header 관련 코드
+// MARK: - Header, Footer 관련 코드
+
 extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return myPageTableViewDataSource.count
@@ -85,8 +161,7 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
         headerView.addSubview(titleLabel)
         
         titleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.centerY.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview().inset(16)
         }
         
         return headerView
@@ -107,15 +182,23 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
         
         return titleLabel
     }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 2 {
+            return 0
+        }
+        
+        return 48
+    }
 }
 
 // MARK: - Cell 관련 코드
 extension MyPageViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageTableViewCell", for: indexPath) as? MyPageTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPageTableViewCell.IDF, for: indexPath) as? MyPageTableViewCell else {
             return UITableViewCell()
         }
-    
+        
         let data = myPageTableViewDataSource[indexPath.section].cellData[indexPath.row]
         cell.setCell(data)
         
@@ -123,44 +206,75 @@ extension MyPageViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath == IndexPath(row: 0, section: 0) {
+            presentAlarmVC()
+        }
+        
+        if indexPath == IndexPath(row: 1, section: 0) {
+            presentChangeLangVC()
+        }
+        
+        if indexPath == IndexPath(row: 4, section: 1) {
+            presentContactUsVC()
+        }
+        
         if indexPath == IndexPath(row: 0, section: 2) {
             presetLogoutAlert()
         }
         
-        if indexPath == IndexPath(row: 0, section: 0) {
-            let vc = AlarmViewController()
-            present(vc, animated: true)
-        }
-        
-        if indexPath == IndexPath(row: 1, section: 0) {
-            guard let cell = tableView.cellForRow(at: indexPath) as? MyPageTableViewCell else {
-                return
-            }
-            
-            var index = 0
-            
-            if cell.infoLabel.text == "한국어" {
-                index = 1
-            } else {
-                index = 0
-            }
-            
-            TNBottomSheet(self)
-                .setDataSource(self.languageDataSource)
-                .setSelectedIndex(index)
-                .setTitle("언어 설정을 변경해주세요")
-                .isHiddenConfirmBtn(true)
-                .setHeight(241)
-                .present()
+        if indexPath == IndexPath(row: 1, section: 2) {
+            presentDeleteAccountVC()
         }
     }
     
-    func presetLogoutAlert() {
+    private func presentChangeLangVC() {
+        let viewControllerToPresent = MyPageChangeLangViewController()
+        
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.detents = [.custom { context in return 265 } ]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        present(viewControllerToPresent, animated: true, completion: nil)
+    }
+    
+    private func presentAlarmVC() {
+        let vc = AlarmViewController()
+        present(vc, animated: true)
+    }
+    
+    private func presentSetProfileVC() {
+        let repo = MyPageRepository()
+        let useCase = MyPageUseCase(repository: repo)
+        let reactor = ProfileSetReactor(useCase: useCase)
+        let vc = ProfileSetViewController(profileSetReactor: reactor)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func presetLogoutAlert() {
+        let confirmAction = { self.navigationController?.popToRootViewController(animated: true)
+                return
+        }
+        
         TNAlert(self)
             .setTitle("로그아웃 하시겠어요?")
             .setSubTitle("재접속하시면 다시 로그인 해야해요.")
             .addCancelAction("취소")
-            .addConfirmAction("로그아웃")
+            .addConfirmAction("로그아웃", action: confirmAction)
             .present()
+    }
+    
+    private func presentContactUsVC() {
+        let reactor = ContactUsReactor()
+        let vc = ContactUsViewController(contactUsReactor: reactor)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func presentDeleteAccountVC() {
+        let reactor = DeleteAccountReactor()
+        let vc = DeleteAccountViewController(deleteAccountReactor: reactor)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
