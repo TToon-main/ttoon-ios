@@ -59,9 +59,11 @@ final class SplashErrorReactor: Reactor {
                 let isConnected = splashUseCase.isNetworkConnected()
                 
                 if isConnected {
-                    // TODO: - 토큰 여부 확인
-                    
-                    sendTransitionEvent?(.goLoginView)
+                    if let _ = KeychainStorage.shared.accessToken {
+                        sendTransitionEvent?(.goHomeView)  
+                    } else {
+                        sendTransitionEvent?(.goLoginView)
+                    }
                 }
             } else if status == .needUpdate {
                 newState.moveStore = () 

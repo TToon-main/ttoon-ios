@@ -63,7 +63,7 @@ class AuthCoordinator: AuthCoordinatorProtocol {
                     
                 case .goHomeView:
                     print("코디 : go Home view")
-                    
+                    self?.showTabbarView()
                     // AuthC 종료 -> AppC에서 TabBarC.start() -> HomeVC 시작
                 }
             }
@@ -93,7 +93,7 @@ class AuthCoordinator: AuthCoordinatorProtocol {
                     }
                     
                 case .goHomeView:
-                    print("코디 : go Home view")
+                    self?.showTabbarView()
                 }
             }
         }
@@ -132,6 +132,14 @@ class AuthCoordinator: AuthCoordinatorProtocol {
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         navigationController.topViewController?.present(vc, animated: true)
+    }
+    
+    func showTabbarView() {
+        let tabbar = TabbarViewController()
+        tabbar.modalTransitionStyle = .crossDissolve
+        tabbar.modalPresentationStyle = .overCurrentContext
+        
+        navigationController.topViewController?.present(tabbar, animated: true)
     }
 }
 
