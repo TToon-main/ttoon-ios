@@ -254,8 +254,12 @@ extension MyPageViewController {
     }
     
     private func presetLogoutAlert() {
-        let confirmAction = { self.navigationController?.popToRootViewController(animated: true)
-                return
+        let confirmAction = {
+            if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+                sceneDelegate.logout()
+            }
+            
+            return 
         }
         
         TNAlert(self)

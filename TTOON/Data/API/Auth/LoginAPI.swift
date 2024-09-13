@@ -12,6 +12,7 @@ import Moya
 // 에픽 단위로 만들기 - 나중에 Splash랑 합치기 (Auth API)
 
 enum LoginAPI {
+    case postRefreshToken(dto: PostRefreshTokenRequestDTO)
     case socialLogin(dto: LoginRequestDTO)
 }
 
@@ -24,12 +25,14 @@ extension LoginAPI: TargetType {
         switch self {
         case .socialLogin:
             return "/api/auth/app/login"
+        case .postRefreshToken:
+            return "/api/auth/reissue"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .socialLogin:
+        case .socialLogin, .postRefreshToken:
             return .post
         }
     }
@@ -43,6 +46,9 @@ extension LoginAPI: TargetType {
                 "email": dto.email
             ]
             return .requestParameters(parameters: params, encoding: JSONEncoding.prettyPrinted)
+            
+        case .postRefreshToken:
+            return .requestPlain
         }
     }
     
@@ -50,6 +56,11 @@ extension LoginAPI: TargetType {
         switch self {
         case .socialLogin:
             return ["Content-type": "application/json"]
+            
+        case .postRefreshToken(let dto):
+            return ["Content-type": "application/json", 
+                    "Authorization": "Bearer \(dto.accessToken)",
+                    "refreshToken": "\(dto.refreshToken)"]
         }
     }
 }

@@ -74,8 +74,12 @@ final class SplashReactor: Reactor {
                     self.sendTransitionEvent?(.goSplashErrorView(.needUpdate))
                     return .just(.needUpdate)
                 } else {
-                    let isTokenValid = false
-                    self.sendTransitionEvent?(isTokenValid ? .goHomeView : .goLoginView)
+                    if let _ = KeychainStorage.shared.accessToken {
+                        self.sendTransitionEvent?(.goHomeView)  
+                    } else {
+                        self.sendTransitionEvent?(.goLoginView)
+                    }
+                    
                     return .just(.valid)
                 }
             }
