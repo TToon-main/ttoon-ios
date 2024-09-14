@@ -16,6 +16,7 @@ final class ProfileSetViewController: BaseViewController {
     // MARK: - Properties
     var disposeBag = DisposeBag()
     var imageDidChanged = PublishSubject<Void>()
+    var imageDidDeleted = PublishSubject<Bool>()
     
     // MARK: - UI Properties
     private let profileSetView = ProfileSetView()
@@ -88,6 +89,12 @@ extension ProfileSetViewController: View {
             .do { _ in self.profileSetView.hideSkeleton() }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        imageDidDeleted
+            .map { ProfileSetReactor.Action.imageDidDeleted($0)}
+            .do { _ in self.profileSetView.hideSkeleton() }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(_ reactor: ProfileSetReactor) {
@@ -141,6 +148,7 @@ extension ProfileSetViewController: PHPickerViewControllerDelegate {
                         DispatchQueue.main.async {
                             self.profileSetView.profileImageView.image = selectedImage
                             self.imageDidChanged.onNext(())
+                            self.imageDidDeleted.onNext(false)
                         }
                     }
                 }
@@ -155,6 +163,7 @@ extension ProfileSetViewController: UIImagePickerControllerDelegate, UINavigatio
             DispatchQueue.main.async {
                 self.profileSetView.profileImageView.image = selectedImage
                 self.imageDidChanged.onNext(())
+                self.imageDidDeleted.onNext(false)
             }
         }
         
@@ -187,8 +196,8 @@ extension ProfileSetViewController {
         actionSheet.addAction(chooseImageAction)
         
         let deleteProfileAction = UIAlertAction(title: "사진 삭제하기", style: .destructive) { action in
-            self.deleteImage()
             self.profileSetView.showSkeleton()
+            self.deleteImage()
         }
         
         actionSheet.addAction(deleteProfileAction)
@@ -223,7 +232,8 @@ extension ProfileSetViewController {
         
         if isDefaultImage {
             self.profileSetView.profileImageView.load(url: nil, defaultImage: TNImage.userIcon)
-            imageDidChanged.onNext(())   
+            imageDidChanged.onNext(()) 
+            imageDidDeleted.onNext(true)
         }
     }
 }
