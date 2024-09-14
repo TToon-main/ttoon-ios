@@ -31,6 +31,12 @@ class SetNickNameViewController: BaseViewController {
     override func loadView() {
         view = setNickNameView
     }
+    
+    private func dismiss(_ flag: Bool) {
+        if flag {
+            self.dismiss(animated: true)
+        }
+    }
 }
 
 extension SetNickNameViewController: View {
@@ -45,9 +51,13 @@ extension SetNickNameViewController: View {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        
         setNickNameView.rx.confirmButtonTap
             .map { SetNickNameReactor.Action.confirmButtonTap(text: $0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        setNickNameView.rx.popButtonTap
+            .map { SetNickNameReactor.Action.popButtonTap}
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }
@@ -68,6 +78,10 @@ extension SetNickNameViewController: View {
         
         reactor.state.map { $0.isEnabledConfirmButton }
             .bind(to: setNickNameView.rx.isEnabledConfirmButton)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.dismiss }
+            .bind(onNext: self.dismiss)
             .disposed(by: disposeBag)
     }
 }

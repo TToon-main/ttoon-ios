@@ -116,9 +116,13 @@ extension Reactive where Base: SetNickNameView {
         return base.confirmButton.rx.tap
             .compactMap { _ in return base.textField.textFiled.text }
     }
+    
+    var popButtonTap: Observable<Void> {
+        return base.popButton.rx.tap.asObservable()
+    }
 }
 
-// MARK: - Custom Observer
+// MARK: - Custom Binder
 
 extension Reactive where Base: SetNickNameView {
     var isFocusTextField: Binder<Bool> {

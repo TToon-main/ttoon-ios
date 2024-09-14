@@ -24,12 +24,14 @@ final class SetNickNameReactor: Reactor {
     // 뷰에서 입력받은 유저 이벤트
     enum Action {
         case viewDidLoad
+        case popButtonTap
         case textFiledText(text: String)
         case confirmButtonTap(text: String)
     }
     
     // Action과 State의 매개체
     enum Mutation {
+        case setDismiss
         case isEnabledConfirmButton(isEnabled: Bool)
         case setFocusTextField(isFocus: Bool)
         case truncateText(text: String) 
@@ -38,6 +40,7 @@ final class SetNickNameReactor: Reactor {
     
     // 뷰에 전달할 상태
     struct State {
+        var dismiss: Bool = false
         var isEnabledConfirmButton: Bool = false
         var focusTextField: Bool = false
         var text: String? = nil
@@ -66,6 +69,9 @@ final class SetNickNameReactor: Reactor {
             let dto = PostIsValidNickNameRequestDTO(nickName: text)
             return setNickNameUseCase.isValidText(dto: dto)
                 .map {  Mutation.isValid(status: $0) }
+            
+        case .popButtonTap:
+            return .just(.setDismiss)
         }
     }
     
@@ -89,6 +95,11 @@ final class SetNickNameReactor: Reactor {
         case .isEnabledConfirmButton(let isEnabled):
             var newState = state
             newState.isEnabledConfirmButton = isEnabled
+            return newState
+            
+        case .setDismiss:
+            var newState = state
+            newState.dismiss = true
             return newState
         }
     }
