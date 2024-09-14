@@ -13,6 +13,7 @@ struct TNImage {
     static var btnArrowDownIcon = UIImage(named: "btnArrowDown")
     static var characterDeleteIcon = UIImage(named: "characterDelete")
     static var completeToonIcon = UIImage(named: "completeToon")
+    static var closeRoundIcon = UIImage(named: "closeRound")
 	
 	// Home Navigation Bar    
     static var homeNavigationLogo = UIImage(named: "navigationLogo")

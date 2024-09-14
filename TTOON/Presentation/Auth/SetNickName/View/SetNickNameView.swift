@@ -11,6 +11,19 @@ import RxCocoa
 import RxSwift
 
 class SetNickNameView: BaseView {
+    let navigationBar = {
+        let view = UIView()
+        
+        return view
+    }()
+    
+    let popButton = {
+        let view = UIButton()
+        view.setImage(TNImage.closeRoundIcon, for: .normal)
+        
+        return view
+    }()
+    
     let titleLabel = {
         let view = CreateToonTitleLabel()
         view.text = "닉네임을 입력해주세요"
@@ -49,6 +62,8 @@ class SetNickNameView: BaseView {
     }
     
     override func addSubViews() {
+        addSubview(navigationBar)
+        navigationBar.addSubview(popButton)
         addSubview(titleLabel)
         addSubview(textFiledTitleLabel)
         addSubview(textField)
@@ -56,8 +71,19 @@ class SetNickNameView: BaseView {
     }
     
     override func layouts() {
+        navigationBar.snp.makeConstraints { 
+            $0.top.equalTo(safeGuide)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(44)
+        }
+        
+        popButton.snp.makeConstraints { 
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(16)
+        }
+
         titleLabel.snp.makeConstraints { 
-            $0.top.equalToSuperview().offset(39)
+            $0.top.equalTo(navigationBar.snp.bottom).offset(39)
             $0.leading.equalToSuperview().offset(16)
         }
         
