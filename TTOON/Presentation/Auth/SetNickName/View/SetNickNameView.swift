@@ -141,18 +141,9 @@ extension Reactive where Base: SetNickNameView {
         return base.confirmButton.rx.isEnabled
     }
     
-    var isValidText: Binder<TextFieldStatus> {
-        return Binder(base) { view, state in
-            switch state {
-            case .valid:
-                print("요청 성공")
-                
-            case .duplication:
-                print("중복된 요청")
-                
-            case .unknown:
-                print("알 수 없는 에러 요청")
-            }
-        }
+    var setErrorMassage: Binder<String?> {
+        print("디버그 에러 메시지 세팅")
+        base.confirmButton.isEnabled = false
+        return base.textField.rx.errorMassage
     }
 }

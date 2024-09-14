@@ -13,6 +13,7 @@ class LoginViewModel {
     private let loginUseCase: LoginUseCaseProtocol
     private let disposeBag = DisposeBag()
 //    private let showTabbar = PublishSubject<Void>()
+    private let showSetNickNameVC = PublishSubject<Void>()
     var didSendEventClosure: ( (LoginViewModel.Event) -> Void)?
     
     init(loginUseCase: LoginUseCaseProtocol) {
@@ -42,8 +43,16 @@ class LoginViewModel {
                 switch response {
                 case .success(let data):
                     print("애플 로그인 성공 : ", data)
-                    owner.didSendEventClosure?(.goTabBarFlow)
+//                    owner.didSendEventClosure?(.goTabBarFlow)
 //                    self.showTabbar.onNext(())
+                    
+                    let isGuest = true
+                    
+                    if isGuest {
+                        owner.didSendEventClosure?(.goSetNickName)
+                    } else {
+                        owner.didSendEventClosure?(.goTabBarFlow)
+                    }
                     
                 case .failure(let error):
                     print("애플 로그인 실패 : ", error)
@@ -60,9 +69,19 @@ class LoginViewModel {
             .subscribe(with: self) { owner, response in
                 switch response {
                 case .success(let data):
-                    print("카카오 로그인 성공 : ", data)
-                    owner.didSendEventClosure?(.goTabBarFlow)
+                    print("카카오 로그인 성공 : ", data)  
+                    
+//                    owner.didSendEventClosure?(.goTabBarFlow)
 //                    self.showTabbar.onNext(())
+                    
+                    let isGuest = true
+                    
+                    if isGuest {
+                        owner.didSendEventClosure?(.goSetNickName)
+                    } else {
+                        owner.didSendEventClosure?(.goTabBarFlow)
+                    }
+                
                     
                 case .failure(let error):
                     print("카카오 로그인 실패 : ", error)
@@ -80,8 +99,16 @@ class LoginViewModel {
                 switch response {
                 case .success(let data):
                     print("구글 로그인 성공 : ", data)
-                    owner.didSendEventClosure?(.goTabBarFlow)
+//                    owner.didSendEventClosure?(.goTabBarFlow)
 //                    self.showTabbar.onNext(())
+                    let isGuest = true
+                    
+                    if isGuest {
+                        owner.didSendEventClosure?(.goSetNickName)
+                    } else {
+                        owner.didSendEventClosure?(.goTabBarFlow)
+                    }
+                    
                     
                 case .failure(let error):
                     print("구글 로그인 실패 : ", error.localizedDescription)
@@ -98,5 +125,6 @@ class LoginViewModel {
 extension LoginViewModel {
     enum Event {
         case goTabBarFlow
+        case goSetNickName
     }
 }

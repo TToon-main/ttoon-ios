@@ -14,7 +14,7 @@ class MyPageRepository: MyPageRepositoryProtocol {
     let provider = APIProvider<SettingAPI>()
     
     func getUserInfo() -> Observable<UserInfoResponseDTO> {
-        return provider.auth.rx.request(.getUserInfo)
+        return provider.log.rx.request(.getUserInfo)
             .map(ResponseDTO<UserInfoResponseDTO>.self)
             .compactMap{ $0.data }
             .asObservable()

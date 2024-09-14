@@ -12,6 +12,7 @@ enum TextFieldStatus {
     case duplication
     case unknown
     case valid
+    case ready
 }
 
 final class SetNickNameReactor: Reactor {    
@@ -39,13 +40,23 @@ final class SetNickNameReactor: Reactor {
     }
     
     // 뷰에 전달할 상태
+//    struct State {
+//        var dismiss: Bool = false
+//        var isEnabledConfirmButton: Bool = false
+//        var focusTextField: Bool = false
+//        var text: String? = nil
+//        var textFieldStatus: TextFieldStatus = .ready
+//    }
+    
     struct State {
         var dismiss: Bool = false
         var isEnabledConfirmButton: Bool = false
         var focusTextField: Bool = false
         var text: String? = nil
-        var textFieldStatus: TextFieldStatus = .unknown
+        var setErrorMessage: String? = nil
     }
+    
+    
     
     // 전달할 상태의 초기값
     let initialState: State = State()
@@ -62,11 +73,13 @@ final class SetNickNameReactor: Reactor {
             
             return .concat([
                 .just(.truncateText(text: truncateText)),
-                .just(.isEnabledConfirmButton(isEnabled: isEnabled))
+                .just(.isEnabledConfirmButton(isEnabled: isEnabled)),
+                .just(.isValid(status: .ready))
             ]) 
             
         case .confirmButtonTap(let text):
             let dto = PostIsValidNickNameRequestDTO(nickName: text)
+            
             return setNickNameUseCase.isValidText(dto: dto)
                 .map {  Mutation.isValid(status: $0) }
             
@@ -84,9 +97,25 @@ final class SetNickNameReactor: Reactor {
             
         case .isValid(let status):
             var newState = state
-            newState.textFieldStatus = status 
-            return newState
             
+            switch status {
+            case .duplication:
+                newState.setErrorMessage = "이미 사용 중인 닉네임입니다."
+                newState.isEnabledConfirmButton = false
+
+            case .unknown:
+                newState.setErrorMessage = "알 수 없는 에러입니다."
+                newState.isEnabledConfirmButton = false
+
+            case .valid:
+                newState.dismiss = true
+
+            default:
+                newState.setErrorMessage = nil
+            }
+
+            return newState
+
         case .truncateText(let text):
             var newState = state
             newState.text = text

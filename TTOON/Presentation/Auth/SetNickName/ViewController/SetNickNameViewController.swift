@@ -72,8 +72,8 @@ extension SetNickNameViewController: View {
             .bind(to: setNickNameView.rx.text)
             .disposed(by: disposeBag)
         
-        reactor.state.map { $0.textFieldStatus }
-            .bind(to: setNickNameView.rx.isValidText)
+        reactor.state.map { $0.setErrorMessage }
+            .bind(to: setNickNameView.rx.setErrorMassage)
             .disposed(by: disposeBag)
         
         reactor.state.map { $0.isEnabledConfirmButton }
