@@ -10,15 +10,15 @@ import Foundation
 // 공통
 struct UserInfoDTO: Codable {
     let friendId: Int
-    let profileUrl: String
-    let nickname: String
+    let profileUrl: String?
+    let nickName: String
 }
 extension UserInfoDTO {
     func toDomain() -> UserInfoModel {
         return .init(
             friendId: friendId,
             profileUrl: profileUrl,
-            nickname: nickname
+            nickname: nickName
         )
     }
 }
@@ -60,8 +60,8 @@ extension UserListRequestDTO {
 typealias UserListResponseDTO = [SearchedUserInfoDTO]
 struct SearchedUserInfoDTO: Codable {
     let friendId: Int
-    let profileUrl: String
-    let nickname: String
+    let profileUrl: String?
+    let nickName: String
     let status: String
 }
 extension SearchedUserInfoDTO {
@@ -70,9 +70,9 @@ extension SearchedUserInfoDTO {
             userInfo: UserInfoModel(
                 friendId: friendId,
                 profileUrl: profileUrl,
-                nickname: nickname
+                nickname: nickName
             ),
-            status: status
+            status: SearchedUserInfoModel.SearchedUserStatus(rawValue: status) ?? .nothing
         )
     }
 }

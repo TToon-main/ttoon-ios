@@ -27,12 +27,12 @@ class FriendListReactor: Reactor {
     enum Action {
         case loadInitialFriendList  // 맨 처음 로드 (page = 0)
         case loadNextFriendList     // 이후 로드 (page > 0)
-        case deleteFriend(Int)
+        case deleteFriend(Int)  // friend id
     }
     
+    
     enum Mutation {
-        case setPage(Int)
-        case setFriendList([UserInfoModel])
+        case setFriendList([UserInfoModel], Int)
         case pass
     }
     
@@ -47,60 +47,54 @@ class FriendListReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .loadInitialFriendList:
-            return .concat([
-                // 네트워크 통신
-                friendListUseCase.requestFriendList(0)
-                    .asObservable()
-                    .map { result in
-                        switch result {
-                        case .success(let newList):
-                            return .setFriendList(newList)
+            // 네트워크 통신
+            return friendListUseCase.requestFriendList(0)
+                .asObservable()
+                .map { result in
+                    switch result {
+                    case .success(let newList):
+                        print("load Friend List : \(newList)")
+                        return .setFriendList(newList, 1)
 
-                        case .failure(let error):
-                            return .pass
-                        }
-                    },
-                // page 번호 1로 올려줌
-                .just(.setPage(1))
-            ])
+                    case .failure(let error):
+                        return .pass
+                    }
+                }
+            
             
         case .loadNextFriendList:
             let currentPage = currentState.page
             
-            return .concat([
-                // 네트워크 통신
-                friendListUseCase.requestFriendList(currentPage)
-                    .asObservable()
-                    .map { result in
-                        switch result {
-                        case .success(let arr):
-                            let newList = self.currentState.friendList + arr
-                            return .setFriendList(newList)
+            // 네트워크 통신
+            return friendListUseCase.requestFriendList(currentPage)
+                .asObservable()
+                .map { result in
+                    switch result {
+                    case .success(let arr):
+                        let newList = self.currentState.friendList + arr
+                        return .setFriendList(newList, currentPage + 1)
 
-                        case .failure(let error):
-                            return .pass
-                        }
-                    },
-                // page 번호 1로 올려줌
-                .just(.setPage(currentPage + 1))
-            ])
-            
+                    case .failure(let error):
+                        return .pass
+                    }
+                }
+       
             
         case .deleteFriend(let id):
             // 친구 삭제 -> 네트워크 콜 & 배열에서 삭제
-            
             // 네트워크 통신
+            let currentPage = currentState.page
+
             return friendListUseCase.deleteFriend(id)
                 .asObservable()
                 .map { result in
                     print("delete friend : \(result)")
-                    
                     switch result {
                     case .success(let result):
                         if result {
                             // 배열에서 삭제
                             let newList = self.currentState.friendList.filter { $0.friendId != id }
-                            return Mutation.setFriendList(newList)
+                            return Mutation.setFriendList(newList, currentPage)
                         } else {
                             return Mutation.pass
                         }
@@ -117,11 +111,9 @@ class FriendListReactor: Reactor {
         var newState = state
         
         switch mutation {
-        case .setFriendList(let newArr):
-            newState.friendList = newArr
-
-        case .setPage(let newPage):
-            newState.page = newPage
+        case .setFriendList(let newList, let page):
+            newState.friendList = newList
+            newState.page = page
             
         case .pass:
             print("pass")

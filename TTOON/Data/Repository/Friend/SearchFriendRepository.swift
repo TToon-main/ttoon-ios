@@ -26,9 +26,12 @@ class SearchFriendRepository: NSObject, SearchFriendRepositoryProtocol {
             let requestDTO = UserListRequestDTO(requestModel)
             
             // 2. 요청
-            let request = self.provider.auth.request(.userList(dto: requestDTO)) { result in
+            let request = self.provider.log.request(.userList(dto: requestDTO)) { result in
                 switch result {
                 case .success(let response):
+                    
+                    print(response)
+                    
                     if let data = try? response.map(ResponseDTO<[SearchedUserInfoDTO]>.self),
                        data.isSuccess,
                        let responseData = data.data
@@ -42,11 +45,13 @@ class SearchFriendRepository: NSObject, SearchFriendRepositoryProtocol {
                     }
                     
                     else {
+                        print("****")
                         // 실패
                         single(.success(.failure(SampleError(rawValue: response.statusCode)!)))
                     }
                     
                 case .failure(let error):
+                    print("***111*")
                     // 실패
                     single(.success(.failure(error)))
                 }
@@ -60,7 +65,7 @@ class SearchFriendRepository: NSObject, SearchFriendRepositoryProtocol {
             // 1. dto 변환 없음
             
             // 2. 요청
-            let request = self.provider.auth.request(.reqeustFriend(nickname: nickname)) { result in
+            let request = self.provider.log.request(.reqeustFriend(nickname: nickname)) { result in
                 switch result {
                 case .success(let response):
                     if response.statusCode == 200 {

@@ -46,7 +46,7 @@ extension FriendAPI: TargetType {
             return "/api/friends/\(friendID)"
             
         case .userList:
-            return "/api/search"
+            return "/api/friends/search"
             
         case .receivedRequestList:
             return "/api/friends/asks"
@@ -79,7 +79,7 @@ extension FriendAPI: TargetType {
             
         case .reqeustFriend(let nickname):
             let params: [String: String] = [
-                    "nickname": nickname
+                    "nickName": nickname
                 ]
             return .requestParameters(parameters: params, encoding: JSONEncoding.prettyPrinted)
             
@@ -105,7 +105,6 @@ extension FriendAPI: TargetType {
         switch self {
         default:
             let accessToken = KeychainStorage.shared.accessToken
-            print("accessToken : \(accessToken ?? "")")
             
             return [
                 "Content-Type": "application/json",

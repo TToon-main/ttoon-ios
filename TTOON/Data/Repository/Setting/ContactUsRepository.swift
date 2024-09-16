@@ -46,4 +46,5 @@ class ContactUsRepository: NSObject, ContactUsRepositoryProtocol {
 enum SampleError: Int, Error {
     case sample400 = 400
     case sample401 = 401
+    case sample200 = 200
 }

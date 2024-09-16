@@ -12,7 +12,7 @@ import UIKit
 // - 데이터 있을 때 : 테이블뷰 (셀 - '친구 삭제' (FriendListTableViewCell)
 class FriendListView: BaseView {
     // MARK: - UI Components
-    let noFriendView = NoFriendView()
+    let noFriendView = NoDataView("아직 추가된 친구가 없어요")
     
     let friendListTableView = {
         let view = UITableView()
@@ -28,7 +28,7 @@ class FriendListView: BaseView {
     override func addSubViews() {
         super.addSubViews()
         
-        [noFriendView, friendListTableView].forEach {
+        [friendListTableView, noFriendView].forEach {
             self.addSubview($0)
         }
     }
@@ -43,5 +43,13 @@ class FriendListView: BaseView {
             make.top.equalToSuperview().inset(120)
             make.horizontalEdges.bottom.equalToSuperview()
         }
+    }
+}
+
+
+extension FriendListView {
+    func showNoFriendView(show: Bool) {
+        print("showNoFriendView : \(show)")
+        self.noFriendView.isHidden = !show
     }
 }

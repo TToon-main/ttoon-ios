@@ -32,8 +32,8 @@ class SearchFriendViewController: BaseViewController, View  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        reactor?.action.onNext(.searchUserList("hi"))
         setNavigation()
+        setSearchBar()
     }
 }
 
@@ -46,25 +46,46 @@ extension SearchFriendViewController {
     
     
     func bindAction(reactor: SearchFriendReactor) {
+        // searchBar 버튼 액션은 delegate 이용
     }
     
     func bindState(reactor: SearchFriendReactor) {
+        // tableView
         reactor.state.map { $0.searchedUserList }
             .bind(to: mainView.userTableView.rx.items(
                 cellIdentifier: UserListTableViewCell.description(),
                 cellType: UserListTableViewCell.self
             )) { row, user, cell in
-                cell.profileInfoView.profileNicknameLabel.text = String(user.id)
+                cell.profileInfoView.profileNicknameLabel.text = user.userInfo.nickname
                 
-                if row % 5 == 0 {
-                    cell.requestFriendButton.type = .sendRequest
-                } else if row % 3 == 0 {
-                    cell.requestFriendButton.type = .sentRequest
-                } else {
-                    cell.requestFriendButton.type = .alreadyFriend
+                switch user.status {
+                case .accept:   // 이미 친구 상태
+                    cell.requestFriendButton.type = .alreadyFriend  // 나의 친구
+                    
+                case .nothing, .asking:  // 아무런 연관 없는 상태 or 상대방이 요청 보낸 상태
+                    cell.requestFriendButton.type = .sendRequest    // 친구 신청
+                    
+                case .waiting:  // 내가 이미 친구 요청을 보낸 상태
+                    cell.requestFriendButton.type = .sentRequest    // 요청됨
                 }
+                
+                
+                cell.requestFriendButton.rx.tap
+                    .map { SearchFriendReactor.Action.requestFriend(user.userInfo.nickname) }
+                    .bind(to: reactor.action)
+                    .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
+    }
+}
+
+extension SearchFriendViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text, !searchText.isEmpty else { return }
+        reactor?.action.onNext(.searchUserList(searchText))
+        searchBar.resignFirstResponder()
+        
+        // 같은 텍스트 입력 시 콜 x 로직?
     }
 }
 
@@ -72,5 +93,8 @@ extension SearchFriendViewController {
 extension SearchFriendViewController {
     private func setNavigation() {
         self.navigationItem.title = "친구 추가"
+    }
+    private func setSearchBar() {
+        mainView.searchBar.delegate = self
     }
 }

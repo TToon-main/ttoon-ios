@@ -17,11 +17,13 @@ class FriendTabViewController: TabmanViewController {
     
     var disposeBag = DisposeBag()
     
-//    let friendListVC = FriendListViewController(reactor: FriendListReactor())
-    let friendListVC = FriendListViewController(reactor: FriendListReactor(FriendListUseCase(FriendListRepository())))
-    let friendRequestVC = ReceivedFriendRequestViewController(reactor: ReceivedFriendRequestReactor(ReceivedFriendRequestUseCase(ReceivedFriendRequestRepository())))
+    let flVM = FriendListReactor(FriendListUseCase(FriendListRepository()))
+    lazy var friendListVC = FriendListViewController(reactor: flVM)
     
-    private lazy var vcs = [friendListVC, friendRequestVC]
+    let rfrVM = ReceivedFriendRequestReactor(ReceivedFriendRequestUseCase(ReceivedFriendRequestRepository()))
+    lazy var receivedFriendRequestVC = ReceivedFriendRequestViewController(reactor: rfrVM)
+    
+    private lazy var vcs = [friendListVC, receivedFriendRequestVC]
     
     let customContainer = UIView()  // Bar를 담고 있는 커스텀 뷰
     
@@ -32,6 +34,7 @@ class FriendTabViewController: TabmanViewController {
         
         settingNavigation()
         settingTabman()
+        setCallBack()
     }
 }
 
@@ -53,7 +56,6 @@ extension FriendTabViewController {
         
         navigationItem.rightBarButtonItem = goSearchFriendButton
     }
-    
     
     private func settingTabman() {
         self.dataSource = self
@@ -78,6 +80,22 @@ extension FriendTabViewController {
         
         addBar(bar, dataSource: self, at: .top)
     }
+    
+    private func setCallBack() {
+        // 받은 요청 탭에서 '수락'을 하면, 내 친구 목록 리스트 reload
+        if let rfrReactor = receivedFriendRequestVC.reactor,
+           let flReactor = friendListVC.reactor {
+            print(#function)
+            rfrReactor.reloadFriendListCallBack = {
+                flReactor.action.onNext(.loadInitialFriendList)
+            }
+        }
+//        
+        
+//        rfrVM.reloadFriendListCallBack = {
+//            self.flVM.action.onNext(.loadInitialFriendList)
+//        }
+    }
 }
 
 
@@ -95,7 +113,7 @@ extension FriendTabViewController: PageboyViewControllerDataSource, TMBarDataSou
     }
     
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
-        return TMBarItem(title: (index == 0) ? "친구 목록" : "친구 요청")
+        return TMBarItem(title: (index == 0) ? "친구 목록" : "받은 요청")
     }
 }
 

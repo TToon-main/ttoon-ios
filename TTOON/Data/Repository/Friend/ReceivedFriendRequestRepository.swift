@@ -43,9 +43,6 @@ class ReceivedFriendRequestRepository: NSObject, ReceivedFriendRequestRepository
                        data.isSuccess,
                        let responseData = data.data
                     {
-                        // 성공
-                        print("success : \(responseData)")
-                        
                         let responseModel = responseData.map { $0.toDomain() }
                         
                         single(.success(.success(responseModel)))

@@ -10,7 +10,7 @@ import Foundation
 // 공통
 struct UserInfoModel {
     let friendId: Int
-    let profileUrl: String
+    let profileUrl: String?
     let nickname: String
 }
 
@@ -20,5 +20,12 @@ struct UserListRequestModel {
 }
 struct SearchedUserInfoModel {
     let userInfo: UserInfoModel
-    let status: String
+    var status: SearchedUserStatus
+    
+    enum SearchedUserStatus: String {
+        case accept = "ACCEPT"
+        case waiting = "WAITING"
+        case nothing = "NOTHING"
+        case asking = "ASKING"
+    }
 }

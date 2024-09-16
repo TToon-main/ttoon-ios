@@ -53,17 +53,24 @@ extension ReceivedFriendRequestViewController {
             .bind(to: mainView.receivedRequestListTableView.rx.items(
                 cellIdentifier: ReceivedFriendRequestTableViewCell.description(),
                 cellType: ReceivedFriendRequestTableViewCell.self)) { row, user, cell in
-//                cell.profileInfoView.profileNicknameLabel.text = user.nickname
+                    cell.profileInfoView.profileNicknameLabel.text = user.nickname
+
                 
-                cell.acceptButton.rx.tap
-                        .map { ReceivedFriendRequestReactor.Action.acceptRequest(user.friendId) }
-                    .bind(to: reactor.action)
-                    .disposed(by: cell.disposeBag)
-                
-                cell.rejectButton.rx.tap
-                    .map { ReceivedFriendRequestReactor.Action.rejectRequest(user.friendId) }
-                    .bind(to: reactor.action)
-                    .disposed(by: cell.disposeBag)
+                    cell.acceptButton.rx.tap
+                            .map { ReceivedFriendRequestReactor.Action.acceptRequest(user.friendId) }
+                        .bind(to: reactor.action)
+                        .disposed(by: cell.disposeBag)
+                    
+                    cell.rejectButton.rx.tap
+                        .map { ReceivedFriendRequestReactor.Action.rejectRequest(user.friendId) }
+                        .bind(to: reactor.action)
+                        .disposed(by: cell.disposeBag)
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.receivedRequestList }
+            .subscribe(with: self) { owner, list  in
+                owner.mainView.showNoDataView(show: list.isEmpty)
             }
             .disposed(by: disposeBag)
     }
