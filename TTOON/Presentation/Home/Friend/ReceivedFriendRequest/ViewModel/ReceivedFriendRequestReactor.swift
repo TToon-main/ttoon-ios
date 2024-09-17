@@ -19,8 +19,8 @@ class ReceivedFriendRequestReactor: Reactor {
     }
     
     enum Action {
-        case loadReceivedRequestList
-        case loadNextList
+        case loadReceivedRequestList    // 맨 처음 로드
+        case loadNextList               // 이후 로드
         case acceptRequest(Int) // friend id
         case rejectRequest(Int) // friend id
     }
@@ -58,7 +58,20 @@ class ReceivedFriendRequestReactor: Reactor {
                 }
             
         case .loadNextList:
-            return .just(.pass)
+            let currentPage = currentState.page
+            
+            return receivedFriendRequestUseCase.receivedRequestList(currentPage)
+                .asObservable()
+                .map { result in
+                    switch result {
+                    case .success(let arr):
+                        let newList = self.currentState.receivedRequestList + arr
+                        return .setReceivedRequestList(newList, currentPage + 1)
+                        
+                    case .failure(let error):
+                        return .pass
+                    }
+                }
             
             
              

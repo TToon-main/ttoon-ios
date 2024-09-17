@@ -43,7 +43,6 @@ class ReceivedFriendRequestView: BaseView {
 
 extension ReceivedFriendRequestView {
     func showNoDataView(show: Bool) {
-        print("showNoFriendView : \(show)")
         self.noRequestView.isHidden = !show
     }
 }

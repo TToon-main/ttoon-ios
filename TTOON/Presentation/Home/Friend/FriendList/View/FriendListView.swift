@@ -49,7 +49,6 @@ class FriendListView: BaseView {
 
 extension FriendListView {
     func showNoFriendView(show: Bool) {
-        print("showNoFriendView : \(show)")
         self.noFriendView.isHidden = !show
     }
 }

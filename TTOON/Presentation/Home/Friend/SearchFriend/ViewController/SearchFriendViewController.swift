@@ -47,6 +47,20 @@ extension SearchFriendViewController {
     
     func bindAction(reactor: SearchFriendReactor) {
         // searchBar 버튼 액션은 delegate 이용
+        
+        // pagination
+        mainView.userTableView.rx.prefetchRows
+            .subscribe(with: self) { owner, indexPaths in
+                let itemCnt = self.mainView.userTableView.numberOfRows(inSection: 0)
+                
+                if indexPaths.contains(where: {
+                    $0.row == itemCnt - 3
+                }) {
+                    print("pagination 진행!")
+                    reactor.action.onNext(.loadNextList)
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: SearchFriendReactor) {
@@ -74,6 +88,12 @@ extension SearchFriendViewController {
                     .map { SearchFriendReactor.Action.requestFriend(user.userInfo.nickname) }
                     .bind(to: reactor.action)
                     .disposed(by: cell.disposeBag)
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.searchedUserList }
+            .subscribe(with: self) { owner, list  in
+                owner.mainView.showNoDataView(show: list.isEmpty)
             }
             .disposed(by: disposeBag)
     }

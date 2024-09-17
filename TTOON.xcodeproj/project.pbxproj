@@ -48,6 +48,22 @@
 		4839AA012C79C84000FF3250 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 4839AA002C79C84000FF3250 /* Tabman */; };
 		4839AA122C79DE9E00FF3250 /* TableViewProfileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839AA112C79DE9E00FF3250 /* TableViewProfileInfoView.swift */; };
 		4839AA172C7B153C00FF3250 /* FriendAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4839AA162C7B153C00FF3250 /* FriendAPI.swift */; };
+		483C53482C9879880056C1FD /* MyPageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C53472C9879880056C1FD /* MyPageUseCase.swift */; };
+		483C534A2C9879B20056C1FD /* MyPageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C53492C9879B20056C1FD /* MyPageRepository.swift */; };
+		483C534C2C987A050056C1FD /* MyPageRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C534B2C987A050056C1FD /* MyPageRepositoryProtocol.swift */; };
+		483C534F2C987A8E0056C1FD /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C534E2C987A8E0056C1FD /* ValidationManager.swift */; };
+		483C53512C987ACF0056C1FD /* ProfileSetStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C53502C987ACF0056C1FD /* ProfileSetStackView.swift */; };
+		483C53532C987AF90056C1FD /* ProfileSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C53522C987AF90056C1FD /* ProfileSetViewController.swift */; };
+		483C53552C987AFE0056C1FD /* MyPageChangeLangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C53542C987AFE0056C1FD /* MyPageChangeLangViewController.swift */; };
+		483C53572C987B0D0056C1FD /* ProfileSetReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C53562C987B0C0056C1FD /* ProfileSetReactor.swift */; };
+		483C53592C987B1A0056C1FD /* ProfileSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C53582C987B1A0056C1FD /* ProfileSetView.swift */; };
+		483C535B2C987B210056C1FD /* MyPageChangeLangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C535A2C987B210056C1FD /* MyPageChangeLangView.swift */; };
+		483C53602C987B860056C1FD /* TNTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C535D2C987B850056C1FD /* TNTextFiled.swift */; };
+		483C53612C987B860056C1FD /* innerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C535E2C987B850056C1FD /* innerTextField.swift */; };
+		483C53622C987B860056C1FD /* TextStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C535F2C987B850056C1FD /* TextStatusView.swift */; };
+		483C53642C987CE00056C1FD /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C53632C987CE00056C1FD /* UITextField+.swift */; };
+		483C53662C987CE60056C1FD /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C53652C987CE60056C1FD /* UIImageView+.swift */; };
+		483C53692C992DC80056C1FD /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 483C53682C992DC80056C1FD /* SkeletonView */; };
 		486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */; };
 		486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */; };
 		489ADEED2BF8E72700B070B7 /* SettingTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */; };
@@ -311,6 +327,21 @@
 		4839A9F82C78AE5A00FF3250 /* indicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = indicatorView.swift; sourceTree = "<group>"; };
 		4839AA112C79DE9E00FF3250 /* TableViewProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewProfileInfoView.swift; sourceTree = "<group>"; };
 		4839AA162C7B153C00FF3250 /* FriendAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAPI.swift; sourceTree = "<group>"; };
+		483C53472C9879880056C1FD /* MyPageUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageUseCase.swift; sourceTree = "<group>"; };
+		483C53492C9879B20056C1FD /* MyPageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyPageRepository.swift; path = TTOON/Data/Repository/Setting/MyPageRepository.swift; sourceTree = SOURCE_ROOT; };
+		483C534B2C987A050056C1FD /* MyPageRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageRepositoryProtocol.swift; sourceTree = "<group>"; };
+		483C534E2C987A8E0056C1FD /* ValidationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
+		483C53502C987ACF0056C1FD /* ProfileSetStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetStackView.swift; sourceTree = "<group>"; };
+		483C53522C987AF90056C1FD /* ProfileSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetViewController.swift; sourceTree = "<group>"; };
+		483C53542C987AFE0056C1FD /* MyPageChangeLangViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageChangeLangViewController.swift; sourceTree = "<group>"; };
+		483C53562C987B0C0056C1FD /* ProfileSetReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetReactor.swift; sourceTree = "<group>"; };
+		483C53582C987B1A0056C1FD /* ProfileSetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetView.swift; sourceTree = "<group>"; };
+		483C535A2C987B210056C1FD /* MyPageChangeLangView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageChangeLangView.swift; sourceTree = "<group>"; };
+		483C535D2C987B850056C1FD /* TNTextFiled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNTextFiled.swift; sourceTree = "<group>"; };
+		483C535E2C987B850056C1FD /* innerTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = innerTextField.swift; sourceTree = "<group>"; };
+		483C535F2C987B850056C1FD /* TextStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStatusView.swift; sourceTree = "<group>"; };
+		483C53632C987CE00056C1FD /* UITextField+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		483C53652C987CE60056C1FD /* UIImageView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTitleLabel.swift; sourceTree = "<group>"; };
@@ -572,6 +603,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				483C53692C992DC80056C1FD /* SkeletonView in Frameworks */,
 				482B61182BB5957F00681097 /* RxKakaoSDKUser in Frameworks */,
 				482B61112BB5956D00681097 /* KakaoSDKAuth in Frameworks */,
 				4839AA012C79C84000FF3250 /* Tabman in Frameworks */,
@@ -796,6 +828,24 @@
 			path = Friend;
 			sourceTree = "<group>";
 		};
+		483C534D2C987A8E0056C1FD /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				483C534E2C987A8E0056C1FD /* ValidationManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		483C535C2C987B850056C1FD /* TextFiled */ = {
+			isa = PBXGroup;
+			children = (
+				483C535D2C987B850056C1FD /* TNTextFiled.swift */,
+				483C535E2C987B850056C1FD /* innerTextField.swift */,
+				483C535F2C987B850056C1FD /* TextStatusView.swift */,
+			);
+			path = TextFiled;
+			sourceTree = "<group>";
+		};
 		4883564A2BEF422A005DC0A6 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -875,6 +925,7 @@
 		489FE2B82BC00E830033B61D /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				483C534D2C987A8E0056C1FD /* Manager */,
 				BE9C9B5B2C689308000AAF0E /* Protocol */,
 				BE4C7CA92BFF39D200AB3D09 /* Enums */,
 				489FE2BE2BC00F440033B61D /* Base */,
@@ -994,6 +1045,7 @@
 				BE47BF5A2BF4C8A60048F707 /* Alert */,
 				BE47BF592BF4C6550048F707 /* Button */,
 				BE32E3162BEBB94E00F0C193 /* TestViewController.swift */,
+				483C535C2C987B850056C1FD /* TextFiled */,
 			);
 			path = TNCompopnet;
 			sourceTree = "<group>";
@@ -1226,6 +1278,8 @@
 				BE9BBC432BCA552F006FD848 /* UIFont+.swift */,
 				BE9BBC482BCA5809006FD848 /* UIColor+.swift */,
 				BE32E3132BEBB28800F0C193 /* Reactive+.swift */,
+				483C53632C987CE00056C1FD /* UITextField+.swift */,
+				483C53652C987CE60056C1FD /* UIImageView+.swift */,
 				BE5758EF2BFB1C3100EC4545 /* UILabel+.swift */,
 				BE78BEF02C25C5DC000A5D11 /* UIView+.swift */,
 				BE78BEF22C25C5EE000A5D11 /* UIViewController+.swift */,
@@ -1443,6 +1497,7 @@
 				BE9C9B872C68986F000AAF0E /* MyPageTableViewCell.swift */,
 				BE9C9B882C68986F000AAF0E /* ProfileSummaryView.swift */,
 				BE9C9B892C68986F000AAF0E /* UnderLineView.swift */,
+				483C53502C987ACF0056C1FD /* ProfileSetStackView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -1452,6 +1507,8 @@
 			children = (
 				BE9C9B8A2C68986F000AAF0E /* SubViews */,
 				BE9C9B8B2C68986F000AAF0E /* MyPageView.swift */,
+				483C53582C987B1A0056C1FD /* ProfileSetView.swift */,
+				483C535A2C987B210056C1FD /* MyPageChangeLangView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1459,6 +1516,8 @@
 		BE9C9B8F2C68986F000AAF0E /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				483C53542C987AFE0056C1FD /* MyPageChangeLangViewController.swift */,
+				483C53522C987AF90056C1FD /* ProfileSetViewController.swift */,
 				BE9C9B8D2C68986F000AAF0E /* AlarmViewController.swift */,
 				BE9C9B8E2C68986F000AAF0E /* MyPageViewController.swift */,
 			);
@@ -1468,6 +1527,7 @@
 		BE9C9B912C68986F000AAF0E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				483C53562C987B0C0056C1FD /* ProfileSetReactor.swift */,
 				BE9C9B902C68986F000AAF0E /* MyPageReactor.swift */,
 			);
 			path = ViewModel;
@@ -1533,6 +1593,7 @@
 		BE9C9BB22C68989F000AAF0E /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				483C534B2C987A050056C1FD /* MyPageRepositoryProtocol.swift */,
 				BE9C9BB02C68989F000AAF0E /* ContactUsRepositoryProtocol.swift */,
 				BE9C9BB12C68989F000AAF0E /* DeleteAccountRepositoryProtocol.swift */,
 			);
@@ -1568,6 +1629,7 @@
 		BE9C9BBA2C68989F000AAF0E /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				483C53472C9879880056C1FD /* MyPageUseCase.swift */,
 				BE9C9BB82C68989F000AAF0E /* ContactUsUseCase.swift */,
 				BE9C9BB92C68989F000AAF0E /* DeleteAccountUseCase.swift */,
 			);
@@ -1676,6 +1738,7 @@
 		BE9C9BDC2C6898C2000AAF0E /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				483C53492C9879B20056C1FD /* MyPageRepository.swift */,
 				BE9C9BDA2C6898C2000AAF0E /* ContactUsRepository.swift */,
 				BE9C9BDB2C6898C2000AAF0E /* DeleteAccountRepository.swift */,
 			);
@@ -1938,6 +2001,7 @@
 				482B61202BB599B100681097 /* FirebaseAnalytics */,
 				482B61222BB599B100681097 /* FirebaseCrashlytics */,
 				4839AA002C79C84000FF3250 /* Tabman */,
+				483C53682C992DC80056C1FD /* SkeletonView */,
 			);
 			productName = TTOON;
 			productReference = BE36CF8A2BAFF5890017F94E /* TTOON.app */;
@@ -2029,6 +2093,7 @@
 				482B611C2BB598DC00681097 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 				482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				4839A9FF2C79C83F00FF3250 /* XCRemoteSwiftPackageReference "Tabman" */,
+				483C53672C992DC80056C1FD /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = BE36CF8B2BAFF5890017F94E /* Products */;
 			projectDirPath = "";
@@ -2158,6 +2223,7 @@
 				BE9C9BEC2C6898C2000AAF0E /* LoginRepository.swift in Sources */,
 				BE0473662C550E5600484B96 /* ViewLifeCycle.swift in Sources */,
 				BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */,
+				483C53532C987AF90056C1FD /* ProfileSetViewController.swift in Sources */,
 				BEE8BCD12C71FFF5003800E0 /* SelectYearMonthBottomSheetViewController.swift in Sources */,
 				BE9C9AEF2C688CAF000AAF0E /* CharacterModifyView.swift in Sources */,
 				48BF84BF2C8D9BAD00E84016 /* ReceivedFriendRequestUseCase.swift in Sources */,
@@ -2174,6 +2240,7 @@
 				BE9C9B472C688D16000AAF0E /* CreateToonCompleteToonResultImageView.swift in Sources */,
 				BE78BEF32C25C5EE000A5D11 /* UIViewController+.swift in Sources */,
 				BE9C9B492C688D16000AAF0E /* CreateToonDiaryView.swift in Sources */,
+				483C53622C987B860056C1FD /* TextStatusView.swift in Sources */,
 				BE9C9B012C688CAF000AAF0E /* EnterInfoViewController.swift in Sources */,
 				BE9C9BF12C6898C2000AAF0E /* AuthInterceptor.swift in Sources */,
 				BE9C9BEE2C6898C2000AAF0E /* ContactUsRepository.swift in Sources */,
@@ -2204,10 +2271,12 @@
 				480D39722C85E843009C26DA /* UserListTableViewCell.swift in Sources */,
 				BE9C9B952C68986F000AAF0E /* ContactUsView.swift in Sources */,
 				BE9C9B9A2C68986F000AAF0E /* DeleteAccountView.swift in Sources */,
+				483C53662C987CE60056C1FD /* UIImageView+.swift in Sources */,
 				BE9C9BC42C68989F000AAF0E /* SplashUseCase.swift in Sources */,
 				BE9C9BF22C6898C2000AAF0E /* BaseURL.swift in Sources */,
 				BE9C9BE52C6898C2000AAF0E /* SplashAPI.swift in Sources */,
 				BE9C9AFF2C688CAF000AAF0E /* CreateResultViewController.swift in Sources */,
+				483C53602C987B860056C1FD /* TNTextFiled.swift in Sources */,
 				BE9C9B4F2C688D16000AAF0E /* CreateToonSelectCharactersView.swift in Sources */,
 				4839A9F42C78A56B00FF3250 /* NoDataView.swift in Sources */,
 				BE9C9B602C68959D000AAF0E /* CreateToonTitleLabel.swift in Sources */,
@@ -2244,6 +2313,7 @@
 				BE9C9B552C689149000AAF0E /* Date+.swift in Sources */,
 				48BF84B12C8D897000E84016 /* FriendListRepository.swift in Sources */,
 				BE9BBC492BCA5809006FD848 /* UIColor+.swift in Sources */,
+				483C534C2C987A050056C1FD /* MyPageRepositoryProtocol.swift in Sources */,
 				BE9C9BC12C68989F000AAF0E /* ContactUsRepositoryProtocol.swift in Sources */,
 				BEE8BCD22C71FFF5003800E0 /* HomeCalendarReactor.swift in Sources */,
 				BE9C9BC02C68989F000AAF0E /* SplashRepositoryProtocol.swift in Sources */,
@@ -2252,6 +2322,7 @@
 				BE9C9B4C2C688D16000AAF0E /* CreateToonMidSubTitleLabel.swift in Sources */,
 				BE5758F02BFB1C3100EC4545 /* UILabel+.swift in Sources */,
 				BE9C9B072C688CAF000AAF0E /* CharacterPickerBSReactor.swift in Sources */,
+				483C53612C987B860056C1FD /* innerTextField.swift in Sources */,
 				BE9C9B942C68986F000AAF0E /* CategoryBottomSheetView.swift in Sources */,
 				BE9C9AF62C688CAF000AAF0E /* EnterInfoView.swift in Sources */,
 				BE9C9BA42C68986F000AAF0E /* MyPageView.swift in Sources */,
@@ -2259,6 +2330,7 @@
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
 				BE9C9AFD2C688CAF000AAF0E /* CompleteToonViewController.swift in Sources */,
 				489ADEF12BF8E8CE00B070B7 /* SettingSubtitleLabel.swift in Sources */,
+				483C53512C987ACF0056C1FD /* ProfileSetStackView.swift in Sources */,
 				BE9C9B962C68986F000AAF0E /* CategoryBottomSheetViewController.swift in Sources */,
 				BEE8BCCB2C71FFF5003800E0 /* BottomDiaryEmptyView.swift in Sources */,
 				BE05C0932C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift in Sources */,
@@ -2272,6 +2344,7 @@
 				BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */,
 				BE9C9BF32C6898C2000AAF0E /* LogPlugin.swift in Sources */,
 				48BF84B82C8D8A3A00E84016 /* FriendModel.swift in Sources */,
+				483C53482C9879880056C1FD /* MyPageUseCase.swift in Sources */,
 				4839AA172C7B153C00FF3250 /* FriendAPI.swift in Sources */,
 				BE9C9BA02C68986F000AAF0E /* MyPageTableView.swift in Sources */,
 				BE9C9B9C2C68986F000AAF0E /* DeleteAccountViewController.swift in Sources */,
@@ -2279,7 +2352,9 @@
 				BE77224B2BEF499F007CDC17 /* TNAlert.swift in Sources */,
 				BE9C9AF72C688CAF000AAF0E /* SelectStyleView.swift in Sources */,
 				BE9C9B582C68927F000AAF0E /* DateFormatType.swift in Sources */,
+				483C53552C987AFE0056C1FD /* MyPageChangeLangViewController.swift in Sources */,
 				BEE8BCC82C71FFF5003800E0 /* CalendarSceneCoordinator.swift in Sources */,
+				483C53592C987B1A0056C1FD /* ProfileSetView.swift in Sources */,
 				480D39762C85E843009C26DA /* FriendTabViewController.swift in Sources */,
 				BE9C9BEF2C6898C2000AAF0E /* DeleteAccountRepository.swift in Sources */,
 				BE9C9B042C688CAF000AAF0E /* CharacterDeleteBSReactor.swift in Sources */,
@@ -2301,15 +2376,18 @@
 				480D39732C85E843009C26DA /* FriendListView.swift in Sources */,
 				480D39832C887972009C26DA /* SearchFriendView.swift in Sources */,
 				489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */,
+				483C534F2C987A8E0056C1FD /* ValidationManager.swift in Sources */,
 				486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */,
 				BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
 				480D39702C85E843009C26DA /* ReceivedFriendRequestTableViewCell.swift in Sources */,
 				BEE8BCE12C7202E6003800E0 /* SelectYearMonthView.swift in Sources */,
 				BE9C9B972C68986F000AAF0E /* ContactUsViewController.swift in Sources */,
+				483C534A2C9879B20056C1FD /* MyPageRepository.swift in Sources */,
 				480C165F2BEEFA9F0085A187 /* SocialLoginType.swift in Sources */,
 				BE9C9AEE2C688CAF000AAF0E /* CharacterEditorView.swift in Sources */,
 				BE9C9BE92C6898C2000AAF0E /* ResponseDTO.swift in Sources */,
+				483C53572C987B0D0056C1FD /* ProfileSetReactor.swift in Sources */,
 				BE9C9BA22C68986F000AAF0E /* ProfileSummaryView.swift in Sources */,
 				BE9C9AF42C688CAF000AAF0E /* CreateResultView.swift in Sources */,
 				BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */,
@@ -2327,6 +2405,7 @@
 				BE9C9AF32C688CAF000AAF0E /* CreateLoadingView.swift in Sources */,
 				480D396F2C85E843009C26DA /* FriendListReactor.swift in Sources */,
 				BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */,
+				483C535B2C987B210056C1FD /* MyPageChangeLangView.swift in Sources */,
 				BE9C9AF22C688CAF000AAF0E /* CompleteToonView.swift in Sources */,
 				BE9C9B4E2C688D16000AAF0E /* CreateToonSelectCharactersButton.swift in Sources */,
 				BE9C9B442C688D16000AAF0E /* CreateToonCompleteToonCollectionView.swift in Sources */,
@@ -2345,6 +2424,7 @@
 				BEE8BCD32C71FFF5003800E0 /* FeedSceneCoordinator.swift in Sources */,
 				BE9C9B052C688CAF000AAF0E /* CharacterEditReactor.swift in Sources */,
 				BE9C9B4A2C688D16000AAF0E /* CreateToonDivider.swift in Sources */,
+				483C53642C987CE00056C1FD /* UITextField+.swift in Sources */,
 				BE9C9BC22C68989F000AAF0E /* DeleteAccountRepositoryProtocol.swift in Sources */,
 				BE9C9BEB2C6898C2000AAF0E /* KeychainStorage.swift in Sources */,
 			);
@@ -2985,6 +3065,14 @@
 				minimumVersion = 3.2.0;
 			};
 		};
+		483C53672C992DC80056C1FD /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.31.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -3092,6 +3180,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4839A9FF2C79C83F00FF3250 /* XCRemoteSwiftPackageReference "Tabman" */;
 			productName = Tabman;
+		};
+		483C53682C992DC80056C1FD /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 483C53672C992DC80056C1FD /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

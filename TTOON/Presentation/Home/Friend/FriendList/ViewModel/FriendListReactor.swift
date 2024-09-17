@@ -72,7 +72,7 @@ class FriendListReactor: Reactor {
                     switch result {
                     case .success(let arr):
                         let newList = self.currentState.friendList + arr
-                        return .setFriendList(newList, currentPage + 1)
+                        return .setFriendList(newList, currentPage + 1) // 다음 page 설정
 
                     case .failure(let error):
                         return .pass

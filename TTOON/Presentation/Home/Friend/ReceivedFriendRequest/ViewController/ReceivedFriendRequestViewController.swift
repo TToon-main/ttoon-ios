@@ -46,6 +46,19 @@ extension ReceivedFriendRequestViewController {
     }
     
     func bindAction(reactor: ReceivedFriendRequestReactor) {
+        // pagination
+        mainView.receivedRequestListTableView.rx.prefetchRows
+            .subscribe(with: self) { owner, indexPaths  in
+                let itemCnt = self.mainView.receivedRequestListTableView.numberOfRows(inSection: 0)
+                
+                print("prefetch : itemCnt : \(itemCnt) indexPaths : \(indexPaths)")
+                
+                if indexPaths.contains(where: { $0.row == itemCnt - 3 }) {
+                    print("pagination 진행!")
+                    reactor.action.onNext(.loadNextList)
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: ReceivedFriendRequestReactor) {

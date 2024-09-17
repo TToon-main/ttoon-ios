@@ -101,8 +101,8 @@ final class Interceptor: RequestInterceptor {
     }
     
     private func popToLoginVC() {
-        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-            sceneDelegate.logout()
-        }
+//        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+//            sceneDelegate.logout()
+//        }
     }
 } 

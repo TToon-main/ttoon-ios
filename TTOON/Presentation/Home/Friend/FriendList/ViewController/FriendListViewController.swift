@@ -47,6 +47,20 @@
     }
     
     func bindAction(reactor: FriendListReactor) {
+        // pagination
+        mainView.friendListTableView.rx.prefetchRows
+            .subscribe(with: self) { owner, indexPaths in
+                // n-1번째 셀을 로드할 때, pagination 액션 전달
+                let itemCnt = owner.mainView.friendListTableView.numberOfRows(inSection: 0)
+                
+                print("prefetch : itemCnt : \(itemCnt) indexPaths : \(indexPaths)")
+                
+                if indexPaths.contains(where: { $0.row == itemCnt - 3 }) {
+                    print("pagination 진행!")
+                    reactor.action.onNext(.loadNextFriendList)
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: FriendListReactor) {
