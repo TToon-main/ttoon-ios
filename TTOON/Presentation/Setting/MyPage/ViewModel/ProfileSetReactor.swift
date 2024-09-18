@@ -11,6 +11,8 @@ import UIKit
 
 final class ProfileSetReactor: Reactor {
     let useCase: MyPageUseCase
+    private var initialProfile: SetProfileResponseModel?
+    private var isImageDeleted = false
     
     init(useCase: MyPageUseCase) {
         self.useCase = useCase
@@ -24,6 +26,7 @@ final class ProfileSetReactor: Reactor {
         case changeImageButtonTap
         case saveButtonTap(SetProfileRequestModel)
         case imageDidChanged
+        case imageDidDeleted(Bool)
     }
     
     // Action과 State의 매개체
@@ -33,6 +36,7 @@ final class ProfileSetReactor: Reactor {
         case setChangeImage
         case setSaveButtonEnabled(Bool)
         case setPop(Bool)
+        case setIsDelete(Bool)
     }
     
     // 뷰에 전달할 상태
@@ -72,12 +76,22 @@ final class ProfileSetReactor: Reactor {
         case .changeImageButtonTap:
             return .just(.setChangeImage)
             
-        case .saveButtonTap(let model):
+        case .saveButtonTap(let model):  
+            
+            var model = model
+            
+            if self.isImageDeleted == true {
+                model.isDelete = true
+            }
+            
             return useCase.patchProfile(dto: model.toDTO())
                 .map {  Mutation.setPop($0)}
             
         case .imageDidChanged:
             return .just(.setSaveButtonEnabled(true))
+            
+        case .imageDidDeleted(let isDelete):
+            return .just(.setIsDelete(isDelete))
         }
     }
     
@@ -86,6 +100,7 @@ final class ProfileSetReactor: Reactor {
         
         switch mutation {
         case .setUpProfile(let model):
+            self.initialProfile = model
             newState.profileInfo = model
             newState.presentImagePicker = nil
 
@@ -108,6 +123,9 @@ final class ProfileSetReactor: Reactor {
             newState.pop = isPop
             newState.presentImagePicker = nil
             newState.profileInfo = nil
+            
+        case .setIsDelete(let isDelete):
+            self.isImageDeleted = isDelete
         }
         
         return newState

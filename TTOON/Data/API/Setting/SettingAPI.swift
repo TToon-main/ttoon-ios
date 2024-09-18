@@ -75,9 +75,9 @@ extension SettingAPI: TargetType {
                 multipartData.append(MultipartFormData(provider: .data(imageData), name: "file", fileName: "\(UUID().uuidString).jpg", mimeType: "image/jpeg"))
             }
             
-            let params: [String: String] = [
+            let params: [String: Any] = [
                 "nickName": dto.nickName,
-                "isDelete": "\(dto.isDelete)"
+                "isDelete": dto.isDelete
             ]
             
             if multipartData.isEmpty {
@@ -96,8 +96,27 @@ extension SettingAPI: TargetType {
         case .deleteAccount:
             return [ "sender": "app"]
             
+        case .patchProfile(let dto):
+            let token = KeychainStorage.shared.accessToken ?? "" 
+
+            if dto.image == nil {
+                return [
+                    "Content-Type": "application/application/json",
+                    "Authorization": "Bearer \(token)"
+                ]
+            } else {
+                return [
+                    "Content-Type": "multipart/form-data",
+                    "Authorization": "Bearer \(token)"
+                ]
+            }
+            
         default:
             return nil
         }
+    }
+    
+    var validationType: ValidationType {
+        return .successCodes
     }
 }

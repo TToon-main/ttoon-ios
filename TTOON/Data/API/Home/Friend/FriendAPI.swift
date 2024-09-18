@@ -87,4 +87,8 @@ extension FriendAPI: TargetType {
             ]
         }
     }
+    
+    var validationType: ValidationType {
+        return .successCodes
+    }
 }
