@@ -90,7 +90,7 @@ class AuthCoordinator: AuthCoordinatorProtocol {
                     
                 case .goLoginView:
                     self?.navigationController.topViewController?.dismiss(animated: true) {
-                        self?.showLoginView() 
+                        self?.showLoginView()
                     }
                     
                 case .goHomeView:
@@ -142,8 +142,20 @@ class AuthCoordinator: AuthCoordinatorProtocol {
     func showSetNickNameView(root: UIViewController) {
         let repo = SetNickNameRepository()
         let useCase = SetNickNameUseCase(setNickNameRepository: repo)
-        let reactor = SetNickNameReactor(setNickNameUseCase: useCase) 
+        let reactor = SetNickNameReactor(setNickNameUseCase: useCase)
         let vc = SetNickNameViewController(setNickNameReactor: reactor)
+    
+        vc.didSendEventClosure = { [weak self] event in
+            DispatchQueue.main.async {
+                switch event {
+                case .goTabBarFlow:
+                    self?.finish(AppCoordinator.ChildCoordinatorType.tabBar)
+                }
+            }
+        }
+        
+        
+        vc.modalPresentationStyle = .overCurrentContext
         
         root.present(vc, animated: true)
     }

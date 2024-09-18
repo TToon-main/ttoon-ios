@@ -14,7 +14,18 @@ import RxSwift
 class SetNickNameViewController: BaseViewController {
     // MARK: - Properties
     var disposeBag = DisposeBag()
+    var didSendEventClosure: ( (SetNickNameViewController.TransitionEvent) -> Void)?
+    
+    // MARK: - UI Properties
+    
     private let setNickNameView = SetNickNameView()
+
+    
+    // MARK: - TransitionEvent
+    
+    enum TransitionEvent {
+        case goTabBarFlow
+    }
     
     // MARK: - Initializer
     
@@ -35,6 +46,17 @@ class SetNickNameViewController: BaseViewController {
     private func dismiss(_ flag: Bool) {
         if flag {
             self.dismiss(animated: true)
+        }
+    }
+    
+    private func toTabBar(_ flag: Bool) {
+        let completion = { [weak self] in
+            guard let self else { return }
+            self.didSendEventClosure?(.goTabBarFlow)
+        }
+        
+        if flag {
+            self.dismiss(animated: true, completion: completion)
         }
     }
 }
@@ -82,6 +104,10 @@ extension SetNickNameViewController: View {
         
         reactor.state.map { $0.dismiss }
             .bind(onNext: self.dismiss)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.toTabBar }
+            .bind(onNext: self.toTabBar)
             .disposed(by: disposeBag)
     }
 }

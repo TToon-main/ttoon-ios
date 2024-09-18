@@ -15,7 +15,7 @@ enum TextFieldStatus {
     case ready
 }
 
-final class SetNickNameReactor: Reactor {    
+final class SetNickNameReactor: Reactor {
     private let setNickNameUseCase: SetNickNameUseCase
     
     init(setNickNameUseCase: SetNickNameUseCase) {
@@ -35,21 +35,22 @@ final class SetNickNameReactor: Reactor {
         case setDismiss
         case isEnabledConfirmButton(isEnabled: Bool)
         case setFocusTextField(isFocus: Bool)
-        case truncateText(text: String) 
+        case truncateText(text: String)
         case isValid(status: TextFieldStatus)
     }
     
     // 뷰에 전달할 상태
-//    struct State {
-//        var dismiss: Bool = false
-//        var isEnabledConfirmButton: Bool = false
-//        var focusTextField: Bool = false
-//        var text: String? = nil
-//        var textFieldStatus: TextFieldStatus = .ready
-//    }
+    //    struct State {
+    //        var dismiss: Bool = false
+    //        var isEnabledConfirmButton: Bool = false
+    //        var focusTextField: Bool = false
+    //        var text: String? = nil
+    //        var textFieldStatus: TextFieldStatus = .ready
+    //    }
     
     struct State {
         var dismiss: Bool = false
+        var toTabBar: Bool = false
         var isEnabledConfirmButton: Bool = false
         var focusTextField: Bool = false
         var text: String? = nil
@@ -75,7 +76,7 @@ final class SetNickNameReactor: Reactor {
                 .just(.truncateText(text: truncateText)),
                 .just(.isEnabledConfirmButton(isEnabled: isEnabled)),
                 .just(.isValid(status: .ready))
-            ]) 
+            ])
             
         case .confirmButtonTap(let text):
             let dto = PostIsValidNickNameRequestDTO(nickName: text)
@@ -102,20 +103,20 @@ final class SetNickNameReactor: Reactor {
             case .duplication:
                 newState.setErrorMessage = "이미 사용 중인 닉네임입니다."
                 newState.isEnabledConfirmButton = false
-
+                
             case .unknown:
                 newState.setErrorMessage = "알 수 없는 에러입니다."
                 newState.isEnabledConfirmButton = false
-
+                
             case .valid:
-                newState.dismiss = true
-
+                newState.toTabBar = true
+                
             default:
                 newState.setErrorMessage = nil
             }
-
+            
             return newState
-
+            
         case .truncateText(let text):
             var newState = state
             newState.text = text
