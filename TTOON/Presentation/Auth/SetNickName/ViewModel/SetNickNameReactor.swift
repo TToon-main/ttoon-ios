@@ -8,21 +8,15 @@
 import ReactorKit
 import RxSwift
 
-enum TextFieldStatus {
-    case duplication
-    case unknown
-    case valid
-    case ready
-}
+
 
 final class SetNickNameReactor: Reactor {
-    private let setNickNameUseCase: SetNickNameUseCase
+    private let setNickNameUseCase: SetNickNameUseCaseProtocol
     
-    init(setNickNameUseCase: SetNickNameUseCase) {
+    init(setNickNameUseCase: SetNickNameUseCaseProtocol) {
         self.setNickNameUseCase = setNickNameUseCase
     }
     
-    // 뷰에서 입력받은 유저 이벤트
     enum Action {
         case viewDidLoad
         case popButtonTap
@@ -30,23 +24,13 @@ final class SetNickNameReactor: Reactor {
         case confirmButtonTap(text: String)
     }
     
-    // Action과 State의 매개체
     enum Mutation {
         case setDismiss
         case isEnabledConfirmButton(isEnabled: Bool)
         case setFocusTextField(isFocus: Bool)
         case truncateText(text: String)
-        case isValid(status: TextFieldStatus)
+        case isValid(status: SetNickNameUseCase.TextFieldStatus)
     }
-    
-    // 뷰에 전달할 상태
-    //    struct State {
-    //        var dismiss: Bool = false
-    //        var isEnabledConfirmButton: Bool = false
-    //        var focusTextField: Bool = false
-    //        var text: String? = nil
-    //        var textFieldStatus: TextFieldStatus = .ready
-    //    }
     
     struct State {
         var dismiss: Bool = false
@@ -56,10 +40,7 @@ final class SetNickNameReactor: Reactor {
         var text: String? = nil
         var setErrorMessage: String? = nil
     }
-    
-    
-    
-    // 전달할 상태의 초기값
+
     let initialState: State = State()
     
     func mutate(action: Action) -> Observable<Mutation> {

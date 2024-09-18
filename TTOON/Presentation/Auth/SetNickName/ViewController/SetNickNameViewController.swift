@@ -39,9 +39,13 @@ class SetNickNameViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - life Cycle
+    
     override func loadView() {
         view = setNickNameView
     }
+    
+    // MARK: - Route Transition
     
     private func dismiss(_ flag: Bool) {
         if flag {
@@ -60,6 +64,8 @@ class SetNickNameViewController: BaseViewController {
         }
     }
 }
+
+// MARK: - Bind actions, states
 
 extension SetNickNameViewController: View {
     func bind(reactor: SetNickNameReactor) {

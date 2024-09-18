@@ -10,10 +10,19 @@ import Foundation
 import RxSwift
 
 protocol SetNickNameUseCaseProtocol {
+    func isValidText(dto: PostIsValidNickNameRequestDTO) -> Observable<SetNickNameUseCase.TextFieldStatus>
+    func truncateText(text: String) -> String
 }
 
 class SetNickNameUseCase: SetNickNameUseCaseProtocol {
     let setNickNameRepository: SetNickNameRepository
+    
+    enum TextFieldStatus {
+        case duplication
+        case unknown
+        case valid
+        case ready
+    }
     
     // MARK: - init
     init(setNickNameRepository: SetNickNameRepository) {
@@ -33,8 +42,6 @@ class SetNickNameUseCase: SetNickNameUseCaseProtocol {
         let fail = request
             .compactMap { $0.error }
             .map { _ in TextFieldStatus.unknown }
-        
-        print("isValidText 실행", dto)
 
         return Observable.merge(success, fail)
     }

@@ -147,7 +147,6 @@ extension Reactive where Base: SetNickNameView {
     }
     
     var setErrorMassage: Binder<String?> {
-        print("디버그 에러 메시지 세팅")
         base.confirmButton.isEnabled = false
         return base.textField.rx.errorMassage
     }
