@@ -61,6 +61,11 @@ class SetNickNameView: BaseView {
         endEditing(true)
     }
     
+    override func configures() {
+        super.configures()
+        keyboardLayoutGuide.followsUndockedKeyboard = true
+    }
+    
     override func addSubViews() {
         addSubview(navigationBar)
         navigationBar.addSubview(popButton)
@@ -100,7 +105,7 @@ class SetNickNameView: BaseView {
         confirmButton.snp.makeConstraints { 
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.height.equalTo(56)
-            $0.bottom.equalTo(safeGuide).offset(-36)
+            $0.bottom.equalTo(self.keyboardLayoutGuide.snp.top).offset(-36)
         }
     }
 }
