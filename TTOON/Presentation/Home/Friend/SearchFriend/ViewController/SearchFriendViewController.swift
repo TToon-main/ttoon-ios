@@ -70,7 +70,7 @@ extension SearchFriendViewController {
                 cellIdentifier: UserListTableViewCell.description(),
                 cellType: UserListTableViewCell.self
             )) { row, user, cell in
-                cell.profileInfoView.profileNicknameLabel.text = user.userInfo.nickname
+                cell.setDesign(user.userInfo)
                 
                 switch user.status {
                 case .accept:   // 이미 친구 상태

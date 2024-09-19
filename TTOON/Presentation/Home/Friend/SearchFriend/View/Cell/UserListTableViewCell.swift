@@ -36,8 +36,7 @@ class UserListTableViewCell: BaseTableViewCell {
         profileInfoView.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(19)
             make.centerY.equalToSuperview()
-            make.trailing.equalTo(requestFriendButton.snp
-                .leading).offset(-4)
+            make.trailing.equalToSuperview().inset(120)
         }
     }
     
@@ -45,6 +44,10 @@ class UserListTableViewCell: BaseTableViewCell {
         super.prepareForReuse()
         
         disposeBag = DisposeBag()
+    }
+    
+    func setDesign(_ model: UserInfoModel) {
+        self.profileInfoView.setDesign(model)
     }
 }
 

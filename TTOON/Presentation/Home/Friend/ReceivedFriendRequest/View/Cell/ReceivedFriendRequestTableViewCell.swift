@@ -63,4 +63,8 @@ class ReceivedFriendRequestTableViewCell: BaseTableViewCell {
         
         disposeBag = DisposeBag()
     }
+    
+    func setDesign(_ model: UserInfoModel) {
+        self.profileInfoView.setDesign(model)
+    }
 }

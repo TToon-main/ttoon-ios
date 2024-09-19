@@ -35,7 +35,7 @@
         setNavigation()
         loadData()
         
-        presentIntroductionAddFriendPopUpView()
+//        presentIntroductionAddFriendPopUpView()
     }
 }
 
@@ -66,52 +66,13 @@
     func bindState(reactor: FriendListReactor) {
         reactor.state.map { $0.friendList }
             .bind(to: mainView.friendListTableView.rx.items(cellIdentifier: FriendListTableViewCell.description(), cellType: FriendListTableViewCell.self)) { row, user, cell in
-                cell.profileInfoView.profileNicknameLabel.text = String(user.nickname)
+                cell.setDesign(user)
                 
                 cell.deleteFriendButton.rx.tap
                     .subscribe(with: self) { owner, _ in
-                        let vc = FriendListPopUpBottomSheetViewController(
-                            title: "\(user.nickname)님과\n친구를 끊으시겠어요?",
-                            subTitle: "친구를 삭제하면, 이제 친구의 기록을\n볼 수 없게 되어요",
-                            image: TNImage.characterDeleteIcon!,
-                            confirmButtonTitle: "삭제할래요",
-                            cancelButtonTitle: "돌아가기"
-                        )
-                        
-                        if let sheet = vc.sheetPresentationController {
-                            sheet.detents = [.custom { _ in return 368 } ]
-                            sheet.prefersGrabberVisible = true
-                            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-                            sheet.prefersEdgeAttachedInCompactHeight = true
-                            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-                        }
-                        
-                        self.present(vc, animated: true, completion: nil)
-                        
-                        // 확인 버튼 누르면 네트워크 콜
-                        vc.bottomSheetView.confirmButton.rx.tap
-                            .map { FriendListReactor.Action.deleteFriend(user.friendId) }
-                            .bind(to: reactor.action)
-                            .disposed(by: cell.disposeBag)
-                        
-                        // 버튼 누르면 dismiss
-                        vc.bottomSheetView.confirmButton.rx.tap
-                            .subscribe(with: self) { owner, _ in
-                                vc.dismiss(animated: true)
-                            }
-                            .disposed(by: cell.disposeBag)
-                        vc.bottomSheetView.cancelButton.rx.tap
-                            .subscribe(with: self) { owner, _ in
-                                vc.dismiss(animated: true)
-                            }
-                            .disposed(by: cell.disposeBag)
+                        owner.presentConfirmFriendDeletionPopupView(user)
                     }
                     .disposed(by: cell.disposeBag)
-                
-//                cell.deleteFriendButton.rx.tap
-//                    .map { FriendListReactor.Action.deleteFriend(user.friendId) }
-//                    .bind(to: reactor.action)
-//                    .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
         
@@ -133,32 +94,11 @@ extension FriendListViewController {
     private func setNavigation() {
         self.navigationItem.title = "친구 목록"
     }
-    
-    // 맨 처음 들어온 경우, "닉네임 검색으로 친구 추가하기" 팝업을 보여준다.
-    @objc private func presentIntroductionAddFriendPopUpView() {
-        let vc = FriendListPopUpBottomSheetViewController(
-            title: "닉네임 검색으로 친구 추가하기",
-            subTitle: "친구를 추가하면 친구와 서로의 기록을\n살펴보고 반응해줄 수 있어요",
-            image: TNImage.highFive_color!,
-            confirmButtonTitle: "친구 추가하러 가기",
-            cancelButtonTitle: nil
-        )
-        
-        if let sheet = vc.sheetPresentationController {
-            sheet.detents = [.custom { _ in return 368 } ]
-            sheet.prefersGrabberVisible = true
-            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-            sheet.prefersEdgeAttachedInCompactHeight = true
-            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-        }
-        
-        present(vc, animated: true, completion: nil)
-    }
      
-     // 친구 삭제 시도 시, "'000'님과 친구를 끊으시겠어요?" 팝업을 보여준다.
-    @objc private func presentConfirmFriendDeletionPopupView(name: String) {
+    // 친구 삭제 시도시, "'000'님과 친구를 끊으시겠어요?" 팝업을 보여준다.
+    private func presentConfirmFriendDeletionPopupView(_ model: UserInfoModel) {
          let vc = FriendListPopUpBottomSheetViewController(
-             title: "\(name)님과\n친구를 끊으시겠어요?",
+            title: "\(model.nickname)님과\n친구를 끊으시겠어요?",
              subTitle: "친구를 삭제하면, 이제 친구의 기록을\n볼 수 없게 되어요",
              image: TNImage.characterDeleteIcon!,
              confirmButtonTitle: "삭제할래요",
@@ -172,6 +112,10 @@ extension FriendListViewController {
              sheet.prefersEdgeAttachedInCompactHeight = true
              sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
          }
+        
+        vc.onConfirm = {
+            self.reactor?.action.onNext(.deleteFriend(model.friendId))
+        }
          
          present(vc, animated: true, completion: nil)
      }

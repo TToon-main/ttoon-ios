@@ -5,9 +5,16 @@
 //  Created by 임승섭 on 8/23/24.
 //
 
+import RxSwift
 import UIKit
 
 class FriendListPopUpBottomSheetViewController: BaseViewController {
+    private var disposeBag = DisposeBag()
+    
+    // Action CallBacks
+    var onConfirm: (() -> Void)?
+    var onCancel: (() -> Void)?
+    
     var bottomSheetView = FriendListPopUpBottomSheetView(
         title: "",
         subTitle: "",
@@ -32,6 +39,8 @@ class FriendListPopUpBottomSheetViewController: BaseViewController {
             confirmButtonTitle: confirmButtonTitle,
             cancelButtonTitle: cancelButtonTitle
         )
+        
+        bindButtonAction()
     }
     
     
@@ -55,5 +64,22 @@ class FriendListPopUpBottomSheetViewController: BaseViewController {
             make.bottom.equalToSuperview().offset(-36)
             make.horizontalEdges.equalToSuperview().inset(16)
         }
+    }
+}
+
+extension FriendListPopUpBottomSheetViewController {
+    private func bindButtonAction() {
+        bottomSheetView.confirmButton.rx.tap
+            .subscribe(with: self) { owner, _ in
+                owner.dismiss(animated: true)
+                owner.onConfirm?()
+            }
+            .disposed(by: disposeBag)
+        
+        bottomSheetView.cancelButton.rx.tap
+            .subscribe(with: self) { owner, _ in
+                owner.dismiss(animated: true)
+            }
+            .disposed(by: disposeBag)
     }
 }

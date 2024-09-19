@@ -46,6 +46,15 @@ class TableViewProfileInfoView: BaseView {
         profileNicknameLabel.snp.makeConstraints { make in
             make.leading.equalTo(profileImageView.snp.trailing).offset(8)
             make.centerY.equalTo(self)
+            make.trailing.equalTo(self)
         }
+    }
+    
+    func setDesign(_ model: UserInfoModel) {
+        // 프로필 이미지
+        profileImageView.load(url: URL(string: model.profileUrl ?? ""), defaultImage: TNImage.userIcon)
+        
+        // 닉네임
+        profileNicknameLabel.text = model.nickname
     }
 }

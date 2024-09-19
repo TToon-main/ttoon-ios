@@ -66,8 +66,7 @@ extension ReceivedFriendRequestViewController {
             .bind(to: mainView.receivedRequestListTableView.rx.items(
                 cellIdentifier: ReceivedFriendRequestTableViewCell.description(),
                 cellType: ReceivedFriendRequestTableViewCell.self)) { row, user, cell in
-                    cell.profileInfoView.profileNicknameLabel.text = user.nickname
-
+                    cell.setDesign(user)
                 
                     cell.acceptButton.rx.tap
                             .map { ReceivedFriendRequestReactor.Action.acceptRequest(user.friendId) }

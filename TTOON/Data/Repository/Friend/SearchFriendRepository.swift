@@ -29,9 +29,6 @@ class SearchFriendRepository: NSObject, SearchFriendRepositoryProtocol {
             let request = self.provider.log.request(.userList(dto: requestDTO)) { result in
                 switch result {
                 case .success(let response):
-                    
-                    print(response)
-                    
                     if let data = try? response.map(ResponseDTO<[SearchedUserInfoDTO]>.self),
                        data.isSuccess,
                        let responseData = data.data
@@ -51,7 +48,6 @@ class SearchFriendRepository: NSObject, SearchFriendRepositoryProtocol {
                     }
                     
                 case .failure(let error):
-                    print("***111*")
                     // 실패
                     single(.success(.failure(error)))
                 }

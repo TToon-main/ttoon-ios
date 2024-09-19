@@ -17,11 +17,13 @@ class FriendTabViewController: TabmanViewController {
     
     var disposeBag = DisposeBag()
     
-    let flVM = FriendListReactor(FriendListUseCase(FriendListRepository()))
-    lazy var friendListVC = FriendListViewController(reactor: flVM)
+    // 친구 목록
+    let flReactor = FriendListReactor(FriendListUseCase(FriendListRepository()))
+    lazy var friendListVC = FriendListViewController(reactor: flReactor)
     
-    let rfrVM = ReceivedFriendRequestReactor(ReceivedFriendRequestUseCase(ReceivedFriendRequestRepository()))
-    lazy var receivedFriendRequestVC = ReceivedFriendRequestViewController(reactor: rfrVM)
+    // 받은 요청
+    let rfrReactor = ReceivedFriendRequestReactor(ReceivedFriendRequestUseCase(ReceivedFriendRequestRepository()))
+    lazy var receivedFriendRequestVC = ReceivedFriendRequestViewController(reactor: rfrReactor)
     
     private lazy var vcs = [friendListVC, receivedFriendRequestVC]
     
@@ -35,6 +37,8 @@ class FriendTabViewController: TabmanViewController {
         settingNavigation()
         settingTabman()
         setCallBack()
+        
+        presentIntroductionAddFriendPopUpView()
     }
 }
 
@@ -78,6 +82,8 @@ extension FriendTabViewController {
             button.selectedTintColor = .tnOrange
         }
         
+        
+        
         addBar(bar, dataSource: self, at: .top)
     }
     
@@ -90,11 +96,32 @@ extension FriendTabViewController {
                 flReactor.action.onNext(.loadInitialFriendList)
             }
         }
-//        
+    }
+    
+    // 맨 처음 들어온 경우, "닉네임 검색으로 친구 추가하기" 팝업을 보여준다.
+    private func presentIntroductionAddFriendPopUpView() {
+        let vc = FriendListPopUpBottomSheetViewController(
+            title: "닉네임 검색으로 친구 추가하기",
+            subTitle: "친구를 추가하면 친구와 서로의 기록을\n살펴보고 반응해줄 수 있어요",
+            image: TNImage.highFive_color!,
+            confirmButtonTitle: "친구 추가하러 가기",
+            cancelButtonTitle: nil
+        )
         
-//        rfrVM.reloadFriendListCallBack = {
-//            self.flVM.action.onNext(.loadInitialFriendList)
-//        }
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.custom { _ in return 368 } ]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        
+        vc.onConfirm = { [weak self] in
+            self?.didSendEventClosure?(.showSearchFriendView)
+        }
+        
+        
+        present(vc, animated: true, completion: nil)
     }
 }
 
