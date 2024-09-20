@@ -56,7 +56,7 @@ final class SetNickNameReactor: Reactor {
             return .concat([
                 .just(.truncateText(text: truncateText)),
                 .just(.isEnabledConfirmButton(isEnabled: isEnabled)),
-                .just(.isValid(status: .ready))
+                .just(.isValid(status: .readyToRequest))
             ])
             
         case .confirmButtonTap(let text):
@@ -81,15 +81,15 @@ final class SetNickNameReactor: Reactor {
             var newState = state
             
             switch status {
-            case .duplication:
+            case .duplicationNickname:
                 newState.setErrorMessage = "이미 사용 중인 닉네임입니다."
                 newState.isEnabledConfirmButton = false
                 
-            case .unknown:
+            case .unknownError:
                 newState.setErrorMessage = "알 수 없는 에러입니다."
                 newState.isEnabledConfirmButton = false
                 
-            case .valid:
+            case .validNickname:
                 newState.toTabBar = true
                 
             default:

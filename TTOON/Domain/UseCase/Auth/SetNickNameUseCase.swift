@@ -18,10 +18,10 @@ class SetNickNameUseCase: SetNickNameUseCaseProtocol {
     let setNickNameRepository: SetNickNameRepository
     
     enum TextFieldStatus {
-        case duplication
-        case unknown
-        case valid
-        case ready
+        case duplicationNickname // 중복된 닉네임
+        case unknownError // 알 수 없는 에러
+        case validNickname // 사용 가능한 닉네임
+        case readyToRequest // API 요청 전
     }
     
     // MARK: - init
@@ -37,11 +37,11 @@ class SetNickNameUseCase: SetNickNameUseCaseProtocol {
         
         let success = request
             .compactMap { $0.element }
-            .map { $0 ? TextFieldStatus.valid : TextFieldStatus.duplication } 
+            .map { $0 ? TextFieldStatus.validNickname : TextFieldStatus.duplicationNickname } 
         
         let fail = request
             .compactMap { $0.error }
-            .map { _ in TextFieldStatus.unknown }
+            .map { _ in TextFieldStatus.unknownError }
 
         return Observable.merge(success, fail)
     }
