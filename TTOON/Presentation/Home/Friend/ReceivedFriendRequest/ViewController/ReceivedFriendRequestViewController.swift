@@ -46,6 +46,19 @@ extension ReceivedFriendRequestViewController {
     }
     
     func bindAction(reactor: ReceivedFriendRequestReactor) {
+        // pagination
+        mainView.receivedRequestListTableView.rx.prefetchRows
+            .subscribe(with: self) { owner, indexPaths  in
+                let itemCnt = self.mainView.receivedRequestListTableView.numberOfRows(inSection: 0)
+                
+                print("prefetch : itemCnt : \(itemCnt) indexPaths : \(indexPaths)")
+                
+                if indexPaths.contains(where: { $0.row == itemCnt - 3 }) {
+                    print("pagination 진행!")
+                    reactor.action.onNext(.loadNextList)
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: ReceivedFriendRequestReactor) {
@@ -53,17 +66,23 @@ extension ReceivedFriendRequestViewController {
             .bind(to: mainView.receivedRequestListTableView.rx.items(
                 cellIdentifier: ReceivedFriendRequestTableViewCell.description(),
                 cellType: ReceivedFriendRequestTableViewCell.self)) { row, user, cell in
-                cell.profileInfoView.profileNicknameLabel.text = String(user.id)
+                    cell.setDesign(user)
                 
-                cell.acceptButton.rx.tap
-                    .map { ReceivedFriendRequestReactor.Action.acceptRequest(user.id) }
-                    .bind(to: reactor.action)
-                    .disposed(by: cell.disposeBag)
-                
-                cell.rejectButton.rx.tap
-                    .map { ReceivedFriendRequestReactor.Action.rejectRequest(user.id) }
-                    .bind(to: reactor.action)
-                    .disposed(by: cell.disposeBag)
+                    cell.acceptButton.rx.tap
+                            .map { ReceivedFriendRequestReactor.Action.acceptRequest(user.friendId) }
+                        .bind(to: reactor.action)
+                        .disposed(by: cell.disposeBag)
+                    
+                    cell.rejectButton.rx.tap
+                        .map { ReceivedFriendRequestReactor.Action.rejectRequest(user.friendId) }
+                        .bind(to: reactor.action)
+                        .disposed(by: cell.disposeBag)
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.receivedRequestList }
+            .subscribe(with: self) { owner, list  in
+                owner.mainView.showNoDataView(show: list.isEmpty)
             }
             .disposed(by: disposeBag)
     }

@@ -10,7 +10,7 @@ import UIKit
 // 받은 요청 뷰
 class ReceivedFriendRequestView: BaseView {
     // MARK: - UI Components
-    let noRequestView = NoFriendView()
+    let noRequestView = NoDataView("아직 친구 요청이 없어요")
     
     let receivedRequestListTableView = {
         let view = UITableView()
@@ -23,7 +23,7 @@ class ReceivedFriendRequestView: BaseView {
     override func addSubViews() {
         super.addSubViews()
         
-        [noRequestView, receivedRequestListTableView].forEach {
+        [receivedRequestListTableView, noRequestView].forEach {
             self.addSubview($0)
         }
     }
@@ -38,5 +38,11 @@ class ReceivedFriendRequestView: BaseView {
             make.top.equalToSuperview().inset(120)
             make.horizontalEdges.bottom.equalToSuperview()
         }
+    }
+}
+
+extension ReceivedFriendRequestView {
+    func showNoDataView(show: Bool) {
+        self.noRequestView.isHidden = !show
     }
 }

@@ -61,7 +61,7 @@ extension HomeCalendarViewController {
         // 네비게이션 버튼 눌렀을 때 액션 전달
         ttoonNavigationView.friendListButton.rx.tap
             .map {
-                HomeCalendarReactor.Action.friendListButtonTapped
+                return HomeCalendarReactor.Action.friendListButtonTapped
             }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)

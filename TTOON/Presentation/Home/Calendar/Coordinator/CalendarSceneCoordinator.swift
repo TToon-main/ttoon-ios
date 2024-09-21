@@ -67,7 +67,8 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
     
     
     func showSearchFriendView() {
-        let vc = SearchFriendViewController(reactor: SearchFriendReactor())
+        let vc = SearchFriendViewController(reactor: SearchFriendReactor(SearchFriendUseCase(SearchFriendRepository())))
+        
         navigationController.pushViewController(vc, animated: true)
     }
 }

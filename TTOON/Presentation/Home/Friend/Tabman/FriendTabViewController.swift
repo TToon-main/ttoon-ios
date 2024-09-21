@@ -17,10 +17,15 @@ class FriendTabViewController: TabmanViewController {
     
     var disposeBag = DisposeBag()
     
-    let friendListVC = FriendListViewController(reactor: FriendListReactor())
-    let friendRequestVC = ReceivedFriendRequestViewController(reactor: ReceivedFriendRequestReactor())
+    // 친구 목록
+    let flReactor = FriendListReactor(FriendListUseCase(FriendListRepository()))
+    lazy var friendListVC = FriendListViewController(reactor: flReactor)
     
-    private lazy var vcs = [friendListVC, friendRequestVC]
+    // 받은 요청
+    let rfrReactor = ReceivedFriendRequestReactor(ReceivedFriendRequestUseCase(ReceivedFriendRequestRepository()))
+    lazy var receivedFriendRequestVC = ReceivedFriendRequestViewController(reactor: rfrReactor)
+    
+    private lazy var vcs = [friendListVC, receivedFriendRequestVC]
     
     let customContainer = UIView()  // Bar를 담고 있는 커스텀 뷰
     
@@ -31,6 +36,9 @@ class FriendTabViewController: TabmanViewController {
         
         settingNavigation()
         settingTabman()
+        setCallBack()
+        
+        presentIntroductionAddFriendPopUpView()
     }
 }
 
@@ -53,7 +61,6 @@ extension FriendTabViewController {
         navigationItem.rightBarButtonItem = goSearchFriendButton
     }
     
-    
     private func settingTabman() {
         self.dataSource = self
         
@@ -75,7 +82,46 @@ extension FriendTabViewController {
             button.selectedTintColor = .tnOrange
         }
         
+        
+        
         addBar(bar, dataSource: self, at: .top)
+    }
+    
+    private func setCallBack() {
+        // 받은 요청 탭에서 '수락'을 하면, 내 친구 목록 리스트 reload
+        if let rfrReactor = receivedFriendRequestVC.reactor,
+           let flReactor = friendListVC.reactor {
+            print(#function)
+            rfrReactor.reloadFriendListCallBack = {
+                flReactor.action.onNext(.loadInitialFriendList)
+            }
+        }
+    }
+    
+    // 맨 처음 들어온 경우, "닉네임 검색으로 친구 추가하기" 팝업을 보여준다.
+    private func presentIntroductionAddFriendPopUpView() {
+        let vc = FriendListPopUpBottomSheetViewController(
+            title: "닉네임 검색으로 친구 추가하기",
+            subTitle: "친구를 추가하면 친구와 서로의 기록을\n살펴보고 반응해줄 수 있어요",
+            image: TNImage.highFive_color!,
+            confirmButtonTitle: "친구 추가하러 가기",
+            cancelButtonTitle: nil
+        )
+        
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.custom { _ in return 368 } ]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        
+        vc.onConfirm = { [weak self] in
+            self?.didSendEventClosure?(.showSearchFriendView)
+        }
+        
+        
+        present(vc, animated: true, completion: nil)
     }
 }
 
@@ -94,7 +140,7 @@ extension FriendTabViewController: PageboyViewControllerDataSource, TMBarDataSou
     }
     
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
-        return TMBarItem(title: (index == 0) ? "친구 목록" : "친구 요청")
+        return TMBarItem(title: (index == 0) ? "친구 목록" : "받은 요청")
     }
 }
 

@@ -63,8 +63,9 @@ class AuthCoordinator: AuthCoordinatorProtocol {
                     
                 case .goHomeView:
                     print("코디 : go Home view")
-                    self?.showTabbarView()
+//                    self?.showTabbarView()
                     // AuthC 종료 -> AppC에서 TabBarC.start() -> HomeVC 시작
+                    self?.finish(AppCoordinator.ChildCoordinatorType.tabBar)
                 }
             }
         }

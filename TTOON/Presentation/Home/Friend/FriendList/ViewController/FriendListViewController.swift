@@ -35,7 +35,7 @@
         setNavigation()
         loadData()
         
-        presentIntroductionAddFriendPopUpView()
+//        presentIntroductionAddFriendPopUpView()
     }
 }
 
@@ -47,22 +47,38 @@
     }
     
     func bindAction(reactor: FriendListReactor) {
+        // pagination
+        mainView.friendListTableView.rx.prefetchRows
+            .subscribe(with: self) { owner, indexPaths in
+                // n-1번째 셀을 로드할 때, pagination 액션 전달
+                let itemCnt = owner.mainView.friendListTableView.numberOfRows(inSection: 0)
+                
+                print("prefetch : itemCnt : \(itemCnt) indexPaths : \(indexPaths)")
+                
+                if indexPaths.contains(where: { $0.row == itemCnt - 3 }) {
+                    print("pagination 진행!")
+                    reactor.action.onNext(.loadNextFriendList)
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: FriendListReactor) {
         reactor.state.map { $0.friendList }
             .bind(to: mainView.friendListTableView.rx.items(cellIdentifier: FriendListTableViewCell.description(), cellType: FriendListTableViewCell.self)) { row, user, cell in
-                cell.profileInfoView.profileNicknameLabel.text = String(user.id)
+                cell.setDesign(user)
                 
-//                cell.deleteFriendButton.rx.tap
-//                    .map { FriendListReactor.Action.deleteFriend(user.id) }
-//                    .bind(to: reactor.action)
-//                    .disposed(by: cell.disposeBag)
                 cell.deleteFriendButton.rx.tap
                     .subscribe(with: self) { owner, _ in
-                        owner.presentConfirmFriendDeletionPopupView(name: String(user.id))
+                        owner.presentConfirmFriendDeletionPopupView(user)
                     }
                     .disposed(by: cell.disposeBag)
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.friendList }
+            .subscribe(with: self) { owner, list in
+                owner.mainView.showNoFriendView(show: list.isEmpty)
             }
             .disposed(by: disposeBag)
     }
@@ -72,39 +88,17 @@
 // MARK: - private func
 extension FriendListViewController {
     private func loadData() {
-        reactor?.action.onNext(.loadFriendList)
+        reactor?.action.onNext(.loadInitialFriendList)
     }
-     
      
     private func setNavigation() {
         self.navigationItem.title = "친구 목록"
     }
-    
-    // 맨 처음 들어온 경우, "닉네임 검색으로 친구 추가하기" 팝업을 보여준다.
-    @objc private func presentIntroductionAddFriendPopUpView() {
-        let vc = FriendListPopUpBottomSheetViewController(
-            title: "닉네임 검색으로 친구 추가하기",
-            subTitle: "친구를 추가하면 친구와 서로의 기록을\n살펴보고 반응해줄 수 있어요",
-            image: TNImage.highFive_color!,
-            confirmButtonTitle: "친구 추가하러 가기",
-            cancelButtonTitle: nil
-        )
-        
-        if let sheet = vc.sheetPresentationController {
-            sheet.detents = [.custom { _ in return 368 } ]
-            sheet.prefersGrabberVisible = true
-            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-            sheet.prefersEdgeAttachedInCompactHeight = true
-            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-        }
-        
-        present(vc, animated: true, completion: nil)
-    }
      
-     // 친구 삭제 시도 시, "'000'님과 친구를 끊으시겠어요?" 팝업을 보여준다.
-    @objc private func presentConfirmFriendDeletionPopupView(name: String) {
+    // 친구 삭제 시도시, "'000'님과 친구를 끊으시겠어요?" 팝업을 보여준다.
+    private func presentConfirmFriendDeletionPopupView(_ model: UserInfoModel) {
          let vc = FriendListPopUpBottomSheetViewController(
-             title: "\(name)님과\n친구를 끊으시겠어요?",
+            title: "\(model.nickname)님과\n친구를 끊으시겠어요?",
              subTitle: "친구를 삭제하면, 이제 친구의 기록을\n볼 수 없게 되어요",
              image: TNImage.characterDeleteIcon!,
              confirmButtonTitle: "삭제할래요",
@@ -118,6 +112,10 @@ extension FriendListViewController {
              sheet.prefersEdgeAttachedInCompactHeight = true
              sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
          }
+        
+        vc.onConfirm = {
+            self.reactor?.action.onNext(.deleteFriend(model.friendId))
+        }
          
          present(vc, animated: true, completion: nil)
      }

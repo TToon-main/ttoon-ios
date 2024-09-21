@@ -17,6 +17,9 @@ class SearchFriendView: BaseView {
 //        view.setShowsCancelButton(true, animated: true)
         return view
     }()
+    
+    let noDataView = NoDataView("검색 결과가 없어요")
+    
     let userTableView = {
         let view = UITableView()
         view.register(UserListTableViewCell.self, forCellReuseIdentifier: UserListTableViewCell.description())
@@ -30,7 +33,7 @@ class SearchFriendView: BaseView {
     override func addSubViews() {
         super.addSubViews()
         
-        [searchBar, userTableView].forEach {
+        [searchBar, userTableView, noDataView].forEach {
             self.addSubview($0)
         }
     }
@@ -46,5 +49,15 @@ class SearchFriendView: BaseView {
             make.top.equalTo(searchBar.snp.bottom)
             make.horizontalEdges.bottom.equalTo(self.safeAreaLayoutGuide)
         }
+        
+        noDataView.snp.makeConstraints { make in
+            make.center.equalTo(userTableView)
+        }
+    }
+}
+
+extension SearchFriendView {
+    func showNoDataView(show: Bool) {
+        self.noDataView.isHidden = !show
     }
 }

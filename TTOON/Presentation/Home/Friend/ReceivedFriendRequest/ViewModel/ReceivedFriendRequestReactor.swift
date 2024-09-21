@@ -10,21 +10,29 @@ import ReactorKit
 import RxSwift
 
 class ReceivedFriendRequestReactor: Reactor {
-    init() { }
+    private let receivedFriendRequestUseCase: ReceivedFriendRequestUseCase
+    
+    var reloadFriendListCallBack: (() -> Void)? // '요청 수락'을 하게 되면, "친구 목록" 탭 데이터 reload
+    
+    init(_ useCase: ReceivedFriendRequestUseCase) {
+        self.receivedFriendRequestUseCase = useCase
+    }
     
     enum Action {
-        case loadReceivedRequestList
-        case acceptRequest(Int)
-        case rejectRequest(Int)
+        case loadReceivedRequestList    // 맨 처음 로드
+        case loadNextList               // 이후 로드
+        case acceptRequest(Int) // friend id
+        case rejectRequest(Int) // friend id
     }
     
     enum Mutation {
-        case setReceivedRequestList([UserInfo])
-        case sample(Int)
+        case setReceivedRequestList([UserInfoModel], Int)   // 새로운 리스트, 다음 페이지 번호
+        case pass
     }
     
     struct State {
-        var receivedRequestList: [UserInfo] = []
+        var receivedRequestList: [UserInfoModel] = []
+        var page: Int = 0
     }
     
     let initialState = State()
@@ -33,16 +41,92 @@ class ReceivedFriendRequestReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .loadReceivedRequestList:
-            var friendList: [UserInfo] = []
-            for i in 0...100 { friendList.append(UserInfo(id: i)) }
-            return .just(.setReceivedRequestList(friendList))
+            
+            // 네트워크 통신
+            return receivedFriendRequestUseCase.receivedRequestList(0)
+                .asObservable()
+                .map { result in
+                    switch result {
+                    case .success(let newList):
+                        print("received Request List : \(newList)")
+                        return .setReceivedRequestList(newList, 1)
+                        
+                    case .failure(let error):
+                        print("Error : \(error)")
+                        return .pass
+                    }
+                }
+            
+        case .loadNextList:
+            let currentPage = currentState.page
+            
+            return receivedFriendRequestUseCase.receivedRequestList(currentPage)
+                .asObservable()
+                .map { result in
+                    switch result {
+                    case .success(let arr):
+                        let newList = self.currentState.receivedRequestList + arr
+                        return .setReceivedRequestList(newList, currentPage + 1)
+                        
+                    case .failure(let error):
+                        return .pass
+                    }
+                }
+            
+            
              
         case .acceptRequest(let id):
+            // 네트워크 통신
+            return receivedFriendRequestUseCase.acceptFriendRequest(id)
+                .asObservable()
+                .map { result in
+                    switch result {
+                    case .success(let value):
+                        if value {
+                            print("accpet success")
+                            // 배열 업데이트
+                            let newList = self.currentState.receivedRequestList.filter { $0.friendId != id }
                             
-            return .just(.sample(id))
-
+                            // 페이지
+                            let curPage = self.currentState.page
+                            
+                            self.reloadFriendListCallBack?()  // 친구 목록 탭 리스트 업데이트
+                            return .setReceivedRequestList(newList, curPage)
+                        } else {
+                            return .pass
+                        }
+                        
+                    case .failure(let error):
+                        print("Error : :\(error)")
+                        return .pass
+                    }
+                }
+                            
         case .rejectRequest(let id):
-            return .just(.sample(id))
+            // 네트워크 통신
+            return receivedFriendRequestUseCase.rejectFriendRequest(id)
+                .asObservable()
+                .map { result in
+                    switch result {
+                    case .success(let value):
+                        if value {
+                            print("reject success")
+                            // 배열 업데이트
+                            let newList = self.currentState.receivedRequestList.filter { $0.friendId != id }
+                            
+                            // 페이지
+                            let curPage = self.currentState.page
+                            
+                            return .setReceivedRequestList(newList, curPage)
+                        } else {
+                            return .pass
+                        }
+                        
+                    case .failure(let error):
+                        print("Error : :\(error)")
+                        return .pass
+                    }
+                }
         }
     }
     
@@ -50,13 +134,22 @@ class ReceivedFriendRequestReactor: Reactor {
         var newState = state
         
         switch mutation {
-        case .setReceivedRequestList(let requestList):
+        case .setReceivedRequestList(let requestList, let page):
             newState.receivedRequestList = requestList
+            newState.page = page
 
-        case .sample(let id):
-            print("sample : ", id)
+        case .pass:
+            print("pass")
         }
         
         return newState
+    }
+}
+
+
+extension ReceivedFriendRequestReactor {
+    // 친구 수락 or 거절 시 배열에서 id 찾아서 제거 후 리턴
+    private func removeRequestFromArr(_ id: Int, arr: [UserInfoModel]) -> [UserInfoModel] {
+        return arr.filter { $0.friendId != id }
     }
 }

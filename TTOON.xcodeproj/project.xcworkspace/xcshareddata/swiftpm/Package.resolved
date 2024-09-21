@@ -1,5 +1,4 @@
 {
-  "originHash" : "19fa738fe200b076b9a6532230c6e37fdd6a2377652744d1b171e1ebc373b722",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -267,14 +266,14 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/getsentry/sentry-cocoa.git",
       "state" : {
-        "revision" : "08862789e1cbba7a9561bed69832a9306f339cd3",
-        "version" : "8.29.1"
+        "revision" : "e2ac1723a4a9632e291c171b6e25a0c403b0fecb",
+        "version" : "8.35.0"
       }
     },
     {
       "identity" : "skeletonview",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Juanpe/SkeletonView",
+      "location" : "https://github.com/Juanpe/SkeletonView.git",
       "state" : {
         "revision" : "2f5274827d310e32c09325dd3e0007120940988e",
         "version" : "1.31.0"
@@ -335,5 +334,5 @@
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }
