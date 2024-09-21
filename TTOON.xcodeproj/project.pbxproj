@@ -270,6 +270,8 @@
 		BEB270B42C9EF56C00BD150E /* AttendanceReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270B32C9EF56C00BD150E /* AttendanceReactor.swift */; };
 		BEB270B82C9EF78500BD150E /* AttendanceNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270B72C9EF78500BD150E /* AttendanceNavigationBar.swift */; };
 		BEB270BB2C9EF85500BD150E /* TNPointContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270BA2C9EF85500BD150E /* TNPointContainer.swift */; };
+		BEB270BD2C9F06B300BD150E /* AttendanceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270BC2C9F06B300BD150E /* AttendanceButton.swift */; };
+		BEB270BF2C9F06BF00BD150E /* AttendanceButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270BE2C9F06BF00BD150E /* AttendanceButtonStackView.swift */; };
 		BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */; };
 		BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4568B2BD16572007F5EEC /* SplashReactor.swift */; };
 		BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E502BB70A0C0034FF79 /* .gitignore */; };
@@ -592,6 +594,8 @@
 		BEB270B32C9EF56C00BD150E /* AttendanceReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceReactor.swift; sourceTree = "<group>"; };
 		BEB270B72C9EF78500BD150E /* AttendanceNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceNavigationBar.swift; sourceTree = "<group>"; };
 		BEB270BA2C9EF85500BD150E /* TNPointContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNPointContainer.swift; sourceTree = "<group>"; };
+		BEB270BC2C9F06B300BD150E /* AttendanceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceButton.swift; sourceTree = "<group>"; };
+		BEB270BE2C9F06BF00BD150E /* AttendanceButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceButtonStackView.swift; sourceTree = "<group>"; };
 		BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		BEB4568B2BD16572007F5EEC /* SplashReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashReactor.swift; sourceTree = "<group>"; };
 		BEDF4E502BB70A0C0034FF79 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -1886,6 +1890,8 @@
 			isa = PBXGroup;
 			children = (
 				BEB270B72C9EF78500BD150E /* AttendanceNavigationBar.swift */,
+				BEB270BC2C9F06B300BD150E /* AttendanceButton.swift */,
+				BEB270BE2C9F06BF00BD150E /* AttendanceButtonStackView.swift */,
 			);
 			path = Attendance;
 			sourceTree = "<group>";
@@ -2480,6 +2486,7 @@
 				480D39762C85E843009C26DA /* FriendTabViewController.swift in Sources */,
 				BE9C9BEF2C6898C2000AAF0E /* DeleteAccountRepository.swift in Sources */,
 				BE9C9B042C688CAF000AAF0E /* CharacterDeleteBSReactor.swift in Sources */,
+				BEB270BD2C9F06B300BD150E /* AttendanceButton.swift in Sources */,
 				BEA6BFD72C8DE365001F07E7 /* SetNickNameReactor.swift in Sources */,
 				BE9C9BE42C6898C2000AAF0E /* LoginAPI.swift in Sources */,
 				BEE8BCC92C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift in Sources */,
@@ -2491,6 +2498,7 @@
 				BEE8BCCC2C71FFF5003800E0 /* BottomDiaryView.swift in Sources */,
 				48BF84AE2C8D863500E84016 /* FriendDTO.swift in Sources */,
 				BE9C9BED2C6898C2000AAF0E /* SplashRepository.swift in Sources */,
+				BEB270BF2C9F06BF00BD150E /* AttendanceButtonStackView.swift in Sources */,
 				BE9C9B9E2C68986F000AAF0E /* AlarmTableView.swift in Sources */,
 				BE9C9AED2C688CAF000AAF0E /* CharacterDeleteBSView.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,

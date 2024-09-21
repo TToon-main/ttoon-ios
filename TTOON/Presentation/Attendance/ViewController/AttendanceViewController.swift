@@ -34,6 +34,17 @@ class AttendanceViewController: BaseViewController {
     override func loadView() {
         view = attendanceView
     }
+    
+    // MARK: - Configurations
+    
+    override func configures() {
+        super.configures()
+        setNavigationBar()
+    }
+    
+    private func setNavigationBar() {
+        navigationController?.navigationBar.isHidden = true
+    }
 }
 
 extension AttendanceViewController: View {
