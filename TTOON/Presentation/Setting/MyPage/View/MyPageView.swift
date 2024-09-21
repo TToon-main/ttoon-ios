@@ -72,7 +72,7 @@ extension Reactive where Base: MyPageView {
     var userInfo: Binder<UserInfoResponseModel> {
         return Binder(base) { view, model in
             view.profileSummaryView.profileLabel.text = model.nickName
-            view.profileSummaryView.pointLabel.text = model.point
+            view.profileSummaryView.pointContainer.pointLabel.text = model.point
             view.profileSummaryView.profileImageView.load(url: model.profileUrl, defaultImage: TNImage.userIcon)    
         }
     }
