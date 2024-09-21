@@ -261,14 +261,13 @@
 		BEA6BFD92C8DE8E9001F07E7 /* SetNickNameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA6BFD82C8DE8E9001F07E7 /* SetNickNameUseCase.swift */; };
 		BEA6BFDB2C8DEDE2001F07E7 /* SetNickNameRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA6BFDA2C8DEDE2001F07E7 /* SetNickNameRepositoryProtocol.swift */; };
 		BEA6BFDD2C8DEDF3001F07E7 /* SetNickNameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA6BFDC2C8DEDF3001F07E7 /* SetNickNameRepository.swift */; };
-		BEA6BFDE2C9085EC001F07E7 /* TToonLogHomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCDF2C7202E6003800E0 /* TToonLogHomeNavigationView.swift */; };
-		BEA6BFDF2C9086A6001F07E7 /* CalendarSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */; };
-		BEA6BFE02C9086B3001F07E7 /* MyPageSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCE32C7202FE003800E0 /* MyPageSceneCoordinator.swift */; };
-		BEA6BFE12C9086DD001F07E7 /* FeedSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCC42C71FFF5003800E0 /* FeedSceneCoordinator.swift */; };
 		BEA8BB512BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB522BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB532BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEAB66D12C26AA12001B1B63 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB66D02C26AA12001B1B63 /* UICollectionView+.swift */; };
+		BEB270AF2C9EF55A00BD150E /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270AE2C9EF55A00BD150E /* AttendanceView.swift */; };
+		BEB270B22C9EF56500BD150E /* AttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270B12C9EF56500BD150E /* AttendanceViewController.swift */; };
+		BEB270B42C9EF56C00BD150E /* AttendanceReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270B32C9EF56C00BD150E /* AttendanceReactor.swift */; };
 		BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */; };
 		BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4568B2BD16572007F5EEC /* SplashReactor.swift */; };
 		BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E502BB70A0C0034FF79 /* .gitignore */; };
@@ -586,6 +585,9 @@
 		BEAB66DE2C26B652001B1B63 /* CreateToonDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonDiaryView.swift; sourceTree = "<group>"; };
 		BEAB66E02C26B6AC001B1B63 /* CreateToonMidTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonMidTitleLabel.swift; sourceTree = "<group>"; };
 		BEAB66E22C26B713001B1B63 /* CreateToonMidSubTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonMidSubTitleLabel.swift; sourceTree = "<group>"; };
+		BEB270AE2C9EF55A00BD150E /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
+		BEB270B12C9EF56500BD150E /* AttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewController.swift; sourceTree = "<group>"; };
+		BEB270B32C9EF56C00BD150E /* AttendanceReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceReactor.swift; sourceTree = "<group>"; };
 		BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		BEB4568B2BD16572007F5EEC /* SplashReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashReactor.swift; sourceTree = "<group>"; };
 		BEDF4E502BB70A0C0034FF79 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -1841,6 +1843,40 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		BEB270A92C9EF4EF00BD150E /* Attendance */ = {
+			isa = PBXGroup;
+			children = (
+				BEB270AB2C9EF53400BD150E /* ViewModel */,
+				BEB270AC2C9EF53A00BD150E /* ViewController */,
+				BEB270AA2C9EF52400BD150E /* View */,
+			);
+			path = Attendance;
+			sourceTree = "<group>";
+		};
+		BEB270AA2C9EF52400BD150E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BEB270AE2C9EF55A00BD150E /* AttendanceView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BEB270AB2C9EF53400BD150E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BEB270B32C9EF56C00BD150E /* AttendanceReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BEB270AC2C9EF53A00BD150E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BEB270B12C9EF56500BD150E /* AttendanceViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		BEE8BCB32C71FFF5003800E0 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1979,6 +2015,7 @@
 				BEE8BCC72C71FFF5003800E0 /* Home */,
 				BE9C9AEC2C688CAF000AAF0E /* Toon */,
 				BEF48D5E2BCA5CD60056E31E /* CustomView */,
+				BEB270A92C9EF4EF00BD150E /* Attendance */,
 				BEF48D5D2BCA5CD10056E31E /* Auth */,
 			);
 			path = Presentation;
@@ -2296,6 +2333,7 @@
 				BE9C9B492C688D16000AAF0E /* CreateToonDiaryView.swift in Sources */,
 				483C53622C987B860056C1FD /* TextStatusView.swift in Sources */,
 				BE9C9B012C688CAF000AAF0E /* EnterInfoViewController.swift in Sources */,
+				BEB270B22C9EF56500BD150E /* AttendanceViewController.swift in Sources */,
 				BE9C9BF12C6898C2000AAF0E /* AuthInterceptor.swift in Sources */,
 				BE9C9BEE2C6898C2000AAF0E /* ContactUsRepository.swift in Sources */,
 				BE9BBC442BCA552F006FD848 /* UIFont+.swift in Sources */,
@@ -2357,6 +2395,7 @@
 				BEE8BCCA2C71FFF5003800E0 /* TToonCalendarCell.swift in Sources */,
 				BE9C9B9D2C68986F000AAF0E /* DeleteAccountReactor.swift in Sources */,
 				BEA6BFD32C8DE355001F07E7 /* SetNickNameView.swift in Sources */,
+				BEB270AF2C9EF55A00BD150E /* AttendanceView.swift in Sources */,
 				BEE8BCE22C7202E6003800E0 /* TToonLogHomeNavigationView.swift in Sources */,
 				BEA33A242BD6AA320065D60C /* SplashErrorReactor.swift in Sources */,
 				BE9C9BE62C6898C2000AAF0E /* SettingAPI.swift in Sources */,
@@ -2384,7 +2423,6 @@
 				BE9C9AF62C688CAF000AAF0E /* EnterInfoView.swift in Sources */,
 				BE9C9BA42C68986F000AAF0E /* MyPageView.swift in Sources */,
 				BEA6BFD92C8DE8E9001F07E7 /* SetNickNameUseCase.swift in Sources */,
-				BEEEF1B92C7B11D90048CA17 /* ProfileSetViewController.swift in Sources */,
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
 				BE9C9AFD2C688CAF000AAF0E /* CompleteToonViewController.swift in Sources */,
@@ -2488,6 +2526,7 @@
 				483C53642C987CE00056C1FD /* UITextField+.swift in Sources */,
 				BE9C9BC22C68989F000AAF0E /* DeleteAccountRepositoryProtocol.swift in Sources */,
 				BE9C9BEB2C6898C2000AAF0E /* KeychainStorage.swift in Sources */,
+				BEB270B42C9EF56C00BD150E /* AttendanceReactor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
