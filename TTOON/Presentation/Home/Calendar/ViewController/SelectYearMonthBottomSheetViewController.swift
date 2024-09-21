@@ -55,15 +55,13 @@ class SelectYearMonthBottomSheetViewController: BaseViewController, View {
         super.layouts()
         
         bottomSheetView.snp.makeConstraints { make in
-            make.bottom.equalTo(view).inset(36)
-            make.horizontalEdges.equalTo(view).inset(16)
-            make.height.equalTo(312)
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-36)
+            make.horizontalEdges.equalToSuperview().inset(16)
         }
     }
     
     override func configures() {
-        self.view.backgroundColor = .black.withAlphaComponent(0.2)
-        
         bottomSheetView.clipsToBounds = true
         bottomSheetView.layer.cornerRadius = 25
     }

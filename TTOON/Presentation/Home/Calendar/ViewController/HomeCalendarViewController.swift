@@ -78,9 +78,7 @@ extension HomeCalendarViewController {
         // 연월 변경 버튼 클릭 - 따로 reactor에 bind 없이 바텀 시트 띄우는 로직
         mainView.calendarView.selectYearMonthView.clearButton.rx.tap
             .subscribe(with: self) { owner, _ in
-                let vc = SelectYearMonthBottomSheetViewController(self.reactor!)
-                vc.modalPresentationStyle = .overFullScreen
-                self.present(vc, animated: true)
+                owner.presentSelectYearMonthBottomSheetVC()
             }
             .disposed(by: disposeBag)
     }
@@ -180,5 +178,22 @@ extension HomeCalendarViewController: UICollectionViewDelegate, UICollectionView
         if mainView.bottomDiaryView.diaryImageSwipePageControl.currentPage != Int(idx) {
             mainView.bottomDiaryView.diaryImageSwipePageControl.currentPage = Int(idx)
         }
+    }
+}
+
+// MARK: - private func
+extension HomeCalendarViewController {
+    private func presentSelectYearMonthBottomSheetVC() {
+        let vc = SelectYearMonthBottomSheetViewController(self.reactor!)
+
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.custom { _ in return 343 } ]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        
+        present(vc, animated: true)
     }
 }
