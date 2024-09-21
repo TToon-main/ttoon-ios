@@ -65,6 +65,7 @@ class HomeCalendarView: BaseView {
         super.configures()
         
         self.backgroundColor = .grey01
+        scrollView.bounces = false
     }
 }
 
