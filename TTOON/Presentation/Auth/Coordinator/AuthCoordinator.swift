@@ -90,7 +90,7 @@ class AuthCoordinator: AuthCoordinatorProtocol {
                     
                 case .goLoginView:
                     self?.navigationController.topViewController?.dismiss(animated: true) {
-                        self?.showLoginView() 
+                        self?.showLoginView()
                     }
                     
                 case .goHomeView:
@@ -127,12 +127,37 @@ class AuthCoordinator: AuthCoordinatorProtocol {
                 // 1. 현재 떠있는 Auth 코디 종료
                 // 2. App코디에게 TabBar 코디 실행하라고 요청
                 self?.finish(AppCoordinator.ChildCoordinatorType.tabBar)
+                
+                
+            case .goSetNickName:
+                self?.showSetNickNameView(root: vc)
             }
         }
         
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         navigationController.topViewController?.present(vc, animated: true)
+    }
+    
+    func showSetNickNameView(root: UIViewController) {
+        let repo = SetNickNameRepository()
+        let useCase = SetNickNameUseCase(setNickNameRepository: repo)
+        let reactor = SetNickNameReactor(setNickNameUseCase: useCase)
+        let vc = SetNickNameViewController(setNickNameReactor: reactor)
+    
+        vc.didSendEventClosure = { [weak self] event in
+            DispatchQueue.main.async {
+                switch event {
+                case .goTabBarFlow:
+                    self?.finish(AppCoordinator.ChildCoordinatorType.tabBar)
+                }
+            }
+        }
+        
+        
+        vc.modalPresentationStyle = .overCurrentContext
+        
+        root.present(vc, animated: true)
     }
     
     func showTabbarView() {

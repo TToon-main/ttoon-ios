@@ -12,7 +12,7 @@ import UIKit
 class LoginViewModel {
     private let loginUseCase: LoginUseCaseProtocol
     private let disposeBag = DisposeBag()
-//    private let showTabbar = PublishSubject<Void>()
+    private let showSetNickNameVC = PublishSubject<Void>()
     var didSendEventClosure: ( (LoginViewModel.Event) -> Void)?
     
     init(loginUseCase: LoginUseCaseProtocol) {
@@ -28,7 +28,6 @@ class LoginViewModel {
     }
     
     struct Output {
-//        let showTabbar: Observable<Void> 
     }
     
     
@@ -42,8 +41,9 @@ class LoginViewModel {
                 switch response {
                 case .success(let data):
                     print("애플 로그인 성공 : ", data)
-                    owner.didSendEventClosure?(.goTabBarFlow)
-//                    self.showTabbar.onNext(())
+                    
+                    let isRegister = data.isGuest
+                    owner.isNicknameRegistered(isRegister)
                     
                 case .failure(let error):
                     print("애플 로그인 실패 : ", error)
@@ -61,8 +61,9 @@ class LoginViewModel {
                 switch response {
                 case .success(let data):
                     print("카카오 로그인 성공 : ", data)
-                    owner.didSendEventClosure?(.goTabBarFlow)
-//                    self.showTabbar.onNext(())
+                    
+                    let isRegister = data.isGuest
+                    owner.isNicknameRegistered(isRegister)
                     
                 case .failure(let error):
                     print("카카오 로그인 실패 : ", error)
@@ -80,8 +81,10 @@ class LoginViewModel {
                 switch response {
                 case .success(let data):
                     print("구글 로그인 성공 : ", data)
-                    owner.didSendEventClosure?(.goTabBarFlow)
-//                    self.showTabbar.onNext(())
+                    
+                    let isRegister = data.isGuest
+                    owner.isNicknameRegistered(isRegister)
+                    
                     
                 case .failure(let error):
                     print("구글 로그인 실패 : ", error.localizedDescription)
@@ -98,5 +101,17 @@ class LoginViewModel {
 extension LoginViewModel {
     enum Event {
         case goTabBarFlow
+        case goSetNickName
+    }
+}
+
+// 회원 가입 시 닉네임 설정 이전 여부 체크 로직
+extension LoginViewModel {
+    func isNicknameRegistered(_ isRegister: Bool) {
+        if isRegister {
+            self.didSendEventClosure?(.goSetNickName)
+        } else {
+            self.didSendEventClosure?(.goTabBarFlow)
+        }
     }
 }
