@@ -166,32 +166,19 @@ extension HomeCalendarViewController: UICollectionViewDelegate, UICollectionView
         return cell
     }
     
-//    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-//        let point = self.targetContentOffset(scrollView, withVelocity: velocity)
-//        targetContentOffset.pointee = point
-//        
-//        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: velocity.x, options: .allowUserInteraction, animations: {
-//            self.mainView.bottomDiaryView.diaryImageSwipeCollectionView.setContentOffset(point, animated: true)
-//        }, completion: nil)
-//    }
-//    
-//    func targetContentOffset(_ scrollView: UIScrollView, withVelocity velocity: CGPoint) -> CGPoint {
-//        let collectionView = self.mainView.bottomDiaryView.diaryImageSwipeCollectionView
-//        
-//        guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return .zero }
-//        
-//        if self.previousOffset > collectionView.contentOffset.x && velocity.x < 0 {
-//            currentPage -= 1
-//        } else if previousOffset < collectionView.contentOffset.x && velocity.x > 0 {
-//            currentPage += 1
-//        }
-//        
-//        let additional = (flowLayout.itemSize.width + flowLayout.minimumLineSpacing) - flowLayout.headerReferenceSize.width
-//        
-//        let updatedOffset = (flowLayout.itemSize.width + flowLayout.minimumLineSpacing) * CGFloat(currentPage) - additional
-//        
-//        previousOffset = updatedOffset
-//        
-//        return CGPoint(x: updatedOffset, y: 0)
-//    }
+    func scrollViewWillEndDragging(
+        _ scrollView: UIScrollView,
+        withVelocity velocity: CGPoint,
+        targetContentOffset: UnsafeMutablePointer<CGPoint>
+    ) {
+        let scrolledOffsetX = targetContentOffset.pointee.x + scrollView.contentInset.left
+        let cellWidth = BottomDiaryView.Size.itemSize.width + BottomDiaryView.Size.itemSpacing
+        let idx = round(scrolledOffsetX / cellWidth)
+        targetContentOffset.pointee = CGPoint(x: idx * cellWidth - scrollView.contentInset.left, y: scrollView.contentInset.top)
+        
+        // pageControl의 page 변경
+        if mainView.bottomDiaryView.diaryImageSwipePageControl.currentPage != Int(idx) {
+            mainView.bottomDiaryView.diaryImageSwipePageControl.currentPage = Int(idx)
+        }
+    }
 }

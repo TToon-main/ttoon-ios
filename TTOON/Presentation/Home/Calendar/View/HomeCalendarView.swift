@@ -56,7 +56,7 @@ class HomeCalendarView: BaseView {
         bottomDiaryView.snp.makeConstraints { make in
             make.top.equalTo(calendarView.snp.bottom)
             make.horizontalEdges.equalTo(contentView)
-            make.bottom.equalTo(contentView).inset(80)
+            make.bottom.equalTo(contentView)
         }
     }
     
