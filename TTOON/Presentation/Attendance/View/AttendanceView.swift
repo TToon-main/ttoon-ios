@@ -34,8 +34,18 @@ class AttendanceView: BaseView {
         return view
     }()
     
+    let checkAttendanceButton = {
+        let view = TNButton()
+        view.setTitle("출석체크하기", for: .normal)
+        
+        return view
+    }()
+    
     override func addSubViews() {
-        [navigationBar, titleLabel, subTitleLabel].forEach { view in
+        [navigationBar, 
+         titleLabel,
+         subTitleLabel,
+         checkAttendanceButton].forEach { view in
             self.addSubview(view)
         }
     }
@@ -56,6 +66,12 @@ class AttendanceView: BaseView {
         subTitleLabel.snp.makeConstraints { 
             $0.top.equalTo(titleLabel.snp.bottom).offset(12)
             $0.leading.equalToSuperview().offset(16)
+        }
+        
+        checkAttendanceButton.snp.makeConstraints { 
+            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.height.equalTo(56)
+            $0.bottom.equalTo(safeGuide).offset(-12)
         }
     }
 }
