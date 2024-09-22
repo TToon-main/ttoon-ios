@@ -9,7 +9,7 @@ import UIKit
 
 class AttendanceNavigationBar: BaseView {
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: width, height: 50)
+        return CGSize(width: width, height: 58)
     }
     
     let logoImageView = {
@@ -27,7 +27,7 @@ class AttendanceNavigationBar: BaseView {
     
     override func configures() {
         super.configures()
-        self.backgroundColor = .clear
+        self.backgroundColor = .white
     }
     
     override func addSubViews() {

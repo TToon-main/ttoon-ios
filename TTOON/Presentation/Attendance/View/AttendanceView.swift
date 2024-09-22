@@ -8,11 +8,7 @@
 import UIKit
 
 class AttendanceView: BaseView {
-    let navigationBar = {
-        let view = AttendanceNavigationBar()
-        
-        return view
-    }()
+    let navigationBar = AttendanceNavigationBar()
     
     let titleLabel = {
         let view = UILabel()
@@ -41,49 +37,41 @@ class AttendanceView: BaseView {
         return view
     }()
     
-    let firstAttendanceButtonStackView = {
-        let view = AttendanceButtonStackView()
-        view.setStackType(.firstLine)
-        
-        return view
-    }()
+    let firstAttendanceButtonStackView = AttendanceButtonStackView(type: .firstLine)
     
-    let secondAttendanceButtonStackView = {
-        let view = AttendanceButtonStackView()
-        view.setStackType(.secondLine)
-        
-        return view
-    }()
+    let secondAttendanceButtonStackView = AttendanceButtonStackView(type: .secondLine)
     
-    let thirdAttendanceButtonStackView = {
-        let view = AttendanceButtonStackView()
-        view.setStackType(.thirdLine)
+    let thirdAttendanceButtonStackView = AttendanceButtonStackView(type: .thirdLine)
+    
+    let scrollView = {
+        let view = UIScrollView()
+        view.showsVerticalScrollIndicator = false 
         
-        return view
+        return view 
     }()
     
     override func addSubViews() {
-        [navigationBar, 
-         titleLabel,
+        [titleLabel,
          subTitleLabel,
          checkAttendanceButton,
          firstAttendanceButtonStackView,
          secondAttendanceButtonStackView,
          thirdAttendanceButtonStackView].forEach { view in
-            self.addSubview(view)
+            self.scrollView.addSubview(view)
         }
+    
+        self.addSubview(scrollView)
+        self.addSubview(navigationBar)
     }
     
     override func layouts() {
-        addSubview(navigationBar)
-        
         navigationBar.snp.makeConstraints { 
-            $0.top.equalTo(safeGuide)
+            $0.top.equalToSuperview()
             $0.centerX.equalToSuperview()
         }
         
         titleLabel.snp.makeConstraints { 
-            $0.top.equalTo(navigationBar.snp.bottom).offset(8)
+            $0.top.equalToSuperview().offset(58)
             $0.leading.equalToSuperview().offset(16)
         }
         
@@ -95,22 +83,30 @@ class AttendanceView: BaseView {
         firstAttendanceButtonStackView.snp.makeConstraints { 
             $0.top.equalTo(subTitleLabel.snp.bottom).offset(20)
             $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.height.equalTo(128)
         }
         
         secondAttendanceButtonStackView.snp.makeConstraints { 
-            $0.top.equalTo(firstAttendanceButtonStackView.snp.bottom).offset(20)
+            $0.top.equalTo(firstAttendanceButtonStackView.snp.bottom)
             $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.height.equalTo(128)
         }
         
-        thirdAttendanceButtonStackView.snp.makeConstraints { 
-            $0.top.equalTo(secondAttendanceButtonStackView.snp.bottom).offset(20)
+        thirdAttendanceButtonStackView.snp.makeConstraints {
+            $0.top.equalTo(secondAttendanceButtonStackView.snp.bottom)
             $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.height.equalTo(128)
         }
         
-        checkAttendanceButton.snp.makeConstraints { 
+        checkAttendanceButton.snp.makeConstraints {
+            $0.top.greaterThanOrEqualTo(thirdAttendanceButtonStackView.snp.bottom).offset(44)
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.height.equalTo(56)
-            $0.bottom.equalTo(safeGuide).offset(-12)
+            $0.bottom.equalToSuperview().offset(-12)
+        }
+
+        scrollView.snp.makeConstraints { 
+            $0.edges.equalToSuperview()
         }
     }
 }

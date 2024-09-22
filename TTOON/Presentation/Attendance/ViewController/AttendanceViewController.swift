@@ -38,7 +38,6 @@ class AttendanceViewController: BaseViewController {
     // MARK: - Configurations
     
     override func configures() {
-        super.configures()
         setNavigationBar()
     }
     
