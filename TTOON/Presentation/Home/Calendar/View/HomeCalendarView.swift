@@ -56,7 +56,7 @@ class HomeCalendarView: BaseView {
         bottomDiaryView.snp.makeConstraints { make in
             make.top.equalTo(calendarView.snp.bottom)
             make.horizontalEdges.equalTo(contentView)
-            make.bottom.equalTo(contentView).inset(80)
+            make.bottom.equalTo(contentView)
         }
     }
     
@@ -65,6 +65,7 @@ class HomeCalendarView: BaseView {
         super.configures()
         
         self.backgroundColor = .grey01
+        scrollView.bounces = false
     }
 }
 

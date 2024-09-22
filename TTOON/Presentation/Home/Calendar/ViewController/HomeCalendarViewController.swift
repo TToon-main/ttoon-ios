@@ -78,9 +78,7 @@ extension HomeCalendarViewController {
         // 연월 변경 버튼 클릭 - 따로 reactor에 bind 없이 바텀 시트 띄우는 로직
         mainView.calendarView.selectYearMonthView.clearButton.rx.tap
             .subscribe(with: self) { owner, _ in
-                let vc = SelectYearMonthBottomSheetViewController(self.reactor!)
-                vc.modalPresentationStyle = .overFullScreen
-                self.present(vc, animated: true)
+                owner.presentSelectYearMonthBottomSheetVC()
             }
             .disposed(by: disposeBag)
     }
@@ -166,32 +164,36 @@ extension HomeCalendarViewController: UICollectionViewDelegate, UICollectionView
         return cell
     }
     
-//    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-//        let point = self.targetContentOffset(scrollView, withVelocity: velocity)
-//        targetContentOffset.pointee = point
-//        
-//        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: velocity.x, options: .allowUserInteraction, animations: {
-//            self.mainView.bottomDiaryView.diaryImageSwipeCollectionView.setContentOffset(point, animated: true)
-//        }, completion: nil)
-//    }
-//    
-//    func targetContentOffset(_ scrollView: UIScrollView, withVelocity velocity: CGPoint) -> CGPoint {
-//        let collectionView = self.mainView.bottomDiaryView.diaryImageSwipeCollectionView
-//        
-//        guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return .zero }
-//        
-//        if self.previousOffset > collectionView.contentOffset.x && velocity.x < 0 {
-//            currentPage -= 1
-//        } else if previousOffset < collectionView.contentOffset.x && velocity.x > 0 {
-//            currentPage += 1
-//        }
-//        
-//        let additional = (flowLayout.itemSize.width + flowLayout.minimumLineSpacing) - flowLayout.headerReferenceSize.width
-//        
-//        let updatedOffset = (flowLayout.itemSize.width + flowLayout.minimumLineSpacing) * CGFloat(currentPage) - additional
-//        
-//        previousOffset = updatedOffset
-//        
-//        return CGPoint(x: updatedOffset, y: 0)
-//    }
+    func scrollViewWillEndDragging(
+        _ scrollView: UIScrollView,
+        withVelocity velocity: CGPoint,
+        targetContentOffset: UnsafeMutablePointer<CGPoint>
+    ) {
+        let scrolledOffsetX = targetContentOffset.pointee.x + scrollView.contentInset.left
+        let cellWidth = BottomDiaryView.Size.itemSize.width + BottomDiaryView.Size.itemSpacing
+        let idx = round(scrolledOffsetX / cellWidth)
+        targetContentOffset.pointee = CGPoint(x: idx * cellWidth - scrollView.contentInset.left, y: scrollView.contentInset.top)
+        
+        // pageControl의 page 변경
+        if mainView.bottomDiaryView.diaryImageSwipePageControl.currentPage != Int(idx) {
+            mainView.bottomDiaryView.diaryImageSwipePageControl.currentPage = Int(idx)
+        }
+    }
+}
+
+// MARK: - private func
+extension HomeCalendarViewController {
+    private func presentSelectYearMonthBottomSheetVC() {
+        let vc = SelectYearMonthBottomSheetViewController(self.reactor!)
+
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.custom { _ in return 343 } ]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        
+        present(vc, animated: true)
+    }
 }

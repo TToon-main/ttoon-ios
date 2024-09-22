@@ -9,14 +9,7 @@ import UIKit
 
 class SelectYearMonthBottomSheetView: BaseView {
     // MARK: - UI Component
-    // 1. Indicator Bar
-    let indicatorView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.init(hexString: "#E8E8E8")
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 8
-        return view
-    }()
+    // (x) 1. Indicator Bar
     
     // 2. title label
     let titleLabel = {
@@ -64,7 +57,7 @@ class SelectYearMonthBottomSheetView: BaseView {
     override func addSubViews() {
         super.addSubViews()
         
-        [indicatorView, titleLabel, pickerView, buttonStackView].forEach{
+        [titleLabel, pickerView, buttonStackView].forEach{
             self.addSubview($0)
         }
     }
@@ -72,22 +65,15 @@ class SelectYearMonthBottomSheetView: BaseView {
     override func configures() {
         super.configures()
         
-        indicatorView.snp.makeConstraints { make in
-            make.height.equalTo(4)
-            make.width.equalTo(49)
-            make.centerX.equalTo(self)
-            make.top.equalTo(self).inset(12)
-        }
-        
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(indicatorView.snp.bottom).offset(28)
+            make.top.equalToSuperview().inset(44)
             make.leading.equalTo(self).inset(16)
         }
         
         pickerView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(30)
             make.leading.trailing.equalTo(self).inset(20)
-            make.height.equalTo(102)
+            make.height.equalTo(120)
         }
         
         buttonStackView.snp.makeConstraints { make in

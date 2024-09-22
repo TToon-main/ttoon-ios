@@ -25,7 +25,7 @@ class SelectYearMonthView: BaseView {
     let chevronImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
-        view.image = UIImage(systemName: "chevron.down")
+        view.image = UIImage(named: "arrow_down")
         view.tintColor = .black
         return view
     }()
@@ -56,8 +56,7 @@ class SelectYearMonthView: BaseView {
         }
         
         chevronImageView.snp.makeConstraints { make in
-            make.leading.equalTo(yearMonthLabel.snp.trailing).offset(7)
-            make.height.equalTo(8.73)
+            make.leading.equalTo(yearMonthLabel.snp.trailing)
             make.centerY.equalTo(self)
         }
         

@@ -44,19 +44,18 @@ class BottomDiaryView: BaseView {
     }()
     lazy var diaryImageSwipeCollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: self.createDiaryImageSwipeCollectionViewLayout())
-//        view.backgroundColor = .red
-        
         view.register(BottomDiaryImageSwipeCollectionViewCell.self, forCellWithReuseIdentifier: BottomDiaryImageSwipeCollectionViewCell.description())
         
+        view.isScrollEnabled = true
         view.showsHorizontalScrollIndicator = false
-//        view.isPagingEnabled = true
-        
-//        view.bounces = false // ?
-//        view.alwaysBounceHorizontal = false // ?
-        
+        view.showsVerticalScrollIndicator = true
+        view.backgroundColor = .clear
+        view.clipsToBounds = true
+        view.isPagingEnabled = false    // scollViewWillEndDragging 이용해서 구현 예정
+        view.contentInsetAdjustmentBehavior = .never
+        view.contentInset = Size.collectionViewContentInset
         view.decelerationRate = .fast
-        view.isPagingEnabled = true
-        
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     lazy var diaryImageSwipePageControl = {
@@ -113,7 +112,7 @@ class BottomDiaryView: BaseView {
         diaryImageSwipePageControl.snp.makeConstraints { make in
             make.top.equalTo(diaryImageSwipeCollectionView.snp.bottom).offset(12)
             make.centerX.equalTo(self)
-            make.bottom.equalTo(self).inset(40)
+            make.bottom.equalTo(self).inset(80)
         }
     }
     
@@ -128,18 +127,24 @@ class BottomDiaryView: BaseView {
 
 // Swipe CollectionView Layout
 extension BottomDiaryView {
+    // Carousel 적용
+    enum Size {
+        // item size : 양 옆 16 패딩 + 정사각형
+        static let deviceWidth = UIScreen.main.bounds.width
+        static let itemSize = CGSize(width: deviceWidth - 32, height: deviceWidth - 32)  // 아이템 크기 (정사각형)
+        static let itemSpacing = 8.0 // 아이템과 아이템 사이 간격
+        static let insetX = (deviceWidth - itemSize.width) / 2.0 // 아이템이 센터에 있을 때, 디바이스 기준 inset
+        static var collectionViewContentInset: UIEdgeInsets {
+          UIEdgeInsets(top: 0, left: Self.insetX, bottom: 0, right: Self.insetX)
+        }
+    }
+    
     private func createDiaryImageSwipeCollectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        
-        // item size : 양 옆 16 패딩 + 정사각형
-        let deviceWidth = UIScreen.main.bounds.width
-        let itemSize = deviceWidth - 2 * 16
-        
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: itemSize, height: itemSize)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        layout.minimumLineSpacing = 8
-        layout.minimumInteritemSpacing = 8
+        layout.itemSize = Size.itemSize
+        layout.minimumLineSpacing = Size.itemSpacing
+        layout.minimumInteritemSpacing = 0
         
         return layout
     }
