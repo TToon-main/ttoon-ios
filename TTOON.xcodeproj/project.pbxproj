@@ -290,6 +290,10 @@
 		BEB270C12CA03AD200BD150E /* AttendanceScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270C02CA03AD200BD150E /* AttendanceScrollView.swift */; };
 		BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */; };
 		BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4568B2BD16572007F5EEC /* SplashReactor.swift */; };
+		BEC4C2732CA053CD00D1BA12 /* AttendanceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4C2722CA053CD00D1BA12 /* AttendanceAPI.swift */; };
+		BEC4C2762CA053D800D1BA12 /* AttendanceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4C2752CA053D800D1BA12 /* AttendanceDTO.swift */; };
+		BEC4C2792CA053ED00D1BA12 /* AttendanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4C2782CA053ED00D1BA12 /* AttendanceRepository.swift */; };
+		BEC4C27C2CA0541200D1BA12 /* AttendanceRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4C27B2CA0541200D1BA12 /* AttendanceRepositoryProtocol.swift */; };
 		BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E502BB70A0C0034FF79 /* .gitignore */; };
 		BEE8BCC82C71FFF5003800E0 /* CalendarSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */; };
 		BEE8BCC92C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB42C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift */; };
@@ -630,6 +634,10 @@
 		BEB270C02CA03AD200BD150E /* AttendanceScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceScrollView.swift; sourceTree = "<group>"; };
 		BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		BEB4568B2BD16572007F5EEC /* SplashReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashReactor.swift; sourceTree = "<group>"; };
+		BEC4C2722CA053CD00D1BA12 /* AttendanceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceAPI.swift; sourceTree = "<group>"; };
+		BEC4C2752CA053D800D1BA12 /* AttendanceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceDTO.swift; sourceTree = "<group>"; };
+		BEC4C2782CA053ED00D1BA12 /* AttendanceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceRepository.swift; sourceTree = "<group>"; };
+		BEC4C27B2CA0541200D1BA12 /* AttendanceRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BEDF4E502BB70A0C0034FF79 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarSceneCoordinator.swift; sourceTree = "<group>"; };
 		BEE8BCB42C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomDiaryImageSwipeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1750,6 +1758,7 @@
 		BE9C9BB32C68989F000AAF0E /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				BEC4C27A2CA053FB00D1BA12 /* Attendance */,
 				BE9C9BAF2C68989F000AAF0E /* Auth */,
 				BE9C9BB22C68989F000AAF0E /* Setting */,
 			);
@@ -1825,6 +1834,7 @@
 		BE9C9BCD2C6898C2000AAF0E /* API */ = {
 			isa = PBXGroup;
 			children = (
+				BEC4C2712CA053BC00D1BA12 /* Attendance */,
 				4839AA132C7B14F300FF3250 /* Home */,
 				BE9C9BC92C6898C2000AAF0E /* Auth */,
 				BE9C9BCB2C6898C2000AAF0E /* Setting */,
@@ -1859,6 +1869,7 @@
 		BE9C9BD42C6898C2000AAF0E /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				BEC4C2742CA053D100D1BA12 /* Attendance */,
 				48C0C3742CA1A23E00A2B6B9 /* CalendarFeed */,
 				48BF84AC2C8D85FC00E84016 /* Friend */,
 				BE9C9BCF2C6898C2000AAF0E /* Auth */,
@@ -1899,6 +1910,7 @@
 		BE9C9BDD2C6898C2000AAF0E /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				BEC4C2772CA053E200D1BA12 /* Attendance */,
 				48C0C37A2CA1A59000A2B6B9 /* Home */,
 				48BF84AF2C8D896100E84016 /* Friend */,
 				BE9C9BD92C6898C2000AAF0E /* Auth */,
@@ -2025,6 +2037,38 @@
 				BEB270BA2C9EF85500BD150E /* TNPointContainer.swift */,
 			);
 			path = PointContainer;
+			sourceTree = "<group>";
+		};
+		BEC4C2712CA053BC00D1BA12 /* Attendance */ = {
+			isa = PBXGroup;
+			children = (
+				BEC4C2722CA053CD00D1BA12 /* AttendanceAPI.swift */,
+			);
+			path = Attendance;
+			sourceTree = "<group>";
+		};
+		BEC4C2742CA053D100D1BA12 /* Attendance */ = {
+			isa = PBXGroup;
+			children = (
+				BEC4C2752CA053D800D1BA12 /* AttendanceDTO.swift */,
+			);
+			path = Attendance;
+			sourceTree = "<group>";
+		};
+		BEC4C2772CA053E200D1BA12 /* Attendance */ = {
+			isa = PBXGroup;
+			children = (
+				BEC4C2782CA053ED00D1BA12 /* AttendanceRepository.swift */,
+			);
+			path = Attendance;
+			sourceTree = "<group>";
+		};
+		BEC4C27A2CA053FB00D1BA12 /* Attendance */ = {
+			isa = PBXGroup;
+			children = (
+				BEC4C27B2CA0541200D1BA12 /* AttendanceRepositoryProtocol.swift */,
+			);
+			path = Attendance;
 			sourceTree = "<group>";
 		};
 		BEE8BCB32C71FFF5003800E0 /* Coordinator */ = {
@@ -2486,6 +2530,7 @@
 				BEE8BCCE2C71FFF5003800E0 /* SelectYearMonthBottomSheetView.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
 				480D39782C85FB97009C26DA /* ReceivedFriendRequestView.swift in Sources */,
+				BEC4C2792CA053ED00D1BA12 /* AttendanceRepository.swift in Sources */,
 				48A17D512CB2598600A7074D /* UserDefaultsManager.swift in Sources */,
 				48A17D462CB24F0000A7074D /* HomeFeedView.swift in Sources */,
 				BE9C9B472C688D16000AAF0E /* CreateToonCompleteToonResultImageView.swift in Sources */,
@@ -2546,6 +2591,7 @@
 				BE9C9AF52C688CAF000AAF0E /* EnterInfoScrollView.swift in Sources */,
 				BE9C9BBE2C68989F000AAF0E /* SettingModel.swift in Sources */,
 				489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */,
+				BEC4C2762CA053D800D1BA12 /* AttendanceDTO.swift in Sources */,
 				48563B7C2CABA883008E308D /* TestMakeTToonManager.swift in Sources */,
 				BE3418EB2BF0B18200E17CC5 /* TNSheetViewController.swift in Sources */,
 				BEA6BFDD2C8DEDF3001F07E7 /* SetNickNameRepository.swift in Sources */,
@@ -2591,6 +2637,8 @@
 				BE9C9BA42C68986F000AAF0E /* MyPageView.swift in Sources */,
 				BEA6BFD92C8DE8E9001F07E7 /* SetNickNameUseCase.swift in Sources */,
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
+				BEC4C2732CA053CD00D1BA12 /* AttendanceAPI.swift in Sources */,
+				BEC4C27C2CA0541200D1BA12 /* AttendanceRepositoryProtocol.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
 				BE9C9AFD2C688CAF000AAF0E /* CompleteToonViewController.swift in Sources */,
 				489ADEF12BF8E8CE00B070B7 /* SettingSubtitleLabel.swift in Sources */,
