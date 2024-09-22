@@ -272,6 +272,7 @@
 		BEB270BB2C9EF85500BD150E /* TNPointContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270BA2C9EF85500BD150E /* TNPointContainer.swift */; };
 		BEB270BD2C9F06B300BD150E /* AttendanceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270BC2C9F06B300BD150E /* AttendanceButton.swift */; };
 		BEB270BF2C9F06BF00BD150E /* AttendanceButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270BE2C9F06BF00BD150E /* AttendanceButtonStackView.swift */; };
+		BEB270C12CA03AD200BD150E /* AttendanceScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270C02CA03AD200BD150E /* AttendanceScrollView.swift */; };
 		BEB4568A2BD15ED0007F5EEC /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */; };
 		BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4568B2BD16572007F5EEC /* SplashReactor.swift */; };
 		BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E502BB70A0C0034FF79 /* .gitignore */; };
@@ -596,6 +597,7 @@
 		BEB270BA2C9EF85500BD150E /* TNPointContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNPointContainer.swift; sourceTree = "<group>"; };
 		BEB270BC2C9F06B300BD150E /* AttendanceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceButton.swift; sourceTree = "<group>"; };
 		BEB270BE2C9F06BF00BD150E /* AttendanceButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceButtonStackView.swift; sourceTree = "<group>"; };
+		BEB270C02CA03AD200BD150E /* AttendanceScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceScrollView.swift; sourceTree = "<group>"; };
 		BEB456892BD15ED0007F5EEC /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		BEB4568B2BD16572007F5EEC /* SplashReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashReactor.swift; sourceTree = "<group>"; };
 		BEDF4E502BB70A0C0034FF79 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -1866,6 +1868,7 @@
 			isa = PBXGroup;
 			children = (
 				BEB270AE2C9EF55A00BD150E /* AttendanceView.swift */,
+				BEB270C02CA03AD200BD150E /* AttendanceScrollView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2372,6 +2375,7 @@
 				48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */,
 				BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */,
 				BE9C9AF92C688CAF000AAF0E /* CharacterDeleteBSViewController.swift in Sources */,
+				BEB270C12CA03AD200BD150E /* AttendanceScrollView.swift in Sources */,
 				489FE2CE2BC010EB0033B61D /* Coordinator.swift in Sources */,
 				BEE8BCCD2C71FFF5003800E0 /* CalendarView.swift in Sources */,
 				489FE2C12BC00F700033B61D /* BaseView.swift in Sources */,

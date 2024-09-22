@@ -23,7 +23,7 @@ extension UIViewController {
 
 // 홈화면에 있는 TToonLog 커스텀 네비게이션 바 세팅
 extension UIViewController {
-    func setTToonLogHomeNavigation(_ view: TToonLogHomeNavigationView) {
+    func setCustomNavigationBar(_ view: BaseView) {
         guard let navigationBar = navigationController?.navigationBar else { return }
         let navHeight = navigationBar.frame.size.height
         let navWidth = navigationBar.frame.size.width

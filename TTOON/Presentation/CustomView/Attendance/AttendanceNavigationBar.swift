@@ -7,11 +7,7 @@
 
 import UIKit
 
-class AttendanceNavigationBar: BaseView {
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: width, height: 58)
-    }
-    
+class AttendanceNavigationBar: BaseView {    
     let logoImageView = {
         let view = UIImageView()
         view.image = TNImage.homeNavigationLogo
@@ -27,7 +23,7 @@ class AttendanceNavigationBar: BaseView {
     
     override func configures() {
         super.configures()
-        self.backgroundColor = .white
+        self.backgroundColor = .clear
     }
     
     override func addSubViews() {
@@ -40,14 +36,14 @@ class AttendanceNavigationBar: BaseView {
     
     override func layouts() {
         logoImageView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-18)
             make.width.equalTo(120)
         }
         
         pointContainer.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().offset(-18)
-            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.centerY.equalTo(logoImageView)
         }
     }
 }

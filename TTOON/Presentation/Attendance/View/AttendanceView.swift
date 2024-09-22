@@ -8,8 +8,6 @@
 import UIKit
 
 class AttendanceView: BaseView {
-    let navigationBar = AttendanceNavigationBar()
-    
     let titleLabel = {
         let view = UILabel()
         view.textColor = .black
@@ -43,13 +41,6 @@ class AttendanceView: BaseView {
     
     let thirdAttendanceButtonStackView = AttendanceButtonStackView(type: .thirdLine)
     
-    let scrollView = {
-        let view = UIScrollView()
-        view.showsVerticalScrollIndicator = false 
-        
-        return view 
-    }()
-    
     override func addSubViews() {
         [titleLabel,
          subTitleLabel,
@@ -57,21 +48,13 @@ class AttendanceView: BaseView {
          firstAttendanceButtonStackView,
          secondAttendanceButtonStackView,
          thirdAttendanceButtonStackView].forEach { view in
-            self.scrollView.addSubview(view)
+            self.addSubview(view)
         }
-    
-        self.addSubview(scrollView)
-        self.addSubview(navigationBar)
     }
     
     override func layouts() {
-        navigationBar.snp.makeConstraints { 
-            $0.top.equalToSuperview()
-            $0.centerX.equalToSuperview()
-        }
-        
         titleLabel.snp.makeConstraints { 
-            $0.top.equalToSuperview().offset(58)
+            $0.top.equalToSuperview().offset(8)
             $0.leading.equalToSuperview().offset(16)
         }
         
@@ -96,17 +79,13 @@ class AttendanceView: BaseView {
             $0.top.equalTo(secondAttendanceButtonStackView.snp.bottom)
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.height.equalTo(128)
+            $0.bottom.lessThanOrEqualTo(checkAttendanceButton.snp.top).offset(-44)
         }
         
         checkAttendanceButton.snp.makeConstraints {
-            $0.top.greaterThanOrEqualTo(thirdAttendanceButtonStackView.snp.bottom).offset(44)
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.height.equalTo(56)
             $0.bottom.equalToSuperview().offset(-12)
-        }
-
-        scrollView.snp.makeConstraints { 
-            $0.edges.equalToSuperview()
         }
     }
 }

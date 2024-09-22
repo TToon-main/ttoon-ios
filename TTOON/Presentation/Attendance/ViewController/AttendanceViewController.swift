@@ -15,7 +15,8 @@ class AttendanceViewController: BaseViewController {
 
     // MARK: - UI Properties
     
-    private let attendanceView = AttendanceView()
+    private let navigationBar = AttendanceNavigationBar()
+    private let attendanceScrollView = AttendanceScrollView()
     
     // MARK: - Initializer
     
@@ -32,17 +33,13 @@ class AttendanceViewController: BaseViewController {
     // MARK: - life Cycle
     
     override func loadView() {
-        view = attendanceView
+        view = attendanceScrollView
     }
     
     // MARK: - Configurations
     
     override func configures() {
-        setNavigationBar()
-    }
-    
-    private func setNavigationBar() {
-        navigationController?.navigationBar.isHidden = true
+        setCustomNavigationBar(navigationBar)
     }
 }
 

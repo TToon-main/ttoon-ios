@@ -98,24 +98,6 @@ class AttendanceButtonStackView: BaseView {
             self.drawConnections()
         }
     }
-    
-//    private func createLinePath(
-//        start: CGPoint,
-//        end: CGPoint,
-//        control: CGPoint? = nil) -> UIBezierPath  
-//    {
-//        let linePath = UIBezierPath()
-//        
-//        if let control = control {
-//            linePath.move(to: start)
-//            linePath.addQuadCurve(to: end, controlPoint: control)
-//        } else {
-//            linePath.move(to: start)
-//            linePath.addLine(to: end)
-//        }
-//        
-//        return linePath
-//    }
 }
 
 extension AttendanceButtonStackView {
@@ -158,8 +140,6 @@ extension AttendanceButtonStackView {
         let startPoint = CGPoint(x: startX, y: startY)
         let endPoint = CGPoint(x: endX, y: endY)
         
-        print("drawFirstHorizontalLine start: \(startPoint), end: \(endPoint)")
-        
         linePath.move(to: startPoint)
         linePath.addLine(to: endPoint)
         
@@ -198,9 +178,7 @@ extension AttendanceButtonStackView {
         let endY = thirdButton.frame.maxY + 20
         
         let startPoint = CGPoint(x: startX, y: startY)
-        let endPoint = CGPoint(x: endX, y: endY) 
-        
-        print("drawFirstVerticalLine start: \(startPoint), end: \(endPoint)")
+        let endPoint = CGPoint(x: endX, y: endY)
         
         linePath.move(to: startPoint)
         linePath.addLine(to: endPoint)
