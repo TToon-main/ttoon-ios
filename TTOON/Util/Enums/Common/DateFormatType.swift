@@ -12,4 +12,7 @@ enum DateFormatType: String {
     
     case yearMonthKorean = "yyyy년 M월"
     case fullKorean = "yyyy년 M월 d일"
+    
+    case fullWithHyphen = "yyyy-MM-dd"
+    case yearMonthWithHyphen = "yyyy-MM"
 }
