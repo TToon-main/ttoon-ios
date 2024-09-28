@@ -13,7 +13,7 @@ import RxSwift
 class AttendanceScrollView: BaseView {
     // MARK: - UI Properties
     
-    private let attendanceView = AttendanceView()
+    let attendanceView = AttendanceView()
     
     private lazy var scrollView = {
         let view = UIScrollView()

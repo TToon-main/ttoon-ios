@@ -124,6 +124,9 @@
 		BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */; };
 		BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47BF572BF4A6DE0048F707 /* TNBottomSheet.swift */; };
 		BE5758F02BFB1C3100EC4545 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758EF2BFB1C3100EC4545 /* UILabel+.swift */; };
+		BE5D9C5E2CA7F94200B0408D /* Single+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D9C5D2CA7F94200B0408D /* Single+.swift */; };
+		BE5D9C602CA7F96300B0408D /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D9C5F2CA7F96300B0408D /* CommonError.swift */; };
+		BE5D9C622CA803E900B0408D /* Observable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D9C612CA803E900B0408D /* Observable+.swift */; };
 		BE6011712BEF316D00F8FCEA /* TNSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6011702BEF316D00F8FCEA /* TNSwitch.swift */; };
 		BE6011732BEF348500F8FCEA /* TNAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6011722BEF348500F8FCEA /* TNAlertViewController.swift */; };
 		BE6011752BEF34A300F8FCEA /* TNAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6011742BEF34A300F8FCEA /* TNAlertView.swift */; };
@@ -456,6 +459,9 @@
 		BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNImage.swift; sourceTree = "<group>"; };
 		BE47BF572BF4A6DE0048F707 /* TNBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNBottomSheet.swift; sourceTree = "<group>"; };
 		BE5758EF2BFB1C3100EC4545 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		BE5D9C5D2CA7F94200B0408D /* Single+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+.swift"; sourceTree = "<group>"; };
+		BE5D9C5F2CA7F96300B0408D /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
+		BE5D9C612CA803E900B0408D /* Observable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+.swift"; sourceTree = "<group>"; };
 		BE6011702BEF316D00F8FCEA /* TNSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNSwitch.swift; sourceTree = "<group>"; };
 		BE6011722BEF348500F8FCEA /* TNAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNAlertViewController.swift; sourceTree = "<group>"; };
 		BE6011742BEF34A300F8FCEA /* TNAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNAlertView.swift; sourceTree = "<group>"; };
@@ -1440,6 +1446,8 @@
 				BE78BEF22C25C5EE000A5D11 /* UIViewController+.swift */,
 				BEAB66D02C26AA12001B1B63 /* UICollectionView+.swift */,
 				BE0473672C551D8000484B96 /* UIButton+.swift */,
+				BE5D9C5D2CA7F94200B0408D /* Single+.swift */,
+				BE5D9C612CA803E900B0408D /* Observable+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1568,6 +1576,7 @@
 			isa = PBXGroup;
 			children = (
 				BE9C9B5C2C689362000AAF0E /* IDF.swift */,
+				BE5D9C5F2CA7F96300B0408D /* CommonError.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -2651,11 +2660,13 @@
 				BEC4C2732CA053CD00D1BA12 /* AttendanceAPI.swift in Sources */,
 				BEC4C27C2CA0541200D1BA12 /* AttendanceRepositoryProtocol.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
+				BE5D9C602CA7F96300B0408D /* CommonError.swift in Sources */,
 				BE9C9AFD2C688CAF000AAF0E /* CompleteToonViewController.swift in Sources */,
 				489ADEF12BF8E8CE00B070B7 /* SettingSubtitleLabel.swift in Sources */,
 				483C53512C987ACF0056C1FD /* ProfileSetStackView.swift in Sources */,
 				BE9C9B962C68986F000AAF0E /* CategoryBottomSheetViewController.swift in Sources */,
 				BEE8BCCB2C71FFF5003800E0 /* BottomDiaryEmptyView.swift in Sources */,
+				BE5D9C622CA803E900B0408D /* Observable+.swift in Sources */,
 				BE05C0932C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift in Sources */,
 				BE9C9B4B2C688D16000AAF0E /* CreateToonIsMainCharacterSwitch.swift in Sources */,
 				BEE8BCE72C7202FE003800E0 /* SettingCoordinator.swift in Sources */,
@@ -2749,6 +2760,7 @@
 				489FE2C72BC00F9F0033B61D /* BaseTableViewCell.swift in Sources */,
 				486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */,
 				BE9C9AFA2C688CAF000AAF0E /* CharacterEditViewController.swift in Sources */,
+				BE5D9C5E2CA7F94200B0408D /* Single+.swift in Sources */,
 				4839A9F92C78AE5A00FF3250 /* indicatorView.swift in Sources */,
 				BE36CF902BAFF5890017F94E /* SceneDelegate.swift in Sources */,
 				480D397B2C85FCDB009C26DA /* ReceivedFriendRequestReactor.swift in Sources */,

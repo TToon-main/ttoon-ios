@@ -18,14 +18,14 @@ class AttendanceUseCase: AttendanceUseCaseProtocol {
     let repo: AttendanceRepositoryProtocol
     
     enum CheckAttendance {
-        case valid(status: GetAttendanceResponseDTO)
-        case inValid
+        case valid(status: GetAttendanceResponseDTO) // 조회 성공
+        case inValid // 조회 실패 -> 추후에 조회에 실했습니다 ~ 재시도 해주세요 같은 화면 들어가면 좋을듯
     }
     
     enum AttendanceResult {
-        case success
-        case alreadyDone
-        case unknown
+        case success // 성공
+        case alreadyDone // 이미 출석체크 됨
+        case unknown // 알 수 없는 에러
     }
     
     init(repo: AttendanceRepositoryProtocol) {
@@ -51,14 +51,12 @@ class AttendanceUseCase: AttendanceUseCaseProtocol {
         
         let success = request
             .compactMap { $0.element }
-            .do { _ in print("디버그 fetchAttendanceResult 성공")}
             .filter { $0 }
             .map { _ in AttendanceResult.success }
         
         let error = request
-            .compactMap { $0.error }
-            .do { _ in print("디버그 fetchAttendanceResult 실패")}
-            .map { $0 as? AttendanceRepository.PostAttendanceError ?? .unknown }
+            .map { $0.error }
+            .mapError(AttendanceRepository.PostAttendanceError.self)
             .map { e in
                 switch e {
                 case .alreadyDone:
@@ -70,7 +68,7 @@ class AttendanceUseCase: AttendanceUseCaseProtocol {
             }
         
         
-            
+        
         return .merge(success, error)
     }
 }
