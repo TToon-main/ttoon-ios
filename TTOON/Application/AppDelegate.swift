@@ -60,7 +60,11 @@ extension AppDelegate {
             .font: UIFont.body16m,
             .foregroundColor: UIColor.grey08
         ]
+        
+        navigationBarAppearance.backgroundColor = .white
+        navigationBarAppearance.shadowColor = .clear
 
         UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
     }
 }
