@@ -9,16 +9,16 @@ import Foundation
 
 // 캘린더 썸네일
 struct FeedThumbnailDTO: Codable {
-    let id: Int
+    let feedId: Int
     let createdDate: String // "yyyy-MM-dd"
-    let thumbnailUrl: String
+    let thumbnail: String
 }
 extension FeedThumbnailDTO {
     func toDomain() -> FeedThumbnailModel {
         return .init(
-            id: id,
+            id: feedId,
             createdDate: createdDate,
-            thumbnailUrl: thumbnailUrl
+            thumbnailUrl: thumbnail
         )
     }
 }
@@ -26,26 +26,22 @@ extension FeedThumbnailDTO {
 
 // 피드 조회
 struct FeedDTO: Codable {
-    let id: Int
+    let feedId: Int
     let title: String
-    let imageList: [ImageUrl]
+    let imageUrl: [String]
     let content: String
     let createdDate: String // "yyyy-MM-dd"
-    let like: Int
-    
-    struct ImageUrl: Codable {
-        let imageUrl: String
-    }
+    let likes: Int
 }
 extension FeedDTO {
     func toDomain() -> FeedModel {
         return .init(
-            id: id,
+            id: feedId,
             title: title,
-            imageList: imageList.map { $0.imageUrl },
+            imageList: imageUrl,
             content: content,
             createdDate: createdDate,
-            like: like
+            like: likes
         )
     }
 }

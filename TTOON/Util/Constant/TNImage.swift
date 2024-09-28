@@ -40,6 +40,9 @@ struct TNImage {
     static var splashLogo = UIImage(named: "splashLogo")
     static var userIcon = UIImage(named: "userIcon")
     
+    
+    // Calendar
+    static var noFeedDataView = UIImage(named: "NoFeedData")
     // Attendance 
     static var monOffIcon = UIImage(named: "Mon_off")
     static var monOnIcon = UIImage(named: "Mon_on")

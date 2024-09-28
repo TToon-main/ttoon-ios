@@ -18,7 +18,7 @@ class HomeCalendarView: BaseView {
     
     let calendarView = CalendarView()
     let bottomDiaryView = BottomDiaryView()
-//    let plusButton =
+    let bottomDiaryEmptyView = BottomDiaryEmptyView()
     
     
     // MARK: - UI Layout
@@ -28,7 +28,7 @@ class HomeCalendarView: BaseView {
         self.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
-        [calendarView, bottomDiaryView].forEach { item in
+        [calendarView, bottomDiaryView, bottomDiaryEmptyView].forEach { item in
             contentView.addSubview(item)
         }
     }
@@ -58,6 +58,12 @@ class HomeCalendarView: BaseView {
             make.horizontalEdges.equalTo(contentView)
             make.bottom.equalTo(contentView)
         }
+        
+        bottomDiaryEmptyView.snp.makeConstraints { make in
+            make.top.equalTo(calendarView.snp.bottom)
+            make.horizontalEdges.equalTo(contentView)
+            make.bottom.equalTo(contentView)
+        }
     }
     
     // MARK: - Setting
@@ -66,6 +72,22 @@ class HomeCalendarView: BaseView {
         
         self.backgroundColor = .grey01
         scrollView.bounces = false
+    }
+}
+
+extension HomeCalendarView {
+    func updateView(_ model: FeedModel?) {
+        if let model {
+            // 데이터 있을 때
+            bottomDiaryView.isHidden = false
+            bottomDiaryEmptyView.isHidden = true
+            
+            bottomDiaryView.updateView(model)
+        } else {
+            // 데이터 없을 때
+            bottomDiaryView.isHidden = true
+            bottomDiaryEmptyView.isHidden = false
+        }
     }
 }
 

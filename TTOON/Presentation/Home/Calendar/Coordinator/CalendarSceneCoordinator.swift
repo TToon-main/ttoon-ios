@@ -38,7 +38,7 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
     
     // Protocol Method
     func showCalendarView() {
-        let reactor = HomeCalendarReactor()
+        let reactor = HomeCalendarReactor(HomeCalendarUseCase(HomeCalendarRepository()))
         let vc = HomeCalendarViewController(reactor: reactor)
         
         reactor.didSendEventClosure = { [weak self] event in

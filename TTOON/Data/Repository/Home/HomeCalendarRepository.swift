@@ -14,17 +14,15 @@ protocol HomeCalendarRepositoryProtocol {
     func getFeedDetail(_ date: String) -> Single<Result<FeedModel, Error>>
 }
 
-class HomeCalendarRepository: NSObject,  HomeCalendarRepositoryProtocol {
+class HomeCalendarRepository: NSObject, HomeCalendarRepositoryProtocol {
     let provider = APIProvider<CalendarAPI>()
     
     func getCalendarThumbnails(_ yearMonth: String) -> Single<Result<[FeedThumbnailModel], Error>> {
-        
         return Single<Result<[FeedThumbnailModel], Error>>.create { single in
             // 1. dto 변환 없음
             
             // 2. 요청
             let request = self.provider.log.request(.calendarThumbnail(yearMonth: yearMonth)) { result in
-                
                 switch result {
                 case .success(let response):
                     if let data = try? response.map(ResponseDTO<[FeedThumbnailDTO]>.self),
@@ -34,9 +32,11 @@ class HomeCalendarRepository: NSObject,  HomeCalendarRepositoryProtocol {
                         // 성공
                         let responseModel = responseData.map { $0.toDomain() }
                         single(.success(.success(responseModel)))
-                        
                     } else {
-                        // 실패 - (네트워크 통신은 성공했지만, statusCode가 200이 아닌 경우)
+                        // 실패 - (네트워크 통신은 성공했지만)
+                        print("***************")
+                        print(response)
+                        print("***************")
                         single(.success(.failure(SampleError(rawValue: response.statusCode)!)))
                     }
                     
@@ -51,13 +51,11 @@ class HomeCalendarRepository: NSObject,  HomeCalendarRepositoryProtocol {
     
     
     func getFeedDetail(_ date: String) -> Single<Result<FeedModel, Error>> {
-        
         return Single<Result<FeedModel, Error>>.create { single in
             // 1. dto 변환 없음
             
             // 2. 요청
             let request = self.provider.log.request(.feedDetail(date: date)) { result in
-                
                 switch result {
                 case .success(let response):
                     if let data = try? response.map(ResponseDTO<FeedDTO>.self),

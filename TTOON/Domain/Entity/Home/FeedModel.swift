@@ -8,14 +8,14 @@
 import Foundation
 
 // 캘린더 썸네일
-struct FeedThumbnailModel {
+struct FeedThumbnailModel: Equatable {
     let id: Int
     let createdDate: String
     let thumbnailUrl: String
 }
 
 // 피드 조회
-struct FeedModel {
+struct FeedModel: Equatable {
     let id: Int
     let title: String
     let imageList: [String]

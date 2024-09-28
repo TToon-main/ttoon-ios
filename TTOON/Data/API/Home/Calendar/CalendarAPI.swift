@@ -11,6 +11,7 @@ import Moya
 enum CalendarAPI {
     case calendarThumbnail(yearMonth: String)
     case feedDetail(date: String)
+    case deleteFeed(feedId: Int)
 }
 
 extension CalendarAPI: TargetType {
@@ -24,6 +25,8 @@ extension CalendarAPI: TargetType {
             return "/api/home/calendar"
         case .feedDetail:
             return "/api/home"
+        case .deleteFeed(let feedId):
+            return "/api/delete/\(feedId)"
         }
     }
     
@@ -31,6 +34,9 @@ extension CalendarAPI: TargetType {
         switch self {
         case .calendarThumbnail, .feedDetail:
             return .get
+
+        case .deleteFeed:
+            return .delete
         }
     }
     
@@ -47,17 +53,19 @@ extension CalendarAPI: TargetType {
             
         case .feedDetail(let date):
             let query = [
-                "dates": date
+                "date": date
             ]
             return .requestParameters(
                 parameters: query,
                 encoding: URLEncoding.queryString
             )
             
+        default:
+            return .requestPlain
         }
     }
     
-    var headers: [String : String]? {
+    var headers: [String: String]? {
         switch self {
         default:
             return nil
@@ -71,8 +79,8 @@ extension CalendarAPI: TargetType {
 
 
 // 1. 캘린더 썸네일 조회
-//[GET] ~/api/home/callender?yearMonth=2024-06
-//{
+// [GET] ~/api/home/callender?yearMonth=2024-06
+// {
 //  "isSuccess": true,
 //  "code": "COMMON200",
 //  "message": "요청에 성공하였습니다.",
@@ -96,12 +104,12 @@ extension CalendarAPI: TargetType {
 //            }
 //      ]
 //  }
-//}
+// }
 
 
 // 2. 피드 단일 조회
-//[GET] ~/api/home?dates=2024-05-20
-//{
+// [GET] ~/api/home?dates=2024-05-20
+// {
 //  "isSuccess": true,
 //  "code": "COMMON200",
 //  "message": "요청에 성공하였습니다.",
@@ -126,4 +134,4 @@ extension CalendarAPI: TargetType {
 //            "createDate" : 2024-06-05,
 //            "like" : 12
 //    }
-//}
+// }

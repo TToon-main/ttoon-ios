@@ -93,6 +93,11 @@ class BottomDiaryView: BaseView {
             make.centerY.equalTo(dateTitleLabel)
         }
         
+        clearButton.snp.makeConstraints { make in
+            make.edges.equalTo(chevronRightImageView).inset(-20)
+        }
+        clearButton.backgroundColor = .red.withAlphaComponent(0.5)
+        
         diaryTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(dateTitleLabel.snp.bottom).offset(11)
             make.horizontalEdges.equalTo(self).inset(16)
@@ -153,15 +158,13 @@ extension BottomDiaryView {
 
 // design View
 extension BottomDiaryView {
-    // 추후 Entity에 struct 만들어서 받을 예정
-//    struct A {
-//        let date: Date
-//        let tilte: String
-//        let content: String
-//        let images: [String]
-//    }
-    
-    func updateDate(_ date: Date) {
-        dateTitleLabel.text = date.toString(of: .fullKorean)
+    func updateView(_ model: FeedModel) {
+        dateTitleLabel.text = model.createdDate.toDate(to: .fullWithHyphen)?.toString(of: .fullKorean)
+        
+        diaryTitleLabel.text = model.title
+        
+        diaryContentLabel.text = model.content
+        
+        diaryImageSwipeCollectionView.reloadData()
     }
 }

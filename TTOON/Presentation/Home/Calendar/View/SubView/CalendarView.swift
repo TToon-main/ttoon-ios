@@ -97,5 +97,7 @@ extension CalendarView {
         let newDate = calendar.date(from: components) ?? Date()
         
         self.calendar.setCurrentPage(newDate, animated: true)
+        
+        selectYearMonthView.updateYearMonth(yearMonth)
     }
 }
