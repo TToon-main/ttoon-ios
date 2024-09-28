@@ -19,6 +19,7 @@ final class AttendanceReactor: Reactor {
     
     enum Action {
         case viewDidLoad
+        case refreshAttendance
         case checkAttendanceButtonTap
     }
     
@@ -42,7 +43,7 @@ final class AttendanceReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .viewDidLoad:
+        case .viewDidLoad, .refreshAttendance:
             
             return useCase.checkAttendance()
                 .map { status in
