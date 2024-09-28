@@ -15,7 +15,8 @@ class AttendanceRepository: AttendanceRepositoryProtocol {
     
     func getAttendance() -> Observable<Event<GetAttendanceResponseDTO>> { 
         return provider.log.rx.request(.getAttendance)
-            .map(GetAttendanceResponseDTO.self)
+            .map(ResponseDTO<GetAttendanceResponseDTO>.self)
+            .compactMap{ $0.data }
             .asObservable()
             .materialize()
     }
