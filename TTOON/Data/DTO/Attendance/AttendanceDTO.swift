@@ -11,7 +11,7 @@ import Foundation
 
 struct GetAttendanceResponseDTO: Codable {
     let point: Int
-    let dayStatuses: [DayStatus]
+    let dayStatus: [DayStatus]
     
     struct DayStatus: Codable {
         let day: String
@@ -25,6 +25,6 @@ struct GetAttendanceResponseDTO: Codable {
     
     enum CodingKeys: String, CodingKey {
         case point
-        case dayStatuses = "AttendDtoList"
+        case dayStatus = "attendanceDtoList"
     }
 }

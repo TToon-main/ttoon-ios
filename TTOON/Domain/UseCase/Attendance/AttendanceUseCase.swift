@@ -7,13 +7,35 @@
 
 import Foundation
 
-protocol AttendanceUseCaseProtocol {
+import RxSwift
+
+protocol AttendanceUseCaseProtocol {    
+    func checkAttendance() -> Observable<AttendanceUseCase.CheckAttendance> 
 }
 
 class AttendanceUseCase: AttendanceUseCaseProtocol {
     let repo: AttendanceRepositoryProtocol
     
+    enum CheckAttendance {
+        case valid(status: GetAttendanceResponseDTO)
+        case inValid
+    }
+    
     init(repo: AttendanceRepositoryProtocol) {
         self.repo = repo
+    }
+    
+    func checkAttendance() -> Observable<CheckAttendance> {
+        let request = repo.getAttendance().share()
+
+        let success = request
+            .compactMap { $0.element }
+            .map {  CheckAttendance.valid(status: $0) }
+        
+        let fail = request
+            .compactMap { $0.error }
+            .map { _ in CheckAttendance.inValid }
+
+        return .merge(success, fail)  
     }
 }

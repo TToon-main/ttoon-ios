@@ -7,5 +7,8 @@
 
 import Foundation
 
+import RxSwift
+
 protocol AttendanceRepositoryProtocol {
+    func getAttendance() -> Observable<Event<GetAttendanceResponseDTO>> 
 }
