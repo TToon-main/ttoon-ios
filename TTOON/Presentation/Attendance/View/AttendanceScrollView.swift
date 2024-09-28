@@ -7,6 +7,9 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 class AttendanceScrollView: BaseView {
     // MARK: - UI Properties
     
@@ -41,6 +44,22 @@ class AttendanceScrollView: BaseView {
             $0.width.equalTo(width)
             $0.top.leading.equalToSuperview()
             $0.bottom.greaterThanOrEqualTo(safeGuide)
+        }
+    }
+}
+
+extension Reactive where Base: AttendanceScrollView {    
+    var isBtnSelected: Binder<[Bool]> {
+        return Binder(base) { view, isBtnEnabled in
+            _ =    isBtnEnabled.map { isSelected in
+                base.attendanceView.fetchButtons().map { $0.isSelected = isSelected}
+            }
+        }
+    }
+    
+    var showInvalid: Binder<Bool> {
+        return Binder(base) { view, isInvalid in
+            print("디버그", isInvalid)
         }
     }
 }

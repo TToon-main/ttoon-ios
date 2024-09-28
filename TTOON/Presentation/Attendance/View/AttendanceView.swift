@@ -92,4 +92,16 @@ class AttendanceView: BaseView {
             $0.bottom.equalToSuperview().offset(-12)
         }
     }
+    
+    func fetchButtons() -> [UIButton] {
+        return [
+            firstAttendanceButtonStackView.firstButton,  // Monday
+            firstAttendanceButtonStackView.secondButton, // Tuesday
+            secondAttendanceButtonStackView.firstButton,  // Wednesday
+            secondAttendanceButtonStackView.secondButton, // Thursday
+            secondAttendanceButtonStackView.thirdButton,  // Friday
+            thirdAttendanceButtonStackView.firstButton,   // Saturday
+            thirdAttendanceButtonStackView.secondButton    // Sunday
+        ]
+    }
 }
