@@ -29,6 +29,7 @@ final class AttendanceReactor: Reactor {
     struct State {
         var point: String = ""
         var isSelected: [Bool] = []
+        var isEnabledCheckAttendanceButton = false
         var showInvalid: Bool = false
     }
     
@@ -56,8 +57,11 @@ final class AttendanceReactor: Reactor {
         case .setValidStatus(let status):
             var newState = state
             newState.point = "\(status.point)P"
-            newState.isSelected = fetchIsSelected(status: status.dayStatus)
+            newState.isSelected = fetchIsSelected(status.dayStatus)
+            newState.isEnabledCheckAttendanceButton = isTodayAttendance(status.dayStatus)
+            
             return newState
+
         case .setInvalidStatus(let isInvalid):
             var newState = state
             newState.showInvalid = isInvalid
@@ -67,15 +71,26 @@ final class AttendanceReactor: Reactor {
 }
 
 extension AttendanceReactor {    
-    func fetchIsSelected(status: [GetAttendanceResponseDTO.DayStatus]) -> [Bool] {
-        return status.map { attendance in
+    func fetchIsSelected(_ days: [GetAttendanceResponseDTO.DayStatus]) -> [Bool] {
+        return days.map { attendance in
             attendance.isAttended
         }
     }
     
-    func isToday(_ day: String) -> Bool {
+    func isTodayAttendance(_ days: [GetAttendanceResponseDTO.DayStatus]) -> Bool {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE" 
-        return dateFormatter.string(from: Date()) == day
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "EEEE"
+
+        let today = dateFormatter.string(from: Date()).uppercased()
+       
+        let todayStatus = days
+            .filter { $0.day == today  }
+            .map { $0.isAttended }
+        
+        let isEnabled = todayStatus
+            .map { !$0 }.first
+
+        return isEnabled ?? false
     }
 }

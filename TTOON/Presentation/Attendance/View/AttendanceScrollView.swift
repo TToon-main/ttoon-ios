@@ -62,4 +62,8 @@ extension Reactive where Base: AttendanceScrollView {
             print("디버그", isInvalid)
         }
     }
+    
+    var isEnabledCheckAttendanceButton: Binder<Bool> {
+        return base.attendanceView.checkAttendanceButton.rx.isEnabled
+    }
 }

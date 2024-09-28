@@ -65,5 +65,9 @@ extension AttendanceViewController: View {
         reactor.state.map { $0.showInvalid }
             .bind(to: attendanceScrollView.rx.showInvalid)
             .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isEnabledCheckAttendanceButton }
+            .bind(to: attendanceScrollView.rx.isEnabledCheckAttendanceButton)
+            .disposed(by: disposeBag)
     }
 }
