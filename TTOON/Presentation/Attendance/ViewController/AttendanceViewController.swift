@@ -50,8 +50,20 @@ extension AttendanceViewController: View {
     }
     
     func bindAction(reactor: AttendanceReactor) {
+        reactor.action.onNext(.viewDidLoad)
     }
     
     func bindState(reactor: AttendanceReactor) {
+        reactor.state.map { $0.point }
+            .bind(to: navigationBar.rx.point)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isSelected }
+            .bind(to: attendanceScrollView.rx.isBtnSelected)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.showInvalid }
+            .bind(to: attendanceScrollView.rx.showInvalid)
+            .disposed(by: disposeBag)
     }
 }

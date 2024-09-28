@@ -205,7 +205,9 @@ class AttendanceSceneCoordinator: AttendanceSceneCoordinatorProtocol {
     
     // 5.
     func start() {
-        let reactor = AttendanceReactor()
+        let repo = AttendanceRepository()
+        let useCase = AttendanceUseCase(repo: repo)
+        let reactor = AttendanceReactor(useCase: useCase)
         let vc = AttendanceViewController(attendanceReactor: reactor)
         navigationController.pushViewController(vc, animated: true)
     }
