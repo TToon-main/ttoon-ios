@@ -36,8 +36,7 @@ class AttendanceNavigationBar: BaseView {
     
     override func layouts() {
         logoImageView.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-18)
+            make.leading.centerY.equalToSuperview()
             make.width.equalTo(120)
         }
         

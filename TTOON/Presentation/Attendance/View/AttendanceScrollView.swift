@@ -12,11 +12,16 @@ class AttendanceScrollView: BaseView {
     
     private lazy var scrollView = {
         let view = UIScrollView()
-        view.showsVerticalScrollIndicator = false
+        view.showsHorizontalScrollIndicator = false
+        view.bounces = false
         view.backgroundColor = .white
         
         return view 
     }()
+    
+    override func layoutSubviews() {
+        scrollView.contentSize = attendanceView.bounds.size
+    }
     
     override func addSubViews() {
         addSubview(scrollView)
@@ -30,7 +35,8 @@ class AttendanceScrollView: BaseView {
         
         attendanceView.snp.makeConstraints { 
             $0.width.equalTo(width)
-            $0.edges.equalToSuperview()
+            $0.top.leading.equalToSuperview()
+            $0.bottom.greaterThanOrEqualTo(safeGuide)
         }
     }
 }

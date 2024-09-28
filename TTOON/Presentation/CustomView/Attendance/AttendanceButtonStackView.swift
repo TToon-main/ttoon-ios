@@ -18,18 +18,21 @@ class AttendanceButtonStackView: BaseView {
     
     let firstButton = {
         let view = AttendanceButton()
+        view.isUserInteractionEnabled = false
         
         return view
     }()
     
     let secondButton = {
         let view = AttendanceButton()
+        view.isUserInteractionEnabled = false
         
         return view
     }()
     
     let thirdButton = {
         let view = AttendanceButton()
+        view.isUserInteractionEnabled = false
         
         return view
     }()

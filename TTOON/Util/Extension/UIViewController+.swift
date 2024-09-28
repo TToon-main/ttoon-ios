@@ -25,9 +25,10 @@ extension UIViewController {
 extension UIViewController {
     func setCustomNavigationBar(_ view: BaseView) {
         guard let navigationBar = navigationController?.navigationBar else { return }
+        
         let navHeight = navigationBar.frame.size.height
         let navWidth = navigationBar.frame.size.width
-        
+
         view.snp.makeConstraints { make in
             make.width.equalTo(navWidth)
             make.height.equalTo(navHeight)
