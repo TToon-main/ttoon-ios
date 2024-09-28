@@ -51,6 +51,11 @@ extension AttendanceViewController: View {
     
     func bindAction(reactor: AttendanceReactor) {
         reactor.action.onNext(.viewDidLoad)
+        
+        attendanceScrollView.rx.checkAttendanceButtonTap
+            .map { AttendanceReactor.Action.checkAttendanceButtonTap }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: AttendanceReactor) {
@@ -69,5 +74,43 @@ extension AttendanceViewController: View {
         reactor.state.map { $0.isEnabledCheckAttendanceButton }
             .bind(to: attendanceScrollView.rx.isEnabledCheckAttendanceButton)
             .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.showCompleteAlert }
+            .bind(onNext: showCompleteAlert)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.showAlreadyDoneAlert }
+            .bind(onNext: showAlreadyDoneAlert)
+            .disposed(by: disposeBag)
+    }
+}
+
+extension AttendanceViewController {
+    private func showCompleteAlert(_ flag: Bool) {
+        if flag {
+            let today = todayString()
+            TNAlert(self)
+                .setTitle("\(today) 출석체크 완료!")
+                .setSubTitle("보상으로 100포인트를 지급 받았어요.")
+                .addConfirmAction("확인")
+                .present()
+        }
+    }
+    
+    private func showAlreadyDoneAlert(_ flag: Bool) {
+        if flag {
+            TNAlert(self)
+                .setTitle("오늘 이미 출석체크 했습니다.")
+                .setSubTitle("내일 만나요.")
+                .addConfirmAction("확인")
+                .present()
+        }
+    }
+    
+    private func todayString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        
+        return dateFormatter.string(from: Date()).uppercased()
     }
 }

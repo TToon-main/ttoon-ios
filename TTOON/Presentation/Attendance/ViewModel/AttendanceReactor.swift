@@ -19,11 +19,14 @@ final class AttendanceReactor: Reactor {
     
     enum Action {
         case viewDidLoad
+        case checkAttendanceButtonTap
     }
     
     enum Mutation {
         case setValidStatus(status: GetAttendanceResponseDTO)
         case setInvalidStatus(isInvalid: Bool)
+        case setCompleteAttendanceAlert
+        case setAlreadyAttendanceAlert
     }
     
     struct State {
@@ -31,6 +34,8 @@ final class AttendanceReactor: Reactor {
         var isSelected: [Bool] = []
         var isEnabledCheckAttendanceButton = false
         var showInvalid: Bool = false
+        var showCompleteAlert: Bool = false
+        var showAlreadyDoneAlert: Bool = false
     }
     
     let initialState: State = State()
@@ -49,6 +54,18 @@ final class AttendanceReactor: Reactor {
                         return .setInvalidStatus(isInvalid: true)
                     }
                 }
+            
+        case .checkAttendanceButtonTap:
+            return useCase.fetchAttendanceResult()
+                .map { status in
+                    switch status {
+                    case .success:
+                        return .setCompleteAttendanceAlert
+
+                    default:
+                        return .setAlreadyAttendanceAlert
+                    }
+                }
         }
     }
     
@@ -59,9 +76,18 @@ final class AttendanceReactor: Reactor {
             newState.point = "\(status.point)P"
             newState.isSelected = fetchIsSelected(status.dayStatus)
             newState.isEnabledCheckAttendanceButton = isTodayAttendance(status.dayStatus)
-            
             return newState
-
+            
+        case .setCompleteAttendanceAlert:
+            var newState = state
+            newState.showCompleteAlert = true
+            return newState
+            
+        case .setAlreadyAttendanceAlert:
+            var newState = state
+            newState.showAlreadyDoneAlert = true
+            return newState
+            
         case .setInvalidStatus(let isInvalid):
             var newState = state
             newState.showInvalid = isInvalid
@@ -70,7 +96,7 @@ final class AttendanceReactor: Reactor {
     }
 }
 
-extension AttendanceReactor {    
+extension AttendanceReactor {
     func fetchIsSelected(_ days: [GetAttendanceResponseDTO.DayStatus]) -> [Bool] {
         return days.map { attendance in
             attendance.isAttended
@@ -81,16 +107,16 @@ extension AttendanceReactor {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "EEEE"
-
+        
         let today = dateFormatter.string(from: Date()).uppercased()
-       
+        
         let todayStatus = days
             .filter { $0.day == today  }
             .map { $0.isAttended }
         
         let isEnabled = todayStatus
             .map { !$0 }.first
-
+        
         return isEnabled ?? false
     }
 }
