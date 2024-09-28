@@ -11,6 +11,7 @@ import Moya
 
 enum AttendanceAPI {
     case getAttendance
+    case postAttendance
 }
 
 extension AttendanceAPI: TargetType {
@@ -22,8 +23,8 @@ extension AttendanceAPI: TargetType {
     // switch self를 통해, 각 타겟에 대한 엔드포인트 지정
     var path: String {
         switch self {
-        case.getAttendance:
-            return "/api/attendance" 
+        case.getAttendance, .postAttendance:
+            return "/api/attendance"
         }
     }
     
@@ -31,21 +32,20 @@ extension AttendanceAPI: TargetType {
         switch self {
         case .getAttendance:
             return .get
+
+        case .postAttendance:
+            return .post
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .getAttendance:
+        case .getAttendance, .postAttendance:
             return .requestPlain
         }
     }
     
     var headers: [String: String]? {
         nil
-    }
-    
-    var validationType: ValidationType {
-        return .successCodes
     }
 }
