@@ -11,4 +11,5 @@ import RxSwift
 
 protocol AttendanceRepositoryProtocol {
     func getAttendance() -> Observable<Event<GetAttendanceResponseDTO>> 
+    func postAttendance() -> Observable<Event<Bool>>
 }
