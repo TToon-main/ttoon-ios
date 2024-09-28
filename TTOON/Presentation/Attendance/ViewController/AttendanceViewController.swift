@@ -22,7 +22,7 @@ class AttendanceViewController: BaseViewController {
     
     init(attendanceReactor: AttendanceReactor) {
         super.init(nibName: nil, bundle: nil)
-        self.reactor = attendanceReactor 
+        self.reactor = attendanceReactor
     }
     
     @available(*, unavailable)
