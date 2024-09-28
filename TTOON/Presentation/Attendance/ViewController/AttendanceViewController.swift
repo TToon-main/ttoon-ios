@@ -12,9 +12,9 @@ import ReactorKit
 class AttendanceViewController: BaseViewController {
     // MARK: - Properties
     var disposeBag = DisposeBag()
+    private let refreshAttendance = PublishSubject<Void>()
 
     // MARK: - UI Properties
-    
     private let navigationBar = AttendanceNavigationBar()
     private let attendanceScrollView = AttendanceScrollView()
     
@@ -51,6 +51,11 @@ extension AttendanceViewController: View {
     
     func bindAction(reactor: AttendanceReactor) {
         reactor.action.onNext(.viewDidLoad)
+        
+        refreshAttendance
+            .map { AttendanceReactor.Action.refreshAttendance }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
         
         attendanceScrollView.rx.checkAttendanceButtonTap
             .map { AttendanceReactor.Action.checkAttendanceButtonTap }
@@ -94,6 +99,8 @@ extension AttendanceViewController {
                 .setSubTitle("보상으로 100포인트를 지급 받았어요.")
                 .addConfirmAction("확인")
                 .present()
+            
+            refreshAttendance.onNext(())
         }
     }
     
