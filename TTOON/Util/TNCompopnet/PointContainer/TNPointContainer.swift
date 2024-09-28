@@ -10,6 +10,8 @@ import UIKit
 import SkeletonView
 
 class TNPointContainer: BaseView {
+    // MARK: - UI Properties
+    
     let pointImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 9
@@ -37,6 +39,8 @@ class TNPointContainer: BaseView {
         return view
     }()
 
+    // MARK: - Configurations
+    
     override func configures() {
         super.configures()
         backgroundColor = .clear

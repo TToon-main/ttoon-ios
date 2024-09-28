@@ -8,6 +8,8 @@
 import UIKit
 
 class AttendanceNavigationBar: BaseView {    
+    // MARK: - UI Properties
+    
     let logoImageView = {
         let view = UIImageView()
         view.image = TNImage.homeNavigationLogo
@@ -20,6 +22,8 @@ class AttendanceNavigationBar: BaseView {
         
         return view
     }()
+    
+    // MARK: - Configurations
     
     override func configures() {
         super.configures()

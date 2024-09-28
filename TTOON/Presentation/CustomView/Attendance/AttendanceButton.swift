@@ -10,6 +10,8 @@ import UIKit
 import RxSwift
 
 class AttendanceButton: UIButton {
+    // MARK: - Properties
+    
     override var intrinsicContentSize: CGSize {
         return CGSize(width: 108, height: 108)
     }
@@ -26,6 +28,8 @@ class AttendanceButton: UIButton {
         }
     }
     
+    // MARK: - Initialize
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -35,6 +39,8 @@ class AttendanceButton: UIButton {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }    
+    
+    // MARK: - Configurations
     
     private func configure() {
         layer.cornerRadius = 54

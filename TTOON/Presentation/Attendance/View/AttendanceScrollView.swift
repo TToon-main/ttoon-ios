@@ -8,6 +8,8 @@
 import UIKit
 
 class AttendanceScrollView: BaseView {
+    // MARK: - UI Properties
+    
     private let attendanceView = AttendanceView()
     
     private lazy var scrollView = {
@@ -18,6 +20,8 @@ class AttendanceScrollView: BaseView {
         
         return view 
     }()
+    
+    // MARK: - Configurations
     
     override func layoutSubviews() {
         scrollView.contentSize = attendanceView.bounds.size

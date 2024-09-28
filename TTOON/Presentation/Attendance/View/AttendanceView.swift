@@ -8,6 +8,8 @@
 import UIKit
 
 class AttendanceView: BaseView {
+    // MARK: - UI Properties
+    
     let titleLabel = {
         let view = UILabel()
         view.textColor = .black
@@ -40,6 +42,8 @@ class AttendanceView: BaseView {
     let secondAttendanceButtonStackView = AttendanceButtonStackView(type: .secondLine)
     
     let thirdAttendanceButtonStackView = AttendanceButtonStackView(type: .thirdLine)
+    
+    // MARK: - Configurations
     
     override func addSubViews() {
         [titleLabel,
