@@ -127,6 +127,7 @@
 		BE5D9C5E2CA7F94200B0408D /* Single+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D9C5D2CA7F94200B0408D /* Single+.swift */; };
 		BE5D9C602CA7F96300B0408D /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D9C5F2CA7F96300B0408D /* CommonError.swift */; };
 		BE5D9C622CA803E900B0408D /* Observable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D9C612CA803E900B0408D /* Observable+.swift */; };
+		BE5D9C642CA9394800B0408D /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D9C632CA9394800B0408D /* AlarmView.swift */; };
 		BE6011712BEF316D00F8FCEA /* TNSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6011702BEF316D00F8FCEA /* TNSwitch.swift */; };
 		BE6011732BEF348500F8FCEA /* TNAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6011722BEF348500F8FCEA /* TNAlertViewController.swift */; };
 		BE6011752BEF34A300F8FCEA /* TNAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6011742BEF34A300F8FCEA /* TNAlertView.swift */; };
@@ -463,6 +464,7 @@
 		BE5D9C5D2CA7F94200B0408D /* Single+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+.swift"; sourceTree = "<group>"; };
 		BE5D9C5F2CA7F96300B0408D /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
 		BE5D9C612CA803E900B0408D /* Observable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+.swift"; sourceTree = "<group>"; };
+		BE5D9C632CA9394800B0408D /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 		BE6011702BEF316D00F8FCEA /* TNSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNSwitch.swift; sourceTree = "<group>"; };
 		BE6011722BEF348500F8FCEA /* TNAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNAlertViewController.swift; sourceTree = "<group>"; };
 		BE6011742BEF34A300F8FCEA /* TNAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNAlertView.swift; sourceTree = "<group>"; };
@@ -1675,6 +1677,7 @@
 				BE9C9B8B2C68986F000AAF0E /* MyPageView.swift */,
 				483C53582C987B1A0056C1FD /* ProfileSetView.swift */,
 				483C535A2C987B210056C1FD /* MyPageChangeLangView.swift */,
+				BE5D9C632CA9394800B0408D /* AlarmView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2585,6 +2588,7 @@
 				BEE8BCCD2C71FFF5003800E0 /* CalendarView.swift in Sources */,
 				489FE2C12BC00F700033B61D /* BaseView.swift in Sources */,
 				BE9C9B9F2C68986F000AAF0E /* AlarmTableViewCell.swift in Sources */,
+				BE5D9C642CA9394800B0408D /* AlarmView.swift in Sources */,
 				BE9C9BEA2C6898C2000AAF0E /* SettingDTO.swift in Sources */,
 				48BF84B52C8D899900E84016 /* SearchFriendRepository.swift in Sources */,
 				BE9C9BC62C68989F000AAF0E /* DeleteAccountUseCase.swift in Sources */,

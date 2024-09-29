@@ -11,32 +11,31 @@ import RxCocoa
 import RxSwift
 
 final class AlarmViewController: BaseViewController {
-    let alarmTableView = AlarmTableView()
+    // MARK: - Properties
+    
+    weak var delegate: ReloadMyPageDataSource?
+
+    // MARK: - UI Properties
+    
+    let alarmView = AlarmView()
+    
+    // MARK: - LifeCycle
     
     override func loadView() {
-        view = alarmTableView
+        super.loadView()
+        view = alarmView
     }
     
-    override func configures() {
-        setTableView()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        setIsAlarmEnabled()
+        delegate?.realod()
     }
     
-    private func setTableView() {
-        alarmTableView.dataSource = self
-        alarmTableView.delegate = self
-    }
-}
-
-extension AlarmViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
+    // MARK: - Method
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath) as? AlarmTableViewCell else {
-            return UITableViewCell()
-        }
-
-        return cell
+    private func setIsAlarmEnabled() {
+        let isAlarmEnabled = alarmView.alarmSwitch.isOn
+        KeychainStorage.shared.isAlarmEnabled = isAlarmEnabled
     }
 }
