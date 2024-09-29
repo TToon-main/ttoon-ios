@@ -16,7 +16,6 @@ class CreateToonDiaryView: BaseView {
     let midTitleLabel = {
         let view = CreateToonMidTitleLabel()
         view.text = "일기 작성"
-        view.numberOfLines = 0
         
         return view
     }()
@@ -25,6 +24,14 @@ class CreateToonDiaryView: BaseView {
         let view = CreateToonMidSubTitleLabel()
         view.text = "자세히 써주시면 네컷만화를\n더 정확하게 그릴 수 있어요"
         view.numberOfLines = 0
+        
+        return view
+    }()
+    
+    let diaryTitleTextField = {
+        let view = TNTextFiled()
+        view.textFiled.placeholder = "제목을 입력해주세요"
+        view.statusLabel.textCntLabel.text = "0/20"
         
         return view
     }()
@@ -42,6 +49,7 @@ class CreateToonDiaryView: BaseView {
         let view = UILabel()
         view.font = .body14r
         view.textColor = .grey05
+        view.text = "0/200"
         
         return view
     }()
@@ -49,6 +57,7 @@ class CreateToonDiaryView: BaseView {
     override func addSubViews() {
         addSubview(midTitleLabel)
         addSubview(midSubTitleLabel)
+        addSubview(diaryTitleTextField)
         addSubview(diaryInputTextView)
         addSubview(dairyLimitTextView)
     }
@@ -56,15 +65,23 @@ class CreateToonDiaryView: BaseView {
     override func layouts() {
         midTitleLabel.snp.makeConstraints {
             $0.top.leading.equalToSuperview()
+            $0.height.equalTo(27)
         }
         
         midSubTitleLabel.snp.makeConstraints {
             $0.top.equalTo(midTitleLabel.snp.bottom).offset(8)
             $0.leading.equalToSuperview()
+            $0.height.equalTo(40)
+        }
+        
+        diaryTitleTextField.snp.makeConstraints {
+            $0.top.equalTo(midSubTitleLabel.snp.bottom).offset(12)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(76)
         }
         
         diaryInputTextView.snp.makeConstraints {
-            $0.top.equalTo(midSubTitleLabel.snp.bottom).offset(12)
+            $0.top.equalTo(diaryTitleTextField.snp.bottom).offset(12)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(260)
         }
@@ -72,6 +89,8 @@ class CreateToonDiaryView: BaseView {
         dairyLimitTextView.snp.makeConstraints {
             $0.trailing.equalToSuperview()
             $0.top.equalTo(diaryInputTextView.snp.bottom).offset(4)
+            $0.height.equalTo(20)
+            $0.bottom.equalToSuperview()
         }
     }
     
@@ -81,6 +100,12 @@ class CreateToonDiaryView: BaseView {
             .compactMap { $0 }
             .map{ "\($0.count)/\(self.diaryInputTextView.limitCnt)"}
             .bind(to: dairyLimitTextView.rx.text)
+            .disposed(by: disposeBag)
+        
+        diaryTitleTextField.textFiled.rx.text
+            .compactMap { $0 }
+            .map{ "\($0.count)/20"}
+            .bind(to: diaryTitleTextField.rx.cntText)
             .disposed(by: disposeBag)
     }
 }

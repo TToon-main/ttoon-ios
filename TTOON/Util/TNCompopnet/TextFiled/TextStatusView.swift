@@ -23,8 +23,9 @@ class TextStatusView: BaseView {
     
     let textCntLabel = {
         let view = UILabel()
-        view.textColor = .errorRed
+        view.textColor = .grey05
         view.font = .body14r
+        view.textAlignment = .right
         
         return view
     }()
@@ -62,7 +63,7 @@ class TextStatusView: BaseView {
             $0.leading.equalTo(errorLabel.snp.trailing)
             $0.trailing.equalToSuperview()
             $0.centerY.equalToSuperview()
-            $0.width.lessThanOrEqualTo(36)
+            $0.width.lessThanOrEqualTo(60)
         }
     }
 }

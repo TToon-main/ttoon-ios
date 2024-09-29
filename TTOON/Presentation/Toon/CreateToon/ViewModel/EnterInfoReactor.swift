@@ -41,8 +41,7 @@ final class EnterInfoReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .textFieldDidChange(let text):
-            let validText = truncText(text: text)
-            return .just(.setTextFieldText(validText))
+            return .just(.setTextFieldText(text))
             
         case .selectCharactersButtonTap:
             return .just(.setSelectCharactersButtonTap)
@@ -84,10 +83,5 @@ final class EnterInfoReactor: Reactor {
         }
         
         return newState
-    }
-    
-    private func truncText(text: String) -> String? {
-        let maxLength = 200
-        return String(text.prefix(maxLength))
     }
 }

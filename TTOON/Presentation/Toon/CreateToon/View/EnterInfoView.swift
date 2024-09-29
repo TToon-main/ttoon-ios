@@ -18,23 +18,11 @@ class EnterInfoView: BaseView {
         return view
     }()
     
-    let selectCharactersView = {
-        let view = CreateToonSelectCharactersView()
-        
-        return view
-    }()
+    let selectCharactersView = CreateToonSelectCharactersView()
     
-    let divider01 = {
-        let view = CreateToonDivider()
-        
-        return view
-    }()
+    let divider01 = CreateToonDivider()
     
-    let enterDiaryTextView = {
-        let view = CreateToonDiaryView()
-        
-        return view
-    }()
+    let enterDiaryTextView = CreateToonDiaryView()
     
     let confirmButton = {
         let view = TNButton()
@@ -43,18 +31,41 @@ class EnterInfoView: BaseView {
         return view
     }()
     
-    override func layouts() {
-        flex.define { 
-            $0.addItem(enterInfoTitleLabel).marginTop(36).marginHorizontal(16)
-            $0.addItem(selectCharactersView).marginTop(48).marginHorizontal(16).height(94)
-            $0.addItem(divider01).marginTop(28).alignSelf(.center)
-            $0.addItem(enterDiaryTextView).marginTop(32).marginHorizontal(16).height(371)
-            $0.addItem(confirmButton).marginTop(47).marginHorizontal(16).height(52).marginBottom(36)
+    override func addSubViews() {
+        [enterInfoTitleLabel, selectCharactersView, divider01, enterDiaryTextView, confirmButton].forEach { v in
+            addSubview(v)
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        flex.layout()
+    override func layouts() {
+        enterInfoTitleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(36)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(68)
+        }
+        
+        selectCharactersView.snp.makeConstraints { make in
+            make.top.equalTo(enterInfoTitleLabel.snp.bottom).offset(48)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(94)
+        }
+        
+        divider01.snp.makeConstraints { make in
+            make.top.equalTo(selectCharactersView.snp.bottom).offset(28)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(12)
+        }
+        
+        enterDiaryTextView.snp.makeConstraints { make in
+            make.top.equalTo(divider01.snp.bottom).offset(32)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        confirmButton.snp.makeConstraints { make in
+            make.top.equalTo(enterDiaryTextView.snp.bottom).offset(18)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(52)
+            make.bottom.equalToSuperview().inset(36)
+        }
     }
 }
