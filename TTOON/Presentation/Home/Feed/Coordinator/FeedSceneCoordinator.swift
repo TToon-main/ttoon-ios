@@ -31,8 +31,8 @@ class FeedSceneCoordinator: FeedSceneCoordinatorProtocol {
     func start() {
         print("start FeedSceneCoordinator")
         // 일단 샘플로 selectStyle 넣어둠
-        let reactor = SelectStyleReactor()
-        let vc = SelectStyleViewController(reactor: reactor)
+        let reactor = EnterInfoReactor()
+        let vc = EnterInfoViewController(reactor: reactor)
         navigationController.pushViewController(vc, animated: true)
     }
     
