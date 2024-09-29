@@ -33,6 +33,8 @@ extension UIColor {
     
     // error
     static var errorRed = UIColor(hexString: "#FF6666")!
+    
+    static var bgGrey = UIColor(hexString: "#F5F6FA")!
 }
 
 extension UIColor {

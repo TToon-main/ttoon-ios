@@ -7,25 +7,59 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+import SnapKit
+
 class CreateToonBaseViewController: BaseViewController {
-    let progressBar = {
+    // MARK: - Properties
+    
+    lazy var orangeProgressDefaultWidth = width - 36
+    var orangeProgressWidthConstraint: Constraint?
+    
+    // MARK: - UI Properties
+    
+    let orangeProgressBar = {
         let view = UIProgressView()
-        view.progress = 0.5
+        view.progress = 1.0
         view.progressTintColor = .tnOrange
         
         return view
     }()
     
+    let greyProgressBar = {
+        let view = UIProgressView()
+        view.progress = 1.0
+        view.progressTintColor = .bgGrey
+        
+        return view
+    }()
+    
+    lazy var progressContainer = {
+        let view = UIStackView()
+        view.addArrangedSubview(orangeProgressBar)
+        view.addArrangedSubview(greyProgressBar)
+        view.spacing = 4
+        
+        return view
+    }()
+    
+    // MARK: - Configurations
+    
     override func addSubViews() {
         super.addSubViews()
-        view.addSubview(progressBar)
+        view.addSubview(progressContainer)
     }
     
     override func layouts() {
-        progressBar.snp.makeConstraints {
+        progressContainer.snp.makeConstraints {
             $0.top.equalTo(safeGuide)
-            $0.horizontalEdges.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview().inset(16)
             $0.height.equalTo(4)
+        }
+        
+        orangeProgressBar.snp.makeConstraints {
+            orangeProgressWidthConstraint = $0.width.equalTo(10).constraint
         }
     }
     
@@ -33,5 +67,15 @@ class CreateToonBaseViewController: BaseViewController {
         self.navigationItem.title = title
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = UIColor.black
+    }
+}
+
+extension Reactive where Base: CreateToonBaseViewController {
+    var currentProgress: Binder<Float> {
+        return Binder(base) { vc, progress in
+            let width = vc.orangeProgressDefaultWidth * CGFloat(progress)
+            vc.orangeProgressWidthConstraint?.update(offset: width)
+            vc.view.layoutIfNeeded()
+        }
     }
 }

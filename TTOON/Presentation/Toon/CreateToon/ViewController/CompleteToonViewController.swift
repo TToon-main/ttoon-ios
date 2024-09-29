@@ -38,7 +38,7 @@ class CompleteToonViewController: CreateToonBaseViewController {
         view.addSubview(completeToonScrollView)
         
         completeToonScrollView.snp.makeConstraints { 
-            $0.top.equalTo(progressBar.snp.bottom)
+            $0.top.equalTo(progressContainer.snp.bottom)
             $0.bottom.horizontalEdges.equalToSuperview()
         }
     }
