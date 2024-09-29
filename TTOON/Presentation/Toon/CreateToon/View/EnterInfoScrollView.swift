@@ -45,8 +45,11 @@ class EnterInfoScrollView: BaseView {
 
 extension Reactive where Base: EnterInfoScrollView {
     var textFieldDidChange: Observable<EnterInfoReactor.Action> {
-        return base.enterInfoView.enterDiaryTextView.diaryInputTextView.rx.text
+        let diaryInputTextView = base.enterInfoView.enterDiaryTextView.diaryInputTextView
+        
+        return diaryInputTextView.rx.text
             .compactMap { $0 }
+            .filter { $0 != diaryInputTextView.placeholderText }
             .distinctUntilChanged()
             .map { EnterInfoReactor.Action.textFieldDidChange($0)}
     }
