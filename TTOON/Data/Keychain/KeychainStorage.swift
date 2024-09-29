@@ -11,6 +11,7 @@ import SwiftKeychainWrapper
 private struct KeychainTokens {
     static let accessTokenKey: String = "TToon.AccessToken.Key"
     static let refreshTokenKey: String = "TToon.RefreshToken.Key"
+    static let isAlarmEnabledKey: String = "TToon.isAlarmEnabledKey.Key"
 }
 
 final class KeychainStorage {
@@ -40,6 +41,15 @@ final class KeychainStorage {
             } else {
                 KeychainWrapper.standard.removeObject(forKey: KeychainTokens.refreshTokenKey)
             }
+        }
+    }
+    
+    var isAlarmEnabled: Bool {
+        get {
+            KeychainWrapper.standard.bool(forKey: KeychainTokens.isAlarmEnabledKey) ?? false
+        }
+        set {
+            KeychainWrapper.standard.set(newValue, forKey: KeychainTokens.isAlarmEnabledKey)
         }
     }
     
