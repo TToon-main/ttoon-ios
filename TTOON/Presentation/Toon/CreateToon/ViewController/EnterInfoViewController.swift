@@ -97,6 +97,11 @@ extension EnterInfoViewController: View {
             .compactMap{ $0 }
             .bind(onNext: presentModifyCharacterVC)
             .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.currentProgress }
+            .distinctUntilChanged()
+            .bind(to: rx.currentProgress)
+            .disposed(by: disposeBag)
     }
     
     private func presentCreateLoadingVC() {

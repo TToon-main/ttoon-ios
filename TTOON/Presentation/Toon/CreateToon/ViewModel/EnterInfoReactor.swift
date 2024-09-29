@@ -8,7 +8,27 @@
 import ReactorKit
 import RxSwift
 
-final class EnterInfoReactor: Reactor {    
+final class EnterInfoReactor: Reactor {
+    struct CurrentProgress {
+        var isSelectedCharacter: Bool
+        var isTitleEntered: Bool
+        var isDairyEntered: Bool
+        
+        func value() -> Float {
+            let items = [isSelectedCharacter, isTitleEntered, isDairyEntered]
+            let value = Float(items.filter({ $0 }).count) / Float(items.count)
+            return max(value, 0.05)
+        }
+        
+        init() {
+            self.isSelectedCharacter = false
+            self.isTitleEntered = false
+            self.isDairyEntered = false
+        }
+    }
+
+    var progress = CurrentProgress()
+    
     // 뷰에서 입력받은 유저 이벤트
     enum Action {
         case viewLifeCycle(ViewLifeCycle)
@@ -22,6 +42,7 @@ final class EnterInfoReactor: Reactor {
     enum Mutation {
         case setViewLifeCycle(ViewLifeCycle)
         case setTextFieldText(String?)
+        case setProgressBar(CurrentProgress)
         case setSelectCharactersButtonTap
         case setPresentModifyCharacterVC
         case setConfirmButtonTap
@@ -33,6 +54,7 @@ final class EnterInfoReactor: Reactor {
         var presentCharacterPickerBS: Void? = nil
         var presentModifyCharacterVC: Void? = nil 
         var presentCreateLoadingVC: Void? = nil
+        var currentProgress: Float = 0.05
     }
     
     // 전달할 상태의 초기값
@@ -41,7 +63,11 @@ final class EnterInfoReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .textFieldDidChange(let text):
-            return .just(.setTextFieldText(text))
+            progress.isDairyEntered = !text.isEmpty
+            
+            return .concat(.just(.setTextFieldText(text)),
+                           .just(.setProgressBar(progress))
+            )
             
         case .selectCharactersButtonTap:
             return .just(.setSelectCharactersButtonTap)
@@ -58,30 +84,41 @@ final class EnterInfoReactor: Reactor {
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
-        var newState = state
-        
         switch mutation {
         case .setViewLifeCycle(let cycle):
+            var new = state
             if cycle == .viewWillAppear {
-                newState.presentCreateLoadingVC = nil
-                newState.presentModifyCharacterVC = nil
-                newState.presentCharacterPickerBS = nil   
+                new.presentCreateLoadingVC = nil
+                new.presentModifyCharacterVC = nil
+                new.presentCharacterPickerBS = nil
             }
+            return new
             
+        case .setProgressBar(let progress):
+            var new = state
+            new.currentProgress = progress.value()
+            return new
+
         case .setTextFieldText(let text):
-            newState.validTextFieldText = text
-            
+            var new = state
+            new.validTextFieldText = text
+            return new
+
         case .setSelectCharactersButtonTap:
-            newState.presentCharacterPickerBS = ()
-            
+            var new = state
+            new.presentCharacterPickerBS = ()
+            return new
+
         case .setPresentModifyCharacterVC:
-            newState.presentCharacterPickerBS = nil
-            newState.presentModifyCharacterVC = ()
+            var new = state
+            new.presentCharacterPickerBS = nil
+            new.presentModifyCharacterVC = ()
+            return new
             
         case .setConfirmButtonTap:
-            newState.presentCreateLoadingVC = ()
+            var new = state
+            new.presentCreateLoadingVC = ()
+            return new
         }
-        
-        return newState
     }
 }

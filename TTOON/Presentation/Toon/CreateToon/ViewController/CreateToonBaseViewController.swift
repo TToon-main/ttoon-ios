@@ -73,9 +73,11 @@ class CreateToonBaseViewController: BaseViewController {
 extension Reactive where Base: CreateToonBaseViewController {
     var currentProgress: Binder<Float> {
         return Binder(base) { vc, progress in
-            let width = vc.orangeProgressDefaultWidth * CGFloat(progress)
-            vc.orangeProgressWidthConstraint?.update(offset: width)
-            vc.view.layoutIfNeeded()
+            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
+                let width = vc.orangeProgressDefaultWidth * CGFloat(progress)
+                vc.orangeProgressWidthConstraint?.update(offset: width)
+                vc.view.layoutIfNeeded()
+            }
         }
     }
 }
