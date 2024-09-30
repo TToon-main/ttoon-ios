@@ -78,6 +78,7 @@
 		489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C82BC00FA40033B61D /* BaseCollectionViewCell.swift */; };
 		489FE2CE2BC010EB0033B61D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2CD2BC010EB0033B61D /* Coordinator.swift */; };
 		489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2CF2BC011670033B61D /* AppCoordinator.swift */; };
+		48B0F00F2CAAD90800BEC874 /* MakeImageViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B0F00E2CAAD90800BEC874 /* MakeImageViewManager.swift */; };
 		48BA62B32CA1AFAD0012C334 /* HomeCalendarUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA62B22CA1AFAD0012C334 /* HomeCalendarUseCase.swift */; };
 		48BA62B62CA43F680012C334 /* FeedDetailMenuBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA62B52CA43F680012C334 /* FeedDetailMenuBottomSheetView.swift */; };
 		48BA62B82CA444860012C334 /* FeedDetailMenuBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA62B72CA444860012C334 /* FeedDetailMenuBottomSheetViewController.swift */; };
@@ -377,6 +378,7 @@
 		489FE2C82BC00FA40033B61D /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		489FE2CD2BC010EB0033B61D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		489FE2CF2BC011670033B61D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		48B0F00E2CAAD90800BEC874 /* MakeImageViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeImageViewManager.swift; sourceTree = "<group>"; };
 		48BA62B22CA1AFAD0012C334 /* HomeCalendarUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalendarUseCase.swift; sourceTree = "<group>"; };
 		48BA62B52CA43F680012C334 /* FeedDetailMenuBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailMenuBottomSheetView.swift; sourceTree = "<group>"; };
 		48BA62B72CA444860012C334 /* FeedDetailMenuBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailMenuBottomSheetViewController.swift; sourceTree = "<group>"; };
@@ -875,6 +877,7 @@
 			isa = PBXGroup;
 			children = (
 				483C534E2C987A8E0056C1FD /* ValidationManager.swift */,
+				48B0F00E2CAAD90800BEC874 /* MakeImageViewManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -2425,6 +2428,7 @@
 				BE9C9BF02C6898C2000AAF0E /* APIProvider.swift in Sources */,
 				BE32E3192BEBBD1300F0C193 /* TNAlertButton.swift in Sources */,
 				BE6011732BEF348500F8FCEA /* TNAlertViewController.swift in Sources */,
+				48B0F00F2CAAD90800BEC874 /* MakeImageViewManager.swift in Sources */,
 				BE8884172C567227003EC2A3 /* CharacterEditType.swift in Sources */,
 				BEE8BCCE2C71FFF5003800E0 /* SelectYearMonthBottomSheetView.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
@@ -2897,11 +2901,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2S9WHYP486;
+				DEVELOPMENT_TEAM = 2S9WHYP486;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
@@ -2919,7 +2921,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.TTOON.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TToon Service - DEV";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

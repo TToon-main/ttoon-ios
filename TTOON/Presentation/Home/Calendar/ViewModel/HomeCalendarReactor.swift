@@ -40,8 +40,8 @@ class HomeCalendarReactor: Reactor {
         
 
         // 툰 디테일 메뉴 버튼
-        case saveTToonImage
-        case shareTToonImage
+        case saveTToonImage(SaveImageType)
+        case shareTToonImage(SaveImageType)
         case deleteTToon
     }
     
@@ -119,12 +119,31 @@ class HomeCalendarReactor: Reactor {
             ])
             
         // 툰 디테일 메뉴 버튼
-        case .saveTToonImage:
-            print("save button")
+        case .saveTToonImage(let type):
+            
+            if let model = currentState.currentFeedDetail {
+                print("save button : \(type)")
+                
+                MakeImageViewManager.shared.saveImage(
+                    imageUrls: model.imageList,
+                    type: type
+                )
+            }
+   
             return .just(.pass)
             
-        case .shareTToonImage:
-            print("share button")
+        case .shareTToonImage(let type):
+            
+            if let model = currentState.currentFeedDetail {
+                print("share button : \(type)")
+                
+                MakeImageViewManager.shared.shareImage(
+                    imageUrls: model.imageList,
+                    type: type
+                )
+            }
+            
+            
             return .just(.pass)
             
         case .deleteTToon:
@@ -162,4 +181,9 @@ extension HomeCalendarReactor {
     enum Event {
         case showFriendListView
     }
+}
+
+enum SaveImageType {
+    case onePage    // 한 장에 4개
+    case fourPage   // 4장 저장
 }

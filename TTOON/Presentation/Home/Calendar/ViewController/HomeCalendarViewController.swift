@@ -239,20 +239,46 @@ extension HomeCalendarViewController {
         }
         
         if let reactor = self.reactor {
+            // 저장하기
             vc.menuView.firstButton.rx.tap
-                .map {
-                    HomeCalendarReactor.Action.saveTToonImage
+                .subscribe(with: self) { owner, _ in
+                    vc.dismiss(animated: true) {
+                        TNAlert(owner)
+                            .setTitle("만화를 어떻게 저장하시겠어요?\n")
+                            .addCancelAction("네 컷을 따로") {
+                                owner.reactor?.action.onNext(.saveTToonImage(.fourPage))
+                                print("네 컷")
+                            }
+                            .addConfirmAction("한 장으로") {
+                                owner.reactor?.action.onNext(.saveTToonImage(.onePage))
+                                print("한 장")
+                            }
+                            .present()
+                    }
                 }
-                .bind(to: reactor.action)
                 .disposed(by: disposeBag)
             
+            
+            // 공유하기
             vc.menuView.secondButton.rx.tap
-                .map {
-                    HomeCalendarReactor.Action.shareTToonImage
+                .subscribe(with: self) { owner, _ in
+                    vc.dismiss(animated: true) {
+                        TNAlert(owner)
+                            .setTitle("만화를 어떻게 공유하시겠어요?")
+                            .addCancelAction("네 컷을 따로") {
+                                owner.reactor?.action.onNext(.shareTToonImage(.fourPage))
+                                print("네 컷")
+                            }
+                            .addConfirmAction("한 장으로") {
+                                owner.reactor?.action.onNext(.shareTToonImage(.onePage))
+                                print("한 장")
+                            }
+                            .present()
+                    }
                 }
-                .bind(to: reactor.action)
                 .disposed(by: disposeBag)
             
+            // 삭제하기
             vc.menuView.thirdButton.rx.tap
                 .map {
                     HomeCalendarReactor.Action.deleteTToon

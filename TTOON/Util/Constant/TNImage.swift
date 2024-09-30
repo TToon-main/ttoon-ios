@@ -41,8 +41,12 @@ struct TNImage {
     static var userIcon = UIImage(named: "userIcon")
     
     
+    // Home
+    static var waterMark = UIImage(named: "ImageWatermark")
+    
     // Calendar
     static var noFeedDataView = UIImage(named: "NoFeedData")
+    static var feedMenuButton = UIImage(named: "feedMenuButton")
     // Attendance 
     static var monOffIcon = UIImage(named: "Mon_off")
     static var monOnIcon = UIImage(named: "Mon_on")

@@ -18,7 +18,7 @@ class BottomDiaryView: BaseView {
     let chevronRightImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
-        view.image = UIImage(systemName: "chevron.right")
+        view.image = TNImage.feedMenuButton
         view.tintColor = .black
         return view
     }()
@@ -88,8 +88,8 @@ class BottomDiaryView: BaseView {
         }
         
         chevronRightImageView.snp.makeConstraints { make in
-            make.height.equalTo(7)
-            make.trailing.equalTo(self).inset(26)
+            make.size.equalTo(24)
+            make.trailing.equalTo(self).inset(16)
             make.centerY.equalTo(dateTitleLabel)
         }
         
