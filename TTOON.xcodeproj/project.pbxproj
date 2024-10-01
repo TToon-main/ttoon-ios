@@ -64,6 +64,7 @@
 		483C53642C987CE00056C1FD /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C53632C987CE00056C1FD /* UITextField+.swift */; };
 		483C53662C987CE60056C1FD /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C53652C987CE60056C1FD /* UIImageView+.swift */; };
 		483C53692C992DC80056C1FD /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 483C53682C992DC80056C1FD /* SkeletonView */; };
+		48563B7C2CABA883008E308D /* TestMakeTToonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48563B7B2CABA883008E308D /* TestMakeTToonManager.swift */; };
 		486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */; };
 		486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */; };
 		489ADEED2BF8E72700B070B7 /* SettingTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */; };
@@ -364,6 +365,7 @@
 		483C535F2C987B850056C1FD /* TextStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStatusView.swift; sourceTree = "<group>"; };
 		483C53632C987CE00056C1FD /* UITextField+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		483C53652C987CE60056C1FD /* UIImageView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		48563B7B2CABA883008E308D /* TestMakeTToonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMakeTToonManager.swift; sourceTree = "<group>"; };
 		486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTitleLabel.swift; sourceTree = "<group>"; };
@@ -878,6 +880,7 @@
 			children = (
 				483C534E2C987A8E0056C1FD /* ValidationManager.swift */,
 				48B0F00E2CAAD90800BEC874 /* MakeImageViewManager.swift */,
+				48563B7B2CABA883008E308D /* TestMakeTToonManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -2490,6 +2493,7 @@
 				BE9C9AF52C688CAF000AAF0E /* EnterInfoScrollView.swift in Sources */,
 				BE9C9BBE2C68989F000AAF0E /* SettingModel.swift in Sources */,
 				489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */,
+				48563B7C2CABA883008E308D /* TestMakeTToonManager.swift in Sources */,
 				BE3418EB2BF0B18200E17CC5 /* TNSheetViewController.swift in Sources */,
 				BEA6BFDD2C8DEDF3001F07E7 /* SetNickNameRepository.swift in Sources */,
 				BE97FB8D2C68A2D60094D754 /* TabbarViewController.swift in Sources */,

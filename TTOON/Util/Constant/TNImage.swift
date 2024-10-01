@@ -43,6 +43,7 @@ struct TNImage {
     
     // Home
     static var waterMark = UIImage(named: "ImageWatermark")
+    static var homePlusButton = UIImage(named: "homePlusButton")
     
     // Calendar
     static var noFeedDataView = UIImage(named: "NoFeedData")

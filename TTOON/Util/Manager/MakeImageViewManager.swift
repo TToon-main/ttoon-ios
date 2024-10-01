@@ -105,25 +105,23 @@ class MakeImageViewManager {
         
         switch type {
         case .onePage:
-            // 크기는 전부 동일
-            fourImageViews.forEach {
-                $0.snp.makeConstraints { $0.size.equalTo(154) }
-            }
-            
             fourImageViews[0].snp.makeConstraints { make in
                 make.leading.top.equalTo(baseView).inset(8)
                 make.size.equalTo(154)
             }
             fourImageViews[1].snp.makeConstraints { make in
                 make.trailing.top.equalTo(baseView).inset(8)
+                make.size.equalTo(154)
             }
             fourImageViews[2].snp.makeConstraints { make in
                 make.leading.equalTo(baseView).inset(8)
                 make.top.equalTo(fourImageViews[0].snp.bottom).offset(4)
+                make.size.equalTo(154)
             }
             fourImageViews[3].snp.makeConstraints { make in
                 make.trailing.equalTo(baseView).inset(8)
                 make.top.equalTo(fourImageViews[1].snp.bottom).offset(4)
+                make.size.equalTo(154)
             }
             waterMark.snp.makeConstraints { make in
                 make.top.equalTo(fourImageViews[3].snp.bottom).offset(12)

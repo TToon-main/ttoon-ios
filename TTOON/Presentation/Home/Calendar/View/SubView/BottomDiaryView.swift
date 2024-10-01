@@ -96,8 +96,7 @@ class BottomDiaryView: BaseView {
         clearButton.snp.makeConstraints { make in
             make.edges.equalTo(chevronRightImageView).inset(-20)
         }
-        clearButton.backgroundColor = .red.withAlphaComponent(0.5)
-        
+
         diaryTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(dateTitleLabel.snp.bottom).offset(11)
             make.horizontalEdges.equalTo(self).inset(16)
@@ -164,7 +163,7 @@ extension BottomDiaryView {
         diaryTitleLabel.text = model.title
         
         diaryContentLabel.text = model.content
-        
+
         diaryImageSwipeCollectionView.reloadData()
     }
 }

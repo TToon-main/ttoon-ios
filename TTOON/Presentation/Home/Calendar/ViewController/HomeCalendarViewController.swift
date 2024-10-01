@@ -62,18 +62,26 @@ extension HomeCalendarViewController {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        // 연월 변경 버튼 클릭 - 따로 reactor에 bind 없이 바텀 시트 띄우는 로직
+        // 연월 변경 버튼 클릭 - 따로 reactor에 bind 없이 바텀 시트 띄우는 로직 (바텀시트 VC에 reactor 전달)
         mainView.calendarView.selectYearMonthView.clearButton.rx.tap
             .subscribe(with: self) { owner, _ in
                 owner.presentSelectYearMonthBottomSheetVC()
             }
             .disposed(by: disposeBag)
         
-        // 피드 상세 메뉴 버튼 클릭 - 따로 reactor에 bind 없이 바텀 시트 띄우는 로직
+        // 피드 상세 메뉴 버튼 클릭 - 따로 reactor에 bind 없이 바텀 시트 띄우는 로직 (여긴 바텀시트 VC에 reactor 전달 x)
         mainView.bottomDiaryView.clearButton.rx.tap
             .subscribe(with: self) { owner, _ in
                 owner.presentFeedDetailMenuBottomSheetVC()
             }
+            .disposed(by: disposeBag)
+        
+        // 추가 버튼 클릭 -> 생성 페이지 이동
+        mainView.plusButton.rx.tap
+            .map {
+                return HomeCalendarReactor.Action.plusButtonTapped
+            }
+            .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }
     
@@ -101,6 +109,17 @@ extension HomeCalendarViewController {
             .subscribe(with: self) { owner, list in
                 // list를 가공해서 캘린더 셀에 띄워줘야 함.
                 self.mainView.calendarView.calendar.reloadData()
+            }
+            .disposed(by: disposeBag)
+        
+        // load Data Again (after delete feed)
+        reactor.state.map { $0.loadDataAgain }
+            .distinctUntilChanged()
+            .subscribe(with: self) { owner, _ in
+                let curDate = reactor.currentState.currentDate
+                let curYearMonth = reactor.currentState.currentYearMonth
+                reactor.action.onNext(.loadFeedDetail(curDate))
+                reactor.action.onNext(.loadCalendarThumbnails(curYearMonth))
             }
             .disposed(by: disposeBag)
     }
@@ -150,7 +169,6 @@ extension HomeCalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
             print("등록 : \(date)")
             cell.selectedBorderBackgroundView.isHidden = false
         }
-        
         
         // 새로운 피드 네트워크 콜
         self.reactor?.action.onNext(.loadFeedDetail(date))
@@ -293,6 +311,7 @@ extension HomeCalendarViewController {
     
     // 화면 진입 시 필요한 데이터 로드
     private func loadInitialData() {
+        print(#function)
         let initialDate = Date()
         
         self.reactor?.action.onNext(.loadCalendarThumbnails(initialDate.toString(of: .yearMonthKorean)))

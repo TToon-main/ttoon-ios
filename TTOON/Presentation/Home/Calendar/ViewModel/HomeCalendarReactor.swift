@@ -21,19 +21,10 @@ class HomeCalendarReactor: Reactor {
         case friendListButtonTapped  // 친구 추가하기 아이콘 클릭 => 화면 전환
         
         case loadFeedDetail(Date)   // bottom View에 일기 상세 정보 로드
-        // Input
-        // - 맨 처음
-        // - 셀 클릭했을 때
-        // - 연월 변경했을 때
-        // Output
         // - currentDate 변경
         // - 네트워크 통신
         
         case loadCalendarThumbnails(String)
-        // Input
-        // - 맨 처음
-        // - 연월 변경했을 때
-        // - 맨 처음. 오늘 날짜로 로드
         // Output
         // - currentYearMonth 변경
         // - 네트워크 통신
@@ -43,29 +34,37 @@ class HomeCalendarReactor: Reactor {
         case saveTToonImage(SaveImageType)
         case shareTToonImage(SaveImageType)
         case deleteTToon
+        
+        
+        // 웹툰 생성 페이지 이동 버튼
+        case plusButtonTapped
     }
     
     enum Mutation {
-        case pass   // 친구 추가하기 버튼의 경우, 추가적으로 처리할 일은 없다.
         case setCurrentDate(Date)
         case setCurrentYearMonth(String)
         
         case setCurrentCalendarThumbnails([FeedThumbnailModel])
         case setCurrentFeedDetail(FeedModel?)   // nil이면 기본 이미지를 보여준다.
+        
+        case setLoadDataAgain   // 피드 삭제 후, 다시 데이터를 로드하라는 의미
+        
+        case pass
     }
     
     struct State {
         var currentDate: Date = Date()           // 캘린더 셀에서 선택된 날짜
-        var currentYearMonth: String = ""    // 연월 선택에서 선택된 연월 DateFormat : .yearMonthKorean ("yyyy년 M월")
+        var currentYearMonth: String = Date().toString(of: .yearMonthKorean)    // 연월 선택에서 선택된 연월 DateFormat : .yearMonthKorean ("yyyy년 M월")
         
         var currentThumbnails: [FeedThumbnailModel] = [] // 캘린더 썸네일 배열
         var currentFeedDetail: FeedModel?   // 데이터가 없으면 nil 저장
+        
+        var loadDataAgain: Bool = false     // "삭제하기"가 끝나면 다시 데이터를 로드하게 하기 위한 변수
     }
     
     
     let initialState = State()
     private let disposeBag = DisposeBag()
-    
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
@@ -77,8 +76,6 @@ class HomeCalendarReactor: Reactor {
             // Network
             // - feedDetail
             return .concat([
-                .just(.setCurrentDate(date)),
-
                 homeCalendarUseCase.getFeedDetail(date.toString(of: .fullWithHyphen))
                     .asObservable()
                     .map { result in
@@ -90,7 +87,8 @@ class HomeCalendarReactor: Reactor {
                             // 데이터가 없거나, 네트워크 에러이면 NoDataView (일단)
                             return .setCurrentFeedDetail(nil)
                         }
-                    }
+                    },
+                .just(.setCurrentDate(date))
             ])
             
         case .loadCalendarThumbnails(let yearMonth):
@@ -100,18 +98,15 @@ class HomeCalendarReactor: Reactor {
             // 주의. 여기서 feedDetail을 로드하진 않는다.
             // 연월 바꾸는 곳에서, 0월 1일 형식으로 loadFeedDetail도 콜 때림
             // 즉, 여기서 CurrentDate를 건들지 않고, 무조건 썸네일 배열만 관리
-            
             return .concat([
                 homeCalendarUseCase.getCalendarThumbnails(yearMonth.toDate(to: .yearMonthKorean)!.toString(of: .yearMonthWithHyphen))
                     .asObservable()
                     .map { result in
                         switch result {
                         case .success(let newList):
-//                            print("new List : \(newList)")
                             return .setCurrentCalendarThumbnails(newList)
                             
                         case .failure(let error):
-                            print("Thumbnail load 에러 : \(error)")
                             return .pass
                         }
                     },
@@ -119,35 +114,41 @@ class HomeCalendarReactor: Reactor {
             ])
             
         // 툰 디테일 메뉴 버튼
-        case .saveTToonImage(let type):
-            
+        case .saveTToonImage(let type): // 이미지 저장
             if let model = currentState.currentFeedDetail {
-                print("save button : \(type)")
-                
                 MakeImageViewManager.shared.saveImage(
                     imageUrls: model.imageList,
                     type: type
                 )
             }
-   
             return .just(.pass)
             
-        case .shareTToonImage(let type):
-            
+        case .shareTToonImage(let type):    // 이미지 공유
             if let model = currentState.currentFeedDetail {
-                print("share button : \(type)")
-                
                 MakeImageViewManager.shared.shareImage(
                     imageUrls: model.imageList,
                     type: type
                 )
             }
-            
-            
             return .just(.pass)
             
         case .deleteTToon:
-            print("delete button")
+            guard let curFeedId = currentState.currentFeedDetail?.id else { return .just(.pass) }
+            
+            return homeCalendarUseCase.deleteFeed(curFeedId)
+                .asObservable()
+                .map { result in
+                    switch result {
+                    case .success(let value):
+                        if value { return .setLoadDataAgain }
+                        else { return .pass }
+
+                    case .failure(let error):
+                        return .pass
+                    }
+                }
+            
+        case .plusButtonTapped:
             return .just(.pass)
         }
     }
@@ -170,6 +171,10 @@ class HomeCalendarReactor: Reactor {
             
         case .setCurrentCalendarThumbnails(let newList):
             newState.currentThumbnails = newList
+            
+        case .setLoadDataAgain:
+            let curValue = currentState.loadDataAgain
+            newState.loadDataAgain = !curValue
         }
         
         return newState

@@ -12,6 +12,7 @@ import RxSwift
 protocol HomeCalendarRepositoryProtocol {
     func getCalendarThumbnails(_ yearMonth: String) -> Single<Result<[FeedThumbnailModel], Error>>
     func getFeedDetail(_ date: String) -> Single<Result<FeedModel, Error>>
+    func deleteFeed(_ feedId: Int) -> Single<Result<Bool, Error>>
 }
 
 class HomeCalendarRepository: NSObject, HomeCalendarRepositoryProtocol {
@@ -72,6 +73,25 @@ class HomeCalendarRepository: NSObject, HomeCalendarRepositoryProtocol {
                 case .failure(let moyaError):
                     // 실패
                     single(.success(.failure(moyaError)))
+                }
+            }
+            return Disposables.create()
+        }
+    }
+    
+    func deleteFeed(_ feedId: Int) -> Single<Result<Bool, Error>> {
+        return Single<Result<Bool, Error>>.create { single in
+            let request = self.provider.log.request(.deleteFeed(feedId: feedId)) { result in
+                switch result {
+                case .success(let response):
+                    if let data = try? response.map(ResponseDTO<Bool>.self),
+                       data.isSuccess {
+                        single(.success(.success(true)))
+                    }
+                    single(.success(.failure(SampleError(rawValue: response.statusCode)!)))
+                    
+                case .failure(let error):
+                    single(.success(.failure(error)))
                 }
             }
             return Disposables.create()

@@ -20,6 +20,12 @@ class HomeCalendarView: BaseView {
     let bottomDiaryView = BottomDiaryView()
     let bottomDiaryEmptyView = BottomDiaryEmptyView()
     
+    let plusButton = {
+        let view = UIButton()
+        view.setImage(TNImage.homePlusButton, for: .normal)
+        return view
+    }()
+    
     
     // MARK: - UI Layout
     override func addSubViews() {
@@ -28,7 +34,7 @@ class HomeCalendarView: BaseView {
         self.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
-        [calendarView, bottomDiaryView, bottomDiaryEmptyView].forEach { item in
+        [calendarView, bottomDiaryView, bottomDiaryEmptyView, plusButton].forEach { item in
             contentView.addSubview(item)
         }
     }
@@ -63,6 +69,12 @@ class HomeCalendarView: BaseView {
             make.top.equalTo(calendarView.snp.bottom)
             make.horizontalEdges.equalTo(contentView)
             make.bottom.equalTo(contentView)
+        }
+        
+        plusButton.snp.makeConstraints { make in
+            make.size.equalTo(60)
+            make.trailing.equalTo(self).inset(16)
+            make.bottom.equalTo(self).inset(111)
         }
     }
     
