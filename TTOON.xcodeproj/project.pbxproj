@@ -128,6 +128,12 @@
 		BE36CFB12BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */; };
 		BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */; };
 		BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47BF572BF4A6DE0048F707 /* TNBottomSheet.swift */; };
+		BE56F9502CB10982005A039F /* ToonRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F94F2CB10982005A039F /* ToonRepositoryProtocol.swift */; };
+		BE56F9542CB109A1005A039F /* ToonUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F9532CB109A1005A039F /* ToonUseCase.swift */; };
+		BE56F9572CB109CE005A039F /* ToonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F9562CB109CE005A039F /* ToonRepository.swift */; };
+		BE56F95A2CB109E4005A039F /* ToonRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F9592CB109E4005A039F /* ToonRequestDTO.swift */; };
+		BE56F95C2CB109EE005A039F /* ToonResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F95B2CB109EE005A039F /* ToonResponseDTO.swift */; };
+		BE56F95F2CB10A04005A039F /* ToonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F95E2CB10A04005A039F /* ToonAPI.swift */; };
 		BE5758F02BFB1C3100EC4545 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758EF2BFB1C3100EC4545 /* UILabel+.swift */; };
 		BE5D9C5E2CA7F94200B0408D /* Single+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D9C5D2CA7F94200B0408D /* Single+.swift */; };
 		BE5D9C602CA7F96300B0408D /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D9C5F2CA7F96300B0408D /* CommonError.swift */; };
@@ -470,6 +476,12 @@
 		BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTOONUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNImage.swift; sourceTree = "<group>"; };
 		BE47BF572BF4A6DE0048F707 /* TNBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNBottomSheet.swift; sourceTree = "<group>"; };
+		BE56F94F2CB10982005A039F /* ToonRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonRepositoryProtocol.swift; sourceTree = "<group>"; };
+		BE56F9532CB109A1005A039F /* ToonUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonUseCase.swift; sourceTree = "<group>"; };
+		BE56F9562CB109CE005A039F /* ToonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonRepository.swift; sourceTree = "<group>"; };
+		BE56F9592CB109E4005A039F /* ToonRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonRequestDTO.swift; sourceTree = "<group>"; };
+		BE56F95B2CB109EE005A039F /* ToonResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonResponseDTO.swift; sourceTree = "<group>"; };
+		BE56F95E2CB10A04005A039F /* ToonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonAPI.swift; sourceTree = "<group>"; };
 		BE5758EF2BFB1C3100EC4545 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		BE5D9C5D2CA7F94200B0408D /* Single+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+.swift"; sourceTree = "<group>"; };
 		BE5D9C5F2CA7F96300B0408D /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
@@ -1374,6 +1386,47 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		BE56F94E2CB10968005A039F /* Toon */ = {
+			isa = PBXGroup;
+			children = (
+				BE56F94F2CB10982005A039F /* ToonRepositoryProtocol.swift */,
+			);
+			path = Toon;
+			sourceTree = "<group>";
+		};
+		BE56F9512CB1098F005A039F /* Toon */ = {
+			isa = PBXGroup;
+			children = (
+				BE56F9532CB109A1005A039F /* ToonUseCase.swift */,
+			);
+			path = Toon;
+			sourceTree = "<group>";
+		};
+		BE56F9552CB109C7005A039F /* Toon */ = {
+			isa = PBXGroup;
+			children = (
+				BE56F9562CB109CE005A039F /* ToonRepository.swift */,
+			);
+			path = Toon;
+			sourceTree = "<group>";
+		};
+		BE56F9582CB109DA005A039F /* Toon */ = {
+			isa = PBXGroup;
+			children = (
+				BE56F9592CB109E4005A039F /* ToonRequestDTO.swift */,
+				BE56F95B2CB109EE005A039F /* ToonResponseDTO.swift */,
+			);
+			path = Toon;
+			sourceTree = "<group>";
+		};
+		BE56F95D2CB109FB005A039F /* Toon */ = {
+			isa = PBXGroup;
+			children = (
+				BE56F95E2CB10A04005A039F /* ToonAPI.swift */,
+			);
+			path = Toon;
+			sourceTree = "<group>";
+		};
 		BE5758E12BF9F10C00EC4545 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1798,6 +1851,7 @@
 		BE9C9BB32C68989F000AAF0E /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				BE56F94E2CB10968005A039F /* Toon */,
 				BEC4C27A2CA053FB00D1BA12 /* Attendance */,
 				BE9C9BAF2C68989F000AAF0E /* Auth */,
 				BE9C9BB22C68989F000AAF0E /* Setting */,
@@ -1836,6 +1890,7 @@
 		BE9C9BBB2C68989F000AAF0E /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				BE56F9512CB1098F005A039F /* Toon */,
 				BEC4C27D2CA055E100D1BA12 /* Attendance */,
 				48BA62B12CA1AFA50012C334 /* Home */,
 				48BF84BB2C8D9B9500E84016 /* Friend */,
@@ -1875,6 +1930,7 @@
 		BE9C9BCD2C6898C2000AAF0E /* API */ = {
 			isa = PBXGroup;
 			children = (
+				BE56F95D2CB109FB005A039F /* Toon */,
 				BEC4C2712CA053BC00D1BA12 /* Attendance */,
 				4839AA132C7B14F300FF3250 /* Home */,
 				BE9C9BC92C6898C2000AAF0E /* Auth */,
@@ -1910,6 +1966,7 @@
 		BE9C9BD42C6898C2000AAF0E /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				BE56F9582CB109DA005A039F /* Toon */,
 				BEC4C2742CA053D100D1BA12 /* Attendance */,
 				48C0C3742CA1A23E00A2B6B9 /* CalendarFeed */,
 				48BF84AC2C8D85FC00E84016 /* Friend */,
@@ -1951,6 +2008,7 @@
 		BE9C9BDD2C6898C2000AAF0E /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				BE56F9552CB109C7005A039F /* Toon */,
 				BEC4C2772CA053E200D1BA12 /* Attendance */,
 				48C0C37A2CA1A59000A2B6B9 /* Home */,
 				48BF84AF2C8D896100E84016 /* Friend */,
@@ -2588,6 +2646,7 @@
 				48504F852CCBA4FE0038F1FE /* TNSheetCellVer2.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
 				480D39782C85FB97009C26DA /* ReceivedFriendRequestView.swift in Sources */,
+				BE56F9572CB109CE005A039F /* ToonRepository.swift in Sources */,
 				BEC4C2792CA053ED00D1BA12 /* AttendanceRepository.swift in Sources */,
 				48A17D512CB2598600A7074D /* UserDefaultsManager.swift in Sources */,
 				48A17D462CB24F0000A7074D /* HomeFeedView.swift in Sources */,
@@ -2646,6 +2705,7 @@
 				BE9C9BA12C68986F000AAF0E /* MyPageTableViewCell.swift in Sources */,
 				BEAB66D12C26AA12001B1B63 /* UICollectionView+.swift in Sources */,
 				480D39752C85E843009C26DA /* FriendListPopUpBottomSheetViewController.swift in Sources */,
+				BE56F95C2CB109EE005A039F /* ToonResponseDTO.swift in Sources */,
 				BEB270BB2C9EF85500BD150E /* TNPointContainer.swift in Sources */,
 				BE9C9B412C688D16000AAF0E /* CharacterPickerTableViewCell.swift in Sources */,
 				BE9C9AF52C688CAF000AAF0E /* EnterInfoScrollView.swift in Sources */,
@@ -2699,6 +2759,7 @@
 				BEA6BFD92C8DE8E9001F07E7 /* SetNickNameUseCase.swift in Sources */,
 				BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */,
 				BEC4C2732CA053CD00D1BA12 /* AttendanceAPI.swift in Sources */,
+				BE56F9502CB10982005A039F /* ToonRepositoryProtocol.swift in Sources */,
 				BEC4C27C2CA0541200D1BA12 /* AttendanceRepositoryProtocol.swift in Sources */,
 				489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */,
 				BE5D9C602CA7F96300B0408D /* CommonError.swift in Sources */,
@@ -2715,6 +2776,7 @@
 				BE9C9B982C68986F000AAF0E /* ContactUsReactor.swift in Sources */,
 				BE9C9B0A2C688CAF000AAF0E /* EnterInfoReactor.swift in Sources */,
 				BE9C9AF12C688CAF000AAF0E /* CompleteToonScrollView.swift in Sources */,
+				BE56F95F2CB10A04005A039F /* ToonAPI.swift in Sources */,
 				BE9C9BC32C68989F000AAF0E /* LoginUseCase.swift in Sources */,
 				BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */,
 				BE9C9BF32C6898C2000AAF0E /* LogPlugin.swift in Sources */,
@@ -2744,6 +2806,7 @@
 				BE9C9B422C688D16000AAF0E /* CreateToonCollectionView.swift in Sources */,
 				48FA111E2CB2A0EB008CDF69 /* HomeFeedUseCase.swift in Sources */,
 				BE9C9B432C688D16000AAF0E /* CreateToonCollectionViewCell.swift in Sources */,
+				BE56F9542CB109A1005A039F /* ToonUseCase.swift in Sources */,
 				BE0473682C551D8000484B96 /* UIButton+.swift in Sources */,
 				BE9C9BA62C68986F000AAF0E /* MyPageViewController.swift in Sources */,
 				BEE8BCCC2C71FFF5003800E0 /* BottomDiaryView.swift in Sources */,
@@ -2773,6 +2836,7 @@
 				BE9C9AEE2C688CAF000AAF0E /* CharacterEditorView.swift in Sources */,
 				BE9C9BE92C6898C2000AAF0E /* ResponseDTO.swift in Sources */,
 				483C53572C987B0D0056C1FD /* ProfileSetReactor.swift in Sources */,
+				BE56F95A2CB109E4005A039F /* ToonRequestDTO.swift in Sources */,
 				BE9C9BA22C68986F000AAF0E /* ProfileSummaryView.swift in Sources */,
 				BE9C9AF42C688CAF000AAF0E /* CreateResultView.swift in Sources */,
 				BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */,
