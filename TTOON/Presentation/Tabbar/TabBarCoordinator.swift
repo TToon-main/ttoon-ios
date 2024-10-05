@@ -205,10 +205,8 @@ class AttendanceSceneCoordinator: AttendanceSceneCoordinatorProtocol {
     
     // 5.
     func start() {
-        print("start AttendanceSceneCoordinator")
-        // 일단 샘플로 contactUs 넣어둠
-        let reactor = ContactUsReactor()
-        let vc = ContactUsViewController(contactUsReactor: reactor)
+        let reactor = AttendanceReactor()
+        let vc = AttendanceViewController(attendanceReactor: reactor)
         navigationController.pushViewController(vc, animated: true)
     }
     

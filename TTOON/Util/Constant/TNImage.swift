@@ -39,4 +39,20 @@ struct TNImage {
     static var splashError = UIImage(named: "splashError")
     static var splashLogo = UIImage(named: "splashLogo")
     static var userIcon = UIImage(named: "userIcon")
+    
+    // Attendance 
+    static var monOffIcon = UIImage(named: "Mon_off")
+    static var monOnIcon = UIImage(named: "Mon_on")
+    static var tueOffIcon = UIImage(named: "Tue_off")
+    static var tueOnIcon = UIImage(named: "Tue_on")
+    static var wedOffIcon = UIImage(named: "wed_off")
+    static var wedOnIcon = UIImage(named: "wed_on")
+    static var thuOffIcon = UIImage(named: "thu_off")
+    static var thuOnIcon = UIImage(named: "thu_on")
+    static var friOffIcon = UIImage(named: "fri_off")
+    static var friOnIcon = UIImage(named: "fri_on")
+    static var satOffIcon = UIImage(named: "sat_off")
+    static var satOnIcon = UIImage(named: "sat_on")
+    static var sunOffIcon = UIImage(named: "sun_off")
+    static var sunOnIcon = UIImage(named: "sun_on")
 }

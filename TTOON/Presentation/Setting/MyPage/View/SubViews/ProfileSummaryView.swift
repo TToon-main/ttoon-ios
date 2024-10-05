@@ -35,30 +35,8 @@ final class ProfileSummaryView: BaseView {
         return view
     }()
     
-    lazy var pointImageView = {
-        let view = UIImageView()
-        view.layer.cornerRadius = 9
-        view.backgroundColor = .grey01
-        view.image = TNImage.pointIcon
-        
-        return view
-    }()
-    
-    lazy var pointLabel = {
-        let view = UILabel()
-        view.font = .body14r
-        view.textColor = .grey07
-        
-        return view
-    }()
-    
-    private lazy var pointContainer = {
-        let view = UIStackView()
-        view.backgroundColor = .clear
-        view.spacing = 4
-        view.addArrangedSubview(pointImageView)
-        view.addArrangedSubview(pointLabel)
-        
+    let pointContainer = {
+        let view = TNPointContainer()
         view.isSkeletonable = true
         view.skeletonCornerRadius = 9
         
@@ -89,10 +67,6 @@ final class ProfileSummaryView: BaseView {
             $0.leading.equalToSuperview().offset(16)
             $0.top.equalToSuperview().offset(29)
             $0.size.equalTo(56)
-        }
-    
-        pointImageView.snp.makeConstraints {
-            $0.size.equalTo(18)
         }
 
         pointContainer.snp.makeConstraints {

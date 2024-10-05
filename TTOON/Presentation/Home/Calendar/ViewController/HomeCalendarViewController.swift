@@ -44,7 +44,7 @@ class HomeCalendarViewController: BaseViewController, View {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setTToonLogHomeNavigation(ttoonNavigationView)
+        setCustomNavigationBar(ttoonNavigationView)
         connectCalendar() // 캘린더
         connectCollectionView() // 스와이프 컬렉션뷰
     }
