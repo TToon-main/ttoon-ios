@@ -71,30 +71,37 @@ final class AttendanceReactor: Reactor {
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
+        var newState = fetchNewState(state: state)
+        
         switch mutation {
         case .setValidStatus(let status):
-            var newState = state
             newState.point = "\(status.point)P"
             newState.isSelected = fetchIsSelected(status.dayStatus)
             newState.isEnabledCheckAttendanceButton = isTodayAttendance(status.dayStatus)
             return newState
             
         case .setCompleteAttendanceAlert:
-            var newState = state
             newState.showCompleteAlert = true
             return newState
             
         case .setAlreadyAttendanceAlert:
-            var newState = state
             newState.showAlreadyDoneAlert = true
             return newState
             
         case .setInvalidStatus(let isInvalid):
-            var newState = state
             newState.showInvalid = isInvalid
             return newState
         }
     }
+    
+    func fetchNewState(state: State) -> State {
+        var new = state
+         
+        new.showCompleteAlert = false
+        new.showAlreadyDoneAlert = false
+         
+        return new
+      }
 }
 
 extension AttendanceReactor {

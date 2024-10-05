@@ -93,15 +93,19 @@ class AttendanceView: BaseView {
         }
     }
     
-    func fetchButtons() -> [UIButton] {
-        return [
+    func isAttendanceChecked(_ isAttendanceChecked: [Bool]) {
+        let btn = [
             firstAttendanceButtonStackView.firstButton,  // Monday
             firstAttendanceButtonStackView.secondButton, // Tuesday
             secondAttendanceButtonStackView.firstButton,  // Wednesday
             secondAttendanceButtonStackView.secondButton, // Thursday
             secondAttendanceButtonStackView.thirdButton,  // Friday
-            thirdAttendanceButtonStackView.firstButton,   // Saturday
-            thirdAttendanceButtonStackView.secondButton    // Sunday
+            thirdAttendanceButtonStackView.secondButton,   // Saturday
+            thirdAttendanceButtonStackView.thirdButton    // Sunday
         ]
+        
+        for (index, isChecked) in isAttendanceChecked.enumerated() {
+            btn[index].isSelected = isChecked
+        }
     }
 }

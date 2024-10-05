@@ -51,11 +51,9 @@ class AttendanceScrollView: BaseView {
 // MARK: - Custom Binder
 
 extension Reactive where Base: AttendanceScrollView {
-    var isBtnSelected: Binder<[Bool]> {
-        return Binder(base) { view, isBtnEnabled in
-            _ =    isBtnEnabled.map { isSelected in
-                base.attendanceView.fetchButtons().map { $0.isSelected = isSelected}
-            }
+    var isAttendanceChecked: Binder<[Bool]> {
+        return Binder(base) { view, isAttendanceChecked in
+            view.attendanceView.isAttendanceChecked(isAttendanceChecked)
         }
     }
     
