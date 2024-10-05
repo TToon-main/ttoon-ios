@@ -31,8 +31,7 @@ class CharacterModifyView: BaseView {
     
     override func layouts() {
         tableView.snp.makeConstraints {
-            $0.verticalEdges.equalTo(safeGuide)
-            $0.horizontalEdges.equalTo(safeGuide).inset(16)
+            $0.edges.equalToSuperview()
         }
         
         confirmButton.snp.makeConstraints {
