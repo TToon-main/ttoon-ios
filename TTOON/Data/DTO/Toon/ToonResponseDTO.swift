@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct GetCharacterResponseDTO: Codable {
+    let id: String
+    let name: String
+    let info: String
+}
