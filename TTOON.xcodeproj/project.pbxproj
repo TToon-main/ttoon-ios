@@ -134,6 +134,7 @@
 		BE56F95A2CB109E4005A039F /* ToonRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F9592CB109E4005A039F /* ToonRequestDTO.swift */; };
 		BE56F95C2CB109EE005A039F /* ToonResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F95B2CB109EE005A039F /* ToonResponseDTO.swift */; };
 		BE56F95F2CB10A04005A039F /* ToonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F95E2CB10A04005A039F /* ToonAPI.swift */; };
+		BE56F9642CB111A2005A039F /* ToonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F9632CB111A2005A039F /* ToonModel.swift */; };
 		BE5758F02BFB1C3100EC4545 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758EF2BFB1C3100EC4545 /* UILabel+.swift */; };
 		BE5D9C5E2CA7F94200B0408D /* Single+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D9C5D2CA7F94200B0408D /* Single+.swift */; };
 		BE5D9C602CA7F96300B0408D /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D9C5F2CA7F96300B0408D /* CommonError.swift */; };
@@ -482,6 +483,7 @@
 		BE56F9592CB109E4005A039F /* ToonRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonRequestDTO.swift; sourceTree = "<group>"; };
 		BE56F95B2CB109EE005A039F /* ToonResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonResponseDTO.swift; sourceTree = "<group>"; };
 		BE56F95E2CB10A04005A039F /* ToonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonAPI.swift; sourceTree = "<group>"; };
+		BE56F9632CB111A2005A039F /* ToonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonModel.swift; sourceTree = "<group>"; };
 		BE5758EF2BFB1C3100EC4545 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		BE5D9C5D2CA7F94200B0408D /* Single+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+.swift"; sourceTree = "<group>"; };
 		BE5D9C5F2CA7F96300B0408D /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
@@ -1427,6 +1429,14 @@
 			path = Toon;
 			sourceTree = "<group>";
 		};
+		BE56F9602CB1118E005A039F /* Toon */ = {
+			isa = PBXGroup;
+			children = (
+				BE56F9632CB111A2005A039F /* ToonModel.swift */,
+			);
+			path = Toon;
+			sourceTree = "<group>";
+		};
 		BE5758E12BF9F10C00EC4545 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1820,6 +1830,7 @@
 			isa = PBXGroup;
 			children = (
 				BEE7A1912CB63C220000BC71 /* Attendacne */,
+				BE56F9602CB1118E005A039F /* Toon */,
 				48C0C3772CA1A41500A2B6B9 /* Home */,
 				48BF84B62C8D8A2C00E84016 /* Friend */,
 				BE9C9BA92C68989F000AAF0E /* Auth */,
@@ -2839,6 +2850,7 @@
 				BE56F95A2CB109E4005A039F /* ToonRequestDTO.swift in Sources */,
 				BE9C9BA22C68986F000AAF0E /* ProfileSummaryView.swift in Sources */,
 				BE9C9AF42C688CAF000AAF0E /* CreateResultView.swift in Sources */,
+				BE56F9642CB111A2005A039F /* ToonModel.swift in Sources */,
 				BEB4568C2BD16572007F5EEC /* SplashReactor.swift in Sources */,
 				480D396E2C85E843009C26DA /* ReceivedFriendRequestViewController.swift in Sources */,
 				BE9C9BC52C68989F000AAF0E /* ContactUsUseCase.swift in Sources */,
