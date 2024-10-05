@@ -7,7 +7,12 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 class CharacterEditorView: BaseView {
+    let placeholderText = "등장인물에 대해 자세히 묘사해주시면 이미지의 정확도가 올라가요!\n(예: 검정색 단발머리, 20세 여성, 한국인 대학생, 청바지에 흰 티셔츠)"
+    
     let titleLabel = {
         let view = CreateToonTitleLabel()
         view.text = "새로운 등장인물에\n대해 설명해주세요"
@@ -26,15 +31,19 @@ class CharacterEditorView: BaseView {
     
     lazy var titleContainer = {
         let view = UIStackView()
+        view.addArrangedSubview(titleLabel)
+        view.addArrangedSubview(nameInputTitleLabel)
+        view.axis = .vertical
+        view.spacing = 36
         
         return view
     }()
     
     let nameInputView = {
-        let limitCnt: Int = 10
-        let placeholderText = "홍길동"
-        let view = SettingTextView(placeholderText: placeholderText,
-                                   limitCnt: limitCnt)
+        let view = TNTextFiled()
+        view.textFiled.placeholder = "홍길동"
+        view.statusLabel.textCntLabel.text = "0"
+        view.statusLabel.textLimitLabel.text = "/10"
         
         return view
     }()
@@ -47,9 +56,9 @@ class CharacterEditorView: BaseView {
         return view
     }()
     
-    let diaryInputTextView = {
-        let limitCnt: Int = 150
-        let placeholderText = "등장인물에 대해 자세히 묘사해주시면 이미지의 정확도가 올라가요!\n(예: 검정색 단발머리, 20세 여성, 한국인 대학생, 청바지에 흰 티셔츠)"
+    lazy var diaryInputTextView = {
+        let limitCnt: Int = 200
+        let placeholderText = placeholderText
         let view = SettingTextView(placeholderText: placeholderText,
                                    limitCnt: limitCnt)
         
@@ -57,12 +66,9 @@ class CharacterEditorView: BaseView {
     }()
     
     let dairyLimitTextLabel = {
-        let view = UILabel()
-        view.font = .body14r
-        view.textColor = .grey05
-        view.textAlignment = .right
-        view.text = "0/150"
-        view.numberOfLines = 0
+        let view = TextStatusView()
+        view.textCntLabel.text = "0"
+        view.textLimitLabel.text = "/200"
         
         return view
     }()
@@ -72,56 +78,70 @@ class CharacterEditorView: BaseView {
     let confirmButton = {
         let view = TNButton()
         view.setTitle("완료", for: .normal)
+        view.isEnabled = false
         
         return view
     }()
     
-    let container = {
-        let view = UIView()
-        
-        return view
-    }()
-    
-    private let scrollView = {
-        let view = UIScrollView()
-        view.showsHorizontalScrollIndicator = false
-        view.backgroundColor = .white
-        
-        return view
-    }()
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        flex.define { 
-            $0.addItem(scrollView)
-            
-            scrollView.flex.define { 
-                $0.addItem(container).minHeight(height)
-                
-                container.flex.define {
-                    if !titleLabel.isHidden {
-                        $0.addItem(titleLabel).marginTop(36)
-                    }
-                    
-                    $0.addItem(nameInputTitleLabel).marginTop(36)
-                    $0.addItem(nameInputView).marginTop(8).height(52)
-                    $0.addItem(diaryInputTitleLabel).marginTop(36)
-                    $0.addItem(diaryInputTextView).marginTop(8).height(172)
-                    $0.addItem(dairyLimitTextLabel)
-                    $0.addItem(switchView).marginTop(36).height(98)
-                    $0.addItem().minHeight(19).grow(1) // 스페이서 역할
-                    $0.addItem(confirmButton).marginBottom(44).height(52)
-                    $0.paddingLeft(16).paddingRight(16)
-                }
+    override func addSubViews() {
+        [titleContainer,
+         nameInputView,
+         diaryInputTitleLabel,
+         diaryInputTextView,
+         dairyLimitTextLabel,
+         switchView,
+         confirmButton]
+            .forEach { v in
+                addSubview(v)
             }
+    }
+    
+    override func layouts() {
+        titleContainer.snp.makeConstraints {
+            $0.top.equalTo(safeGuide).offset(36)
+            $0.horizontalEdges.equalToSuperview().inset(16)
         }
         
-        flex.layout()
+        nameInputTitleLabel.snp.makeConstraints {
+            $0.height.equalTo(20)
+        }
         
-        scrollView.pin.all()
-        container.pin.all()
-        scrollView.contentSize = container.bounds.size
+        nameInputView.snp.makeConstraints {
+            $0.top.equalTo(titleContainer.snp.bottom).offset(8)
+            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.height.greaterThanOrEqualTo(52)
+        }
+        
+        diaryInputTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(nameInputView.snp.bottom).offset(36)
+            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.height.equalTo(20)
+        }
+        
+        diaryInputTextView.snp.makeConstraints {
+            $0.top.equalTo(diaryInputTitleLabel.snp.bottom).offset(8)
+            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.height.equalTo(172)
+        }
+        
+        dairyLimitTextLabel.snp.makeConstraints {
+            $0.top.equalTo(diaryInputTextView.snp.bottom)
+            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.height.equalTo(20)
+        }
+        
+        switchView.snp.makeConstraints {
+            $0.top.equalTo(dairyLimitTextLabel.snp.bottom).offset(36)
+            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.height.equalTo(98)
+        }
+        
+        confirmButton.snp.makeConstraints { make in
+            make.top.equalTo(switchView.snp.bottom).offset(19)
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.height.equalTo(52)
+            make.bottom.equalToSuperview().offset(-44)
+        }
     }
     
     func setUpView(editType: CharacterEditType) {
