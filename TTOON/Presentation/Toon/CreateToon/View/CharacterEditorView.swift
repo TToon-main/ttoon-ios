@@ -57,7 +57,7 @@ class CharacterEditorView: BaseView {
     }()
     
     lazy var diaryInputTextView = {
-        let limitCnt: Int = 200
+        let limitCnt: Int = 150
         let placeholderText = placeholderText
         let view = SettingTextView(placeholderText: placeholderText,
                                    limitCnt: limitCnt)
@@ -68,7 +68,7 @@ class CharacterEditorView: BaseView {
     let dairyLimitTextLabel = {
         let view = TextStatusView()
         view.textCntLabel.text = "0"
-        view.textLimitLabel.text = "/200"
+        view.textLimitLabel.text = "/150"
         
         return view
     }()
