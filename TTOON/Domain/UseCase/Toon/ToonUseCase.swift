@@ -11,6 +11,7 @@ import RxSwift
 
 protocol ToonUseCaseProtocol {
     func characterList() -> Observable<ToonUseCase.CharacterList>
+    func addCharacter(model: AddCharacter) -> Observable<Bool>
 }
 
 class ToonUseCase: ToonUseCaseProtocol {
@@ -40,7 +41,22 @@ class ToonUseCase: ToonUseCaseProtocol {
         let invalid = request.compactMap { $0.error }
             .map { _ in CharacterList.invalid}
         
-        return Observable.merge(list, emptyList, invalid)
+        return .merge(list, emptyList, invalid)
+    }
+    
+    func addCharacter(model: AddCharacter) -> Observable<Bool> {
+        let dto = model.toDTO()
+        
+        let request = repo.postCharacter(dto: dto)
+            .share()
+        
+        let success = request.compactMap { $0.element }
+            .filter { $0 }
+    
+        let error = request.compactMap { $0.error }
+            .map { _ in false}
+        
+        return .merge(success, error)
     }
 }
 
