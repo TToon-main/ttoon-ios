@@ -13,7 +13,7 @@ import RxSwift
 
 class CharacterAddViewController: BaseViewController {
     var disposeBag = DisposeBag()
-    private let characterEditorView = CharacterEditorView()
+    private let characterEditorScrollView = CharacterEditorScrollView()
     
     init(reactor: CharacterAddReactor) {
         super.init(nibName: nil, bundle: nil)
@@ -26,7 +26,7 @@ class CharacterAddViewController: BaseViewController {
     }
     
     override func loadView() {
-        view = characterEditorView
+        view = characterEditorScrollView
     }
     
     override func viewDidLoad() {
@@ -36,7 +36,7 @@ class CharacterAddViewController: BaseViewController {
     
     override func configures() {
         setNavigationItem()
-        characterEditorView.setUpView(editType: .add)
+        characterEditorScrollView.characterEditorView.setUpView(editType: .add)
     }
     
     // TODO: 임시
