@@ -24,6 +24,20 @@ class CharacterPickerBSView: BaseView {
         return view
     }()
     
+    let emptyListView = {
+        let view = NoDataView("저장된 캐릭터가 없어요")
+        view.isHidden = true
+        
+        return view
+    }()
+    
+    let invalidView = {
+        let view = NoDataView("캐릭터 조회에 실패했어요. 다시 시도해주세요")
+        view.isHidden = true
+        
+        return view
+    }()
+    
     let modifyCharacterButton = {
         let view = UIButton()
         view.setTitle("인물 추가 · 수정하기", for: .normal)
@@ -51,6 +65,8 @@ class CharacterPickerBSView: BaseView {
     override func addSubViews() {
         addSubview(titleLabel)
         addSubview(tableView)
+        addSubview(emptyListView)
+        addSubview(invalidView)
         addSubview(modifyCharacterButton)
         addSubview(confirmButton)
     }
@@ -67,6 +83,16 @@ class CharacterPickerBSView: BaseView {
             $0.bottom.equalTo(modifyCharacterButton.snp.top).offset(-24)
         }
         
+        emptyListView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().offset(-50)
+        }
+        
+        invalidView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().offset(-50)
+        }
+        
         modifyCharacterButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(confirmButton.snp.top).offset(-32)
@@ -81,3 +107,19 @@ class CharacterPickerBSView: BaseView {
         }
     }
 }
+
+// MARK: - Custom Binder
+extension Reactive where Base: CharacterPickerBSView {
+    var isHiddenEmptyListView: Binder<Bool> {
+        return Binder(base) { view, isHidden in
+            view.emptyListView.isHidden = isHidden
+        }
+    }
+    
+    var isHiddenInvalidView: Binder<Bool> {
+        return Binder(base) { view, isHidden in
+            view.invalidView.isHidden = isHidden
+        }
+    }
+}
+ 
