@@ -20,10 +20,17 @@ final class CharacterAddReactor: Reactor {
     
     private var isEnabledConfirmButton = IsEnabledConfirmButton()
     
+    private let useCase: ToonUseCaseProtocol
+    
+    init(useCase: ToonUseCase) {
+        self.useCase = useCase
+    }
+    
     enum Action {
         case nameText(text: String)
         case infoText(text: String)
         case isMainCharacter(isMain: Bool)
+        case confirmButtonTap(model: AddCharacter)
     }
     
     enum Mutation {
@@ -33,6 +40,8 @@ final class CharacterAddReactor: Reactor {
         case setErrorInfoTextFiled(error: String?)
         case setIsOnSwitch(isOn: Bool)
         case setIsEnabledConfirmButton(isEnabled: Bool)
+        case setPop
+        case setFailToast
     }
     
     struct State {
@@ -42,6 +51,8 @@ final class CharacterAddReactor: Reactor {
         var errorInfoTextFiled: String? = nil
         var isOn = false
         var isEnabledConfirmButton = false
+        var pop = false
+        var presentFailToast = false
     }
     
     let initialState: State = State()
@@ -74,6 +85,16 @@ final class CharacterAddReactor: Reactor {
 
         case .isMainCharacter(let isMain):
             return .just(.setIsOnSwitch(isOn: isMain))
+            
+        case .confirmButtonTap(model: let model):
+            return useCase.addCharacter(model: model)
+                .map { result in
+                    if result {
+                        return .setPop
+                    } else {
+                        return .setFailToast
+                    }
+                }
         }
     }
     
@@ -110,11 +131,23 @@ final class CharacterAddReactor: Reactor {
             new.isEnabledConfirmButton = isEnabled
             
             return new
+            
+        case .setPop:
+            new.pop = true
+            
+            return new
+            
+        case .setFailToast:
+            new.presentFailToast = true
+            
+            return new
         }
     }
     
     func fetchNewState(state: State) -> State {
         var new = state
+        new.presentFailToast = false
+        
         return new
     }
     
