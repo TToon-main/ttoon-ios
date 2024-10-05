@@ -76,10 +76,12 @@ extension Reactive where Base: TextStatusView {
             if let text = text {
                 view.errorLabel.text = text
                 view.errorLabel.isHidden = false
+                view.textCntLabel.textColor = .errorRed
                 view.layoutIfNeeded()
             } else {
                 view.errorLabel.text = nil
                 view.errorLabel.isHidden = true
+                view.textCntLabel.textColor = .grey05
                 view.layoutIfNeeded()
             }
         }
