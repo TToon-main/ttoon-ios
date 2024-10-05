@@ -13,9 +13,9 @@ import RxSwift
 class ToonRepository: ToonRepositoryProtocol {
     private let provider = APIProvider<ToonAPI>()
     
-    func getCharacters() -> Observable<Event<GetCharacterResponseDTO>> {
+    func getCharacters() -> Observable<Event<[GetCharacterResponseDTO]>> {
         return provider.log.rx.request(.getCharacters)
-            .mapData(responseType: GetCharacterResponseDTO.self,
+            .mapData(responseType: [GetCharacterResponseDTO].self,
                      errorType: GetCharactersError.self)
     }
     
