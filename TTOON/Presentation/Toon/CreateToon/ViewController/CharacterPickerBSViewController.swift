@@ -40,29 +40,17 @@ class CharacterPickerBSViewController: BaseViewController {
     }
     
     override func layouts() {
-        characterPickerBSView.snp.makeConstraints { 
+        characterPickerBSView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-24)
             $0.horizontalEdges.equalToSuperview().inset(16)
         }
     }
     
+    // TODO: - 목업 바인딩
     func bindMockUp() {
-        let mockUpData = [
-            CharacterPickerTableViewCellDataSource(name: "이름 1", isMainCharacter: true, characterDescription: "캐릭터에 대한 묘사 및 설명", isSelected: false, isModify: false),
-            CharacterPickerTableViewCellDataSource(name: "이름 1", isMainCharacter: true, characterDescription: "캐릭터에 대한 묘사 및 설명", isSelected: true, isModify: false),
-            CharacterPickerTableViewCellDataSource(name: "이름 1", isMainCharacter: true, characterDescription: "캐릭터에 대한 묘사 및 설명", isSelected: true, isModify: false)]
-        
-        Observable.just(mockUpData)
-            .bind(to: characterPickerBSView.tableView.rx.items(
-                cellIdentifier: CharacterPickerTableViewCell.IDF,
-                cellType: CharacterPickerTableViewCell.self)) { index, item, cell in
-                    cell.setCell(item)
-            }
-                .disposed(by: disposeBag)
-        
         characterPickerBSView.modifyCharacterButton.rx.tap
-            .subscribe(with: self) { owner, _ in 
+            .subscribe(with: self) { owner, _ in
                 owner.dismiss(animated: true)
                 owner.delegate?.presentModifyCharacterViewController()
             }
@@ -77,8 +65,29 @@ extension CharacterPickerBSViewController: View {
     }
     
     func bindAction(reactor: CharacterPickerBSReactor) {
+        rx.viewWillAppear
+            .map { _ in CharacterPickerBSReactor.Action.refreshCharacterList}
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: CharacterPickerBSReactor) {
+        reactor.state.compactMap { $0.characterList }
+            .map({ $0.map { $0.toPresenter() } })
+            .bind(to: characterPickerBSView.tableView.rx.items(
+                cellIdentifier: CharacterPickerTableViewCell.IDF,
+                cellType: CharacterPickerTableViewCell.self))
+        { index, item, cell in
+            cell.setCell(item)
+            }
+        .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isHiddenEmptyView }
+            .bind(to: characterPickerBSView.rx.isHiddenEmptyListView)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isHiddenInvalidView }
+            .bind(to: characterPickerBSView.rx.isHiddenInvalidView)
+            .disposed(by: disposeBag)
     }
 }

@@ -49,6 +49,5 @@ extension ToonUseCase {
         case valid(list: [Character])
         case invalid
         case empty
-        case idle
     }
 }
