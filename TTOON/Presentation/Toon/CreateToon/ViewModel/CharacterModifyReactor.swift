@@ -17,8 +17,9 @@ final class CharacterModifyReactor: Reactor {
     
     // 뷰에서 입력받은 유저 이벤트
     enum Action {
-        case viewDidLoad
-        case deletedCharacterTap(String?)
+        case refreshList
+        case deleteCharacter(String)
+        case deletedCharacterTap(DeleteCharacter)
         case addCharacterButtonTap
     }
     
@@ -28,8 +29,9 @@ final class CharacterModifyReactor: Reactor {
         case setEmptyList(isEmpty: Bool)
         case setInvalidList(isInvalid: Bool)
         case setIdleList(isIdle: Bool)
-        case setDeletedCharacterTap(String?)
+        case setDeletedCharacterTap(DeleteCharacter)
         case setAddCharacterButtonTap
+        case setDeleteCharacter(Bool)
     }
     
     // 뷰에 전달할 상태
@@ -38,8 +40,9 @@ final class CharacterModifyReactor: Reactor {
         var isHiddenEmptyView: Bool = true
         var isHiddenInvalidView: Bool = true
         var isHiddenIdleView: Bool = false
-        var presentCharacterDeleteBS: String? = nil
+        var presentCharacterDeleteBS: DeleteCharacter? = nil
         var presentCharacterEditorVC: Void? = nil
+        var isSuccessDeleted: Bool? = nil
     }
     
     // 전달할 상태의 초기값
@@ -47,7 +50,7 @@ final class CharacterModifyReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .viewDidLoad:
+        case .refreshList:
             return useCase.characterList()
                 .map { status in
                     switch status {
@@ -66,12 +69,15 @@ final class CharacterModifyReactor: Reactor {
                     }
                 }
             
-            
         case .deletedCharacterTap(let name):
             return .just(.setDeletedCharacterTap(name))
 
         case .addCharacterButtonTap:
             return  .just(.setAddCharacterButtonTap)
+            
+        case .deleteCharacter(let id):
+            return useCase.deleteCharacter(id: id)
+                .map { Mutation.setDeleteCharacter($0)}
         }
     }
     
@@ -79,8 +85,8 @@ final class CharacterModifyReactor: Reactor {
         var new = fetchNewState(state: state)
         
         switch mutation {
-        case .setDeletedCharacterTap(let name):
-            new.presentCharacterDeleteBS = name
+        case .setDeletedCharacterTap(let model):
+            new.presentCharacterDeleteBS = model
             
         case .setAddCharacterButtonTap:
             new.presentCharacterEditorVC = ()
@@ -96,6 +102,9 @@ final class CharacterModifyReactor: Reactor {
             
         case .setIdleList(let isIdle):
             new.isHiddenIdleView = !isIdle
+            
+        case .setDeleteCharacter(let isSuccess):
+            new.isSuccessDeleted = isSuccess
         }
         
         return new
@@ -105,6 +114,7 @@ final class CharacterModifyReactor: Reactor {
         var new = state
         new.presentCharacterDeleteBS = nil
         new.presentCharacterEditorVC = nil
+        new.isSuccessDeleted = nil
         
         return new
     }

@@ -14,7 +14,6 @@ import RxSwift
 class CharacterDeleteBSViewController: BaseViewController {
     var disposeBag = DisposeBag()
     private let characterDeleteBSView = CharacterDeleteBSView()
-    private let viewLifeCycle = PublishSubject<CharacterDeleteBSReactor.Action>()
     
     init(reactor: CharacterDeleteBSReactor) {
         super.init(nibName: nil, bundle: nil)
@@ -24,16 +23,6 @@ class CharacterDeleteBSViewController: BaseViewController {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        bindMockUp()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewLifeCycle.onNext(.viewLifeCycle(.viewWillAppear))
     }
     
     override func addSubViews() {
@@ -47,9 +36,6 @@ class CharacterDeleteBSViewController: BaseViewController {
             $0.bottom.equalToSuperview().offset(-24)
         }
     }
-    
-    func bindMockUp() {
-    }
 }
 
 extension CharacterDeleteBSViewController: View {
@@ -59,9 +45,7 @@ extension CharacterDeleteBSViewController: View {
     }
     
     func bindAction(reactor: CharacterDeleteBSReactor) {
-        viewLifeCycle
-            .bind(to: reactor.action)
-            .disposed(by: disposeBag)
+        reactor.action.onNext(.viewDidLoad)
         
         characterDeleteBSView.rx
             .backButtonTap
