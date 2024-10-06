@@ -16,6 +16,7 @@ class CreateToonBaseViewController: BaseViewController {
     
     lazy var orangeProgressDefaultWidth = width - 36
     var orangeProgressWidthConstraint: Constraint?
+    var greyProgressWidthConstraint: Constraint?
     
     // MARK: - UI Properties
     
@@ -74,8 +75,12 @@ extension Reactive where Base: CreateToonBaseViewController {
     var currentProgress: Binder<Float> {
         return Binder(base) { vc, progress in
             UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
+                let isHiddenGreyBar = progress == 1.0
+                vc.greyProgressBar.isHidden = isHiddenGreyBar
+                
                 let width = vc.orangeProgressDefaultWidth * CGFloat(progress)
                 vc.orangeProgressWidthConstraint?.update(offset: width)
+                
                 vc.view.layoutIfNeeded()
             }
         }

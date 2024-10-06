@@ -102,7 +102,7 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
 
 	override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
     }
     
     func setCell(_ item: CharacterPickerTableViewCellDataSource) {
@@ -159,13 +159,5 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
-    }
-    
-    func setCell(_ item: CharacterPickerTableViewCellDataSource) {
-        titleLabel.text = item.name
-        subTitleLabel.text = item.characterDescription
-        checkImageView.isHidden = !item.isSelected
-        modifyCharacterButton.isHidden = !item.isModify
-        mainCharacterButton.isHidden = !item.isMainCharacter
     }
 }
