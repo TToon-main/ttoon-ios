@@ -14,7 +14,6 @@ import RxSwift
 class CharacterModifyViewController: BaseViewController {
     var disposeBag = DisposeBag()
     private let characterModifyView = CharacterModifyView()
-    private let viewLifeCycle = PublishSubject<CharacterModifyReactor.Action>()
     
     init(reactor: CharacterModifyReactor) {
         super.init(nibName: nil, bundle: nil)
@@ -30,49 +29,8 @@ class CharacterModifyViewController: BaseViewController {
         view = characterModifyView
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        bindMockUp()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewLifeCycle.onNext(.viewLifeCycle(.viewWillAppear))
-    }
-    
     override func configures() {
         setNavigationItem()
-    }
-    
-    // TODO: 임시
-    func bindMockUp() {
-        let characterData = CharacterPickerTableViewCellDataSource(id: "", name: "이름 1", isMainCharacter: true, characterDescription: "캐릭터에 대한 묘사 및 설명", isSelected: false, isModify: true)
-        let mockUpData = Array(repeating: characterData, count: 20)
-        let modifyButtonTap = PublishSubject<Void>()
-        
-        Observable.just(mockUpData)
-            .bind(to: characterModifyView.tableView.rx.items(
-                cellIdentifier: CharacterPickerTableViewCell.IDF,
-                cellType: CharacterPickerTableViewCell.self)) { index, item, cell in
-                    cell.setCell(item)
-                    cell.modifyCharacterButton.rx.tap
-                        .asObservable()
-                        .subscribe(with: self) { owner, _ in
-                            modifyButtonTap.onNext(())
-                        }
-                        .disposed(by: cell.disposeBag)
-            }
-                .disposed(by: disposeBag)
-  
-        
-        modifyButtonTap
-            .subscribe(with: self) { owner, _ in
-                let reactor = CharacterEditReactor()
-                let vc = CharacterEditViewController(reactor: reactor)
-                
-                owner.navigationController?.pushViewController(vc, animated: true)
-            }
-            .disposed(by: disposeBag)
     }
     
     private func setNavigationItem() {
@@ -112,28 +70,47 @@ extension CharacterModifyViewController: View {
     }
     
     func bindAction(reactor: CharacterModifyReactor) {
-        characterModifyView.rx
-            .deletedCharacterTap
+        reactor.action.onNext(.viewDidLoad)
+        
+        characterModifyView.rx.deletedCharacterTap
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        characterModifyView.rx
-            .addCharacterButtonTap
+        characterModifyView.rx.addCharacterButtonTap
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }
     
     func bindState(reactor: CharacterModifyReactor) {
-        reactor.state
-            .map { $0.presentCharacterDeleteBS }
+        reactor.state.compactMap { $0.characterList }
+            .bind(to: characterModifyView.tableView.rx.items(
+                cellIdentifier: CharacterPickerTableViewCell.IDF,
+                cellType: CharacterPickerTableViewCell.self))
+        { index, item, cell in
+            cell.setCell(item, cellType: .modify)
+            }
+        .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.presentCharacterDeleteBS }
             .compactMap { $0 }
             .bind(onNext: presentCharacterDeleteBS)
             .disposed(by: disposeBag)
         
-        reactor.state
-            .map { $0.presentCharacterEditorVC }
+        reactor.state.map { $0.presentCharacterEditorVC }
             .compactMap { $0 }
             .bind(onNext: presentCharacterEditorVC)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isHiddenEmptyView }
+            .bind(to: characterModifyView.rx.isHiddenEmptyListView)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isHiddenIdleView }
+            .bind(to: characterModifyView.rx.isHiddenIdleView)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isHiddenInvalidView }
+            .bind(to: characterModifyView.rx.isHiddenInvalidView)
             .disposed(by: disposeBag)
     }
 }

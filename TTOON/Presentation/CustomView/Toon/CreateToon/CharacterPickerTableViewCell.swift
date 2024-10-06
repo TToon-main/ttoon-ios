@@ -19,6 +19,11 @@ struct CharacterPickerTableViewCellDataSource {
 }
 
 class CharacterPickerTableViewCell: BaseTableViewCell {
+    enum CellType {
+        case pick
+        case modify
+    }
+    
     var disposeBag = DisposeBag()
     
     let titleLabel = {
@@ -105,12 +110,22 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
     }
     
-    func setCell(_ item: CharacterPickerTableViewCellDataSource) {
-        titleLabel.text = item.name
-        subTitleLabel.text = item.characterDescription
-        modifyCharacterButton.isHidden = !item.isModify
-        mainCharacterButton.isHidden = !item.isMainCharacter
-        setIsSelected(item.isSelected)
+    func setCell(_ item: CharacterPickerTableViewCellDataSource, cellType: CellType = .pick) {
+        switch cellType {
+        case .pick:
+            titleLabel.text = item.name
+            subTitleLabel.text = item.characterDescription
+            modifyCharacterButton.isHidden = !item.isModify
+            mainCharacterButton.isHidden = !item.isMainCharacter
+            setIsSelected(item.isSelected)
+            
+        case .modify:
+            titleLabel.text = item.name
+            subTitleLabel.text = item.characterDescription
+            mainCharacterButton.isHidden = !item.isMainCharacter
+            modifyCharacterButton.isHidden = false
+            checkImageView.isHidden = true
+        }
     }
     
     private func setIsSelected(_ isSelected: Bool) {
