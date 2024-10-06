@@ -21,3 +21,7 @@ struct GetCharacterResponseDTO: Codable {
                      info: info)
     }
 }
+
+struct CharacterResponseDTO: Codable {
+    let figureId: Int64
+}

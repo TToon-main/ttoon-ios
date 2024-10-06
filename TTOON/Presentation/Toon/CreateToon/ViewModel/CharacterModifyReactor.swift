@@ -29,7 +29,6 @@ final class CharacterModifyReactor: Reactor {
         case setCharacterList(list: [CharacterPickerTableViewCellDataSource])
         case setEmptyList(isEmpty: Bool)
         case setInvalidList(isInvalid: Bool)
-        case setIdleList(isIdle: Bool)
         case setDeletedCharacterTap(DeleteCharacter)
         case setAddCharacterButtonTap
         case setDeleteCharacter(Bool)
@@ -41,7 +40,6 @@ final class CharacterModifyReactor: Reactor {
         var characterList: [CharacterPickerTableViewCellDataSource]? = nil
         var isHiddenEmptyView: Bool = true
         var isHiddenInvalidView: Bool = true
-        var isHiddenIdleView: Bool = false
         var presentCharacterDeleteBS: DeleteCharacter? = nil
         var presentCharacterAddVC: Void? = nil
         var presentCharacterEditorVC: ModifyCharacter? = nil
@@ -66,9 +64,6 @@ final class CharacterModifyReactor: Reactor {
                         
                     case .invalid:
                         return Mutation.setInvalidList(isInvalid: true)
-                        
-                    case .idle:
-                        return Mutation.setIdleList(isIdle: true)
                     }
                 }
             
@@ -105,9 +100,6 @@ final class CharacterModifyReactor: Reactor {
             
         case .setInvalidList(let isInvalid):
             new.isHiddenInvalidView = !isInvalid
-            
-        case .setIdleList(let isIdle):
-            new.isHiddenIdleView = !isIdle
             
         case .setDeleteCharacter(let isSuccess):
             new.isSuccessDeleted = isSuccess

@@ -89,7 +89,11 @@ final class CharacterAddReactor: Reactor {
         case .confirmButtonTap(model: let model):
             return useCase.addCharacter(model: model)
                 .map { result in
-                    if result {
+                    if let result = result {
+                        if self.currentState.isOn {
+                            self.setIsMainCharacter(id: "\(result)")
+                        }
+                        
                         return .setPop
                     } else {
                         return .setFailToast
