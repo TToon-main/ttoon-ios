@@ -112,11 +112,7 @@ extension AttendanceReactor {
     }
     
     func isTodayAttendance(_ days: [GetAttendanceResponseDTO.DayStatus]) -> Bool {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "EEEE"
-        
-        let today = dateFormatter.string(from: Date()).uppercased()
+        let today = Date().toString(of: .onlyDay).uppercased()
         
         let todayStatus = days
             .filter { $0.day == today  }
@@ -124,7 +120,7 @@ extension AttendanceReactor {
         
         let isEnabled = todayStatus
             .map { !$0 }.first
-        
+            
         return isEnabled ?? false
     }
 }

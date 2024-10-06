@@ -12,4 +12,21 @@ enum DateFormatType: String {
     
     case yearMonthKorean = "yyyy년 M월"
     case fullKorean = "yyyy년 M월 d일"
+    
+    case onlyDay = "EEEE"
+}
+
+extension DateFormatType {
+    var locale: Locale? {
+        switch self {
+        case .onlyDay:
+            return Locale(identifier: "en_US_POSIX")
+            
+        case .fulldate, .yearMonthKorean, .fullKorean:
+            return Locale(identifier: "en")
+            
+        default:
+            return nil
+        }
+    }
 }

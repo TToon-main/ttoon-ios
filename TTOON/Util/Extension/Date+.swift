@@ -10,8 +10,12 @@ import Foundation
 extension Date {
     func toString(of type: DateFormatType) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en")
         dateFormatter.dateFormat = type.rawValue
+        
+        if let locale = type.locale {
+            dateFormatter.locale = type.locale
+        }
+        
         return dateFormatter.string(from: self)
     }
 }

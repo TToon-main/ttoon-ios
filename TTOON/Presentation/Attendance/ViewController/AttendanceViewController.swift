@@ -115,9 +115,6 @@ extension AttendanceViewController {
     }
     
     private func todayString() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
-        
-        return dateFormatter.string(from: Date()).uppercased()
+        return Date().toString(of: .onlyDay).uppercased()
     }
 }
