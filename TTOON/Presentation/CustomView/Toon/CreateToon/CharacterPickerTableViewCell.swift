@@ -10,10 +10,11 @@ import UIKit
 import RxSwift
 
 struct CharacterPickerTableViewCellDataSource {
-    let name: String?
+    let id: String
+    let name: String
     let isMainCharacter: Bool
-    let characterDescription: String?
-    let isSelected: Bool
+    let characterDescription: String
+    var isSelected: Bool
     let isModify: Bool
 }
 
@@ -98,10 +99,31 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
         contentView.addSubview(modifyCharacterButton)
         contentView.addSubview(lineDiver)
     }
-    
-    override func layoutSubviews() {
+
+	override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+    }
+    
+    func setCell(_ item: CharacterPickerTableViewCellDataSource) {
+        titleLabel.text = item.name
+        subTitleLabel.text = item.characterDescription
+        modifyCharacterButton.isHidden = !item.isModify
+        mainCharacterButton.isHidden = !item.isMainCharacter
+        setIsSelected(item.isSelected)
+    }
+    
+    private func setIsSelected(_ isSelected: Bool) {
+        checkImageView.isHidden = !isSelected
+        
+        if isSelected {
+            titleLabel.textColor = .grey08
+            subTitleLabel.textColor = .grey07
+        } else {
+            [titleLabel, subTitleLabel].forEach { t in
+                t.textColor = .grey05
+            }
+        }
     }
     
     override func layouts() {
