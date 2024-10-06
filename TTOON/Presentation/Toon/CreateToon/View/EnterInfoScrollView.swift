@@ -44,14 +44,18 @@ class EnterInfoScrollView: BaseView {
 }
 
 extension Reactive where Base: EnterInfoScrollView {
-    var textFieldDidChange: Observable<EnterInfoReactor.Action> {
+    var dairyTextViewDidChange: Observable<EnterInfoReactor.Action> {
         let diaryInputTextView = base.enterInfoView.enterDiaryTextView.diaryInputTextView
         
         return diaryInputTextView.rx.text
             .compactMap { $0 }
             .filter { $0 != diaryInputTextView.placeholderText }
             .distinctUntilChanged()
-            .map { EnterInfoReactor.Action.textFieldDidChange($0)}
+            .map { EnterInfoReactor.Action.dairyTextViewDidChange($0)}
+    }
+    
+    var titleTextFieldTextDidChange: Observable<String> {
+        return base.enterInfoView.enterDiaryTextView.diaryTitleTextField.rx.textDidChanged
     }
     
     var confirmButtonTap: Observable<EnterInfoReactor.Action> {
@@ -84,5 +88,25 @@ extension Reactive where Base: EnterInfoScrollView {
                     .setDefaultText()
             }
         }
+    }
+    
+    var titleTextFiledError: Binder<String?> {
+        return base.enterInfoView.enterDiaryTextView.diaryTitleTextField.rx.errorMassage
+    }
+    
+    var titleTextFieldTextCount: Binder<String?> {
+        return base.enterInfoView.enterDiaryTextView.diaryTitleTextField.rx.cntText
+    }
+    
+    var dairyTextViewError: Binder<String?> {
+        return base.enterInfoView.enterDiaryTextView.dairyLimitTextView.rx.errorMassage
+    }
+    
+    var dairyTextViewTextCount: Binder<String?> {
+        return base.enterInfoView.enterDiaryTextView.dairyLimitTextView.rx.cntText
+    }
+    
+    var isEnabledConfirmButton: Binder<Bool> {
+        return base.enterInfoView.confirmButton.rx.isEnabled
     }
 }

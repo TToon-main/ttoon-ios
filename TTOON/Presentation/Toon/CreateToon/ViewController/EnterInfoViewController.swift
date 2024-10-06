@@ -43,7 +43,7 @@ extension EnterInfoViewController: View {
     }
     
     func bindAction(reactor: EnterInfoReactor) {
-        enterInfoScrollView.rx.textFieldDidChange
+        enterInfoScrollView.rx.dairyTextViewDidChange
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
@@ -54,14 +54,14 @@ extension EnterInfoViewController: View {
         enterInfoScrollView.rx.confirmButtonTap
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        enterInfoScrollView.rx.titleTextFieldTextDidChange
+            .map{ EnterInfoReactor.Action.titleTextFieldTextDidChange($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: EnterInfoReactor) {
-        reactor.state
-            .map { $0.validTextFieldText }
-            .bind(to: enterInfoScrollView.rx.validTextFieldText)
-            .disposed(by: disposeBag)
-        
         reactor.state
             .compactMap { $0.presentCharacterPickerBS }
             .bind(onNext: presentCharacterPickerBS)
@@ -84,6 +84,28 @@ extension EnterInfoViewController: View {
         
         reactor.state.compactMap { $0.characterButtonText }
             .bind(to: enterInfoScrollView.rx.characterButtonText)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.titleTextFieldError }
+            .distinctUntilChanged()
+            .bind(to: enterInfoScrollView.rx.titleTextFiledError)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.dairyTextViewError }
+            .distinctUntilChanged()
+            .bind(to: enterInfoScrollView.rx.dairyTextViewError)
+            .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.dairyTextViewTextCount }
+            .bind(to: enterInfoScrollView.rx.dairyTextViewTextCount)
+            .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.titleTextFieldTextCount }
+            .bind(to: enterInfoScrollView.rx.titleTextFieldTextCount)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isEnabledConfirmButton }
+            .bind(to: enterInfoScrollView.rx.isEnabledConfirmButton)
             .disposed(by: disposeBag)
     }
 }
