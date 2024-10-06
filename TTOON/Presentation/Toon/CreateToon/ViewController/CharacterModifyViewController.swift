@@ -60,11 +60,20 @@ class CharacterModifyViewController: BaseViewController {
         present(viewControllerToPresent, animated: true, completion: nil)
     }
     
-    private func  presentCharacterEditorVC() {
+    private func  presentCharacterAddVC() {
         let repo = ToonRepository()
         let useCase = ToonUseCase(repo: repo)
         let reactor = CharacterAddReactor(useCase: useCase)
         let vc = CharacterAddViewController(reactor: reactor)
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func  presentCharacterEditorVC(model: ModifyCharacter) {
+        let repo = ToonRepository()
+        let useCase = ToonUseCase(repo: repo)
+        let reactor = CharacterEditReactor(model: model, useCase: useCase)
+        let vc = CharacterEditViewController(reactor: reactor)
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -102,17 +111,20 @@ extension CharacterModifyViewController: View {
                 cellType: CharacterPickerTableViewCell.self))
         { index, item, cell in
             cell.setCell(item, cellType: .modify)
+            cell.rx.modifyButtonTap
+                .map { CharacterModifyReactor.Action.modifyButtonTap($0)}
+                .bind(to: reactor.action)
+                .disposed(by: cell.disposeBag)
             }
-        .disposed(by: disposeBag)
         
         reactor.state.map { $0.presentCharacterDeleteBS }
             .compactMap { $0 }
             .bind(onNext: presentCharacterDeleteBS)
             .disposed(by: disposeBag)
         
-        reactor.state.map { $0.presentCharacterEditorVC }
+        reactor.state.map { $0.presentCharacterAddVC }
             .compactMap { $0 }
-            .bind(onNext: presentCharacterEditorVC)
+            .bind(onNext: presentCharacterAddVC)
             .disposed(by: disposeBag)
         
         reactor.state.map { $0.isHiddenEmptyView }
@@ -129,6 +141,10 @@ extension CharacterModifyViewController: View {
         
         reactor.state.compactMap { $0.isSuccessDeleted }
             .bind(onNext: isSuccessDeleted)
+            .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.presentCharacterEditorVC }
+            .bind(onNext: presentCharacterEditorVC)
             .disposed(by: disposeBag)
     }
 }

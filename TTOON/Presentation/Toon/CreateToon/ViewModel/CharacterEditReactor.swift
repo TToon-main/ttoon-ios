@@ -8,7 +8,15 @@
 import ReactorKit
 import RxSwift
 
-final class CharacterEditReactor: Reactor {    
+final class CharacterEditReactor: Reactor {
+    private let model: ModifyCharacter
+    private let useCase: ToonUseCaseProtocol
+    
+    init(model: ModifyCharacter, useCase: ToonUseCaseProtocol) {
+        self.model = model
+        self.useCase = useCase
+    }
+    
     // 뷰에서 입력받은 유저 이벤트
     enum Action {
     }
