@@ -7,6 +7,7 @@
 
 import UIKit
 
+import RxCocoa
 import RxSwift
 
 struct CharacterPickerTableViewCellDataSource {
@@ -176,5 +177,17 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
+    }
+}
+
+// MARK: - Custom Observable
+
+extension Reactive where Base: CharacterPickerTableViewCell {
+    var modifyButtonTap: Observable<ModifyCharacter> {
+        return base.modifyCharacterButton.rx.tap
+            .map{ _ in return base.currentItem }
+            .compactMap{ $0 }
+            .map{ .init(id: $0.id, name: $0.name, info: $0.characterDescription) }
+            .asObservable()
     }
 }
