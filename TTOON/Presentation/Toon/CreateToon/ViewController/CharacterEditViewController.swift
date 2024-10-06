@@ -13,7 +13,7 @@ import RxSwift
 
 class CharacterEditViewController: BaseViewController {
     var disposeBag = DisposeBag()
-    private let characterEditorView = CharacterEditorView()
+    private let characterEditorScrollView = CharacterEditorScrollView()
     
     init(reactor: CharacterEditReactor) {
         super.init(nibName: nil, bundle: nil)
@@ -26,28 +26,18 @@ class CharacterEditViewController: BaseViewController {
     }
     
     override func loadView() {
-        view = characterEditorView
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        bindMockUp()
+        view = characterEditorScrollView
     }
     
     override func configures() {
         setNavigationItem()
-        characterEditorView.setUpView(editType: .edit)
-    }
-    
-    // TODO: 임시
-    func bindMockUp() {
+        characterEditorScrollView.characterEditorView.setUpView(editType: .edit)
     }
     
     private func setNavigationItem() {
         self.navigationItem.title = "등장인물 수정"
         self.navigationItem.backButtonTitle = ""
         
-        // TODO: 임시
         let deleteButton = UIBarButtonItem(title: "삭제", style: .plain, target: self, action: #selector(deleteAction))
         deleteButton.tintColor = .errorRed
         deleteButton.setTitleTextAttributes([.font: UIFont.body16m], for: .normal)
@@ -57,8 +47,19 @@ class CharacterEditViewController: BaseViewController {
     }
     
     @objc func deleteAction() {
-        // 삭제 버튼이 눌렸을 때 수행할 동작을 여기에 구현
-        print("삭제 버튼이 눌렸습니다.")
+        self.reactor?.action.onNext(.deletedButtonTap)
+    }
+    
+    private func pop(_ flag: Bool) {
+        if flag {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    private func presentFailToast(_ flag: Bool) {
+        if flag {
+            // TODO: - 토스트 메세지
+        }
     }
 }
 
@@ -69,8 +70,73 @@ extension CharacterEditViewController: View {
     }
     
     func bindAction(reactor: CharacterEditReactor) {
+        reactor.action.onNext(.setInitialData)
+        
+        characterEditorScrollView.rx.nameTextDidChange
+            .map { CharacterEditReactor.Action.nameText(text: $0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        characterEditorScrollView.rx.infoTextDidChange
+            .map { CharacterEditReactor.Action.infoText(text: $0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        characterEditorScrollView.rx.isSwitchOn
+            .map { CharacterEditReactor.Action.isMainCharacter(isMain: $0)}
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        characterEditorScrollView.rx.confirmButtonTap
+            .compactMap{ $0 }
+            .map { CharacterEditReactor.Action.confirmButtonTap(model: $0)}
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: CharacterEditReactor) {
+        reactor.state.map { $0.nameTextFiledCountLabel }
+            .distinctUntilChanged()
+            .bind(to: characterEditorScrollView.rx.nameTextFiledCountLabel)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.infoTextFiledCountLabel }
+            .distinctUntilChanged()
+            .bind(to: characterEditorScrollView.rx.infoTextFiledCountLabel)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.errorNameTextFiled }
+            .distinctUntilChanged()
+            .bind(to: characterEditorScrollView.rx.errorNameTextFiled)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.errorInfoTextFiled }
+            .distinctUntilChanged()
+            .bind(to: characterEditorScrollView.rx.errorInfoTextFiled)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isOn }
+            .bind(to: characterEditorScrollView.rx.isOn)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isEnabledConfirmButton }
+            .bind(to: characterEditorScrollView.rx.isEnabledConfirmButton)
+            .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.nameText }
+            .bind(to: characterEditorScrollView.rx.nameText)
+            .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.infoText }
+            .bind(to: characterEditorScrollView.rx.infoText)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.pop }
+            .bind(onNext: pop)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.presentFailToast }
+            .bind(onNext: presentFailToast)
+            .disposed(by: disposeBag)
     }
 }

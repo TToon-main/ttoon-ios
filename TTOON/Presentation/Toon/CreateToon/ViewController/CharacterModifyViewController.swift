@@ -131,10 +131,6 @@ extension CharacterModifyViewController: View {
             .bind(to: characterModifyView.rx.isHiddenEmptyListView)
             .disposed(by: disposeBag)
         
-        reactor.state.map { $0.isHiddenIdleView }
-            .bind(to: characterModifyView.rx.isHiddenIdleView)
-            .disposed(by: disposeBag)
-        
         reactor.state.map { $0.isHiddenInvalidView }
             .bind(to: characterModifyView.rx.isHiddenInvalidView)
             .disposed(by: disposeBag)

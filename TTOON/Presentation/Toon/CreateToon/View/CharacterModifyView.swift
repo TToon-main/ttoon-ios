@@ -106,24 +106,12 @@ extension Reactive where Base: CharacterModifyView {
     var isHiddenEmptyListView: Binder<Bool> {
         return Binder(base) { view, isHidden in
             view.emptyListView.isHidden = isHidden
-            view.invalidView.isHidden = true
-            view.idleView.isHidden = true
         }
     }
     
     var isHiddenInvalidView: Binder<Bool> {
         return Binder(base) { view, isHidden in
             view.invalidView.isHidden = isHidden
-            view.emptyListView.isHidden = true
-            view.idleView.isHidden = true
-        }
-    }
-    
-    var isHiddenIdleView: Binder<Bool> {
-        return Binder(base) { view, isHidden in
-            view.idleView.isHidden = isHidden
-            view.invalidView.isHidden = true
-            view.emptyListView.isHidden = true
         }
     }
 }
