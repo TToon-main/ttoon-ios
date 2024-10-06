@@ -24,11 +24,11 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
         case modify
     }
     
+    var currentItem: CharacterPickerTableViewCellDataSource?
     var disposeBag = DisposeBag()
     
     let titleLabel = {
         let view = UILabel()
-        view.text = "조혜원"
         view.font = .body16b
         view.textColor = .grey08
         
@@ -50,7 +50,6 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
     
     private let subTitleLabel = {
         let view = UILabel()
-        view.text = "갈색 긴 머리, 20세 여성, 한국인, 빨간색 가디건에 검정색 치마"
         view.font = .body14r
         view.textColor = .grey07
         view.numberOfLines = 2
@@ -89,6 +88,7 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
+        currentItem = nil
     }
     
     override func configures() {
@@ -111,6 +111,8 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
     }
     
     func setCell(_ item: CharacterPickerTableViewCellDataSource, cellType: CellType = .pick) {
+        currentItem = item
+        
         switch cellType {
         case .pick:
             titleLabel.text = item.name

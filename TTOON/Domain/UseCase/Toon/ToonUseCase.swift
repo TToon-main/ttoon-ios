@@ -12,6 +12,7 @@ import RxSwift
 protocol ToonUseCaseProtocol {
     func characterList() -> Observable<ToonUseCase.CharacterList>
     func addCharacter(model: AddCharacter) -> Observable<Bool>
+    func deleteCharacter(id: String) -> Observable<Bool>
 }
 
 class ToonUseCase: ToonUseCaseProtocol {
@@ -56,6 +57,21 @@ class ToonUseCase: ToonUseCaseProtocol {
         let error = request.compactMap { $0.error }
             .map { _ in false}
         
+        return .merge(success, error)
+    }
+    
+    func deleteCharacter(id: String) -> Observable<Bool> {
+        let dto = DeleteCharacterRequestDTO(id: id)
+        
+        let request = repo.deleteCharacter(dto: dto)
+            .share()
+        
+        let success = request.compactMap { $0.element }
+            .filter { $0 }
+    
+        let error = request.compactMap { $0.error }
+            .map { _ in false}
+
         return .merge(success, error)
     }
 }

@@ -85,8 +85,14 @@ extension Reactive where Base: CharacterModifyView {
                     return .never()
                 }
                 
-                let name = cell.titleLabel.text
-                let action = CharacterModifyReactor.Action.deletedCharacterTap(name)
+                guard let item = cell.currentItem else { return .never()}
+                
+                let name = item.name
+                let id = item.id
+                
+                let model = DeleteCharacter.init(id: id, name: name)
+                
+                let action = CharacterModifyReactor.Action.deletedCharacterTap(model)
                 
                 return .just(action) 
             }

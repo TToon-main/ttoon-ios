@@ -8,45 +8,48 @@
 import ReactorKit
 import RxSwift
 
+protocol CharacterDeleteBSReactorDelegate: AnyObject {
+    func deleteCharacter(id: String?)
+}
+
 final class CharacterDeleteBSReactor: Reactor {    
-    let userName: String?
+    private let model: DeleteCharacter?
+    weak var delegate: CharacterDeleteBSReactorDelegate?
     
-    init(userName: String?) {
-        self.userName = userName
+    init(model: DeleteCharacter?) {
+        self.model = model
     }
     
-    // 뷰에서 입력받은 유저 이벤트
     enum Action {
-        case viewLifeCycle(ViewLifeCycle)
+        case viewDidLoad
         case backButtonTap
         case deleteButtonTap
     }
     
-    // Action과 State의 매개체
     enum Mutation {
-        case setViewLifeCycle(ViewLifeCycle)
+        case setCharacterName(name: String?)
         case setDismiss
     }
     
-    // 뷰에 전달할 상태
     struct State {
         var userName: String? = nil
         var dismiss: Void? = nil
     }
     
-    // 전달할 상태의 초기값
     let initialState: State = State()
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .viewLifeCycle(let cycle): 
-            return .just(.setViewLifeCycle(cycle))   
+        case .viewDidLoad:
+            let name = model?.name
+            return .just(.setCharacterName(name: name))
             
         case .backButtonTap:
             return .just(.setDismiss)
             
         case .deleteButtonTap:
-            // TODO: api 요청
+            let id = self.model?.id
+            delegate?.deleteCharacter(id: id)
             return .just(.setDismiss)
         }
     }
@@ -55,10 +58,8 @@ final class CharacterDeleteBSReactor: Reactor {
         var newState = state
         
         switch mutation {
-        case .setViewLifeCycle(let cycle):
-            if cycle == .viewWillAppear {
-                newState.userName = self.userName
-            }
+        case .setCharacterName(let name):
+            newState.userName = name
             
         case .setDismiss:
             newState.dismiss = ()
