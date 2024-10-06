@@ -71,4 +71,18 @@ extension Reactive where Base: EnterInfoScrollView {
             view.enterInfoView.enterDiaryTextView.diaryInputTextView.text = text
         }
     }
+    
+    var characterButtonText: Binder<String?> {
+        return Binder(base) { view, text in
+            if let text = text {
+                base.enterInfoView.selectCharactersView
+                    .selectCharactersButton
+                    .setSelectedCharactersText(text)
+            } else {
+                base.enterInfoView.selectCharactersView
+                    .selectCharactersButton
+                    .setDefaultText()
+            }
+        }
+    }
 }

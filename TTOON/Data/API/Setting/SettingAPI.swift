@@ -99,17 +99,10 @@ extension SettingAPI: TargetType {
         case .patchProfile(let dto):
             let token = KeychainStorage.shared.accessToken ?? "" 
 
-            if dto.image == nil {
-                return [
-                    "Content-Type": "application/application/json",
-                    "Authorization": "Bearer \(token)"
-                ]
-            } else {
-                return [
-                    "Content-Type": "multipart/form-data",
-                    "Authorization": "Bearer \(token)"
-                ]
-            }
+            return [
+                "Content-Type": "multipart/form-data",
+                "Authorization": "Bearer \(token)"
+            ]
             
         default:
             return nil

@@ -11,14 +11,9 @@ import ReactorKit
 import RxCocoa
 import RxSwift
 
-protocol PresentModifyCharacterVCDelegate: AnyObject {
-    func presentModifyCharacterViewController()
-}
-
 class CharacterPickerBSViewController: BaseViewController {
     var disposeBag = DisposeBag()
     private let characterPickerBSView = CharacterPickerBSView()
-    weak var delegate: PresentModifyCharacterVCDelegate?
     
     init(reactor: CharacterPickerBSReactor) {
         super.init(nibName: nil, bundle: nil)
@@ -28,11 +23,6 @@ class CharacterPickerBSViewController: BaseViewController {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        bindMockUp()
     }
     
     override func addSubViews() {
@@ -47,14 +37,10 @@ class CharacterPickerBSViewController: BaseViewController {
         }
     }
     
-    // TODO: - 목업 바인딩
-    func bindMockUp() {
-        characterPickerBSView.modifyCharacterButton.rx.tap
-            .subscribe(with: self) { owner, _ in
-                owner.dismiss(animated: true)
-                owner.delegate?.presentModifyCharacterViewController()
-            }
-            .disposed(by: disposeBag)
+    private func dismiss(_ flag: Bool) {
+        if flag {
+            self.dismiss(animated: true)
+        }
     }
 }
 
@@ -67,13 +53,27 @@ extension CharacterPickerBSViewController: View {
     func bindAction(reactor: CharacterPickerBSReactor) {
         rx.viewWillAppear
             .map { _ in CharacterPickerBSReactor.Action.refreshCharacterList}
+			.bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        characterPickerBSView.rx.confirmButtonTap
+            .map{ CharacterPickerBSReactor.Action.confirmButtonTap}
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        characterPickerBSView.rx.modifyCharacterButtonTap
+            .map{ CharacterPickerBSReactor.Action.modifyCharacterButtonTap}
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        characterPickerBSView.rx.modelSelected
+            .map{ CharacterPickerBSReactor.Action.modelSelected(model: $0)}
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }
     
     func bindState(reactor: CharacterPickerBSReactor) {
         reactor.state.compactMap { $0.characterList }
-            .map({ $0.map { $0.toPresenter() } })
             .bind(to: characterPickerBSView.tableView.rx.items(
                 cellIdentifier: CharacterPickerTableViewCell.IDF,
                 cellType: CharacterPickerTableViewCell.self))
@@ -88,6 +88,14 @@ extension CharacterPickerBSViewController: View {
         
         reactor.state.map { $0.isHiddenInvalidView }
             .bind(to: characterPickerBSView.rx.isHiddenInvalidView)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isEnabledConfirmButton }
+            .bind(to: characterPickerBSView.rx.isEnabledConfirmButton)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isDismiss }
+            .bind(onNext: dismiss)
             .disposed(by: disposeBag)
     }
 }
