@@ -29,6 +29,11 @@ class CharacterModifyViewController: BaseViewController {
         view = characterModifyView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reactor?.action.onNext(.refreshList)
+    }
+    
     override func configures() {
         setNavigationItem()
     }
@@ -39,8 +44,10 @@ class CharacterModifyViewController: BaseViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.black
     }
     
-    private func presentCharacterDeleteBS(name: String?) {
-        let reactor = CharacterDeleteBSReactor(userName: name)
+    private func presentCharacterDeleteBS(model: DeleteCharacter?) {
+        let reactor = CharacterDeleteBSReactor(model: model)
+        reactor.delegate = self
+        
         let viewControllerToPresent = CharacterDeleteBSViewController(reactor: reactor)
         
         if let sheet = viewControllerToPresent.sheetPresentationController {
@@ -61,6 +68,15 @@ class CharacterModifyViewController: BaseViewController {
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    private func isSuccessDeleted(isSuccess: Bool) {
+        if isSuccess {
+            // TODO: - 삭제 성공 토스트
+            self.reactor?.action.onNext(.refreshList)
+        } else {
+            // TODO: - 삭제 실패 토스트
+        }
+    }
 }
 
 extension CharacterModifyViewController: View {
@@ -70,8 +86,6 @@ extension CharacterModifyViewController: View {
     }
     
     func bindAction(reactor: CharacterModifyReactor) {
-        reactor.action.onNext(.viewDidLoad)
-        
         characterModifyView.rx.deletedCharacterTap
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
@@ -112,5 +126,17 @@ extension CharacterModifyViewController: View {
         reactor.state.map { $0.isHiddenInvalidView }
             .bind(to: characterModifyView.rx.isHiddenInvalidView)
             .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.isSuccessDeleted }
+            .bind(onNext: isSuccessDeleted)
+            .disposed(by: disposeBag)
+    }
+}
+
+extension CharacterModifyViewController: CharacterDeleteBSReactorDelegate {
+    func deleteCharacter(id: String?) {
+        if let id  = id {
+            self.reactor?.action.onNext(.deleteCharacter(id))
+        }
     }
 }

@@ -33,3 +33,13 @@ struct AddCharacter {
         return .init(name: name, info: info)
     }
 }
+
+
+struct DeleteCharacter {
+    let id: String
+    let name: String?
+    
+    func toDTO() -> DeleteCharacterRequestDTO {
+        return .init(id: id)
+    }
+}
