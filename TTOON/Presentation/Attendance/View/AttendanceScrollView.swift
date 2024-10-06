@@ -59,7 +59,6 @@ extension Reactive where Base: AttendanceScrollView {
     
     var showInvalid: Binder<Bool> {
         return Binder(base) { view, isInvalid in
-            print("디버그", isInvalid)
         }
     }
     

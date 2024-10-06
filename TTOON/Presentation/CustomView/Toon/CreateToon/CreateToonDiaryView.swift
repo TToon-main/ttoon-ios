@@ -31,7 +31,8 @@ class CreateToonDiaryView: BaseView {
     let diaryTitleTextField = {
         let view = TNTextFiled()
         view.textFiled.placeholder = "제목을 입력해주세요"
-        view.statusLabel.textCntLabel.text = "0/20"
+        view.statusLabel.textCntLabel.text = "0"
+        view.statusLabel.textLimitLabel.text = "/20"
         
         return view
     }()
@@ -46,10 +47,9 @@ class CreateToonDiaryView: BaseView {
     }()
     
     let dairyLimitTextView = {
-        let view = UILabel()
-        view.font = .body14r
-        view.textColor = .grey05
-        view.text = "0/200"
+        let view = TextStatusView()
+        view.textCntLabel.text = "0"
+        view.textLimitLabel.text = "/200"
         
         return view
     }()
@@ -87,25 +87,10 @@ class CreateToonDiaryView: BaseView {
         }
         
         dairyLimitTextView.snp.makeConstraints {
-            $0.trailing.equalToSuperview()
             $0.top.equalTo(diaryInputTextView.snp.bottom).offset(4)
+            $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(20)
             $0.bottom.equalToSuperview()
         }
-    }
-    
-    override func bind() {
-        diaryInputTextView.rx.text
-            .filter { $0 != self.diaryInputTextView.placeholderText }
-            .compactMap { $0 }
-            .map{ "\($0.count)/\(self.diaryInputTextView.limitCnt)"}
-            .bind(to: dairyLimitTextView.rx.text)
-            .disposed(by: disposeBag)
-        
-        diaryTitleTextField.textFiled.rx.text
-            .compactMap { $0 }
-            .map{ "\($0.count)/20"}
-            .bind(to: diaryTitleTextField.rx.cntText)
-            .disposed(by: disposeBag)
     }
 }
