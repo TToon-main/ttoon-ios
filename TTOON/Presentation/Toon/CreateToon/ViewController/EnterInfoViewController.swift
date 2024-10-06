@@ -148,7 +148,9 @@ extension EnterInfoViewController {
     }
     
     private func presentModifyCharacterVC() {
-        let reactor = CharacterModifyReactor()
+        let repo = ToonRepository()
+        let useCase = ToonUseCase(repo: repo)
+        let reactor = CharacterModifyReactor(useCase: useCase)
         let vc = CharacterModifyViewController(reactor: reactor)
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
