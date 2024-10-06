@@ -11,8 +11,9 @@ import RxSwift
 
 protocol ToonUseCaseProtocol {
     func characterList() -> Observable<ToonUseCase.CharacterList>
-    func addCharacter(model: AddCharacter) -> Observable<Bool>
+    func addCharacter(model: AddCharacter) -> Observable<Int64?>
     func deleteCharacter(id: String) -> Observable<Bool>
+    func patchCharacter(model: ModifyCharacter) -> Observable<Int64?>
 }
 
 class ToonUseCase: ToonUseCaseProtocol {
@@ -45,18 +46,18 @@ class ToonUseCase: ToonUseCaseProtocol {
         return .merge(list, emptyList, invalid)
     }
     
-    func addCharacter(model: AddCharacter) -> Observable<Bool> {
+    func addCharacter(model: AddCharacter) -> Observable<Int64?> {
         let dto = model.toDTO()
         
         let request = repo.postCharacter(dto: dto)
             .share()
         
-        let success = request.compactMap { $0.element }
-            .filter { $0 }
+        let success: Observable<Int64?> = request.compactMap { $0.element }
+            .map { $0.figureId }
     
-        let error = request.compactMap { $0.error }
-            .map { _ in false}
-        
+        let error: Observable<Int64?> = request.compactMap { $0.error }
+            .map { _ in return nil }
+
         return .merge(success, error)
     }
     
@@ -71,6 +72,21 @@ class ToonUseCase: ToonUseCaseProtocol {
     
         let error = request.compactMap { $0.error }
             .map { _ in false}
+
+        return .merge(success, error)
+    }
+    
+    func patchCharacter(model: ModifyCharacter) -> Observable<Int64?> {
+        let dto = model.toDTO()
+        
+        let request = repo.patchCharacter(dto: dto)
+            .share()
+        
+        let success: Observable<Int64?> = request.compactMap { $0.element }
+            .map { $0.figureId }
+    
+        let error: Observable<Int64?> = request.compactMap { $0.error }
+            .map { _ in return nil }
 
         return .merge(success, error)
     }

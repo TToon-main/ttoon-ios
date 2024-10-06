@@ -24,14 +24,16 @@ class ToonRepository: ToonRepositoryProtocol {
             .mapIsSuccess(errorType: DeleteCharacterError.self)
     }
     
-    func patchCharacter(dto: PatchCharacterRequestDTO) -> Observable<Event<Bool>> {
+    func patchCharacter(dto: PatchCharacterRequestDTO) -> Observable<Event<CharacterResponseDTO>> {
         return provider.log.rx.request(.patchCharacter(dto: dto))
-            .mapIsSuccess(errorType: PatchCharacterError.self)
+            .mapData(responseType: CharacterResponseDTO.self,
+                     errorType: PatchCharacterError.self)
     }
     
-    func postCharacter(dto: PostCharacterRequestDTO) -> Observable<Event<Bool>> {
+    func postCharacter(dto: PostCharacterRequestDTO) -> Observable<Event<CharacterResponseDTO>> {
         return provider.log.rx.request(.postCharacter(dto: dto))
-            .mapIsSuccess(errorType: PostCharacterError.self)
+            .mapData(responseType: CharacterResponseDTO.self,
+                     errorType: PostCharacterError.self)
     }
 }
 
