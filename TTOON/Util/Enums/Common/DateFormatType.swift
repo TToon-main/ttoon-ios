@@ -15,4 +15,6 @@ enum DateFormatType: String {
     
     case fullWithHyphen = "yyyy-MM-dd"
     case yearMonthWithHyphen = "yyyy-MM"
+    
+    case fullWithDot = "yyyy.MM.dd"
 }

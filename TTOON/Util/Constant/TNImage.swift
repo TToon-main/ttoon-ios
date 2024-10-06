@@ -48,7 +48,12 @@ struct TNImage {
     // Calendar
     static var noFeedDataView = UIImage(named: "NoFeedData")
     static var feedMenuButton = UIImage(named: "feedMenuButton")
-    // Attendance 
+    
+    // Feed
+    static var feedHeartGray = UIImage(named: "Feed_heart_gray")
+    static var feedHeartRed = UIImage(named: "Feed_heart_red")
+    
+    // Attendance
     static var monOffIcon = UIImage(named: "Mon_off")
     static var monOnIcon = UIImage(named: "Mon_on")
     static var tueOffIcon = UIImage(named: "Tue_off")
