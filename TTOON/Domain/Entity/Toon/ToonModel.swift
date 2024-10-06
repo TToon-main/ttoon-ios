@@ -14,7 +14,8 @@ struct Character {
     let info: String
     
     func toPresenter() -> CharacterPickerTableViewCellDataSource {
-        return .init(name: name,
+        return .init(id: id,
+                     name: name,
                      isMainCharacter: isMain,
                      characterDescription: info,
                      isSelected: false,
