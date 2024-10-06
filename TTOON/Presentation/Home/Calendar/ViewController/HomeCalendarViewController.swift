@@ -89,18 +89,13 @@ extension HomeCalendarViewController {
         // feedDetail
         reactor.state.map { $0.currentFeedDetail }
             .distinctUntilChanged()
-            .subscribe(with: self) { owner, model in
-                owner.mainView.updateView(model)
-            }
+            .bind(onNext: { self.mainView.updateView($0) })
             .disposed(by: disposeBag)
         
         // currentYearMonth
         reactor.state.map { $0.currentYearMonth }
             .distinctUntilChanged()
-            .subscribe(with: self) { owner, yearMonth in
-                // 해당되는 월의 캘린더 보여줌
-                owner.mainView.calendarView.updateCalendar(yearMonth)
-            }
+            .bind(onNext: { self.mainView.calendarView.updateCalendar($0) })
             .disposed(by: disposeBag)
         
         // calendarThumbnails
