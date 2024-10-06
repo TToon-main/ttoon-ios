@@ -43,3 +43,13 @@ struct DeleteCharacter {
         return .init(id: id)
     }
 }
+
+struct ModifyCharacter {
+    let id: String
+    let name: String
+    let info: String
+    
+    func toDTO() -> PatchCharacterRequestDTO {
+        return .init(id: id, name: name, info: info)
+    }
+}

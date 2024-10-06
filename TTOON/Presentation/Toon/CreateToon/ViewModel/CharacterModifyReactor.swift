@@ -21,6 +21,7 @@ final class CharacterModifyReactor: Reactor {
         case deleteCharacter(String)
         case deletedCharacterTap(DeleteCharacter)
         case addCharacterButtonTap
+        case modifyButtonTap(ModifyCharacter)
     }
     
     // Action과 State의 매개체
@@ -32,6 +33,7 @@ final class CharacterModifyReactor: Reactor {
         case setDeletedCharacterTap(DeleteCharacter)
         case setAddCharacterButtonTap
         case setDeleteCharacter(Bool)
+        case setModifyButtonTap(ModifyCharacter)
     }
     
     // 뷰에 전달할 상태
@@ -41,7 +43,8 @@ final class CharacterModifyReactor: Reactor {
         var isHiddenInvalidView: Bool = true
         var isHiddenIdleView: Bool = false
         var presentCharacterDeleteBS: DeleteCharacter? = nil
-        var presentCharacterEditorVC: Void? = nil
+        var presentCharacterAddVC: Void? = nil
+        var presentCharacterEditorVC: ModifyCharacter? = nil
         var isSuccessDeleted: Bool? = nil
     }
     
@@ -78,6 +81,9 @@ final class CharacterModifyReactor: Reactor {
         case .deleteCharacter(let id):
             return useCase.deleteCharacter(id: id)
                 .map { Mutation.setDeleteCharacter($0)}
+            
+        case .modifyButtonTap(let model):
+            return .just(.setModifyButtonTap(model))
         }
     }
     
@@ -89,7 +95,7 @@ final class CharacterModifyReactor: Reactor {
             new.presentCharacterDeleteBS = model
             
         case .setAddCharacterButtonTap:
-            new.presentCharacterEditorVC = ()
+            new.presentCharacterAddVC = ()
             
         case .setCharacterList(let list):
             new.characterList = list
@@ -105,6 +111,9 @@ final class CharacterModifyReactor: Reactor {
             
         case .setDeleteCharacter(let isSuccess):
             new.isSuccessDeleted = isSuccess
+            
+        case .setModifyButtonTap(let model):
+            new.presentCharacterEditorVC = model
         }
         
         return new
@@ -113,6 +122,7 @@ final class CharacterModifyReactor: Reactor {
     private func fetchNewState(state: State) -> State {
         var new = state
         new.presentCharacterDeleteBS = nil
+        new.presentCharacterAddVC = nil
         new.presentCharacterEditorVC = nil
         new.isSuccessDeleted = nil
         
