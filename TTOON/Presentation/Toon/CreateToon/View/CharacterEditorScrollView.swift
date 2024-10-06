@@ -19,6 +19,7 @@ class CharacterEditorScrollView: BaseView {
         let view = UIScrollView()
         view.showsHorizontalScrollIndicator = false
         view.backgroundColor = .white
+        view.bounces = false
         
         return view
     }()
@@ -36,7 +37,8 @@ class CharacterEditorScrollView: BaseView {
         }
         
         characterEditorView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.horizontalEdges.equalToSuperview()
+            $0.bottom.greaterThanOrEqualTo(safeGuide)
             $0.width.equalTo(width)
         }
     }
