@@ -43,6 +43,8 @@ class HomeFeedViewController: BaseViewController, View {
         
         // Logic
         loadFirstData()
+        
+        print("token : \(KeychainStorage.shared.accessToken)")
     }
 }
 
@@ -86,15 +88,8 @@ extension HomeFeedViewController {
     func bindState(_ reactor: HomeFeedReactor) {
         reactor.state.map { $0.feedList }
             .bind(to: mainView.feedTableView.rx.items(cellIdentifier: FeedTableViewCell.description(), cellType: FeedTableViewCell.self)) { row, feedModel, cell in
-                // FeedTableViewCell에서 prefetch 활성화/비활성화 핸들러 설정
-                cell.disablePrefetching = { [weak self] in
-                    self?.isPrefetchingEnabled = false
-                }
-                cell.enablePrefetching = { [weak self] in
-                    self?.isPrefetchingEnabled = true
-                }
-                
-                cell.setDesign(feedModel)
+                cell.feedModel = feedModel
+                cell.setDesign()
             }
             .disposed(by: disposeBag)
     }
