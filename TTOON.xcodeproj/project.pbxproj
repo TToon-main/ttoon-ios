@@ -106,6 +106,9 @@
 		48D979F72BEF459F0087F870 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F32BEF459F0087F870 /* LoginView.swift */; };
 		48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F52BEF459F0087F870 /* LoginViewController.swift */; };
 		48D97A062BEF472D0087F870 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D97A052BEF472C0087F870 /* SocialLoginButton.swift */; };
+		48FA111A2CB29C8D008CDF69 /* FeedAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA11192CB29C8D008CDF69 /* FeedAPI.swift */; };
+		48FA111C2CB29E5D008CDF69 /* HomeFeedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA111B2CB29E5C008CDF69 /* HomeFeedRepository.swift */; };
+		48FA111E2CB2A0EB008CDF69 /* HomeFeedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA111D2CB2A0EB008CDF69 /* HomeFeedUseCase.swift */; };
 		BE0473662C550E5600484B96 /* ViewLifeCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0473652C550E5600484B96 /* ViewLifeCycle.swift */; };
 		BE0473682C551D8000484B96 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0473672C551D8000484B96 /* UIButton+.swift */; };
 		BE05C0932C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C0922C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift */; };
@@ -430,6 +433,9 @@
 		48F55A772BCD43AF00303C22 /* LoginRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryProtocol.swift; sourceTree = "<group>"; };
 		48F55A7B2BCD440600303C22 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		48F55A7D2BCD4A6D00303C22 /* TTOON.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TTOON.entitlements; sourceTree = "<group>"; };
+		48FA11192CB29C8D008CDF69 /* FeedAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPI.swift; sourceTree = "<group>"; };
+		48FA111B2CB29E5C008CDF69 /* HomeFeedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedRepository.swift; sourceTree = "<group>"; };
+		48FA111D2CB2A0EB008CDF69 /* HomeFeedUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedUseCase.swift; sourceTree = "<group>"; };
 		BE0473652C550E5600484B96 /* ViewLifeCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLifeCycle.swift; sourceTree = "<group>"; };
 		BE0473672C551D8000484B96 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		BE05C08C2C5F632500EEB19C /* CompleteToonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToonView.swift; sourceTree = "<group>"; };
@@ -893,6 +899,7 @@
 		4839AA132C7B14F300FF3250 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				48FA11182CB29C82008CDF69 /* Feed */,
 				48C0C3712CA19C0800A2B6B9 /* Calendar */,
 				4839AA152C7B153300FF3250 /* Friend */,
 			);
@@ -1088,6 +1095,7 @@
 			isa = PBXGroup;
 			children = (
 				48BA62B22CA1AFAD0012C334 /* HomeCalendarUseCase.swift */,
+				48FA111D2CB2A0EB008CDF69 /* HomeFeedUseCase.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1164,6 +1172,7 @@
 			isa = PBXGroup;
 			children = (
 				48C0C37B2CA1A5A200A2B6B9 /* HomeCalendarRepository.swift */,
+				48FA111B2CB29E5C008CDF69 /* HomeFeedRepository.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1198,6 +1207,14 @@
 				48D979F52BEF459F0087F870 /* LoginViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		48FA11182CB29C82008CDF69 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				48FA11192CB29C8D008CDF69 /* FeedAPI.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		BE32E3102BEBAF7B00F0C193 /* TNCompopnet */ = {
@@ -2575,6 +2592,7 @@
 				BEB270B22C9EF56500BD150E /* AttendanceViewController.swift in Sources */,
 				BE9C9BF12C6898C2000AAF0E /* AuthInterceptor.swift in Sources */,
 				BE9C9BEE2C6898C2000AAF0E /* ContactUsRepository.swift in Sources */,
+				48FA111C2CB29E5D008CDF69 /* HomeFeedRepository.swift in Sources */,
 				BE9BBC442BCA552F006FD848 /* UIFont+.swift in Sources */,
 				BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */,
 				BE9C9B9B2C68986F000AAF0E /* DeleteAccountReasonBottomSheetViewController.swift in Sources */,
@@ -2717,6 +2735,7 @@
 				BEE8BCC92C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift in Sources */,
 				48C3F09A2BF9E64E00BD2142 /* SettingNameInputView.swift in Sources */,
 				BE9C9B422C688D16000AAF0E /* CreateToonCollectionView.swift in Sources */,
+				48FA111E2CB2A0EB008CDF69 /* HomeFeedUseCase.swift in Sources */,
 				BE9C9B432C688D16000AAF0E /* CreateToonCollectionViewCell.swift in Sources */,
 				BE0473682C551D8000484B96 /* UIButton+.swift in Sources */,
 				BE9C9BA62C68986F000AAF0E /* MyPageViewController.swift in Sources */,
@@ -2724,6 +2743,7 @@
 				48BF84AE2C8D863500E84016 /* FriendDTO.swift in Sources */,
 				BE9C9BED2C6898C2000AAF0E /* SplashRepository.swift in Sources */,
 				BEB270BF2C9F06BF00BD150E /* AttendanceButtonStackView.swift in Sources */,
+				48FA111A2CB29C8D008CDF69 /* FeedAPI.swift in Sources */,
 				BE9C9B9E2C68986F000AAF0E /* AlarmTableView.swift in Sources */,
 				BE9C9AED2C688CAF000AAF0E /* CharacterDeleteBSView.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,

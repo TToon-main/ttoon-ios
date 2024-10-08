@@ -15,6 +15,12 @@ import UIKit
 
 
 class FeedTableViewCell: BaseTableViewCell {
+    var disablePrefetching: (() -> Void)?
+    var enablePrefetching: (() -> Void)?
+    
+    var disposeBag = DisposeBag()
+    
+    
     // MARK: - UI
     let baseView = {
         let view = UIView()
@@ -64,6 +70,19 @@ class FeedTableViewCell: BaseTableViewCell {
         view.contentInset = Size.collectionViewContentInset
         view.decelerationRate = .fast
         view.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.rx.didScroll
+            .subscribe(onNext: { [weak self] in
+                self?.disablePrefetching?()  // prefetching 비활성화
+            })
+            .disposed(by: disposeBag)
+
+        view.rx.didEndDecelerating
+            .subscribe(onNext: { [weak self] in
+                self?.enablePrefetching?()  // prefetching 활성화
+            })
+            .disposed(by: disposeBag)
+        
         return view
     }()
     
@@ -226,6 +245,16 @@ class FeedTableViewCell: BaseTableViewCell {
         contentView.backgroundColor = .grey01
         diaryImageSwipeCollectionView.dataSource = self
         diaryImageSwipeCollectionView.delegate = self
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        // 위치 초기화
+        diaryImageSwipeCollectionView.setContentOffset(CGPoint(x: -24, y: 0), animated: false)
+        diaryImageSwipePageControl.currentPage = 0
+        
+        enablePrefetching?()
     }
 }
 
