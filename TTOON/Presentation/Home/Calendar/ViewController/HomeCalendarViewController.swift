@@ -215,6 +215,41 @@ extension HomeCalendarViewController: UICollectionViewDelegate, UICollectionView
     }
 }
 
+// MARK: - Feed Detail Menu Delegate
+extension HomeCalendarViewController: FeedDetailMenuBottomSheetActionProtocol {
+    func firstButtonTapped() {
+        TNAlert(self)
+            .setTitle("만화를 어떻게 저장하시겠어요?\n")
+            .addCancelAction("네 컷을 따로") {
+                self.reactor?.action.onNext(.saveTToonImage(.fourPage))
+                print("네 컷")
+            }
+            .addConfirmAction("한 장으로") {
+                self.reactor?.action.onNext(.saveTToonImage(.onePage))
+                print("한 장")
+            }
+            .present()
+    }
+    
+    func secondButtonTapped() {
+        TNAlert(self)
+            .setTitle("만화를 어떻게 공유하시겠어요?")
+            .addCancelAction("네 컷을 따로") {
+                self.reactor?.action.onNext(.shareTToonImage(.fourPage))
+                print("네 컷")
+            }
+            .addConfirmAction("한 장으로") {
+                self.reactor?.action.onNext(.shareTToonImage(.onePage))
+                print("한 장")
+            }
+            .present()
+    }
+    
+    func thirdButtonTapped() {
+        self.reactor?.action.onNext(.deleteTToon)
+    }
+}
+
 // MARK: - private func
 extension HomeCalendarViewController {
     // 연월 선택 바텀시트
@@ -236,6 +271,8 @@ extension HomeCalendarViewController {
     private func presentFeedDetailMenuBottomSheetVC() {
         let vc = FeedDetailMenuBottomSheetViewController()
         
+        vc.delegate = self
+        
         vc.menuView.setText(
             first: "이미지 저장하기",
             second: "공유하기",
@@ -250,56 +287,6 @@ extension HomeCalendarViewController {
             sheet.prefersEdgeAttachedInCompactHeight = true
             sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
         }
-        
-        if let reactor = self.reactor {
-            // 저장하기
-            vc.menuView.firstButton.rx.tap
-                .subscribe(with: self) { owner, _ in
-                    vc.dismiss(animated: true) {
-                        TNAlert(owner)
-                            .setTitle("만화를 어떻게 저장하시겠어요?\n")
-                            .addCancelAction("네 컷을 따로") {
-                                owner.reactor?.action.onNext(.saveTToonImage(.fourPage))
-                                print("네 컷")
-                            }
-                            .addConfirmAction("한 장으로") {
-                                owner.reactor?.action.onNext(.saveTToonImage(.onePage))
-                                print("한 장")
-                            }
-                            .present()
-                    }
-                }
-                .disposed(by: disposeBag)
-            
-            
-            // 공유하기
-            vc.menuView.secondButton.rx.tap
-                .subscribe(with: self) { owner, _ in
-                    vc.dismiss(animated: true) {
-                        TNAlert(owner)
-                            .setTitle("만화를 어떻게 공유하시겠어요?")
-                            .addCancelAction("네 컷을 따로") {
-                                owner.reactor?.action.onNext(.shareTToonImage(.fourPage))
-                                print("네 컷")
-                            }
-                            .addConfirmAction("한 장으로") {
-                                owner.reactor?.action.onNext(.shareTToonImage(.onePage))
-                                print("한 장")
-                            }
-                            .present()
-                    }
-                }
-                .disposed(by: disposeBag)
-            
-            // 삭제하기
-            vc.menuView.thirdButton.rx.tap
-                .map {
-                    HomeCalendarReactor.Action.deleteTToon
-                }
-                .bind(to: reactor.action)
-                .disposed(by: disposeBag)
-        }
-        
         
         present(vc, animated: true)
     }

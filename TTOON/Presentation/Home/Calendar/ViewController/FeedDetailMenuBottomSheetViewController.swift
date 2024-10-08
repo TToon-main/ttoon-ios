@@ -10,8 +10,16 @@ import RxCocoa
 import RxSwift
 import UIKit
 
+protocol FeedDetailMenuBottomSheetActionProtocol {
+    func firstButtonTapped()
+    func secondButtonTapped()
+    func thirdButtonTapped()
+}
+
 // 재사용할 수 있기 때문에, reactor를 전달받는 방법은 좋지 않다고 판단
 class FeedDetailMenuBottomSheetViewController: BaseViewController {
+    var delegate: FeedDetailMenuBottomSheetActionProtocol?
+    
     var disposeBag = DisposeBag()
     
     let menuView = FeedDetailMenuBottomSheetView()
@@ -49,12 +57,28 @@ class FeedDetailMenuBottomSheetViewController: BaseViewController {
 // private func
 extension FeedDetailMenuBottomSheetViewController {
     private func setButtonBind() {
-        [menuView.firstButton, menuView.secondButton, menuView.thirdButton].forEach{
-            $0.rx.tap
-                .subscribe(with: self) { owner, _ in
-                    self.dismiss(animated: true)
+        menuView.firstButton.rx.tap
+            .subscribe(with: self) { owner, _ in
+                owner.dismiss(animated: true) {
+                    owner.delegate?.firstButtonTapped()
                 }
-                .disposed(by: disposeBag)
-        }
+            }
+            .disposed(by: disposeBag)
+        
+        menuView.secondButton.rx.tap
+            .subscribe(with: self) { owner, _ in
+                owner.dismiss(animated: true) {
+                    owner.delegate?.secondButtonTapped()
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        menuView.thirdButton.rx.tap
+            .subscribe(with: self) { owner, _ in
+                owner.dismiss(animated: true) {
+                    owner.delegate?.thirdButtonTapped()
+                }
+            }
+            .disposed(by: disposeBag)
     }
 }
