@@ -22,9 +22,21 @@ class InnerTextField: UITextField {
         layer.borderColor = UIColor.clear.cgColor
         
         addLeftPadding(20)
+        setPlaceholder()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }    
+    }
+    
+    private func setPlaceholder() {
+        guard let placeholder else { return }
+        let placeholderFont = UIFont.body16m
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: placeholderFont,
+            .foregroundColor: UIColor.grey06
+        ]
+        
+        attributedPlaceholder = NSAttributedString(string: placeholder, attributes: attributes)
+    }
 }

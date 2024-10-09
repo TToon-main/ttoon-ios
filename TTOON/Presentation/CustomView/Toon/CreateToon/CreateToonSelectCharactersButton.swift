@@ -22,7 +22,7 @@ class CreateToonSelectCharactersButton: UIButton {
         backgroundColor = .grey01
         titleLabel?.font = .body16m
         setTitleColor(.grey06, for: .normal)
-        setTitle("저장해 둔 등장인물 중 선택해주세요", for: .normal)
+        setTitle("저장해둔 등장인물 중 선택해주세요", for: .normal)
         setImage(TNImage.btnArrowDownIcon, for: .normal)
         layer.cornerRadius = 8
         configureButtonLayout(leadingInset: 20, spacing: 68, semanticAttribute: .forceRightToLeft)
