@@ -29,7 +29,7 @@ final class AlarmViewController: BaseViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         setIsAlarmEnabled()
-        delegate?.realod()
+        delegate?.reload()
     }
     
     // MARK: - Method

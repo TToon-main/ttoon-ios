@@ -12,7 +12,7 @@ import RxCocoa
 import RxSwift
 
 protocol ReloadMyPageDataSource: AnyObject {
-    func realod()
+    func reload()
 }
 
 final class MyPageViewController: BaseViewController {
@@ -214,7 +214,7 @@ extension MyPageViewController {
         viewControllerToPresent.delegate = self
         
         if let sheet = viewControllerToPresent.sheetPresentationController {
-            sheet.detents = [.custom { context in return 207 } ]
+            sheet.detents = [.custom { context in return 183 } ]
             sheet.prefersGrabberVisible = true
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
             sheet.prefersEdgeAttachedInCompactHeight = true
@@ -321,7 +321,7 @@ extension MyPageViewController {
 
 // MARK: - 바텀 시트가 dismiss되면 데이터 리로드
 extension MyPageViewController: ReloadMyPageDataSource {
-    func realod() {
+    func reload() {
         reloadData()
     }
 }
