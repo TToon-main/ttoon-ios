@@ -30,7 +30,7 @@ class MyPageChangeLangView: BaseView {
         let view = UIStackView()
         view.backgroundColor = .clear
         view.axis = .vertical
-        view.spacing = 44
+        view.spacing = 25
         view.addArrangedSubview(titleLabel)
         view.addArrangedSubview(contentTableView)
         
@@ -65,7 +65,7 @@ class MyPageChangeLangView: BaseView {
             $0.top.equalToSuperview().offset(44)
             $0.horizontalEdges.equalToSuperview().inset(21)
             $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-44)
+            $0.bottom.equalToSuperview().offset(-25)
         }
     }
 }
