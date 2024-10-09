@@ -22,6 +22,6 @@ final class CharacterPickerTableView: UITableView {
         backgroundColor = .clear
         rowHeight = 108
         register(CharacterPickerTableViewCell.self, forCellReuseIdentifier: CharacterPickerTableViewCell.IDF)
-        showsHorizontalScrollIndicator = false
+        bounces = false
     }
 }
