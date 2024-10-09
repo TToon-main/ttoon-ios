@@ -50,7 +50,10 @@ extension AttendanceViewController: View {
     }
     
     func bindAction(reactor: AttendanceReactor) {
-        reactor.action.onNext(.viewDidLoad)
+        rx.viewWillAppear
+            .map { _ in AttendanceReactor.Action.refreshAttendance}
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
         
         refreshAttendance
             .map { AttendanceReactor.Action.refreshAttendance }

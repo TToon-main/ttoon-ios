@@ -18,13 +18,12 @@ final class AttendanceReactor: Reactor {
     }
     
     enum Action {
-        case viewDidLoad
         case refreshAttendance
         case checkAttendanceButtonTap
     }
     
     enum Mutation {
-        case setValidStatus(status: GetAttendanceResponseDTO)
+        case setValidStatus(status: AttendanceStatus)
         case setInvalidStatus(isInvalid: Bool)
         case setCompleteAttendanceAlert
         case setAlreadyAttendanceAlert
@@ -43,7 +42,7 @@ final class AttendanceReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .viewDidLoad, .refreshAttendance:
+        case .refreshAttendance:
             
             return useCase.checkAttendance()
                 .map { status in
@@ -76,8 +75,8 @@ final class AttendanceReactor: Reactor {
         switch mutation {
         case .setValidStatus(let status):
             newState.point = "\(status.point)P"
-            newState.isSelected = fetchIsSelected(status.dayStatus)
-            newState.isEnabledCheckAttendanceButton = isTodayAttendance(status.dayStatus)
+            newState.isSelected = status.weekAttendance
+            newState.isEnabledCheckAttendanceButton = status.isTodayAttendance
             return newState
             
         case .setCompleteAttendanceAlert:
@@ -102,25 +101,4 @@ final class AttendanceReactor: Reactor {
          
         return new
       }
-}
-
-extension AttendanceReactor {
-    func fetchIsSelected(_ days: [GetAttendanceResponseDTO.DayStatus]) -> [Bool] {
-        return days.map { attendance in
-            attendance.isAttended
-        }
-    }
-    
-    func isTodayAttendance(_ days: [GetAttendanceResponseDTO.DayStatus]) -> Bool {
-        let today = Date().toString(of: .onlyDay).uppercased()
-        
-        let todayStatus = days
-            .filter { $0.day == today  }
-            .map { $0.isAttended }
-        
-        let isEnabled = todayStatus
-            .map { !$0 }.first
-            
-        return isEnabled ?? false
-    }
 }

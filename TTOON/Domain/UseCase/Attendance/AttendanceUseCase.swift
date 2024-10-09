@@ -18,7 +18,7 @@ class AttendanceUseCase: AttendanceUseCaseProtocol {
     let repo: AttendanceRepositoryProtocol
     
     enum CheckAttendance {
-        case valid(status: GetAttendanceResponseDTO) // 조회 성공
+        case valid(status: AttendanceStatus) // 조회 성공
         case inValid // 조회 실패 -> 추후에 조회에 실했습니다 ~ 재시도 해주세요 같은 화면 들어가면 좋을듯
     }
     
@@ -37,6 +37,7 @@ class AttendanceUseCase: AttendanceUseCaseProtocol {
 
         let success = request
             .compactMap { $0.element }
+            .map{ $0.toDomain() }
             .map {  CheckAttendance.valid(status: $0) }
         
         let fail = request
@@ -65,9 +66,7 @@ class AttendanceUseCase: AttendanceUseCaseProtocol {
                 default:
                     return AttendanceResult.unknown
                 }
-            }
-        
-        
+            }   
         
         return .merge(success, error)
     }

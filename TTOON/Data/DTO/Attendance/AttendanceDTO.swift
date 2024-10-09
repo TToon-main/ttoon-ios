@@ -27,4 +27,35 @@ struct GetAttendanceResponseDTO: Codable {
         case point
         case dayStatus = "attendanceDtoList"
     }
+    
+    func toDomain() -> AttendanceStatus {
+        let weekAttendance = fetchIsAttendance(self.dayStatus)
+        let isTodayAttendance = isTodayAttendance(self.dayStatus)
+        
+        
+        return .init(point: point,
+                     weekAttendance: weekAttendance,
+                     isTodayAttendance: isTodayAttendance)
+    }
+}
+
+extension GetAttendanceResponseDTO {
+    private func fetchIsAttendance(_ days: [GetAttendanceResponseDTO.DayStatus]) -> [Bool] {
+        return days.map { attendance in
+            attendance.isAttended
+        }
+    }
+
+    private func isTodayAttendance(_ days: [GetAttendanceResponseDTO.DayStatus]) -> Bool {
+        let today = Date().toString(of: .onlyDay).uppercased()
+        
+        let todayStatus = days
+            .filter { $0.day == today  }
+            .map { $0.isAttended }
+        
+        let isEnabled = todayStatus
+            .map { !$0 }.first
+            
+        return isEnabled ?? false
+    }
 }
