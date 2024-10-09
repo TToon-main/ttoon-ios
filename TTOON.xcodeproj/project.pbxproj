@@ -299,6 +299,7 @@
 		BEC4C27C2CA0541200D1BA12 /* AttendanceRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4C27B2CA0541200D1BA12 /* AttendanceRepositoryProtocol.swift */; };
 		BEC4C27F2CA055EF00D1BA12 /* AttendanceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4C27E2CA055EF00D1BA12 /* AttendanceUseCase.swift */; };
 		BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E502BB70A0C0034FF79 /* .gitignore */; };
+		BEE7A1932CB63C2B0000BC71 /* AttendanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A1922CB63C2B0000BC71 /* AttendanceModel.swift */; };
 		BEE8BCC82C71FFF5003800E0 /* CalendarSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */; };
 		BEE8BCC92C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB42C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift */; };
 		BEE8BCCA2C71FFF5003800E0 /* TToonCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB52C71FFF5003800E0 /* TToonCalendarCell.swift */; };
@@ -647,6 +648,7 @@
 		BEC4C27B2CA0541200D1BA12 /* AttendanceRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BEC4C27E2CA055EF00D1BA12 /* AttendanceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceUseCase.swift; sourceTree = "<group>"; };
 		BEDF4E502BB70A0C0034FF79 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		BEE7A1922CB63C2B0000BC71 /* AttendanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModel.swift; sourceTree = "<group>"; };
 		BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarSceneCoordinator.swift; sourceTree = "<group>"; };
 		BEE8BCB42C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomDiaryImageSwipeCollectionViewCell.swift; sourceTree = "<group>"; };
 		BEE8BCB52C71FFF5003800E0 /* TToonCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TToonCalendarCell.swift; sourceTree = "<group>"; };
@@ -1738,6 +1740,7 @@
 		BE9C9BAC2C68989F000AAF0E /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				BEE7A1912CB63C220000BC71 /* Attendacne */,
 				48C0C3772CA1A41500A2B6B9 /* Home */,
 				48BF84B62C8D8A2C00E84016 /* Friend */,
 				BE9C9BA92C68989F000AAF0E /* Auth */,
@@ -2089,6 +2092,14 @@
 				BEC4C27E2CA055EF00D1BA12 /* AttendanceUseCase.swift */,
 			);
 			path = Attendance;
+			sourceTree = "<group>";
+		};
+		BEE7A1912CB63C220000BC71 /* Attendacne */ = {
+			isa = PBXGroup;
+			children = (
+				BEE7A1922CB63C2B0000BC71 /* AttendanceModel.swift */,
+			);
+			path = Attendacne;
 			sourceTree = "<group>";
 		};
 		BEE8BCB32C71FFF5003800E0 /* Coordinator */ = {
@@ -2641,6 +2652,7 @@
 				BE9C9B552C689149000AAF0E /* Date+.swift in Sources */,
 				48C0C3732CA19C2200A2B6B9 /* CalendarAPI.swift in Sources */,
 				48BF84B12C8D897000E84016 /* FriendListRepository.swift in Sources */,
+				BEE7A1932CB63C2B0000BC71 /* AttendanceModel.swift in Sources */,
 				BE9BBC492BCA5809006FD848 /* UIColor+.swift in Sources */,
 				483C534C2C987A050056C1FD /* MyPageRepositoryProtocol.swift in Sources */,
 				BE9C9BC12C68989F000AAF0E /* ContactUsRepositoryProtocol.swift in Sources */,
