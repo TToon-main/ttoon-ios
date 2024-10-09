@@ -327,6 +327,7 @@
 		BEC4C27F2CA055EF00D1BA12 /* AttendanceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4C27E2CA055EF00D1BA12 /* AttendanceUseCase.swift */; };
 		BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E502BB70A0C0034FF79 /* .gitignore */; };
 		BEE7A1932CB63C2B0000BC71 /* AttendanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A1922CB63C2B0000BC71 /* AttendanceModel.swift */; };
+		BEE7A1962CB67CFE0000BC71 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BEE7A1952CB67CFE0000BC71 /* IQKeyboardManagerSwift */; };
 		BEE8BCC82C71FFF5003800E0 /* CalendarSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */; };
 		BEE8BCC92C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB42C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift */; };
 		BEE8BCCA2C71FFF5003800E0 /* TToonCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB52C71FFF5003800E0 /* TToonCalendarCell.swift */; };
@@ -746,6 +747,7 @@
 				482B60FE2BB5912E00681097 /* Moya in Frameworks */,
 				482B611E2BB598DD00681097 /* Sentry in Frameworks */,
 				482B60FB2BB5902A00681097 /* FlexLayout in Frameworks */,
+				BEE7A1962CB67CFE0000BC71 /* IQKeyboardManagerSwift in Frameworks */,
 				482B61002BB5912E00681097 /* RxMoya in Frameworks */,
 				482B61132BB5956D00681097 /* KakaoSDKUser in Frameworks */,
 				482B60F82BB58FF000681097 /* PinLayout in Frameworks */,
@@ -2594,6 +2596,7 @@
 				482B61222BB599B100681097 /* FirebaseCrashlytics */,
 				4839AA002C79C84000FF3250 /* Tabman */,
 				483C53682C992DC80056C1FD /* SkeletonView */,
+				BEE7A1952CB67CFE0000BC71 /* IQKeyboardManagerSwift */,
 			);
 			productName = TTOON;
 			productReference = BE36CF8A2BAFF5890017F94E /* TTOON.app */;
@@ -2686,6 +2689,7 @@
 				482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				4839A9FF2C79C83F00FF3250 /* XCRemoteSwiftPackageReference "Tabman" */,
 				483C53672C992DC80056C1FD /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				BEE7A1942CB67CFE0000BC71 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = BE36CF8B2BAFF5890017F94E /* Products */;
 			projectDirPath = "";
@@ -3729,6 +3733,14 @@
 				minimumVersion = 1.31.0;
 			};
 		};
+		BEE7A1942CB67CFE0000BC71 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -3841,6 +3853,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 483C53672C992DC80056C1FD /* XCRemoteSwiftPackageReference "SkeletonView" */;
 			productName = SkeletonView;
+		};
+		BEE7A1952CB67CFE0000BC71 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BEE7A1942CB67CFE0000BC71 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

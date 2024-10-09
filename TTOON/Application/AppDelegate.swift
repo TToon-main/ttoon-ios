@@ -9,7 +9,7 @@ import UIKit
 
 import FirebaseAnalytics
 import FirebaseCore
-
+import IQKeyboardManagerSwift
 import KakaoSDKCommon
 
 
@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setUpSDK()
         setUpAppearance()
         startNetworkMonitoring()
+        setUpKeyboard()
         
         return true
     }
@@ -47,7 +48,7 @@ extension AppDelegate {
         // Kakao Login
         let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] as? String
         KakaoSDK.initSDK(appKey: kakaoAppKey ?? "")
-    } 
+    }
     
     private func startNetworkMonitoring() {
         NetworkMonitor.shared.startMonitoring()
@@ -63,8 +64,12 @@ extension AppDelegate {
         
         navigationBarAppearance.backgroundColor = .white
         navigationBarAppearance.shadowColor = .clear
-
+        
         UINavigationBar.appearance().standardAppearance = navigationBarAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+    }
+    
+    private func setUpKeyboard() {
+        IQKeyboardManager.shared.resignOnTouchOutside = true
     }
 }
