@@ -18,7 +18,7 @@ class ToonRepository: ToonRepositoryProtocol {
             .mapData(responseType: [GetCharacterResponseDTO].self,
                      errorType: GetCharactersError.self)
     }
-    
+        
     func deleteCharacter(dto: DeleteCharacterRequestDTO) -> Observable<Event<Bool>> {
         return provider.log.rx.request(.deleteCharacter(dto: dto))
             .mapIsSuccess(errorType: DeleteCharacterError.self)
