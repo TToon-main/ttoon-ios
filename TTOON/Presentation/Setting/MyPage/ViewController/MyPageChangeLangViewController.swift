@@ -10,7 +10,7 @@ import UIKit
 
 class MyPageChangeLangViewController: BaseViewController {
     // MARK: - Properties
-    private lazy var languageDataSource = ["Eng", "한국어"]
+    private lazy var languageDataSource = ["ENG", "한국어"]
     
     // MARK: - UI Properties
     private let myPageChangeLangView = MyPageChangeLangView()
