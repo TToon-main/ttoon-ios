@@ -40,7 +40,20 @@ struct TNImage {
     static var splashLogo = UIImage(named: "splashLogo")
     static var userIcon = UIImage(named: "userIcon")
     
-    // Attendance 
+    
+    // Home
+    static var waterMark = UIImage(named: "ImageWatermark")
+    static var homePlusButton = UIImage(named: "homePlusButton")
+    
+    // Calendar
+    static var noFeedDataView = UIImage(named: "NoFeedData")
+    static var feedMenuButton = UIImage(named: "feedMenuButton")
+    
+    // Feed
+    static var feedHeartGray = UIImage(named: "Feed_heart_gray")
+    static var feedHeartRed = UIImage(named: "Feed_heart_red")
+    
+    // Attendance
     static var monOffIcon = UIImage(named: "Mon_off")
     static var monOnIcon = UIImage(named: "Mon_on")
     static var tueOffIcon = UIImage(named: "Tue_off")

@@ -9,7 +9,7 @@ import UIKit
 
 protocol FeedSceneCoordinatorProtocol: Coordinator {
     // view
-    func showFriendListView()
+    func showHomeFeedView()
 }
 class FeedSceneCoordinator: FeedSceneCoordinatorProtocol {
     // 1.
@@ -30,15 +30,14 @@ class FeedSceneCoordinator: FeedSceneCoordinatorProtocol {
     // 5.
     func start() {
         print("start FeedSceneCoordinator")
-        // 일단 샘플로 selectStyle 넣어둠
-        let reactor = SelectStyleReactor()
-        let vc = SelectStyleViewController(reactor: reactor)
-        navigationController.pushViewController(vc, animated: true)
+        
+        showHomeFeedView()
     }
     
     // Protocol Method
-    func showFriendListView() {
-        print(#function)
+    func showHomeFeedView() {
+        let vc = HomeFeedViewController(reactor: HomeFeedReactor(homeFeedUseCase: HomeFeedUseCase()))
+        navigationController.pushViewController(vc, animated: true)
     }
 }
 extension FeedSceneCoordinator: CoordinatorFinishDelegate {

@@ -64,6 +64,7 @@
 		483C53642C987CE00056C1FD /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C53632C987CE00056C1FD /* UITextField+.swift */; };
 		483C53662C987CE60056C1FD /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C53652C987CE60056C1FD /* UIImageView+.swift */; };
 		483C53692C992DC80056C1FD /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 483C53682C992DC80056C1FD /* SkeletonView */; };
+		48563B7C2CABA883008E308D /* TestMakeTToonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48563B7B2CABA883008E308D /* TestMakeTToonManager.swift */; };
 		486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */; };
 		486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */; };
 		489ADEED2BF8E72700B070B7 /* SettingTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */; };
@@ -78,6 +79,16 @@
 		489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C82BC00FA40033B61D /* BaseCollectionViewCell.swift */; };
 		489FE2CE2BC010EB0033B61D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2CD2BC010EB0033B61D /* Coordinator.swift */; };
 		489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2CF2BC011670033B61D /* AppCoordinator.swift */; };
+		48A17D442CB24EF400A7074D /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A17D432CB24EF400A7074D /* HomeFeedViewController.swift */; };
+		48A17D462CB24F0000A7074D /* HomeFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A17D452CB24F0000A7074D /* HomeFeedView.swift */; };
+		48A17D4A2CB24F9D00A7074D /* OnlyMyFeedToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A17D492CB24F9D00A7074D /* OnlyMyFeedToggleView.swift */; };
+		48A17D4D2CB2515B00A7074D /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A17D4C2CB2515B00A7074D /* FeedTableViewCell.swift */; };
+		48A17D4F2CB2544A00A7074D /* HomeFeedReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A17D4E2CB2544A00A7074D /* HomeFeedReactor.swift */; };
+		48A17D512CB2598600A7074D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A17D502CB2598600A7074D /* UserDefaultsManager.swift */; };
+		48B0F00F2CAAD90800BEC874 /* MakeImageViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B0F00E2CAAD90800BEC874 /* MakeImageViewManager.swift */; };
+		48BA62B32CA1AFAD0012C334 /* HomeCalendarUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA62B22CA1AFAD0012C334 /* HomeCalendarUseCase.swift */; };
+		48BA62B62CA43F680012C334 /* FeedDetailMenuBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA62B52CA43F680012C334 /* FeedDetailMenuBottomSheetView.swift */; };
+		48BA62B82CA444860012C334 /* FeedDetailMenuBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA62B72CA444860012C334 /* FeedDetailMenuBottomSheetViewController.swift */; };
 		48BF84AE2C8D863500E84016 /* FriendDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF84AD2C8D863500E84016 /* FriendDTO.swift */; };
 		48BF84B12C8D897000E84016 /* FriendListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF84B02C8D897000E84016 /* FriendListRepository.swift */; };
 		48BF84B32C8D898E00E84016 /* ReceivedFriendRequestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF84B22C8D898E00E84016 /* ReceivedFriendRequestRepository.swift */; };
@@ -86,6 +97,10 @@
 		48BF84BD2C8D9BA400E84016 /* FriendListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF84BC2C8D9BA400E84016 /* FriendListUseCase.swift */; };
 		48BF84BF2C8D9BAD00E84016 /* ReceivedFriendRequestUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF84BE2C8D9BAD00E84016 /* ReceivedFriendRequestUseCase.swift */; };
 		48BF84C12C8D9BB400E84016 /* SearchFriendUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF84C02C8D9BB400E84016 /* SearchFriendUseCase.swift */; };
+		48C0C3732CA19C2200A2B6B9 /* CalendarAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C0C3722CA19C2200A2B6B9 /* CalendarAPI.swift */; };
+		48C0C3762CA1A25800A2B6B9 /* FeedDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C0C3752CA1A25800A2B6B9 /* FeedDTO.swift */; };
+		48C0C3792CA1A42100A2B6B9 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C0C3782CA1A42100A2B6B9 /* FeedModel.swift */; };
+		48C0C37C2CA1A5A200A2B6B9 /* HomeCalendarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C0C37B2CA1A5A200A2B6B9 /* HomeCalendarRepository.swift */; };
 		48C3F09A2BF9E64E00BD2142 /* SettingNameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C3F0992BF9E64E00BD2142 /* SettingNameInputView.swift */; };
 		48D979F62BEF459F0087F870 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F12BEF459F0087F870 /* LoginViewModel.swift */; };
 		48D979F72BEF459F0087F870 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D979F32BEF459F0087F870 /* LoginView.swift */; };
@@ -356,6 +371,7 @@
 		483C535F2C987B850056C1FD /* TextStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStatusView.swift; sourceTree = "<group>"; };
 		483C53632C987CE00056C1FD /* UITextField+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		483C53652C987CE60056C1FD /* UIImageView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		48563B7B2CABA883008E308D /* TestMakeTToonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMakeTToonManager.swift; sourceTree = "<group>"; };
 		486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTitleLabel.swift; sourceTree = "<group>"; };
@@ -370,6 +386,16 @@
 		489FE2C82BC00FA40033B61D /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		489FE2CD2BC010EB0033B61D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		489FE2CF2BC011670033B61D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		48A17D432CB24EF400A7074D /* HomeFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
+		48A17D452CB24F0000A7074D /* HomeFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedView.swift; sourceTree = "<group>"; };
+		48A17D492CB24F9D00A7074D /* OnlyMyFeedToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyMyFeedToggleView.swift; sourceTree = "<group>"; };
+		48A17D4C2CB2515B00A7074D /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		48A17D4E2CB2544A00A7074D /* HomeFeedReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedReactor.swift; sourceTree = "<group>"; };
+		48A17D502CB2598600A7074D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		48B0F00E2CAAD90800BEC874 /* MakeImageViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeImageViewManager.swift; sourceTree = "<group>"; };
+		48BA62B22CA1AFAD0012C334 /* HomeCalendarUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalendarUseCase.swift; sourceTree = "<group>"; };
+		48BA62B52CA43F680012C334 /* FeedDetailMenuBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailMenuBottomSheetView.swift; sourceTree = "<group>"; };
+		48BA62B72CA444860012C334 /* FeedDetailMenuBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailMenuBottomSheetViewController.swift; sourceTree = "<group>"; };
 		48BF84AD2C8D863500E84016 /* FriendDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDTO.swift; sourceTree = "<group>"; };
 		48BF84B02C8D897000E84016 /* FriendListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListRepository.swift; sourceTree = "<group>"; };
 		48BF84B22C8D898E00E84016 /* ReceivedFriendRequestRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedFriendRequestRepository.swift; sourceTree = "<group>"; };
@@ -378,6 +404,10 @@
 		48BF84BC2C8D9BA400E84016 /* FriendListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListUseCase.swift; sourceTree = "<group>"; };
 		48BF84BE2C8D9BAD00E84016 /* ReceivedFriendRequestUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedFriendRequestUseCase.swift; sourceTree = "<group>"; };
 		48BF84C02C8D9BB400E84016 /* SearchFriendUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendUseCase.swift; sourceTree = "<group>"; };
+		48C0C3722CA19C2200A2B6B9 /* CalendarAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAPI.swift; sourceTree = "<group>"; };
+		48C0C3752CA1A25800A2B6B9 /* FeedDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDTO.swift; sourceTree = "<group>"; };
+		48C0C3782CA1A42100A2B6B9 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
+		48C0C37B2CA1A5A200A2B6B9 /* HomeCalendarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalendarRepository.swift; sourceTree = "<group>"; };
 		48C3F0992BF9E64E00BD2142 /* SettingNameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNameInputView.swift; sourceTree = "<group>"; };
 		48D979F12BEF459F0087F870 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		48D979F32BEF459F0087F870 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -843,6 +873,7 @@
 		4839AA132C7B14F300FF3250 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				48C0C3712CA19C0800A2B6B9 /* Calendar */,
 				4839AA152C7B153300FF3250 /* Friend */,
 			);
 			path = Home;
@@ -860,6 +891,9 @@
 			isa = PBXGroup;
 			children = (
 				483C534E2C987A8E0056C1FD /* ValidationManager.swift */,
+				48B0F00E2CAAD90800BEC874 /* MakeImageViewManager.swift */,
+				48563B7B2CABA883008E308D /* TestMakeTToonManager.swift */,
+				48A17D502CB2598600A7074D /* UserDefaultsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -996,6 +1030,56 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		48A17D402CB24EE700A7074D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				48A17D4E2CB2544A00A7074D /* HomeFeedReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		48A17D412CB24EE700A7074D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48A17D4B2CB2515000A7074D /* Cell */,
+				48A17D452CB24F0000A7074D /* HomeFeedView.swift */,
+				48A17D492CB24F9D00A7074D /* OnlyMyFeedToggleView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		48A17D422CB24EE700A7074D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				48A17D432CB24EF400A7074D /* HomeFeedViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		48A17D4B2CB2515000A7074D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				48A17D4C2CB2515B00A7074D /* FeedTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		48BA62B12CA1AFA50012C334 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				48BA62B22CA1AFAD0012C334 /* HomeCalendarUseCase.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		48BA62B42CA43F410012C334 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				48BA62B52CA43F680012C334 /* FeedDetailMenuBottomSheetView.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
 		48BF84AC2C8D85FC00E84016 /* Friend */ = {
 			isa = PBXGroup;
 			children = (
@@ -1030,6 +1114,38 @@
 				48BF84C02C8D9BB400E84016 /* SearchFriendUseCase.swift */,
 			);
 			path = Friend;
+			sourceTree = "<group>";
+		};
+		48C0C3712CA19C0800A2B6B9 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				48C0C3722CA19C2200A2B6B9 /* CalendarAPI.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		48C0C3742CA1A23E00A2B6B9 /* CalendarFeed */ = {
+			isa = PBXGroup;
+			children = (
+				48C0C3752CA1A25800A2B6B9 /* FeedDTO.swift */,
+			);
+			path = CalendarFeed;
+			sourceTree = "<group>";
+		};
+		48C0C3772CA1A41500A2B6B9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				48C0C3782CA1A42100A2B6B9 /* FeedModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		48C0C37A2CA1A59000A2B6B9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				48C0C37B2CA1A5A200A2B6B9 /* HomeCalendarRepository.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		48D979EF2BEF459F0087F870 /* Coordinator */ = {
@@ -1603,6 +1719,7 @@
 		BE9C9BAC2C68989F000AAF0E /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				48C0C3772CA1A41500A2B6B9 /* Home */,
 				48BF84B62C8D8A2C00E84016 /* Friend */,
 				BE9C9BA92C68989F000AAF0E /* Auth */,
 				BE9C9BAB2C68989F000AAF0E /* Setting */,
@@ -1670,6 +1787,7 @@
 		BE9C9BBB2C68989F000AAF0E /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				48BA62B12CA1AFA50012C334 /* Home */,
 				48BF84BB2C8D9B9500E84016 /* Friend */,
 				BE9C9BB72C68989F000AAF0E /* Auth */,
 				BE9C9BBA2C68989F000AAF0E /* Setting */,
@@ -1741,6 +1859,7 @@
 		BE9C9BD42C6898C2000AAF0E /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				48C0C3742CA1A23E00A2B6B9 /* CalendarFeed */,
 				48BF84AC2C8D85FC00E84016 /* Friend */,
 				BE9C9BCF2C6898C2000AAF0E /* Auth */,
 				BE9C9BD12C6898C2000AAF0E /* Common */,
@@ -1780,6 +1899,7 @@
 		BE9C9BDD2C6898C2000AAF0E /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				48C0C37A2CA1A59000A2B6B9 /* Home */,
 				48BF84AF2C8D896100E84016 /* Friend */,
 				BE9C9BD92C6898C2000AAF0E /* Auth */,
 				BE9C9BDC2C6898C2000AAF0E /* Setting */,
@@ -1950,6 +2070,7 @@
 			children = (
 				BEE8BCBE2C71FFF5003800E0 /* HomeCalendarViewController.swift */,
 				BEE8BCBF2C71FFF5003800E0 /* SelectYearMonthBottomSheetViewController.swift */,
+				48BA62B72CA444860012C334 /* FeedDetailMenuBottomSheetViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1984,6 +2105,9 @@
 		BEE8BCC62C71FFF5003800E0 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				48A17D412CB24EE700A7074D /* View */,
+				48A17D422CB24EE700A7074D /* ViewController */,
+				48A17D402CB24EE700A7074D /* ViewModel */,
 				BEE8BCC52C71FFF5003800E0 /* Coordinator */,
 			);
 			path = Feed;
@@ -2020,6 +2144,7 @@
 		BEE8BCE02C7202E6003800E0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				48BA62B42CA43F410012C334 /* Feed */,
 				4839A9F22C78A56B00FF3250 /* Friend */,
 				BEE8BCDE2C7202E6003800E0 /* Calendar */,
 				BEE8BCDF2C7202E6003800E0 /* TToonLogHomeNavigationView.swift */,
@@ -2356,10 +2481,13 @@
 				BE9C9BF02C6898C2000AAF0E /* APIProvider.swift in Sources */,
 				BE32E3192BEBBD1300F0C193 /* TNAlertButton.swift in Sources */,
 				BE6011732BEF348500F8FCEA /* TNAlertViewController.swift in Sources */,
+				48B0F00F2CAAD90800BEC874 /* MakeImageViewManager.swift in Sources */,
 				BE8884172C567227003EC2A3 /* CharacterEditType.swift in Sources */,
 				BEE8BCCE2C71FFF5003800E0 /* SelectYearMonthBottomSheetView.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
 				480D39782C85FB97009C26DA /* ReceivedFriendRequestView.swift in Sources */,
+				48A17D512CB2598600A7074D /* UserDefaultsManager.swift in Sources */,
+				48A17D462CB24F0000A7074D /* HomeFeedView.swift in Sources */,
 				BE9C9B472C688D16000AAF0E /* CreateToonCompleteToonResultImageView.swift in Sources */,
 				BE78BEF32C25C5EE000A5D11 /* UIViewController+.swift in Sources */,
 				BE9C9B492C688D16000AAF0E /* CreateToonDiaryView.swift in Sources */,
@@ -2372,6 +2500,7 @@
 				BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */,
 				BE9C9B9B2C68986F000AAF0E /* DeleteAccountReasonBottomSheetViewController.swift in Sources */,
 				BE9C9B462C688D16000AAF0E /* CreateToonCompleteToonHorizontalImageStack.swift in Sources */,
+				48A17D4F2CB2544A00A7074D /* HomeFeedReactor.swift in Sources */,
 				48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */,
 				BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */,
 				BE9C9AF92C688CAF000AAF0E /* CharacterDeleteBSViewController.swift in Sources */,
@@ -2417,10 +2546,12 @@
 				BE9C9AF52C688CAF000AAF0E /* EnterInfoScrollView.swift in Sources */,
 				BE9C9BBE2C68989F000AAF0E /* SettingModel.swift in Sources */,
 				489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */,
+				48563B7C2CABA883008E308D /* TestMakeTToonManager.swift in Sources */,
 				BE3418EB2BF0B18200E17CC5 /* TNSheetViewController.swift in Sources */,
 				BEA6BFDD2C8DEDF3001F07E7 /* SetNickNameRepository.swift in Sources */,
 				BE97FB8D2C68A2D60094D754 /* TabbarViewController.swift in Sources */,
 				BE32E3172BEBB94E00F0C193 /* TestViewController.swift in Sources */,
+				48BA62B82CA444860012C334 /* FeedDetailMenuBottomSheetViewController.swift in Sources */,
 				BE9C9BA32C68986F000AAF0E /* UnderLineView.swift in Sources */,
 				BE9C9B062C688CAF000AAF0E /* CharacterModifyReactor.swift in Sources */,
 				BEE8BCE62C7202FE003800E0 /* MyPageSceneCoordinator.swift in Sources */,
@@ -2438,9 +2569,11 @@
 				BE6011752BEF34A300F8FCEA /* TNAlertView.swift in Sources */,
 				BE3418ED2BF0B25900E17CC5 /* TNSheetCell.swift in Sources */,
 				489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */,
+				48BA62B32CA1AFAD0012C334 /* HomeCalendarUseCase.swift in Sources */,
 				48D979F72BEF459F0087F870 /* LoginView.swift in Sources */,
 				BE9C9B542C689149000AAF0E /* String+.swift in Sources */,
 				BE9C9B552C689149000AAF0E /* Date+.swift in Sources */,
+				48C0C3732CA19C2200A2B6B9 /* CalendarAPI.swift in Sources */,
 				48BF84B12C8D897000E84016 /* FriendListRepository.swift in Sources */,
 				BE9BBC492BCA5809006FD848 /* UIColor+.swift in Sources */,
 				483C534C2C987A050056C1FD /* MyPageRepositoryProtocol.swift in Sources */,
@@ -2475,6 +2608,7 @@
 				BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */,
 				BE9C9BF32C6898C2000AAF0E /* LogPlugin.swift in Sources */,
 				48BF84B82C8D8A3A00E84016 /* FriendModel.swift in Sources */,
+				48C0C3792CA1A42100A2B6B9 /* FeedModel.swift in Sources */,
 				483C53482C9879880056C1FD /* MyPageUseCase.swift in Sources */,
 				4839AA172C7B153C00FF3250 /* FriendAPI.swift in Sources */,
 				BE9C9BA02C68986F000AAF0E /* MyPageTableView.swift in Sources */,
@@ -2484,6 +2618,7 @@
 				BE77224B2BEF499F007CDC17 /* TNAlert.swift in Sources */,
 				BE9C9AF72C688CAF000AAF0E /* SelectStyleView.swift in Sources */,
 				BE9C9B582C68927F000AAF0E /* DateFormatType.swift in Sources */,
+				48C0C3762CA1A25800A2B6B9 /* FeedDTO.swift in Sources */,
 				483C53552C987AFE0056C1FD /* MyPageChangeLangViewController.swift in Sources */,
 				BEE8BCC82C71FFF5003800E0 /* CalendarSceneCoordinator.swift in Sources */,
 				483C53592C987B1A0056C1FD /* ProfileSetView.swift in Sources */,
@@ -2513,6 +2648,7 @@
 				489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */,
 				483C534F2C987A8E0056C1FD /* ValidationManager.swift in Sources */,
 				486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */,
+				48A17D442CB24EF400A7074D /* HomeFeedViewController.swift in Sources */,
 				BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
 				480D39702C85E843009C26DA /* ReceivedFriendRequestTableViewCell.swift in Sources */,
@@ -2531,11 +2667,14 @@
 				BE9C9BBF2C68989F000AAF0E /* LoginRepositoryProtocol.swift in Sources */,
 				4839A9F62C78AC9C00FF3250 /* FriendListPopUpBottomSheetView.swift in Sources */,
 				480D39852C88798C009C26DA /* SearchFriendReactor.swift in Sources */,
+				48BA62B62CA43F680012C334 /* FeedDetailMenuBottomSheetView.swift in Sources */,
+				48C0C37C2CA1A5A200A2B6B9 /* HomeCalendarRepository.swift in Sources */,
 				BE9C9B402C688D16000AAF0E /* CharacterPickerTableView.swift in Sources */,
 				4839AA122C79DE9E00FF3250 /* TableViewProfileInfoView.swift in Sources */,
 				BE9C9B092C688CAF000AAF0E /* CreateLoadingReactor.swift in Sources */,
 				BE9C9AF82C688CAF000AAF0E /* CharacterAddViewController.swift in Sources */,
 				BE9C9AFB2C688CAF000AAF0E /* CharacterModifyViewController.swift in Sources */,
+				48A17D4A2CB24F9D00A7074D /* OnlyMyFeedToggleView.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
 				BE9C9AF32C688CAF000AAF0E /* CreateLoadingView.swift in Sources */,
 				480D396F2C85E843009C26DA /* FriendListReactor.swift in Sources */,
@@ -2543,6 +2682,7 @@
 				483C535B2C987B210056C1FD /* MyPageChangeLangView.swift in Sources */,
 				BE9C9AF22C688CAF000AAF0E /* CompleteToonView.swift in Sources */,
 				BE9C9B4E2C688D16000AAF0E /* CreateToonSelectCharactersButton.swift in Sources */,
+				48A17D4D2CB2515B00A7074D /* FeedTableViewCell.swift in Sources */,
 				BE9C9B442C688D16000AAF0E /* CreateToonCompleteToonCollectionView.swift in Sources */,
 				489ADEEF2BF8E8B200B070B7 /* SettingTextField.swift in Sources */,
 				BE6011712BEF316D00F8FCEA /* TNSwitch.swift in Sources */,
@@ -2821,11 +2961,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2S9WHYP486;
+				DEVELOPMENT_TEAM = 2S9WHYP486;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
@@ -2843,7 +2981,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.TTOON.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TToon Service - DEV";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

@@ -81,14 +81,22 @@ extension SelectYearMonthBottomSheetViewController {
         
         // 완료 버튼 클릭
         // 1. self.dismiss
-        // 2. reactor action 전달 (
+        // 2. reactor action 전달 - 00월 01일로 feedData 로드
+        // 3. reactor action 전달 - 0000년 00월로 calendarThumbnail 로드
+        bottomSheetView.completeButton.rx.tap
+            .map {
+                return HomeCalendarReactor.Action.loadFeedDetail(self.firstDateOfMonth(self.selectedYearMonth))
+            }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
         bottomSheetView.completeButton.rx.tap
             .map {
                 // 1.
                 self.dismiss(animated: true)
                 
                 // 2.
-                return HomeCalendarReactor.Action.selectYearMonth(self.selectedYearMonth)
+                return HomeCalendarReactor.Action.loadCalendarThumbnails(self.selectedYearMonth)
             }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
@@ -156,5 +164,17 @@ extension SelectYearMonthBottomSheetViewController {
                 animated: true
             )
         }
+    }
+    
+    
+    private func firstDateOfMonth(_ yearMonth: String) -> Date {
+        // 매달 1일로 newDate 설정
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([.year, .month, .day], from: yearMonth.toDate(to: .yearMonthKorean) ?? Date())
+        components.day = 1 // 아마 출력은 2일이라고 뜨는데, 선택된 날짜 확인해보면 1일로 뜰 것
+        
+        let newDate = calendar.date(from: components) ?? Date()
+        
+        return newDate
     }
 }

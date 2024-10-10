@@ -47,8 +47,8 @@ class TToonCalendarCell: FSCalendarCell {
     }
     
     override func prepareForReuse() {
-//        ttoonImageView.image = nil
-//        selectedBorderBackgroundView.isHidden = true
+        ttoonImageView.image = nil
+        selectedBorderBackgroundView.isHidden = true
     }
     
     
