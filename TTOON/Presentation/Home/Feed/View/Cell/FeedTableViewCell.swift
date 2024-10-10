@@ -21,6 +21,7 @@ class FeedTableViewCell: BaseTableViewCell {
     // collectionView의 로드가 되지 않아... 어쩔 수 없이 데이터를 알고 있는 형태ㅠ
     var feedModel: FeedWithInfoModel?
     
+//    var oldImageList: [String]?     // 자꾸 깜박거리는 이미지 방지하기 위해. 이전 이미지 리스트와 현재 이미지 리스트를 비교하기 위함. (보류) - 효과 없음
     
     // MARK: - UI
     let baseView = {
@@ -241,6 +242,8 @@ class FeedTableViewCell: BaseTableViewCell {
         // 위치 초기화
         diaryImageSwipeCollectionView.setContentOffset(CGPoint(x: -24, y: 0), animated: false)
         diaryImageSwipePageControl.currentPage = 0
+        
+//        oldImageList = nil
     }
 }
 
@@ -301,12 +304,24 @@ extension FeedTableViewCell {
         diaryContentLabel.text = model.content
         diaryDateLabel.text = model.createdDate.toDate(to: .fullWithHyphen)?.toString(of: .fullWithDot)
         diaryImageSwipeCollectionView.reloadData()
+//        reloadIfImageListChanged()
         
         
         // likes
         likeButton.isLiked = model.likeOrNot
         likeNumberButton.setTitle(String(model.likes), for: .normal)
     }
+    
+    // 자꾸 이미지가 깜박거려서... 이미지만 따로 체크해서 무조건 collectionView reload가 되지 않도록 해보자 (보류)
+//    func reloadIfImageListChanged()  {
+//        if let oldImageList = self.oldImageList,
+//           let newImageList = self.feedModel?.imageList,
+//           oldImageList != newImageList {
+//            print("달라!!! reload 해!")
+//            diaryImageSwipeCollectionView.reloadData()
+//            self.oldImageList = newImageList
+//        }
+//    }
 }
 
 
