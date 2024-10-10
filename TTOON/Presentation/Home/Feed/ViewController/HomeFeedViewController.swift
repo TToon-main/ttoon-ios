@@ -85,8 +85,56 @@ extension HomeFeedViewController {
                     .map { HomeFeedReactor.Action.likeButtonTapped(feedId: feedModel.id) }
                     .bind(to: reactor.action)
                     .disposed(by: cell.disposeBag)
+                
+                // 메뉴 버튼
+                cell.menuClearButton.rx.tap
+                    .subscribe(with: self) { owner, _ in
+                        // 1. reactor에 selected Feed ID 지정
+                        reactor.action.onNext(.showMenuBottomSheetVC(feedId: feedModel.id))
+                        
+                        // 2. 바텀 시트 띄우기
+                        owner.presentFeedDetailMenuBottomSheetVC(feedId: feedModel.id)
+                    }
+                    .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
+    }
+}
+
+// MARK: - Feed Detail Menu Delegate
+extension HomeFeedViewController: FeedDetailMenuBottomSheetActionProtocol {
+    func firstButtonTapped() {
+        TNAlert(self)
+            .setTitle("만화를 어떻게 저장하시겠어요?\n")
+            .addCancelAction("네 컷을 따로") {
+                self.reactor?.action.onNext(.saveTToonImage(.fourPage))
+                print("네 컷")
+            }
+            .addConfirmAction("한 장으로") {
+                self.reactor?.action.onNext(.saveTToonImage(.onePage))
+                print("한 장")
+            }
+            .present()
+    }
+    
+    func secondButtonTapped() {
+        TNAlert(self)
+            .setTitle("만화를 어떻게 공유하시겠어요?")
+            .addCancelAction("네 컷을 따로") {
+                self.reactor?.action.onNext(.shareTToonImage(.fourPage))
+                print("네 컷")
+            }
+            .addConfirmAction("한 장으로") {
+                self.reactor?.action.onNext(.shareTToonImage(.onePage))
+                print("한 장")
+            }
+            .present()
+    }
+    
+    func thirdButtonTapped() {
+        // VC에서는 세번째 버튼이 탭 되었다는 액션만 전달하고,
+        // 삭제할건지 신고할건지는 reactor에서 결정한다. (state.selectedFeed 확인하면 됨)
+        self.reactor?.action.onNext(.deleteOrReport)
     }
 }
 
@@ -97,5 +145,33 @@ extension HomeFeedViewController {
         let onlyMyFeed = UserDefaultsManager.onlyMyFeed
         mainView.setSwitch(onlyMyFeed)
         self.reactor?.action.onNext(.loadFirstData(onlyMyFeed))
+    }
+    
+    // 디테일 옵션 파텀시트
+    private func presentFeedDetailMenuBottomSheetVC(feedId: Int) {
+        // 내가 만든 피드인지 확인
+        let isMine = reactor?.isMine(feedId: feedId) ?? false
+        
+        
+        let vc = FeedDetailMenuBottomSheetViewController()
+        
+        vc.delegate = self
+        
+        vc.menuView.setText(
+            first: "이미지 저장하기",
+            second: "공유하기",
+            third: isMine ? "삭제하기" : "신고하기"
+        )
+        
+        if let sheet = vc.sheetPresentationController {
+            // 15 * 2 + 60 * 3 + 2
+            sheet.detents = [.custom { _ in return 212 } ]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        
+        present(vc, animated: true)
     }
 }
