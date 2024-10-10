@@ -48,7 +48,7 @@ class HomeFeedRepository: HomeFeedRepositoryProtocol {
             let request = self.provider.log.request(.addLike(feedId: feedId)) { result in
                 switch result {
                 case .success(let response):
-                    if let data = try? response.map(ResponseDTO<Bool>.self),
+                    if let data = try? response.map(ResponseDTO<LikeDTO>.self),
                        data.isSuccess {
                         single(.success(.success(true)))
                     }
@@ -67,7 +67,7 @@ class HomeFeedRepository: HomeFeedRepositoryProtocol {
             let request = self.provider.log.request(.deleteLike(feedId: feedId)) { result in
                 switch result {
                 case .success(let response):
-                    if let data = try? response.map(ResponseDTO<Bool>.self),
+                    if let data = try? response.map(ResponseDTO<LikeDTO>.self),
                        data.isSuccess {
                         single(.success(.success(true)))
                     }
