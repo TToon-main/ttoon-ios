@@ -238,8 +238,6 @@ class FeedTableViewCell: BaseTableViewCell {
         // 위치 초기화
         diaryImageSwipeCollectionView.setContentOffset(CGPoint(x: -24, y: 0), animated: false)
         diaryImageSwipePageControl.currentPage = 0
-        
-        
     }
 }
 
