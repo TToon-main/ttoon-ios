@@ -79,6 +79,12 @@
 		489FE2C92BC00FA40033B61D /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C82BC00FA40033B61D /* BaseCollectionViewCell.swift */; };
 		489FE2CE2BC010EB0033B61D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2CD2BC010EB0033B61D /* Coordinator.swift */; };
 		489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2CF2BC011670033B61D /* AppCoordinator.swift */; };
+		48A17D442CB24EF400A7074D /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A17D432CB24EF400A7074D /* HomeFeedViewController.swift */; };
+		48A17D462CB24F0000A7074D /* HomeFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A17D452CB24F0000A7074D /* HomeFeedView.swift */; };
+		48A17D4A2CB24F9D00A7074D /* OnlyMyFeedToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A17D492CB24F9D00A7074D /* OnlyMyFeedToggleView.swift */; };
+		48A17D4D2CB2515B00A7074D /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A17D4C2CB2515B00A7074D /* FeedTableViewCell.swift */; };
+		48A17D4F2CB2544A00A7074D /* HomeFeedReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A17D4E2CB2544A00A7074D /* HomeFeedReactor.swift */; };
+		48A17D512CB2598600A7074D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A17D502CB2598600A7074D /* UserDefaultsManager.swift */; };
 		48B0F00F2CAAD90800BEC874 /* MakeImageViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B0F00E2CAAD90800BEC874 /* MakeImageViewManager.swift */; };
 		48BA62B32CA1AFAD0012C334 /* HomeCalendarUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA62B22CA1AFAD0012C334 /* HomeCalendarUseCase.swift */; };
 		48BA62B62CA43F680012C334 /* FeedDetailMenuBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA62B52CA43F680012C334 /* FeedDetailMenuBottomSheetView.swift */; };
@@ -380,6 +386,12 @@
 		489FE2C82BC00FA40033B61D /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		489FE2CD2BC010EB0033B61D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		489FE2CF2BC011670033B61D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		48A17D432CB24EF400A7074D /* HomeFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
+		48A17D452CB24F0000A7074D /* HomeFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedView.swift; sourceTree = "<group>"; };
+		48A17D492CB24F9D00A7074D /* OnlyMyFeedToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyMyFeedToggleView.swift; sourceTree = "<group>"; };
+		48A17D4C2CB2515B00A7074D /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		48A17D4E2CB2544A00A7074D /* HomeFeedReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedReactor.swift; sourceTree = "<group>"; };
+		48A17D502CB2598600A7074D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		48B0F00E2CAAD90800BEC874 /* MakeImageViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeImageViewManager.swift; sourceTree = "<group>"; };
 		48BA62B22CA1AFAD0012C334 /* HomeCalendarUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalendarUseCase.swift; sourceTree = "<group>"; };
 		48BA62B52CA43F680012C334 /* FeedDetailMenuBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailMenuBottomSheetView.swift; sourceTree = "<group>"; };
@@ -881,6 +893,7 @@
 				483C534E2C987A8E0056C1FD /* ValidationManager.swift */,
 				48B0F00E2CAAD90800BEC874 /* MakeImageViewManager.swift */,
 				48563B7B2CABA883008E308D /* TestMakeTToonManager.swift */,
+				48A17D502CB2598600A7074D /* UserDefaultsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1015,6 +1028,40 @@
 				BE9BBC072BCA4CCC006FD848 /* Pretendard */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		48A17D402CB24EE700A7074D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				48A17D4E2CB2544A00A7074D /* HomeFeedReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		48A17D412CB24EE700A7074D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48A17D4B2CB2515000A7074D /* Cell */,
+				48A17D452CB24F0000A7074D /* HomeFeedView.swift */,
+				48A17D492CB24F9D00A7074D /* OnlyMyFeedToggleView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		48A17D422CB24EE700A7074D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				48A17D432CB24EF400A7074D /* HomeFeedViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		48A17D4B2CB2515000A7074D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				48A17D4C2CB2515B00A7074D /* FeedTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		48BA62B12CA1AFA50012C334 /* Home */ = {
@@ -2058,6 +2105,9 @@
 		BEE8BCC62C71FFF5003800E0 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				48A17D412CB24EE700A7074D /* View */,
+				48A17D422CB24EE700A7074D /* ViewController */,
+				48A17D402CB24EE700A7074D /* ViewModel */,
 				BEE8BCC52C71FFF5003800E0 /* Coordinator */,
 			);
 			path = Feed;
@@ -2436,6 +2486,8 @@
 				BEE8BCCE2C71FFF5003800E0 /* SelectYearMonthBottomSheetView.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
 				480D39782C85FB97009C26DA /* ReceivedFriendRequestView.swift in Sources */,
+				48A17D512CB2598600A7074D /* UserDefaultsManager.swift in Sources */,
+				48A17D462CB24F0000A7074D /* HomeFeedView.swift in Sources */,
 				BE9C9B472C688D16000AAF0E /* CreateToonCompleteToonResultImageView.swift in Sources */,
 				BE78BEF32C25C5EE000A5D11 /* UIViewController+.swift in Sources */,
 				BE9C9B492C688D16000AAF0E /* CreateToonDiaryView.swift in Sources */,
@@ -2448,6 +2500,7 @@
 				BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */,
 				BE9C9B9B2C68986F000AAF0E /* DeleteAccountReasonBottomSheetViewController.swift in Sources */,
 				BE9C9B462C688D16000AAF0E /* CreateToonCompleteToonHorizontalImageStack.swift in Sources */,
+				48A17D4F2CB2544A00A7074D /* HomeFeedReactor.swift in Sources */,
 				48D979F82BEF459F0087F870 /* LoginViewController.swift in Sources */,
 				BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */,
 				BE9C9AF92C688CAF000AAF0E /* CharacterDeleteBSViewController.swift in Sources */,
@@ -2595,6 +2648,7 @@
 				489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */,
 				483C534F2C987A8E0056C1FD /* ValidationManager.swift in Sources */,
 				486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */,
+				48A17D442CB24EF400A7074D /* HomeFeedViewController.swift in Sources */,
 				BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */,
 				BE36CF8E2BAFF5890017F94E /* AppDelegate.swift in Sources */,
 				480D39702C85E843009C26DA /* ReceivedFriendRequestTableViewCell.swift in Sources */,
@@ -2620,6 +2674,7 @@
 				BE9C9B092C688CAF000AAF0E /* CreateLoadingReactor.swift in Sources */,
 				BE9C9AF82C688CAF000AAF0E /* CharacterAddViewController.swift in Sources */,
 				BE9C9AFB2C688CAF000AAF0E /* CharacterModifyViewController.swift in Sources */,
+				48A17D4A2CB24F9D00A7074D /* OnlyMyFeedToggleView.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
 				BE9C9AF32C688CAF000AAF0E /* CreateLoadingView.swift in Sources */,
 				480D396F2C85E843009C26DA /* FriendListReactor.swift in Sources */,
@@ -2627,6 +2682,7 @@
 				483C535B2C987B210056C1FD /* MyPageChangeLangView.swift in Sources */,
 				BE9C9AF22C688CAF000AAF0E /* CompleteToonView.swift in Sources */,
 				BE9C9B4E2C688D16000AAF0E /* CreateToonSelectCharactersButton.swift in Sources */,
+				48A17D4D2CB2515B00A7074D /* FeedTableViewCell.swift in Sources */,
 				BE9C9B442C688D16000AAF0E /* CreateToonCompleteToonCollectionView.swift in Sources */,
 				489ADEEF2BF8E8B200B070B7 /* SettingTextField.swift in Sources */,
 				BE6011712BEF316D00F8FCEA /* TNSwitch.swift in Sources */,
