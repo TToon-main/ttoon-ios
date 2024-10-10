@@ -79,6 +79,12 @@ extension HomeFeedViewController {
             .bind(to: mainView.feedTableView.rx.items(cellIdentifier: FeedTableViewCell.description(), cellType: FeedTableViewCell.self)) { row, feedModel, cell in
                 cell.feedModel = feedModel
                 cell.setDesign()
+                
+                // 좋아요
+                cell.likeButton.rx.tap
+                    .map { HomeFeedReactor.Action.likeButtonTapped(feedId: feedModel.id) }
+                    .bind(to: reactor.action)
+                    .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
     }

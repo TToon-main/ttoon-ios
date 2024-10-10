@@ -33,7 +33,7 @@ class HomeFeedReactor: Reactor {
         case loadNextFeedList
         // - pagination 진행. 현재 onlyMeFeed 값에 따라 네트워크 통신
         
-        case likeButtonTapped(value: Bool, feedId: Int)  // add - true, delete - false
+        case likeButtonTapped(feedId: Int)  // add - true, delete - false
     }
     
     enum Mutation {
@@ -89,14 +89,21 @@ class HomeFeedReactor: Reactor {
                     }
                 }
             
-        case .likeButtonTapped(let value, let feedId):
-            if value {
+        case .likeButtonTapped(let feedId):
+            // 해당 피드에 대한 내 좋아요 여부
+            let isLike = isLikeOrNot(feedId: feedId)
+            
+            if !isLike {
                 return homeFeedUseCase.addLikeToFeed(feedId: feedId)
                     .asObservable()
                     .map { result in
                         switch result {
                         case .success:
-                            return .pass
+                            let newList = self.feedListAfterToggleLike(feedId: feedId)
+                            let page = self.currentState.page
+                            print("--- newList ---")
+                            print(newList)
+                            return .setFeedList(newList, page)
 
                         case .failure:
                             return .pass
@@ -108,7 +115,11 @@ class HomeFeedReactor: Reactor {
                     .map { result in
                         switch result {
                         case .success:
-                            return .pass
+                            let newList = self.feedListAfterToggleLike(feedId: feedId)
+                            let page = self.currentState.page
+                            print("--- newList ---")
+                            print(newList)
+                            return .setFeedList(newList, page)
 
                         case .failure:
                             return .pass
@@ -146,6 +157,43 @@ extension HomeFeedReactor {
     enum Event {
         case showFriendListView
     }
+}
+
+extension HomeFeedReactor {
+    // MARK: - 좋아요 기능
+    // 좋아요 버튼 클릭 시,
+    // 1. 좋아요 네트워크 콜 요청
+    // 2. 응답 성공 시, reactor에 저장된 feed 배열의 값을 수정한다.
+    // (즉, 네트워크 콜을 또 해서 피드 리스트를 받는 게 아니라, 로컬에 저장된 값만 수정한다)
+    
+    // 해당 피드에 대한 내 좋아요 여부
+    private func isLikeOrNot(feedId: Int) -> Bool {
+        let feedList = currentState.feedList
+        return feedList.first { $0.id == feedId }?.likeOrNot ?? false
+    }
+    
+    // 해당 피드의 좋아요 값 수정
+    private func feedListAfterToggleLike(feedId: Int) -> [FeedWithInfoModel] {
+        var feedList = currentState.feedList
+        if let idx = feedList.firstIndex(where: { $0.id == feedId }) {
+            if feedList[idx].likeOrNot {
+                // false로 수정, 좋아요 -1
+                feedList[idx].likeOrNot = false
+                feedList[idx].likes -= 1
+            } else {
+                // true로 수정, 좋아요 +1
+                feedList[idx].likeOrNot = true
+                feedList[idx].likes += 1
+            }
+        }
+        return feedList
+    }
+    
+    
+    
+    // 해당 피드가 내 피드인지 확인하는 로직
+    
+    
 }
 
 /*
