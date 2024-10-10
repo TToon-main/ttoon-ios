@@ -67,20 +67,9 @@ extension HomeFeedViewController {
         // prefetchRows 함수를 이용하면 tableViewCell 내의 collectionView를 스크롤할 때도 계속 실행되는 이슈 발생
         // -> 스크롤 offset으로 pagination 구현
         // 스크롤이 끝에 도달했을 때 페이지네이션 트리거
-        mainView.feedTableView.rx.contentOffset
-            .map { contentOffset in
-                let offsetY = contentOffset.y
-                let contentHeight = self.mainView.feedTableView.contentSize.height
-                let frameHeight = self.mainView.feedTableView.frame.size.height
-                
-                return offsetY > contentHeight - frameHeight - 100
-            }
+        mainView.feedTableView.rx.reachedBottom(offset: 100)
             .subscribe(with: self) { owner, value in
-                if value && !owner.reactor!.currentState.isDone {
-                    print("pagination 진행")
-                    reactor.action.onNext(.loadNextFeedList)
-                    // isDone은 로드 끝나면 다시 false로 바꿔줌
-                }
+                reactor.action.onNext(.loadNextFeedList)
             }
             .disposed(by: disposeBag)
     }
