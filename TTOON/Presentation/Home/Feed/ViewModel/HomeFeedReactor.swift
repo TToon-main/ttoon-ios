@@ -34,12 +34,21 @@ class HomeFeedReactor: Reactor {
         // - pagination 진행. 현재 onlyMeFeed 값에 따라 네트워크 통신
         
         case likeButtonTapped(feedId: Int)  // add - true, delete - false
+        
+        
+        
+        // 툰 디테일 메뉴 버튼
+        case showMenuBottomSheetVC(feedId: Int)  // selected Feed ID 지정하기 위함 (이거 아니면 reactor로 action 넣을 필요 없긴 하다)
+        case saveTToonImage(SaveImageType)
+        case shareTToonImage(SaveImageType)
+        case deleteOrReport
     }
     
     enum Mutation {
         case setOnlyMyFeedSwitch(Bool)
         case setFeedList([FeedWithInfoModel], Int)  // 리스트, page
         case setIsDone(Bool)
+        case setSelectedFeed(Int)   // 바텀시트 올리는 로직 실행하면 feedId 넣어주기
         case pass
     }
     
@@ -48,6 +57,8 @@ class HomeFeedReactor: Reactor {
         var page: Int = 0
         var onlyMyFeed: Bool = UserDefaultsManager.onlyMyFeed
         var isDone: Bool = false    // 빈 배열을 로드하면 true. 배열에 값이 있으면 false
+        
+        var selectedFeedForMenu: Int?    // 이게 있어야 바텀시트 구현하기가 쉬움
     }
     
     let initialState = State()
@@ -126,6 +137,46 @@ class HomeFeedReactor: Reactor {
                         }
                     }
             }
+            
+            
+        case .showMenuBottomSheetVC(let feedId):
+            return .just(.setSelectedFeed(feedId))
+            
+        case .saveTToonImage(let type):
+            if let feedId = currentState.selectedFeedForMenu,
+               let imageList = imageListForFeed(feedId: feedId) {
+                MakeImageViewManager.shared.saveImage(
+                    imageUrls: imageList,
+                    type: type
+                )
+            }
+            return .just(.pass)
+            
+        case .shareTToonImage(let type):
+            if let feedId = currentState.selectedFeedForMenu,
+               let imageList = imageListForFeed(feedId: feedId) {
+                MakeImageViewManager.shared.shareImage(
+                    imageUrls: imageList,
+                    type: type
+                )
+            }
+            return .just(.pass)
+            
+        case .deleteOrReport:
+            // 선택된 피드가 내가 만든 피드인지
+            guard let feedId = currentState.selectedFeedForMenu else { return .just(.pass) }
+            
+            let isMine = isMine(feedId: feedId)
+            
+            if isMine {
+                // 삭제하기
+                print("삭제하기")
+                return .just(.pass)
+            } else {
+                // 신고하기
+                print("신고하기")
+                return .just(.pass)
+            }
         }
     }
     
@@ -144,6 +195,9 @@ class HomeFeedReactor: Reactor {
         case .setIsDone(let value):
             print("------ isDone : \(value)")
             newState.isDone = value
+            
+        case .setSelectedFeed(let feedId):
+            newState.selectedFeedForMenu = feedId
 
         case .pass:
             print("pass")
@@ -190,10 +244,19 @@ extension HomeFeedReactor {
     }
     
     
+    // MARK: - Menu Button
+    // 해당 피드의 imageList 반환
+    private func imageListForFeed(feedId: Int) -> [String]? {
+        let feedList = currentState.feedList
+        return feedList.first { $0.id == feedId }?.imageList
+    }
     
-    // 해당 피드가 내 피드인지 확인하는 로직
     
-    
+    // 해당 피드가 내가 만든 피드인지 확인하는 로직 (VC에서 바텀시트 띄울 때 활용)
+    func isMine(feedId: Int) -> Bool {
+        let feedList = currentState.feedList
+        return feedList.first { $0.id == feedId }?.isMine ?? false
+    }
 }
 
 /*
