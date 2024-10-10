@@ -112,8 +112,6 @@ class HomeFeedReactor: Reactor {
                         case .success:
                             let newList = self.feedListAfterToggleLike(feedId: feedId)
                             let page = self.currentState.page
-                            print("--- newList ---")
-                            print(newList)
                             return .setFeedList(newList, page)
 
                         case .failure:
@@ -128,8 +126,6 @@ class HomeFeedReactor: Reactor {
                         case .success:
                             let newList = self.feedListAfterToggleLike(feedId: feedId)
                             let page = self.currentState.page
-                            print("--- newList ---")
-                            print(newList)
                             return .setFeedList(newList, page)
 
                         case .failure:
@@ -170,8 +166,23 @@ class HomeFeedReactor: Reactor {
             
             if isMine {
                 // 삭제하기
-                print("삭제하기")
-                return .just(.pass)
+                return homeFeedUseCase.deleteFeed(feedId: feedId)
+                    .asObservable()
+                    .map { result in
+                        switch result {
+                        case .success(let value):
+                            if value {
+                                let newList = self.feedListAfterDeleteFeed(feedId: feedId)
+                                let page = self.currentState.page
+                                return .setFeedList(newList, page)
+                            } else {
+                                return .pass
+                            }
+                            
+                        case .failure(let error):
+                            return .pass
+                        }
+                    }
             } else {
                 // 신고하기
                 print("신고하기")
@@ -245,10 +256,21 @@ extension HomeFeedReactor {
     
     
     // MARK: - Menu Button
+    // 피드 삭제 시,
+    // 1. 피드 삭제 네트워크 콜 요청
+    // 2. 응답 성공 시, reactor에 저장된 feed 배열 수정 (원소 삭제)
+    // (역시, 네트워크 콜을 또 해서 피드 리스트를 받는 게 아니라, 로컬에 저장된 값만 수정한다)
+    
     // 해당 피드의 imageList 반환
     private func imageListForFeed(feedId: Int) -> [String]? {
         let feedList = currentState.feedList
         return feedList.first { $0.id == feedId }?.imageList
+    }
+    
+    // 해당 피드 삭제
+    private func feedListAfterDeleteFeed(feedId: Int) -> [FeedWithInfoModel] {
+        let feedList = currentState.feedList
+        return feedList.filter { $0.id != feedId }
     }
     
     
