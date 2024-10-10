@@ -24,7 +24,7 @@ extension FeedThumbnailDTO {
 }
 
 
-// 피드 조회
+// 피드 조회 (단일 - 캘린더 Bottom)
 struct FeedDTO: Codable {
     let feedId: Int
     let title: String
@@ -41,7 +41,40 @@ extension FeedDTO {
             imageList: imageUrl,
             content: content,
             createdDate: createdDate,
-            like: likes
+            likes: likes
+        )
+    }
+}
+
+
+// 피드 화면 조회 (전체 조회)
+struct FeedWithInfoDTO: Codable {
+    let feedId: Int
+    let writerName: String
+    let writerImage: String?
+    let title: String
+    let content: String
+    let imageUrl: [String]
+    let createdDate: String
+    let likes: Int
+    let isMine: Bool
+    let likeOrNot: Bool
+    
+    func toDomain() -> FeedWithInfoModel {
+        return .init(
+            user: UserInfoModel(
+                friendId: -1,
+                profileUrl: writerImage,
+                nickname: writerName
+            ),
+            id: feedId,
+            title: title,
+            imageList: imageUrl,
+            content: content,
+            createdDate: createdDate,
+            likes: likes,
+            isMine: isMine,
+            likeOrNot: likeOrNot
         )
     }
 }

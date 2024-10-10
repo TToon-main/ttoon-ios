@@ -32,18 +32,22 @@ class HomeFeedReactor: Reactor {
         
         case loadNextFeedList
         // - pagination 진행. 현재 onlyMeFeed 값에 따라 네트워크 통신
+        
+        case likeButtonTapped(value: Bool, feedId: Int)  // add - true, delete - false
     }
     
     enum Mutation {
         case setOnlyMyFeedSwitch(Bool)
-        case setFeedList([FeedModel], Int)  // 리스트, page
+        case setFeedList([FeedWithInfoModel], Int)  // 리스트, page
+        case setIsDone(Bool)
         case pass
     }
     
     struct State {
-        var feedList: [FeedModel] = []
+        var feedList: [FeedWithInfoModel] = []
         var page: Int = 0
         var onlyMyFeed: Bool = UserDefaultsManager.onlyMyFeed
+        var isDone: Bool = false    // 빈 배열을 로드하면 true. 배열에 값이 있으면 false
     }
     
     let initialState = State()
@@ -51,13 +55,66 @@ class HomeFeedReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .loadFirstData(let bool):
-            let newList = makeMockData()
-            
-            return .just(.setFeedList(newList, 1))
+        case .loadFirstData(let onlyMine):            
+            return homeFeedUseCase.getFeedList(onlyMine: onlyMine, page: 0)
+                .asObservable()
+                .map { result in
+                    switch result {
+                    case .success(let newList):
+                        if newList.isEmpty { return .setIsDone(true)}
+                        return .setFeedList(newList, 1)
 
+                    case .failure(let error):
+                        return .pass
+                    }
+                }
+            
         case .loadNextFeedList:
-            return .just(.pass)
+            if currentState.isDone { return .just(.pass) }
+            
+            let onlyMine = currentState.onlyMyFeed
+            let currentPage = currentState.page
+            return homeFeedUseCase.getFeedList(onlyMine: onlyMine, page: currentPage)
+                .asObservable()
+                .map { result in
+                    switch result {
+                    case .success(let arr):
+                        if arr.isEmpty { return .setIsDone(true) }
+                        
+                        let newList = self.currentState.feedList + arr
+                        return .setFeedList(newList, currentPage + 1)
+
+                    case .failure(let error):
+                        return .pass
+                    }
+                }
+            
+        case .likeButtonTapped(let value, let feedId):
+            if value {
+                return homeFeedUseCase.addLikeToFeed(feedId: feedId)
+                    .asObservable()
+                    .map { result in
+                        switch result {
+                        case .success:
+                            return .pass
+
+                        case .failure:
+                            return .pass
+                        }
+                    }
+            } else {
+                return homeFeedUseCase.deleteLikeToFeed(feedId: feedId)
+                    .asObservable()
+                    .map { result in
+                        switch result {
+                        case .success:
+                            return .pass
+
+                        case .failure:
+                            return .pass
+                        }
+                    }
+            }
         }
     }
     
@@ -65,11 +122,17 @@ class HomeFeedReactor: Reactor {
         var newState = state
         
         switch mutation {
-        case .setOnlyMyFeedSwitch(let bool):
-            print("setOnlyMyFeedSwitch")
+        case .setOnlyMyFeedSwitch(let value):
+            newState.onlyMyFeed = value
 
-        case .setFeedList(let newList, let int):
+        case .setFeedList(let newList, let page):
             newState.feedList = newList
+            newState.page = page
+
+            
+        case .setIsDone(let value):
+            print("------ isDone : \(value)")
+            newState.isDone = value
 
         case .pass:
             print("pass")
@@ -85,7 +148,7 @@ extension HomeFeedReactor {
     }
 }
 
-
+/*
 extension HomeFeedReactor {
     func makeMockData() -> [FeedModel] {
         let diaryTitles: [String] = [
@@ -223,7 +286,7 @@ extension HomeFeedReactor {
                 imageList: [],
                 content: diaryContents.randomElement()!,
                 createdDate: diaryDates.randomElement()!,
-                like: Int.random(in: 0...100)
+                likes: Int.random(in: 0...100)
             )
             arr.append(m)
         }
@@ -231,9 +294,4 @@ extension HomeFeedReactor {
         return arr
     }
 }
-
-protocol HomeFeedUseCaseProtocol {
-}
-
-class HomeFeedUseCase: HomeFeedUseCaseProtocol {
-}
+*/
