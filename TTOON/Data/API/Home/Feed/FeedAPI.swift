@@ -13,6 +13,7 @@ enum FeedAPI {
     case addLike(feedId: Int)
     case deleteLike(feedId: Int)
     case deleteFeed(feedId: Int)
+    case contactUs(dto: ContactUsRequestDTO)    // 신고하기에서 사용
 }
 
 extension FeedAPI: TargetType {
@@ -30,6 +31,8 @@ extension FeedAPI: TargetType {
             return "/api/likes/\(feedId)"
         case .deleteFeed(let feedId):
             return "/api/delete/\(feedId)"
+        case .contactUs:
+            return "/api/ask"
         }
     }
     
@@ -38,7 +41,7 @@ extension FeedAPI: TargetType {
         case .feedList:
             return .get
 
-        case .addLike:
+        case .addLike, .contactUs:
             return .post
 
         case .deleteLike, .deleteFeed:
@@ -58,6 +61,14 @@ extension FeedAPI: TargetType {
                 parameters: query,
                 encoding: URLEncoding.queryString
             )
+            
+        case .contactUs(let dto):
+            let params: [String: String] = [
+                "receiver": dto.receiver,
+                "category": dto.category,
+                "body": dto.body
+            ]
+            return .requestParameters(parameters: params, encoding: JSONEncoding.prettyPrinted)
 
         default:
             return .requestPlain
