@@ -8,12 +8,15 @@
 import RxSwift
 import UIKit
 
+protocol PopUpBotttomSheetActionProtocol {
+    func confirmButtonTapped()
+    func cancelButtonTapped()
+}
+
 class FriendListPopUpBottomSheetViewController: BaseViewController {
-    private var disposeBag = DisposeBag()
+    var delegate: PopUpBotttomSheetActionProtocol?
     
-    // Action CallBacks
-    var onConfirm: (() -> Void)?
-    var onCancel: (() -> Void)?
+    private var disposeBag = DisposeBag()
     
     var bottomSheetView = FriendListPopUpBottomSheetView(
         title: "",
@@ -71,14 +74,17 @@ extension FriendListPopUpBottomSheetViewController {
     private func bindButtonAction() {
         bottomSheetView.confirmButton.rx.tap
             .subscribe(with: self) { owner, _ in
-                owner.dismiss(animated: true)
-                owner.onConfirm?()
+                owner.dismiss(animated: true) {
+                    owner.delegate?.confirmButtonTapped()
+                }
             }
             .disposed(by: disposeBag)
         
         bottomSheetView.cancelButton.rx.tap
             .subscribe(with: self) { owner, _ in
-                owner.dismiss(animated: true)
+                owner.dismiss(animated: true) {
+                    owner.delegate?.cancelButtonTapped()
+                }
             }
             .disposed(by: disposeBag)
     }

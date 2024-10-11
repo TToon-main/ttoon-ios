@@ -42,6 +42,15 @@ class FriendTabViewController: TabmanViewController {
     }
 }
 
+extension FriendTabViewController: PopUpBotttomSheetActionProtocol {
+    func confirmButtonTapped() {
+        self.didSendEventClosure?(.showSearchFriendView)
+    }
+    
+    func cancelButtonTapped() {
+        print("취소")
+    }
+}
 
 extension FriendTabViewController {
     private func settingNavigation() {
@@ -108,6 +117,8 @@ extension FriendTabViewController {
             cancelButtonTitle: nil
         )
         
+        vc.delegate = self 
+        
         if let sheet = vc.sheetPresentationController {
             sheet.detents = [.custom { _ in return 368 } ]
             sheet.prefersGrabberVisible = true
@@ -115,11 +126,6 @@ extension FriendTabViewController {
             sheet.prefersEdgeAttachedInCompactHeight = true
             sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
         }
-        
-        vc.onConfirm = { [weak self] in
-            self?.didSendEventClosure?(.showSearchFriendView)
-        }
-        
         
         present(vc, animated: true, completion: nil)
     }
