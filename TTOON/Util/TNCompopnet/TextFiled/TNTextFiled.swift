@@ -37,8 +37,12 @@ class TNTextFiled: BaseView {
         container.addArrangedSubview(statusLabel)
     }
     
-    override func layouts() {        
-        container.snp.makeConstraints { 
+    override func layouts() {
+        textFiled.snp.makeConstraints {
+            $0.height.equalTo(52)
+        }
+        
+        container.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
@@ -71,4 +75,8 @@ extension Reactive where Base: TNTextFiled {
             }
         }
     }
-} 
+    
+    var cntText: Binder<String?> {
+        return base.statusLabel.textCntLabel.rx.text
+    }
+}

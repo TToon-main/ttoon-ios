@@ -24,27 +24,32 @@ class EnterInfoScrollView: BaseView {
     }()
     
     override func layouts() {
-        flex.define { 
-            $0.addItem(scrollView)
-            
-            scrollView.flex.define { 
-                $0.addItem(enterInfoView)
-            }
+        scrollView.addSubview(enterInfoView)
+        addSubview(scrollView)
+        
+        enterInfoView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.width.equalTo(width)
+        }
+        
+        scrollView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        scrollView.pin.all()
-        enterInfoView.pin.all()
-        scrollView.contentSize = enterInfoView.frame.size
-    }   
+        scrollView.contentSize = enterInfoView.bounds.size
+    }
 }
 
 extension Reactive where Base: EnterInfoScrollView {
     var textFieldDidChange: Observable<EnterInfoReactor.Action> {
-        return base.enterInfoView.enterDiaryTextView.diaryInputTextView.rx.text
+        let diaryInputTextView = base.enterInfoView.enterDiaryTextView.diaryInputTextView
+        
+        return diaryInputTextView.rx.text
             .compactMap { $0 }
+            .filter { $0 != diaryInputTextView.placeholderText }
             .distinctUntilChanged()
             .map { EnterInfoReactor.Action.textFieldDidChange($0)}
     }
