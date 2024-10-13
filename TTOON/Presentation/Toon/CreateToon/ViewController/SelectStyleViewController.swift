@@ -44,13 +44,6 @@ class SelectStyleViewController: CreateToonBaseViewController {
         super.configures()
         setNavigationItem(title: "기록 추가하기")
     }
-    
-    private func presentEnterInfoVC() {
-        // TODO: DI
-        let reactor = EnterInfoReactor()
-        let vc = EnterInfoViewController(reactor: reactor)
-        navigationController?.pushViewController(vc, animated: true)
-    }
 }
 extension SelectStyleViewController: View {
     func bindMockData() {
@@ -92,12 +85,6 @@ extension SelectStyleViewController: View {
         reactor.state
             .map { $0.isEnabledConfirmButton }
             .bind(to: selectStyleView.rx.isEnabledConfirmButton)
-            .disposed(by: disposeBag)
-        
-        reactor.state
-            .map { $0.presentEnterInfoVC }
-            .compactMap{ $0 }
-            .bind(onNext: presentEnterInfoVC)
             .disposed(by: disposeBag)
     }
 }
