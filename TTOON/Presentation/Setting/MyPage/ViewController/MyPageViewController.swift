@@ -11,39 +11,17 @@ import ReactorKit
 import RxCocoa
 import RxSwift
 
+protocol ReloadMyPageDataSource: AnyObject {
+    func reload()
+}
+
 final class MyPageViewController: BaseViewController {
     // MARK: - Properties
-    private lazy var appSetSection: MyPageTableViewDataSource = {
-        let notificationRow = MyPageTableViewCellDataSource(title: "알림 설정", info: "On")
-        let languageRow = MyPageTableViewCellDataSource(title: "언어 설정", info: setUpLang())
-        
-        return MyPageTableViewDataSource(sectionTitle: "설정", cellData: [notificationRow, languageRow])
-    }()
-    
-    private lazy var appInfoSection: MyPageTableViewDataSource = {
-        let appVersionRow = MyPageTableViewCellDataSource(title: "앱 버전", info: self.currentAppVersion(), isArrowVisible: true)
-        let privacyPolicyRow = MyPageTableViewCellDataSource(title: "개인정보 처리방침")
-        let openSourceRow = MyPageTableViewCellDataSource(title: "오픈 소스")
-        let creatorsRow = MyPageTableViewCellDataSource(title: "만든 사람들")
-        let contactUsRow = MyPageTableViewCellDataSource(title: "문의하기")
-        
-        return MyPageTableViewDataSource(sectionTitle: "앱 정보 및 문의", cellData: [appVersionRow, privacyPolicyRow, openSourceRow, creatorsRow, contactUsRow])
-    }()
-    
-    private lazy var accountSection: MyPageTableViewDataSource = {
-        let logoutRow = MyPageTableViewCellDataSource(title: "로그아웃")
-        let withdrawRow = MyPageTableViewCellDataSource(title: "탈퇴하기")
-        
-        return MyPageTableViewDataSource(sectionTitle: "계정", cellData: [logoutRow, withdrawRow])
-    }()
-    
-    private lazy var languageDataSource = ["Eng", "한국어"]
-    
-    private lazy var myPageTableViewDataSource = [appSetSection, appInfoSection, accountSection]
-    
-    private var viewWillAppear = PublishSubject<Void>()
-    
+
     var disposeBag = DisposeBag()
+    private var myPageTableViewDataSource = [MyPageTableViewDataSource]()
+    private let viewWillAppear = PublishSubject<Void>()
+
     
     // MARK: - UI Properties
     private let myPageView = MyPageView()
@@ -66,6 +44,7 @@ final class MyPageViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewWillAppear.onNext(())
+        reloadData()
     }
     
     // MARK: - Configures
@@ -74,23 +53,22 @@ final class MyPageViewController: BaseViewController {
         setNavigationItem()
     }
     
-    func setTableView() {
+    // MARK: - Methods
+    
+    private func setTableView() {
         myPageView.myPageTableView.dataSource = self
         myPageView.myPageTableView.delegate = self
-    }
-    
-    func currentAppVersion() -> String {
-        if let info: [String: Any] = Bundle.main.infoDictionary, let currentVersion: String = info["CFBundleShortVersionString"] as? String {
-            return currentVersion
-        }
-        
-        return "1.0"
     }
     
     private func setNavigationItem() {
         self.navigationItem.title = "마이페이지"
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = UIColor.black
+    }
+    
+    private func reloadData() {
+        setMyPageTableViewDataSource()
+        myPageView.myPageTableView.reloadData()
     }
 }
 
@@ -126,16 +104,6 @@ extension MyPageViewController: View {
             .compactMap { $0 }
             .bind(onNext: presentSetProfileVC)
             .disposed(by: disposeBag)
-    }
-    
-    func setUpLang() -> String {
-        guard let languageCode = Locale.current.language.languageCode?.identifier else { return "한국어" }
-        
-        if languageCode == "ko" {
-            return "한국어"
-        } else {
-            return "Eng"
-        }
     }
 }
 
@@ -193,6 +161,7 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 // MARK: - Cell 관련 코드
+
 extension MyPageViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPageTableViewCell.IDF, for: indexPath) as? MyPageTableViewCell else {
@@ -241,9 +210,20 @@ extension MyPageViewController {
     }
     
     private func presentAlarmVC() {
-        let vc = AlarmViewController()
-        present(vc, animated: true)
+        let viewControllerToPresent = AlarmViewController()
+        viewControllerToPresent.delegate = self
+        
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.detents = [.custom { context in return 183 } ]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        present(viewControllerToPresent, animated: true, completion: nil)
     }
+    
+    
     
     private func presentSetProfileVC() {
         let repo = MyPageRepository()
@@ -280,5 +260,68 @@ extension MyPageViewController {
         let reactor = DeleteAccountReactor()
         let vc = DeleteAccountViewController(deleteAccountReactor: reactor)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func setMyPageTableViewDataSource() {
+        let appSetSection: MyPageTableViewDataSource = {
+            let notificationRow = MyPageTableViewCellDataSource(title: "알림 설정", info: setUpIsAlarmEnabled())
+            let languageRow = MyPageTableViewCellDataSource(title: "언어 설정", info: setUpLang())
+            
+            return MyPageTableViewDataSource(sectionTitle: "설정", cellData: [notificationRow, languageRow])
+        }()
+        
+        let appInfoSection: MyPageTableViewDataSource = {
+            let appVersionRow = MyPageTableViewCellDataSource(title: "앱 버전", info: self.currentAppVersion(), isArrowVisible: true)
+            let privacyPolicyRow = MyPageTableViewCellDataSource(title: "개인정보 처리방침")
+            let openSourceRow = MyPageTableViewCellDataSource(title: "오픈 소스")
+            let creatorsRow = MyPageTableViewCellDataSource(title: "만든 사람들")
+            let contactUsRow = MyPageTableViewCellDataSource(title: "문의하기")
+            
+            return MyPageTableViewDataSource(sectionTitle: "앱 정보 및 문의", cellData: [appVersionRow, privacyPolicyRow, openSourceRow, creatorsRow, contactUsRow])
+        }()
+        
+        let accountSection: MyPageTableViewDataSource = {
+            let logoutRow = MyPageTableViewCellDataSource(title: "로그아웃")
+            let withdrawRow = MyPageTableViewCellDataSource(title: "탈퇴하기")
+            
+            return MyPageTableViewDataSource(sectionTitle: "계정", cellData: [logoutRow, withdrawRow])
+        }()
+        
+        let languageDataSource = ["ENG", "한국어"]
+        
+        let myPageTableViewDataSource = [appSetSection, appInfoSection, accountSection]
+        
+        self.myPageTableViewDataSource = myPageTableViewDataSource
+    }
+    
+    private func currentAppVersion() -> String {
+        if let info: [String: Any] = Bundle.main.infoDictionary, let currentVersion: String = info["CFBundleShortVersionString"] as? String {
+            return currentVersion
+        }
+        
+        return "1.0"
+    }
+    
+    private func setUpLang() -> String {
+        guard let languageCode = Locale.current.language.languageCode?.identifier else { return "한국어" }
+        
+        if languageCode == "ko" {
+            return "한국어"
+        } else {
+            return "ENG"
+        }
+    }
+    
+    private func setUpIsAlarmEnabled() -> String {
+        let isEnabled = KeychainStorage.shared.isAlarmEnabled
+        
+        return isEnabled ? "ON" : "OFF"
+    }
+}
+
+// MARK: - 바텀 시트가 dismiss되면 데이터 리로드
+extension MyPageViewController: ReloadMyPageDataSource {
+    func reload() {
+        reloadData()
     }
 }
