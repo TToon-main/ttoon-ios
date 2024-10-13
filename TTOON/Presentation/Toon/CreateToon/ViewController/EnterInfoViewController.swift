@@ -107,6 +107,10 @@ extension EnterInfoViewController: View {
         reactor.state.map { $0.isEnabledConfirmButton }
             .bind(to: enterInfoScrollView.rx.isEnabledConfirmButton)
             .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.pop }
+            .bind(onNext: pop)
+            .disposed(by: disposeBag)
     }
 }
 
@@ -154,5 +158,11 @@ extension EnterInfoViewController {
         let vc = CharacterModifyViewController(reactor: reactor)
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func pop(_ flag: Bool) {
+        if flag {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }

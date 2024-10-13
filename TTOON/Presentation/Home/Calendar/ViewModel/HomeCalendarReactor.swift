@@ -10,11 +10,13 @@ import ReactorKit
 
 class HomeCalendarReactor: Reactor {
     var didSendEventClosure: ((HomeCalendarReactor.Event) -> Void)?
-    
     private let homeCalendarUseCase: HomeCalendarUseCaseProtocol
+    private let toonUseCase: ToonUseCaseProtocol
+
     
-    init(_ useCase: HomeCalendarUseCaseProtocol) {
+    init(_ useCase: HomeCalendarUseCaseProtocol, toonUseCase: ToonUseCaseProtocol) {
         self.homeCalendarUseCase = useCase
+        self.toonUseCase = toonUseCase
     }
     
     enum Action {
@@ -38,6 +40,10 @@ class HomeCalendarReactor: Reactor {
         
         // 웹툰 생성 페이지 이동 버튼
         case plusButtonTapped
+        
+        case createToon(CreateToon)
+        
+        case presentCreatingToast
     }
     
     enum Mutation {
@@ -48,6 +54,8 @@ class HomeCalendarReactor: Reactor {
         case setCurrentFeedDetail(FeedModel?)   // nil이면 기본 이미지를 보여준다.
         
         case setLoadDataAgain   // 피드 삭제 후, 다시 데이터를 로드하라는 의미
+        
+        case setPresentCreateToonToast(CreateToonStatus) // 요청 상태에 따른 토스트
         
         case pass
     }
@@ -60,6 +68,8 @@ class HomeCalendarReactor: Reactor {
         var currentFeedDetail: FeedModel?   // 데이터가 없으면 nil 저장
         
         var loadDataAgain: Bool = false     // "삭제하기"가 끝나면 다시 데이터를 로드하게 하기 위한 변수
+        
+        var presentCreateToonToast: CreateToonStatus? = nil
     }
     
     
@@ -151,6 +161,13 @@ class HomeCalendarReactor: Reactor {
         case .plusButtonTapped:
             didSendEventClosure?(.showCreateToonView)
             return .just(.pass)
+            
+        case .createToon(let model):
+            return toonUseCase.createToon(model: model)
+                .map { .setPresentCreateToonToast(.complete(urls: $0))}
+            
+        case .presentCreatingToast:
+            return .just(.setPresentCreateToonToast(.ing))
         }
     }
     
@@ -176,6 +193,9 @@ class HomeCalendarReactor: Reactor {
         case .setLoadDataAgain:
             let curValue = currentState.loadDataAgain
             newState.loadDataAgain = !curValue
+            
+        case .setPresentCreateToonToast(let status):
+            newState.presentCreateToonToast = status
         }
         
         return newState
@@ -193,4 +213,19 @@ extension HomeCalendarReactor {
 enum SaveImageType {
     case onePage    // 한 장에 4개
     case fourPage   // 4장 저장
+}
+
+enum CreateToonStatus {
+    case idle
+    case ing
+    case complete(urls: [String])
+}
+
+
+extension HomeCalendarReactor: CreateToonDelegate {
+    func createToon(model: CreateToon) {
+        print("모델 도착")
+        self.action.onNext(.createToon(model))
+        self.action.onNext(.presentCreatingToast)
+    }
 }

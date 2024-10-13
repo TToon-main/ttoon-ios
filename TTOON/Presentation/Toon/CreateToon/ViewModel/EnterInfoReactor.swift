@@ -8,8 +8,14 @@
 import ReactorKit
 import RxSwift
 
+protocol CreateToonDelegate: AnyObject {
+    func createToon(model: CreateToon)
+}
+
 final class EnterInfoReactor: Reactor {
     let useCase: ToonUseCaseProtocol
+    
+    weak var delegate: CreateToonDelegate?
     
     struct CurrentProgress {
         var isSelectedCharacter: Bool
@@ -63,6 +69,7 @@ final class EnterInfoReactor: Reactor {
         case setConfirmButtonTap
         case setTitleText(text: String)
         case setContentText(text: String)
+        case setPop
     }
     
     // 뷰에 전달할 상태
@@ -80,6 +87,7 @@ final class EnterInfoReactor: Reactor {
         var isEnabledConfirmButton = false
         var titleText: String = ""
         var contentText: String = ""
+        var pop: Bool = false
     }
     
     // 전달할 상태의 초기값
@@ -125,8 +133,8 @@ final class EnterInfoReactor: Reactor {
             
         case .confirmButtonTap:
             if let model = self.fetchCreateToonRequestModel()  {
-                return self.useCase.createToon(model: model)
-                    .map { _ in .setConfirmButtonTap }
+                self.delegate?.createToon(model: model)
+                return .just(.setPop)
             } else {
                 return .never()
             }
@@ -197,6 +205,10 @@ final class EnterInfoReactor: Reactor {
         case .setContentText(let text):
             new.contentText = text
             return new
+            
+        case .setPop:
+            new.pop = true
+            return new
         }
     }
     
@@ -205,6 +217,7 @@ final class EnterInfoReactor: Reactor {
         new.presentCreateLoadingVC = nil
         new.presentModifyCharacterVC = nil
         new.presentCharacterPickerBS = nil
+        new.pop = false
         
         return new
     }
