@@ -96,7 +96,9 @@ class CharacterModifyViewController: BaseViewController {
     }
     
     private func  presentCharacterEditorVC() {
-        let reactor = CharacterAddReactor()
+        let repo = ToonRepository()
+        let useCase = ToonUseCase(repo: repo)
+        let reactor = CharacterAddReactor(useCase: useCase)
         let vc = CharacterAddViewController(reactor: reactor)
         
         self.navigationController?.pushViewController(vc, animated: true)
