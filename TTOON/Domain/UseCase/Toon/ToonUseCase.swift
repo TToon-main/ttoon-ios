@@ -14,6 +14,7 @@ protocol ToonUseCaseProtocol {
     func addCharacter(model: AddCharacter) -> Observable<Int64?>
     func deleteCharacter(id: String) -> Observable<Bool>
     func patchCharacter(model: ModifyCharacter) -> Observable<Int64?>
+    func createToon(model: CreateToon) -> Observable<[String]>
 }
 
 class ToonUseCase: ToonUseCaseProtocol {
@@ -87,6 +88,22 @@ class ToonUseCase: ToonUseCaseProtocol {
     
         let error: Observable<Int64?> = request.compactMap { $0.error }
             .map { _ in return nil }
+
+        return .merge(success, error)
+    }
+    
+    func createToon(model: CreateToon) -> Observable<[String]> {
+        let dto = model.toDTO()
+        
+        let request = repo.postToon(dto: dto)
+            .share()
+        
+        let success = request.compactMap { $0.element }
+            .map { $0.imageUrls }
+    
+        let error = request
+            .compactMap { $0.error }
+            .map { _ in return [String]()}
 
         return .merge(success, error)
     }

@@ -14,6 +14,7 @@ enum ToonAPI {
     case deleteCharacter(dto: DeleteCharacterRequestDTO)
     case patchCharacter(dto: PatchCharacterRequestDTO)
     case postCharacter(dto: PostCharacterRequestDTO)
+    case postToon(dto: PostToonRequestDTO)
 }
 
 extension ToonAPI: TargetType {
@@ -31,6 +32,8 @@ extension ToonAPI: TargetType {
             return "/api/character"
         case .postCharacter:
             return "/api/character"
+        case .postToon:
+            return "/api/toon"
         }
     }
     
@@ -45,7 +48,7 @@ extension ToonAPI: TargetType {
         case .patchCharacter:
             return .patch
 
-        case .postCharacter:
+        case .postCharacter, .postToon:
             return .post
         }
     }
@@ -62,6 +65,9 @@ extension ToonAPI: TargetType {
             return .requestJSONEncodable(dto)
 
         case .postCharacter(let dto):
+            return .requestJSONEncodable(dto)
+            
+        case .postToon(let dto):
             return .requestJSONEncodable(dto)
         }
     }

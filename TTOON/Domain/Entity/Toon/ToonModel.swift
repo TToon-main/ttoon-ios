@@ -53,3 +53,19 @@ struct ModifyCharacter {
         return .init(id: id, name: name, info: info)
     }
 }
+
+struct CreateToon {
+    let mainCharacterId: Int64
+    let others: [Int64]
+    let number: Int
+    let title: String
+    let content: String
+    
+    func toDTO() -> PostToonRequestDTO {
+        return .init(mainCharacterId: mainCharacterId,
+                     others: others,
+                     number: number,
+                     title: title,
+                     content: content)
+    }
+}

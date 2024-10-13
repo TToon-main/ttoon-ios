@@ -25,3 +25,8 @@ struct GetCharacterResponseDTO: Codable {
 struct CharacterResponseDTO: Codable {
     let figureId: Int64
 }
+
+struct PostToonResponseDTO: Codable {
+    let feedId: Int64
+    let imageUrls: [String]
+}
