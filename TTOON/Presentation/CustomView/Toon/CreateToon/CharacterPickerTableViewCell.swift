@@ -13,7 +13,7 @@ struct CharacterPickerTableViewCellDataSource {
     let name: String?
     let isMainCharacter: Bool
     let characterDescription: String?
-    let isSelected: Bool 
+    let isSelected: Bool
     let isModify: Bool
 }
 
@@ -87,6 +87,7 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
     
     override func configures() {
         selectionStyle = .none
+        contentView.clipsToBounds = true
     }
     
     override func addSubViews() {
@@ -98,26 +99,18 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
         contentView.addSubview(lineDiver)
     }
     
-    func setCell(_ item: CharacterPickerTableViewCellDataSource) {
-        titleLabel.text = item.name
-        subTitleLabel.text = item.characterDescription
-        checkImageView.isHidden = !item.isSelected
-        modifyCharacterButton.isHidden = !item.isModify
-        mainCharacterButton.isHidden = !item.isMainCharacter
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
     }
     
     override func layouts() {
-        contentView.snp.makeConstraints { 
-            $0.verticalEdges.equalToSuperview()
-            $0.horizontalEdges.equalToSuperview().inset(16)
-        }
-        
-        titleLabel.snp.makeConstraints { 
+        titleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.centerY.equalTo(mainCharacterButton)
         }
         
-        mainCharacterButton.snp.makeConstraints { 
+        mainCharacterButton.snp.makeConstraints {
             $0.leading.equalTo(titleLabel.snp.trailing).offset(8)
             $0.top.equalToSuperview().offset(20)
             $0.height.equalTo(25)
@@ -139,10 +132,18 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
             $0.centerY.equalTo(mainCharacterButton)
         }
         
-        lineDiver.snp.makeConstraints { 
+        lineDiver.snp.makeConstraints {
             $0.height.equalTo(1)
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
+    }
+    
+    func setCell(_ item: CharacterPickerTableViewCellDataSource) {
+        titleLabel.text = item.name
+        subTitleLabel.text = item.characterDescription
+        checkImageView.isHidden = !item.isSelected
+        modifyCharacterButton.isHidden = !item.isModify
+        mainCharacterButton.isHidden = !item.isMainCharacter
     }
 }
