@@ -44,6 +44,8 @@ class HomeCalendarReactor: Reactor {
         case createToon(CreateToon)
         
         case presentCreatingToast
+        
+        case completeToastTap([String])
     }
     
     enum Mutation {
@@ -69,7 +71,7 @@ class HomeCalendarReactor: Reactor {
         
         var loadDataAgain: Bool = false     // "삭제하기"가 끝나면 다시 데이터를 로드하게 하기 위한 변수
         
-        var presentCreateToonToast: CreateToonStatus? = nil
+        var presentCreateToonToast: CreateToonStatus = .idle
     }
     
     
@@ -163,16 +165,24 @@ class HomeCalendarReactor: Reactor {
             return .just(.pass)
             
         case .createToon(let model):
+            
+            // TODO: 임시 코드
+            let model = CreateToon.mockUp()
+            
             return toonUseCase.createToon(model: model)
                 .map { .setPresentCreateToonToast(.complete(urls: $0))}
             
         case .presentCreatingToast:
             return .just(.setPresentCreateToonToast(.ing))
+            
+        case .completeToastTap(let urls):
+            didSendEventClosure?(.showCompleteToonView(urls: urls))
+            return .just(.pass)
         }
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
-        var newState = state
+        var newState = fetchNewState(state: state)
         
         switch mutation {
         case .pass:
@@ -200,6 +210,12 @@ class HomeCalendarReactor: Reactor {
         
         return newState
     }
+    
+    func fetchNewState(state: State) -> State {
+        var new = state
+        
+        return new
+    }
 }
 
 
@@ -207,6 +223,7 @@ extension HomeCalendarReactor {
     enum Event {
         case showFriendListView
         case showCreateToonView
+        case showCompleteToonView(urls: [String])
     }
 }
 
@@ -215,7 +232,7 @@ enum SaveImageType {
     case fourPage   // 4장 저장
 }
 
-enum CreateToonStatus {
+enum CreateToonStatus: Equatable {
     case idle
     case ing
     case complete(urls: [String])
@@ -224,7 +241,6 @@ enum CreateToonStatus {
 
 extension HomeCalendarReactor: CreateToonDelegate {
     func createToon(model: CreateToon) {
-        print("모델 도착")
         self.action.onNext(.createToon(model))
         self.action.onNext(.presentCreatingToast)
     }

@@ -82,6 +82,12 @@ extension HomeCalendarViewController {
             }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        
+        mainView.rx.completeToastTap
+            .map { HomeCalendarReactor.Action.completeToastTap($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: HomeCalendarReactor) {
@@ -115,6 +121,12 @@ extension HomeCalendarViewController {
 //                reactor.action.onNext(.loadFeedDetail(curDate))
                 reactor.action.onNext(.loadCalendarThumbnails(curYearMonth))
             }
+            .disposed(by: disposeBag)
+        
+        
+        reactor.state.map { $0.presentCreateToonToast }
+            .distinctUntilChanged()
+            .bind(to: mainView.rx.setCreatToonToastStatus)
             .disposed(by: disposeBag)
     }
 }

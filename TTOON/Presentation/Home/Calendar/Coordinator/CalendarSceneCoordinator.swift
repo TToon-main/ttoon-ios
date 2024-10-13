@@ -49,6 +49,9 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
                 
             case .showCreateToonView:
                 self?.showCreateToonView()
+                
+            case .showCompleteToonView(let urls):
+                self?.showCompleteToonView(urls)
             }
         }
         
@@ -84,8 +87,15 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
 
     func showSearchFriendView() {
         let vc = SearchFriendViewController(reactor: SearchFriendReactor(SearchFriendUseCase(SearchFriendRepository())))
-        
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    private func showCompleteToonView(_ urls: [String]) {
+        let reactor = CompleteToonReactor()
+        let vc = CompleteToonViewController(reactor: reactor)
+        vc.modalPresentationStyle = .overCurrentContext
+        
+        navigationController.present(vc, animated: true)
     }
 }
 extension CalendarSceneCoordinator: CoordinatorFinishDelegate {
