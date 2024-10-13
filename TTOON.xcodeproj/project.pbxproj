@@ -326,6 +326,7 @@
 		BEC4C27C2CA0541200D1BA12 /* AttendanceRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4C27B2CA0541200D1BA12 /* AttendanceRepositoryProtocol.swift */; };
 		BEC4C27F2CA055EF00D1BA12 /* AttendanceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4C27E2CA055EF00D1BA12 /* AttendanceUseCase.swift */; };
 		BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E502BB70A0C0034FF79 /* .gitignore */; };
+		BEE7A18E2CB578D10000BC71 /* ToonCreationToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A18D2CB578D10000BC71 /* ToonCreationToastView.swift */; };
 		BEE7A1932CB63C2B0000BC71 /* AttendanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A1922CB63C2B0000BC71 /* AttendanceModel.swift */; };
 		BEE8BCC82C71FFF5003800E0 /* CalendarSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */; };
 		BEE8BCC92C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB42C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift */; };
@@ -701,6 +702,7 @@
 		BEC4C27B2CA0541200D1BA12 /* AttendanceRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BEC4C27E2CA055EF00D1BA12 /* AttendanceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceUseCase.swift; sourceTree = "<group>"; };
 		BEDF4E502BB70A0C0034FF79 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		BEE7A18D2CB578D10000BC71 /* ToonCreationToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonCreationToastView.swift; sourceTree = "<group>"; };
 		BEE7A1922CB63C2B0000BC71 /* AttendanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModel.swift; sourceTree = "<group>"; };
 		BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarSceneCoordinator.swift; sourceTree = "<group>"; };
 		BEE8BCB42C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomDiaryImageSwipeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -2483,6 +2485,7 @@
 			isa = PBXGroup;
 			children = (
 				BEE8BCDD2C7202E6003800E0 /* SelectYearMonthView.swift */,
+				BEE7A18D2CB578D10000BC71 /* ToonCreationToastView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -3030,6 +3033,7 @@
 				483C534A2C9879B20056C1FD /* MyPageRepository.swift in Sources */,
 				480C165F2BEEFA9F0085A187 /* SocialLoginType.swift in Sources */,
 				BE9C9AEE2C688CAF000AAF0E /* CharacterEditorView.swift in Sources */,
+				BEE7A18E2CB578D10000BC71 /* ToonCreationToastView.swift in Sources */,
 				BE9C9BE92C6898C2000AAF0E /* ResponseDTO.swift in Sources */,
 				483C53572C987B0D0056C1FD /* ProfileSetReactor.swift in Sources */,
 				BE56F95A2CB109E4005A039F /* ToonRequestDTO.swift in Sources */,
