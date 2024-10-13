@@ -9,6 +9,8 @@ import ReactorKit
 import RxSwift
 
 final class EnterInfoReactor: Reactor {
+    let useCase: ToonUseCaseProtocol
+    
     struct CurrentProgress {
         var isSelectedCharacter: Bool
         var isTitleEntered: Bool
@@ -33,6 +35,10 @@ final class EnterInfoReactor: Reactor {
     
     var progress = CurrentProgress()
     
+    init(useCase: ToonUseCaseProtocol) {
+        self.useCase = useCase
+    }
+    
     // 뷰에서 입력받은 유저 이벤트
     enum Action {
         case dairyTextViewDidChange(String)
@@ -53,7 +59,10 @@ final class EnterInfoReactor: Reactor {
         case setSelectCharactersButtonTap
         case setPresentModifyCharacterVC
         case setCharacterButtonText(text: String)
+        case setSelectedCharacterModels(models: [CharacterPickerTableViewCellDataSource])
         case setConfirmButtonTap
+        case setTitleText(text: String)
+        case setContentText(text: String)
     }
     
     // 뷰에 전달할 상태
@@ -67,7 +76,10 @@ final class EnterInfoReactor: Reactor {
         var presentCreateLoadingVC: Void? = nil
         var currentProgress: Float = 0.05
         var characterButtonText: String? = nil
+        var selectedCharacterModels: [CharacterPickerTableViewCellDataSource]? = nil
         var isEnabledConfirmButton = false
+        var titleText: String = ""
+        var contentText: String = ""
     }
     
     // 전달할 상태의 초기값
@@ -85,6 +97,7 @@ final class EnterInfoReactor: Reactor {
                 .just(.setDairyTextViewError(error: error)),
                 .just(.setDairyTextViewTextCount(cnt: "\(text.count)")),
                 .just(.setProgressBar(progress)),
+                .just(.setContentText(text: text))
             ])
             
             return mutation
@@ -98,7 +111,8 @@ final class EnterInfoReactor: Reactor {
             let mutation: Observable<Mutation> = .concat([
                 .just(.setTitleTextFieldError(error: error)),
                 .just(.setTitleTextFieldTextCount(cnt: "\(text.count)")),
-                .just(.setProgressBar(progress))
+                .just(.setProgressBar(progress)),
+                .just(.setTitleText(text: text))
             ])
             
             return mutation
@@ -110,7 +124,12 @@ final class EnterInfoReactor: Reactor {
             return .just(.setPresentModifyCharacterVC)
             
         case .confirmButtonTap:
-            return .just(.setConfirmButtonTap)
+            if let model = self.fetchCreateToonRequestModel()  {
+                return self.useCase.createToon(model: model)
+                    .map { _ in .setConfirmButtonTap }
+            } else {
+                return .never()
+            }
             
         case .characterSelected(let models):
             let text = models.map { $0.name }.joined(separator: ", ")
@@ -118,7 +137,8 @@ final class EnterInfoReactor: Reactor {
             
             let mutation: Observable<Mutation> = .concat([
                 .just(.setCharacterButtonText(text: text)),
-                .just(.setProgressBar(progress))
+                .just(.setProgressBar(progress)),
+                .just(.setSelectedCharacterModels(models: models))
             ])
             
             return mutation
@@ -165,6 +185,18 @@ final class EnterInfoReactor: Reactor {
         case .setCharacterButtonText(let text):
             new.characterButtonText = text
             return new
+            
+        case .setSelectedCharacterModels(let models):
+            new.selectedCharacterModels = models
+            return new
+            
+        case .setTitleText(let text):
+            new.titleText = text
+            return new
+            
+        case .setContentText(let text):
+            new.contentText = text
+            return new
         }
     }
     
@@ -175,5 +207,38 @@ final class EnterInfoReactor: Reactor {
         new.presentCharacterPickerBS = nil
         
         return new
+    }
+    
+    private func fetchCreateToonRequestModel() -> CreateToon?  {
+        let state = currentState
+        
+        guard let selectedCharacterModels = state.selectedCharacterModels else {
+            return nil
+        }
+        
+        let mainCharacterId = selectedCharacterModels
+            .filter { $0.isMainCharacter }
+            .map { $0.id }
+            .map { Int64($0)}
+            .compactMap { $0 }
+            .first
+
+        let others = selectedCharacterModels
+            .filter { !$0.isMainCharacter }
+            .map { $0.id }
+            .map { Int64($0) }
+            .compactMap { $0 }
+        
+        let number = selectedCharacterModels.count
+        
+        let title = state.titleText
+        
+        let content = state.contentText
+        
+        return CreateToon(mainCharacterId: mainCharacterId ?? 0,
+                          others: others,
+                          number: number,
+                          title: title,
+                          content: content)
     }
 }
