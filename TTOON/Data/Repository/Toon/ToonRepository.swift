@@ -7,6 +7,7 @@
 
 import Foundation
 
+import Moya
 import RxMoya
 import RxSwift
 
@@ -35,6 +36,12 @@ class ToonRepository: ToonRepositoryProtocol {
             .mapData(responseType: CharacterResponseDTO.self,
                      errorType: PostCharacterError.self)
     }
+    
+    func postToon(dto: PostToonRequestDTO) -> Observable<Event<PostToonResponseDTO>> {
+        return provider.toon.rx.request(.postToon(dto: dto))
+            .mapData(responseType: PostToonResponseDTO.self,
+                     errorType: PostToonError.self)
+    }
 }
 
 extension ToonRepository {
@@ -54,6 +61,11 @@ extension ToonRepository {
     }
     
     enum PostCharacterError: String, CommonErrorProtocol {
+        case unknown
+        case decoding
+    }
+    
+    enum PostToonError: String, CommonErrorProtocol {
         case unknown
         case decoding
     }

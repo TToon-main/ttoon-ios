@@ -14,4 +14,5 @@ protocol ToonRepositoryProtocol {
     func deleteCharacter(dto: DeleteCharacterRequestDTO) -> Observable<Event<Bool>>
     func patchCharacter(dto: PatchCharacterRequestDTO) -> Observable<Event<CharacterResponseDTO>>
     func postCharacter(dto: PostCharacterRequestDTO) -> Observable<Event<CharacterResponseDTO>>
+    func postToon(dto: PostToonRequestDTO) -> Observable<Event<PostToonResponseDTO>>
 }

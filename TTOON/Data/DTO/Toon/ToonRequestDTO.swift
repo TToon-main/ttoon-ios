@@ -21,3 +21,11 @@ struct PostCharacterRequestDTO: Encodable {
     let name: String
     let info: String
 }
+
+struct PostToonRequestDTO: Encodable {
+    let mainCharacterId: Int64
+    let others: [Int64]
+    let number: Int
+    let title: String
+    let content: String
+}
