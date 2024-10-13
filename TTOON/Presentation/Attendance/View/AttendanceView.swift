@@ -92,4 +92,20 @@ class AttendanceView: BaseView {
             $0.bottom.equalToSuperview().offset(-12)
         }
     }
+    
+    func isAttendanceChecked(_ isAttendanceChecked: [Bool]) {
+        let btn = [
+            firstAttendanceButtonStackView.firstButton,  // Monday
+            firstAttendanceButtonStackView.secondButton, // Tuesday
+            secondAttendanceButtonStackView.firstButton,  // Wednesday
+            secondAttendanceButtonStackView.secondButton, // Thursday
+            secondAttendanceButtonStackView.thirdButton,  // Friday
+            thirdAttendanceButtonStackView.secondButton,   // Saturday
+            thirdAttendanceButtonStackView.thirdButton    // Sunday
+        ]
+        
+        for (index, isChecked) in isAttendanceChecked.enumerated() {
+            btn[index].isSelected = isChecked
+        }
+    }
 }

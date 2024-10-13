@@ -7,6 +7,9 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 class AttendanceNavigationBar: BaseView {    
     // MARK: - UI Properties
     
@@ -48,5 +51,11 @@ class AttendanceNavigationBar: BaseView {
             make.trailing.equalToSuperview()
             make.centerY.equalTo(logoImageView)
         }
+    }
+}
+
+extension Reactive where Base: AttendanceNavigationBar {
+    var point: Binder<String?> {
+        return base.pointContainer.pointLabel.rx.text
     }
 }

@@ -7,10 +7,13 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 class AttendanceScrollView: BaseView {
     // MARK: - UI Properties
     
-    private let attendanceView = AttendanceView()
+    let attendanceView = AttendanceView()
     
     private lazy var scrollView = {
         let view = UIScrollView()
@@ -42,5 +45,34 @@ class AttendanceScrollView: BaseView {
             $0.top.leading.equalToSuperview()
             $0.bottom.greaterThanOrEqualTo(safeGuide)
         }
+    }
+}
+
+// MARK: - Custom Binder
+
+extension Reactive where Base: AttendanceScrollView {
+    var isAttendanceChecked: Binder<[Bool]> {
+        return Binder(base) { view, isAttendanceChecked in
+            view.attendanceView.isAttendanceChecked(isAttendanceChecked)
+        }
+    }
+    
+    var showInvalid: Binder<Bool> {
+        return Binder(base) { view, isInvalid in
+            print("디버그", isInvalid)
+        }
+    }
+    
+    var isEnabledCheckAttendanceButton: Binder<Bool> {
+        return base.attendanceView.checkAttendanceButton.rx.isEnabled
+    }
+}
+
+// MARK: - Custom Observable
+
+extension Reactive where Base: AttendanceScrollView {
+    var checkAttendanceButtonTap: Observable<Void> {
+        return base.attendanceView.checkAttendanceButton.rx.tap
+            .asObservable()
     }
 }

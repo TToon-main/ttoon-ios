@@ -17,4 +17,20 @@ enum DateFormatType: String {
     case yearMonthWithHyphen = "yyyy-MM"
     
     case fullWithDot = "yyyy.MM.dd"
+    case onlyDay = "EEEE"
+}
+
+extension DateFormatType {
+    var locale: Locale? {
+        switch self {
+        case .onlyDay:
+            return Locale(identifier: "en_US_POSIX")
+            
+        case .fulldate, .yearMonthKorean, .fullKorean:
+            return Locale(identifier: "en")
+            
+        default:
+            return nil
+        }
+    }
 }
