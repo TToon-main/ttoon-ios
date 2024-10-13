@@ -12,6 +12,7 @@ private struct KeychainTokens {
     static let accessTokenKey: String = "TToon.AccessToken.Key"
     static let refreshTokenKey: String = "TToon.RefreshToken.Key"
     static let isAlarmEnabledKey: String = "TToon.isAlarmEnabledKey.Key"
+    static let mainCharacterId: String = "TToon.mainCharacterId.Key"
 }
 
 final class KeychainStorage {
@@ -50,6 +51,16 @@ final class KeychainStorage {
         }
         set {
             KeychainWrapper.standard.set(newValue, forKey: KeychainTokens.isAlarmEnabledKey)
+        }
+    }
+    
+    var mainCharacterId: String {
+        get {
+            KeychainWrapper.standard.string(forKey: KeychainTokens.mainCharacterId) ?? ""
+        }
+        
+        set {
+            KeychainWrapper.standard.set(newValue, forKey: KeychainTokens.mainCharacterId)
         }
     }
     

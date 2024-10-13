@@ -114,7 +114,9 @@ extension EnterInfoViewController: View {
     }
     
     private func presentCharacterPickerBS() {
-        let reactor = CharacterPickerBSReactor()
+        let repo = ToonRepository()
+        let useCase = ToonUseCase(repo: repo)
+        let reactor = CharacterPickerBSReactor(useCase: useCase)
         let viewControllerToPresent = CharacterPickerBSViewController(reactor: reactor)
         viewControllerToPresent.delegate = self
         
