@@ -19,8 +19,7 @@ class HomeCalendarViewController: BaseViewController, View {
     // MARK: - UI Component (View)
     let mainView = HomeCalendarView()
     let ttoonNavigationView = TToonLogHomeNavigationView()
-    
-    
+
     init(reactor: HomeCalendarReactor) {
         super.init(nibName: nil, bundle: nil)
         
@@ -113,7 +112,7 @@ extension HomeCalendarViewController {
             .subscribe(with: self) { owner, _ in
                 let curDate = reactor.currentState.currentDate
                 let curYearMonth = reactor.currentState.currentYearMonth
-                reactor.action.onNext(.loadFeedDetail(curDate))
+//                reactor.action.onNext(.loadFeedDetail(curDate))
                 reactor.action.onNext(.loadCalendarThumbnails(curYearMonth))
             }
             .disposed(by: disposeBag)
@@ -129,7 +128,7 @@ extension HomeCalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
         guard let cell = calendar.dequeueReusableCell(withIdentifier: TToonCalendarCell.description(), for: date, at: position) as? TToonCalendarCell else { return FSCalendarCell() }
-                
+        
         // 1. current Date Setting
         // 현재 선택된 날짜이면 주황색 테두리
         cell.selectedBorderBackgroundView.isHidden = date.toString(of: .fulldate) != self.reactor?.currentState.currentDate.toString(of: .fulldate)
@@ -143,7 +142,7 @@ extension HomeCalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
                 cell.ttoonImageView.image = nil
             }
         }
-
+        
         
         return cell
     }
@@ -166,7 +165,7 @@ extension HomeCalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
         }
         
         // 새로운 피드 네트워크 콜
-        self.reactor?.action.onNext(.loadFeedDetail(date))
+//        self.reactor?.action.onNext(.loadFeedDetail(date))
         
         // 컬렉션뷰 위치 초기화
         mainView.bottomDiaryView.diaryImageSwipeCollectionView.setContentOffset(CGPoint(x: -16, y: 0), animated: false)
@@ -255,7 +254,7 @@ extension HomeCalendarViewController {
     // 연월 선택 바텀시트
     private func presentSelectYearMonthBottomSheetVC() {
         let vc = SelectYearMonthBottomSheetViewController(self.reactor!)
-
+        
         if let sheet = vc.sheetPresentationController {
             sheet.detents = [.custom { _ in return 343 } ]
             sheet.prefersGrabberVisible = true
@@ -297,6 +296,6 @@ extension HomeCalendarViewController {
         let initialDate = Date()
         
         self.reactor?.action.onNext(.loadCalendarThumbnails(initialDate.toString(of: .yearMonthKorean)))
-        self.reactor?.action.onNext(.loadFeedDetail(initialDate))
+//        self.reactor?.action.onNext(.loadFeedDetail(initialDate))
     }
 }

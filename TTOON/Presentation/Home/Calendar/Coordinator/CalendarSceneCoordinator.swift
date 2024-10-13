@@ -46,6 +46,9 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
             switch event {
             case .showFriendListView:
                 self?.showFriendListView()
+                
+            case .showCreateToonView:
+                self?.showCreateToonView()
             }
         }
         
@@ -66,7 +69,17 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    
+    func showCreateToonView() {
+        let repo = ToonRepository()
+        let useCase = ToonUseCase(repo: repo)
+        let reactor = EnterInfoReactor(useCase: useCase)
+        let vc = EnterInfoViewController(reactor: reactor)
+        vc.hidesBottomBarWhenPushed = true
+        navigationController.navigationBar.topItem?.backButtonTitle = ""
+        navigationController.navigationBar.tintColor = .black
+        navigationController.pushViewController(vc, animated: true)
+    }
+
     func showSearchFriendView() {
         let vc = SearchFriendViewController(reactor: SearchFriendReactor(SearchFriendUseCase(SearchFriendRepository())))
         

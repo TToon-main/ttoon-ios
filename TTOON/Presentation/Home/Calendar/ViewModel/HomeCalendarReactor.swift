@@ -149,6 +149,7 @@ class HomeCalendarReactor: Reactor {
                 }
             
         case .plusButtonTapped:
+            didSendEventClosure?(.showCreateToonView)
             return .just(.pass)
         }
     }
@@ -185,6 +186,7 @@ class HomeCalendarReactor: Reactor {
 extension HomeCalendarReactor {
     enum Event {
         case showFriendListView
+        case showCreateToonView
     }
 }
 
