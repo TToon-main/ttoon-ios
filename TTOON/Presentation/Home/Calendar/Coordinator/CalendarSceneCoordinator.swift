@@ -37,12 +37,12 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
         showCalendarView()
     }
     
+    let homeReactor = HomeCalendarReactor(HomeCalendarUseCase(HomeCalendarRepository()), toonUseCase: ToonUseCase(repo: ToonRepository()))
+    lazy var homeVC = HomeCalendarViewController(reactor: homeReactor)
+    
     // Protocol Method
     func showCalendarView() {
-        let reactor = HomeCalendarReactor(HomeCalendarUseCase(HomeCalendarRepository()))
-        let vc = HomeCalendarViewController(reactor: reactor)
-        
-        reactor.didSendEventClosure = { [weak self] event in
+        homeReactor.didSendEventClosure = { [weak self] event in
             switch event {
             case .showFriendListView:
                 self?.showFriendListView()
@@ -52,7 +52,7 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
             }
         }
         
-        navigationController.pushViewController(vc, animated: true)
+        navigationController.pushViewController(homeVC, animated: true)
     }
     
     
@@ -73,6 +73,8 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
         let repo = ToonRepository()
         let useCase = ToonUseCase(repo: repo)
         let reactor = EnterInfoReactor(useCase: useCase)
+        reactor.delegate = self.homeReactor 
+        
         let vc = EnterInfoViewController(reactor: reactor)
         vc.hidesBottomBarWhenPushed = true
         navigationController.navigationBar.topItem?.backButtonTitle = ""

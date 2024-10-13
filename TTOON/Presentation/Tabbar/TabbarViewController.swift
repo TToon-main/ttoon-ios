@@ -15,7 +15,7 @@ final class TabbarViewController: UITabBarController {
     // MARK: - Properties
     
     
-    private let homeReactor = HomeCalendarReactor(HomeCalendarUseCase(HomeCalendarRepository()))
+    private let homeReactor = HomeCalendarReactor(HomeCalendarUseCase(HomeCalendarRepository()), toonUseCase: ToonUseCase(repo: ToonRepository()))
     private lazy var homeVC = HomeCalendarViewController(reactor: homeReactor)
     
     private let selectStyleReactor = SelectStyleReactor()
