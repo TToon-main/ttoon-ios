@@ -8,7 +8,7 @@
 import Foundation
 
 // 공통
-struct UserInfoModel {
+struct UserInfoModel: Equatable {
     let friendId: Int
     let profileUrl: String?
     let nickname: String

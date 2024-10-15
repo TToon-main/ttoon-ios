@@ -15,6 +15,13 @@ import UIKit
 
 
 class FeedTableViewCell: BaseTableViewCell {
+    var disposeBag = DisposeBag()
+    
+    // MARK: - Data
+    // collectionView의 로드가 되지 않아... 어쩔 수 없이 데이터를 알고 있는 형태ㅠ
+    var feedModel: FeedWithInfoModel?
+    
+    
     // MARK: - UI
     let baseView = {
         let view = UIView()
@@ -64,6 +71,7 @@ class FeedTableViewCell: BaseTableViewCell {
         view.contentInset = Size.collectionViewContentInset
         view.decelerationRate = .fast
         view.translatesAutoresizingMaskIntoConstraints = false
+        
         return view
     }()
     
@@ -104,11 +112,7 @@ class FeedTableViewCell: BaseTableViewCell {
         return view
     }()
     
-    let likeButton = {
-        let view = UIButton()
-        view.setImage(TNImage.feedHeartGray, for: .normal)
-        return view
-    }()
+    let likeButton = FeedLikeButton()
     
     let likeNumberButton = {
         let view = UIButton()
@@ -227,6 +231,14 @@ class FeedTableViewCell: BaseTableViewCell {
         diaryImageSwipeCollectionView.dataSource = self
         diaryImageSwipeCollectionView.delegate = self
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        // 위치 초기화
+        diaryImageSwipeCollectionView.setContentOffset(CGPoint(x: -24, y: 0), animated: false)
+        diaryImageSwipePageControl.currentPage = 0
+    }
 }
 
 // collectionView
@@ -240,10 +252,13 @@ extension FeedTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
         {
             return UICollectionViewCell()
         }
-        
-        cell.imageView.backgroundColor = .red
-        
         print(#function)
+        
+        if let urlString = self.feedModel?.imageList[indexPath.row] {
+            cell.imageView.load(url: URL(string: urlString), defaultImage: TNImage.userIcon)
+        }
+        
+        
         return cell
     }
     
@@ -271,22 +286,23 @@ extension FeedTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
 
 // setDesign
 extension FeedTableViewCell {
-    func setDesign(_ model: FeedModel) {
+    func setDesign() {
+        guard let model = self.feedModel else { return }
+        
+        // user
+        profileImageView.load(url: URL(string: model.user.profileUrl ?? ""), defaultImage: TNImage.userIcon)
+        profileNameLabel.text = model.user.nickname
+        
+        // diary
         diaryTitleLabel.text = model.title
         diaryContentLabel.text = model.content
         diaryDateLabel.text = model.createdDate.toDate(to: .fullWithHyphen)?.toString(of: .fullWithDot)
+        diaryImageSwipeCollectionView.reloadData()
         
-        likeNumberButton.setTitle(String(model.like), for: .normal)
         
-        // collectionViewDataSource를 사용하지 않고, 여기서 셀 디자인
-        // (tableViewCell이 데이터를 물고 있지 않게 하기 위함)
-//        for (idx, imageUrl) in model.imageList.enumerated() {
-//            if let cell = diaryImageSwipeCollectionView.cellForItem(at: IndexPath(row: idx, section: 0)) as? BottomDiaryImageSwipeCollectionViewCell,
-//               let url = URL(string: imageUrl) {
-//                print("-- 이미지 로드 : \(url)")
-//                cell.imageView.load(url: url)
-//            }
-//        }
+        // likes
+        likeButton.isLiked = model.likeOrNot
+        likeNumberButton.setTitle(String(model.likes), for: .normal)
     }
 }
 
