@@ -27,18 +27,23 @@ class FriendListReactor: Reactor {
     enum Action {
         case loadInitialFriendList  // 맨 처음 로드 (page = 0)
         case loadNextFriendList     // 이후 로드 (page > 0)
-        case deleteFriend(Int)  // friend id
+        case deleteFriend
+        
+        case showBottomSheetVC(friendID: Int)
     }
     
     
     enum Mutation {
         case setFriendList([UserInfoModel], Int)
+        case setSelectedFriendID(Int)
         case pass
     }
     
     struct State {
         var friendList: [UserInfoModel] = [] // 현재 친구들 배열
         var page: Int = 0   // "다음"에 요청할 페이지 번호
+        
+        var selectedFriendId: Int?
     }
     
     let initialState = State()
@@ -80,10 +85,11 @@ class FriendListReactor: Reactor {
                 }
        
             
-        case .deleteFriend(let id):
+        case .deleteFriend:
             // 친구 삭제 -> 네트워크 콜 & 배열에서 삭제
             // 네트워크 통신
             let currentPage = currentState.page
+            let id = currentState.selectedFriendId ?? -1
 
             return friendListUseCase.deleteFriend(id)
                 .asObservable()
@@ -104,6 +110,9 @@ class FriendListReactor: Reactor {
                         return .pass
                     }
                 }
+            
+        case .showBottomSheetVC(let friendID):
+            return .just(.setSelectedFriendID(friendID))
         }
     }
     
@@ -114,6 +123,9 @@ class FriendListReactor: Reactor {
         case .setFriendList(let newList, let page):
             newState.friendList = newList
             newState.page = page
+            
+        case .setSelectedFriendID(let friendID):
+            newState.selectedFriendId = friendID
             
         case .pass:
             print("pass")

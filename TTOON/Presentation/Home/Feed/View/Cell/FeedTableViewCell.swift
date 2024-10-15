@@ -261,7 +261,7 @@ extension FeedTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
         print(#function)
         
         if let urlString = self.feedModel?.imageList[indexPath.row] {
-            cell.imageView.load(url: URL(string: urlString), defaultImage: TNImage.userIcon)
+            cell.imageView.loadWithKF(url: URL(string: urlString))
         }
         
         

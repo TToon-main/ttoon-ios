@@ -166,6 +166,7 @@ class HomeFeedReactor: Reactor {
             
             if isMine {
                 // 삭제하기
+                print("삭제하기")
                 return homeFeedUseCase.deleteFeed(feedId: feedId)
                     .asObservable()
                     .map { result in
@@ -186,7 +187,16 @@ class HomeFeedReactor: Reactor {
             } else {
                 // 신고하기
                 print("신고하기")
-                return .just(.pass)
+                if let feedModel = currentState.feedList.first { $0.id == feedId } {
+                    return homeFeedUseCase.reportFeed(feedModel: feedModel)
+                        .asObservable()
+                        .map { result in
+                            print("뭐 결과에 따라 뭐가 없네 여긴")
+                            return .pass
+                        }
+                } else {
+                    return .just(.pass)
+                }
             }
         }
     }
@@ -278,6 +288,18 @@ extension HomeFeedReactor {
     func isMine(feedId: Int) -> Bool {
         let feedList = currentState.feedList
         return feedList.first { $0.id == feedId }?.isMine ?? false
+    }
+    
+    // 해당 피드의 date 리턴 (피드 삭제 바텀시트 VC 띄울 때 활용)
+    func dateOfFeed(feedId: Int) -> String {
+        let feedList = currentState.feedList
+        return feedList.first { $0.id == feedId }?.createdDate ?? "0000-00-00"
+    }
+    
+    // 해당 피드의 유저 이름 리턴 (신고하기 바텀시트 VC 띄울 때 활용)
+    func userNameOfFeed(feedId: Int) -> String {
+        let feedList = currentState.feedList
+        return feedList.first { $0.id == feedId }?.user.nickname ?? ""
     }
 }
 
