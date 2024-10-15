@@ -63,7 +63,7 @@ struct FeedWithInfoDTO: Codable {
     func toDomain() -> FeedWithInfoModel {
         return .init(
             user: UserInfoModel(
-                friendId: -1,
+                friendId: -100,
                 profileUrl: writerImage,
                 nickname: writerName
             ),
@@ -77,4 +77,8 @@ struct FeedWithInfoDTO: Codable {
             likeOrNot: likeOrNot
         )
     }
+}
+
+struct LikeDTO: Codable {
+    let like: Int
 }
