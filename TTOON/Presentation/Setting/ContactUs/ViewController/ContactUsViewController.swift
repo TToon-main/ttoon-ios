@@ -55,9 +55,7 @@ class ContactUsViewController: BaseViewController, View {
         // 여긴 따로 액션 없이, 바텀시트 띄워주는 로직만 실행
         mainView.categoryPickerView.clearButton.rx.tap
             .subscribe(with: self) { owner, _ in
-                let vc = CategoryBottomSheetViewController(self.reactor!)
-                vc.modalPresentationStyle = .overFullScreen
-                self.present(vc, animated: true)
+                owner.presentCategoryBottomSheetVC()
             }
             .disposed(by: disposeBag)
         
@@ -155,6 +153,20 @@ class ContactUsViewController: BaseViewController, View {
 extension ContactUsViewController {
     private func setNavigation() {
         navigationItem.title = "문의하기"
+    }
+    
+    private func presentCategoryBottomSheetVC() {
+        let vc = CategoryBottomSheetViewController(self.reactor!)
+        
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.custom { _ in return 547 } ]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        
+        self.present(vc, animated: true)
     }
 }
 
