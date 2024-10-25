@@ -36,7 +36,9 @@ class ContactUsViewController: BaseViewController, View {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.hideKeyboardWhenTappedAround()
+        setNavigation()
     }
     
     func bind(reactor: ContactUsReactor) {
@@ -148,6 +150,12 @@ class ContactUsViewController: BaseViewController, View {
     //  문의내용 텍스트 -> 텍스트 카운트 -> 카운트 레이블 변경
     
     // 4. 버튼 클릭 -> 이메일 전송
+}
+
+extension ContactUsViewController {
+    private func setNavigation() {
+        navigationItem.title = "문의하기"
+    }
 }
 
 

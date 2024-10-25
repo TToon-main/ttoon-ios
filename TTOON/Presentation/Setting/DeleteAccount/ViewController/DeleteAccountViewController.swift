@@ -39,7 +39,9 @@ class DeleteAccountViewController: BaseViewController, View {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.hideKeyboardWhenTappedAround()
+        setNavigation()
     }
     
     func bind(reactor: DeleteAccountReactor) {
@@ -158,6 +160,11 @@ class DeleteAccountViewController: BaseViewController, View {
     }
 }
 
+extension DeleteAccountViewController {
+    private func setNavigation() {
+        navigationItem.title = "탈퇴하기"
+    }
+}
 
 enum DeleteAccountReason: Int, CaseIterable {
     case serviceInconvenient
