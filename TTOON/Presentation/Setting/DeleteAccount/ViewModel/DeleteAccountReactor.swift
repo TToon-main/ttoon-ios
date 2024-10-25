@@ -18,6 +18,7 @@ class DeleteAccountReactor: Reactor {
     init() { }
     
     enum Action {
+        case loadData
         case deleteReason(DeleteAccountReason)
         case directInputText(String)
 //        case completeButtonTapped // 이건 받을 필요 없다.
@@ -25,6 +26,7 @@ class DeleteAccountReactor: Reactor {
     }
     
     enum Mutation {
+        case setNickname(String)
         case setReason(DeleteAccountReason)
         case showTextView(Bool)
         case setDirectInputText(String)
@@ -40,6 +42,7 @@ class DeleteAccountReactor: Reactor {
     }
     
     struct State {
+        var userNickname: String = "알 수 없음"
         var deleteReason: DeleteAccountReason?
         var showTextView: Bool = false
         var directInputText: String = "" // 일단 쓰자. 필요하다.
@@ -59,6 +62,19 @@ class DeleteAccountReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
+        case .loadData:
+            return deleteAccountUseCase.getNickname()
+                .asObservable()
+                .map { result in
+                    switch result {
+                    case .success(let nickname):
+                        return .setNickname(nickname)
+
+                    case .failure:
+                        return .setNickname("알 수 없음")
+                    }
+                }
+            
         case .deleteReason(let deleteAccountReason):
             // 직접 임력인 경우만 텍스트뷰 보여주기
             let showTextView = (deleteAccountReason == .directInput)
@@ -128,6 +144,9 @@ class DeleteAccountReactor: Reactor {
         var newState = state
         
         switch mutation {
+        case .setNickname(let nickname):
+            newState.userNickname = nickname
+            
         case .setReason(let deleteAccountReason):
             newState.deleteReason = deleteAccountReason
             
@@ -145,7 +164,6 @@ class DeleteAccountReactor: Reactor {
             
         case .complete(let result):
             newState.completeResult = result
-//            newState.completeResult = .success(true)
             
         case .setDirectInputText(let text):
             newState.directInputText = text

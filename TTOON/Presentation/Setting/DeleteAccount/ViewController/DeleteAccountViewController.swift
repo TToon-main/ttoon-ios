@@ -41,6 +41,7 @@ class DeleteAccountViewController: BaseViewController, View {
         
         self.hideKeyboardWhenTappedAround()
         setNavigation()
+        loadInitialData()
     }
     
     func bind(reactor: DeleteAccountReactor) {
@@ -87,6 +88,13 @@ class DeleteAccountViewController: BaseViewController, View {
     }
     
     func bindState(_ reactor: DeleteAccountReactor) {
+        reactor.state.map { $0.userNickname }
+            .subscribe(with: self) { owner, nickname in
+                owner.mainView.mainTitleLabel.text = "\(nickname)님이 떠나신다니\n너무 아쉬워요"
+                owner.mainView.nameInputView.nameLabel.text = nickname
+            }
+            .disposed(by: disposeBag)
+        
         reactor.state.map { $0.deleteReason }
             .map { value in
                 if let value { return value.description }
@@ -176,6 +184,10 @@ extension DeleteAccountViewController {
         }
         
         self.present(vc, animated: true)
+    }
+    
+    private func loadInitialData() {
+        self.reactor?.action.onNext(.loadData)
     }
 }
 
