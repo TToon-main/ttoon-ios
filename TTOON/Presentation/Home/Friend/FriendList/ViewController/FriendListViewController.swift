@@ -70,6 +70,10 @@
                 
                 cell.deleteFriendButton.rx.tap
                     .subscribe(with: self) { owner, _ in
+                        // 1. reactor에 selected friend id 지정
+                        reactor.action.onNext(.showBottomSheetVC(friendID: user.friendId))
+                        
+                        // 2. 바텀 시트 띄우기
                         owner.presentConfirmFriendDeletionPopupView(user)
                     }
                     .disposed(by: cell.disposeBag)
@@ -84,6 +88,16 @@
     }
  }
 
+
+extension FriendListViewController: PopUpBotttomSheetActionProtocol {
+    func confirmButtonTapped() {
+        self.reactor?.action.onNext(.deleteFriend)
+    }
+    
+    func cancelButtonTapped() {
+        print("취소")
+    }
+}
 
 // MARK: - private func
 extension FriendListViewController {
@@ -104,6 +118,8 @@ extension FriendListViewController {
              confirmButtonTitle: "삭제할래요",
              cancelButtonTitle: "돌아가기"
          )
+        
+        vc.delegate = self
          
          if let sheet = vc.sheetPresentationController {
              sheet.detents = [.custom { _ in return 368 } ]
@@ -112,10 +128,6 @@ extension FriendListViewController {
              sheet.prefersEdgeAttachedInCompactHeight = true
              sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
          }
-        
-        vc.onConfirm = {
-            self.reactor?.action.onNext(.deleteFriend(model.friendId))
-        }
          
          present(vc, animated: true, completion: nil)
      }

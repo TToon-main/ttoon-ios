@@ -34,8 +34,8 @@ struct FeedWithInfoModel: Equatable {
     let imageList: [String]
     let content: String
     let createdDate: String // "yyyy-MM-dd"
-    let likes: Int
+    var likes: Int
     
     let isMine: Bool
-    let likeOrNot: Bool
+    var likeOrNot: Bool
 }

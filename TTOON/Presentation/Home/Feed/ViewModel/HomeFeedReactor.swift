@@ -33,13 +33,22 @@ class HomeFeedReactor: Reactor {
         case loadNextFeedList
         // - pagination 진행. 현재 onlyMeFeed 값에 따라 네트워크 통신
         
-        case likeButtonTapped(value: Bool, feedId: Int)  // add - true, delete - false
+        case likeButtonTapped(feedId: Int)  // add - true, delete - false
+        
+        
+        
+        // 툰 디테일 메뉴 버튼
+        case showMenuBottomSheetVC(feedId: Int)  // selected Feed ID 지정하기 위함 (이거 아니면 reactor로 action 넣을 필요 없긴 하다)
+        case saveTToonImage(SaveImageType)
+        case shareTToonImage(SaveImageType)
+        case deleteOrReport
     }
     
     enum Mutation {
         case setOnlyMyFeedSwitch(Bool)
         case setFeedList([FeedWithInfoModel], Int)  // 리스트, page
         case setIsDone(Bool)
+        case setSelectedFeed(Int)   // 바텀시트 올리는 로직 실행하면 feedId 넣어주기
         case pass
     }
     
@@ -48,6 +57,8 @@ class HomeFeedReactor: Reactor {
         var page: Int = 0
         var onlyMyFeed: Bool = UserDefaultsManager.onlyMyFeed
         var isDone: Bool = false    // 빈 배열을 로드하면 true. 배열에 값이 있으면 false
+        
+        var selectedFeedForMenu: Int?    // 이게 있어야 바텀시트 구현하기가 쉬움
     }
     
     let initialState = State()
@@ -89,14 +100,19 @@ class HomeFeedReactor: Reactor {
                     }
                 }
             
-        case .likeButtonTapped(let value, let feedId):
-            if value {
+        case .likeButtonTapped(let feedId):
+            // 해당 피드에 대한 내 좋아요 여부
+            let isLike = isLikeOrNot(feedId: feedId)
+            
+            if !isLike {
                 return homeFeedUseCase.addLikeToFeed(feedId: feedId)
                     .asObservable()
                     .map { result in
                         switch result {
                         case .success:
-                            return .pass
+                            let newList = self.feedListAfterToggleLike(feedId: feedId)
+                            let page = self.currentState.page
+                            return .setFeedList(newList, page)
 
                         case .failure:
                             return .pass
@@ -108,12 +124,79 @@ class HomeFeedReactor: Reactor {
                     .map { result in
                         switch result {
                         case .success:
-                            return .pass
+                            let newList = self.feedListAfterToggleLike(feedId: feedId)
+                            let page = self.currentState.page
+                            return .setFeedList(newList, page)
 
                         case .failure:
                             return .pass
                         }
                     }
+            }
+            
+            
+        case .showMenuBottomSheetVC(let feedId):
+            return .just(.setSelectedFeed(feedId))
+            
+        case .saveTToonImage(let type):
+            if let feedId = currentState.selectedFeedForMenu,
+               let imageList = imageListForFeed(feedId: feedId) {
+                MakeImageViewManager.shared.saveImage(
+                    imageUrls: imageList,
+                    type: type
+                )
+            }
+            return .just(.pass)
+            
+        case .shareTToonImage(let type):
+            if let feedId = currentState.selectedFeedForMenu,
+               let imageList = imageListForFeed(feedId: feedId) {
+                MakeImageViewManager.shared.shareImage(
+                    imageUrls: imageList,
+                    type: type
+                )
+            }
+            return .just(.pass)
+            
+        case .deleteOrReport:
+            // 선택된 피드가 내가 만든 피드인지
+            guard let feedId = currentState.selectedFeedForMenu else { return .just(.pass) }
+            
+            let isMine = isMine(feedId: feedId)
+            
+            if isMine {
+                // 삭제하기
+                print("삭제하기")
+                return homeFeedUseCase.deleteFeed(feedId: feedId)
+                    .asObservable()
+                    .map { result in
+                        switch result {
+                        case .success(let value):
+                            if value {
+                                let newList = self.feedListAfterDeleteFeed(feedId: feedId)
+                                let page = self.currentState.page
+                                return .setFeedList(newList, page)
+                            } else {
+                                return .pass
+                            }
+                            
+                        case .failure(let error):
+                            return .pass
+                        }
+                    }
+            } else {
+                // 신고하기
+                print("신고하기")
+                if let feedModel = currentState.feedList.first { $0.id == feedId } {
+                    return homeFeedUseCase.reportFeed(feedModel: feedModel)
+                        .asObservable()
+                        .map { result in
+                            print("뭐 결과에 따라 뭐가 없네 여긴")
+                            return .pass
+                        }
+                } else {
+                    return .just(.pass)
+                }
             }
         }
     }
@@ -133,6 +216,9 @@ class HomeFeedReactor: Reactor {
         case .setIsDone(let value):
             print("------ isDone : \(value)")
             newState.isDone = value
+            
+        case .setSelectedFeed(let feedId):
+            newState.selectedFeedForMenu = feedId
 
         case .pass:
             print("pass")
@@ -145,6 +231,75 @@ class HomeFeedReactor: Reactor {
 extension HomeFeedReactor {
     enum Event {
         case showFriendListView
+    }
+}
+
+extension HomeFeedReactor {
+    // MARK: - 좋아요 기능
+    // 좋아요 버튼 클릭 시,
+    // 1. 좋아요 네트워크 콜 요청
+    // 2. 응답 성공 시, reactor에 저장된 feed 배열의 값을 수정한다.
+    // (즉, 네트워크 콜을 또 해서 피드 리스트를 받는 게 아니라, 로컬에 저장된 값만 수정한다)
+    
+    // 해당 피드에 대한 내 좋아요 여부
+    private func isLikeOrNot(feedId: Int) -> Bool {
+        let feedList = currentState.feedList
+        return feedList.first { $0.id == feedId }?.likeOrNot ?? false
+    }
+    
+    // 해당 피드의 좋아요 값 수정
+    private func feedListAfterToggleLike(feedId: Int) -> [FeedWithInfoModel] {
+        var feedList = currentState.feedList
+        if let idx = feedList.firstIndex(where: { $0.id == feedId }) {
+            if feedList[idx].likeOrNot {
+                // false로 수정, 좋아요 -1
+                feedList[idx].likeOrNot = false
+                feedList[idx].likes -= 1
+            } else {
+                // true로 수정, 좋아요 +1
+                feedList[idx].likeOrNot = true
+                feedList[idx].likes += 1
+            }
+        }
+        return feedList
+    }
+    
+    
+    // MARK: - Menu Button
+    // 피드 삭제 시,
+    // 1. 피드 삭제 네트워크 콜 요청
+    // 2. 응답 성공 시, reactor에 저장된 feed 배열 수정 (원소 삭제)
+    // (역시, 네트워크 콜을 또 해서 피드 리스트를 받는 게 아니라, 로컬에 저장된 값만 수정한다)
+    
+    // 해당 피드의 imageList 반환
+    private func imageListForFeed(feedId: Int) -> [String]? {
+        let feedList = currentState.feedList
+        return feedList.first { $0.id == feedId }?.imageList
+    }
+    
+    // 해당 피드 삭제
+    private func feedListAfterDeleteFeed(feedId: Int) -> [FeedWithInfoModel] {
+        let feedList = currentState.feedList
+        return feedList.filter { $0.id != feedId }
+    }
+    
+    
+    // 해당 피드가 내가 만든 피드인지 확인하는 로직 (VC에서 바텀시트 띄울 때 활용)
+    func isMine(feedId: Int) -> Bool {
+        let feedList = currentState.feedList
+        return feedList.first { $0.id == feedId }?.isMine ?? false
+    }
+    
+    // 해당 피드의 date 리턴 (피드 삭제 바텀시트 VC 띄울 때 활용)
+    func dateOfFeed(feedId: Int) -> String {
+        let feedList = currentState.feedList
+        return feedList.first { $0.id == feedId }?.createdDate ?? "0000-00-00"
+    }
+    
+    // 해당 피드의 유저 이름 리턴 (신고하기 바텀시트 VC 띄울 때 활용)
+    func userNameOfFeed(feedId: Int) -> String {
+        let feedList = currentState.feedList
+        return feedList.first { $0.id == feedId }?.user.nickname ?? ""
     }
 }
 

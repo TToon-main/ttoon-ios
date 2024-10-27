@@ -5,6 +5,7 @@
 //  Created by Dongwan Ryoo on 8/25/24.
 //
 
+import Kingfisher
 import UIKit
 
 extension UIImageView {
@@ -46,6 +47,15 @@ extension UIImageView {
                     }
                 }
             }
+        }
+    }
+    
+    func loadWithKF(url: URL?, defaultImage: UIImage? = nil, completion: ( () -> Void)? = nil) {
+        self.kf.setImage(
+            with: url,
+            placeholder: defaultImage,
+            options: [.scaleFactor(UIScreen.main.scale), .cacheOriginalImage]) { result  in
+                completion?()
         }
     }
 }
