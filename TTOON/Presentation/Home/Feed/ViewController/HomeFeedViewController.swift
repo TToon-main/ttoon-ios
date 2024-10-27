@@ -17,6 +17,9 @@ class HomeFeedViewController: BaseViewController, View {
     // UI
     let mainView = HomeFeedView()
     let ttoonNavigationView = TToonLogHomeNavigationView()
+    
+    var isPrefetchingEnabled = true
+    var preventPagination = false
 
     
     init(reactor: HomeFeedReactor) {
@@ -40,6 +43,8 @@ class HomeFeedViewController: BaseViewController, View {
         
         // Logic
         loadFirstData()
+        
+        print("token : \(KeychainStorage.shared.accessToken)")
     }
 }
 
@@ -57,12 +62,23 @@ extension HomeFeedViewController {
             .map { HomeFeedReactor.Action.loadFirstData($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+
+        
+        // prefetchRows 함수를 이용하면 tableViewCell 내의 collectionView를 스크롤할 때도 계속 실행되는 이슈 발생
+        // -> 스크롤 offset으로 pagination 구현
+        // 스크롤이 끝에 도달했을 때 페이지네이션 트리거
+        mainView.feedTableView.rx.reachedBottom(offset: 100)
+            .subscribe(with: self) { owner, value in
+                reactor.action.onNext(.loadNextFeedList)
+            }
+            .disposed(by: disposeBag)
     }
     
     func bindState(_ reactor: HomeFeedReactor) {
         reactor.state.map { $0.feedList }
             .bind(to: mainView.feedTableView.rx.items(cellIdentifier: FeedTableViewCell.description(), cellType: FeedTableViewCell.self)) { row, feedModel, cell in
-                cell.setDesign(feedModel)
+                cell.feedModel = feedModel
+                cell.setDesign()
             }
             .disposed(by: disposeBag)
     }

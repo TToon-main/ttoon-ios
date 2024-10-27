@@ -36,7 +36,7 @@ class FeedSceneCoordinator: FeedSceneCoordinatorProtocol {
     
     // Protocol Method
     func showHomeFeedView() {
-        let vc = HomeFeedViewController(reactor: HomeFeedReactor(homeFeedUseCase: HomeFeedUseCase()))
+        let vc = HomeFeedViewController(reactor: HomeFeedReactor(homeFeedUseCase: HomeFeedUseCase(HomeFeedRepository())))
         navigationController.pushViewController(vc, animated: true)
     }
 }
