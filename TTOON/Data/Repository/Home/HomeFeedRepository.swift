@@ -14,6 +14,7 @@ protocol HomeFeedRepositoryProtocol {
     func addLikeToFeed(feedId: Int) -> Single<Result<Bool, Error>>
     func deleteLikeToFeed(feedId: Int) -> Single<Result<Bool, Error>>
     func deleteFeed(feedId: Int) -> Single<Result<Bool, Error>>
+    func reportFeed(feedModel: FeedWithInfoModel) -> Single<Result<Bool, Error>>
 }
 
 class HomeFeedRepository: HomeFeedRepositoryProtocol {
@@ -91,6 +92,41 @@ class HomeFeedRepository: HomeFeedRepositoryProtocol {
                         single(.success(.success(true)))
                     }
                     single(.success(.failure(SampleError(rawValue: response.statusCode)!)))
+                    
+                case .failure(let error):
+                    single(.success(.failure(error)))
+                }
+            }
+            return Disposables.create()
+        }
+    }
+    
+    func reportFeed(feedModel: FeedWithInfoModel) -> Single<Result<Bool, Error>> {
+        return Single<Result<Bool, Error>>.create { single in
+            // 1. dto 변환
+            let content =
+            """
+            userName: \(feedModel.user.nickname)
+            title: \(feedModel.title)
+            content: \(feedModel.content)
+            createdDate: \(feedModel.createdDate)
+            """
+            let dto = ContactUsRequestDTO(
+                receiver: "신고하기",
+                category: "신고하기",
+                body: content
+            )
+            
+            // 2. 요청
+            let request = self.provider.log.request(.contactUs(dto: dto)) { result in
+                switch result {
+                case .success(let response):
+                    if let data = try? response.map(ResponseDTO<Bool>.self),
+                       data.isSuccess {
+                        single(.success(.success(true)))
+                    } else {
+                        single(.success(.failure(SampleError(rawValue: response.statusCode)!)))
+                    }
                     
                 case .failure(let error):
                     single(.success(.failure(error)))

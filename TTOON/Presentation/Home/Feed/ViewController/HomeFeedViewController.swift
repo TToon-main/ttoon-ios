@@ -134,7 +134,39 @@ extension HomeFeedViewController: FeedDetailMenuBottomSheetActionProtocol {
     func thirdButtonTapped() {
         // VC에서는 세번째 버튼이 탭 되었다는 액션만 전달하고,
         // 삭제할건지 신고할건지는 reactor에서 결정한다. (state.selectedFeed 확인하면 됨)
+        
+        // * 10/11 수정
+        // 팝업이 있기 때문에, 여기서 삭제할지 신고할지 알아야 함.
+        
+        if let isMine = self.reactor?.isMine(feedId: self.reactor?.currentState.selectedFeedForMenu ?? -1), isMine {
+            // 삭제하기 바텀시트
+            let feedDate = self.reactor?.dateOfFeed(feedId: self.reactor?.currentState.selectedFeedForMenu ?? -1)
+            self.presentDeleteFeedPopUpBottomSheetVC(feedDate)
+        } else {
+            // 신고하기 팝업
+            let userName = self.reactor?.userNameOfFeed(feedId: self.reactor?.currentState.selectedFeedForMenu ?? -1) ?? ""
+            TNAlert(self)
+                .setTitle("정말 신고하시겠어요?")
+                .setSubTitle("\(userName)님의\n게시글을 신고해요")
+                .addCancelAction("취소") {
+                }
+                .addConfirmAction("신고하기") {
+                    self.reactor?.action.onNext(.deleteOrReport)
+                }
+                .present()
+        }
+    }
+}
+
+// MARK: - Delete Friend Bottom Sheet
+extension HomeFeedViewController: PopUpBotttomSheetActionProtocol {
+    func confirmButtonTapped() {
+        print("삭제")
         self.reactor?.action.onNext(.deleteOrReport)
+    }
+    
+    func cancelButtonTapped() {
+        print("취소")
     }
 }
 
@@ -147,11 +179,10 @@ extension HomeFeedViewController {
         self.reactor?.action.onNext(.loadFirstData(onlyMyFeed))
     }
     
-    // 디테일 옵션 파텀시트
+    // 디테일 옵션 바텀시트
     private func presentFeedDetailMenuBottomSheetVC(feedId: Int) {
         // 내가 만든 피드인지 확인
         let isMine = reactor?.isMine(feedId: feedId) ?? false
-        
         
         let vc = FeedDetailMenuBottomSheetViewController()
         
@@ -174,4 +205,30 @@ extension HomeFeedViewController {
         
         present(vc, animated: true)
     }
+    
+    // 피드 삭제 바텀시트
+    private func presentDeleteFeedPopUpBottomSheetVC(_ feedDate: String?) {
+        // 인풋 형식 : 0000-00-00
+        if let date = feedDate?.toDate(to: .fullWithHyphen)?.toString(of: .fullKorean) {
+            let vc = FriendListPopUpBottomSheetViewController(
+               title: "\(date)의 기록을\n삭제하시겠어요?",
+                subTitle: "기록을 삭제하면, 나중에 내용과\n네컷 만화 모두 다시 복구할 수 없어요",
+                image: TNImage.characterDeleteIcon!,
+                confirmButtonTitle: "삭제할래요",
+                cancelButtonTitle: "돌아가기"
+            )
+           
+           vc.delegate = self
+            
+            if let sheet = vc.sheetPresentationController {
+                sheet.detents = [.custom { _ in return 368 } ]
+                sheet.prefersGrabberVisible = true
+                sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+                sheet.prefersEdgeAttachedInCompactHeight = true
+                sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+            }
+            
+            present(vc, animated: true, completion: nil)
+        }
+     }
 }

@@ -13,6 +13,7 @@ protocol HomeFeedUseCaseProtocol {
     func addLikeToFeed(feedId: Int) -> Single<Result<Bool, Error>>
     func deleteLikeToFeed(feedId: Int) -> Single<Result<Bool, Error>>
     func deleteFeed(feedId: Int) -> Single<Result<Bool, Error>>
+    func reportFeed(feedModel: FeedWithInfoModel) -> Single<Result<Bool, Error>>
 }
 
 class HomeFeedUseCase: HomeFeedUseCaseProtocol {
@@ -38,5 +39,9 @@ class HomeFeedUseCase: HomeFeedUseCaseProtocol {
     
     func deleteFeed(feedId: Int) -> RxSwift.Single<Result<Bool, Error>> {
         return repo.deleteFeed(feedId: feedId)
+    }
+    
+    func reportFeed(feedModel: FeedWithInfoModel) -> Single<Result<Bool, Error>> {
+        return repo.reportFeed(feedModel: feedModel)
     }
 }
