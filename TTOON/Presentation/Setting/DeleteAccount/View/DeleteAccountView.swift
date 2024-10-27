@@ -31,7 +31,7 @@ class DeleteAccountView: BaseView {
         return view
     }()
     
-    let nameTitleLabel = SettingTitleLabel("이름")
+    let nameTitleLabel = SettingTitleLabel("닉네임")
     let nameInputView = SettingNameInputView("000")
     
     let reasonTitleLabel = SettingTitleLabel("탈퇴 이유")

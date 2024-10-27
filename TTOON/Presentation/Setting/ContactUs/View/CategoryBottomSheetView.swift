@@ -8,15 +8,6 @@
 import UIKit
 
 class CategoryBottomSheetView: BaseView {
-    // indicator
-    let indicatorView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.init(hexString: "#E8E8E8")
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 8
-        return view
-    }()
-    
     // 타이틀
     let titleLabel = {
         let view = UILabel()
@@ -29,7 +20,7 @@ class CategoryBottomSheetView: BaseView {
     // 테이블뷰
     let categoryTableView = {
         let view = UITableView()
-        view.register(TNSheetCell.self, forCellReuseIdentifier: "CategoryTableViewCell")
+        view.register(TNSheetCellVer2.self, forCellReuseIdentifier: "CategoryTableViewCell")
         view.separatorStyle = .none
         view.showsVerticalScrollIndicator = false
         view.isScrollEnabled = false
@@ -48,20 +39,13 @@ class CategoryBottomSheetView: BaseView {
     override func addSubViews() {
         super.addSubViews()
         
-        [indicatorView, titleLabel, completeButton, categoryTableView].forEach{
+        [titleLabel, completeButton, categoryTableView].forEach{
             self.addSubview($0)
         }
     }
     
     override func layouts() {
         super.layouts()
-        
-        indicatorView.snp.makeConstraints { make in
-            make.height.equalTo(4)
-            make.width.equalTo(49)
-            make.centerX.equalTo(self)
-            make.top.equalTo(self).inset(12)
-        }
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(self).inset(44)

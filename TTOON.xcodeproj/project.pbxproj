@@ -64,6 +64,7 @@
 		483C53642C987CE00056C1FD /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C53632C987CE00056C1FD /* UITextField+.swift */; };
 		483C53662C987CE60056C1FD /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C53652C987CE60056C1FD /* UIImageView+.swift */; };
 		483C53692C992DC80056C1FD /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 483C53682C992DC80056C1FD /* SkeletonView */; };
+		48504F852CCBA4FE0038F1FE /* TNSheetCellVer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48504F842CCBA4FE0038F1FE /* TNSheetCellVer2.swift */; };
 		4849171E2CB576E100994EC8 /* FeedLikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4849171D2CB576E100994EC8 /* FeedLikeButton.swift */; };
 		48563B7C2CABA883008E308D /* TestMakeTToonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48563B7B2CABA883008E308D /* TestMakeTToonManager.swift */; };
 		486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */; };
@@ -386,6 +387,7 @@
 		483C53632C987CE00056C1FD /* UITextField+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		483C53652C987CE60056C1FD /* UIImageView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		4849171D2CB576E100994EC8 /* FeedLikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLikeButton.swift; sourceTree = "<group>"; };
+		48504F842CCBA4FE0038F1FE /* TNSheetCellVer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNSheetCellVer2.swift; sourceTree = "<group>"; };
 		48563B7B2CABA883008E308D /* TestMakeTToonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMakeTToonManager.swift; sourceTree = "<group>"; };
 		486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -1315,6 +1317,7 @@
 				BE3418EA2BF0B18200E17CC5 /* TNSheetViewController.swift */,
 				BE47BF572BF4A6DE0048F707 /* TNBottomSheet.swift */,
 				BE3418EC2BF0B25900E17CC5 /* TNSheetCell.swift */,
+				48504F842CCBA4FE0038F1FE /* TNSheetCellVer2.swift */,
 			);
 			path = BottomSheet;
 			sourceTree = "<group>";
@@ -2582,6 +2585,7 @@
 				48B0F00F2CAAD90800BEC874 /* MakeImageViewManager.swift in Sources */,
 				BE8884172C567227003EC2A3 /* CharacterEditType.swift in Sources */,
 				BEE8BCCE2C71FFF5003800E0 /* SelectYearMonthBottomSheetView.swift in Sources */,
+				48504F852CCBA4FE0038F1FE /* TNSheetCellVer2.swift in Sources */,
 				BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */,
 				480D39782C85FB97009C26DA /* ReceivedFriendRequestView.swift in Sources */,
 				BEC4C2792CA053ED00D1BA12 /* AttendanceRepository.swift in Sources */,

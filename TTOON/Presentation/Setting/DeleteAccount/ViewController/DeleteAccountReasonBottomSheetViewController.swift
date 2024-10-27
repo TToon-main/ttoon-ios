@@ -32,7 +32,6 @@ class DeleteAccountReasonBottomSheetViewController: BaseViewController, View {
         super.init(nibName: nil, bundle: nil)
         
         self.reactor = reactor
-//        bind(reactor: reactor)  // 완료 버튼 누르면 액션
     }
     
     required init?(coder: NSCoder) {
@@ -51,20 +50,17 @@ class DeleteAccountReasonBottomSheetViewController: BaseViewController, View {
         super.layouts()
         
         bottomSheetView.snp.makeConstraints { make in
-            make.bottom.equalTo(view).inset(24)
-            make.horizontalEdges.equalTo(view).inset(16)
-            make.height.equalTo(547)
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-36)
+            make.horizontalEdges.equalToSuperview().inset(16)
         }
     }
     
     override func configures() {
         super.configures()
-        
-        self.view.backgroundColor = .black.withAlphaComponent(0.2)
-        
+
         bottomSheetView.clipsToBounds = true
         bottomSheetView.layer.cornerRadius = 25
-        
         setUpTableView()
     }
 }
@@ -103,7 +99,9 @@ extension DeleteAccountReasonBottomSheetViewController: UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as? TNSheetCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as? TNSheetCellVer2 else { return UITableViewCell() }
+        
+        cell.selectionStyle = .none
         
         cell.titleLabel.text = DeleteAccountReason(rawValue: indexPath.row)?.description
         
@@ -123,14 +121,15 @@ extension DeleteAccountReasonBottomSheetViewController: UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? TNSheetCell else { return }
+        guard let cell = tableView.cellForRow(at: indexPath) as? TNSheetCellVer2 else { return }
+        
         cell.isChecked = true
         self.selectedReason = DeleteAccountReason(rawValue: indexPath.row)
         
         for i in 0..<tableView.numberOfRows(inSection: indexPath.section) {
             if i != indexPath.row {
                 let otherIndexPath = IndexPath(row: i, section: indexPath.section)
-                if let otherCell = tableView.cellForRow(at: otherIndexPath) as? TNSheetCell {
+                if let otherCell = tableView.cellForRow(at: otherIndexPath) as? TNSheetCellVer2 {
                     otherCell.isChecked = false
                 }
             }

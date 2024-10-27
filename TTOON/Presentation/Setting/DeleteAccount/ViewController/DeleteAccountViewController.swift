@@ -24,7 +24,6 @@ class DeleteAccountViewController: BaseViewController, View {
         
         let reactor = DeleteAccountReactor()
         self.reactor = reactor
-//        bind(reactor: reactor)
     }
     
     required init?(coder: NSCoder) {
@@ -39,7 +38,10 @@ class DeleteAccountViewController: BaseViewController, View {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.hideKeyboardWhenTappedAround()
+        setNavigation()
+        loadInitialData()
     }
     
     func bind(reactor: DeleteAccountReactor) {
@@ -50,10 +52,8 @@ class DeleteAccountViewController: BaseViewController, View {
     func bindAction(_ reactor: DeleteAccountReactor) {
         // 바텀시트 올려주기만 하기
         mainView.reasonPickerView.clearButton.rx.tap
-            .subscribe(with: self) { owenr, _ in
-                let vc = DeleteAccountReasonBottomSheetViewController(self.reactor!)
-                vc.modalPresentationStyle = .overFullScreen
-                self.present(vc, animated: true)
+            .subscribe(with: self) { owner, _ in
+                owner.presentDeleteAccountBottomSheetVC()
             }
             .disposed(by: disposeBag)
         
@@ -88,6 +88,13 @@ class DeleteAccountViewController: BaseViewController, View {
     }
     
     func bindState(_ reactor: DeleteAccountReactor) {
+        reactor.state.map { $0.userNickname }
+            .subscribe(with: self) { owner, nickname in
+                owner.mainView.mainTitleLabel.text = "\(nickname)님이 떠나신다니\n너무 아쉬워요"
+                owner.mainView.nameInputView.nameLabel.text = nickname
+            }
+            .disposed(by: disposeBag)
+        
         reactor.state.map { $0.deleteReason }
             .map { value in
                 if let value { return value.description }
@@ -158,6 +165,31 @@ class DeleteAccountViewController: BaseViewController, View {
     }
 }
 
+extension DeleteAccountViewController {
+    private func setNavigation() {
+        navigationItem.title = "탈퇴하기"
+    }
+    
+    private func presentDeleteAccountBottomSheetVC() {
+        let vc = DeleteAccountReasonBottomSheetViewController(self.reactor!)
+        
+        vc.bottomSheetView.titleLabel.text = "탈퇴하시는 이유를 알려주세요"
+        
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.custom { _ in return 547 } ]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        
+        self.present(vc, animated: true)
+    }
+    
+    private func loadInitialData() {
+        self.reactor?.action.onNext(.loadData)
+    }
+}
 
 enum DeleteAccountReason: Int, CaseIterable {
     case serviceInconvenient
