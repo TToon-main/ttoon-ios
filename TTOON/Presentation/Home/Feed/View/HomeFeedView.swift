@@ -8,6 +8,8 @@
 import UIKit
 
 class HomeFeedView: BaseView {
+    let noFeedView = NoDataView("불러올 게시글이 없어요")
+    
     let onlyMyFeedView = OnlyMyFeedToggleView()
     
     let feedTableView = {
@@ -23,7 +25,7 @@ class HomeFeedView: BaseView {
     override func addSubViews() {
         super.addSubViews()
         
-        [onlyMyFeedView, feedTableView].forEach {
+        [onlyMyFeedView, feedTableView, noFeedView].forEach {
             self.addSubview($0)
         }
     }
@@ -33,6 +35,10 @@ class HomeFeedView: BaseView {
         
         feedTableView.snp.makeConstraints { make in
             make.edges.equalTo(self)
+        }
+        
+        noFeedView.snp.makeConstraints { make in
+            make.center.equalTo(feedTableView)
         }
     }
     
@@ -48,5 +54,9 @@ class HomeFeedView: BaseView {
 extension HomeFeedView {
     func setSwitch(_ value: Bool) {
         onlyMyFeedView.onlyMyFeedSwitch.isOn = value
+    }
+    
+    func showNoDataView(show: Bool) {
+        self.noFeedView.isHidden = !show
     }
 }
