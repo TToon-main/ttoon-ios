@@ -14,7 +14,7 @@ class TableViewProfileInfoView: BaseView {
         let view = UIImageView()
         view.clipsToBounds = true
         view.layer.cornerRadius = 18
-        view.image = UIImage(named: "sample2")
+        view.image = TNImage.userIcon
         view.contentMode = .scaleAspectFill
         return view
     }()
@@ -53,7 +53,10 @@ class TableViewProfileInfoView: BaseView {
     
     func setDesign(_ model: UserInfoModel) {
         // 프로필 이미지
-        profileImageView.load(url: URL(string: model.profileUrl ?? ""), defaultImage: TNImage.userIcon)
+        profileImageView.loadWithKF(
+            url: URL(string: model.profileUrl ?? ""),
+            defaultImage: TNImage.userIcon
+        )
         
         // 닉네임
         profileNicknameLabel.text = model.nickname

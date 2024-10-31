@@ -138,7 +138,7 @@ extension HomeCalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
         // 2. current Calendar Thumbnail Setting
         if let list = self.reactor?.currentState.currentThumbnails {
             if let model = list.first(where: { $0.createdDate == date.toString(of: .fullWithHyphen) }) {
-                cell.ttoonImageView.load(url: URL(string: model.thumbnailUrl))
+                cell.ttoonImageView.loadWithKF(url: URL(string: model.thumbnailUrl))
             } else {
                 cell.ttoonImageView.image = nil
             }
@@ -192,7 +192,7 @@ extension HomeCalendarViewController: UICollectionViewDelegate, UICollectionView
         if let imageStr = self.reactor?.currentState.currentFeedDetail?.imageList[indexPath.row],
            let url = URL(string: imageStr)
         {
-            cell.imageView.load(url: url)
+            cell.imageView.loadWithKF(url: url)
         }
         
         return cell
