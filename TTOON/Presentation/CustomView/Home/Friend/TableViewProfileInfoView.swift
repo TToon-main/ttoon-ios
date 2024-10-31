@@ -15,6 +15,7 @@ class TableViewProfileInfoView: BaseView {
         view.clipsToBounds = true
         view.layer.cornerRadius = 18
         view.image = UIImage(named: "sample2")
+        view.contentMode = .scaleAspectFill
         return view
     }()
     
