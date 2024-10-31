@@ -57,6 +57,11 @@ extension HomeFeedViewController {
     }
     
     func bindAction(_ reactor: HomeFeedReactor) {
+        ttoonNavigationView.friendListButton.rx.tap
+            .map { HomeFeedReactor.Action.friendListButtonTapped }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
         // switch
         mainView.onlyMyFeedView.onlyMyFeedSwitch.rx.isOn
             .map { HomeFeedReactor.Action.loadFirstData($0) }

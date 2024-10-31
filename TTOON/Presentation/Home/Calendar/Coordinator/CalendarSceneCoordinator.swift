@@ -13,6 +13,7 @@ protocol CalendarSceneCoordinatorProtocol: Coordinator {
     // view
     func showCalendarView()
     func showFriendListView()
+    func showSearchFriendView()
 }
 class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
     // 1.

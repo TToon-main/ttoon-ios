@@ -21,6 +21,8 @@ class HomeFeedReactor: Reactor {
     }
     
     enum Action {
+        case friendListButtonTapped // 친구 리스트 화면 전환
+
         case loadFirstData(Bool)
         // Input
         // - 맨 처음 화면에 들어온 경우. (이 때는 UserDefaults에 저장된 bool 값 활용)
@@ -69,7 +71,11 @@ class HomeFeedReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .loadFirstData(let onlyMine):            
+        case .friendListButtonTapped:
+            didSendEventClosure?(.showFriendListView)
+            return .just(.pass)
+            
+        case .loadFirstData(let onlyMine):
             return homeFeedUseCase.getFeedList(onlyMine: onlyMine, page: 0)
                 .asObservable()
                 .map { result in
