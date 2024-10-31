@@ -37,6 +37,7 @@ class FeedTableViewCell: BaseTableViewCell {
         view.clipsToBounds = true
         view.layer.cornerRadius = 13
         view.image = UIImage(named: "sample1")
+        view.contentMode = .scaleAspectFill
         return view
     }()
     
