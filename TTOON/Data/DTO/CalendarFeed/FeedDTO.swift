@@ -82,3 +82,18 @@ struct FeedWithInfoDTO: Codable {
 struct LikeDTO: Codable {
     let like: Int
 }
+
+
+// 좋아요 누른 유저
+struct LikeUserDTO: Codable {
+    let userName: String
+    let userImage: String
+    
+    func toDomain() -> UserInfoModel {
+        return .init(
+            friendId: -1,
+            profileUrl: userImage,
+            nickname: userName
+        )
+    }
+}
