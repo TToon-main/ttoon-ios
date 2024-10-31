@@ -42,6 +42,9 @@ class HomeFeedReactor: Reactor {
         case saveTToonImage(SaveImageType)
         case shareTToonImage(SaveImageType)
         case deleteOrReport
+        
+        
+        case showLikeUserListVC(feedId: Int)
     }
     
     enum Mutation {
@@ -198,6 +201,10 @@ class HomeFeedReactor: Reactor {
                     return .just(.pass)
                 }
             }
+            
+        case .showLikeUserListVC(let feedId):
+            self.didSendEventClosure?(.showLikeUserListView(feedId: feedId))
+            return .just(.pass)
         }
     }
     
@@ -231,6 +238,7 @@ class HomeFeedReactor: Reactor {
 extension HomeFeedReactor {
     enum Event {
         case showFriendListView
+        case showLikeUserListView(feedId: Int)
     }
 }
 

@@ -86,6 +86,12 @@ extension HomeFeedViewController {
                     .bind(to: reactor.action)
                     .disposed(by: cell.disposeBag)
                 
+                // 좋아요 리스트
+                cell.likeNumberButton.rx.tap
+                    .map { HomeFeedReactor.Action.showLikeUserListVC(feedId: feedModel.id) }
+                    .bind(to: reactor.action)
+                    .disposed(by: cell.disposeBag)
+                
                 // 메뉴 버튼
                 cell.menuClearButton.rx.tap
                     .subscribe(with: self) { owner, _ in

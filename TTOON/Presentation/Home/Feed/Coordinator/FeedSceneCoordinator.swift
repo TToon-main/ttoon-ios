@@ -10,6 +10,7 @@ import UIKit
 protocol FeedSceneCoordinatorProtocol: Coordinator {
     // view
     func showHomeFeedView()
+    func showLikeUserListView(feedId: Int)
 }
 class FeedSceneCoordinator: FeedSceneCoordinatorProtocol {
     // 1.
@@ -36,7 +37,29 @@ class FeedSceneCoordinator: FeedSceneCoordinatorProtocol {
     
     // Protocol Method
     func showHomeFeedView() {
-        let vc = HomeFeedViewController(reactor: HomeFeedReactor(homeFeedUseCase: HomeFeedUseCase(HomeFeedRepository())))
+        let reactor = HomeFeedReactor(homeFeedUseCase: HomeFeedUseCase(HomeFeedRepository()))
+        
+        reactor.didSendEventClosure = { [weak self] event in
+            switch event {
+            case .showFriendListView:
+                print("showFriendListView")
+
+            case .showLikeUserListView(let feedId):
+                self?.showLikeUserListView(feedId: feedId)
+            }
+        }
+        
+        let vc = HomeFeedViewController(reactor: reactor)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func showLikeUserListView(feedId: Int) {
+        let vc = LikeUserListViewController(
+            reactor: LikeUserListReactor(
+                LikeUserListUseCase(LikeUserListRepository()),
+                feedId: feedId
+            )
+        )
         navigationController.pushViewController(vc, animated: true)
     }
 }
