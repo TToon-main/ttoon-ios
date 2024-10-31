@@ -183,7 +183,7 @@ extension MyPageViewController {
             presentChangeLangVC()
         }
         
-        if indexPath == IndexPath(row: 4, section: 1) {
+        if indexPath == IndexPath(row: 3, section: 1) {
             presentContactUsVC()
         }
         
@@ -263,34 +263,55 @@ extension MyPageViewController {
     }
     
     private func setMyPageTableViewDataSource() {
+        // Section 1. 설정
         let appSetSection: MyPageTableViewDataSource = {
             let notificationRow = MyPageTableViewCellDataSource(title: "알림 설정", info: setUpIsAlarmEnabled())
-            let languageRow = MyPageTableViewCellDataSource(title: "언어 설정", info: setUpLang())
+            // 1차 출시에 다국어 대응 x
+//            let languageRow = MyPageTableViewCellDataSource(title: "언어 설정", info: setUpLang())
             
-            return MyPageTableViewDataSource(sectionTitle: "설정", cellData: [notificationRow, languageRow])
+            return MyPageTableViewDataSource(
+                sectionTitle: "설정",
+                cellData: [
+                    notificationRow
+                ]
+            )
         }()
         
+        // Section 2. 앱 정보 및 문의
         let appInfoSection: MyPageTableViewDataSource = {
             let appVersionRow = MyPageTableViewCellDataSource(title: "앱 버전", info: self.currentAppVersion(), isArrowVisible: true)
-            let privacyPolicyRow = MyPageTableViewCellDataSource(title: "개인정보 처리방침")
-            let openSourceRow = MyPageTableViewCellDataSource(title: "오픈 소스")
-            let creatorsRow = MyPageTableViewCellDataSource(title: "만든 사람들")
-            let contactUsRow = MyPageTableViewCellDataSource(title: "문의하기")
             
-            return MyPageTableViewDataSource(sectionTitle: "앱 정보 및 문의", cellData: [appVersionRow, privacyPolicyRow, openSourceRow, creatorsRow, contactUsRow])
+            let termsOfUseRow = MyPageTableViewCellDataSource(title: "이용 약관")
+            let privacyPolicyRow = MyPageTableViewCellDataSource(title: "개인정보 처리방침")
+            let contactUsRow = MyPageTableViewCellDataSource(title: "문의하기")
+
+            return MyPageTableViewDataSource(
+                sectionTitle: "앱 정보 및 문의",
+                cellData: [
+                    appVersionRow,
+                    termsOfUseRow,
+                    privacyPolicyRow,
+                    contactUsRow
+                ]
+            )
         }()
         
+        // Section 3. 계정
         let accountSection: MyPageTableViewDataSource = {
             let logoutRow = MyPageTableViewCellDataSource(title: "로그아웃")
             let withdrawRow = MyPageTableViewCellDataSource(title: "탈퇴하기")
             
-            return MyPageTableViewDataSource(sectionTitle: "계정", cellData: [logoutRow, withdrawRow])
+            return MyPageTableViewDataSource(
+                sectionTitle: "계정",
+                cellData: [
+                    logoutRow,
+                    withdrawRow
+                ]
+            )
         }()
-        
-        let languageDataSource = ["ENG", "한국어"]
-        
+                
+        // TableView
         let myPageTableViewDataSource = [appSetSection, appInfoSection, accountSection]
-        
         self.myPageTableViewDataSource = myPageTableViewDataSource
     }
     
