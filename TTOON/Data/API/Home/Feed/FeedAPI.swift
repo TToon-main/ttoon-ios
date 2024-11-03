@@ -14,6 +14,7 @@ enum FeedAPI {
     case deleteLike(feedId: Int)
     case deleteFeed(feedId: Int)
     case contactUs(dto: ContactUsRequestDTO)    // 신고하기에서 사용
+    case likeUserList(feedId: Int)
 }
 
 extension FeedAPI: TargetType {
@@ -33,12 +34,14 @@ extension FeedAPI: TargetType {
             return "/api/delete/\(feedId)"
         case .contactUs:
             return "/api/ask"
+        case .likeUserList(let feedId):
+            return "/api/likes/\(feedId)"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .feedList:
+        case .feedList, .likeUserList:
             return .get
 
         case .addLike, .contactUs:
