@@ -19,14 +19,19 @@ class EnterInfoCompleteViewController: BaseViewController {
     
     override func configures() {
         super.configures()
+        self.navigationController?.navigationBar.isHidden = true
         bind()
     }
     
     private func bind() {
         enterInfoCompleteView.rx.confirmButtonTap
-            .subscribe(with: self) { owner, _ in
-                owner.dismiss(animated: true)
-            }
+            .bind(with: self, onNext: { owner, _ in
+                owner.popViewController()
+            })
             .disposed(by: disposeBag)
+    }
+    
+    private func popViewController() {
+        navigationController?.popToRootViewController(animated: true)
     }
 }

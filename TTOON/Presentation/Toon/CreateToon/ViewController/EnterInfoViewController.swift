@@ -108,8 +108,8 @@ extension EnterInfoViewController: View {
             .bind(to: enterInfoScrollView.rx.isEnabledConfirmButton)
             .disposed(by: disposeBag)
         
-        reactor.state.map { $0.pop }
-            .bind(onNext: pop)
+        reactor.state.map { $0.presentEnterInfoCompleteVC }
+            .bind(onNext: presentEnterInfoCompleteVC)
             .disposed(by: disposeBag)
     }
 }
@@ -160,9 +160,10 @@ extension EnterInfoViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    private func pop(_ flag: Bool) {
+    private func presentEnterInfoCompleteVC(_ flag: Bool) {
         if flag {
-            self.navigationController?.popViewController(animated: true)
+            let vc = EnterInfoCompleteViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
