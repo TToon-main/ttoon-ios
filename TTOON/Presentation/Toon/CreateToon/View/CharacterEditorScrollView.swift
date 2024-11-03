@@ -68,6 +68,26 @@ extension Reactive where Base: CharacterEditorScrollView {
         return base.characterEditorView.switchView.switchView.rx.isOn
             .asObservable()
     }
+    
+    var confirmButtonTap: Observable<AddCharacter?> {
+        let base = base.characterEditorView
+        
+        return base.confirmButton.rx.tap
+            .asObservable()
+            .map { _ in
+                guard let name = base.nameInputView.textFiled.text else {
+                    return nil
+                }
+                
+                guard let info = base.diaryInputTextView.text else {
+                    return nil
+                }
+                
+                let isMain = base.switchView.switchView.isOn
+                
+                return .init(isMain: isMain, name: name, info: info)
+            }
+    }
 }
 
 // MARK: - Custom Binder

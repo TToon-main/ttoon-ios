@@ -38,6 +38,18 @@ class CharacterAddViewController: BaseViewController {
         self.navigationItem.title = "등장인물 추가"
         self.navigationItem.backButtonTitle = ""
     }
+    
+    private func pop(_ flag: Bool) {
+        if flag {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    private func presentFailToast(_ flag: Bool) {
+        if flag {
+            // TODO: - 토스트 메세지
+        }
+    }
 }
 
 extension CharacterAddViewController: View {
@@ -59,6 +71,12 @@ extension CharacterAddViewController: View {
         
         characterEditorScrollView.rx.isSwitchOn
             .map { CharacterAddReactor.Action.isMainCharacter(isMain: $0)}
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        characterEditorScrollView.rx.confirmButtonTap
+            .compactMap{ $0 }
+            .map { CharacterAddReactor.Action.confirmButtonTap(model: $0)}
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }
@@ -88,6 +106,14 @@ extension CharacterAddViewController: View {
         
         reactor.state.map { $0.isEnabledConfirmButton }
             .bind(to: characterEditorScrollView.rx.isEnabledConfirmButton)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.pop }
+            .bind(onNext: pop)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.presentFailToast }
+            .bind(onNext: presentFailToast)
             .disposed(by: disposeBag)
     }
 }

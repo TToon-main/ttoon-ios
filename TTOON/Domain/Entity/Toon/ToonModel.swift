@@ -21,3 +21,14 @@ struct Character {
                      isModify: false)
     }
 }
+
+
+struct AddCharacter {
+    let isMain: Bool
+    let name: String
+    let info: String
+    
+    func toDTO() -> PostCharacterRequestDTO {
+        return .init(name: name, info: info)
+    }
+}
