@@ -44,18 +44,6 @@ class CompleteToonViewController: CreateToonBaseViewController {
     }
     
     func bindMockUp() {
-        let mockUpData = [
-            CreateToonCompleteToonCollectionViewCellDataSource(isSelected: false),
-            CreateToonCompleteToonCollectionViewCellDataSource(isSelected: true),
-            CreateToonCompleteToonCollectionViewCellDataSource(isSelected: false)]
-        
-        Observable.just(mockUpData)
-            .bind(to: completeToonScrollView.completeToonView.selectToonCollectionView.rx.items(
-                cellIdentifier: CreateToonCompleteToonCollectionViewCell.IDF,
-                cellType: CreateToonCompleteToonCollectionViewCell.self)) { index, item, cell in
-                    cell.setCell(item)
-            }
-                .disposed(by: disposeBag)
     }
 }
 
@@ -66,12 +54,32 @@ extension CompleteToonViewController: View {
     }
     
     private func bindAction(reactor: CompleteToonReactor) {
+        rx.viewDidLoad
+            .map { CompleteToonReactor.Action.viewDidLoad }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        completeToonScrollView.rx.selectedIndex
+            .map { CompleteToonReactor.Action.selectedIndex($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     private func bindState(reactor: CompleteToonReactor) {
-        reactor.state
-            .map { $0.currentOrder }
+        reactor.state.map { $0.currentOrder }
             .bind(to: completeToonScrollView.completeToonView.rx.selectOrder)
+            .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.list }
+            .bind(to: completeToonScrollView.completeToonView.selectToonCollectionView.rx.items(
+                cellIdentifier: CreateToonCompleteToonCollectionViewCell.IDF,
+                cellType: CreateToonCompleteToonCollectionViewCell.self)) { index, item, cell in
+                    cell.setCell(item)
+            }
+                .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.selectedImageUrl }
+            .bind(to: completeToonScrollView.rx.selectedImageUrl)
             .disposed(by: disposeBag)
     }
 }

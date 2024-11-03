@@ -36,7 +36,7 @@ class CreateResultViewController: BaseViewController {
     }
     
     func presentCompleteToonVC() {
-        let reactor = CompleteToonReactor()
+        let reactor = CompleteToonReactor(urls: [])
         let vc = CompleteToonViewController(reactor: reactor)
         
         navigationController?.pushViewController(vc, animated: true)

@@ -85,4 +85,26 @@ class CreateToonCompleteToonResultView: BaseView {
             $0.bottom.equalToSuperview().offset(-12)
         }
     }
+    
+    func setImage(url: URL) {
+        if firstImageView.image == nil {
+            firstImageView.load(url: url)
+            return
+        }
+        
+        if secondImageView.image == nil {
+            secondImageView.load(url: url)
+            return
+        }
+        
+        if thirdImageView.image == nil {
+            thirdImageView.load(url: url)
+            return
+        }
+        
+        if forthImageView.image == nil {
+            forthImageView.load(url: url)
+            return
+        }
+    }
 }

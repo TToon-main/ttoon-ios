@@ -40,3 +40,17 @@ class CompleteToonScrollView: BaseView {
         scrollView.contentSize = completeToonView.frame.size
     }   
 }
+
+extension Reactive where Base: CompleteToonScrollView {
+    var selectedIndex: Observable<Int> {
+        return base.completeToonView.selectToonCollectionView.rx.itemSelected
+            .map { $0.row }
+            .asObservable()
+    }
+    
+    var selectedImageUrl: Binder<URL> {
+        return Binder(base) { view, url in
+            view.completeToonView.createToonCompleteToonResultView.setImage(url: url)
+        }
+    }
+}
