@@ -183,6 +183,16 @@ extension MyPageViewController {
             presentChangeLangVC()
         }
         
+        if indexPath == IndexPath(row: 1, section: 1) {
+            // 이용 약관
+            presentTermsOfUse()
+        }
+        
+        if indexPath == IndexPath(row: 2, section: 1) {
+            // 개인정보 처리방침
+            presentPrivacyPolicy()
+        }
+        
         if indexPath == IndexPath(row: 3, section: 1) {
             presentContactUsVC()
         }
@@ -209,6 +219,19 @@ extension MyPageViewController {
         present(viewControllerToPresent, animated: true, completion: nil)
     }
     
+
+    private func presentSetProfileVC() {
+        let repo = MyPageRepository()
+        let useCase = MyPageUseCase(repository: repo)
+        let reactor = ProfileSetReactor(useCase: useCase)
+        let vc = ProfileSetViewController(profileSetReactor: reactor)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    
+    
+    // 1-1. 알림 설정
     private func presentAlarmVC() {
         let viewControllerToPresent = AlarmViewController()
         viewControllerToPresent.delegate = self
@@ -223,23 +246,42 @@ extension MyPageViewController {
         present(viewControllerToPresent, animated: true, completion: nil)
     }
     
+    // 2-1. 앱 버전
+    private func currentAppVersion() -> String {
+        if let info: [String: Any] = Bundle.main.infoDictionary, let currentVersion: String = info["CFBundleShortVersionString"] as? String {
+            return currentVersion
+        }
+        
+        return "1.0"
+    }
     
-    
-    private func presentSetProfileVC() {
-        let repo = MyPageRepository()
-        let useCase = MyPageUseCase(repository: repo)
-        let reactor = ProfileSetReactor(useCase: useCase)
-        let vc = ProfileSetViewController(profileSetReactor: reactor)
+    // 2-2. 이용약관
+    private func presentTermsOfUse() {
+        let vc = TermsOfUseViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    // 2-3. 개인정보 처리방침
+    private func presentPrivacyPolicy() {
+        let vc = PrivacyPolicyViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // 2-4. 문의하기
+    private func presentContactUsVC() {
+        let reactor = ContactUsReactor()
+        let vc = ContactUsViewController(contactUsReactor: reactor)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // 3-1. 로그아웃
     private func presetLogoutAlert() {
         let confirmAction = {
             if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
                 sceneDelegate.logout()
             }
             
-            return 
+            return
         }
         
         TNAlert(self)
@@ -250,12 +292,7 @@ extension MyPageViewController {
             .present()
     }
     
-    private func presentContactUsVC() {
-        let reactor = ContactUsReactor()
-        let vc = ContactUsViewController(contactUsReactor: reactor)
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
+    // 3-2. 탈퇴하기
     private func presentDeleteAccountVC() {
         let reactor = DeleteAccountReactor()
         let vc = DeleteAccountViewController(deleteAccountReactor: reactor)
@@ -315,13 +352,7 @@ extension MyPageViewController {
         self.myPageTableViewDataSource = myPageTableViewDataSource
     }
     
-    private func currentAppVersion() -> String {
-        if let info: [String: Any] = Bundle.main.infoDictionary, let currentVersion: String = info["CFBundleShortVersionString"] as? String {
-            return currentVersion
-        }
-        
-        return "1.0"
-    }
+    
     
     private func setUpLang() -> String {
         guard let languageCode = Locale.current.language.languageCode?.identifier else { return "한국어" }
