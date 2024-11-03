@@ -216,6 +216,6 @@ extension Reactive  where Base: ToonCreationToastView {
     var buttonTap: Observable<[String]> {
         return base.button.rx.tap
             .map { _ in base.imageUrls}
-            .filter { !$0.isEmpty }
+//            .filter { !$0.isEmpty } //TODO: - 화면 작업 위해 임시로 대응
     }
 }
