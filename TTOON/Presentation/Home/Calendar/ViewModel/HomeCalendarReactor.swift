@@ -176,7 +176,7 @@ class HomeCalendarReactor: Reactor {
             return .just(.setPresentCreateToonToast(.ing))
             
         case .completeToastTap(let urls):
-            didSendEventClosure?(.showCompleteToonView(urls: urls))
+            didSendEventClosure?(.showCompleteCreateToonView(urls: urls))
             return .just(.pass)
         }
     }
@@ -223,7 +223,7 @@ extension HomeCalendarReactor {
     enum Event {
         case showFriendListView
         case showCreateToonView
-        case showCompleteToonView(urls: [String])
+        case showCompleteCreateToonView(urls: [String])
     }
 }
 

@@ -49,9 +49,9 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
                 
             case .showCreateToonView:
                 self?.showCreateToonView()
-                
-            case .showCompleteToonView(let urls):
-                self?.showCompleteToonView(urls)
+
+            case .showCompleteCreateToonView(let urls):
+                self?.showCompleteCreateToonView(urls)
             }
         }
         
@@ -80,6 +80,7 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
         
         let vc = EnterInfoViewController(reactor: reactor)
         vc.hidesBottomBarWhenPushed = true
+        
         navigationController.navigationBar.topItem?.backButtonTitle = ""
         navigationController.navigationBar.tintColor = .black
         navigationController.pushViewController(vc, animated: true)
@@ -90,12 +91,24 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    private func showCompleteToonView(_ urls: [String]) {
-        let reactor = CompleteToonReactor(urls: urls)
-        let vc = CompleteToonViewController(reactor: reactor)
-        vc.modalPresentationStyle = .overFullScreen
+    private func showCompleteCreateToonView(_ urls: [String]) {
+        let vc = CompleteCreateToonViewController(urls: urls)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .overFullScreen
         
-        navigationController.present(vc, animated: true)
+        vc.didSendEventClosure = { [weak self] event in
+            switch event {
+            case .showCompleteToonView(let urls):
+                
+                let reactor = CompleteToonReactor(urls: urls)
+                let vc = CompleteToonViewController(reactor: reactor)
+                vc.modalPresentationStyle = .overFullScreen
+                
+                nav.pushViewController(vc, animated: true)
+            }
+        }
+        
+        navigationController.present(nav, animated: true)
     }
 }
 extension CalendarSceneCoordinator: CoordinatorFinishDelegate {
