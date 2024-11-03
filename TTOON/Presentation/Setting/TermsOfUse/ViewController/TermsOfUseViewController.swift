@@ -44,7 +44,7 @@ extension TermsOfUseViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension TermsOfUseViewController {
     private func setNavigation() {
-        navigationItem.title = "개인정보 처리방침"
+        navigationItem.title = "서비스 이용약관"
     }
     
     private func setTableView() {
