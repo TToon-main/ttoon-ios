@@ -37,6 +37,7 @@ class FeedTableViewCell: BaseTableViewCell {
         view.clipsToBounds = true
         view.layer.cornerRadius = 13
         view.image = UIImage(named: "sample1")
+        view.contentMode = .scaleAspectFill
         return view
     }()
     
@@ -296,7 +297,10 @@ extension FeedTableViewCell {
         guard let model = self.feedModel else { return }
         
         // user
-        profileImageView.load(url: URL(string: model.user.profileUrl ?? ""), defaultImage: TNImage.userIcon)
+        profileImageView.loadWithKF(
+            url: URL(string: model.user.profileUrl ?? ""),
+            defaultImage: TNImage.userIcon
+        )
         profileNameLabel.text = model.user.nickname
         
         // diary

@@ -11,6 +11,9 @@ protocol FeedSceneCoordinatorProtocol: Coordinator {
     // view
     func showHomeFeedView()
     func showLikeUserListView(feedId: Int)
+    
+    func showFriendListView()
+    func showSearchFriendView()
 }
 class FeedSceneCoordinator: FeedSceneCoordinatorProtocol {
     // 1.
@@ -30,8 +33,6 @@ class FeedSceneCoordinator: FeedSceneCoordinatorProtocol {
     
     // 5.
     func start() {
-        print("start FeedSceneCoordinator")
-        
         showHomeFeedView()
     }
     
@@ -42,7 +43,7 @@ class FeedSceneCoordinator: FeedSceneCoordinatorProtocol {
         reactor.didSendEventClosure = { [weak self] event in
             switch event {
             case .showFriendListView:
-                print("showFriendListView")
+                self?.showFriendListView()
 
             case .showLikeUserListView(let feedId):
                 self?.showLikeUserListView(feedId: feedId)
@@ -60,6 +61,23 @@ class FeedSceneCoordinator: FeedSceneCoordinatorProtocol {
                 feedId: feedId
             )
         )
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func showFriendListView() {
+        let vc = FriendTabViewController()
+        vc.didSendEventClosure = { [weak self] event in
+            switch event {
+            case .showSearchFriendView:
+                self?.showSearchFriendView()
+            }
+        }
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func showSearchFriendView() {
+        let vc = SearchFriendViewController(reactor: SearchFriendReactor(SearchFriendUseCase(SearchFriendRepository())))
+        
         navigationController.pushViewController(vc, animated: true)
     }
 }

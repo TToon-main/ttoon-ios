@@ -57,6 +57,11 @@ extension HomeFeedViewController {
     }
     
     func bindAction(_ reactor: HomeFeedReactor) {
+        ttoonNavigationView.friendListButton.rx.tap
+            .map { HomeFeedReactor.Action.friendListButtonTapped }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
         // switch
         mainView.onlyMyFeedView.onlyMyFeedSwitch.rx.isOn
             .map { HomeFeedReactor.Action.loadFirstData($0) }
@@ -75,6 +80,7 @@ extension HomeFeedViewController {
     }
     
     func bindState(_ reactor: HomeFeedReactor) {
+        // tableView
         reactor.state.map { $0.feedList }
             .bind(to: mainView.feedTableView.rx.items(cellIdentifier: FeedTableViewCell.description(), cellType: FeedTableViewCell.self)) { row, feedModel, cell in
                 cell.feedModel = feedModel
@@ -102,6 +108,13 @@ extension HomeFeedViewController {
                         owner.presentFeedDetailMenuBottomSheetVC(feedId: feedModel.id)
                     }
                     .disposed(by: cell.disposeBag)
+            }
+            .disposed(by: disposeBag)
+        
+        // NoDataView
+        reactor.state.map { $0.feedList }
+            .subscribe(with: self) { owner, list in
+                owner.mainView.showNoDataView(show: list.isEmpty)
             }
             .disposed(by: disposeBag)
     }

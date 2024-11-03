@@ -339,7 +339,6 @@
 		BEE8BCE12C7202E6003800E0 /* SelectYearMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCDD2C7202E6003800E0 /* SelectYearMonthView.swift */; };
 		BEE8BCE22C7202E6003800E0 /* TToonLogHomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCDF2C7202E6003800E0 /* TToonLogHomeNavigationView.swift */; };
 		BEE8BCE62C7202FE003800E0 /* MyPageSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCE32C7202FE003800E0 /* MyPageSceneCoordinator.swift */; };
-		BEE8BCE72C7202FE003800E0 /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCE42C7202FE003800E0 /* SettingCoordinator.swift */; };
 		BEF48D602BCA5CEE0056E31E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */; };
 		BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */; };
 		BEF8D8182BDFC7880095674D /* TNUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8D8172BDFC7880095674D /* TNUrl.swift */; };
@@ -708,7 +707,6 @@
 		BEE8BCDD2C7202E6003800E0 /* SelectYearMonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectYearMonthView.swift; sourceTree = "<group>"; };
 		BEE8BCDF2C7202E6003800E0 /* TToonLogHomeNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TToonLogHomeNavigationView.swift; sourceTree = "<group>"; };
 		BEE8BCE32C7202FE003800E0 /* MyPageSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageSceneCoordinator.swift; sourceTree = "<group>"; };
-		BEE8BCE42C7202FE003800E0 /* SettingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
 		BEF48D5F2BCA5CEE0056E31E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BEF48D612BCA5D220056E31E /* SplashErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashErrorViewController.swift; sourceTree = "<group>"; };
 		BEF8D8172BDFC7880095674D /* TNUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNUrl.swift; sourceTree = "<group>"; };
@@ -2419,7 +2417,6 @@
 			isa = PBXGroup;
 			children = (
 				BEE8BCE32C7202FE003800E0 /* MyPageSceneCoordinator.swift */,
-				BEE8BCE42C7202FE003800E0 /* SettingCoordinator.swift */,
 			);
 			name = Coordinator;
 			path = TTOON/Presentation/Setting/Coordinator;
@@ -2879,7 +2876,6 @@
 				BE5D9C622CA803E900B0408D /* Observable+.swift in Sources */,
 				BE05C0932C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift in Sources */,
 				BE9C9B4B2C688D16000AAF0E /* CreateToonIsMainCharacterSwitch.swift in Sources */,
-				BEE8BCE72C7202FE003800E0 /* SettingCoordinator.swift in Sources */,
 				480D39812C8877C3009C26DA /* SearchFriendViewController.swift in Sources */,
 				BE9C9B982C68986F000AAF0E /* ContactUsReactor.swift in Sources */,
 				BE9C9B0A2C688CAF000AAF0E /* EnterInfoReactor.swift in Sources */,
