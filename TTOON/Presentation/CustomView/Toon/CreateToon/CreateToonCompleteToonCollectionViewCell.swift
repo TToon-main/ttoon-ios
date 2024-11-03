@@ -11,23 +11,11 @@ import RxCocoa
 import RxSwift
 
 struct CreateToonCompleteToonCollectionViewCellDataSource {
-    let isSelected: Bool
+    var isSelected: Bool
+    let imageUrl: URL
 }
 
 final class CreateToonCompleteToonCollectionViewCell: BaseCollectionViewCell {
-    override var isSelected: Bool {
-        didSet {
-            setUpIsSelected(isSelected)
-        }
-    }
-    
-    let opacityView = {
-        let view = UIView()
-        view.backgroundColor = .black.withAlphaComponent(0.1)
-        
-        return view
-    }()
-    
     let toonImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
@@ -35,14 +23,20 @@ final class CreateToonCompleteToonCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
+    let opacityView = {
+        let view = UIView()
+        view.backgroundColor = .white.withAlphaComponent(0.65)
+        
+        return view
+    }()
+    
     override func configures() {
         contentView.layer.cornerRadius = 5
-        contentView.backgroundColor = .tnOrange
     }
     
     override func addSubViews() {
-        contentView.addSubview(opacityView)
         contentView.addSubview(toonImageView)
+        contentView.addSubview(opacityView)
     }
     
     override func layouts() {
@@ -72,6 +66,7 @@ final class CreateToonCompleteToonCollectionViewCell: BaseCollectionViewCell {
     }
     
     func setCell(_ item: CreateToonCompleteToonCollectionViewCellDataSource) {
-        isSelected = item.isSelected
+        setUpIsSelected(item.isSelected)
+        toonImageView.load(url: item.imageUrl)
     }
 }

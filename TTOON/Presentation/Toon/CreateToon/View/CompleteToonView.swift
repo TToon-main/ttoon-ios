@@ -28,6 +28,7 @@ class CompleteToonView: BaseView {
         layout.itemSize = CGSize(width: 110, height: 110)
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
+        layout.scrollDirection = .horizontal
         
         let view = CreateToonCompleteToonCollectionView(frame: .zero, collectionViewLayout: layout)
         
@@ -86,7 +87,7 @@ class CompleteToonView: BaseView {
             $0.height.equalTo(52)
             $0.top.equalTo(createToonCompleteToonResultView.snp.bottom).offset(43)
             $0.horizontalEdges.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview().offset(36)
+            $0.bottom.equalToSuperview().offset(-36)
         }
     }
     

@@ -91,9 +91,9 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
     }
     
     private func showCompleteToonView(_ urls: [String]) {
-        let reactor = CompleteToonReactor()
+        let reactor = CompleteToonReactor(urls: urls)
         let vc = CompleteToonViewController(reactor: reactor)
-        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalPresentationStyle = .overFullScreen
         
         navigationController.present(vc, animated: true)
     }
