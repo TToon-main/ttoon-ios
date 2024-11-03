@@ -53,6 +53,7 @@ class CharacterPickerBSView: BaseView {
     let confirmButton = {
         let view = TNButton()
         view.setTitle("완료", for: .normal)
+        view.isEnabled = false
         
         return view
     }()
@@ -120,6 +121,28 @@ extension Reactive where Base: CharacterPickerBSView {
         return Binder(base) { view, isHidden in
             view.invalidView.isHidden = isHidden
         }
+    }
+    
+    var isEnabledConfirmButton: Binder<Bool> {
+        return base.confirmButton.rx.isEnabled
+    }
+}
+
+extension Reactive where Base: CharacterPickerBSView {
+    var confirmButtonTap: Observable<Void> {
+        return base.confirmButton.rx.tap
+            .asObservable()
+    }
+    
+    var modifyCharacterButtonTap: Observable<Void> {
+        return base.modifyCharacterButton.rx.tap
+            .asObservable()
+    }
+    
+    var modelSelected: Observable<CharacterPickerTableViewCellDataSource> {
+        return base.tableView.rx
+            .modelSelected(CharacterPickerTableViewCellDataSource.self)
+            .asObservable()
     }
 }
  

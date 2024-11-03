@@ -46,7 +46,7 @@ class CharacterModifyViewController: BaseViewController {
     
     // TODO: 임시
     func bindMockUp() {
-        let characterData = CharacterPickerTableViewCellDataSource(name: "이름 1", isMainCharacter: true, characterDescription: "캐릭터에 대한 묘사 및 설명", isSelected: false, isModify: true)
+        let characterData = CharacterPickerTableViewCellDataSource(id: "", name: "이름 1", isMainCharacter: true, characterDescription: "캐릭터에 대한 묘사 및 설명", isSelected: false, isModify: true)
         let mockUpData = Array(repeating: characterData, count: 20)
         let modifyButtonTap = PublishSubject<Void>()
         
