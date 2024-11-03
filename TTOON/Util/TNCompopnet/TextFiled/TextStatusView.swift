@@ -7,6 +7,9 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 class TextStatusView: BaseView {
     override var intrinsicContentSize: CGSize {
         return CGSize(width: .zero, height: 20)
@@ -34,7 +37,6 @@ class TextStatusView: BaseView {
         let view = UILabel()
         view.textColor = .grey05
         view.font = .body14r
-        view.isHidden = true
         
         return view
     }()
@@ -65,5 +67,27 @@ class TextStatusView: BaseView {
             $0.centerY.equalToSuperview()
             $0.width.lessThanOrEqualTo(60)
         }
+    }
+}
+
+extension Reactive where Base: TextStatusView {
+    var errorMassage: Binder<String?> {
+        return Binder(base) { view, text in
+            if let text = text {
+                view.errorLabel.text = text
+                view.errorLabel.isHidden = false
+                view.textCntLabel.textColor = .errorRed
+                view.layoutIfNeeded()
+            } else {
+                view.errorLabel.text = nil
+                view.errorLabel.isHidden = true
+                view.textCntLabel.textColor = .grey05
+                view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    var cntText: Binder<String?> {
+        return base.textCntLabel.rx.text
     }
 }

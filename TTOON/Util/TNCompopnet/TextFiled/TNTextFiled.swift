@@ -66,11 +66,13 @@ extension Reactive where Base: TNTextFiled {
                 view.statusLabel.errorLabel.text = text
                 view.textFiled.layer.borderColor = UIColor.errorRed.cgColor
                 view.statusLabel.errorLabel.isHidden = false
+                view.statusLabel.textCntLabel.textColor = .errorRed
                 view.layoutIfNeeded()
             } else {
                 view.statusLabel.errorLabel.text = nil
                 view.textFiled.layer.borderColor = UIColor.clear.cgColor
                 view.statusLabel.errorLabel.isHidden = true
+                view.statusLabel.textCntLabel.textColor = .grey05
                 view.layoutIfNeeded()
             }
         }

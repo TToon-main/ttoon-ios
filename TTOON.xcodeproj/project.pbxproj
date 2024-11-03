@@ -135,6 +135,7 @@
 		BE56F95C2CB109EE005A039F /* ToonResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F95B2CB109EE005A039F /* ToonResponseDTO.swift */; };
 		BE56F95F2CB10A04005A039F /* ToonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F95E2CB10A04005A039F /* ToonAPI.swift */; };
 		BE56F9642CB111A2005A039F /* ToonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F9632CB111A2005A039F /* ToonModel.swift */; };
+		BE56F9662CB12594005A039F /* CharacterEditorScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F9652CB12594005A039F /* CharacterEditorScrollView.swift */; };
 		BE5758F02BFB1C3100EC4545 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5758EF2BFB1C3100EC4545 /* UILabel+.swift */; };
 		BE5D9C5E2CA7F94200B0408D /* Single+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D9C5D2CA7F94200B0408D /* Single+.swift */; };
 		BE5D9C602CA7F96300B0408D /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D9C5F2CA7F96300B0408D /* CommonError.swift */; };
@@ -484,6 +485,7 @@
 		BE56F95B2CB109EE005A039F /* ToonResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonResponseDTO.swift; sourceTree = "<group>"; };
 		BE56F95E2CB10A04005A039F /* ToonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonAPI.swift; sourceTree = "<group>"; };
 		BE56F9632CB111A2005A039F /* ToonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonModel.swift; sourceTree = "<group>"; };
+		BE56F9652CB12594005A039F /* CharacterEditorScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEditorScrollView.swift; sourceTree = "<group>"; };
 		BE5758EF2BFB1C3100EC4545 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		BE5D9C5D2CA7F94200B0408D /* Single+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+.swift"; sourceTree = "<group>"; };
 		BE5D9C5F2CA7F96300B0408D /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
@@ -1554,6 +1556,7 @@
 			children = (
 				BE9C9AC92C688CAF000AAF0E /* CharacterDeleteBSView.swift */,
 				BE9C9ACA2C688CAF000AAF0E /* CharacterEditorView.swift */,
+				BE56F9652CB12594005A039F /* CharacterEditorScrollView.swift */,
 				BE9C9ACB2C688CAF000AAF0E /* CharacterModifyView.swift */,
 				BE9C9ACC2C688CAF000AAF0E /* CharacterPickerBSView.swift */,
 				BE9C9ACD2C688CAF000AAF0E /* CompleteToonScrollView.swift */,
@@ -2672,6 +2675,7 @@
 				48FA111C2CB29E5D008CDF69 /* HomeFeedRepository.swift in Sources */,
 				BE9BBC442BCA552F006FD848 /* UIFont+.swift in Sources */,
 				BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */,
+				BE56F9662CB12594005A039F /* CharacterEditorScrollView.swift in Sources */,
 				BE9C9B9B2C68986F000AAF0E /* DeleteAccountReasonBottomSheetViewController.swift in Sources */,
 				BE9C9B462C688D16000AAF0E /* CreateToonCompleteToonHorizontalImageStack.swift in Sources */,
 				48A17D4F2CB2544A00A7074D /* HomeFeedReactor.swift in Sources */,

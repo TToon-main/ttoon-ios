@@ -133,6 +133,7 @@ extension EnterInfoViewController: View {
     private func presentModifyCharacterVC() {
         let reactor = CharacterModifyReactor()
         let vc = CharacterModifyViewController(reactor: reactor)
+        vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

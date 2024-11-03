@@ -13,7 +13,7 @@ import RxSwift
 
 class CharacterAddViewController: BaseViewController {
     var disposeBag = DisposeBag()
-    private let characterEditorView = CharacterEditorView()
+    private let characterEditorScrollView = CharacterEditorScrollView()
     
     init(reactor: CharacterAddReactor) {
         super.init(nibName: nil, bundle: nil)
@@ -26,21 +26,12 @@ class CharacterAddViewController: BaseViewController {
     }
     
     override func loadView() {
-        view = characterEditorView
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        bindMockUp()
+        view = characterEditorScrollView
     }
     
     override func configures() {
         setNavigationItem()
-        characterEditorView.setUpView(editType: .add)
-    }
-    
-    // TODO: 임시
-    func bindMockUp() {
+        characterEditorScrollView.characterEditorView.setUpView(editType: .add)
     }
     
     private func setNavigationItem() {
@@ -56,8 +47,47 @@ extension CharacterAddViewController: View {
     }
     
     func bindAction(reactor: CharacterAddReactor) {
+        characterEditorScrollView.rx.nameTextDidChange
+            .map { CharacterAddReactor.Action.nameText(text: $0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        characterEditorScrollView.rx.infoTextDidChange
+            .map { CharacterAddReactor.Action.infoText(text: $0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        characterEditorScrollView.rx.isSwitchOn
+            .map { CharacterAddReactor.Action.isMainCharacter(isMain: $0)}
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: CharacterAddReactor) {
+        reactor.state.map { $0.nameTextFiledCountLabel }
+            .bind(to: characterEditorScrollView.rx.nameTextFiledCountLabel)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.infoTextFiledCountLabel }
+            .bind(to: characterEditorScrollView.rx.infoTextFiledCountLabel)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.errorNameTextFiled }
+            .distinctUntilChanged()
+            .bind(to: characterEditorScrollView.rx.errorNameTextFiled)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.errorInfoTextFiled }
+            .distinctUntilChanged()
+            .bind(to: characterEditorScrollView.rx.errorInfoTextFiled)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isOn }
+            .bind(to: characterEditorScrollView.rx.isOn)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isEnabledConfirmButton }
+            .bind(to: characterEditorScrollView.rx.isEnabledConfirmButton)
+            .disposed(by: disposeBag)
     }
 }
