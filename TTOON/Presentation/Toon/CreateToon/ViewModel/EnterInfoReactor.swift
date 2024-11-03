@@ -87,7 +87,7 @@ final class EnterInfoReactor: Reactor {
         var isEnabledConfirmButton = false
         var titleText: String = ""
         var contentText: String = ""
-        var pop: Bool = false
+        var presentEnterInfoCompleteVC: Bool = false
     }
     
     // 전달할 상태의 초기값
@@ -207,7 +207,7 @@ final class EnterInfoReactor: Reactor {
             return new
             
         case .setPop:
-            new.pop = true
+            new.presentEnterInfoCompleteVC = true
             return new
         }
     }
@@ -217,7 +217,7 @@ final class EnterInfoReactor: Reactor {
         new.presentCreateLoadingVC = nil
         new.presentModifyCharacterVC = nil
         new.presentCharacterPickerBS = nil
-        new.pop = false
+        new.presentEnterInfoCompleteVC = false
         
         return new
     }
