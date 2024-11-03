@@ -7,8 +7,11 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 class EnterInfoCompleteView: BaseView {
-    let titleLabel = {
+    private let titleLabel = {
         let view = UILabel()
         view.font = .title24b
         view.textColor = .black
@@ -18,7 +21,7 @@ class EnterInfoCompleteView: BaseView {
         return view
     }()
     
-    let subTitleLabel = {
+    private let subTitleLabel = {
         let view = UILabel()
         view.font = .body16m
         view.textColor = .grey06
@@ -28,14 +31,14 @@ class EnterInfoCompleteView: BaseView {
         return view
     }()
     
-    let imageView = {
+    private let imageView = {
         let view = UIImageView()
         view.image = TNImage.createLoadingIcon
         
         return view
     }()
     
-    let confirmButton = {
+    fileprivate let confirmButton = {
         let view = TNButton()
         view.setTitle("홈으로 가기", for: .normal)
         
@@ -76,3 +79,9 @@ class EnterInfoCompleteView: BaseView {
     }
 }
  
+
+extension Reactive where Base: EnterInfoCompleteView {
+    var confirmButtonTap: Observable<Void> {
+        return base.confirmButton.rx.tap.asObservable()
+    }
+}
