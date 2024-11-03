@@ -80,6 +80,12 @@
 		489ADEF12BF8E8CE00B070B7 /* SettingSubtitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEF02BF8E8CE00B070B7 /* SettingSubtitleLabel.swift */; };
 		489ADEF72BF8EDC700B070B7 /* SettingPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEF62BF8EDC700B070B7 /* SettingPickerView.swift */; };
 		489ADEF92BF9B45600B070B7 /* SettingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEF82BF9B45600B070B7 /* SettingTextView.swift */; };
+		489DD9AA2CD7421500841584 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DD9A92CD7421400841584 /* PrivacyPolicyViewController.swift */; };
+		489DD9B02CD742A600841584 /* PrivacyPolicyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DD9AF2CD742A600841584 /* PrivacyPolicyViewModel.swift */; };
+		489DD9B52CD7446A00841584 /* TermsOfUseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DD9B42CD7446A00841584 /* TermsOfUseViewModel.swift */; };
+		489DD9B72CD7456500841584 /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DD9B62CD7456500841584 /* TermsOfUseViewController.swift */; };
+		489DD9B92CD745AB00841584 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DD9B82CD745AB00841584 /* PrivacyPolicyView.swift */; };
+		489DD9BB2CD745B400841584 /* PrivacyPolicyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DD9BA2CD745B400841584 /* PrivacyPolicyTableViewCell.swift */; };
 		489FE2C12BC00F700033B61D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C02BC00F700033B61D /* BaseView.swift */; };
 		489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C22BC00F760033B61D /* BaseViewController.swift */; };
 		489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C42BC00F890033B61D /* BaseViewModel.swift */; };
@@ -415,6 +421,12 @@
 		489ADEF02BF8E8CE00B070B7 /* SettingSubtitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSubtitleLabel.swift; sourceTree = "<group>"; };
 		489ADEF62BF8EDC700B070B7 /* SettingPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPickerView.swift; sourceTree = "<group>"; };
 		489ADEF82BF9B45600B070B7 /* SettingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextView.swift; sourceTree = "<group>"; };
+		489DD9A92CD7421400841584 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		489DD9AF2CD742A600841584 /* PrivacyPolicyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewModel.swift; sourceTree = "<group>"; };
+		489DD9B42CD7446A00841584 /* TermsOfUseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewModel.swift; sourceTree = "<group>"; };
+		489DD9B62CD7456500841584 /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
+		489DD9B82CD745AB00841584 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		489DD9BA2CD745B400841584 /* PrivacyPolicyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyTableViewCell.swift; sourceTree = "<group>"; };
 		489FE2C02BC00F700033B61D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		489FE2C22BC00F760033B61D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		489FE2C42BC00F890033B61D /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -1116,6 +1128,74 @@
 				48C3F0992BF9E64E00BD2142 /* SettingNameInputView.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		489DD9A72CD741D000841584 /* TermsOfUse */ = {
+			isa = PBXGroup;
+			children = (
+				489DD9B32CD7446100841584 /* ViewModel */,
+				489DD9B22CD7445F00841584 /* View */,
+				489DD9B12CD7445B00841584 /* ViewController */,
+			);
+			path = TermsOfUse;
+			sourceTree = "<group>";
+		};
+		489DD9A82CD741DE00841584 /* PrivacyPolicy */ = {
+			isa = PBXGroup;
+			children = (
+				489DD9AD2CD7425300841584 /* ViewModel */,
+				489DD9AC2CD7424F00841584 /* View */,
+				489DD9AB2CD7424B00841584 /* ViewController */,
+			);
+			path = PrivacyPolicy;
+			sourceTree = "<group>";
+		};
+		489DD9AB2CD7424B00841584 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				489DD9A92CD7421400841584 /* PrivacyPolicyViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		489DD9AC2CD7424F00841584 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				489DD9B82CD745AB00841584 /* PrivacyPolicyView.swift */,
+				489DD9BA2CD745B400841584 /* PrivacyPolicyTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		489DD9AD2CD7425300841584 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				489DD9AF2CD742A600841584 /* PrivacyPolicyViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		489DD9B12CD7445B00841584 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				489DD9B62CD7456500841584 /* TermsOfUseViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		489DD9B22CD7445F00841584 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		489DD9B32CD7446100841584 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				489DD9B42CD7446A00841584 /* TermsOfUseViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		489FE2B82BC00E830033B61D /* Util */ = {
@@ -1891,6 +1971,8 @@
 		BE9C9B932C68986F000AAF0E /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				489DD9A82CD741DE00841584 /* PrivacyPolicy */,
+				489DD9A72CD741D000841584 /* TermsOfUse */,
 				BEE8BCE52C7202FE003800E0 /* Coordinator */,
 				BE9C9B792C68986F000AAF0E /* ContactUs */,
 				BE9C9B832C68986F000AAF0E /* DeleteAccount */,
@@ -2727,6 +2809,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				480D39742C85E843009C26DA /* FriendListViewController.swift in Sources */,
+				489DD9B02CD742A600841584 /* PrivacyPolicyViewModel.swift in Sources */,
 				BE9C9BEC2C6898C2000AAF0E /* LoginRepository.swift in Sources */,
 				BE0473662C550E5600484B96 /* ViewLifeCycle.swift in Sources */,
 				BEF48D622BCA5D220056E31E /* SplashErrorViewController.swift in Sources */,
@@ -2792,7 +2875,9 @@
 				BE9C9B082C688CAF000AAF0E /* CompleteToonReactor.swift in Sources */,
 				483BB8982CD3A495000CEE43 /* LikeUserListTableViewCell.swift in Sources */,
 				480D39722C85E843009C26DA /* UserListTableViewCell.swift in Sources */,
+				489DD9BB2CD745B400841584 /* PrivacyPolicyTableViewCell.swift in Sources */,
 				BE9C9B952C68986F000AAF0E /* ContactUsView.swift in Sources */,
+				489DD9B72CD7456500841584 /* TermsOfUseViewController.swift in Sources */,
 				BE9C9B9A2C68986F000AAF0E /* DeleteAccountView.swift in Sources */,
 				483C53662C987CE60056C1FD /* UIImageView+.swift in Sources */,
 				BE9C9BC42C68989F000AAF0E /* SplashUseCase.swift in Sources */,
@@ -2884,6 +2969,7 @@
 				BE9C9BC32C68989F000AAF0E /* LoginUseCase.swift in Sources */,
 				BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */,
 				BE9C9BF32C6898C2000AAF0E /* LogPlugin.swift in Sources */,
+				489DD9AA2CD7421500841584 /* PrivacyPolicyViewController.swift in Sources */,
 				48BF84B82C8D8A3A00E84016 /* FriendModel.swift in Sources */,
 				48C0C3792CA1A42100A2B6B9 /* FeedModel.swift in Sources */,
 				483C53482C9879880056C1FD /* MyPageUseCase.swift in Sources */,
@@ -2920,6 +3006,7 @@
 				BEB270BF2C9F06BF00BD150E /* AttendanceButtonStackView.swift in Sources */,
 				48FA111A2CB29C8D008CDF69 /* FeedAPI.swift in Sources */,
 				4849171E2CB576E100994EC8 /* FeedLikeButton.swift in Sources */,
+				489DD9B92CD745AB00841584 /* PrivacyPolicyView.swift in Sources */,
 				BE9C9B9E2C68986F000AAF0E /* AlarmTableView.swift in Sources */,
 				BE9C9AED2C688CAF000AAF0E /* CharacterDeleteBSView.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
@@ -2969,6 +3056,7 @@
 				BE9C9B4E2C688D16000AAF0E /* CreateToonSelectCharactersButton.swift in Sources */,
 				48A17D4D2CB2515B00A7074D /* FeedTableViewCell.swift in Sources */,
 				BE9C9B442C688D16000AAF0E /* CreateToonCompleteToonCollectionView.swift in Sources */,
+				489DD9B52CD7446A00841584 /* TermsOfUseViewModel.swift in Sources */,
 				489ADEEF2BF8E8B200B070B7 /* SettingTextField.swift in Sources */,
 				BE6011712BEF316D00F8FCEA /* TNSwitch.swift in Sources */,
 				489FE2C72BC00F9F0033B61D /* BaseTableViewCell.swift in Sources */,
