@@ -24,7 +24,7 @@ class ToonUseCase: ToonUseCaseProtocol {
         let request = repo.getCharacters()
             .share()
         
-        let mainId = KeychainStorage.shared.mainCharacterId
+        let mainId = UserDefaultsManager.mainCharacterId
         
         let success = request.compactMap { $0.element }
             .share()
