@@ -143,6 +143,7 @@
 		BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47BF572BF4A6DE0048F707 /* TNBottomSheet.swift */; };
 		BE52F8612CD76BED00FF8509 /* EnterInfoCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F8602CD76BED00FF8509 /* EnterInfoCompleteView.swift */; };
 		BE52F8632CD76DD200FF8509 /* EnterInfoCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F8622CD76DD200FF8509 /* EnterInfoCompleteViewController.swift */; };
+		BE52F8652CD773E100FF8509 /* CompleteCreateToonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F8642CD773E100FF8509 /* CompleteCreateToonView.swift */; };
 		BE56F9502CB10982005A039F /* ToonRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F94F2CB10982005A039F /* ToonRepositoryProtocol.swift */; };
 		BE56F9542CB109A1005A039F /* ToonUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F9532CB109A1005A039F /* ToonUseCase.swift */; };
 		BE56F9572CB109CE005A039F /* ToonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F9562CB109CE005A039F /* ToonRepository.swift */; };
@@ -508,6 +509,7 @@
 		BE47BF572BF4A6DE0048F707 /* TNBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNBottomSheet.swift; sourceTree = "<group>"; };
 		BE52F8602CD76BED00FF8509 /* EnterInfoCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterInfoCompleteView.swift; sourceTree = "<group>"; };
 		BE52F8622CD76DD200FF8509 /* EnterInfoCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterInfoCompleteViewController.swift; sourceTree = "<group>"; };
+		BE52F8642CD773E100FF8509 /* CompleteCreateToonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCreateToonView.swift; sourceTree = "<group>"; };
 		BE56F94F2CB10982005A039F /* ToonRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BE56F9532CB109A1005A039F /* ToonUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonUseCase.swift; sourceTree = "<group>"; };
 		BE56F9562CB109CE005A039F /* ToonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonRepository.swift; sourceTree = "<group>"; };
@@ -1743,6 +1745,7 @@
 				BE9C9AD22C688CAF000AAF0E /* EnterInfoView.swift */,
 				BE9C9AD32C688CAF000AAF0E /* SelectStyleView.swift */,
 				BE52F8602CD76BED00FF8509 /* EnterInfoCompleteView.swift */,
+				BE52F8642CD773E100FF8509 /* CompleteCreateToonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2956,6 +2959,7 @@
 				BE5758F02BFB1C3100EC4545 /* UILabel+.swift in Sources */,
 				BE9C9B072C688CAF000AAF0E /* CharacterPickerBSReactor.swift in Sources */,
 				483C53612C987B860056C1FD /* innerTextField.swift in Sources */,
+				BE52F8652CD773E100FF8509 /* CompleteCreateToonView.swift in Sources */,
 				BE9C9B942C68986F000AAF0E /* CategoryBottomSheetView.swift in Sources */,
 				BE9C9AF62C688CAF000AAF0E /* EnterInfoView.swift in Sources */,
 				BE9C9BA42C68986F000AAF0E /* MyPageView.swift in Sources */,
