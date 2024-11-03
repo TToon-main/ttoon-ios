@@ -16,6 +16,7 @@ class PrivacyPolicyView: BaseView {
         )
         view.rowHeight = UITableView.automaticDimension
         view.separatorStyle = .none
+        view.allowsSelection = false
         return view
     }()
     
