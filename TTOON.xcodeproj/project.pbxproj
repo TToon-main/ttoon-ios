@@ -86,6 +86,7 @@
 		489DD9B72CD7456500841584 /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DD9B62CD7456500841584 /* TermsOfUseViewController.swift */; };
 		489DD9B92CD745AB00841584 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DD9B82CD745AB00841584 /* PrivacyPolicyView.swift */; };
 		489DD9BB2CD745B400841584 /* PrivacyPolicyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DD9BA2CD745B400841584 /* PrivacyPolicyTableViewCell.swift */; };
+		489DD9C42CD7531F00841584 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 489DD9C32CD7531F00841584 /* Settings.bundle */; };
 		489FE2C12BC00F700033B61D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C02BC00F700033B61D /* BaseView.swift */; };
 		489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C22BC00F760033B61D /* BaseViewController.swift */; };
 		489FE2C52BC00F890033B61D /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FE2C42BC00F890033B61D /* BaseViewModel.swift */; };
@@ -427,6 +428,7 @@
 		489DD9B62CD7456500841584 /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
 		489DD9B82CD745AB00841584 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		489DD9BA2CD745B400841584 /* PrivacyPolicyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyTableViewCell.swift; sourceTree = "<group>"; };
+		489DD9C32CD7531F00841584 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		489FE2C02BC00F700033B61D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		489FE2C22BC00F760033B61D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		489FE2C42BC00F890033B61D /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -1423,6 +1425,7 @@
 		BE36CF812BAFF5890017F94E = {
 			isa = PBXGroup;
 			children = (
+				489DD9C32CD7531F00841584 /* Settings.bundle */,
 				BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */,
 				BEDF4E502BB70A0C0034FF79 /* .gitignore */,
 				BE36CF8C2BAFF5890017F94E /* TTOON */,
@@ -2701,6 +2704,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE9BBC1D2BCA529A006FD848 /* Pretendard-ExtraLight.otf in Resources */,
+				489DD9C42CD7531F00841584 /* Settings.bundle in Resources */,
 				BE9BBC142BCA529A006FD848 /* Pretendard-Bold.otf in Resources */,
 				BE840DBC2BB95FDB000E67B7 /* .swiftlint.yml in Resources */,
 				BE9BBC232BCA529A006FD848 /* Pretendard-Medium.otf in Resources */,
