@@ -13,10 +13,12 @@ import RxCocoa
 import RxSwift
 
 final class TNAlertView: BaseView {
-    private lazy var container = {
+    var subTitleFlexItem: Flex?
+    
+    lazy var container = {
         let view = UIView()
         view.backgroundColor = .white
-        view.layer.cornerRadius = 16
+        view.layer.cornerRadius = 20
         
         return view
     }()
@@ -47,6 +49,7 @@ final class TNAlertView: BaseView {
         
         return view
     }()
+    
     
     lazy var confirmButton = {
         let view = TNAlertButton()
@@ -81,12 +84,12 @@ final class TNAlertView: BaseView {
             .define { flex in
                 flex.addItem(titleMessage)
                     .marginTop(24)
-                    .marginHorizontal(16)
+                    .marginHorizontal(20)
                     .alignItems(.start)
                 
-                flex.addItem(subTitleMessage)
+                subTitleFlexItem = flex.addItem(subTitleMessage)
                     .marginTop(16)
-                    .marginHorizontal(16)
+                    .marginHorizontal(20)
                     .alignItems(.start)
                 
                 flex.addItem(buttonContainer)
@@ -94,6 +97,7 @@ final class TNAlertView: BaseView {
                     .marginHorizontal(16)
                     .height(56)
                     .alignItems(.center)
+                    .marginBottom(16)
             }
     }
     
@@ -101,10 +105,9 @@ final class TNAlertView: BaseView {
         super.layoutSubviews()
         
         container.pin
-            .height(200)
             .horizontally(24)
-            .center()
+            .vCenter()
         
-        container.flex.layout(mode: .fitContainer)
+        container.flex.layout(mode: .adjustHeight)
     }
 }
