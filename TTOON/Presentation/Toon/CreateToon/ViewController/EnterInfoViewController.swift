@@ -79,6 +79,7 @@ extension EnterInfoViewController: View {
         
         reactor.state.map { $0.currentProgress }
             .distinctUntilChanged()
+            .skip(1)
             .bind(to: rx.currentProgress)
             .disposed(by: disposeBag)
         

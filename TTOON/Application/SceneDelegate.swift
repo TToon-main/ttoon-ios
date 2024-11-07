@@ -25,7 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         appCoordinator = AppCoordinator(nav)
         appCoordinator?.start()
-//        addCreationToastView()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -81,13 +80,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.appCoordinator?.start()
         }
     }
-    
-//    func addCreationToastView() {
-//        ToonCreationToastView.shared.addView()
-//        ToonCreationToastView.shared.status = .ing
-//        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//            ToonCreationToastView.shared.status = .complete
-//        }
-//    }
 }
