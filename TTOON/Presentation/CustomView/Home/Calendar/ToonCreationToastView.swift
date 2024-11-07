@@ -11,13 +11,13 @@ import RxCocoa
 import RxSwift
 
 class ToonCreationToastView: BaseView {
+    var imageUrls: [String] = []
+    
     lazy var status: CreateToonStatus = .ing {
         didSet {
             setUI(status)
         }
     }
-    
-    var imageUrls: [String] = []
     
     private enum Color {
         static var gradientColors = [
@@ -37,6 +37,7 @@ class ToonCreationToastView: BaseView {
             .map(Double.init)
             .map { $0 / Double(Color.gradientColors.count) }
             .map(NSNumber.init)
+        
         static let cornerRadius = 28.0
         static let cornerWidth = 4.0
     }
@@ -140,52 +141,19 @@ class ToonCreationToastView: BaseView {
             titleLabel.text = "만화가 완성되었어요! 확인해보러 갈까요?!"
             button.isEnabled = true
             imageUrls = urls
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.animateBorderGradation()
-            }
+            animateBorderGradation()
         }
     }
     
-    func animateBorderGradation() {
-        // 1. 경계선에만 색상을 넣기 위해서 CAShapeLayer 인스턴스 생성
-        let shape = CAShapeLayer()
-        
-        // 경계선이 뷰의 경계와 일치하도록 path 설정
-        shape.path = UIBezierPath(
-            roundedRect: self.bounds.insetBy(dx: Constants.cornerWidth / 2, dy: Constants.cornerWidth / 2),
-            cornerRadius: self.layer.cornerRadius - Constants.cornerWidth / 2
-        ).cgPath
-        
-        shape.lineWidth = Constants.cornerWidth
-//        shape.cornerRadius = Constants.cornerRadius
-        shape.cornerRadius = layer.cornerRadius + Constants.cornerRadius
-        shape.strokeColor = UIColor.white.cgColor
-        shape.fillColor = UIColor.clear.cgColor
-        
-        // 2. conic 그라데이션 효과를 주기 위해서 CAGradientLayer 인스턴스 생성 후 mask에 CAShapeLayer 대입
-        let gradient = CAGradientLayer()
-        gradient.frame = CGRect(
-            x: 0,
-            y: 0,
-            width: self.bounds.width + 8,
-            height: self.bounds.height + 8 // 높이를 8만큼 늘림
-        )
-        
-        gradient.type = .conic
-        gradient.colors = Color.gradientColors.map(\.cgColor) as [Any]
-        gradient.locations = Constants.gradientLocation
-        gradient.startPoint = CGPoint(x: 0.5, y: 0.5)
-        gradient.endPoint = CGPoint(x: 1, y: 1)
-        gradient.mask = shape
-        
-        // 그라데이션 레이어를 뷰의 레이어 위에 추가하여 애니메이션을 위로 위치시킴
-        self.layer.addSublayer(gradient)
+    private func animateBorderGradation() {
+        layoutIfNeeded()
     
-        // 3. 매 0.2초마다 마치 circular queue처럼 색상을 번갈아서 바뀌도록 구현
+        let gradientLayer = createGradientLayer()
+        layer.addSublayer(gradientLayer)
+        
         self.timer?.invalidate()
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { _ in
-            gradient.removeAnimation(forKey: "myAnimation")
+            gradientLayer.removeAnimation(forKey: "myAnimation")
             let previous = Color.gradientColors.map(\.cgColor)
             let last = Color.gradientColors.removeLast()
             Color.gradientColors.insert(last, at: 0)
@@ -198,16 +166,53 @@ class ToonCreationToastView: BaseView {
             colorsAnimation.duration = 0.2
             colorsAnimation.isRemovedOnCompletion = false
             colorsAnimation.fillMode = .both
-            gradient.add(colorsAnimation, forKey: "myAnimation")
+            gradientLayer.add(colorsAnimation, forKey: "myAnimation")
         }
     }
 
 
     
-    func removeBorderGradation() {
+    private func removeBorderGradation() {
         self.timer?.invalidate()
         self.timer = nil
         self.layer.removeAnimation(forKey: "myAnimation")
+    }
+    
+    private func createShapeLayer() -> CAShapeLayer {
+        let shape = CAShapeLayer()
+        
+
+        shape.path = UIBezierPath(
+            roundedRect: self.bounds.insetBy(dx: Constants.cornerWidth / 2, dy: Constants.cornerWidth / 2),
+            cornerRadius: self.layer.cornerRadius - Constants.cornerWidth / 2
+        ).cgPath
+        
+        shape.lineWidth = Constants.cornerWidth
+        shape.cornerRadius = layer.cornerRadius + Constants.cornerRadius
+        shape.strokeColor = UIColor.white.cgColor
+        shape.fillColor = UIColor.clear.cgColor
+
+        return shape
+    }
+    
+    private func createGradientLayer() -> CAGradientLayer {
+        let gradient = CAGradientLayer()
+        
+        gradient.frame = CGRect(
+            x: 0,
+            y: 0,
+            width: self.bounds.width + 8,
+            height: self.bounds.height + 8
+        )
+        
+        gradient.type = .conic
+        gradient.colors = Color.gradientColors.map(\.cgColor) as [Any]
+        gradient.locations = Constants.gradientLocation
+        gradient.startPoint = CGPoint(x: 0.5, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1, y: 1)
+        gradient.mask = createShapeLayer()
+        
+        return gradient
     }
 }
 

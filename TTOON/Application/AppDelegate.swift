@@ -9,7 +9,7 @@ import UIKit
 
 import FirebaseAnalytics
 import FirebaseCore
-// import IQKeyboardManagerSwift
+ import IQKeyboardManagerSwift
 import KakaoSDKCommon
 
 
@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setUpSDK()
         setUpAppearance()
         startNetworkMonitoring()
-//        setUpKeyboard()
+        setUpKeyboard()
         
         return true
     }
@@ -69,7 +69,7 @@ extension AppDelegate {
         UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
     }
     
-//    private func setUpKeyboard() {
-//        IQKeyboardManager.shared.resignOnTouchOutside = true
-//    }
+    private func setUpKeyboard() {
+        IQKeyboardManager.shared.resignOnTouchOutside = true
+    }
 }

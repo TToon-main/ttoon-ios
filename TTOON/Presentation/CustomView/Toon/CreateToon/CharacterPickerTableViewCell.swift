@@ -152,19 +152,22 @@ class CharacterPickerTableViewCell: BaseTableViewCell {
         
         mainCharacterButton.snp.makeConstraints {
             $0.leading.equalTo(titleLabel.snp.trailing).offset(8)
+            $0.trailing.lessThanOrEqualTo(checkImageView.snp.leading).offset(-61)
             $0.top.equalToSuperview().offset(20)
             $0.height.equalTo(25)
             $0.width.equalTo(71)
         }
         
         subTitleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview()
             $0.top.equalTo(titleLabel.snp.bottom).offset(8)
+            $0.leading.equalToSuperview()
+            $0.trailing.lessThanOrEqualTo(checkImageView.snp.leading).offset(-61)
         }
         
         checkImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview()
+            $0.size.equalTo(24)
         }
         
         modifyCharacterButton.snp.makeConstraints {

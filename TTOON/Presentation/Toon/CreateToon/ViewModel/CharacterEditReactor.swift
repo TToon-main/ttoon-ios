@@ -207,6 +207,6 @@ final class CharacterEditReactor: Reactor {
     }
     
     func setIsMainCharacter(id: String) {
-        KeychainStorage.shared.mainCharacterId = id
+        UserDefaultsManager.mainCharacterId = id
     }
 }

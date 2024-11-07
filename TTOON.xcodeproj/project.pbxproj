@@ -168,6 +168,7 @@
 		BE840DBD2BB95FE5000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
 		BE840DBE2BB95FE5000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
 		BE8884172C567227003EC2A3 /* CharacterEditType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8884162C567227003EC2A3 /* CharacterEditType.swift */; };
+		BE975CA52CDD0451004385F9 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BE975CA42CDD0451004385F9 /* IQKeyboardManagerSwift */; };
 		BE97609B2C29A5F900EDAEA0 /* toonLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = BE97609A2C29A5F900EDAEA0 /* toonLottie.json */; };
 		BE97FB8D2C68A2D60094D754 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97FB8C2C68A2D60094D754 /* TabbarViewController.swift */; };
 		BE9BBC112BCA529A006FD848 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */; };
@@ -756,6 +757,7 @@
 				482B60FE2BB5912E00681097 /* Moya in Frameworks */,
 				482B611E2BB598DD00681097 /* Sentry in Frameworks */,
 				482B60FB2BB5902A00681097 /* FlexLayout in Frameworks */,
+				BE975CA52CDD0451004385F9 /* IQKeyboardManagerSwift in Frameworks */,
 				482B61002BB5912E00681097 /* RxMoya in Frameworks */,
 				482B61132BB5956D00681097 /* KakaoSDKUser in Frameworks */,
 				482B60F82BB58FF000681097 /* PinLayout in Frameworks */,
@@ -2609,6 +2611,7 @@
 				482B61222BB599B100681097 /* FirebaseCrashlytics */,
 				4839AA002C79C84000FF3250 /* Tabman */,
 				483C53682C992DC80056C1FD /* SkeletonView */,
+				BE975CA42CDD0451004385F9 /* IQKeyboardManagerSwift */,
 			);
 			productName = TTOON;
 			productReference = BE36CF8A2BAFF5890017F94E /* TTOON.app */;
@@ -2701,6 +2704,7 @@
 				482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				4839A9FF2C79C83F00FF3250 /* XCRemoteSwiftPackageReference "Tabman" */,
 				483C53672C992DC80056C1FD /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				BE975CA32CDD0451004385F9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = BE36CF8B2BAFF5890017F94E /* Products */;
 			projectDirPath = "";
@@ -3361,9 +3365,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = 2S9WHYP486;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2S9WHYP486;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
@@ -3381,6 +3387,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.TTOON.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TToon Service - DEV";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -3749,6 +3756,14 @@
 				minimumVersion = 1.31.0;
 			};
 		};
+		BE975CA32CDD0451004385F9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -3861,6 +3876,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 483C53672C992DC80056C1FD /* XCRemoteSwiftPackageReference "SkeletonView" */;
 			productName = SkeletonView;
+		};
+		BE975CA42CDD0451004385F9 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE975CA32CDD0451004385F9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
