@@ -32,7 +32,8 @@ class AttendanceView: BaseView {
     
     let checkAttendanceButton = {
         let view = TNButton()
-        view.setTitle("출석체크하기", for: .normal)
+        view.setTitle("출석체크 하기", for: .normal)
+        view.setTitle("이미 출석체크 했어요", for: .disabled)
         
         return view
     }()
