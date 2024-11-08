@@ -24,6 +24,16 @@ class TNAlertViewController: BaseViewController {
         view.pin.all()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        alertView.container.pin
+            .horizontally(24)
+            .vCenter()
+        
+        alertView.container.flex.layout(mode: .adjustHeight)
+    }
+    
     override func configures() {
         setAlert()
         addTarget()
@@ -34,6 +44,10 @@ class TNAlertViewController: BaseViewController {
         alertView.subTitleMessage.text = subTitleMessage
         alertView.cancelButton.setTitle(cancelAction?.text, for: .normal)
         alertView.confirmButton.setTitle(confirmAction?.text, for: .normal)
+        
+        if subTitleMessage == nil {
+            alertView.subTitleFlexItem?.marginTop(0)
+        }
     }
     
     private func addTarget() {
