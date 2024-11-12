@@ -43,7 +43,19 @@ extension EnterInfoViewController: View {
     }
     
     func bindAction(reactor: EnterInfoReactor) {
-        enterInfoScrollView.rx.dairyTextViewDidChange
+        enterInfoScrollView.rx.dairyTextView1DidChange
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        enterInfoScrollView.rx.dairyTextView2DidChange
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        enterInfoScrollView.rx.dairyTextView3DidChange
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        enterInfoScrollView.rx.dairyTextView4DidChange
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
@@ -92,13 +104,40 @@ extension EnterInfoViewController: View {
             .bind(to: enterInfoScrollView.rx.titleTextFiledError)
             .disposed(by: disposeBag)
         
-        reactor.state.map { $0.dairyTextViewError }
+        reactor.state.map { $0.dairyTextView1Error }
             .distinctUntilChanged()
-            .bind(to: enterInfoScrollView.rx.dairyTextViewError)
+            .bind(to: enterInfoScrollView.rx.dairyTextView1Error)
             .disposed(by: disposeBag)
         
-        reactor.state.compactMap { $0.dairyTextViewTextCount }
-            .bind(to: enterInfoScrollView.rx.dairyTextViewTextCount)
+        reactor.state.compactMap { $0.dairyTextView1TextCount }
+            .bind(to: enterInfoScrollView.rx.dairyTextView1TextCount)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.dairyTextView2Error }
+            .distinctUntilChanged()
+            .bind(to: enterInfoScrollView.rx.dairyTextView1Error)
+            .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.dairyTextView2TextCount }
+            .bind(to: enterInfoScrollView.rx.dairyTextView2TextCount)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.dairyTextView3Error }
+            .distinctUntilChanged()
+            .bind(to: enterInfoScrollView.rx.dairyTextView1Error)
+            .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.dairyTextView3TextCount }
+            .bind(to: enterInfoScrollView.rx.dairyTextView3TextCount)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.dairyTextView4Error }
+            .distinctUntilChanged()
+            .bind(to: enterInfoScrollView.rx.dairyTextView1Error)
+            .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.dairyTextView4TextCount }
+            .bind(to: enterInfoScrollView.rx.dairyTextView4TextCount)
             .disposed(by: disposeBag)
         
         reactor.state.compactMap { $0.titleTextFieldTextCount }

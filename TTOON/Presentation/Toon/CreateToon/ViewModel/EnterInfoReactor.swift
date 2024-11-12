@@ -20,22 +20,28 @@ final class EnterInfoReactor: Reactor {
     struct CurrentProgress {
         var isSelectedCharacter: Bool
         var isTitleEntered: Bool
-        var isDairyEntered: Bool
+        var isDairy1Entered: Bool
+        var isDairy2Entered: Bool
+        var isDairy3Entered: Bool
+        var isDairy4Entered: Bool
         
         func value() -> Float {
-            let items = [isSelectedCharacter, isTitleEntered, isDairyEntered]
+            let items = [isSelectedCharacter, isTitleEntered, isDairy1Entered, isDairy2Entered, isDairy3Entered, isDairy4Entered]
             let value = Float(items.filter({ $0 }).count) / Float(items.count)
             return max(value, 0.05)
         }
         
         func isAllValid() -> Bool {
-            return isSelectedCharacter && isTitleEntered && isDairyEntered
+            return isSelectedCharacter && isTitleEntered && isDairy1Entered && isDairy2Entered && isDairy3Entered && isDairy4Entered
         }
         
         init() {
             self.isSelectedCharacter = false
             self.isTitleEntered = false
-            self.isDairyEntered = false
+            self.isDairy1Entered = false
+            self.isDairy2Entered = false
+            self.isDairy3Entered = false
+            self.isDairy4Entered = false
         }
     }
     
@@ -47,7 +53,10 @@ final class EnterInfoReactor: Reactor {
     
     // 뷰에서 입력받은 유저 이벤트
     enum Action {
-        case dairyTextViewDidChange(String)
+        case dairyTextView1DidChange(String)
+        case dairyTextView2DidChange(String)
+        case dairyTextView3DidChange(String)
+        case dairyTextView4DidChange(String)
         case titleTextFieldTextDidChange(String)
         case selectCharactersButtonTap
         case presentModifyCharacterVC
@@ -57,9 +66,15 @@ final class EnterInfoReactor: Reactor {
     
     // Action과 State의 매개체
     enum Mutation {
-        case setDairyTextViewError(error: String?)
+        case setDairyTextView1Error(error: String?)
+        case setDairyTextView2Error(error: String?)
+        case setDairyTextView3Error(error: String?)
+        case setDairyTextView4Error(error: String?)
         case setTitleTextFieldError(error: String?)
-        case setDairyTextViewTextCount(cnt: String)
+        case setDairyTextView1TextCount(cnt: String)
+        case setDairyTextView2TextCount(cnt: String)
+        case setDairyTextView3TextCount(cnt: String)
+        case setDairyTextView4TextCount(cnt: String)
         case setTitleTextFieldTextCount(cnt: String)
         case setProgressBar(CurrentProgress)
         case setSelectCharactersButtonTap
@@ -74,9 +89,15 @@ final class EnterInfoReactor: Reactor {
     
     // 뷰에 전달할 상태
     struct State {
-        var dairyTextViewError: String? = nil
+        var dairyTextView1Error: String? = nil
+        var dairyTextView2Error: String? = nil
+        var dairyTextView3Error: String? = nil
+        var dairyTextView4Error: String? = nil
         var titleTextFieldError: String? = nil
-        var dairyTextViewTextCount: String = "0"
+        var dairyTextView1TextCount: String = "0"
+        var dairyTextView2TextCount: String = "0"
+        var dairyTextView3TextCount: String = "0"
+        var dairyTextView4TextCount: String = "0"
         var titleTextFieldTextCount: String = "0"
         var presentCharacterPickerBS: Void? = nil
         var presentModifyCharacterVC: Void? = nil
@@ -95,15 +116,60 @@ final class EnterInfoReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .dairyTextViewDidChange(let text):
-            progress.isDairyEntered = !text.isEmpty &&  text.count <= 200
+        case .dairyTextView1DidChange(let text):
+            progress.isDairy1Entered = !text.isEmpty &&  text.count <= 200
             
             let isError = text.count > 200
             let error: String? = isError ? "200자 내로 입력해주세요" : nil
             
             let mutation: Observable<Mutation> = .concat([
-                .just(.setDairyTextViewError(error: error)),
-                .just(.setDairyTextViewTextCount(cnt: "\(text.count)")),
+                .just(.setDairyTextView1Error(error: error)),
+                .just(.setDairyTextView1TextCount(cnt: "\(text.count)")),
+                .just(.setProgressBar(progress)),
+                .just(.setContentText(text: text))
+            ])
+            
+            return mutation
+            
+        case .dairyTextView2DidChange(let text):
+            progress.isDairy2Entered = !text.isEmpty &&  text.count <= 150
+            
+            let isError = text.count > 150
+            let error: String? = isError ? "200자 내로 입력해주세요" : nil
+            
+            let mutation: Observable<Mutation> = .concat([
+                .just(.setDairyTextView2Error(error: error)),
+                .just(.setDairyTextView2TextCount(cnt: "\(text.count)")),
+                .just(.setProgressBar(progress)),
+                .just(.setContentText(text: text))
+            ])
+            
+            return mutation
+
+        case .dairyTextView3DidChange(let text):
+            progress.isDairy3Entered = !text.isEmpty &&  text.count <= 150
+            
+            let isError = text.count > 150
+            let error: String? = isError ? "200자 내로 입력해주세요" : nil
+            
+            let mutation: Observable<Mutation> = .concat([
+                .just(.setDairyTextView3Error(error: error)),
+                .just(.setDairyTextView3TextCount(cnt: "\(text.count)")),
+                .just(.setProgressBar(progress)),
+                .just(.setContentText(text: text))
+            ])
+            
+            return mutation
+
+        case .dairyTextView4DidChange(let text):
+            progress.isDairy4Entered = !text.isEmpty &&  text.count <= 150
+            
+            let isError = text.count > 150
+            let error: String? = isError ? "200자 내로 입력해주세요" : nil
+            
+            let mutation: Observable<Mutation> = .concat([
+                .just(.setDairyTextView4Error(error: error)),
+                .just(.setDairyTextView4TextCount(cnt: "\(text.count)")),
                 .just(.setProgressBar(progress)),
                 .just(.setContentText(text: text))
             ])
@@ -162,12 +228,36 @@ final class EnterInfoReactor: Reactor {
             new.isEnabledConfirmButton = progress.isAllValid()
             return new
             
-        case .setDairyTextViewError(let error):
-            new.dairyTextViewError = error
+        case .setDairyTextView1Error(let error):
+            new.dairyTextView1Error = error
             return new
             
-        case .setDairyTextViewTextCount(let cnt):
-            new.dairyTextViewTextCount = cnt
+        case .setDairyTextView2Error(let error):
+            new.dairyTextView2Error = error
+            return new
+
+        case .setDairyTextView3Error(let error):
+            new.dairyTextView3Error = error
+            return new
+
+        case .setDairyTextView4Error(let error):
+            new.dairyTextView4Error = error
+            return new
+            
+        case .setDairyTextView1TextCount(let cnt):
+            new.dairyTextView1TextCount = cnt
+            return new
+
+        case .setDairyTextView2TextCount(let cnt):
+            new.dairyTextView2TextCount = cnt
+            return new
+
+        case .setDairyTextView3TextCount(let cnt):
+            new.dairyTextView3TextCount = cnt
+            return new
+
+        case .setDairyTextView4TextCount(let cnt):
+            new.dairyTextView4TextCount = cnt
             return new
             
         case .setTitleTextFieldError(let error):
