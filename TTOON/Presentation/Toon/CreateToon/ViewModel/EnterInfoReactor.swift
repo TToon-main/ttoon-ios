@@ -83,7 +83,7 @@ final class EnterInfoReactor: Reactor {
         case setSelectedCharacterModels(models: [CharacterPickerTableViewCellDataSource])
         case setConfirmButtonTap
         case setTitleText(text: String)
-        case setContentText(text: String)
+        case setContentText(text: [String])
         case setPop
     }
     
@@ -107,7 +107,7 @@ final class EnterInfoReactor: Reactor {
         var selectedCharacterModels: [CharacterPickerTableViewCellDataSource]? = nil
         var isEnabledConfirmButton = false
         var titleText: String = ""
-        var contentText: String = ""
+        var contentText: [String] = ["", "", "", ""]
         var presentEnterInfoCompleteVC: Bool = false
     }
     
@@ -122,11 +122,14 @@ final class EnterInfoReactor: Reactor {
             let isError = text.count > 200
             let error: String? = isError ? "200자 내로 입력해주세요" : nil
             
+            var content = self.currentState.contentText
+            content[0] = text
+            
             let mutation: Observable<Mutation> = .concat([
                 .just(.setDairyTextView1Error(error: error)),
                 .just(.setDairyTextView1TextCount(cnt: "\(text.count)")),
                 .just(.setProgressBar(progress)),
-                .just(.setContentText(text: text))
+                .just(.setContentText(text: content))
             ])
             
             return mutation
@@ -137,11 +140,14 @@ final class EnterInfoReactor: Reactor {
             let isError = text.count > 150
             let error: String? = isError ? "200자 내로 입력해주세요" : nil
             
+            var content = self.currentState.contentText
+            content[1] = text
+            
             let mutation: Observable<Mutation> = .concat([
                 .just(.setDairyTextView2Error(error: error)),
                 .just(.setDairyTextView2TextCount(cnt: "\(text.count)")),
                 .just(.setProgressBar(progress)),
-                .just(.setContentText(text: text))
+                .just(.setContentText(text: content))
             ])
             
             return mutation
@@ -152,11 +158,14 @@ final class EnterInfoReactor: Reactor {
             let isError = text.count > 150
             let error: String? = isError ? "200자 내로 입력해주세요" : nil
             
+            var content = self.currentState.contentText
+            content[2] = text
+            
             let mutation: Observable<Mutation> = .concat([
                 .just(.setDairyTextView3Error(error: error)),
                 .just(.setDairyTextView3TextCount(cnt: "\(text.count)")),
                 .just(.setProgressBar(progress)),
-                .just(.setContentText(text: text))
+                .just(.setContentText(text: content))
             ])
             
             return mutation
@@ -167,11 +176,14 @@ final class EnterInfoReactor: Reactor {
             let isError = text.count > 150
             let error: String? = isError ? "200자 내로 입력해주세요" : nil
             
+            var content = self.currentState.contentText
+            content[3] = text
+            
             let mutation: Observable<Mutation> = .concat([
                 .just(.setDairyTextView4Error(error: error)),
                 .just(.setDairyTextView4TextCount(cnt: "\(text.count)")),
                 .just(.setProgressBar(progress)),
-                .just(.setContentText(text: text))
+                .just(.setContentText(text: content))
             ])
             
             return mutation
@@ -336,12 +348,12 @@ final class EnterInfoReactor: Reactor {
         
         let title = state.titleText
         
-        let content = state.contentText
+        let contentList = state.contentText
         
         return CreateToon(mainCharacterId: mainCharacterId ?? 0,
                           others: others,
                           number: number,
                           title: title,
-                          content: content)
+                          contentList: contentList)
     }
 }
