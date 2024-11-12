@@ -48,9 +48,9 @@ extension Reactive where Base: CompleteToonScrollView {
             .asObservable()
     }
     
-    var selectedImageUrl: Binder<URL> {
-        return Binder(base) { view, url in
-            view.completeToonView.createToonCompleteToonResultView.setImage(url: url)
+    var selectedUrls: Binder<[URL]> {
+            return Binder(base) { view, urls in
+                view.completeToonView.createToonCompleteToonResultView.setImages(urls: urls)
+            }
         }
-    }
 }

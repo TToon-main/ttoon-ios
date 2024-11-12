@@ -73,13 +73,18 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
     }
     
     func showCreateToonView() {
-        let repo = ToonRepository()
-        let useCase = ToonUseCase(repo: repo)
-        let reactor = EnterInfoReactor(useCase: useCase)
-        reactor.delegate = self.homeReactor 
+//        let repo = ToonRepository()
+//        let useCase = ToonUseCase(repo: repo)
+//        let reactor = EnterInfoReactor(useCase: useCase)
+//        reactor.delegate = self.homeReactor 
+//        
+//        let vc = EnterInfoViewController(reactor: reactor)
+//        vc.hidesBottomBarWhenPushed = true
         
-        let vc = EnterInfoViewController(reactor: reactor)
-        vc.hidesBottomBarWhenPushed = true
+        let reactor = CompleteToonReactor(urls: [])
+        let vc = CompleteToonViewController(reactor: reactor)
+        vc.modalPresentationStyle = .overFullScreen
+        
         
         navigationController.navigationBar.topItem?.backButtonTitle = ""
         navigationController.navigationBar.tintColor = .black

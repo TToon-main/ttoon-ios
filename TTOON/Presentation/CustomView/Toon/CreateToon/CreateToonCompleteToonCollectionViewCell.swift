@@ -30,6 +30,11 @@ final class CreateToonCompleteToonCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        toonImageView.image = nil
+    }
+    
     override func configures() {
         contentView.layer.cornerRadius = 5
     }
@@ -67,6 +72,6 @@ final class CreateToonCompleteToonCollectionViewCell: BaseCollectionViewCell {
     
     func setCell(_ item: CreateToonCompleteToonCollectionViewCellDataSource) {
         setUpIsSelected(item.isSelected)
-        toonImageView.load(url: item.imageUrl)
+        toonImageView.loadWithKF(url: item.imageUrl)
     }
 }

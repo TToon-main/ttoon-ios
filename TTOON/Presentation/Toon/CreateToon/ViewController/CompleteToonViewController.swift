@@ -30,7 +30,6 @@ class CompleteToonViewController: CreateToonBaseViewController {
         setNavigationItem(title: "네컷만화 완성하기")
         view.backgroundColor = .white
         completeToonScrollView.completeToonView.setUpView(isCompleted: false)
-        bindMockUp()
     }
     
     override func layouts() {
@@ -41,9 +40,6 @@ class CompleteToonViewController: CreateToonBaseViewController {
             $0.top.equalTo(progressContainer.snp.bottom)
             $0.bottom.horizontalEdges.equalToSuperview()
         }
-    }
-    
-    func bindMockUp() {
     }
 }
 
@@ -66,10 +62,6 @@ extension CompleteToonViewController: View {
     }
     
     private func bindState(reactor: CompleteToonReactor) {
-        reactor.state.map { $0.currentOrder }
-            .bind(to: completeToonScrollView.completeToonView.rx.selectOrder)
-            .disposed(by: disposeBag)
-        
         reactor.state.compactMap { $0.list }
             .bind(to: completeToonScrollView.completeToonView.selectToonCollectionView.rx.items(
                 cellIdentifier: CreateToonCompleteToonCollectionViewCell.IDF,
@@ -78,8 +70,8 @@ extension CompleteToonViewController: View {
             }
                 .disposed(by: disposeBag)
         
-        reactor.state.compactMap { $0.selectedImageUrl }
-            .bind(to: completeToonScrollView.rx.selectedImageUrl)
-            .disposed(by: disposeBag)
+        reactor.state.map { $0.selectedUrls }
+               .bind(to: completeToonScrollView.rx.selectedUrls)
+               .disposed(by: disposeBag)
     }
 }

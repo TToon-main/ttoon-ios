@@ -106,12 +106,3 @@ class CompleteToonView: BaseView {
         }
     }
 }
-
-
-extension Reactive where Base: CompleteToonView {
-    var selectOrder: Binder<CompleteToonSelectOrderType> {
-        return Binder(base) { view, order in
-            view.titleLabel.text = order.titleText
-        }
-    }
-}
