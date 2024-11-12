@@ -37,19 +37,71 @@ class CreateToonDiaryView: BaseView {
         return view
     }()
     
-    let diaryInputTextView = {
-        let limitCnt: Int = 200
-        let placeholderText = "오늘 하루에 대해 자세히 들려주세요!"
+    let diaryInputTextView1 = {
+        let limitCnt: Int = 150
+        let placeholderText = "오늘 하루 중, 만화의 첫번째 장면에 들어갈 내용을 들려주세요."
         let view = SettingTextView(placeholderText: placeholderText,
                                    limitCnt: limitCnt)
         
         return view
     }()
     
-    let dairyLimitTextView = {
+    let dairyLimitTextView1 = {
         let view = TextStatusView()
         view.textCntLabel.text = "0"
-        view.textLimitLabel.text = "/200"
+        view.textLimitLabel.text = "/150"
+        
+        return view
+    }()
+    
+    let diaryInputTextView2 = {
+        let limitCnt: Int = 150
+        let placeholderText = "오늘 하루 중, 만화의 두번째 장면에 들어갈 내용을 들려주세요.!"
+        let view = SettingTextView(placeholderText: placeholderText,
+                                   limitCnt: limitCnt)
+        
+        return view
+    }()
+    
+    let dairyLimitTextView2 = {
+        let view = TextStatusView()
+        view.textCntLabel.text = "0"
+        view.textLimitLabel.text = "/150"
+        
+        return view
+    }()
+    
+    
+    let diaryInputTextView3 = {
+        let limitCnt: Int = 150
+        let placeholderText = "오늘 하루 중, 만화의 새번째 장면에 들어갈 내용을 들려주세요."
+        let view = SettingTextView(placeholderText: placeholderText,
+                                   limitCnt: limitCnt)
+        
+        return view
+    }()
+    
+    let dairyLimitTextView3 = {
+        let view = TextStatusView()
+        view.textCntLabel.text = "0"
+        view.textLimitLabel.text = "/150"
+        
+        return view
+    }()
+    
+    let diaryInputTextView4 = {
+        let limitCnt: Int = 150
+        let placeholderText = "오늘 하루 중, 만화의 네번째 장면에 들어갈 내용을 들려주세요."
+        let view = SettingTextView(placeholderText: placeholderText,
+                                   limitCnt: limitCnt)
+        
+        return view
+    }()
+    
+    let dairyLimitTextView4 = {
+        let view = TextStatusView()
+        view.textCntLabel.text = "0"
+        view.textLimitLabel.text = "/150"
         
         return view
     }()
@@ -58,8 +110,14 @@ class CreateToonDiaryView: BaseView {
         addSubview(midTitleLabel)
         addSubview(midSubTitleLabel)
         addSubview(diaryTitleTextField)
-        addSubview(diaryInputTextView)
-        addSubview(dairyLimitTextView)
+        addSubview(diaryInputTextView1)
+        addSubview(dairyLimitTextView1)
+        addSubview(diaryInputTextView2)
+        addSubview(dairyLimitTextView2)
+        addSubview(diaryInputTextView3)
+        addSubview(dairyLimitTextView3)
+        addSubview(diaryInputTextView4)
+        addSubview(dairyLimitTextView4)
     }
     
     override func layouts() {
@@ -80,14 +138,50 @@ class CreateToonDiaryView: BaseView {
             $0.height.equalTo(76)
         }
         
-        diaryInputTextView.snp.makeConstraints {
+        diaryInputTextView1.snp.makeConstraints {
             $0.top.equalTo(diaryTitleTextField.snp.bottom).offset(12)
             $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(260)
+            $0.height.equalTo(216)
         }
         
-        dairyLimitTextView.snp.makeConstraints {
-            $0.top.equalTo(diaryInputTextView.snp.bottom).offset(4)
+        dairyLimitTextView1.snp.makeConstraints {
+            $0.top.equalTo(diaryInputTextView1.snp.bottom).offset(4)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(20)
+        }
+        
+        diaryInputTextView2.snp.makeConstraints {
+            $0.top.equalTo(dairyLimitTextView1.snp.bottom).offset(8)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(216)
+        }
+        
+        dairyLimitTextView2.snp.makeConstraints {
+            $0.top.equalTo(diaryInputTextView2.snp.bottom).offset(4)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(20)
+        }
+        
+        diaryInputTextView3.snp.makeConstraints {
+            $0.top.equalTo(dairyLimitTextView2.snp.bottom).offset(8)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(216)
+        }
+        
+        dairyLimitTextView3.snp.makeConstraints {
+            $0.top.equalTo(diaryInputTextView3.snp.bottom).offset(4)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(20)
+        }
+        
+        diaryInputTextView4.snp.makeConstraints {
+            $0.top.equalTo(dairyLimitTextView3.snp.bottom).offset(8)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(216)
+        }
+        
+        dairyLimitTextView4.snp.makeConstraints {
+            $0.top.equalTo(diaryInputTextView4.snp.bottom).offset(4)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(20)
             $0.bottom.equalToSuperview()
