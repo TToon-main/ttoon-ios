@@ -40,6 +40,10 @@ class CreateToonCompleteToonResultView: BaseView {
     let thirdImageView = CreateToonCompleteToonResultImageView(frame: .zero)
     let forthImageView = CreateToonCompleteToonResultImageView(frame: .zero)
     
+    private lazy var imageViews: [CreateToonCompleteToonResultImageView] = [
+        firstImageView, secondImageView, thirdImageView, forthImageView
+    ]
+    
     override func configures() {
         backgroundColor = .grey01
         layer.cornerRadius = 8
@@ -86,25 +90,15 @@ class CreateToonCompleteToonResultView: BaseView {
         }
     }
     
-    func setImage(url: URL) {
-        if firstImageView.image == nil {
-            firstImageView.load(url: url)
-            return
-        }
+    func setImages(urls: [URL]) {
+        // 모든 이미지뷰 초기화
+        imageViews.forEach { $0.image = nil }
         
-        if secondImageView.image == nil {
-            secondImageView.load(url: url)
-            return
-        }
-        
-        if thirdImageView.image == nil {
-            thirdImageView.load(url: url)
-            return
-        }
-        
-        if forthImageView.image == nil {
-            forthImageView.load(url: url)
-            return
+        // 선택된 순서대로 이미지 설정
+        urls.enumerated().forEach { index, url in
+            if index < imageViews.count {
+                imageViews[index].loadWithKF(url: url)
+            }
         }
     }
 }
