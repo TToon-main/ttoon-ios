@@ -59,23 +59,28 @@ struct CreateToon {
     let others: [Int64]
     let number: Int
     let title: String
-    let content: String
+    let contentList: [String]
     
     func toDTO() -> PostToonRequestDTO {
         return .init(mainCharacterId: mainCharacterId,
                      others: others,
                      number: number,
                      title: title,
-                     content: content)
+                     contentList: contentList)
     }
     
     static func mockUp() -> Self {
         let model = CreateToon.init(
-            mainCharacterId: 2,
-            others: [3, 4],
+            mainCharacterId: 6,
+            others: [7, 8],
             number: 3,
-            title: "오늘의 일기",
-            content: "오늘은 오랜만에 학과 동기들과 컨퍼런스를 들으러 가는 날이었다. 오전에 동기 3명과 만나서 서울 코엑스의 전시홀로 향했다. 점심을 먹으러 피자 맛집을 갔는데 정말 맛있었다. 그러고 여러가지 부스를 돌아다니며 게임과 이벤트에 참여했다. 집에 갈 때 퇴근시간이어서 2시간동안 지하철 속 많은 사람들에 껴서 집으로 왔다."
+            title: "일본 여행",
+            contentList: [
+                "친구랑 같이 점심으로 돈가스를 먹으러 갔다.",
+                "밥을 먹고 디저트로 맛있다고 유명한 아이스크림을 먹었다.",
+                "배가 불러서 소화 시키기 위해 한강변을 좀 걸었다.",
+                "좀 걷다가 심심해져서 친구랑 같이 피씨방에 가서 게임했다."
+            ]
         )
         
         return model

@@ -27,5 +27,5 @@ struct PostToonRequestDTO: Encodable {
     let others: [Int64]
     let number: Int
     let title: String
-    let content: String
+    let contentList: [String]
 }

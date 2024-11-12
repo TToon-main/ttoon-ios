@@ -100,9 +100,11 @@ class ToonUseCase: ToonUseCaseProtocol {
         
         let success = request.compactMap { $0.element }
             .map { $0.imageUrls }
+            .do { print("디버그 응답", $0)}
     
         let error = request
             .compactMap { $0.error }
+            .do { print("디버그 에러", $0)}
             .map { _ in return [String]()}
 
         return .merge(success, error)
