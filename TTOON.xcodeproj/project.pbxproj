@@ -314,6 +314,8 @@
 		BEA8BB522BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB532BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEAB66D12C26AA12001B1B63 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB66D02C26AA12001B1B63 /* UICollectionView+.swift */; };
+		BEB220DE2CE4CE7B00E59314 /* SaveToonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB220DD2CE4CE7B00E59314 /* SaveToonViewController.swift */; };
+		BEB220E42CE4CEE800E59314 /* SaveToonReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB220E32CE4CEE800E59314 /* SaveToonReactor.swift */; };
 		BEB270AF2C9EF55A00BD150E /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270AE2C9EF55A00BD150E /* AttendanceView.swift */; };
 		BEB270B22C9EF56500BD150E /* AttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270B12C9EF56500BD150E /* AttendanceViewController.swift */; };
 		BEB270B42C9EF56C00BD150E /* AttendanceReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270B32C9EF56C00BD150E /* AttendanceReactor.swift */; };
@@ -693,6 +695,8 @@
 		BEAB66DE2C26B652001B1B63 /* CreateToonDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonDiaryView.swift; sourceTree = "<group>"; };
 		BEAB66E02C26B6AC001B1B63 /* CreateToonMidTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonMidTitleLabel.swift; sourceTree = "<group>"; };
 		BEAB66E22C26B713001B1B63 /* CreateToonMidSubTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonMidSubTitleLabel.swift; sourceTree = "<group>"; };
+		BEB220DD2CE4CE7B00E59314 /* SaveToonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveToonViewController.swift; sourceTree = "<group>"; };
+		BEB220E32CE4CEE800E59314 /* SaveToonReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveToonReactor.swift; sourceTree = "<group>"; };
 		BEB270AE2C9EF55A00BD150E /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		BEB270B12C9EF56500BD150E /* AttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewController.swift; sourceTree = "<group>"; };
 		BEB270B32C9EF56C00BD150E /* AttendanceReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceReactor.swift; sourceTree = "<group>"; };
@@ -1767,6 +1771,7 @@
 				BE9C9ADF2C688CAF000AAF0E /* SelectStyleViewController.swift */,
 				BE52F8622CD76DD200FF8509 /* EnterInfoCompleteViewController.swift */,
 				BE52F8662CD7749B00FF8509 /* CompleteCreateToonViewController.swift */,
+				BEB220DD2CE4CE7B00E59314 /* SaveToonViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1783,6 +1788,7 @@
 				BE9C9AE72C688CAF000AAF0E /* CreateLoadingReactor.swift */,
 				BE9C9AE82C688CAF000AAF0E /* EnterInfoReactor.swift */,
 				BE9C9AE92C688CAF000AAF0E /* SelectStyleReactor.swift */,
+				BEB220E32CE4CEE800E59314 /* SaveToonReactor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2929,6 +2935,7 @@
 				BE32E3172BEBB94E00F0C193 /* TestViewController.swift in Sources */,
 				48BA62B82CA444860012C334 /* FeedDetailMenuBottomSheetViewController.swift in Sources */,
 				BE9C9BA32C68986F000AAF0E /* UnderLineView.swift in Sources */,
+				BEB220DE2CE4CE7B00E59314 /* SaveToonViewController.swift in Sources */,
 				BE9C9B062C688CAF000AAF0E /* CharacterModifyReactor.swift in Sources */,
 				BEE8BCE62C7202FE003800E0 /* MyPageSceneCoordinator.swift in Sources */,
 				480D39712C85E843009C26DA /* FriendListTableViewCell.swift in Sources */,
@@ -3049,6 +3056,7 @@
 				483C534A2C9879B20056C1FD /* MyPageRepository.swift in Sources */,
 				480C165F2BEEFA9F0085A187 /* SocialLoginType.swift in Sources */,
 				BE9C9AEE2C688CAF000AAF0E /* CharacterEditorView.swift in Sources */,
+				BEB220E42CE4CEE800E59314 /* SaveToonReactor.swift in Sources */,
 				BEE7A18E2CB578D10000BC71 /* ToonCreationToastView.swift in Sources */,
 				BE9C9BE92C6898C2000AAF0E /* ResponseDTO.swift in Sources */,
 				483C53572C987B0D0056C1FD /* ProfileSetReactor.swift in Sources */,
