@@ -169,11 +169,15 @@ class HomeCalendarReactor: Reactor {
             // TODO: 임시 코드
             let model = CreateToon.mockUp()
             
-            return toonUseCase.createToon(model: model)
-                .map { .setPresentCreateToonToast(.complete(urls: $0))}
+//            return toonUseCase.createToon(model: model)
+//                .map { .setPresentCreateToonToast(.complete(urls: $0))}
+            
+            return .just(.setPresentCreateToonToast(.complete(urls: [])))
             
         case .presentCreatingToast:
-            return .just(.setPresentCreateToonToast(.ing))
+//            return .just(.setPresentCreateToonToast(.ing))
+            
+            return .just(.setPresentCreateToonToast(.complete(urls: [])))
             
         case .completeToastTap(let urls):
             didSendEventClosure?(.showCompleteCreateToonView(urls: urls))

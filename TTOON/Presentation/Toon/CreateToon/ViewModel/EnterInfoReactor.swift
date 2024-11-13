@@ -347,8 +347,12 @@ final class EnterInfoReactor: Reactor {
         let number = selectedCharacterModels.count
         
         let title = state.titleText
+         
+        UserDefaultsManager.toonInfoTitle = title
         
         let contentList = state.contentText
+        
+        UserDefaultsManager.toonInfoContents = contentList.joined(separator: "\n")
         
         return CreateToon(mainCharacterId: mainCharacterId ?? 0,
                           others: others,

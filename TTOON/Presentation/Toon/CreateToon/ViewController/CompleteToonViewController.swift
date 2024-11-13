@@ -25,22 +25,26 @@ class CompleteToonViewController: CreateToonBaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func loadView() {
+        view = completeToonScrollView
+    }
+    
+    
     override func configures() {
         super.configures()
         setNavigationItem(title: "네컷만화 완성하기")
         view.backgroundColor = .white
-//        completeToonScrollView.completeToonView.setUpView(isCompleted: false)
     }
     
-    override func layouts() {
-        super.layouts()
-        view.addSubview(completeToonScrollView)
-        
-        completeToonScrollView.snp.makeConstraints {
-            $0.top.equalTo(progressContainer.snp.bottom)
-            $0.bottom.horizontalEdges.equalToSuperview()
-        }
-    }
+//    override func layouts() {
+//        super.layouts()
+//        view.addSubview(completeToonScrollView)
+//        
+//        completeToonScrollView.snp.makeConstraints {
+//            $0.top.equalTo(progressContainer.snp.bottom)
+//            $0.bottom.horizontalEdges.equalToSuperview()
+//        }
+//    }
 }
 
 extension CompleteToonViewController: View {
@@ -85,7 +89,10 @@ extension CompleteToonViewController: View {
         
         reactor.state.compactMap { $0.presentSaveToonVC }
             .subscribe(with: self) { owner, urls in
-                print("디버그 urls", urls)
+//                let reactor = SaveToonReactor(urls: urls)
+//                let vc = SaveToonViewController(reactor: reactor)
+//                
+//                owner.navigationController?.pushViewController(vc, animated: true)
             }
             .disposed(by: disposeBag)
         
