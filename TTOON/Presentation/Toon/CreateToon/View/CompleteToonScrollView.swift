@@ -26,11 +26,11 @@ class CompleteToonScrollView: BaseView {
     }
     
     override func layouts() {
-        scrollView.snp.makeConstraints { 
+        scrollView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         
-        completeToonView.snp.makeConstraints { 
+        completeToonView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
@@ -38,8 +38,16 @@ class CompleteToonScrollView: BaseView {
     override func layoutSubviews() {
         super.layoutSubviews()
         scrollView.contentSize = completeToonView.frame.size
-    }   
+    }
 }
+
+extension Reactive where Base: CompleteToonScrollView {
+    var confirmButtonTap: Observable<Void> {
+        return base.completeToonView.confirmButton.rx.tap
+            .asObservable()
+    }
+}
+
 
 extension Reactive where Base: CompleteToonScrollView {
     var selectedIndex: Observable<Int> {
@@ -49,8 +57,12 @@ extension Reactive where Base: CompleteToonScrollView {
     }
     
     var selectedUrls: Binder<[URL]> {
-            return Binder(base) { view, urls in
-                view.completeToonView.createToonCompleteToonResultView.setImages(urls: urls)
-            }
+        return Binder(base) { view, urls in
+            view.completeToonView.createToonCompleteToonResultView.setImages(urls: urls)
         }
+    }
+    
+    var isEnabledConfirmButton: Binder<Bool> {
+        return base.completeToonView.confirmButton.rx.isEnabled
+    }
 }

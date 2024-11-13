@@ -126,7 +126,6 @@
 		48FA111E2CB2A0EB008CDF69 /* HomeFeedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA111D2CB2A0EB008CDF69 /* HomeFeedUseCase.swift */; };
 		BE0473662C550E5600484B96 /* ViewLifeCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0473652C550E5600484B96 /* ViewLifeCycle.swift */; };
 		BE0473682C551D8000484B96 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0473672C551D8000484B96 /* UIButton+.swift */; };
-		BE05C0932C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C0922C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift */; };
 		BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3112BEBAFE500F0C193 /* TNButton.swift */; };
 		BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3132BEBB28800F0C193 /* Reactive+.swift */; };
 		BE32E3172BEBB94E00F0C193 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3162BEBB94E00F0C193 /* TestViewController.swift */; };
@@ -484,7 +483,6 @@
 		BE05C08C2C5F632500EEB19C /* CompleteToonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToonView.swift; sourceTree = "<group>"; };
 		BE05C08E2C5F632B00EEB19C /* CompleteToonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToonViewController.swift; sourceTree = "<group>"; };
 		BE05C0902C5F633300EEB19C /* CompleteToonReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToonReactor.swift; sourceTree = "<group>"; };
-		BE05C0922C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToonSelectOrderType.swift; sourceTree = "<group>"; };
 		BE05C0942C5F68D700EEB19C /* CreateToonCompleteToonCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonCompleteToonCollectionView.swift; sourceTree = "<group>"; };
 		BE05C0962C5F690D00EEB19C /* CreateToonCompleteToonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonCompleteToonCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE05C0982C5F6C5C00EEB19C /* CreateToonCompleteToonResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonCompleteToonResultView.swift; sourceTree = "<group>"; };
@@ -1657,7 +1655,6 @@
 			isa = PBXGroup;
 			children = (
 				BE8884162C567227003EC2A3 /* CharacterEditType.swift */,
-				BE05C0922C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift */,
 			);
 			path = Toon;
 			sourceTree = "<group>";
@@ -2985,7 +2982,6 @@
 				BE9C9B962C68986F000AAF0E /* CategoryBottomSheetViewController.swift in Sources */,
 				BEE8BCCB2C71FFF5003800E0 /* BottomDiaryEmptyView.swift in Sources */,
 				BE5D9C622CA803E900B0408D /* Observable+.swift in Sources */,
-				BE05C0932C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift in Sources */,
 				BE9C9B4B2C688D16000AAF0E /* CreateToonIsMainCharacterSwitch.swift in Sources */,
 				480D39812C8877C3009C26DA /* SearchFriendViewController.swift in Sources */,
 				BE9C9B982C68986F000AAF0E /* ContactUsReactor.swift in Sources */,

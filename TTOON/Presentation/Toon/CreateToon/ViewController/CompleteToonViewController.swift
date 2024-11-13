@@ -29,14 +29,14 @@ class CompleteToonViewController: CreateToonBaseViewController {
         super.configures()
         setNavigationItem(title: "네컷만화 완성하기")
         view.backgroundColor = .white
-        completeToonScrollView.completeToonView.setUpView(isCompleted: false)
+//        completeToonScrollView.completeToonView.setUpView(isCompleted: false)
     }
     
     override func layouts() {
         super.layouts()
         view.addSubview(completeToonScrollView)
         
-        completeToonScrollView.snp.makeConstraints { 
+        completeToonScrollView.snp.makeConstraints {
             $0.top.equalTo(progressContainer.snp.bottom)
             $0.bottom.horizontalEdges.equalToSuperview()
         }
@@ -59,6 +59,11 @@ extension CompleteToonViewController: View {
             .map { CompleteToonReactor.Action.selectedIndex($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        completeToonScrollView.rx.confirmButtonTap
+            .map { CompleteToonReactor.Action.confirmButtonTap }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     private func bindState(reactor: CompleteToonReactor) {
@@ -71,7 +76,23 @@ extension CompleteToonViewController: View {
                 .disposed(by: disposeBag)
         
         reactor.state.map { $0.selectedUrls }
-               .bind(to: completeToonScrollView.rx.selectedUrls)
-               .disposed(by: disposeBag)
+            .bind(to: completeToonScrollView.rx.selectedUrls)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isEnabledConfirmButton }
+            .bind(to: completeToonScrollView.rx.isEnabledConfirmButton)
+            .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.presentSaveToonVC }
+            .subscribe(with: self) { owner, urls in
+                print("디버그 urls", urls)
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.currentProgress }
+            .distinctUntilChanged()
+            .skip(1)
+            .bind(to: rx.currentProgress)
+            .disposed(by: disposeBag)
     }
 }
