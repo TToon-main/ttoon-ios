@@ -13,12 +13,14 @@ import RxSwift
 class CompleteToonView: BaseView {
     let titleLabel = {
         let view = CreateToonTitleLabel()
+        view.text = "각 장면에 들어갈\n그림을 선택해주세요"
         
         return view
     }()
     
     let subTitleLabel = {
         let view = CreateToonSubTitleLabel()
+        view.text = "한 컷당 3가지 옵션 중\n고를 수 있어요"
         
         return view
     }()
