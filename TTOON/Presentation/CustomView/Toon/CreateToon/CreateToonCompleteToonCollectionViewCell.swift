@@ -33,6 +33,7 @@ final class CreateToonCompleteToonCollectionViewCell: BaseCollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         toonImageView.image = nil
+        setUpIsSelected(false)
     }
     
     override func configures() {

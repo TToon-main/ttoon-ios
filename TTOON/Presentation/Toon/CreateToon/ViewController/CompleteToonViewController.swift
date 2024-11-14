@@ -88,12 +88,16 @@ extension CompleteToonViewController: View {
             .disposed(by: disposeBag)
         
         reactor.state.compactMap { $0.presentSaveToonVC }
-            .subscribe(with: self) { owner, urls in
-//                let reactor = SaveToonReactor(urls: urls)
-//                let vc = SaveToonViewController(reactor: reactor)
-//                
-//                owner.navigationController?.pushViewController(vc, animated: true)
-            }
+            .subscribe(onNext: { [weak self] model in
+                guard let self = self else { return }
+                
+                let repo = ToonRepository()
+                let useCase = ToonUseCase(repo: repo)
+                let reactor = SaveToonReactor(model: model, useCase: useCase)
+                let vc = SaveToonViewController(reactor: reactor)
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
             .disposed(by: disposeBag)
         
         reactor.state.map { $0.currentProgress }

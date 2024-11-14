@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 
 class ToonCreationToastView: BaseView {
-    var imageUrls: [String] = []
+    var model: SaveToon?
     
     lazy var status: CreateToonStatus = .ing {
         didSet {
@@ -135,12 +135,12 @@ class ToonCreationToastView: BaseView {
             button.isEnabled = false
             removeBorderGradation()
             
-        case .complete(let urls):
+        case .complete(let model):
             creationIconImageView.isHidden = true
             upIconImageView.isHidden = false
             titleLabel.text = "만화가 완성되었어요! 확인해보러 갈까요?!"
             button.isEnabled = true
-            imageUrls = urls
+            self.model = model
             animateBorderGradation()
         }
     }
@@ -218,9 +218,9 @@ class ToonCreationToastView: BaseView {
 
 
 extension Reactive  where Base: ToonCreationToastView {
-    var buttonTap: Observable<[String]> {
+    var buttonTap: Observable<SaveToon> {
         return base.button.rx.tap
-            .map { _ in base.imageUrls}
+            .compactMap { _ in base.model}
 //            .filter { !$0.isEmpty } //TODO: - 화면 작업 위해 임시로 대응
     }
 }

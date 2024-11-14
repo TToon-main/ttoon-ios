@@ -10,10 +10,10 @@ import Foundation
 import ReactorKit
 
 final class CompleteToonReactor: Reactor {
-    let urls: [String]
+    let model: SaveToon
     
-    init(urls: [String]) {
-        self.urls = urls
+    init(model: SaveToon) {
+        self.model = model
     }
     
     // 뷰에서 입력받은 유저 이벤트
@@ -27,7 +27,7 @@ final class CompleteToonReactor: Reactor {
     enum Mutation {
         case setList([CreateToonCompleteToonCollectionViewCellDataSource])
         case setSelectedUrls(urls: [URL])
-        case setConfirmButtonTap(urls: [URL])
+        case setConfirmButtonTap(model: SaveToon)
         case setProgressBar(Float)
     }
     
@@ -36,7 +36,7 @@ final class CompleteToonReactor: Reactor {
         var list: [CreateToonCompleteToonCollectionViewCellDataSource]? = nil
         var selectedUrls: [URL] = []
         var isEnabledConfirmButton: Bool = false
-        var presentSaveToonVC: [URL]? = nil
+        var presentSaveToonVC: SaveToon? = nil
         var currentProgress: Float = 0.05
     }
     
@@ -124,7 +124,9 @@ final class CompleteToonReactor: Reactor {
             
         case .confirmButtonTap:
             let urls = currentState.selectedUrls
-            return .just(.setConfirmButtonTap(urls: urls))
+            let new = SaveToon(imageUrls: urls, feedId: self.model.feedId)
+            
+            return .just(.setConfirmButtonTap(model: new))
         }
     }
     

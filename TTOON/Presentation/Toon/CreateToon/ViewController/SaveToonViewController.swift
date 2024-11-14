@@ -52,6 +52,11 @@ extension SaveToonViewController: View {
             .map { SaveToonReactor.Action.viewDidLoad }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        completeToonScrollView.rx.confirmButtonTap
+            .map { SaveToonReactor.Action.confirmButtonTap }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     private func bindState(reactor: SaveToonReactor) {
@@ -62,5 +67,13 @@ extension SaveToonViewController: View {
                     cell.setCell(item)
             }
                 .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isSuccessSave }
+            .bind { [weak self] isSuccess in
+                if isSuccess {
+                    self?.dismiss(animated: true)
+                }
+            }
+            .disposed(by: disposeBag)
     }
 }
