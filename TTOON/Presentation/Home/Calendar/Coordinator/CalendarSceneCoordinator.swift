@@ -91,6 +91,29 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
         navigationController.pushViewController(vc, animated: true)
     }
     
+//    private func showCompleteCreateToonView(_ model: SaveToon) {
+//        let vc = CompleteCreateToonViewController(model: model)
+//        let nav = UINavigationController(rootViewController: vc)
+//        nav.modalPresentationStyle = .overFullScreen
+//        
+//        vc.didSendEventClosure = { [weak self] event in
+//            switch event {
+//            case .showCompleteToonView(let urls):
+//                
+//                let reactor = CompleteToonReactor(model: model)
+//                let vc = CompleteToonViewController(reactor: reactor)
+//                vc.navigationController?.isNavigationBarHidden = false
+//                vc.setNavigationItem(title: "네컷만화 완성하기")
+//                vc.modalPresentationStyle = .overFullScreen
+//                
+//                nav.pushViewController(vc, animated: true)
+//            }
+//        }
+//        
+//        
+//        navigationController.present(nav, animated: true)
+//    }
+    
     private func showCompleteCreateToonView(_ model: SaveToon) {
         let vc = CompleteCreateToonViewController(model: model)
         let nav = UINavigationController(rootViewController: vc)
@@ -99,16 +122,19 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
         vc.didSendEventClosure = { [weak self] event in
             switch event {
             case .showCompleteToonView(let urls):
-                
                 let reactor = CompleteToonReactor(model: model)
                 let vc = CompleteToonViewController(reactor: reactor)
-                vc.modalPresentationStyle = .overFullScreen
-                
                 nav.pushViewController(vc, animated: true)
             }
         }
         
         navigationController.present(nav, animated: true)
+    }
+    
+    func setNavigationItem(title: String) {
+        self.navigationController.navigationItem.title = title
+        self.navigationController.navigationItem.backButtonTitle = ""
+        self.navigationController.navigationBar.tintColor = UIColor.black
     }
 }
 extension CalendarSceneCoordinator: CoordinatorFinishDelegate {

@@ -29,6 +29,9 @@ class SaveToonViewController: BaseViewController {
         super.configures()
         view.backgroundColor = .white
         completeToonScrollView.completeToonView.setUpView(isCompleted: true)
+        
+        navigationItem.title = "네컷만화 완성하기"
+        navigationItem.backButtonTitle = ""
     }
     
     override func layouts() {
@@ -36,7 +39,7 @@ class SaveToonViewController: BaseViewController {
         view.addSubview(completeToonScrollView)
         
         completeToonScrollView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.edges.equalTo(safeGuide)
         }
     }
 }

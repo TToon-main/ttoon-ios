@@ -32,19 +32,10 @@ class CompleteToonViewController: CreateToonBaseViewController {
     
     override func configures() {
         super.configures()
+        self.navigationController?.navigationBar.isHidden = false
         setNavigationItem(title: "네컷만화 완성하기")
         view.backgroundColor = .white
     }
-    
-//    override func layouts() {
-//        super.layouts()
-//        view.addSubview(completeToonScrollView)
-//        
-//        completeToonScrollView.snp.makeConstraints {
-//            $0.top.equalTo(progressContainer.snp.bottom)
-//            $0.bottom.horizontalEdges.equalToSuperview()
-//        }
-//    }
 }
 
 extension CompleteToonViewController: View {

@@ -14,6 +14,7 @@ class CompleteToonView: BaseView {
     let titleLabel = {
         let view = CreateToonTitleLabel()
         view.text = "각 장면에 들어갈\n그림을 선택해주세요"
+        view.numberOfLines = 0
         
         return view
     }()
@@ -21,6 +22,7 @@ class CompleteToonView: BaseView {
     let subTitleLabel = {
         let view = CreateToonSubTitleLabel()
         view.text = "한 컷당 3가지 옵션 중\n고를 수 있어요"
+        view.numberOfLines = 0
         
         return view
     }()
@@ -72,7 +74,7 @@ class CompleteToonView: BaseView {
         }
         
         titleLabel.snp.makeConstraints { 
-            $0.top.equalToSuperview().offset(36)
+            $0.top.equalTo(safeGuide).offset(36)
             $0.leading.equalToSuperview().offset(16)
             $0.height.equalTo(68)
         }

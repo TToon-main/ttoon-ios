@@ -36,6 +36,7 @@ class CompleteCreateToonViewController: BaseViewController {
     override func configures() {
         super.configures()
         self.navigationController?.navigationBar.isHidden = true
+        navigationItem.backButtonTitle = ""
         bind()
     }
     
