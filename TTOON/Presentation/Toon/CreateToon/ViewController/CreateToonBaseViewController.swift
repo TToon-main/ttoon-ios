@@ -47,6 +47,11 @@ class CreateToonBaseViewController: BaseViewController {
     
     // MARK: - Configurations
     
+    override func configures() {
+        super.configures()
+        self.navigationItem.backButtonTitle = ""
+    }
+    
     override func addSubViews() {
         super.addSubViews()
         view.addSubview(progressContainer)
