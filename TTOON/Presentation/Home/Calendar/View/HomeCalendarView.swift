@@ -157,7 +157,7 @@ extension Reactive where Base: HomeCalendarView {
         }
     }
     
-    var completeToastTap: Observable<[String]> {
+    var completeToastTap: Observable<SaveToon> {
         return base.toonCreationToastView.rx.buttonTap
             .do { _ in base.toonCreationToastView.setUI(.idle)}
             .do { _ in base.isHiddenPlusButton(.idle)}

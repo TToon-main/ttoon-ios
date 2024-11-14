@@ -86,3 +86,12 @@ struct CreateToon {
         return model
     }
 }
+
+struct SaveToon: Encodable, Equatable {
+    let imageUrls: [URL]
+    let feedId: String
+    
+    func toDTO() -> PostSaveToonRequestDTO {
+        return .init(imageUrls: imageUrls, feedId: feedId)
+    }
+}

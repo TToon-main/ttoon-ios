@@ -45,7 +45,7 @@ class HomeCalendarReactor: Reactor {
         
         case presentCreatingToast
         
-        case completeToastTap([String])
+        case completeToastTap(SaveToon)
     }
     
     enum Mutation {
@@ -172,15 +172,15 @@ class HomeCalendarReactor: Reactor {
 //            return toonUseCase.createToon(model: model)
 //                .map { .setPresentCreateToonToast(.complete(urls: $0))}
             
-            return .just(.setPresentCreateToonToast(.complete(urls: [])))
+            return .just(.setPresentCreateToonToast(.complete(model: SaveToon(imageUrls: [], feedId: ""))))
             
         case .presentCreatingToast:
 //            return .just(.setPresentCreateToonToast(.ing))
             
-            return .just(.setPresentCreateToonToast(.complete(urls: [])))
+            return .just(.setPresentCreateToonToast(.complete(model: SaveToon(imageUrls: [], feedId: ""))))
             
-        case .completeToastTap(let urls):
-            didSendEventClosure?(.showCompleteCreateToonView(urls: urls))
+        case .completeToastTap(let model):
+            didSendEventClosure?(.showCompleteCreateToonView(model: model))
             return .just(.pass)
         }
     }
@@ -227,7 +227,7 @@ extension HomeCalendarReactor {
     enum Event {
         case showFriendListView
         case showCreateToonView
-        case showCompleteCreateToonView(urls: [String])
+        case showCompleteCreateToonView(model: SaveToon)
     }
 }
 
@@ -239,7 +239,7 @@ enum SaveImageType {
 enum CreateToonStatus: Equatable {
     case idle
     case ing
-    case complete(urls: [String])
+    case complete(model: SaveToon)
 }
 
 

@@ -91,8 +91,8 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    private func showCompleteCreateToonView(_ urls: [String]) {
-        let vc = CompleteCreateToonViewController(urls: urls)
+    private func showCompleteCreateToonView(_ model: SaveToon) {
+        let vc = CompleteCreateToonViewController(model: model)
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .overFullScreen
         
@@ -100,7 +100,7 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
             switch event {
             case .showCompleteToonView(let urls):
                 
-                let reactor = CompleteToonReactor(urls: urls)
+                let reactor = CompleteToonReactor(model: model)
                 let vc = CompleteToonViewController(reactor: reactor)
                 vc.modalPresentationStyle = .overFullScreen
                 

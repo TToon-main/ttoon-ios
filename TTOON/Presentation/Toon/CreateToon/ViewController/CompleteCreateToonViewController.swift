@@ -12,16 +12,16 @@ import RxSwift
 class CompleteCreateToonViewController: BaseViewController {
     var disposeBag = DisposeBag()
     var didSendEventClosure: ((CompleteCreateToonViewController.Event) -> Void)?
-    private let urls: [String]
+    private let model: SaveToon
     
     enum Event {
-        case showCompleteToonView(urls: [String])
+        case showCompleteToonView(model: SaveToon)
     }
     
     private let completeCreateToonView = CompleteCreateToonView()
     
-    init(urls: [String]) {
-        self.urls = urls
+    init(model: SaveToon) {
+        self.model = model
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -42,7 +42,7 @@ class CompleteCreateToonViewController: BaseViewController {
     private func bind() {
         completeCreateToonView.rx.confirmButtonTap
             .bind(with: self, onNext: { owner, _ in
-                owner.didSendEventClosure?(.showCompleteToonView(urls: owner.urls))
+                owner.didSendEventClosure?(.showCompleteToonView(model: owner.model))
             })
             .disposed(by: disposeBag)
     }

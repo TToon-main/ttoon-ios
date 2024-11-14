@@ -42,6 +42,11 @@ class ToonRepository: ToonRepositoryProtocol {
             .mapData(responseType: PostToonResponseDTO.self,
                      errorType: PostToonError.self)
     }
+    
+    func postSaveToon(dto: PostSaveToonRequestDTO) -> Observable<Event<Bool>> {
+        return provider.log.rx.request(.postSaveToon(dto: dto))
+            .mapIsSuccess(errorType: PostToonError.self)
+    }
 }
 
 extension ToonRepository {
