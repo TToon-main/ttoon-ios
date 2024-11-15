@@ -68,23 +68,6 @@ struct CreateToon {
                      title: title,
                      contentList: contentList)
     }
-    
-    static func mockUp() -> Self {
-        let model = CreateToon.init(
-            mainCharacterId: 6,
-            others: [7, 8],
-            number: 3,
-            title: "일본 여행",
-            contentList: [
-                "친구랑 같이 점심으로 돈가스를 먹으러 갔다.",
-                "밥을 먹고 디저트로 맛있다고 유명한 아이스크림을 먹었다.",
-                "배가 불러서 소화 시키기 위해 한강변을 좀 걸었다.",
-                "좀 걷다가 심심해져서 친구랑 같이 피씨방에 가서 게임했다."
-            ]
-        )
-        
-        return model
-    }
 }
 
 struct SaveToon: Encodable, Equatable {
@@ -92,6 +75,7 @@ struct SaveToon: Encodable, Equatable {
     let feedId: String
     
     func toDTO() -> PostSaveToonRequestDTO {
+        let imageUrls = imageUrls.map { "\($0)"}
         return .init(imageUrls: imageUrls, feedId: feedId)
     }
 }

@@ -94,12 +94,14 @@ final class CharacterModifyReactor: Reactor {
             
         case .setCharacterList(let list):
             new.characterList = list
+            new.isHiddenEmptyView = true
             
         case .setEmptyList(let isEmpty):
             new.isHiddenEmptyView = !isEmpty
             
         case .setInvalidList(let isInvalid):
             new.isHiddenInvalidView = !isInvalid
+            new.isHiddenEmptyView = true
             
         case .setDeleteCharacter(let isSuccess):
             new.isSuccessDeleted = isSuccess
@@ -117,6 +119,7 @@ final class CharacterModifyReactor: Reactor {
         new.presentCharacterAddVC = nil
         new.presentCharacterEditorVC = nil
         new.isSuccessDeleted = nil
+        new.isHiddenEmptyView = true
         
         return new
     }

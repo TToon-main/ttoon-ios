@@ -64,12 +64,9 @@ extension SaveToonViewController: View {
     
     private func bindState(reactor: SaveToonReactor) {
         reactor.state.compactMap { $0.list }
-            .bind(to: completeToonScrollView.completeToonView.selectToonCollectionView.rx.items(
-                cellIdentifier: CreateToonCompleteToonCollectionViewCell.IDF,
-                cellType: CreateToonCompleteToonCollectionViewCell.self)) { index, item, cell in
-                    cell.setCell(item)
-            }
-                .disposed(by: disposeBag)
+            .map { $0.map { $0.imageUrl } }
+            .bind(to: completeToonScrollView.rx.selectedUrls)
+            .disposed(by: disposeBag)
         
         reactor.state.map { $0.isSuccessSave }
             .bind { [weak self] isSuccess in

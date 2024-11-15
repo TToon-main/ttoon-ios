@@ -51,7 +51,7 @@ extension CharacterPickerBSViewController: View {
     }
     
     func bindAction(reactor: CharacterPickerBSReactor) {
-        rx.viewWillAppear
+        rx.viewDidLoad
             .map { _ in CharacterPickerBSReactor.Action.refreshCharacterList}
 			.bind(to: reactor.action)
             .disposed(by: disposeBag)

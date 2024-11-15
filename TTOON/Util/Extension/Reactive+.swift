@@ -31,7 +31,7 @@ extension Reactive where Base: UIViewController {
     }
     
     var viewWillAppear: Observable<Bool> {
-        let source = self.methodInvoked(#selector(Base.viewDidLoad)).map { $0.first as? Bool ?? false }
+        let source = self.methodInvoked(#selector(Base.viewWillAppear)).map { $0.first as? Bool ?? false }
         return ControlEvent(events: source).asObservable()
     }
     var viewDidAppear: Observable<Bool> {

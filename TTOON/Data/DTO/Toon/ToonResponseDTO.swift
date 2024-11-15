@@ -29,4 +29,8 @@ struct CharacterResponseDTO: Codable {
 struct PostToonResponseDTO: Codable {
     let feedId: Int64
     let imageUrls: [String]
+    
+    func toDomain() -> SaveToon {
+        return .init(imageUrls: imageUrls.compactMap { URL(string: $0)}, feedId: "\(feedId)")
+    }
 }
