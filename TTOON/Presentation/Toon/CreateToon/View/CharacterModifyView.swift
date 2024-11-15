@@ -89,11 +89,9 @@ extension Reactive where Base: CharacterModifyView {
                 
                 let name = item.name
                 let id = item.id
-                
                 let model = DeleteCharacter.init(id: id, name: name)
                 
                 let action = CharacterModifyReactor.Action.deletedCharacterTap(model)
-                
                 return .just(action) 
             }
     }

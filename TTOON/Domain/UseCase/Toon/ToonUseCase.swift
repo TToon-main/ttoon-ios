@@ -14,7 +14,7 @@ protocol ToonUseCaseProtocol {
     func addCharacter(model: AddCharacter) -> Observable<Int64?>
     func deleteCharacter(id: String) -> Observable<Bool>
     func patchCharacter(model: ModifyCharacter) -> Observable<Int64?>
-    func createToon(model: CreateToon) -> Observable<[String]>
+    func createToon(model: CreateToon) -> Observable<ToonUseCase.SaveToonStatus>
     func saveToon(model: SaveToon) -> Observable<Bool>
 }
 
@@ -23,6 +23,11 @@ class ToonUseCase: ToonUseCaseProtocol {
     
     init(repo: ToonRepositoryProtocol) {
         self.repo = repo
+    }
+    
+    enum SaveToonStatus {
+        case valid(SaveToon)
+        case error
     }
     
     func characterList() -> Observable<CharacterList> {
@@ -93,22 +98,21 @@ class ToonUseCase: ToonUseCaseProtocol {
         return .merge(success, error)
     }
     
-    func createToon(model: CreateToon) -> Observable<[String]> {
+    func createToon(model: CreateToon) -> Observable<SaveToonStatus> {
         let dto = model.toDTO()
         
         let request = repo.postToon(dto: dto)
             .share()
         
         let success = request.compactMap { $0.element }
-            .map { $0.imageUrls }
-            .do { print("디버그 응답", $0)}
-    
+            .map { $0.toDomain()}
+            .map { SaveToonStatus.valid($0) }
+
         let error = request
             .compactMap { $0.error }
-            .do { print("디버그 에러", $0)}
-            .map { _ in return [String]()}
+            .map { SaveToonStatus.error }
 
-        return .merge(success, error)
+        return success
     }
     
     func saveToon(model: SaveToon) -> Observable<Bool> {

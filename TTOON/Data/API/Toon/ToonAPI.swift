@@ -76,7 +76,7 @@ extension ToonAPI: TargetType {
         case .postSaveToon(let dto):
             
             let params: [String: Any] = [
-                "imageUrls": dto.imageUrls.map { "\($0)" },
+                "imageUrls": dto.imageUrls,
             ]
             
             return .requestParameters(parameters: params, encoding: JSONEncoding.prettyPrinted)

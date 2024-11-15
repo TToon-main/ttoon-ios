@@ -165,19 +165,20 @@ class HomeCalendarReactor: Reactor {
             return .just(.pass)
             
         case .createToon(let model):
-            
-            // TODO: 임시 코드
-            let model = CreateToon.mockUp()
-            
-//            return toonUseCase.createToon(model: model)
-//                .map { .setPresentCreateToonToast(.complete(urls: $0))}
-            
-            return .just(.setPresentCreateToonToast(.complete(model: SaveToon(imageUrls: [], feedId: ""))))
+        
+            return toonUseCase.createToon(model: model)
+                .map { status in
+                    switch status {
+                    case .valid(let saveToon):
+                            .setPresentCreateToonToast(.complete(model: saveToon))
+
+                    case .error:
+                            .setPresentCreateToonToast(.idle)
+                    }
+                }
             
         case .presentCreatingToast:
-//            return .just(.setPresentCreateToonToast(.ing))
-            
-            return .just(.setPresentCreateToonToast(.complete(model: SaveToon(imageUrls: [], feedId: ""))))
+            return .just(.setPresentCreateToonToast(.ing))
             
         case .completeToastTap(let model):
             didSendEventClosure?(.showCompleteCreateToonView(model: model))
@@ -217,6 +218,7 @@ class HomeCalendarReactor: Reactor {
     
     func fetchNewState(state: State) -> State {
         var new = state
+            new.presentCreateToonToast = .idle
         
         return new
     }

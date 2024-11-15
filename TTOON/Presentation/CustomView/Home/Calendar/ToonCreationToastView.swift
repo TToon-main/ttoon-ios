@@ -138,7 +138,7 @@ class ToonCreationToastView: BaseView {
         case .complete(let model):
             creationIconImageView.isHidden = true
             upIconImageView.isHidden = false
-            titleLabel.text = "만화가 완성되었어요! 확인해보러 갈까요?!"
+            titleLabel.text = "만화가 완성되었어요! 확인해보러 갈까요?"
             button.isEnabled = true
             self.model = model
             animateBorderGradation()
@@ -221,6 +221,5 @@ extension Reactive  where Base: ToonCreationToastView {
     var buttonTap: Observable<SaveToon> {
         return base.button.rx.tap
             .compactMap { _ in base.model}
-//            .filter { !$0.isEmpty } //TODO: - 화면 작업 위해 임시로 대응
     }
 }

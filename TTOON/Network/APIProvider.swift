@@ -18,7 +18,7 @@ class APIProvider<T: TargetType> {
     let requestClosure = { (endpoint: Endpoint, done: MoyaProvider.RequestResultClosure) in
         do {
             var request = try endpoint.urlRequest()
-            request.timeoutInterval = 300
+            request.timeoutInterval = 1800
             
             done(.success(request))
         } catch {

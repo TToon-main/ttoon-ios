@@ -29,11 +29,6 @@ class CharacterModifyViewController: BaseViewController {
         view = characterModifyView
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        reactor?.action.onNext(.refreshList)
-    }
-    
     override func configures() {
         setNavigationItem()
     }
@@ -95,6 +90,17 @@ extension CharacterModifyViewController: View {
     }
     
     func bindAction(reactor: CharacterModifyReactor) {
+        rx.viewDidLoad
+            .map { _ in CharacterModifyReactor.Action.refreshList}
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        rx.viewWillAppear
+            .skip(1)
+            .map { _ in CharacterModifyReactor.Action.refreshList}
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
         characterModifyView.rx.deletedCharacterTap
             .bind(to: reactor.action)
             .disposed(by: disposeBag)

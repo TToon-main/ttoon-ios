@@ -31,6 +31,6 @@ struct PostToonRequestDTO: Encodable {
 }
 
 struct PostSaveToonRequestDTO: Encodable {
-    let imageUrls: [URL]
+    let imageUrls: [String]
     let feedId: String
 }
