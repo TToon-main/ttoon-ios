@@ -96,6 +96,14 @@ extension SearchFriendViewController {
                 owner.mainView.showNoDataView(show: list.isEmpty)
             }
             .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.alreadyRequestedUserNickname }
+            .subscribe(with: self) { owner, value in
+                if !value.isEmpty {
+                    owner.showBottomSheet(nickname: value)
+                }
+            }
+            .disposed(by: disposeBag)
     }
 }
 
@@ -116,5 +124,26 @@ extension SearchFriendViewController {
     }
     private func setSearchBar() {
         mainView.searchBar.delegate = self
+    }
+    
+    // 이미 요청을 받은 유저일 때, 바텀시트
+    private func showBottomSheet(nickname: String) {
+        let vc = FriendListPopUpBottomSheetViewController(
+            title: "'\(nickname)'님에게 \n친구 신청을 받은 상태에요",
+            subTitle: "친구 신청을 수락하러 가보세요!",
+            image: TNImage.highFive_color!,
+            confirmButtonTitle: "확인",
+            cancelButtonTitle: nil
+        )
+                
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.custom { _ in return 368 } ]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        
+        present(vc, animated: true, completion: nil)
     }
 }

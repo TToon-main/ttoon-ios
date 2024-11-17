@@ -24,6 +24,7 @@ class SearchFriendReactor: Reactor {
     enum Mutation {
         case setSearchText(String)
         case setUserList([SearchedUserInfoModel], Int)  // 새롭게 받은 리스트, 다음 페이지 번호
+        case showAlreadyRequestedFriendBottomSheet(String)
         case pass
     }
     
@@ -31,6 +32,9 @@ class SearchFriendReactor: Reactor {
         var searchText: String = ""
         var searchedUserList: [SearchedUserInfoModel] = []
         var page: Int = 0   // "다음"에 요청할 페이지 번호
+        
+        // 이미 요청을 받은 유저에 대한 처리
+        var alreadyRequestedUserNickname = ""   // 닉네임 값 바뀌면 바텀시트 띄우는 로직 (빈 문자열일 때는 x)
     }
     
     let initialState = State()
@@ -86,12 +90,14 @@ class SearchFriendReactor: Reactor {
             
             
         case .requestFriend(let nickname):
+            
             return searchFriendUseCase.requestFriend(nickname)
                 .asObservable()
                 .map { result in
                     switch result {
                     case .success(let value):
-                        if value {
+                        // 1. 요청 성공
+                        if value == .success {
                             print("request success")
                             
                             // 배열 업데이트
@@ -110,7 +116,16 @@ class SearchFriendReactor: Reactor {
                             let curPage = self.currentState.page
                             
                             return .setUserList(newList, curPage)
-                        } else {
+                        }
+                        
+                        // 2. 이미 상대방이 요청함
+                        else if value == .alreadyReceivedRequest {
+                            // 바텀시트 보여줘야 함
+                            // \(nickname)님에게 친구 신청을 받은 상태에요
+                            return .showAlreadyRequestedFriendBottomSheet(nickname)
+                        }
+                        
+                        else {
                             print("request fail")
                             return .pass
                         }
@@ -134,6 +149,8 @@ class SearchFriendReactor: Reactor {
             newState.searchedUserList = searchedUserList
             newState.page = newPage
             
+        case .showAlreadyRequestedFriendBottomSheet(let nickname):
+            newState.alreadyRequestedUserNickname = nickname
     
         case .pass:
             print("Error. pass case")
