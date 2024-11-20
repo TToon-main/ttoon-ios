@@ -19,6 +19,7 @@ struct ContactUsRequestModel {
 
 // 탈퇴하기 - 요청
 struct DeleteAccountRequestModel {
+    let authorizationCode: String?
     let revokeReason: String
 }
 

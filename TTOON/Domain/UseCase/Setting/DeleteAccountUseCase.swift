@@ -12,7 +12,7 @@ import RxSwift
 protocol DeleteAccountUseCaseProtocol {
     // 네트워크
     func deleteAccountRequest(_ requestModel: DeleteAccountRequestModel) -> Single<Result<Bool, Error>>
-    func getNickname() -> Single<Result<String, Error>>
+    func getUserInfo() -> Single<Result<UserInfoResponseModel, Error>>
     
     // 기타 로직
 }
@@ -31,8 +31,8 @@ class DeleteAccountUseCase: DeleteAccountUseCaseProtocol {
         return repo.deleteAccountRequest(requestModel)
     }
     
-    func getNickname() -> Single<Result<String, Error>> {
-        return repo.getNickname()
+    func getUserInfo() -> Single<Result<UserInfoResponseModel, Error>> {
+        return repo.getUserInfo()
     }
     
     // 3-2. protocol method - logic
