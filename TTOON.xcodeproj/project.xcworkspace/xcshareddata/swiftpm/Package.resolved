@@ -1,13 +1,12 @@
 {
-  "originHash" : "784a9ee2be00560fc37ee6eed669e26926f3a5b88cf411ab1dd4ad9796feb806",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/abseil-cpp-binary.git",
       "state" : {
-        "revision" : "748c7837511d0e6a507737353af268484e1745e2",
-        "version" : "1.2024011601.1"
+        "revision" : "194a6706acbd25e4ef639bcaddea16e8758a3e27",
+        "version" : "1.2024011602.0"
       }
     },
     {
@@ -15,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Alamofire/Alamofire.git",
       "state" : {
-        "revision" : "f455c2975872ccd2d9c81594c658af65716e9b9a",
-        "version" : "5.9.1"
+        "revision" : "e16d3481f5ed35f0472cb93350085853d754913f",
+        "version" : "5.10.1"
       }
     },
     {
@@ -42,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/firebase-ios-sdk",
       "state" : {
-        "revision" : "03189348b7798fe94b892a35883f1dc745814fe0",
-        "version" : "10.28.0"
+        "revision" : "eca84fd638116dd6adb633b5a3f31cc7befcbb7d",
+        "version" : "10.29.0"
       }
     },
     {
@@ -51,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/layoutBox/FlexLayout.git",
       "state" : {
-        "revision" : "e71c04fa45360c161f57850769e44a6139b329aa",
-        "version" : "2.0.9"
+        "revision" : "0ceb4f5e3da86b6f2988eed7ee7a09296a193dd9",
+        "version" : "2.1.0"
       }
     },
     {
@@ -114,8 +113,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/gtm-session-fetcher.git",
       "state" : {
-        "revision" : "0382ca27f22fb3494cf657d8dc356dc282cd1193",
-        "version" : "3.4.1"
+        "revision" : "a2ab612cb980066ee56d90d60d8462992c07f24b",
+        "version" : "3.5.0"
       }
     },
     {
@@ -213,8 +212,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kakao/kakao-ios-sdk.git",
       "state" : {
-        "revision" : "e9e649d3ba823c3673867d3d09010fc77005a940",
-        "version" : "2.22.3"
+        "revision" : "ab4309c1950550add307046ad1e08024c7514603",
+        "version" : "2.23.0"
       }
     },
     {
@@ -222,8 +221,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kakao/kakao-ios-sdk-rx",
       "state" : {
-        "revision" : "37ac7e289fea5f62b3b1f62d06290a18a202a5b0",
-        "version" : "2.22.3"
+        "revision" : "fa5ce05d610c4b026df8d42e891a32f31a239d58",
+        "version" : "2.23.0"
       }
     },
     {
@@ -330,8 +329,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ReactiveX/RxSwift.git",
       "state" : {
-        "revision" : "b06a8c8596e4c3e8e7788e08e720e3248563ce6a",
-        "version" : "6.7.1"
+        "revision" : "c7c7d2cf50a3211fe2843f76869c698e4e417930",
+        "version" : "6.8.0"
       }
     },
     {
@@ -339,14 +338,14 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/getsentry/sentry-cocoa.git",
       "state" : {
-        "revision" : "e2ac1723a4a9632e291c171b6e25a0c403b0fecb",
-        "version" : "8.35.0"
+        "revision" : "0ffc3c6287461962cb2a81e57fc0ee0335d8d56a",
+        "version" : "8.40.1"
       }
     },
     {
       "identity" : "skeletonview",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Juanpe/SkeletonView",
+      "location" : "https://github.com/Juanpe/SkeletonView.git",
       "state" : {
         "revision" : "2f5274827d310e32c09325dd3e0007120940988e",
         "version" : "1.31.0"
@@ -366,8 +365,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-protobuf.git",
       "state" : {
-        "revision" : "9f0c76544701845ad98716f3f6a774a892152bcb",
-        "version" : "1.26.0"
+        "revision" : "ebc7251dd5b37f627c93698e4374084d98409633",
+        "version" : "1.28.2"
       }
     },
     {
@@ -405,7 +404,16 @@
         "revision" : "cb05d64cef2bbf51e85c53adee937df46540a74e",
         "version" : "1.2.1"
       }
+    },
+    {
+      "identity" : "yoga",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/facebook/yoga.git",
+      "state" : {
+        "revision" : "69b8934429702bd3ab06e8d6f709112a761b474b",
+        "version" : "3.1.0"
+      }
     }
   ],
-  "version" : 3
+  "version" : 2
 }
