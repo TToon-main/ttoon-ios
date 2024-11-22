@@ -187,7 +187,7 @@ class HomeCalendarReactor: Reactor {
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
-        var newState = fetchNewState(state: state)
+        var newState = state
         
         switch mutation {
         case .pass:
@@ -214,13 +214,6 @@ class HomeCalendarReactor: Reactor {
         }
         
         return newState
-    }
-    
-    func fetchNewState(state: State) -> State {
-        var new = state
-            new.presentCreateToonToast = .idle
-        
-        return new
     }
 }
 

@@ -118,7 +118,7 @@ extension HomeCalendarViewController {
             .subscribe(with: self) { owner, _ in
                 let curDate = reactor.currentState.currentDate
                 let curYearMonth = reactor.currentState.currentYearMonth
-//                reactor.action.onNext(.loadFeedDetail(curDate))
+                reactor.action.onNext(.loadFeedDetail(curDate))
                 reactor.action.onNext(.loadCalendarThumbnails(curYearMonth))
             }
             .disposed(by: disposeBag)
@@ -177,7 +177,7 @@ extension HomeCalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
         }
         
         // 새로운 피드 네트워크 콜
-//        self.reactor?.action.onNext(.loadFeedDetail(date))
+        self.reactor?.action.onNext(.loadFeedDetail(date))
         
         // 컬렉션뷰 위치 초기화
         mainView.bottomDiaryView.diaryImageSwipeCollectionView.setContentOffset(CGPoint(x: -16, y: 0), animated: false)
@@ -308,6 +308,6 @@ extension HomeCalendarViewController {
         let initialDate = Date()
         
         self.reactor?.action.onNext(.loadCalendarThumbnails(initialDate.toString(of: .yearMonthKorean)))
-//        self.reactor?.action.onNext(.loadFeedDetail(initialDate))
+        self.reactor?.action.onNext(.loadFeedDetail(initialDate))
     }
 }
