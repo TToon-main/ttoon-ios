@@ -197,16 +197,18 @@ extension HomeCalendarViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let idf = BottomDiaryImageSwipeCollectionViewCell.description()
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: idf, for: indexPath) as? BottomDiaryImageSwipeCollectionViewCell else { return UICollectionViewCell() }
-        
-        if let imageStr = self.reactor?.currentState.currentFeedDetail?.imageList[indexPath.row],
-           let url = URL(string: imageStr)
-        {
-            cell.imageView.loadWithKF(url: url)
-        }
-        
-        return cell
+       let idf = BottomDiaryImageSwipeCollectionViewCell.description()
+       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: idf, for: indexPath) as? BottomDiaryImageSwipeCollectionViewCell else {
+           return UICollectionViewCell()
+       }
+
+       if let imageList = reactor?.currentState.currentFeedDetail?.imageList,
+          indexPath.row < imageList.count,
+          let url = URL(string: imageList[indexPath.row]) {
+           cell.imageView.loadWithKF(url: url)
+       }
+       
+       return cell
     }
     
     func scrollViewWillEndDragging(
