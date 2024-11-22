@@ -36,7 +36,7 @@ class ReceivedFriendRequestRepository: NSObject, ReceivedFriendRequestRepository
             // 1. dto 변환 없음
             
             // 2. 요청
-            let request = self.provider.auth.request(.receivedRequestList(page: page)) { result in
+            let request = self.provider.log.request(.receivedRequestList(page: page)) { result in
                 switch result {
                 case .success(let response):
                     if let data = try? response.map(ResponseDTO<[UserInfoDTO]>.self),

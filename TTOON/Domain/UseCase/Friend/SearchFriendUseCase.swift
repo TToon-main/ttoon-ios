@@ -12,7 +12,7 @@ import RxSwift
 protocol SearchFriendUseCaseProtocol {
     // 네트워크
     func searchUserList(_ requestModel: UserListRequestModel) -> Single< Result<[SearchedUserInfoModel], Error> >
-    func requestFriend(_ nickname: String) -> Single<Result<Bool, Error>>
+    func requestFriend(_ nickname: String) -> Single<Result<ReqeustFriendResult, Error>>
 }
 
 class SearchFriendUseCase: SearchFriendUseCaseProtocol {
@@ -29,7 +29,7 @@ class SearchFriendUseCase: SearchFriendUseCaseProtocol {
         return repo.searchUserList(requestModel)
     }
     
-    func requestFriend(_ nickname: String) -> RxSwift.Single<Result<Bool, Error>> {
+    func requestFriend(_ nickname: String) -> RxSwift.Single<Result<ReqeustFriendResult, Error>> {
         return repo.requestFriend(nickname)
     }
     
