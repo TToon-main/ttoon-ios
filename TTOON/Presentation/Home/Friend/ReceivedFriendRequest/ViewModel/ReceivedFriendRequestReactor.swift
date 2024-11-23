@@ -27,12 +27,15 @@ class ReceivedFriendRequestReactor: Reactor {
     
     enum Mutation {
         case setReceivedRequestList([UserInfoModel], Int)   // 새로운 리스트, 다음 페이지 번호
+        case setResult(type: FriendToastView.Status, nickname: String)
         case pass
     }
     
     struct State {
         var receivedRequestList: [UserInfoModel] = []
         var page: Int = 0
+        
+        var result: ReceivedFriendRequestReactor.Result = .init(type: .accept, nickname: "")
     }
     
     let initialState = State()
@@ -79,26 +82,34 @@ class ReceivedFriendRequestReactor: Reactor {
             // 네트워크 통신
             return receivedFriendRequestUseCase.acceptFriendRequest(id)
                 .asObservable()
-                .map { result in
+                .flatMap { [self] result in
                     switch result {
                     case .success(let value):
                         if value {
                             print("accpet success")
+                            // 수락한 유저 닉네임
+                            let nickname = getNicknameFromArr(id, arr: self.currentState.receivedRequestList)
+                            
                             // 배열 업데이트
                             let newList = self.currentState.receivedRequestList.filter { $0.friendId != id }
                             
                             // 페이지
                             let curPage = self.currentState.page
                             
-                            self.reloadFriendListCallBack?()  // 친구 목록 탭 리스트 업데이트
-                            return .setReceivedRequestList(newList, curPage)
+                            // 친구 목록 탭 리스트 업데이트
+                            self.reloadFriendListCallBack?()
+                            
+                            return Observable.concat([
+                                Observable.just(.setReceivedRequestList(newList, curPage)),
+                                Observable.just(Mutation.setResult(type: .accept, nickname: nickname))
+                            ])
                         } else {
-                            return .pass
+                            return .just(.pass)
                         }
                         
                     case .failure(let error):
                         print("Error : :\(error)")
-                        return .pass
+                        return .just(.pass)
                     }
                 }
                             
@@ -106,25 +117,32 @@ class ReceivedFriendRequestReactor: Reactor {
             // 네트워크 통신
             return receivedFriendRequestUseCase.rejectFriendRequest(id)
                 .asObservable()
-                .map { result in
+                .flatMap { [self] result in
                     switch result {
                     case .success(let value):
                         if value {
                             print("reject success")
+                            // 거절한 유저 닉네임
+                            let nickname = getNicknameFromArr(id, arr: self.currentState.receivedRequestList)
+                            
                             // 배열 업데이트
                             let newList = self.currentState.receivedRequestList.filter { $0.friendId != id }
                             
                             // 페이지
                             let curPage = self.currentState.page
                             
-                            return .setReceivedRequestList(newList, curPage)
+                            
+                            return Observable.concat([
+                                Observable.just(Mutation.setReceivedRequestList(newList, curPage)),
+                                Observable.just(Mutation.setResult(type: .reject, nickname: nickname))
+                            ])
                         } else {
-                            return .pass
+                            return .just(Mutation.pass)
                         }
                         
                     case .failure(let error):
                         print("Error : :\(error)")
-                        return .pass
+                        return .just(Mutation.pass)
                     }
                 }
         }
@@ -137,7 +155,11 @@ class ReceivedFriendRequestReactor: Reactor {
         case .setReceivedRequestList(let requestList, let page):
             newState.receivedRequestList = requestList
             newState.page = page
-
+            
+        case .setResult(let type, let nickname):
+            newState.result = Result(type: type, nickname: nickname)
+        
+            
         case .pass:
             print("pass")
         }
@@ -151,5 +173,18 @@ extension ReceivedFriendRequestReactor {
     // 친구 수락 or 거절 시 배열에서 id 찾아서 제거 후 리턴
     private func removeRequestFromArr(_ id: Int, arr: [UserInfoModel]) -> [UserInfoModel] {
         return arr.filter { $0.friendId != id }
+    }
+    
+    // id가지고 배열에서 해당 유저의 닉네임 리턴
+    private func getNicknameFromArr(_ id: Int, arr: [UserInfoModel]) -> String {
+        return arr.first { $0.friendId == id }?.nickname ?? ""
+    }
+}
+
+
+extension ReceivedFriendRequestReactor {
+    struct Result: Equatable {
+        let type: FriendToastView.Status
+        let nickname: String
     }
 }
