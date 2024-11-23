@@ -43,7 +43,7 @@ extension AppDelegate {
     private func setUpSDK() {
         // Firebase Analytics
         FirebaseApp.configure()
-        //        Analytics.logEvent(AnalyticsEventAppOpen, parameters: nil)
+        Analytics.logEvent(AnalyticsEventAppOpen, parameters: nil)
         
         // Kakao Login
         let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] as? String

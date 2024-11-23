@@ -74,6 +74,7 @@
 		48504F8F2CCFBCF80038F1FE /* LikeUserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48504F8E2CCFBCF80038F1FE /* LikeUserListView.swift */; };
 		48563B7C2CABA883008E308D /* TestMakeTToonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48563B7B2CABA883008E308D /* TestMakeTToonManager.swift */; };
 		4863C3E62CF1AFC100BD27B7 /* FriendToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863C3E52CF1AFC100BD27B7 /* FriendToastView.swift */; };
+		4863C3E82CF202E700BD27B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4863C3E72CF202E700BD27B7 /* GoogleService-Info.plist */; };
 		486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */; };
 		486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */; };
 		489ADEED2BF8E72700B070B7 /* SettingTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */; };
@@ -347,7 +348,6 @@
 		BEE8BCD12C71FFF5003800E0 /* SelectYearMonthBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCBF2C71FFF5003800E0 /* SelectYearMonthBottomSheetViewController.swift */; };
 		BEE8BCD22C71FFF5003800E0 /* HomeCalendarReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCC12C71FFF5003800E0 /* HomeCalendarReactor.swift */; };
 		BEE8BCD32C71FFF5003800E0 /* FeedSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCC42C71FFF5003800E0 /* FeedSceneCoordinator.swift */; };
-		BEE8BCD52C720106003800E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEE8BCD42C720106003800E0 /* GoogleService-Info.plist */; };
 		BEE8BCDA2C720114003800E0 /* Prod.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEE8BCD72C720114003800E0 /* Prod.xcconfig */; };
 		BEE8BCDB2C720114003800E0 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEE8BCD82C720114003800E0 /* Dev.xcconfig */; };
 		BEE8BCDC2C720114003800E0 /* Stag.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEE8BCD92C720114003800E0 /* Stag.xcconfig */; };
@@ -424,6 +424,7 @@
 		48504F8E2CCFBCF80038F1FE /* LikeUserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeUserListView.swift; sourceTree = "<group>"; };
 		48563B7B2CABA883008E308D /* TestMakeTToonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMakeTToonManager.swift; sourceTree = "<group>"; };
 		4863C3E52CF1AFC100BD27B7 /* FriendToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendToastView.swift; sourceTree = "<group>"; };
+		4863C3E72CF202E700BD27B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTitleLabel.swift; sourceTree = "<group>"; };
@@ -729,7 +730,6 @@
 		BEE8BCBF2C71FFF5003800E0 /* SelectYearMonthBottomSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectYearMonthBottomSheetViewController.swift; sourceTree = "<group>"; };
 		BEE8BCC12C71FFF5003800E0 /* HomeCalendarReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCalendarReactor.swift; sourceTree = "<group>"; };
 		BEE8BCC42C71FFF5003800E0 /* FeedSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedSceneCoordinator.swift; sourceTree = "<group>"; };
-		BEE8BCD42C720106003800E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BEE8BCD72C720114003800E0 /* Prod.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
 		BEE8BCD82C720114003800E0 /* Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		BEE8BCD92C720114003800E0 /* Stag.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Stag.xcconfig; sourceTree = "<group>"; };
@@ -1661,7 +1661,7 @@
 				BEA8BB4C2BB86323000F9C15 /* Localization */,
 				BE36CF962BAFF58A0017F94E /* Assets.xcassets */,
 				BE36CF9B2BAFF58A0017F94E /* Info.plist */,
-				BEE8BCD42C720106003800E0 /* GoogleService-Info.plist */,
+				4863C3E72CF202E700BD27B7 /* GoogleService-Info.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -2747,9 +2747,9 @@
 				BEE8BCDB2C720114003800E0 /* Dev.xcconfig in Resources */,
 				BE97609B2C29A5F900EDAEA0 /* toonLottie.json in Resources */,
 				BE9BBC112BCA529A006FD848 /* Pretendard-Black.otf in Resources */,
+				4863C3E82CF202E700BD27B7 /* GoogleService-Info.plist in Resources */,
 				BEE8BCDC2C720114003800E0 /* Stag.xcconfig in Resources */,
 				BEE8BCDA2C720114003800E0 /* Prod.xcconfig in Resources */,
-				BEE8BCD52C720106003800E0 /* GoogleService-Info.plist in Resources */,
 				BE9BBC262BCA529A006FD848 /* Pretendard-Thin.otf in Resources */,
 				BE36CF972BAFF58A0017F94E /* Assets.xcassets in Resources */,
 				BE9BBC202BCA529A006FD848 /* Pretendard-SemiBold.otf in Resources */,
