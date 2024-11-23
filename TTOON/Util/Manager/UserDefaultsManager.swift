@@ -12,6 +12,8 @@ enum UserDefaultsManager {
     enum Key: String {
         case onlyMyFeed
         case mainCharacterId
+        case toonInfoTitle
+        case toonInfoContents
     }
     
     static var onlyMyFeed: Bool {
@@ -30,6 +32,26 @@ enum UserDefaultsManager {
         
         set {
             UserDefaults.standard.set(newValue, forKey: Key.mainCharacterId.rawValue)
+        }
+    }
+    
+    static var toonInfoTitle: String {
+        get {
+            UserDefaults.standard.string(forKey: Key.toonInfoTitle.rawValue) ?? ""
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: Key.toonInfoTitle.rawValue)
+        }
+    }
+    
+    static var toonInfoContents: String {
+        get {
+            UserDefaults.standard.string(forKey: Key.toonInfoContents.rawValue) ?? ""
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: Key.toonInfoContents.rawValue)
         }
     }
 }

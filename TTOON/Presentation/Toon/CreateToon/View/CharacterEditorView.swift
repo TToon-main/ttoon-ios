@@ -136,11 +136,11 @@ class CharacterEditorView: BaseView {
             $0.height.equalTo(98)
         }
         
-        confirmButton.snp.makeConstraints { make in
-            make.top.equalTo(switchView.snp.bottom).offset(19)
-            make.horizontalEdges.equalToSuperview().inset(16)
-            make.height.equalTo(52)
-            make.bottom.equalToSuperview().offset(-44)
+        confirmButton.snp.makeConstraints {
+            $0.top.greaterThanOrEqualTo(switchView.snp.bottom).offset(19)
+            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.height.equalTo(52)
+            $0.bottom.equalToSuperview().offset(-44)
         }
     }
     

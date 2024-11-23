@@ -37,19 +37,25 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
         showCalendarView()
     }
     
+    let homeReactor = HomeCalendarReactor(HomeCalendarUseCase(HomeCalendarRepository()), toonUseCase: ToonUseCase(repo: ToonRepository()))
+    lazy var homeVC = HomeCalendarViewController(reactor: homeReactor)
+    
     // Protocol Method
     func showCalendarView() {
-        let reactor = HomeCalendarReactor(HomeCalendarUseCase(HomeCalendarRepository()))
-        let vc = HomeCalendarViewController(reactor: reactor)
-        
-        reactor.didSendEventClosure = { [weak self] event in
+        homeReactor.didSendEventClosure = { [weak self] event in
             switch event {
             case .showFriendListView:
                 self?.showFriendListView()
+                
+            case .showCreateToonView:
+                self?.showCreateToonView()
+
+            case .showCompleteCreateToonView(let urls):
+                self?.showCompleteCreateToonView(urls)
             }
         }
         
-        navigationController.pushViewController(vc, animated: true)
+        navigationController.pushViewController(homeVC, animated: true)
     }
     
     
@@ -66,11 +72,69 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    
+    func showCreateToonView() {
+        let repo = ToonRepository()
+        let useCase = ToonUseCase(repo: repo)
+        let reactor = EnterInfoReactor(useCase: useCase)
+        reactor.delegate = self.homeReactor 
+        
+        let vc = EnterInfoViewController(reactor: reactor)
+        vc.hidesBottomBarWhenPushed = true
+        
+        navigationController.navigationBar.topItem?.backButtonTitle = ""
+        navigationController.navigationBar.tintColor = .black
+        navigationController.pushViewController(vc, animated: true)
+    }
+
     func showSearchFriendView() {
         let vc = SearchFriendViewController(reactor: SearchFriendReactor(SearchFriendUseCase(SearchFriendRepository())))
-        
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+//    private func showCompleteCreateToonView(_ model: SaveToon) {
+//        let vc = CompleteCreateToonViewController(model: model)
+//        let nav = UINavigationController(rootViewController: vc)
+//        nav.modalPresentationStyle = .overFullScreen
+//        
+//        vc.didSendEventClosure = { [weak self] event in
+//            switch event {
+//            case .showCompleteToonView(let urls):
+//                
+//                let reactor = CompleteToonReactor(model: model)
+//                let vc = CompleteToonViewController(reactor: reactor)
+//                vc.navigationController?.isNavigationBarHidden = false
+//                vc.setNavigationItem(title: "네컷만화 완성하기")
+//                vc.modalPresentationStyle = .overFullScreen
+//                
+//                nav.pushViewController(vc, animated: true)
+//            }
+//        }
+//        
+//        
+//        navigationController.present(nav, animated: true)
+//    }
+    
+    private func showCompleteCreateToonView(_ model: SaveToon) {
+        let vc = CompleteCreateToonViewController(model: model)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .overFullScreen
+        
+        vc.didSendEventClosure = { [weak self] event in
+            switch event {
+            case .showCompleteToonView(let urls):
+                let reactor = CompleteToonReactor(model: model)
+                let vc = CompleteToonViewController(reactor: reactor)
+                nav.pushViewController(vc, animated: true)
+            }
+        }
+        
+        navigationController.present(nav, animated: true)
+    }
+    
+    func setNavigationItem(title: String) {
+        self.navigationController.navigationItem.title = title
+        self.navigationController.navigationItem.backButtonTitle = ""
+        self.navigationController.navigationBar.tintColor = UIColor.black
     }
 }
 extension CalendarSceneCoordinator: CoordinatorFinishDelegate {

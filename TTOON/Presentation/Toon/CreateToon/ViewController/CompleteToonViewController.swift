@@ -25,37 +25,16 @@ class CompleteToonViewController: CreateToonBaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func loadView() {
+        view = completeToonScrollView
+    }
+    
+    
     override func configures() {
         super.configures()
+        self.navigationController?.navigationBar.isHidden = false
         setNavigationItem(title: "네컷만화 완성하기")
         view.backgroundColor = .white
-        completeToonScrollView.completeToonView.setUpView(isCompleted: false)
-        bindMockUp()
-    }
-    
-    override func layouts() {
-        super.layouts()
-        view.addSubview(completeToonScrollView)
-        
-        completeToonScrollView.snp.makeConstraints { 
-            $0.top.equalTo(progressContainer.snp.bottom)
-            $0.bottom.horizontalEdges.equalToSuperview()
-        }
-    }
-    
-    func bindMockUp() {
-        let mockUpData = [
-            CreateToonCompleteToonCollectionViewCellDataSource(isSelected: false),
-            CreateToonCompleteToonCollectionViewCellDataSource(isSelected: true),
-            CreateToonCompleteToonCollectionViewCellDataSource(isSelected: false)]
-        
-        Observable.just(mockUpData)
-            .bind(to: completeToonScrollView.completeToonView.selectToonCollectionView.rx.items(
-                cellIdentifier: CreateToonCompleteToonCollectionViewCell.IDF,
-                cellType: CreateToonCompleteToonCollectionViewCell.self)) { index, item, cell in
-                    cell.setCell(item)
-            }
-                .disposed(by: disposeBag)
     }
 }
 
@@ -66,12 +45,56 @@ extension CompleteToonViewController: View {
     }
     
     private func bindAction(reactor: CompleteToonReactor) {
+        rx.viewDidLoad
+            .map { CompleteToonReactor.Action.viewDidLoad }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        completeToonScrollView.rx.selectedIndex
+            .map { CompleteToonReactor.Action.selectedIndex($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        completeToonScrollView.rx.confirmButtonTap
+            .map { CompleteToonReactor.Action.confirmButtonTap }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     private func bindState(reactor: CompleteToonReactor) {
-        reactor.state
-            .map { $0.currentOrder }
-            .bind(to: completeToonScrollView.completeToonView.rx.selectOrder)
+        reactor.state.compactMap { $0.list }
+            .bind(to: completeToonScrollView.completeToonView.selectToonCollectionView.rx.items(
+                cellIdentifier: CreateToonCompleteToonCollectionViewCell.IDF,
+                cellType: CreateToonCompleteToonCollectionViewCell.self)) { index, item, cell in
+                    cell.setCell(item)
+            }
+                .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.selectedUrls }
+            .bind(to: completeToonScrollView.rx.selectedUrls)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isEnabledConfirmButton }
+            .bind(to: completeToonScrollView.rx.isEnabledConfirmButton)
+            .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.presentSaveToonVC }
+            .subscribe(onNext: { [weak self] model in
+                guard let self = self else { return }
+                
+                let repo = ToonRepository()
+                let useCase = ToonUseCase(repo: repo)
+                let reactor = SaveToonReactor(model: model, useCase: useCase)
+                let vc = SaveToonViewController(reactor: reactor)
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.currentProgress }
+            .distinctUntilChanged()
+            .skip(1)
+            .bind(to: rx.currentProgress)
             .disposed(by: disposeBag)
     }
 }

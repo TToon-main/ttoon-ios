@@ -19,8 +19,7 @@ class HomeCalendarViewController: BaseViewController, View {
     // MARK: - UI Component (View)
     let mainView = HomeCalendarView()
     let ttoonNavigationView = TToonLogHomeNavigationView()
-    
-    
+
     init(reactor: HomeCalendarReactor) {
         super.init(nibName: nil, bundle: nil)
         
@@ -83,6 +82,12 @@ extension HomeCalendarViewController {
             }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        
+        mainView.rx.completeToastTap
+            .map { HomeCalendarReactor.Action.completeToastTap($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
     
     func bindState(reactor: HomeCalendarReactor) {
@@ -117,6 +122,12 @@ extension HomeCalendarViewController {
                 reactor.action.onNext(.loadCalendarThumbnails(curYearMonth))
             }
             .disposed(by: disposeBag)
+        
+        
+        reactor.state.map { $0.presentCreateToonToast }
+            .distinctUntilChanged()
+            .bind(to: mainView.rx.setCreatToonToastStatus)
+            .disposed(by: disposeBag)
     }
 }
 
@@ -129,7 +140,7 @@ extension HomeCalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
         guard let cell = calendar.dequeueReusableCell(withIdentifier: TToonCalendarCell.description(), for: date, at: position) as? TToonCalendarCell else { return FSCalendarCell() }
-                
+        
         // 1. current Date Setting
         // 현재 선택된 날짜이면 주황색 테두리
         cell.selectedBorderBackgroundView.isHidden = date.toString(of: .fulldate) != self.reactor?.currentState.currentDate.toString(of: .fulldate)
@@ -143,7 +154,7 @@ extension HomeCalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
                 cell.ttoonImageView.image = nil
             }
         }
-
+        
         
         return cell
     }
@@ -186,16 +197,18 @@ extension HomeCalendarViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let idf = BottomDiaryImageSwipeCollectionViewCell.description()
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: idf, for: indexPath) as? BottomDiaryImageSwipeCollectionViewCell else { return UICollectionViewCell() }
-        
-        if let imageStr = self.reactor?.currentState.currentFeedDetail?.imageList[indexPath.row],
-           let url = URL(string: imageStr)
-        {
-            cell.imageView.loadWithKF(url: url)
-        }
-        
-        return cell
+       let idf = BottomDiaryImageSwipeCollectionViewCell.description()
+       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: idf, for: indexPath) as? BottomDiaryImageSwipeCollectionViewCell else {
+           return UICollectionViewCell()
+       }
+
+       if let imageList = reactor?.currentState.currentFeedDetail?.imageList,
+          indexPath.row < imageList.count,
+          let url = URL(string: imageList[indexPath.row]) {
+           cell.imageView.loadWithKF(url: url)
+       }
+       
+       return cell
     }
     
     func scrollViewWillEndDragging(
@@ -255,7 +268,7 @@ extension HomeCalendarViewController {
     // 연월 선택 바텀시트
     private func presentSelectYearMonthBottomSheetVC() {
         let vc = SelectYearMonthBottomSheetViewController(self.reactor!)
-
+        
         if let sheet = vc.sheetPresentationController {
             sheet.detents = [.custom { _ in return 343 } ]
             sheet.prefersGrabberVisible = true

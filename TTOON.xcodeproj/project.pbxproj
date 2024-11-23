@@ -126,7 +126,6 @@
 		48FA111E2CB2A0EB008CDF69 /* HomeFeedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA111D2CB2A0EB008CDF69 /* HomeFeedUseCase.swift */; };
 		BE0473662C550E5600484B96 /* ViewLifeCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0473652C550E5600484B96 /* ViewLifeCycle.swift */; };
 		BE0473682C551D8000484B96 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0473672C551D8000484B96 /* UIButton+.swift */; };
-		BE05C0932C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE05C0922C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift */; };
 		BE32E3122BEBAFE500F0C193 /* TNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3112BEBAFE500F0C193 /* TNButton.swift */; };
 		BE32E3142BEBB28800F0C193 /* Reactive+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3132BEBB28800F0C193 /* Reactive+.swift */; };
 		BE32E3172BEBB94E00F0C193 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32E3162BEBB94E00F0C193 /* TestViewController.swift */; };
@@ -141,6 +140,10 @@
 		BE36CFB12BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */; };
 		BE3A3E9D2BCA5F0D00067540 /* TNImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */; };
 		BE47BF582BF4A6DE0048F707 /* TNBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47BF572BF4A6DE0048F707 /* TNBottomSheet.swift */; };
+		BE52F8612CD76BED00FF8509 /* EnterInfoCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F8602CD76BED00FF8509 /* EnterInfoCompleteView.swift */; };
+		BE52F8632CD76DD200FF8509 /* EnterInfoCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F8622CD76DD200FF8509 /* EnterInfoCompleteViewController.swift */; };
+		BE52F8652CD773E100FF8509 /* CompleteCreateToonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F8642CD773E100FF8509 /* CompleteCreateToonView.swift */; };
+		BE52F8672CD7749B00FF8509 /* CompleteCreateToonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F8662CD7749B00FF8509 /* CompleteCreateToonViewController.swift */; };
 		BE56F9502CB10982005A039F /* ToonRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F94F2CB10982005A039F /* ToonRepositoryProtocol.swift */; };
 		BE56F9542CB109A1005A039F /* ToonUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F9532CB109A1005A039F /* ToonUseCase.swift */; };
 		BE56F9572CB109CE005A039F /* ToonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE56F9562CB109CE005A039F /* ToonRepository.swift */; };
@@ -164,6 +167,7 @@
 		BE840DBD2BB95FE5000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
 		BE840DBE2BB95FE5000E67B7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BE840DBB2BB95FDB000E67B7 /* .swiftlint.yml */; };
 		BE8884172C567227003EC2A3 /* CharacterEditType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8884162C567227003EC2A3 /* CharacterEditType.swift */; };
+		BE975CA52CDD0451004385F9 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BE975CA42CDD0451004385F9 /* IQKeyboardManagerSwift */; };
 		BE97609B2C29A5F900EDAEA0 /* toonLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = BE97609A2C29A5F900EDAEA0 /* toonLottie.json */; };
 		BE97FB8D2C68A2D60094D754 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97FB8C2C68A2D60094D754 /* TabbarViewController.swift */; };
 		BE9BBC112BCA529A006FD848 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE9BBC082BCA5299006FD848 /* Pretendard-Black.otf */; };
@@ -310,6 +314,8 @@
 		BEA8BB522BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEA8BB532BB86351000F9C15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA8BB552BB86351000F9C15 /* Localizable.strings */; };
 		BEAB66D12C26AA12001B1B63 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAB66D02C26AA12001B1B63 /* UICollectionView+.swift */; };
+		BEB220DE2CE4CE7B00E59314 /* SaveToonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB220DD2CE4CE7B00E59314 /* SaveToonViewController.swift */; };
+		BEB220E42CE4CEE800E59314 /* SaveToonReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB220E32CE4CEE800E59314 /* SaveToonReactor.swift */; };
 		BEB270AF2C9EF55A00BD150E /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270AE2C9EF55A00BD150E /* AttendanceView.swift */; };
 		BEB270B22C9EF56500BD150E /* AttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270B12C9EF56500BD150E /* AttendanceViewController.swift */; };
 		BEB270B42C9EF56C00BD150E /* AttendanceReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB270B32C9EF56C00BD150E /* AttendanceReactor.swift */; };
@@ -326,6 +332,7 @@
 		BEC4C27C2CA0541200D1BA12 /* AttendanceRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4C27B2CA0541200D1BA12 /* AttendanceRepositoryProtocol.swift */; };
 		BEC4C27F2CA055EF00D1BA12 /* AttendanceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4C27E2CA055EF00D1BA12 /* AttendanceUseCase.swift */; };
 		BEDF4E512BB70A0C0034FF79 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BEDF4E502BB70A0C0034FF79 /* .gitignore */; };
+		BEE7A18E2CB578D10000BC71 /* ToonCreationToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A18D2CB578D10000BC71 /* ToonCreationToastView.swift */; };
 		BEE7A1932CB63C2B0000BC71 /* AttendanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A1922CB63C2B0000BC71 /* AttendanceModel.swift */; };
 		BEE8BCC82C71FFF5003800E0 /* CalendarSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */; };
 		BEE8BCC92C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE8BCB42C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift */; };
@@ -478,7 +485,6 @@
 		BE05C08C2C5F632500EEB19C /* CompleteToonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToonView.swift; sourceTree = "<group>"; };
 		BE05C08E2C5F632B00EEB19C /* CompleteToonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToonViewController.swift; sourceTree = "<group>"; };
 		BE05C0902C5F633300EEB19C /* CompleteToonReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToonReactor.swift; sourceTree = "<group>"; };
-		BE05C0922C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToonSelectOrderType.swift; sourceTree = "<group>"; };
 		BE05C0942C5F68D700EEB19C /* CreateToonCompleteToonCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonCompleteToonCollectionView.swift; sourceTree = "<group>"; };
 		BE05C0962C5F690D00EEB19C /* CreateToonCompleteToonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonCompleteToonCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE05C0982C5F6C5C00EEB19C /* CreateToonCompleteToonResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonCompleteToonResultView.swift; sourceTree = "<group>"; };
@@ -503,6 +509,10 @@
 		BE36CFB02BAFF58A0017F94E /* TTOONUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTOONUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BE3A3E9C2BCA5F0D00067540 /* TNImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNImage.swift; sourceTree = "<group>"; };
 		BE47BF572BF4A6DE0048F707 /* TNBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNBottomSheet.swift; sourceTree = "<group>"; };
+		BE52F8602CD76BED00FF8509 /* EnterInfoCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterInfoCompleteView.swift; sourceTree = "<group>"; };
+		BE52F8622CD76DD200FF8509 /* EnterInfoCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterInfoCompleteViewController.swift; sourceTree = "<group>"; };
+		BE52F8642CD773E100FF8509 /* CompleteCreateToonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCreateToonView.swift; sourceTree = "<group>"; };
+		BE52F8662CD7749B00FF8509 /* CompleteCreateToonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCreateToonViewController.swift; sourceTree = "<group>"; };
 		BE56F94F2CB10982005A039F /* ToonRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BE56F9532CB109A1005A039F /* ToonUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonUseCase.swift; sourceTree = "<group>"; };
 		BE56F9562CB109CE005A039F /* ToonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonRepository.swift; sourceTree = "<group>"; };
@@ -685,6 +695,8 @@
 		BEAB66DE2C26B652001B1B63 /* CreateToonDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonDiaryView.swift; sourceTree = "<group>"; };
 		BEAB66E02C26B6AC001B1B63 /* CreateToonMidTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonMidTitleLabel.swift; sourceTree = "<group>"; };
 		BEAB66E22C26B713001B1B63 /* CreateToonMidSubTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToonMidSubTitleLabel.swift; sourceTree = "<group>"; };
+		BEB220DD2CE4CE7B00E59314 /* SaveToonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveToonViewController.swift; sourceTree = "<group>"; };
+		BEB220E32CE4CEE800E59314 /* SaveToonReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveToonReactor.swift; sourceTree = "<group>"; };
 		BEB270AE2C9EF55A00BD150E /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		BEB270B12C9EF56500BD150E /* AttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewController.swift; sourceTree = "<group>"; };
 		BEB270B32C9EF56C00BD150E /* AttendanceReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceReactor.swift; sourceTree = "<group>"; };
@@ -701,6 +713,7 @@
 		BEC4C27B2CA0541200D1BA12 /* AttendanceRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BEC4C27E2CA055EF00D1BA12 /* AttendanceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceUseCase.swift; sourceTree = "<group>"; };
 		BEDF4E502BB70A0C0034FF79 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		BEE7A18D2CB578D10000BC71 /* ToonCreationToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToonCreationToastView.swift; sourceTree = "<group>"; };
 		BEE7A1922CB63C2B0000BC71 /* AttendanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModel.swift; sourceTree = "<group>"; };
 		BEE8BCB22C71FFF5003800E0 /* CalendarSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarSceneCoordinator.swift; sourceTree = "<group>"; };
 		BEE8BCB42C71FFF5003800E0 /* BottomDiaryImageSwipeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomDiaryImageSwipeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -746,6 +759,7 @@
 				482B60FE2BB5912E00681097 /* Moya in Frameworks */,
 				482B611E2BB598DD00681097 /* Sentry in Frameworks */,
 				482B60FB2BB5902A00681097 /* FlexLayout in Frameworks */,
+				BE975CA52CDD0451004385F9 /* IQKeyboardManagerSwift in Frameworks */,
 				482B61002BB5912E00681097 /* RxMoya in Frameworks */,
 				482B61132BB5956D00681097 /* KakaoSDKUser in Frameworks */,
 				482B60F82BB58FF000681097 /* PinLayout in Frameworks */,
@@ -1645,7 +1659,6 @@
 			isa = PBXGroup;
 			children = (
 				BE8884162C567227003EC2A3 /* CharacterEditType.swift */,
-				BE05C0922C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift */,
 			);
 			path = Toon;
 			sourceTree = "<group>";
@@ -1736,6 +1749,8 @@
 				BE9C9AD12C688CAF000AAF0E /* EnterInfoScrollView.swift */,
 				BE9C9AD22C688CAF000AAF0E /* EnterInfoView.swift */,
 				BE9C9AD32C688CAF000AAF0E /* SelectStyleView.swift */,
+				BE52F8602CD76BED00FF8509 /* EnterInfoCompleteView.swift */,
+				BE52F8642CD773E100FF8509 /* CompleteCreateToonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1754,6 +1769,9 @@
 				BE9C9ADD2C688CAF000AAF0E /* CreateToonBaseViewController.swift */,
 				BE9C9ADE2C688CAF000AAF0E /* EnterInfoViewController.swift */,
 				BE9C9ADF2C688CAF000AAF0E /* SelectStyleViewController.swift */,
+				BE52F8622CD76DD200FF8509 /* EnterInfoCompleteViewController.swift */,
+				BE52F8662CD7749B00FF8509 /* CompleteCreateToonViewController.swift */,
+				BEB220DD2CE4CE7B00E59314 /* SaveToonViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1770,6 +1788,7 @@
 				BE9C9AE72C688CAF000AAF0E /* CreateLoadingReactor.swift */,
 				BE9C9AE82C688CAF000AAF0E /* EnterInfoReactor.swift */,
 				BE9C9AE92C688CAF000AAF0E /* SelectStyleReactor.swift */,
+				BEB220E32CE4CEE800E59314 /* SaveToonReactor.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2483,6 +2502,7 @@
 			isa = PBXGroup;
 			children = (
 				BEE8BCDD2C7202E6003800E0 /* SelectYearMonthView.swift */,
+				BEE7A18D2CB578D10000BC71 /* ToonCreationToastView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -2594,6 +2614,7 @@
 				482B61222BB599B100681097 /* FirebaseCrashlytics */,
 				4839AA002C79C84000FF3250 /* Tabman */,
 				483C53682C992DC80056C1FD /* SkeletonView */,
+				BE975CA42CDD0451004385F9 /* IQKeyboardManagerSwift */,
 			);
 			productName = TTOON;
 			productReference = BE36CF8A2BAFF5890017F94E /* TTOON.app */;
@@ -2686,6 +2707,7 @@
 				482B611F2BB599B100681097 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				4839A9FF2C79C83F00FF3250 /* XCRemoteSwiftPackageReference "Tabman" */,
 				483C53672C992DC80056C1FD /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				BE975CA32CDD0451004385F9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = BE36CF8B2BAFF5890017F94E /* Products */;
 			projectDirPath = "";
@@ -2913,6 +2935,7 @@
 				BE32E3172BEBB94E00F0C193 /* TestViewController.swift in Sources */,
 				48BA62B82CA444860012C334 /* FeedDetailMenuBottomSheetViewController.swift in Sources */,
 				BE9C9BA32C68986F000AAF0E /* UnderLineView.swift in Sources */,
+				BEB220DE2CE4CE7B00E59314 /* SaveToonViewController.swift in Sources */,
 				BE9C9B062C688CAF000AAF0E /* CharacterModifyReactor.swift in Sources */,
 				BEE8BCE62C7202FE003800E0 /* MyPageSceneCoordinator.swift in Sources */,
 				480D39712C85E843009C26DA /* FriendListTableViewCell.swift in Sources */,
@@ -2947,7 +2970,9 @@
 				BE5758F02BFB1C3100EC4545 /* UILabel+.swift in Sources */,
 				BE9C9B072C688CAF000AAF0E /* CharacterPickerBSReactor.swift in Sources */,
 				483C53612C987B860056C1FD /* innerTextField.swift in Sources */,
+				BE52F8652CD773E100FF8509 /* CompleteCreateToonView.swift in Sources */,
 				BE9C9B942C68986F000AAF0E /* CategoryBottomSheetView.swift in Sources */,
+				BE52F8672CD7749B00FF8509 /* CompleteCreateToonViewController.swift in Sources */,
 				BE9C9AF62C688CAF000AAF0E /* EnterInfoView.swift in Sources */,
 				BE9C9BA42C68986F000AAF0E /* MyPageView.swift in Sources */,
 				BEA6BFD92C8DE8E9001F07E7 /* SetNickNameUseCase.swift in Sources */,
@@ -2960,10 +2985,10 @@
 				BE9C9AFD2C688CAF000AAF0E /* CompleteToonViewController.swift in Sources */,
 				489ADEF12BF8E8CE00B070B7 /* SettingSubtitleLabel.swift in Sources */,
 				483C53512C987ACF0056C1FD /* ProfileSetStackView.swift in Sources */,
+				BE52F8632CD76DD200FF8509 /* EnterInfoCompleteViewController.swift in Sources */,
 				BE9C9B962C68986F000AAF0E /* CategoryBottomSheetViewController.swift in Sources */,
 				BEE8BCCB2C71FFF5003800E0 /* BottomDiaryEmptyView.swift in Sources */,
 				BE5D9C622CA803E900B0408D /* Observable+.swift in Sources */,
-				BE05C0932C5F66BC00EEB19C /* CompleteToonSelectOrderType.swift in Sources */,
 				BE9C9B4B2C688D16000AAF0E /* CreateToonIsMainCharacterSwitch.swift in Sources */,
 				480D39812C8877C3009C26DA /* SearchFriendViewController.swift in Sources */,
 				BE9C9B982C68986F000AAF0E /* ContactUsReactor.swift in Sources */,
@@ -3011,6 +3036,7 @@
 				48FA111A2CB29C8D008CDF69 /* FeedAPI.swift in Sources */,
 				4849171E2CB576E100994EC8 /* FeedLikeButton.swift in Sources */,
 				489DD9B92CD745AB00841584 /* PrivacyPolicyView.swift in Sources */,
+				BE52F8612CD76BED00FF8509 /* EnterInfoCompleteView.swift in Sources */,
 				BE9C9B9E2C68986F000AAF0E /* AlarmTableView.swift in Sources */,
 				BE9C9AED2C688CAF000AAF0E /* CharacterDeleteBSView.swift in Sources */,
 				489FE2C32BC00F760033B61D /* BaseViewController.swift in Sources */,
@@ -3030,6 +3056,8 @@
 				483C534A2C9879B20056C1FD /* MyPageRepository.swift in Sources */,
 				480C165F2BEEFA9F0085A187 /* SocialLoginType.swift in Sources */,
 				BE9C9AEE2C688CAF000AAF0E /* CharacterEditorView.swift in Sources */,
+				BEB220E42CE4CEE800E59314 /* SaveToonReactor.swift in Sources */,
+				BEE7A18E2CB578D10000BC71 /* ToonCreationToastView.swift in Sources */,
 				BE9C9BE92C6898C2000AAF0E /* ResponseDTO.swift in Sources */,
 				483C53572C987B0D0056C1FD /* ProfileSetReactor.swift in Sources */,
 				BE56F95A2CB109E4005A039F /* ToonRequestDTO.swift in Sources */,
@@ -3341,9 +3369,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TTOON/TTOON.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = 2S9WHYP486;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2S9WHYP486;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTOON/Resource/Info.plist;
@@ -3361,6 +3391,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.TTOON.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TToon Service - DEV";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -3729,6 +3760,14 @@
 				minimumVersion = 1.31.0;
 			};
 		};
+		BE975CA32CDD0451004385F9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -3841,6 +3880,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 483C53672C992DC80056C1FD /* XCRemoteSwiftPackageReference "SkeletonView" */;
 			productName = SkeletonView;
+		};
+		BE975CA42CDD0451004385F9 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE975CA32CDD0451004385F9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

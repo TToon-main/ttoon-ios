@@ -19,6 +19,7 @@ class CharacterEditorScrollView: BaseView {
         let view = UIScrollView()
         view.showsHorizontalScrollIndicator = false
         view.backgroundColor = .white
+        view.bounces = false
         
         return view
     }()
@@ -36,7 +37,8 @@ class CharacterEditorScrollView: BaseView {
         }
         
         characterEditorView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.horizontalEdges.equalToSuperview()
+            $0.bottom.greaterThanOrEqualTo(safeGuide)
             $0.width.equalTo(width)
         }
     }
@@ -115,5 +117,19 @@ extension Reactive where Base: CharacterEditorScrollView {
     
     var isEnabledConfirmButton: Binder<Bool> {
         return base.characterEditorView.confirmButton.rx.isEnabled
+    }
+    
+    var nameText: Binder<String?> {
+        return Binder(base) { view, text in
+            view.characterEditorView.nameInputView.textFiled.text = text
+        }
+    }
+    
+    var infoText: Binder<String?> {
+        return Binder(base) { view, text in
+            view.characterEditorView.nameInputView.textFiled.sendActions(for: .editingDidEndOnExit)
+            view.characterEditorView.diaryInputTextView.textColor = .grey08
+            view.characterEditorView.diaryInputTextView.text = text
+        }
     }
 }

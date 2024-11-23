@@ -14,6 +14,8 @@ enum ToonAPI {
     case deleteCharacter(dto: DeleteCharacterRequestDTO)
     case patchCharacter(dto: PatchCharacterRequestDTO)
     case postCharacter(dto: PostCharacterRequestDTO)
+    case postToon(dto: PostToonRequestDTO)
+    case postSaveToon(dto: PostSaveToonRequestDTO)
 }
 
 extension ToonAPI: TargetType {
@@ -31,21 +33,25 @@ extension ToonAPI: TargetType {
             return "/api/character"
         case .postCharacter:
             return "/api/character"
+        case .postToon:
+            return "/api/toon"
+        case .postSaveToon(let dto):
+            return "/api/toon/complete/\(dto.feedId)"
         }
     }
     
     var method: Moya.Method {
         switch self {
         case .getCharacters:
-                return .get
-
+            return .get
+            
         case .deleteCharacter:
             return .delete
-
+            
         case .patchCharacter:
             return .patch
-
-        case .postCharacter:
+            
+        case .postCharacter, .postToon, .postSaveToon:
             return .post
         }
     }
@@ -54,15 +60,26 @@ extension ToonAPI: TargetType {
         switch self {
         case .getCharacters:
             return .requestPlain
-
+            
         case .deleteCharacter:
             return .requestPlain
-
+            
         case .patchCharacter(let dto):
             return .requestJSONEncodable(dto)
-
+            
         case .postCharacter(let dto):
             return .requestJSONEncodable(dto)
+            
+        case .postToon(let dto):
+            return .requestJSONEncodable(dto)
+            
+        case .postSaveToon(let dto):
+            
+            let params: [String: Any] = [
+                "imageUrls": dto.imageUrls,
+            ]
+            
+            return .requestParameters(parameters: params, encoding: JSONEncoding.prettyPrinted)
         }
     }
     

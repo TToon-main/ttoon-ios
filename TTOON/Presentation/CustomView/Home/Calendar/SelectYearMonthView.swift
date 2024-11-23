@@ -25,7 +25,7 @@ class SelectYearMonthView: BaseView {
     let chevronImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
-        view.image = UIImage(named: "arrow_down")
+        view.image = TNImage.arrowDown
         view.tintColor = .black
         return view
     }()

@@ -7,6 +7,9 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 class HomeCalendarView: BaseView {
     // 스크롤뷰
     // 1. CalendarView
@@ -23,6 +26,15 @@ class HomeCalendarView: BaseView {
     let plusButton = {
         let view = UIButton()
         view.setImage(TNImage.homePlusButton, for: .normal)
+        
+        return view
+    }()
+    
+    let toonCreationToastView = {
+        let view = ToonCreationToastView()
+        view.status = .idle
+        view.isHidden = true
+        
         return view
     }()
     
@@ -34,7 +46,7 @@ class HomeCalendarView: BaseView {
         self.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
-        [calendarView, bottomDiaryView, bottomDiaryEmptyView, plusButton].forEach { item in
+        [calendarView, bottomDiaryView, bottomDiaryEmptyView, plusButton, toonCreationToastView].forEach { item in
             contentView.addSubview(item)
         }
     }
@@ -76,6 +88,11 @@ class HomeCalendarView: BaseView {
             make.trailing.equalTo(self).inset(16)
             make.bottom.equalTo(self).inset(111)
         }
+        
+        toonCreationToastView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(safeGuide).offset(-16)
+        }
     }
     
     // MARK: - Setting
@@ -101,6 +118,24 @@ extension HomeCalendarView {
             bottomDiaryEmptyView.isHidden = false
         }
     }
+    
+    func isHiddenPlusButton(_ status: CreateToonStatus) {
+        var isHidden: Bool
+        
+        switch status {
+        case .idle:
+            isHidden = false
+            
+        case .ing:
+            isHidden = true
+            
+        case .complete:
+            isHidden = true
+        }
+        
+        toonCreationToastView.isHidden = !isHidden
+        plusButton.isHidden = isHidden
+    }
 }
 
 extension UIView {
@@ -109,5 +144,22 @@ extension UIView {
         layer.cornerRadius = cornerRadius
         layer.maskedCorners = CACornerMask(arrayLiteral: maskedCorners)
         layer.masksToBounds = true
+    }
+}
+
+extension Reactive where Base: HomeCalendarView {
+    var setCreatToonToastStatus: Binder<CreateToonStatus> {
+        return Binder(base) { view, status in
+            UIView.animate(withDuration: 0.3) {
+                view.toonCreationToastView.setUI(status)
+                view.isHiddenPlusButton(status)
+            }
+        }
+    }
+    
+    var completeToastTap: Observable<SaveToon> {
+        return base.toonCreationToastView.rx.buttonTap
+            .do { _ in base.toonCreationToastView.setUI(.idle)}
+            .do { _ in base.isHiddenPlusButton(.idle)}
     }
 }

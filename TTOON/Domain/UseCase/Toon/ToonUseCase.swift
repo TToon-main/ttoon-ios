@@ -11,7 +11,11 @@ import RxSwift
 
 protocol ToonUseCaseProtocol {
     func characterList() -> Observable<ToonUseCase.CharacterList>
-    func addCharacter(model: AddCharacter) -> Observable<Bool>
+    func addCharacter(model: AddCharacter) -> Observable<Int64?>
+    func deleteCharacter(id: String) -> Observable<Bool>
+    func patchCharacter(model: ModifyCharacter) -> Observable<Int64?>
+    func createToon(model: CreateToon) -> Observable<ToonUseCase.SaveToonStatus>
+    func saveToon(model: SaveToon) -> Observable<Bool>
 }
 
 class ToonUseCase: ToonUseCaseProtocol {
@@ -19,6 +23,11 @@ class ToonUseCase: ToonUseCaseProtocol {
     
     init(repo: ToonRepositoryProtocol) {
         self.repo = repo
+    }
+    
+    enum SaveToonStatus {
+        case valid(SaveToon)
+        case error
     }
     
     func characterList() -> Observable<CharacterList> {
@@ -44,10 +53,25 @@ class ToonUseCase: ToonUseCaseProtocol {
         return .merge(list, emptyList, invalid)
     }
     
-    func addCharacter(model: AddCharacter) -> Observable<Bool> {
+    func addCharacter(model: AddCharacter) -> Observable<Int64?> {
         let dto = model.toDTO()
         
         let request = repo.postCharacter(dto: dto)
+            .share()
+        
+        let success: Observable<Int64?> = request.compactMap { $0.element }
+            .map { $0.figureId }
+    
+        let error: Observable<Int64?> = request.compactMap { $0.error }
+            .map { _ in return nil }
+
+        return .merge(success, error)
+    }
+    
+    func deleteCharacter(id: String) -> Observable<Bool> {
+        let dto = DeleteCharacterRequestDTO(id: id)
+        
+        let request = repo.deleteCharacter(dto: dto)
             .share()
         
         let success = request.compactMap { $0.element }
@@ -55,6 +79,54 @@ class ToonUseCase: ToonUseCaseProtocol {
     
         let error = request.compactMap { $0.error }
             .map { _ in false}
+
+        return .merge(success, error)
+    }
+    
+    func patchCharacter(model: ModifyCharacter) -> Observable<Int64?> {
+        let dto = model.toDTO()
+        
+        let request = repo.patchCharacter(dto: dto)
+            .share()
+        
+        let success: Observable<Int64?> = request.compactMap { $0.element }
+            .map { $0.figureId }
+    
+        let error: Observable<Int64?> = request.compactMap { $0.error }
+            .map { _ in return nil }
+
+        return .merge(success, error)
+    }
+    
+    func createToon(model: CreateToon) -> Observable<SaveToonStatus> {
+        let dto = model.toDTO()
+        
+        let request = repo.postToon(dto: dto)
+            .share()
+        
+        let success = request.compactMap { $0.element }
+            .map { $0.toDomain()}
+            .map { SaveToonStatus.valid($0) }
+
+        let error = request
+            .compactMap { $0.error }
+            .map { SaveToonStatus.error }
+
+        return success
+    }
+    
+    func saveToon(model: SaveToon) -> Observable<Bool> {
+        let dto = model.toDTO()
+        
+        let request = repo.postSaveToon(dto: dto).share()
+        
+        let success = request
+            .compactMap { $0.element }
+            .map { _ in return true }
+    
+        let error = request
+            .compactMap { $0.error }
+            .map { _ in return false }
         
         return .merge(success, error)
     }

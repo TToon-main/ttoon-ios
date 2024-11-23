@@ -7,6 +7,7 @@
 
 import Foundation
 
+import Moya
 import RxMoya
 import RxSwift
 
@@ -24,14 +25,27 @@ class ToonRepository: ToonRepositoryProtocol {
             .mapIsSuccess(errorType: DeleteCharacterError.self)
     }
     
-    func patchCharacter(dto: PatchCharacterRequestDTO) -> Observable<Event<Bool>> {
+    func patchCharacter(dto: PatchCharacterRequestDTO) -> Observable<Event<CharacterResponseDTO>> {
         return provider.log.rx.request(.patchCharacter(dto: dto))
-            .mapIsSuccess(errorType: PatchCharacterError.self)
+            .mapData(responseType: CharacterResponseDTO.self,
+                     errorType: PatchCharacterError.self)
     }
     
-    func postCharacter(dto: PostCharacterRequestDTO) -> Observable<Event<Bool>> {
+    func postCharacter(dto: PostCharacterRequestDTO) -> Observable<Event<CharacterResponseDTO>> {
         return provider.log.rx.request(.postCharacter(dto: dto))
-            .mapIsSuccess(errorType: PostCharacterError.self)
+            .mapData(responseType: CharacterResponseDTO.self,
+                     errorType: PostCharacterError.self)
+    }
+    
+    func postToon(dto: PostToonRequestDTO) -> Observable<Event<PostToonResponseDTO>> {
+        return provider.toon.rx.request(.postToon(dto: dto))
+            .mapData(responseType: PostToonResponseDTO.self,
+                     errorType: PostToonError.self)
+    }
+    
+    func postSaveToon(dto: PostSaveToonRequestDTO) -> Observable<Event<Bool>> {
+        return provider.log.rx.request(.postSaveToon(dto: dto))
+            .mapIsSuccess(errorType: PostToonError.self)
     }
 }
 
@@ -52,6 +66,11 @@ extension ToonRepository {
     }
     
     enum PostCharacterError: String, CommonErrorProtocol {
+        case unknown
+        case decoding
+    }
+    
+    enum PostToonError: String, CommonErrorProtocol {
         case unknown
         case decoding
     }
