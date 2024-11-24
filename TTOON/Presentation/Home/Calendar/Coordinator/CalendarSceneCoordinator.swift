@@ -23,6 +23,7 @@ class CalendarSceneCoordinator: CalendarSceneCoordinatorProtocol {
     var navigationController: UINavigationController
     required init(_ nav: UINavigationController) {
         self.navigationController = nav
+        self.navigationController.navigationBar.tintColor = .black
     }
     
     // 3.
