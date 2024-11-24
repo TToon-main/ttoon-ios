@@ -11,5 +11,5 @@ import RxSwift
 
 protocol DeleteAccountRepositoryProtocol {
     func deleteAccountRequest(_ requestModel: DeleteAccountRequestModel) -> Single<Result<Bool, Error>>
-    func getNickname() -> Single<Result<String, Error>>
+    func getUserInfo() -> Single<Result<UserInfoResponseModel, Error>>
 }

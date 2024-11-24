@@ -62,7 +62,8 @@ extension SettingAPI: TargetType {
             
         case .deleteAccount(let dto):
             let params: [String: String] = [
-                "revokerReason": dto.revokeReason
+                "authorizationCode": dto.authorizationCode ?? "",
+                "revokeReason": dto.revokeReason
             ]
             return .requestParameters(parameters: params, encoding: JSONEncoding.prettyPrinted)
             
@@ -94,7 +95,13 @@ extension SettingAPI: TargetType {
     var headers: [String: String]? {
         switch self {
         case .deleteAccount:
-            return [ "sender": "app"]
+            let accessToken = KeychainStorage.shared.accessToken
+            
+            return [
+                "sender": "app",
+                "Content-Type": "application/json",
+                "Authorization": "Bearer \(accessToken ?? "")"
+            ]
             
         case .patchProfile(let dto):
             let token = KeychainStorage.shared.accessToken ?? "" 

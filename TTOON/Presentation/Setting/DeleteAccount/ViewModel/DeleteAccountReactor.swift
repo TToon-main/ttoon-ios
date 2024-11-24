@@ -14,46 +14,58 @@ import RxSwift
 class DeleteAccountReactor: Reactor {
     // TODO: UseCase DI 처리하기
     private let deleteAccountUseCase = DeleteAccountUseCase(DeleteAccountRepository())
+    private let loginUseCase = LoginUseCase(loginRepository: LoginRepository())
     
     init() { }
     
     enum Action {
         case loadData
-        case deleteReason(DeleteAccountReason)
+        case deleteReason(DeleteAccountReason)  // 탈퇴하는 이유 저장
         case directInputText(String)
-//        case completeButtonTapped // 이건 받을 필요 없다.
-        case confirmButtonTapped    // 얼럿의 버튼을 탭한 경우만 받는다.
+        case confirmButtonTapped                // 얼럿에서 탈퇴 버튼을 클릭한 경우
+        
+        case deleteAccountWithApple
     }
     
     enum Mutation {
-        case setNickname(String)
+        case setUserInfo(nickname: String, socialType: SocialLoginType)
         case setReason(DeleteAccountReason)
         case showTextView(Bool)
         case setDirectInputText(String)
         case setDirectInputTextValidity(Bool)
         case setDirectInputTextCount(Int)
         case enabledButton(Bool)
-        case complete(Result<Bool, Error>)
+        case complete                           // 탈퇴 성공 시 state의 completeResult를 true로 바꿔줌
         
         // 네트워크 통신 요청에 필요한 정보 : 탈퇴 이유
         // 직접 입력 : "(직접 입력) : ~~~~"
         // 그 외 : "생성되는 이미지가 마음에 들지 않아서"
         case setReasonString(String)
+        
+        
+        case setGoDeleteAccountWithApple
+        
+        case pass
     }
     
     struct State {
         var userNickname: String = "알 수 없음"
+        var userSocialLoginType: SocialLoginType = .apple
+        
         var deleteReason: DeleteAccountReason?
         var showTextView: Bool = false
         var directInputText: String = "" // 일단 쓰자. 필요하다.
         var directInputTextValid: Bool = true
         var directInputTextCount: Int = 0
         var buttonEnabled: Bool = false
-        var completeResult: Result<Bool, Error>?
+        var completeResult: Bool = false    // 탈퇴 성공 시 true로 바뀜
         
         
         // 네트워크 통신 요청에 필요한 정보
         var reasonString: String = ""
+        
+        
+        var goDeleteAccountWithApple: Bool = false  // 애플 재로그인 성공 시 true로 변경
     }
     
     let initialState = State()
@@ -63,15 +75,19 @@ class DeleteAccountReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .loadData:
-            return deleteAccountUseCase.getNickname()
+            return deleteAccountUseCase.getUserInfo()
                 .asObservable()
                 .map { result in
                     switch result {
-                    case .success(let nickname):
-                        return .setNickname(nickname)
+                    case .success(let userInfo):
+                        return .setUserInfo(
+                            nickname: userInfo.nickName,
+                            socialType: userInfo.provider)
 
                     case .failure:
-                        return .setNickname("알 수 없음")
+                        return .setUserInfo(
+                            nickname: "알 수 없음",
+                            socialType: .apple)
                     }
                 }
             
@@ -121,19 +137,59 @@ class DeleteAccountReactor: Reactor {
             
             
         case .confirmButtonTapped:
-            // 네트워크 통신
-            let reasonString = currentState.reasonString
+            if currentState.userSocialLoginType == .apple {
+                // 애플 로그인 요청
+                return loginUseCase.appleLoginRequest()
+                    .asObservable()
+                    .map { result in
+                        switch result {
+                        case .success:
+                            return .setGoDeleteAccountWithApple
+
+                        case .failure:
+                            return .pass
+                        }
+                    }
+            }
             
+            else {
+                // 탈퇴 요청 네트워크 통신
+                let reasonString = currentState.reasonString
+                let requestModel = DeleteAccountRequestModel(
+                    authorizationCode: nil,
+                    revokeReason: reasonString
+                )
+                return deleteAccountUseCase.deleteAccountRequest(requestModel)
+                    .asObservable()
+                    .map { result in
+                        switch result {
+                        case .success:
+                            return .complete
+                            
+                        case .failure:
+                            return .pass
+                        }
+                    }
+            }
+            
+            
+        // 애플 재로그인이 성공 시 아래 코드 실행
+        case .deleteAccountWithApple:
+            let reasonString = currentState.reasonString
             let requestModel = DeleteAccountRequestModel(
+                authorizationCode: KeychainStorage.shared.appleIdToken, 
                 revokeReason: reasonString
             )
-            
             return deleteAccountUseCase.deleteAccountRequest(requestModel)
                 .asObservable()
                 .map { result in
-                    print("탈퇴 결과 : \(result)")
-                    
-                    return .complete(result)
+                    switch result {
+                    case .success:
+                        return .complete
+                        
+                    case .failure:
+                        return .pass
+                    }
                 }
         }
     }
@@ -144,8 +200,9 @@ class DeleteAccountReactor: Reactor {
         var newState = state
         
         switch mutation {
-        case .setNickname(let nickname):
+        case .setUserInfo(let nickname, let socialType):
             newState.userNickname = nickname
+            newState.userSocialLoginType = socialType
             
         case .setReason(let deleteAccountReason):
             newState.deleteReason = deleteAccountReason
@@ -162,14 +219,20 @@ class DeleteAccountReactor: Reactor {
         case .enabledButton(let bool):
             newState.buttonEnabled = bool
             
-        case .complete(let result):
-            newState.completeResult = result
+        case .complete:
+            newState.completeResult = true
             
         case .setDirectInputText(let text):
             newState.directInputText = text
             
         case .setReasonString(let reasonString):
             newState.reasonString = reasonString
+        
+        case .pass:
+            print("pass case")
+            
+        case .setGoDeleteAccountWithApple:
+            newState.goDeleteAccountWithApple = true
         }
         
         return newState

@@ -62,10 +62,7 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
                             self?.loginResult.onNext(.failure(LoginError.kakaoError))
                         } else {
                             guard let id = user?.id, let email = user?.kakaoAccount?.email else { return }
-                            print("카카오 유저 아이디 : \(id)")
-                            print("카카오 유저 이메일 : \(email)")
-                            
-//                            let requestDTO = LoginRequestDTO(provider: "KAKAO", providerID: String(id), email: email)
+
                             let requestDTO = LoginRequestDTO(
                                 providerID: String(id),
                                 provider: "KAKAO",
@@ -88,10 +85,7 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
                             self?.loginResult.onNext(.failure(LoginError.kakaoError))
                         } else {
                             guard let id = user?.id, let email = user?.kakaoAccount?.email else { return }
-                            print("카카오 유저 아이디 : \(id)")
-                            print("카카오 유저 이메일 : \(email)")
-                            
-//                            let requestDTO = LoginRequestDTO(provider: "KAKAO", providerID: String(id), email: email)
+
                             let requestDTO = LoginRequestDTO(
                                 providerID: String(id),
                                 provider: "KAKAO",
@@ -111,20 +105,13 @@ class LoginRepository: NSObject, LoginRepositoryProtocol {
     func googleLoginRequest(withPresentingVC: UIViewController) -> PublishSubject<Result<LoginResponseModel, Error>> {
         loginResult = PublishSubject<Result<LoginResponseModel, Error>>()
         
-//        let googleClientID = Bundle.main.infoDictionary?["GIDClientID"] as? String
-//        let signInConfig = GIDConfiguration(clientID: googleClientID ?? "")
-        
         GIDSignIn.sharedInstance.signIn(withPresenting: withPresentingVC) { result, error in
             if let error {
                 print("google login error : \(error)")
                 self.loginResult.onNext(.failure(LoginError.googleError))
             } else {
                 guard let id = result?.user.userID, let email = result?.user.profile?.email else { return }
-                
-                print("구글 유저 아이디 : \(id)")
-                print("구글 유저 이메일 : \(email)")
-                
-//                let requestDTO = LoginRequestDTO(provider: "GOOGLE", providerID: String(id), email: email)
+
                 let requestDTO = LoginRequestDTO(
                     providerID: String(id),
                     provider: "GOOGLE",
@@ -147,13 +134,12 @@ extension LoginRepository: ASAuthorizationControllerDelegate {
         print("apple login success")
         
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential,
-           let tokenString = String(data: appleIDCredential.identityToken ?? Data(), encoding: .utf8) {
+           let tokenString = String(data: appleIDCredential.identityToken ?? Data(), encoding: .utf8),
+           let authorizationCode = String(data: appleIDCredential.authorizationCode ?? Data(), encoding: .utf8)
+        {
             let id = appleIDCredential.user
             let email = decode(jwtToken: tokenString)["email"] as? String ?? ""
-            
-            
-            print("애플 유저 아이디 : \(id)")
-            print("애플 유저 이메일 : \(email)")
+            KeychainStorage.shared.appleIdToken = authorizationCode
             
             let requestDTO = LoginRequestDTO(providerID: String(id), provider: "APPLE", email: email)
             self.loginRequest(requestDTO)

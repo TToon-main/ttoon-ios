@@ -27,10 +27,12 @@ extension ContactUsRequestDTO {
 
 // 탈퇴하기 - 요청
 struct DeleteAccountRequestDTO {
+    let authorizationCode: String?
     let revokeReason: String // 탈퇴 이유
 }
 extension DeleteAccountRequestDTO {
     init(_ model: DeleteAccountRequestModel) {
+        self.authorizationCode = model.authorizationCode
         self.revokeReason = model.revokeReason
     }
 }

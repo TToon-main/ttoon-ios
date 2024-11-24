@@ -74,16 +74,10 @@ class DeleteAccountViewController: BaseViewController, View {
                     .setSubTitle("그동안의 소중한 기록이 모두 사라지고, 탈퇴 후에는 다시 복구할 수 없어요.")
                     .addCancelAction("돌아가기", action: nil)
                     .addConfirmAction("탈퇴하기", action: {
-                        self.deleteAccountButtonTapped.onNext(()) // Void 이벤트 발생 -> bind된 reactor에서 코드 실행
+                        owner.reactor?.action.onNext(.confirmButtonTapped)  // 탈퇴 버튼 탭 액션 전달
                     })
                     .present()
             }
-            .disposed(by: disposeBag)
-        
-        // 얼럿 버튼을 연걸 -> 네트워크 통신 수행
-        self.deleteAccountButtonTapped
-            .map { DeleteAccountReactor.Action.confirmButtonTapped }
-            .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }
     
@@ -153,15 +147,24 @@ class DeleteAccountViewController: BaseViewController, View {
             }
             .disposed(by: disposeBag)
         
-        
-        // 누른 결과?
-        // 버튼을 누른 결과
-        // 버튼을 눌렀을 때 네트워크 콜을 하는 것이 아니라,
-        // 진짜 탈퇴하겠냐 물어보는 얼럿에서 확인을 눌렀을 때 네트워크 콜을 한다
-        // 즉, action으로 넘겨주는 건 completeButton의 tap이 아니라, 얼럿 버튼의 tap이 되어야 함
-        
-        // TODO: 얼럿 버튼을 누른 결과
+        // 탈퇴 완료
         reactor.state.map { $0.completeResult }
+            .subscribe(with: self) { owner, result  in
+                if result {
+                    owner.popToLoginVC()
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        // (탈퇴를 위한) 애플 재로그인 성공
+        reactor.state.map { $0.goDeleteAccountWithApple }
+            .distinctUntilChanged()
+            .subscribe(with: self) { owner, value in
+                if value {
+                    owner.reactor?.action.onNext(.deleteAccountWithApple)
+                }
+            }
+            .disposed(by: disposeBag)
     }
 }
 
@@ -171,6 +174,7 @@ extension DeleteAccountViewController {
     }
     
     private func presentDeleteAccountBottomSheetVC() {
+        // VC의 reactor 전달
         let vc = DeleteAccountReasonBottomSheetViewController(self.reactor!)
         
         vc.bottomSheetView.titleLabel.text = "탈퇴하시는 이유를 알려주세요"
@@ -188,6 +192,12 @@ extension DeleteAccountViewController {
     
     private func loadInitialData() {
         self.reactor?.action.onNext(.loadData)
+    }
+    
+    private func popToLoginVC() {
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+            sceneDelegate.logout()
+        }
     }
 }
 

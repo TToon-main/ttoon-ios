@@ -27,7 +27,7 @@ class APIProvider<T: TargetType> {
     }
  
     init() {
-        unAuth = MoyaProvider<T>()
+        unAuth = MoyaProvider<T>(plugins: [LogPlugin()])
         auth = MoyaProvider<T>(session: Session(interceptor: Interceptor.shared))
         log = MoyaProvider<T>(session: Session(interceptor: Interceptor.shared), plugins: [LogPlugin()])
         toon = MoyaProvider<T>(requestClosure: requestClosure, session: Session(interceptor: Interceptor.shared), plugins: [LogPlugin()])
