@@ -73,6 +73,7 @@
 		48504F8D2CCFBCF00038F1FE /* LikeUserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48504F8C2CCFBCF00038F1FE /* LikeUserListViewController.swift */; };
 		48504F8F2CCFBCF80038F1FE /* LikeUserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48504F8E2CCFBCF80038F1FE /* LikeUserListView.swift */; };
 		48563B7C2CABA883008E308D /* TestMakeTToonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48563B7B2CABA883008E308D /* TestMakeTToonManager.swift */; };
+		4863C3E62CF1AFC100BD27B7 /* FriendToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863C3E52CF1AFC100BD27B7 /* FriendToastView.swift */; };
 		486A80C32C09FD6A0089D46C /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */; };
 		486C5C2D2C09F1F80094411D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */; };
 		489ADEED2BF8E72700B070B7 /* SettingTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */; };
@@ -422,6 +423,7 @@
 		48504F8C2CCFBCF00038F1FE /* LikeUserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeUserListViewController.swift; sourceTree = "<group>"; };
 		48504F8E2CCFBCF80038F1FE /* LikeUserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeUserListView.swift; sourceTree = "<group>"; };
 		48563B7B2CABA883008E308D /* TestMakeTToonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMakeTToonManager.swift; sourceTree = "<group>"; };
+		4863C3E52CF1AFC100BD27B7 /* FriendToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendToastView.swift; sourceTree = "<group>"; };
 		486A80C22C09FD6A0089D46C /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		486C5C2C2C09F1F80094411D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		489ADEEC2BF8E72700B070B7 /* SettingTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTitleLabel.swift; sourceTree = "<group>"; };
@@ -1070,6 +1072,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		4863C3E42CF1AFB400BD27B7 /* ToastView */ = {
+			isa = PBXGroup;
+			children = (
+				4863C3E52CF1AFC100BD27B7 /* FriendToastView.swift */,
+			);
+			path = ToastView;
+			sourceTree = "<group>";
+		};
 		4883564A2BEF422A005DC0A6 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -1424,6 +1434,7 @@
 		BE32E3102BEBAF7B00F0C193 /* TNCompopnet */ = {
 			isa = PBXGroup;
 			children = (
+				4863C3E42CF1AFB400BD27B7 /* ToastView */,
 				BEB270B92C9EF84600BD150E /* PointContainer */,
 				4839A9F72C78AE5000FF3250 /* Indicator */,
 				BE47BF5C2BF4CDE10048F707 /* Switch */,
@@ -3078,6 +3089,7 @@
 				BEC4C27F2CA055EF00D1BA12 /* AttendanceUseCase.swift in Sources */,
 				BE9C9AF82C688CAF000AAF0E /* CharacterAddViewController.swift in Sources */,
 				BE9C9AFB2C688CAF000AAF0E /* CharacterModifyViewController.swift in Sources */,
+				4863C3E62CF1AFC100BD27B7 /* FriendToastView.swift in Sources */,
 				48A17D4A2CB24F9D00A7074D /* OnlyMyFeedToggleView.swift in Sources */,
 				489FE2D02BC011670033B61D /* AppCoordinator.swift in Sources */,
 				BE9C9AF32C688CAF000AAF0E /* CreateLoadingView.swift in Sources */,

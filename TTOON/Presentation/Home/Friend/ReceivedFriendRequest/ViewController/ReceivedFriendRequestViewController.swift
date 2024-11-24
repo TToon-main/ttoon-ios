@@ -69,7 +69,7 @@ extension ReceivedFriendRequestViewController {
                     cell.setDesign(user)
                 
                     cell.acceptButton.rx.tap
-                            .map { ReceivedFriendRequestReactor.Action.acceptRequest(user.friendId) }
+                        .map { ReceivedFriendRequestReactor.Action.acceptRequest(user.friendId) }
                         .bind(to: reactor.action)
                         .disposed(by: cell.disposeBag)
                     
@@ -83,6 +83,18 @@ extension ReceivedFriendRequestViewController {
         reactor.state.map { $0.receivedRequestList }
             .subscribe(with: self) { owner, list  in
                 owner.mainView.showNoDataView(show: list.isEmpty)
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.result }
+            .distinctUntilChanged()
+            .subscribe(with: self) { owner, result  in
+                if !result.nickname.isEmpty {
+                    owner.mainView.showToastView(
+                        type: result.type,
+                        nickname: result.nickname
+                    )
+                }
             }
             .disposed(by: disposeBag)
     }
