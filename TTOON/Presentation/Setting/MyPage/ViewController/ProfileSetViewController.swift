@@ -182,8 +182,29 @@ extension ProfileSetViewController {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let takePhotoAction = UIAlertAction(title: "사진 찍기", style: .default) { action in
-            self.presentCamera()
-            self.profileSetView.showSkeleton()
+            AVCaptureDevice.requestAccess(for: .video) { [weak self] status in
+                guard let self else { return }
+                
+                DispatchQueue.main.async {
+                    switch status {
+                    case true:
+                        self.presentCamera()
+                        self.profileSetView.showSkeleton()
+
+                    case false:
+                        TNAlert(self)
+                            .setTitle("카메라 권한을 확인해주세요.")
+                            .setSubTitle("설정 앱에서 권한을 변경하시겠습니까?")
+                            .addConfirmAction("확인") {
+                                if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                                    UIApplication.shared.open(settingsURL)
+                                }
+                            } 
+                            .addCancelAction("취소")
+                            .present()
+                    }
+                }
+            }
         }
         
         actionSheet.addAction(takePhotoAction)
