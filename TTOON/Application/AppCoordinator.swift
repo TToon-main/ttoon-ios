@@ -5,7 +5,9 @@
 //  Created by 임승섭 on 4/5/24.
 //
 
+import AVFoundation
 import UIKit
+
 
 // Every app should have one main coordinator (start point of all flow) => AppCoordinator
 
@@ -38,6 +40,7 @@ class AppCoordinator: AppCoordinatorProtocol {
     // 5.
     func start() {
         showAuthFlow()
+        requestCameraPermission()
 //        showTabBarFlow()
     }
     
@@ -48,6 +51,10 @@ class AppCoordinator: AppCoordinatorProtocol {
         authC.finishDelegate = self
         childCoordinators.append(authC)
         authC.start()
+    }
+    
+    func requestCameraPermission() {
+        AVCaptureDevice.requestAccess(for: .video) { _ in }
     }
     
     func showTabBarFlow() {
