@@ -10,10 +10,10 @@ import PinLayout
 import UIKit
 
 class DeleteAccountView: BaseView {
-    // root view가 될 컨테이너
-    fileprivate let rootFlexContainer = UIView()
-    
     // MARK: UI Components
+    let scrollView = UIScrollView()
+    let contentView = UIView()
+    
     let mainTitleLabel = {
         let view = UILabel()
         view.text = "000님이 떠나신다니\n너무 아쉬워요"
@@ -58,46 +58,84 @@ class DeleteAccountView: BaseView {
     override func addSubViews() {
         super.addSubViews()
         
-        addSubview(rootFlexContainer)
+        self.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        [mainTitleLabel, subTitleLabel, nameTitleLabel, nameInputView, reasonTitleLabel, reasonPickerView, reasonTextView, reasonErrorSubtitleLabel, reasonCountLabel, completeButton].forEach {
+            contentView.addSubview($0)
+        }
     }
     
     override func layouts() {
         super.layouts()
         
-        rootFlexContainer.flex.width(100%)
-            .direction(.column)
-            .justifyContent(.spaceBetween)
-            .paddingHorizontal(16)
-            .define { flex in
-                flex.addItem().direction(.column).define { flex in
-                    flex.addItem(mainTitleLabel).marginTop(35).height(68)
-                    flex.addItem(subTitleLabel).marginTop(16).height(48)
-                    
-                    flex.addItem(nameTitleLabel).marginTop(40)
-                    flex.addItem(nameInputView).marginTop(8)
-                        .height(52)
-                    
-                    flex.addItem(reasonTitleLabel).marginTop(36)
-                    flex.addItem(reasonPickerView).marginTop(8)
-                        .height(52)
-                    flex.addItem(reasonTextView).marginTop(8).height(151)
-                    
-                    
-                    flex.addItem().direction(.rowReverse).justifyContent(.spaceBetween).marginTop(8).define { flex in
-                        flex.addItem(reasonCountLabel).grow(1)
-                        flex.addItem(reasonErrorSubtitleLabel)
-                    }
-                }
-                
-                flex.addItem(completeButton)
-                    .height(56)
-            }
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
+        scrollView.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide)
+            make.horizontalEdges.bottom.equalTo(self)
+        }
         
-        rootFlexContainer.pin.all(pin.safeArea)
-        rootFlexContainer.flex.layout(mode: .fitContainer)
+        contentView.snp.makeConstraints { make in
+            make.top.equalTo(scrollView)
+            make.horizontalEdges.bottom.equalTo(scrollView.contentLayoutGuide)
+            make.height.greaterThanOrEqualTo(scrollView.snp.height).priority(.low)
+            make.width.equalTo(scrollView)
+        }
+        
+        mainTitleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(35)
+            make.height.equalTo(68)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        subTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(mainTitleLabel.snp.bottom).offset(16)
+            make.height.equalTo(48)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        nameTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(subTitleLabel.snp.bottom).offset(40)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        nameInputView.snp.makeConstraints { make in
+            make.top.equalTo(nameTitleLabel.snp.bottom).offset(8)
+            make.height.equalTo(52)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        reasonTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(nameInputView.snp.bottom).offset(36)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        reasonPickerView.snp.makeConstraints { make in
+            make.top.equalTo(reasonTitleLabel.snp.bottom).offset(8)
+            make.height.equalTo(52)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        reasonTextView.snp.makeConstraints { make in
+            make.top.equalTo(reasonPickerView.snp.bottom).offset(8)
+            make.height.equalTo(151)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        reasonCountLabel.snp.makeConstraints { make in
+            make.top.equalTo(reasonTextView.snp.bottom).offset(4)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        reasonErrorSubtitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(reasonTextView.snp.bottom).offset(4)
+            make.leading.equalToSuperview().inset(16)
+        }
+        
+        completeButton.snp.makeConstraints { make in
+            make.top.equalTo(reasonCountLabel.snp.bottom).offset(54)
+            make.height.equalTo(56)
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.bottom.equalTo(contentView)
+        }
     }
 }

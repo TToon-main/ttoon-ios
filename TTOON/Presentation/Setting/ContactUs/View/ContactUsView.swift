@@ -10,10 +10,10 @@ import PinLayout
 import UIKit
 
 class ContactUsView: BaseView {
-    // root view가 될 컨테이너
-    fileprivate let rootFlexContainer = UIView()
-    
     // MARK: UI Components
+    let scrollView = UIScrollView()
+    let contentView = UIView()
+    
     let emailTitleLabel = SettingTitleLabel("이메일")
     let categoryTitleLabel = SettingTitleLabel("문의 유형")
     let contentTitleLabel = SettingTitleLabel("문의내용")
@@ -43,49 +43,87 @@ class ContactUsView: BaseView {
     
     override func addSubViews() {
         super.addSubViews()
-
-        addSubview(rootFlexContainer)
+        
+        self.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        [emailTitleLabel, categoryTitleLabel, contentTitleLabel, emailTextField,
+         categoryPickerView, contentTextView, emailSubtitleLabel, contentErrorSubtitleLabel,
+         contentCountLabel, completeButton].forEach {
+            contentView.addSubview($0)
+        }
     }
     
     override func layouts() {
         super.layouts()
         
-        rootFlexContainer.flex.width(100%)
-            .direction(.column)
-            .justifyContent(.spaceBetween)
-            .paddingHorizontal(16)
-            .define { flex in
-                flex.addItem().direction(.column).define { flex in
-                    flex.addItem(emailTitleLabel).marginTop(50)
-                    flex.addItem(emailTextField).marginTop(8).height(52)
-                    flex.addItem(emailSubtitleLabel).marginTop(8)
-                    
-                    flex.addItem(categoryTitleLabel).marginTop(36)
-                    flex.addItem(categoryPickerView).marginTop(8)
-                        .height(52)
-                    
-                    flex.addItem(contentTitleLabel).marginTop(36)
-                    flex.addItem(contentTextView).marginTop(8)
-                        .height(260)
-                    
-                    
-                    flex.addItem().direction(.rowReverse).justifyContent(.spaceBetween).marginTop(8).define { flex in
-                        flex.addItem(contentCountLabel).grow(1)
-                        flex.addItem(contentErrorSubtitleLabel)
-                    }
-                }
-                
-                flex.addItem(completeButton)
-                    .height(56)
-            }
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
+        scrollView.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide)
+            make.horizontalEdges.bottom.equalTo(self)
+        }
         
-        // 부모뷰에 대한 컨테이너 레이아웃 설정 (safeArea에 맞춤 - x)
-        rootFlexContainer.pin.all(pin.safeArea)
-        // 컨테이너 사이즈 설정 (내부 아이템 높이에 맞춤 - x)
-        rootFlexContainer.flex.layout(mode: .fitContainer)
+        contentView.snp.makeConstraints { make in
+            make.top.equalTo(scrollView)
+            make.horizontalEdges.bottom.equalTo(scrollView.contentLayoutGuide)
+            make.height.greaterThanOrEqualTo(scrollView.snp.height).priority(.low)
+            make.width.equalTo(scrollView)
+        }
+        
+        emailTitleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(35)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        emailTextField.snp.makeConstraints { make in
+            make.top.equalTo(emailTitleLabel.snp.bottom).offset(8)
+            make.height.equalTo(52)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        emailSubtitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(emailTextField.snp.bottom).offset(8)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        
+        categoryTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(emailSubtitleLabel.snp.bottom).offset(36)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        categoryPickerView.snp.makeConstraints { make in
+            make.top.equalTo(categoryTitleLabel.snp.bottom).offset(8)
+            make.height.equalTo(52)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        
+        contentTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(categoryPickerView.snp.bottom).offset(36)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        contentTextView.snp.makeConstraints { make in
+            make.top.equalTo(contentTitleLabel.snp.bottom).offset(8)
+            make.height.equalTo(260)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        contentCountLabel.snp.makeConstraints { make in
+            make.top.equalTo(contentTextView.snp.bottom).offset(8)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        contentErrorSubtitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(contentTextView.snp.bottom).offset(8)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        completeButton.snp.makeConstraints { make in
+            make.top.equalTo(contentCountLabel.snp.bottom).offset(16)
+            make.height.equalTo(56)
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.bottom.equalTo(contentView)
+        }
     }
 }
