@@ -2,8 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>이미지를 저장하기 위해 사용자의 사진에 접근 권한이 필요합니다</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>완성된 툰 이미지를 저장하기 위해 사용자의 사진에 접근 권한이 필요합니다</string>
 	<key>NSCameraUsageDescription</key>
 	<string>프로필 이미지 변경을 위해, 카메라 사용 권한이 필요합니다.</string>
 	<key>UIApplicationSceneManifest</key>

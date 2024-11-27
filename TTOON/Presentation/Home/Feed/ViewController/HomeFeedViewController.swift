@@ -5,6 +5,7 @@
 //  Created by 임승섭 on 10/6/24.
 //
 
+import Photos
 import ReactorKit
 import RxCocoa
 import RxSwift
@@ -126,12 +127,42 @@ extension HomeFeedViewController: FeedDetailMenuBottomSheetActionProtocol {
         TNAlert(self)
             .setTitle("만화를 어떻게 저장하시겠어요?\n")
             .addCancelAction("네 컷을 따로") {
-                self.reactor?.action.onNext(.saveTToonImage(.fourPage))
-                print("네 컷")
+                if self.isAllowedPhotoPermission() {
+                    self.reactor?.action.onNext(.saveTToonImage(.fourPage))
+                    print("네 컷")
+                } else {
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                        TNAlert(self)
+                            .setTitle("앨범 권한을 확인해주세요")
+                            .setSubTitle("설정 앱에서 권한을 변경하시겠습니까?")
+                            .addConfirmAction("확인") {
+                                if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                                    UIApplication.shared.open(settingsURL)
+                                }
+                            }
+                            .addCancelAction("취소")
+                            .present()
+                    }
+                }
             }
             .addConfirmAction("한 장으로") {
-                self.reactor?.action.onNext(.saveTToonImage(.onePage))
-                print("한 장")
+                if self.isAllowedPhotoPermission() {
+                    self.reactor?.action.onNext(.saveTToonImage(.onePage))
+                    print("한 장")
+                } else {
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {   
+                        TNAlert(self)
+                            .setTitle("앨범 권한을 확인해주세요")
+                            .setSubTitle("설정 앱에서 권한을 변경하시겠습니까?")
+                            .addConfirmAction("확인") {
+                                if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                                    UIApplication.shared.open(settingsURL)
+                                }
+                            }
+                            .addCancelAction("취소")
+                            .present()
+                    }
+                }
             }
             .present()
     }
@@ -250,4 +281,17 @@ extension HomeFeedViewController {
             present(vc, animated: true, completion: nil)
         }
      }
+    
+    // 앨범 권한 여부
+    private func isAllowedPhotoPermission() -> Bool {
+        let status = PHPhotoLibrary.authorizationStatus(for: .readWrite)
+        
+        switch status {
+        case .authorized:
+            return true
+
+        default:
+            return false
+        }
+    }
 }

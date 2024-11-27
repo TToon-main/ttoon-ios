@@ -6,6 +6,7 @@
 //
 
 import AVFoundation
+import Photos
 import UIKit
 
 
@@ -40,7 +41,7 @@ class AppCoordinator: AppCoordinatorProtocol {
     // 5.
     func start() {
         showAuthFlow()
-        requestCameraPermission()
+        requestPermission()
 //        showTabBarFlow()
     }
     
@@ -53,8 +54,12 @@ class AppCoordinator: AppCoordinatorProtocol {
         authC.start()
     }
     
-    func requestCameraPermission() {
+    func requestPermission() {
+        // 카메라
         AVCaptureDevice.requestAccess(for: .video) { _ in }
+        
+        // 앨범
+        PHPhotoLibrary.requestAuthorization{ _ in }
     }
     
     func showTabBarFlow() {
