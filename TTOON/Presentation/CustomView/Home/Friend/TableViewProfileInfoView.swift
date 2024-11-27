@@ -52,6 +52,7 @@ class TableViewProfileInfoView: BaseView {
     }
     
     func setDesign(_ model: UserInfoModel) {
+        print("00 : ", model)
         // 프로필 이미지
         profileImageView.loadWithKF(
             url: URL(string: model.profileUrl ?? ""),

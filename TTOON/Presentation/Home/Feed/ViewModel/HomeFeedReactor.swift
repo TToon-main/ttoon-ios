@@ -81,7 +81,7 @@ class HomeFeedReactor: Reactor {
                 .map { result in
                     switch result {
                     case .success(let newList):
-                        if newList.isEmpty { return .setIsDone(true)}
+//                        if newList.isEmpty { return .setIsDone(true)} // 여기서 빈 배열이 온다는 건 아예 데이터가 없다는 뜻.
                         return .setFeedList(newList, 1)
 
                     case .failure(let error):
